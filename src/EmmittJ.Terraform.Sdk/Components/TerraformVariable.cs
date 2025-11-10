@@ -19,39 +19,27 @@ public class TerraformVariable(string name) : TerraformConstruct
     /// <summary>
     /// Gets or sets the description of the variable.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value, priority: 0);  // description first
-    }
+    [TerraformPropertyName("description")]
+    public TerraformProperty<string>? Description { get; set; }
 
     /// <summary>
     /// Gets or sets the default value.
     /// Can be a literal value or an expression.
     /// </summary>
-    public TerraformProperty? Default
-    {
-        get => GetProperty<TerraformProperty>("default");
-        set => this.WithProperty("default", value, priority: 2);  // default after type
-    }
+    [TerraformPropertyName("default")]
+    public TerraformProperty<TerraformExpression>? Default { get; set; }
 
     /// <summary>
     /// Gets or sets the type constraint (e.g., "string", "list(string)").
     /// </summary>
-    public TerraformTypeProperty? Type
-    {
-        get => GetProperty<TerraformTypeProperty>("type");
-        set => this.WithProperty("type", value, priority: 1);  // type second
-    }
+    [TerraformPropertyName("type")]
+    public TerraformProperty<string>? Type { get; set; }
 
     /// <summary>
     /// Gets or sets whether the variable is sensitive.
     /// </summary>
-    public TerraformProperty<bool>? Sensitive
-    {
-        get => GetProperty<TerraformProperty<bool>>("sensitive");
-        set => this.WithProperty("sensitive", value, priority: 3);  // sensitive last
-    }
+    [TerraformPropertyName("sensitive")]
+    public TerraformProperty<bool>? Sensitive { get; set; }
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()

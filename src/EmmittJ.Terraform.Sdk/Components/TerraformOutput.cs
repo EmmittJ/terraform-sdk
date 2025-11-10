@@ -20,29 +20,20 @@ public class TerraformOutput(string name) : TerraformConstruct
     /// Gets or sets the output value.
     /// Can be a literal value or an expression.
     /// </summary>
-    public TerraformProperty? Value
-    {
-        get => GetProperty<TerraformProperty>("value");
-        set => this.WithProperty("value", value, priority: 0);
-    }
+    [TerraformPropertyName("value")]
+    public TerraformProperty<TerraformExpression>? Value { get; set; }
 
     /// <summary>
     /// Gets or sets the description.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        get => GetProperty<TerraformProperty<string>>("description");
-        set => this.WithProperty("description", value, priority: 1);
-    }
+    [TerraformPropertyName("description")]
+    public TerraformProperty<string>? Description { get; set; }
 
     /// <summary>
     /// Gets or sets whether the output is sensitive.
     /// </summary>
-    public TerraformProperty<bool>? Sensitive
-    {
-        get => GetProperty<TerraformProperty<bool>>("sensitive");
-        set => this.WithProperty("sensitive", value, priority: 2);
-    }
+    [TerraformPropertyName("sensitive")]
+    public TerraformProperty<bool>? Sensitive { get; set; }
 
     /// <summary>
     /// Gets the list of resources this depends on.

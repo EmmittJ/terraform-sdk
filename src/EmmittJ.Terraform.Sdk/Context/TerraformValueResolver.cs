@@ -105,7 +105,7 @@ public static class TerraformValueResolver
     }
 
     private static TerraformExpression ResolvePropertyCollection(
-        IEnumerable<TerraformProperty> properties,
+        IEnumerable<ITerraformResolvable<TerraformExpression>> properties,
         ITerraformContext? context)
     {
         var expressions = properties.Select(p => p.Resolve(context)).ToArray();
@@ -133,7 +133,7 @@ public static class TerraformValueResolver
     }
 
     private static TerraformExpression ResolvePropertyDictionary(
-        IDictionary<string, TerraformProperty> dictionary,
+        IDictionary<string, ITerraformResolvable<TerraformExpression>> dictionary,
         ITerraformContext? context)
     {
         var map = new TerraformMapExpression();

@@ -61,7 +61,7 @@ public class TerraformSettings : ITerraformPreparable
     /// <summary>
     /// Adds or updates an arbitrary property on the terraform block.
     /// </summary>
-    public TerraformSettings WithProperty(string key, TerraformProperty value, int? priority = null)
+    public TerraformSettings WithProperty<T>(string key, TerraformProperty<T> value, int? priority = null)
     {
         SetProperty(key, value, priority);
         return this;
@@ -267,12 +267,12 @@ public class TerraformSettings : ITerraformPreparable
     private T? GetProperty<T>(string key) where T : class
         => _properties.Get<T>(key);
 
-    private void SetProperty(string key, TerraformProperty? value, int? priority = null)
+    private void SetProperty<T>(string key, TerraformProperty<T>? value, int? priority = null)
     {
         _properties.Set(key, value, priority);
     }
 
-    private void SetProperty(string key, TerraformProperty? value)
+    private void SetProperty<T>(string key, TerraformProperty<T>? value)
         => SetProperty(key, value, null);
 }
 

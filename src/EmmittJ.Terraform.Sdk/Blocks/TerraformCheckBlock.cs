@@ -136,20 +136,14 @@ public class TerraformAssertBlock : TerraformConstruct
     /// <summary>
     /// Gets or sets the condition expression that must evaluate to true.
     /// </summary>
-    public TerraformProperty? Condition
-    {
-        get => GetProperty<TerraformProperty>("condition");
-        set => this.WithProperty("condition", value, priority: 0);
-    }
+    [TerraformPropertyName("condition")]
+    public TerraformProperty<TerraformExpression>? Condition { get; set; }
 
     /// <summary>
     /// Gets or sets the error message to display when the condition is false.
     /// </summary>
-    public TerraformProperty<string>? ErrorMessage
-    {
-        get => GetProperty<TerraformProperty<string>>("error_message");
-        set => this.WithProperty("error_message", value, priority: 1);
-    }
+    [TerraformPropertyName("error_message")]
+    public TerraformProperty<string>? ErrorMessage { get; set; }
 
     /// <inheritdoc/>
     public override string BlockType => "assert";

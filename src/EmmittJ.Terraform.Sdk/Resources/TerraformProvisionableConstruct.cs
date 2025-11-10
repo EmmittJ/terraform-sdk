@@ -11,8 +11,8 @@ namespace EmmittJ.Terraform.Sdk;
 /// <param name="constructName">The name of the construct.</param>
 public abstract class TerraformProvisionableConstruct(string constructType, string constructName) : NamedTerraformConstruct(constructName)
 {
-    private TerraformProperty? _count;
-    private TerraformProperty? _forEach;
+    private TerraformProperty<TerraformExpression>? _count;
+    private TerraformProperty<TerraformExpression>? _forEach;
 
     /// <summary>
     /// Gets the type of this construct (e.g., "aws_vpc", "azurerm_resource_group").
@@ -23,7 +23,7 @@ public abstract class TerraformProvisionableConstruct(string constructType, stri
     /// Gets or sets the count meta-argument.
     /// Can be a number or an expression.
     /// </summary>
-    public TerraformProperty? Count
+    public TerraformProperty<TerraformExpression>? Count
     {
         get => _count;
         set => _count = value;
@@ -33,7 +33,7 @@ public abstract class TerraformProvisionableConstruct(string constructType, stri
     /// Gets or sets the for_each meta-argument.
     /// Can be a set, map, or an expression.
     /// </summary>
-    public TerraformProperty? ForEach
+    public TerraformProperty<TerraformExpression>? ForEach
     {
         get => _forEach;
         set => _forEach = value;
@@ -78,12 +78,14 @@ public abstract class TerraformProvisionableConstruct(string constructType, stri
     {
         if (_count != null)
         {
-            sb.AppendLine($"{context.Indent}count = {_count.Resolve(context).ToHcl(context)}");
+            var countExpr = _count.Resolve(context);
+            sb.AppendLine($"{context.Indent}count = {countExpr.Resolve(context)}");
         }
 
         if (_forEach != null)
         {
-            sb.AppendLine($"{context.Indent}for_each = {_forEach.Resolve(context).ToHcl(context)}");
+            var forEachExpr = _forEach.Resolve(context);
+            sb.AppendLine($"{context.Indent}for_each = {forEachExpr.Resolve(context)}");
         }
 
         if (DependsOn.Count > 0)

@@ -42,11 +42,16 @@ public class TerraformMovedBlock : TerraformConstruct
         From = from;
         To = to;
 
-        // Set the from and to as properties so they render in HCL
-        // Use a custom property that renders addresses without quotes
-        this.WithProperty("from", new MovedAddressProperty(from), priority: 0);
-        this.WithProperty("to", new MovedAddressProperty(to), priority: 1);
+        // Initialize properties
+        FromProperty = new MovedAddressProperty(from);
+        ToProperty = new MovedAddressProperty(to);
     }
+
+    [TerraformPropertyName("from")]
+    public MovedAddressProperty FromProperty { get; set; }
+
+    [TerraformPropertyName("to")]
+    public MovedAddressProperty ToProperty { get; set; }
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
@@ -59,11 +64,11 @@ public class TerraformMovedBlock : TerraformConstruct
 /// Represents an address property for moved blocks.
 /// This renders without quotes since addresses are references, not strings.
 /// </summary>
-internal class MovedAddressProperty : TerraformProperty
+internal class MovedAddressProperty : TerraformProperty<TerraformExpression>
 {
     private readonly string _address;
 
-    public MovedAddressProperty(string address)
+    public MovedAddressProperty(string address) : base("", "")
     {
         _address = address ?? throw new ArgumentNullException(nameof(address));
     }
