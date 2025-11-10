@@ -43,7 +43,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// </code>
 /// </remarks>
 public class TerraformBlock<TValue> : TerraformProperty<TValue>, ITerraformBlock
-    where TValue : class, new()
+    where TValue : class
 {
     private TValue? _value;
 

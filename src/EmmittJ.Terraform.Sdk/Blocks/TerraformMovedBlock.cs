@@ -64,7 +64,7 @@ public class TerraformMovedBlock : TerraformConstruct
 /// Represents an address property for moved blocks.
 /// This renders without quotes since addresses are references, not strings.
 /// </summary>
-internal class MovedAddressProperty : TerraformProperty<TerraformExpression>
+public class MovedAddressProperty : TerraformProperty<TerraformExpression>
 {
     private readonly string _address;
 

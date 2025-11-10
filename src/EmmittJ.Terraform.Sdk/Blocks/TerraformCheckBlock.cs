@@ -165,8 +165,8 @@ public class TerraformAssertBlock : TerraformConstruct
         if (string.IsNullOrWhiteSpace(errorMessage))
             throw new ArgumentException("Assert error message cannot be null or empty.", nameof(errorMessage));
 
-        Condition = TerraformExpression.Raw(condition);
-        ErrorMessage = errorMessage;
+        Condition = new TerraformExpressionProperty<TerraformExpression>("condition", "", TerraformExpression.Raw(condition));
+        ErrorMessage = new TerraformLiteralProperty<string>("error_message", errorMessage);
     }
 
     /// <inheritdoc/>

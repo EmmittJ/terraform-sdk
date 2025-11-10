@@ -41,8 +41,8 @@ public class TerraformSettings : ITerraformPreparable
     /// </summary>
     public TerraformBackend? Backend
     {
-        get => GetProperty<TerraformExpressionProperty>("backend")?.Expression as TerraformBackend;
-        set => SetProperty("backend", value != null ? new TerraformExpressionProperty(value) : null);
+        get => GetProperty<TerraformExpressionProperty<TerraformBackend>>("backend")?.Resolve() as TerraformBackend;
+        set => SetProperty("backend", value != null ? new TerraformExpressionProperty<TerraformBackend>("backend", "", value) : null);
     }
 
     /// <summary>
@@ -100,7 +100,7 @@ public class TerraformSettings : ITerraformPreparable
         using (context.PushIndent())
         {
             // 1. required_version (conventionally first)
-            var versionProp = _properties.Get<TerraformProperty>("required_version");
+            var versionProp = _properties.Get<TerraformProperty<string>>("required_version");
             if (versionProp != null)
             {
                 var expression = TerraformValueResolver.ResolveValue(versionProp, context);

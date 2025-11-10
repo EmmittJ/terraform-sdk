@@ -102,15 +102,14 @@ public class TerraformMap<TValue> : TerraformProperty<IDictionary<string, Terraf
     /// <returns>A Terraform map expression containing all resolved key-value pairs.</returns>
     public override TerraformExpression Resolve(ITerraformContext? context = null)
     {
-        var mapExpr = TerraformExpression.Object() as TerraformMapExpression;
+        var mapExpr = TerraformExpression.Object();
 
         foreach (var (key, value) in _items)
         {
-            var resolvedValue = value.Resolve(context);
-            mapExpr!.Set(key, resolvedValue);
+            mapExpr[key] = value.Resolve(context);
         }
 
-        return mapExpr!;
+        return mapExpr;
     }
 
     /// <summary>

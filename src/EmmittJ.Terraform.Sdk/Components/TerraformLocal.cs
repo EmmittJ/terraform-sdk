@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
@@ -18,7 +20,18 @@ public class TerraformLocal : TerraformConstruct
     {
         get
         {
-            if (!HasProperty(name))
+            // Check if the property exists using reflection
+            var properties = GetType().GetProperties(
+                System.Reflection.BindingFlags.Public |
+                System.Reflection.BindingFlags.Instance);
+
+            var propertyExists = properties.Any(p =>
+            {
+                var attr = p.GetCustomAttribute<TerraformPropertyNameAttribute>();
+                return attr?.Name == name;
+            });
+
+            if (!propertyExists)
             {
                 throw new TerraformStackException(
                     $"Local value '{name}' has not been defined. " +

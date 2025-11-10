@@ -84,18 +84,14 @@ public static class TerraformValueResolver
             // Already an expression
             TerraformExpression expr => expr,
 
-            // Property types
-            TerraformProperty prop => prop.Resolve(context),
-
             // Generic resolvable to expression
             ITerraformResolvable<TerraformExpression> resolvable => resolvable.Resolve(context),
 
             // Dictionary types (must check before IEnumerable since Dictionary implements it)
-            IDictionary<string, TerraformProperty> propDict => ResolvePropertyDictionary(propDict, context),
+            IDictionary<string, ITerraformResolvable<TerraformExpression>> propDict => ResolvePropertyDictionary(propDict, context),
             IDictionary dict => ResolveDictionary(dict, context),
 
             // Collection types - must come after dictionary checks
-            IEnumerable<TerraformProperty> propList => ResolvePropertyCollection(propList, context),
             IEnumerable<ITerraformResolvable<TerraformExpression>> resolvableList => ResolveResolvableCollection(resolvableList, context),
             IEnumerable enumerable and not string => ResolveEnumerable(enumerable, context),
 

@@ -24,21 +24,15 @@ public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable<str
     /// Gets or sets the source of the module.
     /// Can be a local path, registry source, git URL, etc.
     /// </summary>
-    public required TerraformProperty<string> Source
-    {
-        get => GetProperty<TerraformProperty<string>>("source") ?? throw new InvalidOperationException("Source is required");
-        set => this.WithProperty("source", value, priority: 0);
-    }
+    [TerraformPropertyName("source")]
+    public required TerraformProperty<string> Source { get; set; }
 
     /// <summary>
     /// Gets or sets the version constraint for the module (optional).
     /// Only applicable for registry modules.
     /// </summary>
-    public TerraformProperty<string>? Version
-    {
-        get => GetProperty<TerraformProperty<string>>("version");
-        set => this.WithProperty("version", value, priority: 1);
-    }
+    [TerraformPropertyName("version")]
+    public TerraformProperty<string>? Version { get; set; }
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
