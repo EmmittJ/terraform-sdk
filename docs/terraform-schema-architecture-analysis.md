@@ -2109,7 +2109,7 @@ This section outlines the step-by-step plan for implementing the new property ty
 
 #### Task 1: Evaluate and Remove Existing Property Infrastructure
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Since this is pre-release, we can completely remove old code without backward compatibility concerns.
 
 **Files to Remove/Modify**:
@@ -2133,7 +2133,7 @@ This section outlines the step-by-step plan for implementing the new property ty
 
 #### Task 2: Implement Core TerraformProperty<T> Base Class
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Foundation for all property types.
 
 **Implementation**:
@@ -2170,7 +2170,7 @@ public class TerraformProperty<TValue> : ITerraformResolvable<TerraformExpressio
 
 #### Task 3: Implement TerraformLiteralProperty<T> for Arguments
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Stores literal values for user-settable arguments.
 
 **Implementation**: See design section for full code.
@@ -2190,7 +2190,7 @@ public class TerraformProperty<TValue> : ITerraformResolvable<TerraformExpressio
 
 #### Task 4: Implement TerraformExpressionProperty<T> for Expressions
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Stores expression values for advanced scenarios.
 
 **Files**: `src/EmmittJ.Terraform.Sdk/Properties/TerraformExpressionProperty.cs`
@@ -2201,7 +2201,7 @@ public class TerraformProperty<TValue> : ITerraformResolvable<TerraformExpressio
 
 #### Task 5: Implement TerraformReferenceProperty<T> for Computed Attributes
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Pure references for read-only computed values and indexer access.
 
 **Files**: `src/EmmittJ.Terraform.Sdk/Properties/TerraformReferenceProperty.cs`
@@ -2212,7 +2212,7 @@ public class TerraformProperty<TValue> : ITerraformResolvable<TerraformExpressio
 
 #### Task 6: Implement TerraformList<T> Collection Type
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: List collection with reference semantics.
 
 **Key Features**:
@@ -2230,7 +2230,7 @@ public class TerraformProperty<TValue> : ITerraformResolvable<TerraformExpressio
 
 #### Task 7: Implement TerraformMap<T> Collection Type
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Dictionary with reference semantics for key access.
 
 **Files**: `src/EmmittJ.Terraform.Sdk/Properties/Collections/TerraformMap.cs`
@@ -2241,7 +2241,7 @@ public class TerraformProperty<TValue> : ITerraformResolvable<TerraformExpressio
 
 #### Task 8: Implement TerraformSet<T> Collection Type
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Unordered, unique collection.
 
 **Files**: `src/EmmittJ.Terraform.Sdk/Properties/Collections/TerraformSet.cs`
@@ -2252,7 +2252,7 @@ public class TerraformProperty<TValue> : ITerraformResolvable<TerraformExpressio
 
 #### Task 9: Implement TerraformBlock<T> for Block Structures
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Wrapper for nested block configuration.
 
 **Files**: `src/EmmittJ.Terraform.Sdk/Properties/TerraformBlock.cs`
@@ -2263,7 +2263,7 @@ public class TerraformProperty<TValue> : ITerraformResolvable<TerraformExpressio
 
 #### Task 10: Implement ITerraformResolvable<T> and Expression Types
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Resolution chain terminal with HCL serialization.
 
 **Implementation**:
@@ -2285,7 +2285,7 @@ public class TerraformProperty<TValue> : ITerraformResolvable<TerraformExpressio
 
 #### Task 11: Add Helper Property Types for Advanced Scenarios
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Support conditionals and function calls.
 
 **Types**:
@@ -2303,7 +2303,7 @@ public class TerraformProperty<TValue> : ITerraformResolvable<TerraformExpressio
 
 #### Task 12: Update Schema Parser to Detect Property Classifications
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Parse schema to determine correct property type.
 
 **Classifications**:
@@ -2321,7 +2321,7 @@ public class TerraformProperty<TValue> : ITerraformResolvable<TerraformExpressio
 
 #### Task 13: Update Code Generation Templates for Arguments
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Generate proper argument properties.
 
 **Template Pattern**:
@@ -2343,7 +2343,7 @@ public TerraformProperty<{{Type}}> {{PropertyName}}
 
 #### Task 14: Update Code Generation Templates for Computed Attributes
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Generate read-only computed properties.
 
 **Template Pattern**:
@@ -2361,7 +2361,7 @@ public TerraformProperty<{{Type}}> {{PropertyName}} =>
 
 #### Task 15: Update Code Generation Templates for Blocks
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Generate block classes and properties.
 
 **Templates**:
@@ -2379,7 +2379,7 @@ public TerraformProperty<{{Type}}> {{PropertyName}} =>
 
 #### Task 16: Update Code Generation for Resolve() Implementations
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Generate `Resolve()` method for each resource/block class.
 
 **Template Pattern**:
@@ -2406,7 +2406,7 @@ public TerraformExpression Resolve(ITerraformContext? context = null)
 
 #### Task 17: Update Serialization to Use Expression Resolution
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Modify serialization logic to use `Resolve()` chain.
 
 **Changes**:
@@ -2425,7 +2425,7 @@ public TerraformExpression Resolve(ITerraformContext? context = null)
 
 #### Task 18: Regenerate AWS Provider Code
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Run generator against AWS provider schema.
 
 **Actions**:
@@ -2442,7 +2442,7 @@ public TerraformExpression Resolve(ITerraformContext? context = null)
 
 #### Task 19: Regenerate Azure Provider Code
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Run generator against Azure provider schema.
 
 **Files**: `src/providers/azure/` (or similar)
@@ -2455,7 +2455,7 @@ public TerraformExpression Resolve(ITerraformContext? context = null)
 
 #### Task 20: Create Unit Tests for Property Type Hierarchy
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Test core property types.
 
 **Test Coverage**:
@@ -2474,7 +2474,7 @@ public TerraformExpression Resolve(ITerraformContext? context = null)
 
 #### Task 21: Create Unit Tests for Collection Types
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Test collection behavior.
 
 **Test Coverage**:
@@ -2494,7 +2494,7 @@ public TerraformExpression Resolve(ITerraformContext? context = null)
 
 #### Task 22: Create Unit Tests for Block Types
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Test block functionality.
 
 **Test Coverage**:
@@ -2513,7 +2513,7 @@ public TerraformExpression Resolve(ITerraformContext? context = null)
 
 #### Task 23: Create Integration Tests for Expression Resolution
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Test full resolution chain.
 
 **Test Coverage**:
@@ -2533,7 +2533,7 @@ public TerraformExpression Resolve(ITerraformContext? context = null)
 
 #### Task 24: Create Integration Tests for HCL Serialization
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Test generated HCL output.
 
 **Test Coverage**:
@@ -2554,7 +2554,7 @@ public TerraformExpression Resolve(ITerraformContext? context = null)
 
 #### Task 25: Validate Playground Examples with New System
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Update and test playground projects.
 
 **Projects**:
@@ -2577,7 +2577,7 @@ public TerraformExpression Resolve(ITerraformContext? context = null)
 
 #### Task 26: Document Breaking Changes and Migration Guide
 
-**Status**: Not Started  
+**Status**: Not Started
 **Description**: Document the new system for users.
 
 **Content**:
@@ -2761,39 +2761,46 @@ Blocks are **solved as a property type**:
 All core property types have been implemented in `src/EmmittJ.Terraform.Sdk/Properties/`:
 
 1. **✅ TerraformProperty<T>** (`Properties/TerraformProperty.cs`)
+
    - Base class for all properties
    - Implements `ITerraformResolvable<TerraformExpression>`
    - Provides `Prepare()` and `Resolve()` methods
    - Implicit conversion from `T` to `TerraformProperty<T>`
 
 2. **✅ TerraformLiteralProperty<T>** (`Properties/TerraformLiteralProperty.cs`)
+
    - Stores literal values for user-settable arguments
    - `Value` property with internal setter
    - Implements `ITerraformLiteral<TValue>` and `ITerraformLiteral`
    - Used for: Required Arguments, Optional Arguments
 
 3. **✅ TerraformExpressionProperty<T>** (`Properties/TerraformExpressionProperty.cs`)
+
    - Wraps `TerraformExpression` with type safety
    - Used for advanced scenarios (conditionals, functions)
    - Implements `ITerraformExpression`
 
 4. **✅ TerraformReferenceProperty<T>** (`Properties/TerraformReferenceProperty.cs`)
+
    - Pure reference to another property (no value storage)
    - Used for: Computed Attributes, Optional+Computed defaults, Collection indexers
    - Generates Terraform reference expressions (e.g., `aws_instance.web.id`)
 
 5. **✅ Collection Types** (`Properties/Collections/`)
+
    - **TerraformList<T>**: Implements `IList<TerraformProperty<T>>`, indexer returns `TerraformReferenceProperty<T>`
    - **TerraformMap<T>**: Implements `IDictionary<string, TerraformProperty<T>>`, key access returns `TerraformReferenceProperty<T>`
    - **TerraformSet<T>**: Implements `ISet<TerraformProperty<T>>`, no indexer (unordered)
    - All support LINQ, implicit conversions, and natural C# collection usage
 
 6. **✅ Block Types** (`Properties/`)
+
    - **ITerraformBlock**: Marker interface for block types
    - **TerraformBlock<T>**: Generic wrapper for nested configuration blocks
    - Used in collections: `TerraformList<TerraformBlock<T>>` for list of blocks
 
 7. **✅ Advanced Property Helpers** (`Properties/Advanced/`)
+
    - **TerraformConditionalProperty<T>**: Ternary expressions (`condition ? true : false`)
    - **TerraformFunctionProperty<T>**: Function calls (`merge()`, `element()`, etc.)
 
@@ -2806,6 +2813,7 @@ All core property types have been implemented in `src/EmmittJ.Terraform.Sdk/Prop
 Updated code generation infrastructure in `src/EmmittJ.Terraform.Sdk.AppHost/`:
 
 1. **✅ TemplateHelpers.cs** - Property Classification
+
    - `PreparePropertyForTemplate()` now classifies properties into:
      - `IsRequiredArgument`: Required=true, Optional=false, Computed=false
      - `IsOptionalArgument`: Optional=true, Computed=false
@@ -2815,29 +2823,31 @@ Updated code generation infrastructure in `src/EmmittJ.Terraform.Sdk.AppHost/`:
    - `PrepareBlockTypeForTemplate()` wraps blocks in `TerraformBlock<T>` or collection wrappers
 
 2. **✅ TerraformConstruct.mustache** - Template Updates
-   
+
    **Property Initialization Pattern:**
+
    ```csharp
    // Required Arguments - no initializer (C# enforces user must set)
    public required TerraformProperty<string> Ami { get; set; }
-   
+
    // Optional Arguments - no initializer (may be null)
    public TerraformProperty<string>? InstanceType { get; set; }
-   
+
    // Optional+Computed - defaults to reference (not nullable)
-   public TerraformProperty<string> PrivateIp { get; set; } 
+   public TerraformProperty<string> PrivateIp { get; set; }
        = new TerraformReferenceProperty<string>(ResourceAddress, "private_ip");
-   
+
    // Computed Attributes - read-only reference
-   public TerraformProperty<string> Id 
+   public TerraformProperty<string> Id
        => new TerraformReferenceProperty<string>(ResourceAddress, "id");
-   
+
    // Blocks - wrapped in TerraformBlock<T>
    public TerraformBlock<EbsBlockDevice> EbsBlockDevice { get; set; } = new();
    public TerraformList<TerraformBlock<NetworkInterface>> NetworkInterface { get; set; } = new();
    ```
 
    **Key Design Decisions:**
+
    - Required properties have no initializer → C# compiler enforces they must be set
    - Optional properties have no initializer → May be null if not set
    - Optional+Computed properties initialize to `TerraformReferenceProperty` → Not nullable, references computed value by default
@@ -2848,6 +2858,7 @@ Updated code generation infrastructure in `src/EmmittJ.Terraform.Sdk.AppHost/`:
 ### Phase 3: Serialization Logic 🚧 IN PROGRESS
 
 Next steps:
+
 1. Update `TerraformConstruct.Prepare()` to iterate over properties using reflection
 2. Call `Prepare()` on each property (polymorphic via `ITerraformResolvable`)
 3. Update `TerraformConstruct.Resolve()` to serialize properties:
@@ -2884,13 +2895,13 @@ Next steps:
 
 The implemented design achieves:
 
-✅ **Type Safety**: All properties are strongly typed with `TerraformProperty<T>`  
-✅ **Reference Semantics**: Properties return references for use in expressions  
-✅ **Compile-Time Enforcement**: Required properties use C# `required` keyword  
-✅ **Natural C# Syntax**: Implicit conversions, standard collection interfaces  
-✅ **Terraform Semantics**: Distinguishes Arguments, Attributes, Optional+Computed, Blocks  
-✅ **No Reflection During Usage**: Polymorphic resolution via `ITerraformResolvable`  
-✅ **Expression Support**: Conditionals, functions, and complex expressions  
-✅ **Collection Indexing**: Indexers return proper reference properties  
+✅ **Type Safety**: All properties are strongly typed with `TerraformProperty<T>`
+✅ **Reference Semantics**: Properties return references for use in expressions
+✅ **Compile-Time Enforcement**: Required properties use C# `required` keyword
+✅ **Natural C# Syntax**: Implicit conversions, standard collection interfaces
+✅ **Terraform Semantics**: Distinguishes Arguments, Attributes, Optional+Computed, Blocks
+✅ **No Reflection During Usage**: Polymorphic resolution via `ITerraformResolvable`
+✅ **Expression Support**: Conditionals, functions, and complex expressions
+✅ **Collection Indexing**: Indexers return proper reference properties
 
 This design matches the complexity of Terraform's schema system while providing a clean, type-safe C# API.

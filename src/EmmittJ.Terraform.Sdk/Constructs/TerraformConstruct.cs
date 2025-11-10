@@ -7,8 +7,6 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 public abstract class TerraformConstruct : ITerraformResolvable<string>
 {
-    private readonly TerraformPropertyCollection _properties = new();
-
     /// <summary>
     /// Gets the block type (e.g., "resource", "data", "provider", "output", "variable", "module").
     /// </summary>
@@ -22,71 +20,34 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     protected abstract string[] BlockLabels { get; }
 
     /// <summary>
-    /// Gets additional properties to write before the main properties dictionary.
-    /// Override this to add construct-specific properties that need special handling.
-    /// </summary>
-    protected virtual void WriteAdditionalProperties(System.Text.StringBuilder sb, ITerraformContext context)
-    {
-        // Default: no additional properties
-    }
-
-    /// <summary>
-    /// Setter for property accessors and extension methods.
-    /// Supports any value type: TerraformProperty, collections, blocks, literals.
-    /// Supports null to remove properties.
-    /// </summary>
-    public void SetProperty(string key, object? value)
-        => _properties.Set(key, value);
-
-    /// <summary>
-    /// Setter for property accessors with priority support.
-    /// Supports any value type: TerraformProperty, collections, blocks, literals.
-    /// Supports null to remove properties.
-    /// </summary>
-    public void SetProperty(string key, object? value, int? priority)
-    {
-        _properties.Set(key, value, priority);
-    }
-
-    /// <summary>
-    /// Gets a property value (for derived classes).
-    /// </summary>
-    public T? GetProperty<T>(string key) where T : class
-    {
-        return _properties.Get<T>(key);
-    }
-
-    /// <summary>
-    /// Gets a required property value as a specific type.
-    /// Throws if the property is null.
-    /// </summary>
-    /// <exception cref="InvalidOperationException">Thrown when the property value is null.</exception>
-    public T GetRequiredProperty<T>(string key) where T : class
-        => _properties.GetRequired<T>(key);
-
-    /// <summary>
-    /// Checks if a property exists (for derived classes).
-    /// </summary>
-    public bool HasProperty(string key)
-    {
-        return _properties.Get<object>(key) is not null;
-    }
-
-    /// <summary>
-    /// Writes properties to HCL with proper formatting.
-    /// Properties with priority (lower numbers first) are written before alphabetically sorted properties.
-    /// Delegates to TerraformValueResolver for consistent value resolution.
+    /// Writes all properties to HCL with proper formatting.
+    /// Override this in derived classes to write properties using reflection and polymorphic resolution.
     /// </summary>
     /// <param name="sb">The StringBuilder to append to.</param>
     /// <param name="context">The context for indentation and resolution.</param>
-    protected void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
+    protected virtual void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
-        // Order by: priority first (ascending), then alphabetically by key
-        foreach (var (key, value) in _properties.GetOrderedProperties())
+        // Use reflection to get all public instance properties
+        var properties = GetType().GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+
+        foreach (var prop in properties)
         {
-            var expression = TerraformValueResolver.ResolveValue(value, context);
-            var hcl = expression.ToHcl(context);
-            sb.AppendLine($"{context.Indent}{key}{expression.AssignmentOperator}{hcl}");
+            // Skip properties that are part of the base class infrastructure
+            if (prop.DeclaringType == typeof(TerraformConstruct) ||
+                prop.Name == "BlockType" ||
+                prop.Name == "BlockLabels")
+            {
+                continue;
+            }
+
+            var value = prop.GetValue(this);
+            if (value == null)
+            {
+                continue; // Skip null properties
+            }
+
+            // TODO: Implement property serialization using ITerraformResolvable
+            // For now, this is a placeholder
         }
     }
 
@@ -95,13 +56,27 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
 
     /// <summary>
     /// Preparation phase - prepares all nested values and expressions.
-    /// Delegates to TerraformValueResolver for consistent value preparation.
+    /// Uses reflection to discover properties and calls Prepare() on each ITerraformResolvable.
     /// </summary>
     public virtual void Prepare(ITerraformContext context)
     {
-        foreach (var value in _properties.GetValues())
+        // Use reflection to get all public instance properties
+        var properties = GetType().GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+
+        foreach (var prop in properties)
         {
-            TerraformValueResolver.PrepareValue(value, context);
+            // Skip properties that are part of the base class infrastructure
+            if (prop.DeclaringType == typeof(TerraformConstruct))
+            {
+                continue;
+            }
+
+            var value = prop.GetValue(this);
+            if (value is ITerraformResolvable<TerraformExpression> resolvable)
+            {
+                // Call Prepare() on the property (polymorphic)
+                resolvable.Prepare(context);
+            }
         }
     }
 
@@ -126,7 +101,6 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
 
         using (context.PushIndent())
         {
-            WriteAdditionalProperties(sb, context);
             WriteProperties(sb, context);
         }
 
