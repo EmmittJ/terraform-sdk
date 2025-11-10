@@ -33,7 +33,7 @@ public class GoogleProjectIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
+        get => GetRequiredProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

@@ -14,7 +14,7 @@ public class GoogleIamWorkloadIdentityPoolProviderAwsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
         set => WithProperty("account_id", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleIamWorkloadIdentityPoolProviderOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformProperty<string> IssuerUri
     {
-        get => GetProperty<TerraformProperty<string>>("issuer_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("issuer_uri");
         set => WithProperty("issuer_uri", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleIamWorkloadIdentityPoolProviderSamlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpMetadataXml is required")]
     public required TerraformProperty<string> IdpMetadataXml
     {
-        get => GetProperty<TerraformProperty<string>>("idp_metadata_xml");
+        get => GetRequiredProperty<TerraformProperty<string>>("idp_metadata_xml");
         set => WithProperty("idp_metadata_xml", value);
     }
 
@@ -316,7 +316,7 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
     public required TerraformProperty<string> WorkloadIdentityPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("workload_identity_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workload_identity_pool_id");
         set => this.WithProperty("workload_identity_pool_id", value);
     }
 
@@ -328,7 +328,7 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolProviderId is required")]
     public required TerraformProperty<string> WorkloadIdentityPoolProviderId
     {
-        get => GetProperty<TerraformProperty<string>>("workload_identity_pool_provider_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workload_identity_pool_provider_id");
         set => this.WithProperty("workload_identity_pool_provider_id", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsSsmcontactsRotationRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfOnCalls is required")]
     public required TerraformProperty<double> NumberOfOnCalls
     {
-        get => GetProperty<TerraformProperty<double>>("number_of_on_calls");
+        get => GetRequiredProperty<TerraformProperty<double>>("number_of_on_calls");
         set => WithProperty("number_of_on_calls", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsSsmcontactsRotationRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrenceMultiplier is required")]
     public required TerraformProperty<double> RecurrenceMultiplier
     {
-        get => GetProperty<TerraformProperty<double>>("recurrence_multiplier");
+        get => GetRequiredProperty<TerraformProperty<double>>("recurrence_multiplier");
         set => WithProperty("recurrence_multiplier", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsSsmcontactsRotation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsSsmcontactsRotation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZoneId is required")]
     public required TerraformProperty<string> TimeZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("time_zone_id");
         set => this.WithProperty("time_zone_id", value);
     }
 

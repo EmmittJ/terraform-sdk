@@ -14,7 +14,7 @@ public class AzurermContainerAppDaprBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetProperty<TerraformProperty<string>>("app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
         set => WithProperty("app_id", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermContainerAppIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPort is required")]
     public required TerraformProperty<double> TargetPort
     {
-        get => GetProperty<TerraformProperty<double>>("target_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("target_port");
         set => WithProperty("target_port", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermContainerAppRegistryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformProperty<string> Server
     {
-        get => GetProperty<TerraformProperty<string>>("server");
+        get => GetRequiredProperty<TerraformProperty<string>>("server");
         set => WithProperty("server", value);
     }
 
@@ -239,7 +239,7 @@ public class AzurermContainerAppSecretBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -368,7 +368,7 @@ public class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformProperty<string> ContainerAppEnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("container_app_environment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_app_environment_id");
         set => this.WithProperty("container_app_environment_id", value);
     }
 
@@ -396,7 +396,7 @@ public class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -406,7 +406,7 @@ public class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -416,7 +416,7 @@ public class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RevisionMode is required")]
     public required TerraformProperty<string> RevisionMode
     {
-        get => GetProperty<TerraformProperty<string>>("revision_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("revision_mode");
         set => this.WithProperty("revision_mode", value);
     }
 

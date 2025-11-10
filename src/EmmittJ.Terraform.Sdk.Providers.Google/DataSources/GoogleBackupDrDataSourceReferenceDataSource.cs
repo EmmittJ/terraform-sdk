@@ -30,7 +30,7 @@ public class GoogleBackupDrDataSourceReferenceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceReferenceId is required")]
     public required TerraformProperty<string> DataSourceReferenceId
     {
-        get => GetProperty<TerraformProperty<string>>("data_source_reference_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_source_reference_id");
         set => this.WithProperty("data_source_reference_id", value);
     }
 
@@ -49,7 +49,7 @@ public class GoogleBackupDrDataSourceReferenceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

@@ -122,7 +122,7 @@ public class GoogleGkeonpremBareMetalNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BareMetalCluster is required")]
     public required TerraformProperty<string> BareMetalCluster
     {
-        get => GetProperty<TerraformProperty<string>>("bare_metal_cluster");
+        get => GetRequiredProperty<TerraformProperty<string>>("bare_metal_cluster");
         set => this.WithProperty("bare_metal_cluster", value);
     }
 
@@ -150,7 +150,7 @@ public class GoogleGkeonpremBareMetalNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleGkeonpremBareMetalNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

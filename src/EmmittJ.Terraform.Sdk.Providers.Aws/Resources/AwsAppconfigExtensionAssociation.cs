@@ -24,7 +24,7 @@ public class AwsAppconfigExtensionAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionArn is required")]
     public required TerraformProperty<string> ExtensionArn
     {
-        get => GetProperty<TerraformProperty<string>>("extension_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("extension_arn");
         set => this.WithProperty("extension_arn", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsAppconfigExtensionAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("resource_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
     }
 

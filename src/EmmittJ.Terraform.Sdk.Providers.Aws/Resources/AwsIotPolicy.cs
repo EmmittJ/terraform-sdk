@@ -59,7 +59,7 @@ public class AwsIotPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsIotPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 

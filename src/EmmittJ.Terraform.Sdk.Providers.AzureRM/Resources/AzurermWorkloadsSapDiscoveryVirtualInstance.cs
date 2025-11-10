@@ -24,7 +24,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CentralServerVirtualMachineId is required")]
     public required TerraformProperty<string> CentralServerVirtualMachineId
     {
-        get => GetProperty<TerraformProperty<string>>("central_server_virtual_machine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("central_server_virtual_machine_id");
         set => this.WithProperty("central_server_virtual_machine_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetProperty<TerraformProperty<string>>("environment");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -161,7 +161,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -171,7 +171,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SapProduct is required")]
     public required TerraformProperty<string> SapProduct
     {
-        get => GetProperty<TerraformProperty<string>>("sap_product");
+        get => GetRequiredProperty<TerraformProperty<string>>("sap_product");
         set => this.WithProperty("sap_product", value);
     }
 

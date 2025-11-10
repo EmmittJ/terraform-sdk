@@ -23,7 +23,7 @@ public class AzurermStorageObjectReplicationRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationContainerName is required")]
     public required TerraformProperty<string> DestinationContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("destination_container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_container_name");
         set => WithProperty("destination_container_name", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermStorageObjectReplicationRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceContainerName is required")]
     public required TerraformProperty<string> SourceContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("source_container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_container_name");
         set => WithProperty("source_container_name", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermStorageObjectReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationStorageAccountId is required")]
     public required TerraformProperty<string> DestinationStorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("destination_storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_storage_account_id");
         set => this.WithProperty("destination_storage_account_id", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermStorageObjectReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceStorageAccountId is required")]
     public required TerraformProperty<string> SourceStorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("source_storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_storage_account_id");
         set => this.WithProperty("source_storage_account_id", value);
     }
 

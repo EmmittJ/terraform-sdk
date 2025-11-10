@@ -207,7 +207,7 @@ public class GoogleCloudTasksQueueStackdriverLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingRatio is required")]
     public required TerraformProperty<double> SamplingRatio
     {
-        get => GetProperty<TerraformProperty<double>>("sampling_ratio");
+        get => GetRequiredProperty<TerraformProperty<double>>("sampling_ratio");
         set => WithProperty("sampling_ratio", value);
     }
 
@@ -291,7 +291,7 @@ public class GoogleCloudTasksQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -301,7 +301,7 @@ public class GoogleCloudTasksQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

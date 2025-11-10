@@ -66,7 +66,7 @@ public class AzurermRouteServerBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermRouteServerBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
     public required TerraformProperty<double> PeerAsn
     {
-        get => GetProperty<TerraformProperty<double>>("peer_asn");
+        get => GetRequiredProperty<TerraformProperty<double>>("peer_asn");
         set => this.WithProperty("peer_asn", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermRouteServerBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerIp is required")]
     public required TerraformProperty<string> PeerIp
     {
-        get => GetProperty<TerraformProperty<string>>("peer_ip");
+        get => GetRequiredProperty<TerraformProperty<string>>("peer_ip");
         set => this.WithProperty("peer_ip", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermRouteServerBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteServerId is required")]
     public required TerraformProperty<string> RouteServerId
     {
-        get => GetProperty<TerraformProperty<string>>("route_server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("route_server_id");
         set => this.WithProperty("route_server_id", value);
     }
 

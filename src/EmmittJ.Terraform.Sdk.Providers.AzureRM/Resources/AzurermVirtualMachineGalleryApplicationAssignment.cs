@@ -75,7 +75,7 @@ public class AzurermVirtualMachineGalleryApplicationAssignment : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryApplicationVersionId is required")]
     public required TerraformProperty<string> GalleryApplicationVersionId
     {
-        get => GetProperty<TerraformProperty<string>>("gallery_application_version_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("gallery_application_version_id");
         set => this.WithProperty("gallery_application_version_id", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermVirtualMachineGalleryApplicationAssignment : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
     }
 

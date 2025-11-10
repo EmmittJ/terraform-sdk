@@ -40,7 +40,7 @@ public class GoogleFirestoreDatabaseCmekConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
         set => WithProperty("kms_key_name", value);
     }
 
@@ -171,7 +171,7 @@ public class GoogleFirestoreDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationId is required")]
     public required TerraformProperty<string> LocationId
     {
-        get => GetProperty<TerraformProperty<string>>("location_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("location_id");
         set => this.WithProperty("location_id", value);
     }
 
@@ -186,7 +186,7 @@ public class GoogleFirestoreDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -234,7 +234,7 @@ public class GoogleFirestoreDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

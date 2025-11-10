@@ -53,7 +53,7 @@ public class GoogleIapClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Brand is required")]
     public required TerraformProperty<string> Brand
     {
-        get => GetProperty<TerraformProperty<string>>("brand");
+        get => GetRequiredProperty<TerraformProperty<string>>("brand");
         set => this.WithProperty("brand", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleIapClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 

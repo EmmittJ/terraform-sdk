@@ -14,7 +14,7 @@ public class AwsWafWebAclDefaultActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsWafWebAclLoggingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogDestination is required")]
     public required TerraformProperty<string> LogDestination
     {
-        get => GetProperty<TerraformProperty<string>>("log_destination");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_destination");
         set => WithProperty("log_destination", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsWafWebAclRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsWafWebAclRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
     public required TerraformProperty<string> RuleId
     {
-        get => GetProperty<TerraformProperty<string>>("rule_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_id");
         set => WithProperty("rule_id", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsWafWebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformProperty<string> MetricName
     {
-        get => GetProperty<TerraformProperty<string>>("metric_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("metric_name");
         set => this.WithProperty("metric_name", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsWafWebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -14,7 +14,7 @@ public class GoogleComputeSnapshotSettingsStorageLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy");
         set => WithProperty("policy", value);
     }
 

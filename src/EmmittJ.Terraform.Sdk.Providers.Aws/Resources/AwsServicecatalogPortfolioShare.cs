@@ -85,7 +85,7 @@ public class AwsServicecatalogPortfolioShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
     public required TerraformProperty<string> PortfolioId
     {
-        get => GetProperty<TerraformProperty<string>>("portfolio_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("portfolio_id");
         set => this.WithProperty("portfolio_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsServicecatalogPortfolioShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsServicecatalogPortfolioShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

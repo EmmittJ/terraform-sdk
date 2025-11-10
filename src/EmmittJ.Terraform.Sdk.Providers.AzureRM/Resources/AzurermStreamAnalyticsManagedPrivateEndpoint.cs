@@ -66,7 +66,7 @@ public class AzurermStreamAnalyticsManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermStreamAnalyticsManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermStreamAnalyticsManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsClusterName is required")]
     public required TerraformProperty<string> StreamAnalyticsClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("stream_analytics_cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_cluster_name");
         set => this.WithProperty("stream_analytics_cluster_name", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermStreamAnalyticsManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubresourceName is required")]
     public required TerraformProperty<string> SubresourceName
     {
-        get => GetProperty<TerraformProperty<string>>("subresource_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("subresource_name");
         set => this.WithProperty("subresource_name", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermStreamAnalyticsManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
         set => this.WithProperty("target_resource_id", value);
     }
 

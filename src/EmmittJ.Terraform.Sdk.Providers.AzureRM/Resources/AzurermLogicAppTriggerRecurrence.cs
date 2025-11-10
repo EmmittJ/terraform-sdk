@@ -102,7 +102,7 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetProperty<TerraformProperty<string>>("frequency");
+        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
         set => this.WithProperty("frequency", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformProperty<double> Interval
     {
-        get => GetProperty<TerraformProperty<double>>("interval");
+        get => GetRequiredProperty<TerraformProperty<double>>("interval");
         set => this.WithProperty("interval", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformProperty<string> LogicAppId
     {
-        get => GetProperty<TerraformProperty<string>>("logic_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("logic_app_id");
         set => this.WithProperty("logic_app_id", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

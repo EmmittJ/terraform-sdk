@@ -42,7 +42,7 @@ public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerUsername is required")]
     public required TerraformProperty<string> CustomerUsername
     {
-        get => GetProperty<TerraformProperty<string>>("customer_username");
+        get => GetRequiredProperty<TerraformProperty<string>>("customer_username");
         set => WithProperty("customer_username", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => WithProperty("vpc_id", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsDirectoryServiceDirectoryVpcSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => WithProperty("vpc_id", value);
     }
 
@@ -218,7 +218,7 @@ public class AwsDirectoryServiceDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -228,7 +228,7 @@ public class AwsDirectoryServiceDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 

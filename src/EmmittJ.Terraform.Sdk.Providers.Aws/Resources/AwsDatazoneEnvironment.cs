@@ -125,7 +125,7 @@ public class AwsDatazoneEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformProperty<string> DomainIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("domain_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_identifier");
         set => this.WithProperty("domain_identifier", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsDatazoneEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsDatazoneEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileIdentifier is required")]
     public required TerraformProperty<string> ProfileIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("profile_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("profile_identifier");
         set => this.WithProperty("profile_identifier", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsDatazoneEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectIdentifier is required")]
     public required TerraformProperty<string> ProjectIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("project_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_identifier");
         set => this.WithProperty("project_identifier", value);
     }
 

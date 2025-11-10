@@ -14,7 +14,7 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encoding is required")]
     public required TerraformProperty<string> Encoding
     {
-        get => GetProperty<TerraformProperty<string>>("encoding");
+        get => GetRequiredProperty<TerraformProperty<string>>("encoding");
         set => WithProperty("encoding", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermEventhubRetentionDescriptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CleanupPolicy is required")]
     public required TerraformProperty<string> CleanupPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("cleanup_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("cleanup_policy");
         set => WithProperty("cleanup_policy", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -206,7 +206,7 @@ public class AzurermEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionCount is required")]
     public required TerraformProperty<double> PartitionCount
     {
-        get => GetProperty<TerraformProperty<double>>("partition_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("partition_count");
         set => this.WithProperty("partition_count", value);
     }
 

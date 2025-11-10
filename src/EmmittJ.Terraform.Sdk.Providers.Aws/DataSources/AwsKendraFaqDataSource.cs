@@ -33,7 +33,7 @@ public class AwsKendraFaqDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FaqId is required")]
     public required TerraformProperty<string> FaqId
     {
-        get => GetProperty<TerraformProperty<string>>("faq_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("faq_id");
         set => this.WithProperty("faq_id", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsKendraFaqDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexId is required")]
     public required TerraformProperty<string> IndexId
     {
-        get => GetProperty<TerraformProperty<string>>("index_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("index_id");
         set => this.WithProperty("index_id", value);
     }
 

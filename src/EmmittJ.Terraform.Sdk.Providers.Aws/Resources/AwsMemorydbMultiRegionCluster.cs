@@ -88,7 +88,7 @@ public class AwsMemorydbMultiRegionCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MultiRegionClusterNameSuffix is required")]
     public required TerraformProperty<string> MultiRegionClusterNameSuffix
     {
-        get => GetProperty<TerraformProperty<string>>("multi_region_cluster_name_suffix");
+        get => GetRequiredProperty<TerraformProperty<string>>("multi_region_cluster_name_suffix");
         set => this.WithProperty("multi_region_cluster_name_suffix", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsMemorydbMultiRegionCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformProperty<string> NodeType
     {
-        get => GetProperty<TerraformProperty<string>>("node_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("node_type");
         set => this.WithProperty("node_type", value);
     }
 

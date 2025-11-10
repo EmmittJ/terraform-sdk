@@ -23,7 +23,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamMemberConditionBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("expression");
         set => WithProperty("expression", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamMemberConditionBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
+        get => GetRequiredProperty<TerraformProperty<string>>("title");
         set => WithProperty("title", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamMember : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamMember : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
     public required TerraformProperty<string> Member
     {
-        get => GetProperty<TerraformProperty<string>>("member");
+        get => GetRequiredProperty<TerraformProperty<string>>("member");
         set => this.WithProperty("member", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamMember : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamMember : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     public required TerraformProperty<string> SecurityGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("security_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_gateway_id");
         set => this.WithProperty("security_gateway_id", value);
     }
 

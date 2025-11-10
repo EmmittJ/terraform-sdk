@@ -64,7 +64,7 @@ public class GoogleSecretManagerRegionalSecretVersionDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformProperty<string> Secret
     {
-        get => GetProperty<TerraformProperty<string>>("secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret");
         set => this.WithProperty("secret", value);
     }
 

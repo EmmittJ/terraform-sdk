@@ -40,7 +40,7 @@ public class AzurermEventhubSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformProperty<string> ConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("connection_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_string");
         set => this.WithProperty("connection_string", value);
     }
 
@@ -50,7 +50,7 @@ public class AzurermEventhubSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
     public required TerraformProperty<string> Expiry
     {
-        get => GetProperty<TerraformProperty<string>>("expiry");
+        get => GetRequiredProperty<TerraformProperty<string>>("expiry");
         set => this.WithProperty("expiry", value);
     }
 

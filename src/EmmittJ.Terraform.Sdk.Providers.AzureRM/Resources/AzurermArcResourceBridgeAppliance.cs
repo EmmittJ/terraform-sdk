@@ -32,7 +32,7 @@ public class AzurermArcResourceBridgeApplianceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermArcResourceBridgeAppliance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Distro is required")]
     public required TerraformProperty<string> Distro
     {
-        get => GetProperty<TerraformProperty<string>>("distro");
+        get => GetRequiredProperty<TerraformProperty<string>>("distro");
         set => this.WithProperty("distro", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermArcResourceBridgeAppliance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureProvider is required")]
     public required TerraformProperty<string> InfrastructureProvider
     {
-        get => GetProperty<TerraformProperty<string>>("infrastructure_provider");
+        get => GetRequiredProperty<TerraformProperty<string>>("infrastructure_provider");
         set => this.WithProperty("infrastructure_provider", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermArcResourceBridgeAppliance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermArcResourceBridgeAppliance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -161,7 +161,7 @@ public class AzurermArcResourceBridgeAppliance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

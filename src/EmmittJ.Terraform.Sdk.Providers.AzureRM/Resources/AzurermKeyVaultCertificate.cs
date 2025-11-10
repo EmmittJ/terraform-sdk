@@ -14,7 +14,7 @@ public class AzurermKeyVaultCertificateCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Contents is required")]
     public required TerraformProperty<string> Contents
     {
-        get => GetProperty<TerraformProperty<string>>("contents");
+        get => GetRequiredProperty<TerraformProperty<string>>("contents");
         set => WithProperty("contents", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermKeyVaultCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermKeyVaultCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

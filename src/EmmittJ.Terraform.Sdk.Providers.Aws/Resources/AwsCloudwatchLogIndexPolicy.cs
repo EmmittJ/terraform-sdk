@@ -22,7 +22,7 @@ public class AwsCloudwatchLogIndexPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformProperty<string> LogGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("log_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_group_name");
         set => this.WithProperty("log_group_name", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsCloudwatchLogIndexPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformProperty<string> PolicyDocument
     {
-        get => GetProperty<TerraformProperty<string>>("policy_document");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_document");
         set => this.WithProperty("policy_document", value);
     }
 

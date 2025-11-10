@@ -23,7 +23,7 @@ public class AwsS3controlAccessPointPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPointArn is required")]
     public required TerraformProperty<string> AccessPointArn
     {
-        get => GetProperty<TerraformProperty<string>>("access_point_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_point_arn");
         set => this.WithProperty("access_point_arn", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsS3controlAccessPointPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 

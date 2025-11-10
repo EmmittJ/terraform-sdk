@@ -23,7 +23,7 @@ public class GoogleDataplexAssetIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asset is required")]
     public required TerraformProperty<string> Asset
     {
-        get => GetProperty<TerraformProperty<string>>("asset");
+        get => GetRequiredProperty<TerraformProperty<string>>("asset");
         set => this.WithProperty("asset", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleDataplexAssetIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataplexZone is required")]
     public required TerraformProperty<string> DataplexZone
     {
-        get => GetProperty<TerraformProperty<string>>("dataplex_zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataplex_zone");
         set => this.WithProperty("dataplex_zone", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleDataplexAssetIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
     public required TerraformProperty<string> Lake
     {
-        get => GetProperty<TerraformProperty<string>>("lake");
+        get => GetRequiredProperty<TerraformProperty<string>>("lake");
         set => this.WithProperty("lake", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleDataplexAssetIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

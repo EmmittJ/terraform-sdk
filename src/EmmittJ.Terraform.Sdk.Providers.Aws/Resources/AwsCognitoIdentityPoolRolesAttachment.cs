@@ -23,7 +23,7 @@ public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProvider is required")]
     public required TerraformProperty<string> IdentityProvider
     {
-        get => GetProperty<TerraformProperty<string>>("identity_provider");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_provider");
         set => WithProperty("identity_provider", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     public required TerraformProperty<string> IdentityPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_pool_id");
         set => this.WithProperty("identity_pool_id", value);
     }
 

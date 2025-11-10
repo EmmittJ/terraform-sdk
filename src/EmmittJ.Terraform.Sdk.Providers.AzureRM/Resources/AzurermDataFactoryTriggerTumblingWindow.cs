@@ -14,7 +14,7 @@ public class AzurermDataFactoryTriggerTumblingWindowPipelineBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -41,7 +41,7 @@ public class AzurermDataFactoryTriggerTumblingWindowRetryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     public required TerraformProperty<double> Count
     {
-        get => GetProperty<TerraformProperty<double>>("count");
+        get => GetRequiredProperty<TerraformProperty<double>>("count");
         set => WithProperty("count", value);
     }
 
@@ -183,7 +183,7 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetProperty<TerraformProperty<string>>("data_factory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
@@ -220,7 +220,7 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetProperty<TerraformProperty<string>>("frequency");
+        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
         set => this.WithProperty("frequency", value);
     }
 
@@ -239,7 +239,7 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformProperty<double> Interval
     {
-        get => GetProperty<TerraformProperty<double>>("interval");
+        get => GetRequiredProperty<TerraformProperty<double>>("interval");
         set => this.WithProperty("interval", value);
     }
 
@@ -258,7 +258,7 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("start_time");
         set => this.WithProperty("start_time", value);
     }
 

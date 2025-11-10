@@ -85,7 +85,7 @@ public class AwsConnectUserPhoneConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneType is required")]
     public required TerraformProperty<string> PhoneType
     {
-        get => GetProperty<TerraformProperty<string>>("phone_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("phone_type");
         set => WithProperty("phone_type", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsConnectUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -151,7 +151,7 @@ public class AwsConnectUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsConnectUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingProfileId is required")]
     public required TerraformProperty<string> RoutingProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("routing_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("routing_profile_id");
         set => this.WithProperty("routing_profile_id", value);
     }
 

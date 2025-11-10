@@ -14,7 +14,7 @@ public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformProperty<string> Product
     {
-        get => GetProperty<TerraformProperty<string>>("product");
+        get => GetRequiredProperty<TerraformProperty<string>>("product");
         set => WithProperty("product", value);
     }
 
@@ -43,7 +43,7 @@ public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => WithProperty("publisher", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermKubernetesClusterExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermKubernetesClusterExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionType is required")]
     public required TerraformProperty<string> ExtensionType
     {
-        get => GetProperty<TerraformProperty<string>>("extension_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("extension_type");
         set => this.WithProperty("extension_type", value);
     }
 
@@ -172,7 +172,7 @@ public class AzurermKubernetesClusterExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

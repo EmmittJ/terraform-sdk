@@ -23,7 +23,7 @@ public class GoogleBigqueryConnectionIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformProperty<string> ConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("connection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_id");
         set => this.WithProperty("connection_id", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleBigqueryConnectionIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

@@ -58,7 +58,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<string> Duration
     {
-        get => GetProperty<TerraformProperty<string>>("duration");
+        get => GetRequiredProperty<TerraformProperty<string>>("duration");
         set => WithProperty("duration", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Max is required")]
     public required TerraformProperty<double> Max
     {
-        get => GetProperty<TerraformProperty<double>>("max");
+        get => GetRequiredProperty<TerraformProperty<double>>("max");
         set => WithProperty("max", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     public required TerraformProperty<double> Min
     {
-        get => GetProperty<TerraformProperty<double>>("min");
+        get => GetRequiredProperty<TerraformProperty<double>>("min");
         set => WithProperty("min", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -168,7 +168,7 @@ public class AzurermIotSecurityDeviceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformProperty<string> IothubId
     {
-        get => GetProperty<TerraformProperty<string>>("iothub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("iothub_id");
         set => this.WithProperty("iothub_id", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermIotSecurityDeviceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

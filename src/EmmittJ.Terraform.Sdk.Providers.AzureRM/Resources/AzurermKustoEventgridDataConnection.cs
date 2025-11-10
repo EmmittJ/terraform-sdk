@@ -75,7 +75,7 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubConsumerGroupName is required")]
     public required TerraformProperty<string> EventhubConsumerGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_consumer_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_consumer_group_name");
         set => this.WithProperty("eventhub_consumer_group_name", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubId is required")]
     public required TerraformProperty<string> EventhubId
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_id");
         set => this.WithProperty("eventhub_id", value);
     }
 
@@ -161,7 +161,7 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -199,7 +199,7 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -209,7 +209,7 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -228,7 +228,7 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 

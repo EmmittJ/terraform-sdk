@@ -23,7 +23,7 @@ public class AzurermBatchPoolAutoScaleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Formula is required")]
     public required TerraformProperty<string> Formula
     {
-        get => GetProperty<TerraformProperty<string>>("formula");
+        get => GetRequiredProperty<TerraformProperty<string>>("formula");
         set => WithProperty("formula", value);
     }
 
@@ -41,7 +41,7 @@ public class AzurermBatchPoolCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermBatchPoolCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoreLocation is required")]
     public required TerraformProperty<string> StoreLocation
     {
-        get => GetProperty<TerraformProperty<string>>("store_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("store_location");
         set => WithProperty("store_location", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermBatchPoolDataDisksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
     public required TerraformProperty<double> DiskSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
+        get => GetRequiredProperty<TerraformProperty<double>>("disk_size_gb");
         set => WithProperty("disk_size_gb", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermBatchPoolDataDisksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
     public required TerraformProperty<double> Lun
     {
-        get => GetProperty<TerraformProperty<double>>("lun");
+        get => GetRequiredProperty<TerraformProperty<double>>("lun");
         set => WithProperty("lun", value);
     }
 
@@ -168,7 +168,7 @@ public class AzurermBatchPoolDiskEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskEncryptionTarget is required")]
     public required TerraformProperty<string> DiskEncryptionTarget
     {
-        get => GetProperty<TerraformProperty<string>>("disk_encryption_target");
+        get => GetRequiredProperty<TerraformProperty<string>>("disk_encryption_target");
         set => WithProperty("disk_encryption_target", value);
     }
 
@@ -204,7 +204,7 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -232,7 +232,7 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => WithProperty("publisher", value);
     }
 
@@ -251,7 +251,7 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -332,7 +332,7 @@ public class AzurermBatchPoolIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -472,7 +472,7 @@ public class AzurermBatchPoolStartTaskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommandLine is required")]
     public required TerraformProperty<string> CommandLine
     {
-        get => GetProperty<TerraformProperty<string>>("command_line");
+        get => GetRequiredProperty<TerraformProperty<string>>("command_line");
         set => WithProperty("command_line", value);
     }
 
@@ -631,7 +631,7 @@ public class AzurermBatchPoolUserAccountsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElevationLevel is required")]
     public required TerraformProperty<string> ElevationLevel
     {
-        get => GetProperty<TerraformProperty<string>>("elevation_level");
+        get => GetRequiredProperty<TerraformProperty<string>>("elevation_level");
         set => WithProperty("elevation_level", value);
     }
 
@@ -641,7 +641,7 @@ public class AzurermBatchPoolUserAccountsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -651,7 +651,7 @@ public class AzurermBatchPoolUserAccountsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => WithProperty("password", value);
     }
 
@@ -695,7 +695,7 @@ public class AzurermBatchPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetProperty<TerraformProperty<string>>("account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
         set => this.WithProperty("account_name", value);
     }
 
@@ -759,7 +759,7 @@ public class AzurermBatchPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -769,7 +769,7 @@ public class AzurermBatchPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeAgentSkuId is required")]
     public required TerraformProperty<string> NodeAgentSkuId
     {
-        get => GetProperty<TerraformProperty<string>>("node_agent_sku_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("node_agent_sku_id");
         set => this.WithProperty("node_agent_sku_id", value);
     }
 
@@ -788,7 +788,7 @@ public class AzurermBatchPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -816,7 +816,7 @@ public class AzurermBatchPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     public required TerraformProperty<string> VmSize
     {
-        get => GetProperty<TerraformProperty<string>>("vm_size");
+        get => GetRequiredProperty<TerraformProperty<string>>("vm_size");
         set => this.WithProperty("vm_size", value);
     }
 

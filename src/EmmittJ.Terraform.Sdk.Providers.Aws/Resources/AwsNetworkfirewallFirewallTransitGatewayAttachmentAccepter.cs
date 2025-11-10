@@ -57,7 +57,7 @@ public class AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayAttachmentId is required")]
     public required TerraformProperty<string> TransitGatewayAttachmentId
     {
-        get => GetProperty<TerraformProperty<string>>("transit_gateway_attachment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_attachment_id");
         set => this.WithProperty("transit_gateway_attachment_id", value);
     }
 

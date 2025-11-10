@@ -22,7 +22,7 @@ public class AwsIamGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformProperty<string> Group
     {
-        get => GetProperty<TerraformProperty<string>>("group");
+        get => GetRequiredProperty<TerraformProperty<string>>("group");
         set => this.WithProperty("group", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsIamGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

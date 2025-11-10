@@ -66,7 +66,7 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlan is required")]
     public required TerraformProperty<string> BackupPlan
     {
-        get => GetProperty<TerraformProperty<string>>("backup_plan");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_plan");
         set => this.WithProperty("backup_plan", value);
     }
 
@@ -76,7 +76,7 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanAssociationId is required")]
     public required TerraformProperty<string> BackupPlanAssociationId
     {
-        get => GetProperty<TerraformProperty<string>>("backup_plan_association_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_plan_association_id");
         set => this.WithProperty("backup_plan_association_id", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -114,7 +114,7 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformProperty<string> Resource
     {
-        get => GetProperty<TerraformProperty<string>>("resource");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource");
         set => this.WithProperty("resource", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
     }
 

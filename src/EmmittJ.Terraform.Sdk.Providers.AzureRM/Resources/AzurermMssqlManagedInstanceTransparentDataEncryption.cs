@@ -102,7 +102,7 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryption : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformProperty<string> ManagedInstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_instance_id");
         set => this.WithProperty("managed_instance_id", value);
     }
 

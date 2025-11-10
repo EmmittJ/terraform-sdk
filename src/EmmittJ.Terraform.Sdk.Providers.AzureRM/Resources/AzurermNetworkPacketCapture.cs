@@ -32,7 +32,7 @@ public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -184,7 +184,7 @@ public class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherName is required")]
     public required TerraformProperty<string> NetworkWatcherName
     {
-        get => GetProperty<TerraformProperty<string>>("network_watcher_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_watcher_name");
         set => this.WithProperty("network_watcher_name", value);
     }
 
@@ -204,7 +204,7 @@ public class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -214,7 +214,7 @@ public class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
         set => this.WithProperty("target_resource_id", value);
     }
 

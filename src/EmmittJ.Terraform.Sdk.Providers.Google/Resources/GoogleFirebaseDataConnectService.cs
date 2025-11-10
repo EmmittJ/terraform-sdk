@@ -121,7 +121,7 @@ public class GoogleFirebaseDataConnectService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleFirebaseDataConnectService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformProperty<string> ServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);
     }
 

@@ -60,7 +60,7 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
     public required TerraformProperty<string> CertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_id");
         set => this.WithProperty("certificate_id", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostnameBindingId is required")]
     public required TerraformProperty<string> HostnameBindingId
     {
-        get => GetProperty<TerraformProperty<string>>("hostname_binding_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("hostname_binding_id");
         set => this.WithProperty("hostname_binding_id", value);
     }
 
@@ -89,7 +89,7 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslState is required")]
     public required TerraformProperty<string> SslState
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_state");
+        get => GetRequiredProperty<TerraformProperty<string>>("ssl_state");
         set => this.WithProperty("ssl_state", value);
     }
 

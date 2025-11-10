@@ -14,7 +14,7 @@ public class AwsConfigOrganizationConformancePackInputParameterBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformProperty<string> ParameterName
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("parameter_name");
         set => WithProperty("parameter_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsConfigOrganizationConformancePackInputParameterBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformProperty<string> ParameterValue
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("parameter_value");
         set => WithProperty("parameter_value", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsConfigOrganizationConformancePack : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

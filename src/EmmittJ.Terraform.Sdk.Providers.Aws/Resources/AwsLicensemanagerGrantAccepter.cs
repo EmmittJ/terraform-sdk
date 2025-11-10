@@ -30,7 +30,7 @@ public class AwsLicensemanagerGrantAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrantArn is required")]
     public required TerraformProperty<string> GrantArn
     {
-        get => GetProperty<TerraformProperty<string>>("grant_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("grant_arn");
         set => this.WithProperty("grant_arn", value);
     }
 

@@ -30,7 +30,7 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformProperty<string> IamRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
@@ -40,7 +40,7 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectedResourceType is required")]
     public required TerraformProperty<string> ProtectedResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("protected_resource_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("protected_resource_type");
         set => this.WithProperty("protected_resource_type", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestoreTestingPlanName is required")]
     public required TerraformProperty<string> RestoreTestingPlanName
     {
-        get => GetProperty<TerraformProperty<string>>("restore_testing_plan_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("restore_testing_plan_name");
         set => this.WithProperty("restore_testing_plan_name", value);
     }
 

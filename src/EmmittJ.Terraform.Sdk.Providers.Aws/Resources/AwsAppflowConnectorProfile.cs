@@ -33,7 +33,7 @@ public class AwsAppflowConnectorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionMode is required")]
     public required TerraformProperty<string> ConnectionMode
     {
-        get => GetProperty<TerraformProperty<string>>("connection_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_mode");
         set => this.WithProperty("connection_mode", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsAppflowConnectorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
     public required TerraformProperty<string> ConnectorType
     {
-        get => GetProperty<TerraformProperty<string>>("connector_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("connector_type");
         set => this.WithProperty("connector_type", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsAppflowConnectorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -84,7 +84,7 @@ public class AzurermStorageMoverProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermStorageMoverProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageMoverId is required")]
     public required TerraformProperty<string> StorageMoverId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_mover_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_mover_id");
         set => this.WithProperty("storage_mover_id", value);
     }
 

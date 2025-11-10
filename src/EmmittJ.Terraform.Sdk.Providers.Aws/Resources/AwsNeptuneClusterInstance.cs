@@ -92,7 +92,7 @@ public class AwsNeptuneClusterInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformProperty<string> ClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsNeptuneClusterInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceClass is required")]
     public required TerraformProperty<string> InstanceClass
     {
-        get => GetProperty<TerraformProperty<string>>("instance_class");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_class");
         set => this.WithProperty("instance_class", value);
     }
 

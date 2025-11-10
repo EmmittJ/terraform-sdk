@@ -32,7 +32,7 @@ public class GoogleStorageTransferJobEventStreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleStorageTransferJobNotificationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PayloadFormat is required")]
     public required TerraformProperty<string> PayloadFormat
     {
-        get => GetProperty<TerraformProperty<string>>("payload_format");
+        get => GetRequiredProperty<TerraformProperty<string>>("payload_format");
         set => WithProperty("payload_format", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleStorageTransferJobNotificationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformProperty<string> PubsubTopic
     {
-        get => GetProperty<TerraformProperty<string>>("pubsub_topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("pubsub_topic");
         set => WithProperty("pubsub_topic", value);
     }
 
@@ -185,7 +185,7 @@ public class GoogleStorageTransferJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 

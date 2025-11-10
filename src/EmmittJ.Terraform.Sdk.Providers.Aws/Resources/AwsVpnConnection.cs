@@ -57,7 +57,7 @@ public class AwsVpnConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerGatewayId is required")]
     public required TerraformProperty<string> CustomerGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("customer_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("customer_gateway_id");
         set => this.WithProperty("customer_gateway_id", value);
     }
 
@@ -544,7 +544,7 @@ public class AwsVpnConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

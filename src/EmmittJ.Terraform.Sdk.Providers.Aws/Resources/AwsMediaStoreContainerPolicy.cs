@@ -23,7 +23,7 @@ public class AwsMediaStoreContainerPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
         set => this.WithProperty("container_name", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsMediaStoreContainerPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 

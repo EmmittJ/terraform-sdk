@@ -49,7 +49,7 @@ public class AzurermStorageTableEntityDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
     public required TerraformProperty<string> PartitionKey
     {
-        get => GetProperty<TerraformProperty<string>>("partition_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("partition_key");
         set => this.WithProperty("partition_key", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermStorageTableEntityDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
     public required TerraformProperty<string> RowKey
     {
-        get => GetProperty<TerraformProperty<string>>("row_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("row_key");
         set => this.WithProperty("row_key", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermStorageTableEntityDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
     public required TerraformProperty<string> StorageTableId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_table_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_table_id");
         set => this.WithProperty("storage_table_id", value);
     }
 

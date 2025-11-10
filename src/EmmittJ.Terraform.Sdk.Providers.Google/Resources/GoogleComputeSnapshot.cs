@@ -221,7 +221,7 @@ public class GoogleComputeSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -240,7 +240,7 @@ public class GoogleComputeSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDisk is required")]
     public required TerraformProperty<string> SourceDisk
     {
-        get => GetProperty<TerraformProperty<string>>("source_disk");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_disk");
         set => this.WithProperty("source_disk", value);
     }
 

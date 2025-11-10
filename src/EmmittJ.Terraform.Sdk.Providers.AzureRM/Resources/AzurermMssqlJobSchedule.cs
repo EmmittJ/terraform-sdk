@@ -102,7 +102,7 @@ public class AzurermMssqlJobSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
     public required TerraformProperty<string> JobId
     {
-        get => GetProperty<TerraformProperty<string>>("job_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("job_id");
         set => this.WithProperty("job_id", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermMssqlJobSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsEksAddonPodIdentityAssociationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsEksAddonPodIdentityAssociationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformProperty<string> ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_account");
         set => WithProperty("service_account", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsEksAddon : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddonName is required")]
     public required TerraformProperty<string> AddonName
     {
-        get => GetProperty<TerraformProperty<string>>("addon_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("addon_name");
         set => this.WithProperty("addon_name", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsEksAddon : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 

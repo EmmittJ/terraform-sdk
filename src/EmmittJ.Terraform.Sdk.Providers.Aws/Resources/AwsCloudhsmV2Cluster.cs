@@ -62,7 +62,7 @@ public class AwsCloudhsmV2Cluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmType is required")]
     public required TerraformProperty<string> HsmType
     {
-        get => GetProperty<TerraformProperty<string>>("hsm_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("hsm_type");
         set => this.WithProperty("hsm_type", value);
     }
 

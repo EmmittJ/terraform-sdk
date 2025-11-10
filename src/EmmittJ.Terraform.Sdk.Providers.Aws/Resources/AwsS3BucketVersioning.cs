@@ -23,7 +23,7 @@ public class AwsS3BucketVersioningVersioningConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
+        get => GetRequiredProperty<TerraformProperty<string>>("status");
         set => WithProperty("status", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsS3BucketVersioning : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 

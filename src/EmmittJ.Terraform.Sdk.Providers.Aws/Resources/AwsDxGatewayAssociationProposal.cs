@@ -33,7 +33,7 @@ public class AwsDxGatewayAssociationProposal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociatedGatewayId is required")]
     public required TerraformProperty<string> AssociatedGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("associated_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("associated_gateway_id");
         set => this.WithProperty("associated_gateway_id", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsDxGatewayAssociationProposal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DxGatewayId is required")]
     public required TerraformProperty<string> DxGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("dx_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dx_gateway_id");
         set => this.WithProperty("dx_gateway_id", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsDxGatewayAssociationProposal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DxGatewayOwnerAccountId is required")]
     public required TerraformProperty<string> DxGatewayOwnerAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("dx_gateway_owner_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dx_gateway_owner_account_id");
         set => this.WithProperty("dx_gateway_owner_account_id", value);
     }
 

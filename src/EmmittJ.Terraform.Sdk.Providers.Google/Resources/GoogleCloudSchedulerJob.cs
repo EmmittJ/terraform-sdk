@@ -51,7 +51,7 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeUri is required")]
     public required TerraformProperty<string> RelativeUri
     {
-        get => GetProperty<TerraformProperty<string>>("relative_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("relative_uri");
         set => WithProperty("relative_uri", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("uri");
         set => WithProperty("uri", value);
     }
 
@@ -144,7 +144,7 @@ public class GoogleCloudSchedulerJobPubsubTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     public required TerraformProperty<string> TopicName
     {
-        get => GetProperty<TerraformProperty<string>>("topic_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic_name");
         set => WithProperty("topic_name", value);
     }
 
@@ -304,7 +304,7 @@ public class GoogleCloudSchedulerJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

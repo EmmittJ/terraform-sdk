@@ -30,7 +30,7 @@ public class AwsAppconfigConfigurationProfileDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -40,7 +40,7 @@ public class AwsAppconfigConfigurationProfileDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationProfileId is required")]
     public required TerraformProperty<string> ConfigurationProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_profile_id");
         set => this.WithProperty("configuration_profile_id", value);
     }
 

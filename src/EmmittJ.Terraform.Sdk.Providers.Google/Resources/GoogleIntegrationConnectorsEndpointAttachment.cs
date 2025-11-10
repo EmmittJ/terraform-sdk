@@ -102,7 +102,7 @@ public class GoogleIntegrationConnectorsEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleIntegrationConnectorsEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleIntegrationConnectorsEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAttachment is required")]
     public required TerraformProperty<string> ServiceAttachment
     {
-        get => GetProperty<TerraformProperty<string>>("service_attachment");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_attachment");
         set => this.WithProperty("service_attachment", value);
     }
 

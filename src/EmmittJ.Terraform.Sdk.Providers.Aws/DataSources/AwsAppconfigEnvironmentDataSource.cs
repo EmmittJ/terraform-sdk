@@ -27,7 +27,7 @@ public class AwsAppconfigEnvironmentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsAppconfigEnvironmentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformProperty<string> EnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("environment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
     }
 

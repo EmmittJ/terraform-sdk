@@ -104,7 +104,7 @@ public class AwsRoute53ResolverRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsRoute53ResolverRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleType is required")]
     public required TerraformProperty<string> RuleType
     {
-        get => GetProperty<TerraformProperty<string>>("rule_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_type");
         set => this.WithProperty("rule_type", value);
     }
 

@@ -178,7 +178,7 @@ public class GoogleModelArmorTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -199,7 +199,7 @@ public class GoogleModelArmorTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
     public required TerraformProperty<string> TemplateId
     {
-        get => GetProperty<TerraformProperty<string>>("template_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("template_id");
         set => this.WithProperty("template_id", value);
     }
 

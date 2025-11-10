@@ -14,7 +14,7 @@ public class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     public required TerraformProperty<string> Disk
     {
-        get => GetProperty<TerraformProperty<string>>("disk");
+        get => GetRequiredProperty<TerraformProperty<string>>("disk");
         set => WithProperty("disk", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleComputeDiskAsyncReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryDisk is required")]
     public required TerraformProperty<string> PrimaryDisk
     {
-        get => GetProperty<TerraformProperty<string>>("primary_disk");
+        get => GetRequiredProperty<TerraformProperty<string>>("primary_disk");
         set => this.WithProperty("primary_disk", value);
     }
 

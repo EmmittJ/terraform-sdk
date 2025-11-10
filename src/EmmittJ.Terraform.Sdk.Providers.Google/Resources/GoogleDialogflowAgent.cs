@@ -97,7 +97,7 @@ public class GoogleDialogflowAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLanguageCode is required")]
     public required TerraformProperty<string> DefaultLanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("default_language_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_language_code");
         set => this.WithProperty("default_language_code", value);
     }
 
@@ -116,7 +116,7 @@ public class GoogleDialogflowAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -190,7 +190,7 @@ public class GoogleDialogflowAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformProperty<string> TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("time_zone");
         set => this.WithProperty("time_zone", value);
     }
 

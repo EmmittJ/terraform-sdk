@@ -23,7 +23,7 @@ public class GoogleStorageObjectSignedUrlDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleStorageObjectSignedUrlDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => this.WithProperty("path", value);
     }
 

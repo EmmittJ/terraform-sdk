@@ -23,7 +23,7 @@ public class AwsLaunchConfigurationEbsBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformProperty<string> DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_name");
         set => WithProperty("device_name", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsLaunchConfigurationEphemeralBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformProperty<string> DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_name");
         set => WithProperty("device_name", value);
     }
 
@@ -292,7 +292,7 @@ public class AwsLaunchConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageId is required")]
     public required TerraformProperty<string> ImageId
     {
-        get => GetProperty<TerraformProperty<string>>("image_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("image_id");
         set => this.WithProperty("image_id", value);
     }
 
@@ -302,7 +302,7 @@ public class AwsLaunchConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 

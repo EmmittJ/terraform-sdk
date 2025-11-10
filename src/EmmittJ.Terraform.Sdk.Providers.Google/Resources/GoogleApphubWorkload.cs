@@ -73,7 +73,7 @@ public class GoogleApphubWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleApphubWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiscoveredWorkload is required")]
     public required TerraformProperty<string> DiscoveredWorkload
     {
-        get => GetProperty<TerraformProperty<string>>("discovered_workload");
+        get => GetRequiredProperty<TerraformProperty<string>>("discovered_workload");
         set => this.WithProperty("discovered_workload", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleApphubWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -139,7 +139,7 @@ public class GoogleApphubWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadId is required")]
     public required TerraformProperty<string> WorkloadId
     {
-        get => GetProperty<TerraformProperty<string>>("workload_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workload_id");
         set => this.WithProperty("workload_id", value);
     }
 

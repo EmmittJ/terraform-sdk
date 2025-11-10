@@ -23,7 +23,7 @@ public class AzurermSecurityCenterSubscriptionPricingExtensionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermSecurityCenterSubscriptionPricing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("tier");
         set => this.WithProperty("tier", value);
     }
 

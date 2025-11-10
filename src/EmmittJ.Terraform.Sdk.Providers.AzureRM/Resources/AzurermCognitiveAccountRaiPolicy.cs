@@ -14,7 +14,7 @@ public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockEnabled is required")]
     public required TerraformProperty<bool> BlockEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("block_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("block_enabled");
         set => WithProperty("block_enabled", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterEnabled is required")]
     public required TerraformProperty<bool> FilterEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("filter_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("filter_enabled");
         set => WithProperty("filter_enabled", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -44,7 +44,7 @@ public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SeverityThreshold is required")]
     public required TerraformProperty<string> SeverityThreshold
     {
-        get => GetProperty<TerraformProperty<string>>("severity_threshold");
+        get => GetRequiredProperty<TerraformProperty<string>>("severity_threshold");
         set => WithProperty("severity_threshold", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
+        get => GetRequiredProperty<TerraformProperty<string>>("source");
         set => WithProperty("source", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermCognitiveAccountRaiPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BasePolicyName is required")]
     public required TerraformProperty<string> BasePolicyName
     {
-        get => GetProperty<TerraformProperty<string>>("base_policy_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("base_policy_name");
         set => this.WithProperty("base_policy_name", value);
     }
 
@@ -135,7 +135,7 @@ public class AzurermCognitiveAccountRaiPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
     public required TerraformProperty<string> CognitiveAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("cognitive_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cognitive_account_id");
         set => this.WithProperty("cognitive_account_id", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermCognitiveAccountRaiPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

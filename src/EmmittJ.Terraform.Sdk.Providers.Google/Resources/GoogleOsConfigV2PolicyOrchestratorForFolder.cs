@@ -108,7 +108,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
@@ -127,7 +127,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     public required TerraformProperty<string> FolderId
     {
-        get => GetProperty<TerraformProperty<string>>("folder_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("folder_id");
         set => this.WithProperty("folder_id", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyOrchestratorId is required")]
     public required TerraformProperty<string> PolicyOrchestratorId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_orchestrator_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_orchestrator_id");
         set => this.WithProperty("policy_orchestrator_id", value);
     }
 

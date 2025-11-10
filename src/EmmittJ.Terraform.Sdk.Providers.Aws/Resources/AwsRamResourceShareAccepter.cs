@@ -73,7 +73,7 @@ public class AwsRamResourceShareAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareArn is required")]
     public required TerraformProperty<string> ShareArn
     {
-        get => GetProperty<TerraformProperty<string>>("share_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("share_arn");
         set => this.WithProperty("share_arn", value);
     }
 

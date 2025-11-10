@@ -14,7 +14,7 @@ public class AwsKinesisStreamStreamModeDetailsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamMode is required")]
     public required TerraformProperty<string> StreamMode
     {
-        get => GetProperty<TerraformProperty<string>>("stream_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_mode");
         set => WithProperty("stream_mode", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsKinesisStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

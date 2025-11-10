@@ -22,7 +22,7 @@ public class AwsCloudwatchLogSubscriptionFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformProperty<string> DestinationArn
     {
-        get => GetProperty<TerraformProperty<string>>("destination_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_arn");
         set => this.WithProperty("destination_arn", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsCloudwatchLogSubscriptionFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterPattern is required")]
     public required TerraformProperty<string> FilterPattern
     {
-        get => GetProperty<TerraformProperty<string>>("filter_pattern");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter_pattern");
         set => this.WithProperty("filter_pattern", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsCloudwatchLogSubscriptionFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformProperty<string> LogGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("log_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_group_name");
         set => this.WithProperty("log_group_name", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsCloudwatchLogSubscriptionFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

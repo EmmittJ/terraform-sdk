@@ -15,7 +15,7 @@ public class GoogleDialogflowFulfillmentFeaturesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleDialogflowFulfillmentGenericWebServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("uri");
         set => WithProperty("uri", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleDialogflowFulfillment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 

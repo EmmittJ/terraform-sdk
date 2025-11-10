@@ -191,7 +191,7 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
@@ -274,7 +274,7 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -302,7 +302,7 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
@@ -330,7 +330,7 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
     public required TerraformProperty<string> RulestackId
     {
-        get => GetProperty<TerraformProperty<string>>("rulestack_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("rulestack_id");
         set => this.WithProperty("rulestack_id", value);
     }
 

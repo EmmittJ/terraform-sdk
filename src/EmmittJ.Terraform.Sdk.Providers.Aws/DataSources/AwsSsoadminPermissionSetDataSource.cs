@@ -44,7 +44,7 @@ public class AwsSsoadminPermissionSetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformProperty<string> InstanceArn
     {
-        get => GetProperty<TerraformProperty<string>>("instance_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_arn");
         set => this.WithProperty("instance_arn", value);
     }
 

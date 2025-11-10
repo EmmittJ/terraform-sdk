@@ -14,7 +14,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDay is required")]
     public required TerraformProperty<string> StartDay
     {
-        get => GetProperty<TerraformProperty<string>>("start_day");
+        get => GetRequiredProperty<TerraformProperty<string>>("start_day");
         set => WithProperty("start_day", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("start_time");
         set => WithProperty("start_time", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StopDay is required")]
     public required TerraformProperty<string> StopDay
     {
-        get => GetProperty<TerraformProperty<string>>("stop_day");
+        get => GetRequiredProperty<TerraformProperty<string>>("stop_day");
         set => WithProperty("stop_day", value);
     }
 
@@ -44,7 +44,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StopTime is required")]
     public required TerraformProperty<string> StopTime
     {
-        get => GetProperty<TerraformProperty<string>>("stop_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("stop_time");
         set => WithProperty("stop_time", value);
     }
 
@@ -135,7 +135,7 @@ public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformProperty<string> ManagedInstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_instance_id");
         set => this.WithProperty("managed_instance_id", value);
     }
 

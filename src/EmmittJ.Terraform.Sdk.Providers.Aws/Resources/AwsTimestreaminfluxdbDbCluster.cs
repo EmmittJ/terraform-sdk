@@ -71,7 +71,7 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocatedStorage is required")]
     public required TerraformProperty<double> AllocatedStorage
     {
-        get => GetProperty<TerraformProperty<double>>("allocated_storage");
+        get => GetRequiredProperty<TerraformProperty<double>>("allocated_storage");
         set => this.WithProperty("allocated_storage", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceType is required")]
     public required TerraformProperty<string> DbInstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("db_instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_instance_type");
         set => this.WithProperty("db_instance_type", value);
     }
 
@@ -148,7 +148,7 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetProperty<TerraformProperty<string>>("organization");
+        get => GetRequiredProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

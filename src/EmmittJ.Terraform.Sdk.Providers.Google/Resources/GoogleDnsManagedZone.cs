@@ -14,7 +14,7 @@ public class GoogleDnsManagedZoneCloudLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableLogging is required")]
     public required TerraformProperty<bool> EnableLogging
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_logging");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enable_logging");
         set => WithProperty("enable_logging", value);
     }
 
@@ -150,7 +150,7 @@ public class GoogleDnsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsName is required")]
     public required TerraformProperty<string> DnsName
     {
-        get => GetProperty<TerraformProperty<string>>("dns_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("dns_name");
         set => this.WithProperty("dns_name", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleDnsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

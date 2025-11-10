@@ -48,7 +48,7 @@ public class AwsQuicksightDashboardPermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal");
         set => WithProperty("principal", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsQuicksightDashboard : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DashboardId is required")]
     public required TerraformProperty<string> DashboardId
     {
-        get => GetProperty<TerraformProperty<string>>("dashboard_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dashboard_id");
         set => this.WithProperty("dashboard_id", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsQuicksightDashboard : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -199,7 +199,7 @@ public class AwsQuicksightDashboard : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionDescription is required")]
     public required TerraformProperty<string> VersionDescription
     {
-        get => GetProperty<TerraformProperty<string>>("version_description");
+        get => GetRequiredProperty<TerraformProperty<string>>("version_description");
         set => this.WithProperty("version_description", value);
     }
 

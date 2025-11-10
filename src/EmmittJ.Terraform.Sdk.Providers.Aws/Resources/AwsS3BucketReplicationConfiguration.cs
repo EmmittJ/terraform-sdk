@@ -42,7 +42,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
+        get => GetRequiredProperty<TerraformProperty<string>>("status");
         set => WithProperty("status", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsS3BucketReplicationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsS3BucketReplicationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

@@ -22,7 +22,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanTaskUiArn is required")]
     public required TerraformProperty<string> HumanTaskUiArn
     {
-        get => GetProperty<TerraformProperty<string>>("human_task_ui_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("human_task_ui_arn");
         set => WithProperty("human_task_ui_arn", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskCount is required")]
     public required TerraformProperty<double> TaskCount
     {
-        get => GetProperty<TerraformProperty<double>>("task_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("task_count");
         set => WithProperty("task_count", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDescription is required")]
     public required TerraformProperty<string> TaskDescription
     {
-        get => GetProperty<TerraformProperty<string>>("task_description");
+        get => GetRequiredProperty<TerraformProperty<string>>("task_description");
         set => WithProperty("task_description", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskTitle is required")]
     public required TerraformProperty<string> TaskTitle
     {
-        get => GetProperty<TerraformProperty<string>>("task_title");
+        get => GetRequiredProperty<TerraformProperty<string>>("task_title");
         set => WithProperty("task_title", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkteamArn is required")]
     public required TerraformProperty<string> WorkteamArn
     {
-        get => GetProperty<TerraformProperty<string>>("workteam_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("workteam_arn");
         set => WithProperty("workteam_arn", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsManagedHumanLoopRequestSource is required")]
     public required TerraformProperty<string> AwsManagedHumanLoopRequestSource
     {
-        get => GetProperty<TerraformProperty<string>>("aws_managed_human_loop_request_source");
+        get => GetRequiredProperty<TerraformProperty<string>>("aws_managed_human_loop_request_source");
         set => WithProperty("aws_managed_human_loop_request_source", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsSagemakerFlowDefinitionOutputConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3OutputPath is required")]
     public required TerraformProperty<string> S3OutputPath
     {
-        get => GetProperty<TerraformProperty<string>>("s3_output_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_output_path");
         set => WithProperty("s3_output_path", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsSagemakerFlowDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowDefinitionName is required")]
     public required TerraformProperty<string> FlowDefinitionName
     {
-        get => GetProperty<TerraformProperty<string>>("flow_definition_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("flow_definition_name");
         set => this.WithProperty("flow_definition_name", value);
     }
 
@@ -190,7 +190,7 @@ public class AwsSagemakerFlowDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

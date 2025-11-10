@@ -23,7 +23,7 @@ public class GoogleHealthcareConsentStoreIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsentStoreId is required")]
     public required TerraformProperty<string> ConsentStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("consent_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("consent_store_id");
         set => this.WithProperty("consent_store_id", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleHealthcareConsentStoreIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformProperty<string> Dataset
     {
-        get => GetProperty<TerraformProperty<string>>("dataset");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset");
         set => this.WithProperty("dataset", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleHealthcareConsentStoreIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

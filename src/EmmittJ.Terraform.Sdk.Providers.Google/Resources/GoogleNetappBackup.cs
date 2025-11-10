@@ -97,7 +97,7 @@ public class GoogleNetappBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleNetappBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleNetappBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultName is required")]
     public required TerraformProperty<string> VaultName
     {
-        get => GetProperty<TerraformProperty<string>>("vault_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("vault_name");
         set => this.WithProperty("vault_name", value);
     }
 

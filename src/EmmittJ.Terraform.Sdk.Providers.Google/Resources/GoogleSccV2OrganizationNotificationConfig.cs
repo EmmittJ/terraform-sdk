@@ -38,7 +38,7 @@ public class GoogleSccV2OrganizationNotificationConfigStreamingConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => WithProperty("filter", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleSccV2OrganizationNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
     public required TerraformProperty<string> ConfigId
     {
-        get => GetProperty<TerraformProperty<string>>("config_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("config_id");
         set => this.WithProperty("config_id", value);
     }
 
@@ -140,7 +140,7 @@ public class GoogleSccV2OrganizationNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetProperty<TerraformProperty<string>>("organization");
+        get => GetRequiredProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 
@@ -151,7 +151,7 @@ public class GoogleSccV2OrganizationNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformProperty<string> PubsubTopic
     {
-        get => GetProperty<TerraformProperty<string>>("pubsub_topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("pubsub_topic");
         set => this.WithProperty("pubsub_topic", value);
     }
 

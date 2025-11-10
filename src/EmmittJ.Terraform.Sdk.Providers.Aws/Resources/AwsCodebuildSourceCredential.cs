@@ -23,7 +23,7 @@ public class AwsCodebuildSourceCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformProperty<string> AuthType
     {
-        get => GetProperty<TerraformProperty<string>>("auth_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("auth_type");
         set => this.WithProperty("auth_type", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsCodebuildSourceCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerType is required")]
     public required TerraformProperty<string> ServerType
     {
-        get => GetProperty<TerraformProperty<string>>("server_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_type");
         set => this.WithProperty("server_type", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsCodebuildSourceCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformProperty<string> Token
     {
-        get => GetProperty<TerraformProperty<string>>("token");
+        get => GetRequiredProperty<TerraformProperty<string>>("token");
         set => this.WithProperty("token", value);
     }
 

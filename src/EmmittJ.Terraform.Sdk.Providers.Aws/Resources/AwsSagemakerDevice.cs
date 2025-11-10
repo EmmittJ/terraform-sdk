@@ -23,7 +23,7 @@ public class AwsSagemakerDeviceDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformProperty<string> DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_name");
         set => WithProperty("device_name", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsSagemakerDevice : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceFleetName is required")]
     public required TerraformProperty<string> DeviceFleetName
     {
-        get => GetProperty<TerraformProperty<string>>("device_fleet_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_fleet_name");
         set => this.WithProperty("device_fleet_name", value);
     }
 

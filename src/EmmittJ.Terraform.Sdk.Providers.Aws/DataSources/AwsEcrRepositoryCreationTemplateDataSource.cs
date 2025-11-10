@@ -40,7 +40,7 @@ public class AwsEcrRepositoryCreationTemplateDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformProperty<string> Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("prefix");
         set => this.WithProperty("prefix", value);
     }
 

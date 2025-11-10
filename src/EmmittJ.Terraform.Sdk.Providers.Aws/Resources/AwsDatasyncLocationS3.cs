@@ -14,7 +14,7 @@ public class AwsDatasyncLocationS3S3ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketAccessRoleArn is required")]
     public required TerraformProperty<string> BucketAccessRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_access_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket_access_role_arn");
         set => WithProperty("bucket_access_role_arn", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsDatasyncLocationS3 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketArn is required")]
     public required TerraformProperty<string> S3BucketArn
     {
-        get => GetProperty<TerraformProperty<string>>("s3_bucket_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket_arn");
         set => this.WithProperty("s3_bucket_arn", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsDatasyncLocationS3 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subdirectory is required")]
     public required TerraformProperty<string> Subdirectory
     {
-        get => GetProperty<TerraformProperty<string>>("subdirectory");
+        get => GetRequiredProperty<TerraformProperty<string>>("subdirectory");
         set => this.WithProperty("subdirectory", value);
     }
 

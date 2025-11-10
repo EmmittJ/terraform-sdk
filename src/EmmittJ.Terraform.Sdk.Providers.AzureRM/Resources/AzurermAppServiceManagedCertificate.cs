@@ -74,7 +74,7 @@ public class AzurermAppServiceManagedCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomHostnameBindingId is required")]
     public required TerraformProperty<string> CustomHostnameBindingId
     {
-        get => GetProperty<TerraformProperty<string>>("custom_hostname_binding_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("custom_hostname_binding_id");
         set => this.WithProperty("custom_hostname_binding_id", value);
     }
 

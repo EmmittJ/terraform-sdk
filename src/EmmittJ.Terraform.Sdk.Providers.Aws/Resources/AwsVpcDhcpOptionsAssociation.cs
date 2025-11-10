@@ -22,7 +22,7 @@ public class AwsVpcDhcpOptionsAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DhcpOptionsId is required")]
     public required TerraformProperty<string> DhcpOptionsId
     {
-        get => GetProperty<TerraformProperty<string>>("dhcp_options_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dhcp_options_id");
         set => this.WithProperty("dhcp_options_id", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsVpcDhcpOptionsAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

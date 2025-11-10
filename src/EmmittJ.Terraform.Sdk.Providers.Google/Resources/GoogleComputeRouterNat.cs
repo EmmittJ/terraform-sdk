@@ -14,7 +14,7 @@ public class GoogleComputeRouterNatLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     public required TerraformProperty<bool> Enable
     {
-        get => GetProperty<TerraformProperty<bool>>("enable");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enable");
         set => WithProperty("enable", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleComputeRouterNatLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => WithProperty("filter", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleComputeRouterNatNat64SubnetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleComputeRouterNatRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Match is required")]
     public required TerraformProperty<string> Match
     {
-        get => GetProperty<TerraformProperty<string>>("match");
+        get => GetRequiredProperty<TerraformProperty<string>>("match");
         set => WithProperty("match", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleComputeRouterNatRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformProperty<double> RuleNumber
     {
-        get => GetProperty<TerraformProperty<double>>("rule_number");
+        get => GetRequiredProperty<TerraformProperty<double>>("rule_number");
         set => WithProperty("rule_number", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleComputeRouterNatSubnetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleComputeRouterNat : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -354,7 +354,7 @@ public class GoogleComputeRouterNat : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformProperty<string> Router
     {
-        get => GetProperty<TerraformProperty<string>>("router");
+        get => GetRequiredProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);
     }
 
@@ -373,7 +373,7 @@ public class GoogleComputeRouterNat : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSubnetworkIpRangesToNat is required")]
     public required TerraformProperty<string> SourceSubnetworkIpRangesToNat
     {
-        get => GetProperty<TerraformProperty<string>>("source_subnetwork_ip_ranges_to_nat");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_subnetwork_ip_ranges_to_nat");
         set => this.WithProperty("source_subnetwork_ip_ranges_to_nat", value);
     }
 

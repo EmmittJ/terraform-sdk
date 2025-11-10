@@ -24,7 +24,7 @@ public class GoogleAccessApprovalFolderServiceAccountDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     public required TerraformProperty<string> FolderId
     {
-        get => GetProperty<TerraformProperty<string>>("folder_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("folder_id");
         set => this.WithProperty("folder_id", value);
     }
 

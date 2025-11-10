@@ -18,7 +18,7 @@ public class GoogleFirebaseAppHostingBackendCodebaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformProperty<string> Repository
     {
-        get => GetProperty<TerraformProperty<string>>("repository");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository");
         set => WithProperty("repository", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetProperty<TerraformProperty<string>>("app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendId is required")]
     public required TerraformProperty<string> BackendId
     {
-        get => GetProperty<TerraformProperty<string>>("backend_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("backend_id");
         set => this.WithProperty("backend_id", value);
     }
 
@@ -179,7 +179,7 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -200,7 +200,7 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformProperty<string> ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_account");
         set => this.WithProperty("service_account", value);
     }
 
@@ -212,7 +212,7 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServingLocality is required")]
     public required TerraformProperty<string> ServingLocality
     {
-        get => GetProperty<TerraformProperty<string>>("serving_locality");
+        get => GetRequiredProperty<TerraformProperty<string>>("serving_locality");
         set => this.WithProperty("serving_locality", value);
     }
 

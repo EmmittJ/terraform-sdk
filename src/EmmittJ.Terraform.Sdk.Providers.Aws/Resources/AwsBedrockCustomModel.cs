@@ -14,7 +14,7 @@ public class AwsBedrockCustomModelOutputDataConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformProperty<string> S3Uri
     {
-        get => GetProperty<TerraformProperty<string>>("s3_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_uri");
         set => WithProperty("s3_uri", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsBedrockCustomModelTrainingDataConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformProperty<string> S3Uri
     {
-        get => GetProperty<TerraformProperty<string>>("s3_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_uri");
         set => WithProperty("s3_uri", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsBedrockCustomModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseModelIdentifier is required")]
     public required TerraformProperty<string> BaseModelIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("base_model_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("base_model_identifier");
         set => this.WithProperty("base_model_identifier", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsBedrockCustomModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomModelName is required")]
     public required TerraformProperty<string> CustomModelName
     {
-        get => GetProperty<TerraformProperty<string>>("custom_model_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("custom_model_name");
         set => this.WithProperty("custom_model_name", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsBedrockCustomModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobName is required")]
     public required TerraformProperty<string> JobName
     {
-        get => GetProperty<TerraformProperty<string>>("job_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("job_name");
         set => this.WithProperty("job_name", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsBedrockCustomModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

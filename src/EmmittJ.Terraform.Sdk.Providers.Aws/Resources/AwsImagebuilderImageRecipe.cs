@@ -49,7 +49,7 @@ public class AwsImagebuilderImageRecipeComponentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentArn is required")]
     public required TerraformProperty<string> ComponentArn
     {
-        get => GetProperty<TerraformProperty<string>>("component_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("component_arn");
         set => WithProperty("component_arn", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsImagebuilderImageRecipeSystemsManagerAgentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UninstallAfterBuild is required")]
     public required TerraformProperty<bool> UninstallAfterBuild
     {
-        get => GetProperty<TerraformProperty<bool>>("uninstall_after_build");
+        get => GetRequiredProperty<TerraformProperty<bool>>("uninstall_after_build");
         set => WithProperty("uninstall_after_build", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentImage is required")]
     public required TerraformProperty<string> ParentImage
     {
-        get => GetProperty<TerraformProperty<string>>("parent_image");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent_image");
         set => this.WithProperty("parent_image", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

@@ -41,7 +41,7 @@ public class AwsVpcEndpointConnectionAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointId is required")]
     public required TerraformProperty<string> VpcEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_endpoint_id");
         set => this.WithProperty("vpc_endpoint_id", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsVpcEndpointConnectionAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointServiceId is required")]
     public required TerraformProperty<string> VpcEndpointServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_endpoint_service_id");
         set => this.WithProperty("vpc_endpoint_service_id", value);
     }
 

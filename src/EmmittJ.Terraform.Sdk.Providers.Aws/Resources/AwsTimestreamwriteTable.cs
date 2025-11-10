@@ -31,7 +31,7 @@ public class AwsTimestreamwriteTableRetentionPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MagneticStoreRetentionPeriodInDays is required")]
     public required TerraformProperty<double> MagneticStoreRetentionPeriodInDays
     {
-        get => GetProperty<TerraformProperty<double>>("magnetic_store_retention_period_in_days");
+        get => GetRequiredProperty<TerraformProperty<double>>("magnetic_store_retention_period_in_days");
         set => WithProperty("magnetic_store_retention_period_in_days", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsTimestreamwriteTableRetentionPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryStoreRetentionPeriodInHours is required")]
     public required TerraformProperty<double> MemoryStoreRetentionPeriodInHours
     {
-        get => GetProperty<TerraformProperty<double>>("memory_store_retention_period_in_hours");
+        get => GetRequiredProperty<TerraformProperty<double>>("memory_store_retention_period_in_hours");
         set => WithProperty("memory_store_retention_period_in_hours", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsTimestreamwriteTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsTimestreamwriteTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
     }
 

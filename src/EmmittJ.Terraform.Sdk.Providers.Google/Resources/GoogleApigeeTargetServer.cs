@@ -32,7 +32,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -158,7 +158,7 @@ public class GoogleApigeeTargetServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformProperty<string> EnvId
     {
-        get => GetProperty<TerraformProperty<string>>("env_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("env_id");
         set => this.WithProperty("env_id", value);
     }
 
@@ -168,7 +168,7 @@ public class GoogleApigeeTargetServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformProperty<string> Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
+        get => GetRequiredProperty<TerraformProperty<string>>("host");
         set => this.WithProperty("host", value);
     }
 
@@ -196,7 +196,7 @@ public class GoogleApigeeTargetServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -206,7 +206,7 @@ public class GoogleApigeeTargetServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 

@@ -101,7 +101,7 @@ public class AwsLightsailContainerService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsLightsailContainerService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Power is required")]
     public required TerraformProperty<string> Power
     {
-        get => GetProperty<TerraformProperty<string>>("power");
+        get => GetRequiredProperty<TerraformProperty<string>>("power");
         set => this.WithProperty("power", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsLightsailContainerService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scale is required")]
     public required TerraformProperty<double> Scale
     {
-        get => GetProperty<TerraformProperty<double>>("scale");
+        get => GetRequiredProperty<TerraformProperty<double>>("scale");
         set => this.WithProperty("scale", value);
     }
 

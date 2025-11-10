@@ -42,7 +42,7 @@ public class AwsChimeVoiceConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsChimeVoiceConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequireEncryption is required")]
     public required TerraformProperty<bool> RequireEncryption
     {
-        get => GetProperty<TerraformProperty<bool>>("require_encryption");
+        get => GetRequiredProperty<TerraformProperty<bool>>("require_encryption");
         set => this.WithProperty("require_encryption", value);
     }
 

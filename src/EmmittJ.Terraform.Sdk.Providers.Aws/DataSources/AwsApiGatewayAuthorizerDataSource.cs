@@ -31,7 +31,7 @@ public class AwsApiGatewayAuthorizerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerId is required")]
     public required TerraformProperty<string> AuthorizerId
     {
-        get => GetProperty<TerraformProperty<string>>("authorizer_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("authorizer_id");
         set => this.WithProperty("authorizer_id", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsApiGatewayAuthorizerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformProperty<string> RestApiId
     {
-        get => GetProperty<TerraformProperty<string>>("rest_api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
     }
 

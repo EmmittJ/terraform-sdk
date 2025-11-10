@@ -166,7 +166,7 @@ public class AzurermServicebusSubscriptionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformProperty<string> FilterType
     {
-        get => GetProperty<TerraformProperty<string>>("filter_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter_type");
         set => this.WithProperty("filter_type", value);
     }
 
@@ -185,7 +185,7 @@ public class AzurermServicebusSubscriptionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -204,7 +204,7 @@ public class AzurermServicebusSubscriptionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 

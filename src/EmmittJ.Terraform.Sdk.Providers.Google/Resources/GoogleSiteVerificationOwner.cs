@@ -48,7 +48,7 @@ public class GoogleSiteVerificationOwner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
+        get => GetRequiredProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);
     }
 
@@ -67,7 +67,7 @@ public class GoogleSiteVerificationOwner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebResourceId is required")]
     public required TerraformProperty<string> WebResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("web_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("web_resource_id");
         set => this.WithProperty("web_resource_id", value);
     }
 

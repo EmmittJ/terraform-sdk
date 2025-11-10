@@ -58,7 +58,7 @@ public class AwsCleanroomsMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaborationId is required")]
     public required TerraformProperty<string> CollaborationId
     {
-        get => GetProperty<TerraformProperty<string>>("collaboration_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("collaboration_id");
         set => this.WithProperty("collaboration_id", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsCleanroomsMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryLogStatus is required")]
     public required TerraformProperty<string> QueryLogStatus
     {
-        get => GetProperty<TerraformProperty<string>>("query_log_status");
+        get => GetRequiredProperty<TerraformProperty<string>>("query_log_status");
         set => this.WithProperty("query_log_status", value);
     }
 

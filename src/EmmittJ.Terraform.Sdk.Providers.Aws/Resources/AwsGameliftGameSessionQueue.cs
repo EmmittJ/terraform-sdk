@@ -14,7 +14,7 @@ public class AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumIndividualPlayerLatencyMilliseconds is required")]
     public required TerraformProperty<double> MaximumIndividualPlayerLatencyMilliseconds
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_individual_player_latency_milliseconds");
+        get => GetRequiredProperty<TerraformProperty<double>>("maximum_individual_player_latency_milliseconds");
         set => WithProperty("maximum_individual_player_latency_milliseconds", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsGameliftGameSessionQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

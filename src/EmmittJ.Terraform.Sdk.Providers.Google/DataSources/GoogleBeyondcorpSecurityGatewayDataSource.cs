@@ -54,7 +54,7 @@ public class GoogleBeyondcorpSecurityGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     public required TerraformProperty<string> SecurityGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("security_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_gateway_id");
         set => this.WithProperty("security_gateway_id", value);
     }
 

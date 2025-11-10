@@ -23,7 +23,7 @@ public class AzurermWebPubsubHubEventHandlerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlTemplate is required")]
     public required TerraformProperty<string> UrlTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("url_template");
+        get => GetRequiredProperty<TerraformProperty<string>>("url_template");
         set => WithProperty("url_template", value);
     }
 
@@ -50,7 +50,7 @@ public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformProperty<string> EventhubName
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_name");
         set => WithProperty("eventhub_name", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceName is required")]
     public required TerraformProperty<string> EventhubNamespaceName
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_namespace_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_namespace_name");
         set => WithProperty("eventhub_namespace_name", value);
     }
 
@@ -166,7 +166,7 @@ public class AzurermWebPubsubHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -176,7 +176,7 @@ public class AzurermWebPubsubHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     public required TerraformProperty<string> WebPubsubId
     {
-        get => GetProperty<TerraformProperty<string>>("web_pubsub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("web_pubsub_id");
         set => this.WithProperty("web_pubsub_id", value);
     }
 

@@ -110,7 +110,7 @@ public class AwsElasticacheGlobalReplicationGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalReplicationGroupIdSuffix is required")]
     public required TerraformProperty<string> GlobalReplicationGroupIdSuffix
     {
-        get => GetProperty<TerraformProperty<string>>("global_replication_group_id_suffix");
+        get => GetRequiredProperty<TerraformProperty<string>>("global_replication_group_id_suffix");
         set => this.WithProperty("global_replication_group_id_suffix", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsElasticacheGlobalReplicationGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryReplicationGroupId is required")]
     public required TerraformProperty<string> PrimaryReplicationGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("primary_replication_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("primary_replication_group_id");
         set => this.WithProperty("primary_replication_group_id", value);
     }
 

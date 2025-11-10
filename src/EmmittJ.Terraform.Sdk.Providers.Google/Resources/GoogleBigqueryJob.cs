@@ -403,7 +403,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetProperty<TerraformProperty<string>>("query");
+        get => GetRequiredProperty<TerraformProperty<string>>("query");
         set => WithProperty("query", value);
     }
 
@@ -529,7 +529,7 @@ public class GoogleBigqueryJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
     public required TerraformProperty<string> JobId
     {
-        get => GetProperty<TerraformProperty<string>>("job_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("job_id");
         set => this.WithProperty("job_id", value);
     }
 

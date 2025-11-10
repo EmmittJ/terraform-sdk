@@ -63,7 +63,7 @@ public class AwsFinspaceKxScalingGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZoneId is required")]
     public required TerraformProperty<string> AvailabilityZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("availability_zone_id");
         set => this.WithProperty("availability_zone_id", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsFinspaceKxScalingGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformProperty<string> EnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("environment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsFinspaceKxScalingGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostType is required")]
     public required TerraformProperty<string> HostType
     {
-        get => GetProperty<TerraformProperty<string>>("host_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_type");
         set => this.WithProperty("host_type", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsFinspaceKxScalingGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

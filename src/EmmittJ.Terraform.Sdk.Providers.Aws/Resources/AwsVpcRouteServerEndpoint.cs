@@ -63,7 +63,7 @@ public class AwsVpcRouteServerEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteServerId is required")]
     public required TerraformProperty<string> RouteServerId
     {
-        get => GetProperty<TerraformProperty<string>>("route_server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("route_server_id");
         set => this.WithProperty("route_server_id", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsVpcRouteServerEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

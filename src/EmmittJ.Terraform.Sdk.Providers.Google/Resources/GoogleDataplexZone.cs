@@ -14,7 +14,7 @@ public class GoogleDataplexZoneDiscoverySpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleDataplexZoneResourceSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationType is required")]
     public required TerraformProperty<string> LocationType
     {
-        get => GetProperty<TerraformProperty<string>>("location_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("location_type");
         set => WithProperty("location_type", value);
     }
 
@@ -167,7 +167,7 @@ public class GoogleDataplexZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
     public required TerraformProperty<string> Lake
     {
-        get => GetProperty<TerraformProperty<string>>("lake");
+        get => GetRequiredProperty<TerraformProperty<string>>("lake");
         set => this.WithProperty("lake", value);
     }
 
@@ -177,7 +177,7 @@ public class GoogleDataplexZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -187,7 +187,7 @@ public class GoogleDataplexZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -206,7 +206,7 @@ public class GoogleDataplexZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

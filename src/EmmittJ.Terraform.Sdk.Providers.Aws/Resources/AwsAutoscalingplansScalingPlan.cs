@@ -40,7 +40,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     public required TerraformProperty<double> MaxCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("max_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_capacity");
         set => WithProperty("max_capacity", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformProperty<double> MinCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("min_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_capacity");
         set => WithProperty("min_capacity", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
         set => WithProperty("resource_id", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalableDimension is required")]
     public required TerraformProperty<string> ScalableDimension
     {
-        get => GetProperty<TerraformProperty<string>>("scalable_dimension");
+        get => GetRequiredProperty<TerraformProperty<string>>("scalable_dimension");
         set => WithProperty("scalable_dimension", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     public required TerraformProperty<string> ServiceNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("service_namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_namespace");
         set => WithProperty("service_namespace", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsAutoscalingplansScalingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

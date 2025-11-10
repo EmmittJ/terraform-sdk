@@ -53,7 +53,7 @@ public class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformProperty<string> ManagedInstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_instance_id");
         set => this.WithProperty("managed_instance_id", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

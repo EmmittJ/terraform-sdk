@@ -66,7 +66,7 @@ public class AzurermContainerAppEnvironmentCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBlobBase64 is required")]
     public required TerraformProperty<string> CertificateBlobBase64
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_blob_base64");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_blob_base64");
         set => this.WithProperty("certificate_blob_base64", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermContainerAppEnvironmentCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificatePassword is required")]
     public required TerraformProperty<string> CertificatePassword
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_password");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_password");
         set => this.WithProperty("certificate_password", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermContainerAppEnvironmentCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformProperty<string> ContainerAppEnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("container_app_environment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_app_environment_id");
         set => this.WithProperty("container_app_environment_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermContainerAppEnvironmentCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsSuffix is required")]
     public required TerraformProperty<string> DnsSuffix
     {
-        get => GetProperty<TerraformProperty<string>>("dns_suffix");
+        get => GetRequiredProperty<TerraformProperty<string>>("dns_suffix");
         set => this.WithProperty("dns_suffix", value);
     }
 

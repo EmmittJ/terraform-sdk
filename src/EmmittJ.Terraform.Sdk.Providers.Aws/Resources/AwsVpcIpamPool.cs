@@ -61,7 +61,7 @@ public class AwsVpcIpamPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
     public required TerraformProperty<string> AddressFamily
     {
-        get => GetProperty<TerraformProperty<string>>("address_family");
+        get => GetRequiredProperty<TerraformProperty<string>>("address_family");
         set => this.WithProperty("address_family", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsVpcIpamPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamScopeId is required")]
     public required TerraformProperty<string> IpamScopeId
     {
-        get => GetProperty<TerraformProperty<string>>("ipam_scope_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("ipam_scope_id");
         set => this.WithProperty("ipam_scope_id", value);
     }
 

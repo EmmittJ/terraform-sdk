@@ -40,7 +40,7 @@ public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformProperty<string> Algorithm
     {
-        get => GetProperty<TerraformProperty<string>>("algorithm");
+        get => GetRequiredProperty<TerraformProperty<string>>("algorithm");
         set => this.WithProperty("algorithm", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
         set => this.WithProperty("key_vault_key_id", value);
     }
 

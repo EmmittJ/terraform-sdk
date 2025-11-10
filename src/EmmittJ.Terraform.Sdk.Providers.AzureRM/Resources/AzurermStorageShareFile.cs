@@ -121,7 +121,7 @@ public class AzurermStorageShareFile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermStorageShareFile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageShareId is required")]
     public required TerraformProperty<string> StorageShareId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_share_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_share_id");
         set => this.WithProperty("storage_share_id", value);
     }
 

@@ -14,7 +14,7 @@ public class GoogleStorageTransferAgentPoolBandwidthLimitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LimitMbps is required")]
     public required TerraformProperty<string> LimitMbps
     {
-        get => GetProperty<TerraformProperty<string>>("limit_mbps");
+        get => GetRequiredProperty<TerraformProperty<string>>("limit_mbps");
         set => WithProperty("limit_mbps", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleStorageTransferAgentPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

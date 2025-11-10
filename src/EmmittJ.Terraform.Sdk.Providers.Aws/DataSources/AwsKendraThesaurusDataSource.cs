@@ -43,7 +43,7 @@ public class AwsKendraThesaurusDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexId is required")]
     public required TerraformProperty<string> IndexId
     {
-        get => GetProperty<TerraformProperty<string>>("index_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("index_id");
         set => this.WithProperty("index_id", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsKendraThesaurusDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThesaurusId is required")]
     public required TerraformProperty<string> ThesaurusId
     {
-        get => GetProperty<TerraformProperty<string>>("thesaurus_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("thesaurus_id");
         set => this.WithProperty("thesaurus_id", value);
     }
 

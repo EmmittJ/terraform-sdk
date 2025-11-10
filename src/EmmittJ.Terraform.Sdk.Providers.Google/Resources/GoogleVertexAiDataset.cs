@@ -81,7 +81,7 @@ public class GoogleVertexAiDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleVertexAiDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetadataSchemaUri is required")]
     public required TerraformProperty<string> MetadataSchemaUri
     {
-        get => GetProperty<TerraformProperty<string>>("metadata_schema_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("metadata_schema_uri");
         set => this.WithProperty("metadata_schema_uri", value);
     }
 

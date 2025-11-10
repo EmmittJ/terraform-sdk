@@ -138,7 +138,7 @@ public class AzurermSpringCloudDevToolPortal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermSpringCloudDevToolPortal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsChimeVoiceConnectorGroupConnectorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsChimeVoiceConnectorGroupConnectorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     public required TerraformProperty<string> VoiceConnectorId
     {
-        get => GetProperty<TerraformProperty<string>>("voice_connector_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("voice_connector_id");
         set => WithProperty("voice_connector_id", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsChimeVoiceConnectorGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

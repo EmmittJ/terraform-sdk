@@ -49,7 +49,7 @@ public class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobDefinition is required")]
     public required TerraformProperty<string> JobDefinition
     {
-        get => GetProperty<TerraformProperty<string>>("job_definition");
+        get => GetRequiredProperty<TerraformProperty<string>>("job_definition");
         set => WithProperty("job_definition", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobName is required")]
     public required TerraformProperty<string> JobName
     {
-        get => GetProperty<TerraformProperty<string>>("job_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("job_name");
         set => WithProperty("job_name", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinitionArn is required")]
     public required TerraformProperty<string> TaskDefinitionArn
     {
-        get => GetProperty<TerraformProperty<string>>("task_definition_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("task_definition_arn");
         set => WithProperty("task_definition_arn", value);
     }
 
@@ -228,7 +228,7 @@ public class AwsCloudwatchEventTargetInputTransformerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputTemplate is required")]
     public required TerraformProperty<string> InputTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("input_template");
+        get => GetRequiredProperty<TerraformProperty<string>>("input_template");
         set => WithProperty("input_template", value);
     }
 
@@ -263,7 +263,7 @@ public class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetProperty<TerraformProperty<string>>("database");
+        get => GetRequiredProperty<TerraformProperty<string>>("database");
         set => WithProperty("database", value);
     }
 
@@ -352,7 +352,7 @@ public class AwsCloudwatchEventTargetRunCommandTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -414,7 +414,7 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("arn");
         set => this.WithProperty("arn", value);
     }
 
@@ -487,7 +487,7 @@ public class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformProperty<string> Rule
     {
-        get => GetProperty<TerraformProperty<string>>("rule");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule");
         set => this.WithProperty("rule", value);
     }
 

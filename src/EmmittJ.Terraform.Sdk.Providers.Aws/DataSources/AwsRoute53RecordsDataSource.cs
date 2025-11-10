@@ -32,7 +32,7 @@ public class AwsRoute53RecordsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformProperty<string> ZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone_id");
         set => this.WithProperty("zone_id", value);
     }
 

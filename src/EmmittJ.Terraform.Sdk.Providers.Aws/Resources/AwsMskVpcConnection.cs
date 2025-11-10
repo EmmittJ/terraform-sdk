@@ -23,7 +23,7 @@ public class AwsMskVpcConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     public required TerraformProperty<string> Authentication
     {
-        get => GetProperty<TerraformProperty<string>>("authentication");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication");
         set => this.WithProperty("authentication", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsMskVpcConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetClusterArn is required")]
     public required TerraformProperty<string> TargetClusterArn
     {
-        get => GetProperty<TerraformProperty<string>>("target_cluster_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_cluster_arn");
         set => this.WithProperty("target_cluster_arn", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsMskVpcConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

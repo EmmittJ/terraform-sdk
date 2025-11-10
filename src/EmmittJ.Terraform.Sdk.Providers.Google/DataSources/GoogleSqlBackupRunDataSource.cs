@@ -43,7 +43,7 @@ public class GoogleSqlBackupRunDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 

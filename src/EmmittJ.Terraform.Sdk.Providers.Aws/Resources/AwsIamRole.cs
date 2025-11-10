@@ -51,7 +51,7 @@ public class AwsIamRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssumeRolePolicy is required")]
     public required TerraformProperty<string> AssumeRolePolicy
     {
-        get => GetProperty<TerraformProperty<string>>("assume_role_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("assume_role_policy");
         set => this.WithProperty("assume_role_policy", value);
     }
 

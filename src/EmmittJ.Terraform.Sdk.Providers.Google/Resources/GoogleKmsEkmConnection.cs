@@ -23,7 +23,7 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetProperty<TerraformProperty<string>>("hostname");
+        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
         set => WithProperty("hostname", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceDirectoryService is required")]
     public required TerraformProperty<string> ServiceDirectoryService
     {
-        get => GetProperty<TerraformProperty<string>>("service_directory_service");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_directory_service");
         set => WithProperty("service_directory_service", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleKmsEkmConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleKmsEkmConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

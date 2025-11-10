@@ -209,7 +209,7 @@ public class AwsDatasyncTaskScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformProperty<string> ScheduleExpression
     {
-        get => GetProperty<TerraformProperty<string>>("schedule_expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("schedule_expression");
         set => WithProperty("schedule_expression", value);
     }
 
@@ -298,7 +298,7 @@ public class AwsDatasyncTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationLocationArn is required")]
     public required TerraformProperty<string> DestinationLocationArn
     {
-        get => GetProperty<TerraformProperty<string>>("destination_location_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_location_arn");
         set => this.WithProperty("destination_location_arn", value);
     }
 
@@ -335,7 +335,7 @@ public class AwsDatasyncTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceLocationArn is required")]
     public required TerraformProperty<string> SourceLocationArn
     {
-        get => GetProperty<TerraformProperty<string>>("source_location_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_location_arn");
         set => this.WithProperty("source_location_arn", value);
     }
 

@@ -53,7 +53,7 @@ public class AzurermDataShareDatasetDataLakeGen2DataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermDataShareDatasetDataLakeGen2DataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareId is required")]
     public required TerraformProperty<string> ShareId
     {
-        get => GetProperty<TerraformProperty<string>>("share_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("share_id");
         set => this.WithProperty("share_id", value);
     }
 

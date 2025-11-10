@@ -26,7 +26,7 @@ public class AwsRedshiftserverlessEndpointAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointName is required")]
     public required TerraformProperty<string> EndpointName
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_name");
         set => this.WithProperty("endpoint_name", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsRedshiftserverlessEndpointAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
     public required TerraformProperty<string> WorkgroupName
     {
-        get => GetProperty<TerraformProperty<string>>("workgroup_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("workgroup_name");
         set => this.WithProperty("workgroup_name", value);
     }
 

@@ -14,7 +14,7 @@ public class GoogleChronicleReferenceListEntriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -89,7 +89,7 @@ public class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -142,7 +142,7 @@ public class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceListId is required")]
     public required TerraformProperty<string> ReferenceListId
     {
-        get => GetProperty<TerraformProperty<string>>("reference_list_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("reference_list_id");
         set => this.WithProperty("reference_list_id", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SyntaxType is required")]
     public required TerraformProperty<string> SyntaxType
     {
-        get => GetProperty<TerraformProperty<string>>("syntax_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("syntax_type");
         set => this.WithProperty("syntax_type", value);
     }
 

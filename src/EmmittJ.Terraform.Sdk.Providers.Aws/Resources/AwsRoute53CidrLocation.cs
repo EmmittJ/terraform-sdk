@@ -33,7 +33,7 @@ public class AwsRoute53CidrLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrCollectionId is required")]
     public required TerraformProperty<string> CidrCollectionId
     {
-        get => GetProperty<TerraformProperty<string>>("cidr_collection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cidr_collection_id");
         set => this.WithProperty("cidr_collection_id", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsRoute53CidrLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

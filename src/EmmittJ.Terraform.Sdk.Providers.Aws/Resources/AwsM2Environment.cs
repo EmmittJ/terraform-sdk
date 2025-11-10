@@ -14,7 +14,7 @@ public class AwsM2EnvironmentHighAvailabilityConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredCapacity is required")]
     public required TerraformProperty<double> DesiredCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("desired_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("desired_capacity");
         set => WithProperty("desired_capacity", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsM2Environment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
     public required TerraformProperty<string> EngineType
     {
-        get => GetProperty<TerraformProperty<string>>("engine_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine_type");
         set => this.WithProperty("engine_type", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsM2Environment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsM2Environment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

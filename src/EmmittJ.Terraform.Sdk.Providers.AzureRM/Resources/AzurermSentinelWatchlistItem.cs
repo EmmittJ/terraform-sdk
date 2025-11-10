@@ -94,7 +94,7 @@ public class AzurermSentinelWatchlistItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WatchlistId is required")]
     public required TerraformProperty<string> WatchlistId
     {
-        get => GetProperty<TerraformProperty<string>>("watchlist_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("watchlist_id");
         set => this.WithProperty("watchlist_id", value);
     }
 

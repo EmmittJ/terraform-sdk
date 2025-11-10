@@ -35,6 +35,14 @@ public abstract class TerraformBlock : ITerraformResolvable<TerraformExpression>
         => _properties.Get<T>(key);
 
     /// <summary>
+    /// Gets a required property value as a specific type.
+    /// Throws if the property is null.
+    /// </summary>
+    /// <exception cref="InvalidOperationException">Thrown when the property value is null.</exception>
+    protected T GetRequiredProperty<T>(string key) where T : class
+        => _properties.GetRequired<T>(key);
+
+    /// <summary>
     /// Prepares all nested properties and values for resolution.
     /// Delegates to TerraformValueResolver for consistent handling.
     /// </summary>

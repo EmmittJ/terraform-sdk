@@ -85,7 +85,7 @@ public class AzureadServicePrincipalDelegatedPermissionGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceServicePrincipalObjectId is required")]
     public required TerraformProperty<string> ResourceServicePrincipalObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_service_principal_object_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_service_principal_object_id");
         set => this.WithProperty("resource_service_principal_object_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzureadServicePrincipalDelegatedPermissionGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalObjectId is required")]
     public required TerraformProperty<string> ServicePrincipalObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("service_principal_object_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_principal_object_id");
         set => this.WithProperty("service_principal_object_id", value);
     }
 

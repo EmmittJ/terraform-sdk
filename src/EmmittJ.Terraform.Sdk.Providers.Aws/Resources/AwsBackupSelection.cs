@@ -22,7 +22,7 @@ public class AwsBackupSelectionSelectionTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsBackupSelectionSelectionTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsBackupSelectionSelectionTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsBackupSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformProperty<string> IamRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsBackupSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsBackupSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlanId is required")]
     public required TerraformProperty<string> PlanId
     {
-        get => GetProperty<TerraformProperty<string>>("plan_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("plan_id");
         set => this.WithProperty("plan_id", value);
     }
 

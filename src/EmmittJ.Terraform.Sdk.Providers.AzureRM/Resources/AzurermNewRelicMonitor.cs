@@ -32,7 +32,7 @@ public class AzurermNewRelicMonitorIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermNewRelicMonitorPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EffectiveDate is required")]
     public required TerraformProperty<string> EffectiveDate
     {
-        get => GetProperty<TerraformProperty<string>>("effective_date");
+        get => GetRequiredProperty<TerraformProperty<string>>("effective_date");
         set => WithProperty("effective_date", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermNewRelicMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
+        get => GetRequiredProperty<TerraformProperty<string>>("email");
         set => WithProperty("email", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermNewRelicMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstName is required")]
     public required TerraformProperty<string> FirstName
     {
-        get => GetProperty<TerraformProperty<string>>("first_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("first_name");
         set => WithProperty("first_name", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermNewRelicMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LastName is required")]
     public required TerraformProperty<string> LastName
     {
-        get => GetProperty<TerraformProperty<string>>("last_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("last_name");
         set => WithProperty("last_name", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermNewRelicMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformProperty<string> PhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("phone_number");
+        get => GetRequiredProperty<TerraformProperty<string>>("phone_number");
         set => WithProperty("phone_number", value);
     }
 
@@ -223,7 +223,7 @@ public class AzurermNewRelicMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -233,7 +233,7 @@ public class AzurermNewRelicMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -261,7 +261,7 @@ public class AzurermNewRelicMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

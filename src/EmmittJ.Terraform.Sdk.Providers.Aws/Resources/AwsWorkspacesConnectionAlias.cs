@@ -52,7 +52,7 @@ public class AwsWorkspacesConnectionAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformProperty<string> ConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("connection_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_string");
         set => this.WithProperty("connection_string", value);
     }
 

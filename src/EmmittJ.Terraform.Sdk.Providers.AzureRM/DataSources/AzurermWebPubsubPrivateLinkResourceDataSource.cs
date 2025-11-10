@@ -49,7 +49,7 @@ public class AzurermWebPubsubPrivateLinkResourceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     public required TerraformProperty<string> WebPubsubId
     {
-        get => GetProperty<TerraformProperty<string>>("web_pubsub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("web_pubsub_id");
         set => this.WithProperty("web_pubsub_id", value);
     }
 

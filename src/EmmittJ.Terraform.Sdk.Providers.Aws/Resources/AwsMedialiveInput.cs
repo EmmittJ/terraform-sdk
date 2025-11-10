@@ -14,7 +14,7 @@ public class AwsMedialiveInputDestinationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
     public required TerraformProperty<string> StreamName
     {
-        get => GetProperty<TerraformProperty<string>>("stream_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_name");
         set => WithProperty("stream_name", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsMedialiveInputInputDevicesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsMedialiveInputMediaConnectFlowsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowArn is required")]
     public required TerraformProperty<string> FlowArn
     {
-        get => GetProperty<TerraformProperty<string>>("flow_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("flow_arn");
         set => WithProperty("flow_arn", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsMedialiveInputSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasswordParam is required")]
     public required TerraformProperty<string> PasswordParam
     {
-        get => GetProperty<TerraformProperty<string>>("password_param");
+        get => GetRequiredProperty<TerraformProperty<string>>("password_param");
         set => WithProperty("password_param", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsMedialiveInputSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => WithProperty("url", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsMedialiveInputSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -200,7 +200,7 @@ public class AwsMedialiveInput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -246,7 +246,7 @@ public class AwsMedialiveInput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

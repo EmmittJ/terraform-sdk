@@ -66,7 +66,7 @@ public class AzurermMonitorPrivateLinkScopedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedResourceId is required")]
     public required TerraformProperty<string> LinkedResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("linked_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("linked_resource_id");
         set => this.WithProperty("linked_resource_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermMonitorPrivateLinkScopedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermMonitorPrivateLinkScopedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermMonitorPrivateLinkScopedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeName is required")]
     public required TerraformProperty<string> ScopeName
     {
-        get => GetProperty<TerraformProperty<string>>("scope_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope_name");
         set => this.WithProperty("scope_name", value);
     }
 

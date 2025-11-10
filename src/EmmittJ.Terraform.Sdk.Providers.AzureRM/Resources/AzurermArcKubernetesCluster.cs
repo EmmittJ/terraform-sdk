@@ -32,7 +32,7 @@ public class AzurermArcKubernetesClusterIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -110,7 +110,7 @@ public class AzurermArcKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentPublicKeyCertificate is required")]
     public required TerraformProperty<string> AgentPublicKeyCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("agent_public_key_certificate");
+        get => GetRequiredProperty<TerraformProperty<string>>("agent_public_key_certificate");
         set => this.WithProperty("agent_public_key_certificate", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermArcKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -139,7 +139,7 @@ public class AzurermArcKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermArcKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

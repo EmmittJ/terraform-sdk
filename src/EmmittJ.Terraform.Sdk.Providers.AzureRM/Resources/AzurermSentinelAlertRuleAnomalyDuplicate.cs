@@ -23,7 +23,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuiltInRuleId is required")]
     public required TerraformProperty<string> BuiltInRuleId
     {
-        get => GetProperty<TerraformProperty<string>>("built_in_rule_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("built_in_rule_id");
         set => this.WithProperty("built_in_rule_id", value);
     }
 
@@ -278,7 +278,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -288,7 +288,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
@@ -307,7 +307,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
@@ -317,7 +317,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("mode");
         set => this.WithProperty("mode", value);
     }
 

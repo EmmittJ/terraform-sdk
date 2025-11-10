@@ -17,7 +17,7 @@ public class GoogleDataplexEntryAspectsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AspectKey is required")]
     public required TerraformProperty<string> AspectKey
     {
-        get => GetProperty<TerraformProperty<string>>("aspect_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("aspect_key");
         set => WithProperty("aspect_key", value);
     }
 
@@ -194,7 +194,7 @@ public class GoogleDataplexEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryType is required")]
     public required TerraformProperty<string> EntryType
     {
-        get => GetProperty<TerraformProperty<string>>("entry_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("entry_type");
         set => this.WithProperty("entry_type", value);
     }
 

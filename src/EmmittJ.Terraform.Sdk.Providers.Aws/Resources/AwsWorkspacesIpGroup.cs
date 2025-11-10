@@ -23,7 +23,7 @@ public class AwsWorkspacesIpGroupRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
+        get => GetRequiredProperty<TerraformProperty<string>>("source");
         set => WithProperty("source", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsWorkspacesIpGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

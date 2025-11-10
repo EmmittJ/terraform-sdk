@@ -113,7 +113,7 @@ public class AwsEc2TransitGatewayMulticastDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
     public required TerraformProperty<string> TransitGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("transit_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_id");
         set => this.WithProperty("transit_gateway_id", value);
     }
 

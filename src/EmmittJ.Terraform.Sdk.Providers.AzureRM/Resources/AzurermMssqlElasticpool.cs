@@ -14,7 +14,7 @@ public class AzurermMssqlElasticpoolPerDatabaseSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     public required TerraformProperty<double> MaxCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("max_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_capacity");
         set => WithProperty("max_capacity", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermMssqlElasticpoolPerDatabaseSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformProperty<double> MinCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("min_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_capacity");
         set => WithProperty("min_capacity", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     public required TerraformProperty<double> Capacity
     {
-        get => GetProperty<TerraformProperty<double>>("capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("capacity");
         set => WithProperty("capacity", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("tier");
         set => WithProperty("tier", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -206,7 +206,7 @@ public class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -216,7 +216,7 @@ public class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -226,7 +226,7 @@ public class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformProperty<string> ServerName
     {
-        get => GetProperty<TerraformProperty<string>>("server_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_name");
         set => this.WithProperty("server_name", value);
     }
 

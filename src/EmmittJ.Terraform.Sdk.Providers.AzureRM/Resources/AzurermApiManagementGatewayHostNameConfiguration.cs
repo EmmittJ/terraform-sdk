@@ -66,7 +66,7 @@ public class AzurermApiManagementGatewayHostNameConfiguration : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformProperty<string> ApiManagementId
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_id");
         set => this.WithProperty("api_management_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermApiManagementGatewayHostNameConfiguration : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
     public required TerraformProperty<string> CertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_id");
         set => this.WithProperty("certificate_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermApiManagementGatewayHostNameConfiguration : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
     public required TerraformProperty<string> GatewayName
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("gateway_name");
         set => this.WithProperty("gateway_name", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermApiManagementGatewayHostNameConfiguration : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetProperty<TerraformProperty<string>>("host_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
         set => this.WithProperty("host_name", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermApiManagementGatewayHostNameConfiguration : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

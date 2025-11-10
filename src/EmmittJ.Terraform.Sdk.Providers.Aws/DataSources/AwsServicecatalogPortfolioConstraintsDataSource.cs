@@ -58,7 +58,7 @@ public class AwsServicecatalogPortfolioConstraintsDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
     public required TerraformProperty<string> PortfolioId
     {
-        get => GetProperty<TerraformProperty<string>>("portfolio_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("portfolio_id");
         set => this.WithProperty("portfolio_id", value);
     }
 

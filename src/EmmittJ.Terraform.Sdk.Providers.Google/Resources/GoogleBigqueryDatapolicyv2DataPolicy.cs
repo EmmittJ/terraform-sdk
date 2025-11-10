@@ -100,7 +100,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyId is required")]
     public required TerraformProperty<string> DataPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("data_policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_policy_id");
         set => this.WithProperty("data_policy_id", value);
     }
 
@@ -114,7 +114,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyType is required")]
     public required TerraformProperty<string> DataPolicyType
     {
-        get => GetProperty<TerraformProperty<string>>("data_policy_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_policy_type");
         set => this.WithProperty("data_policy_type", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

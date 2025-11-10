@@ -85,7 +85,7 @@ public class AwsGlobalacceleratorListener : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorArn is required")]
     public required TerraformProperty<string> AcceleratorArn
     {
-        get => GetProperty<TerraformProperty<string>>("accelerator_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("accelerator_arn");
         set => this.WithProperty("accelerator_arn", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsGlobalacceleratorListener : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 

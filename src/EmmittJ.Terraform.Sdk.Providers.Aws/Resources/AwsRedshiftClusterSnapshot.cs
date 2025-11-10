@@ -25,7 +25,7 @@ public class AwsRedshiftClusterSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformProperty<string> ClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsRedshiftClusterSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotIdentifier is required")]
     public required TerraformProperty<string> SnapshotIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_identifier");
         set => this.WithProperty("snapshot_identifier", value);
     }
 

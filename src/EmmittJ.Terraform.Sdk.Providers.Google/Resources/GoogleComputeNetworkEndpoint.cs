@@ -70,7 +70,7 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformProperty<string> IpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_address");
         set => this.WithProperty("ip_address", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkEndpointGroup is required")]
     public required TerraformProperty<string> NetworkEndpointGroup
     {
-        get => GetProperty<TerraformProperty<string>>("network_endpoint_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_endpoint_group");
         set => this.WithProperty("network_endpoint_group", value);
     }
 

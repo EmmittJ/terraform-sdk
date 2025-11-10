@@ -105,7 +105,7 @@ public class AwsLambdaFunctionUrl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationType is required")]
     public required TerraformProperty<string> AuthorizationType
     {
-        get => GetProperty<TerraformProperty<string>>("authorization_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("authorization_type");
         set => this.WithProperty("authorization_type", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsLambdaFunctionUrl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetProperty<TerraformProperty<string>>("function_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
     }
 

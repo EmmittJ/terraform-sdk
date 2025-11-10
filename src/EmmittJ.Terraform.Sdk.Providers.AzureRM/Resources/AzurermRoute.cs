@@ -66,7 +66,7 @@ public class AzurermRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefix is required")]
     public required TerraformProperty<string> AddressPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("address_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("address_prefix");
         set => this.WithProperty("address_prefix", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHopType is required")]
     public required TerraformProperty<string> NextHopType
     {
-        get => GetProperty<TerraformProperty<string>>("next_hop_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("next_hop_type");
         set => this.WithProperty("next_hop_type", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableName is required")]
     public required TerraformProperty<string> RouteTableName
     {
-        get => GetProperty<TerraformProperty<string>>("route_table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("route_table_name");
         set => this.WithProperty("route_table_name", value);
     }
 

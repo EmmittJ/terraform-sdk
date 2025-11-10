@@ -51,7 +51,7 @@ public class GoogleComputeSubnetworkIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnetwork is required")]
     public required TerraformProperty<string> Subnetwork
     {
-        get => GetProperty<TerraformProperty<string>>("subnetwork");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnetwork");
         set => this.WithProperty("subnetwork", value);
     }
 

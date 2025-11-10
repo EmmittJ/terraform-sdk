@@ -40,7 +40,7 @@ public class AwsLakeformationLfTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
     }
 

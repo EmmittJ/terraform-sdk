@@ -14,7 +14,7 @@ public class AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZoneId is required")]
     public required TerraformProperty<string> AvailabilityZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("availability_zone_id");
         set => WithProperty("availability_zone_id", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsNetworkfirewallFirewallEncryptionConfigurationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsNetworkfirewallFirewallSubnetMappingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => WithProperty("subnet_id", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsNetworkfirewallFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicyArn is required")]
     public required TerraformProperty<string> FirewallPolicyArn
     {
-        get => GetProperty<TerraformProperty<string>>("firewall_policy_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("firewall_policy_arn");
         set => this.WithProperty("firewall_policy_arn", value);
     }
 
@@ -198,7 +198,7 @@ public class AwsNetworkfirewallFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

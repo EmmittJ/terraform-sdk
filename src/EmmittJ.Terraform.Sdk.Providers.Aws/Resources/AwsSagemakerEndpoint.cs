@@ -32,7 +32,7 @@ public class AwsSagemakerEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointConfigName is required")]
     public required TerraformProperty<string> EndpointConfigName
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_config_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_config_name");
         set => this.WithProperty("endpoint_config_name", value);
     }
 

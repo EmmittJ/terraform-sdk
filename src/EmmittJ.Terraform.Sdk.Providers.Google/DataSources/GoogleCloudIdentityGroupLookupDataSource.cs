@@ -16,7 +16,7 @@ public class GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 

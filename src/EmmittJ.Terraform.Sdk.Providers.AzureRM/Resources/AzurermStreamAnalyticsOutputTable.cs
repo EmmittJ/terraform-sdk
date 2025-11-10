@@ -66,7 +66,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchSize is required")]
     public required TerraformProperty<double> BatchSize
     {
-        get => GetProperty<TerraformProperty<double>>("batch_size");
+        get => GetRequiredProperty<TerraformProperty<double>>("batch_size");
         set => this.WithProperty("batch_size", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
     public required TerraformProperty<string> PartitionKey
     {
-        get => GetProperty<TerraformProperty<string>>("partition_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("partition_key");
         set => this.WithProperty("partition_key", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
     public required TerraformProperty<string> RowKey
     {
-        get => GetProperty<TerraformProperty<string>>("row_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("row_key");
         set => this.WithProperty("row_key", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     public required TerraformProperty<string> StorageAccountKey
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_key");
         set => this.WithProperty("storage_account_key", value);
     }
 
@@ -144,7 +144,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformProperty<string> StorageAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformProperty<string> StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_name");
         set => this.WithProperty("stream_analytics_job_name", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformProperty<string> Table
     {
-        get => GetProperty<TerraformProperty<string>>("table");
+        get => GetRequiredProperty<TerraformProperty<string>>("table");
         set => this.WithProperty("table", value);
     }
 

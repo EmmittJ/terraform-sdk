@@ -56,7 +56,7 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     public required TerraformProperty<string> DataStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("data_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_store_id");
         set => this.WithProperty("data_store_id", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -110,7 +110,7 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvidedUriPattern is required")]
     public required TerraformProperty<string> ProvidedUriPattern
     {
-        get => GetProperty<TerraformProperty<string>>("provided_uri_pattern");
+        get => GetRequiredProperty<TerraformProperty<string>>("provided_uri_pattern");
         set => this.WithProperty("provided_uri_pattern", value);
     }
 

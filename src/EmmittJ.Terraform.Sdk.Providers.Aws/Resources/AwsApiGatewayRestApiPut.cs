@@ -39,7 +39,7 @@ public class AwsApiGatewayRestApiPut : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformProperty<string> Body
     {
-        get => GetProperty<TerraformProperty<string>>("body");
+        get => GetRequiredProperty<TerraformProperty<string>>("body");
         set => this.WithProperty("body", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsApiGatewayRestApiPut : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformProperty<string> RestApiId
     {
-        get => GetProperty<TerraformProperty<string>>("rest_api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
     }
 

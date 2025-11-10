@@ -84,7 +84,7 @@ public class AzureadDirectoryRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalObjectId is required")]
     public required TerraformProperty<string> PrincipalObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_object_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_object_id");
         set => this.WithProperty("principal_object_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzureadDirectoryRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformProperty<string> RoleId
     {
-        get => GetProperty<TerraformProperty<string>>("role_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_id");
         set => this.WithProperty("role_id", value);
     }
 

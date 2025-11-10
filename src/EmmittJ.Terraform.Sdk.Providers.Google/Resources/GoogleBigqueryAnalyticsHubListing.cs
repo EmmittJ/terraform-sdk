@@ -14,7 +14,7 @@ public class GoogleBigqueryAnalyticsHubListingBigqueryDatasetBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformProperty<string> Dataset
     {
-        get => GetProperty<TerraformProperty<string>>("dataset");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset");
         set => WithProperty("dataset", value);
     }
 
@@ -32,7 +32,7 @@ public class GoogleBigqueryAnalyticsHubListingDataProviderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleBigqueryAnalyticsHubListingPublisherBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleBigqueryAnalyticsHubListingPubsubTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic");
         set => WithProperty("topic", value);
     }
 
@@ -214,7 +214,7 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     public required TerraformProperty<string> DataExchangeId
     {
-        get => GetProperty<TerraformProperty<string>>("data_exchange_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_exchange_id");
         set => this.WithProperty("data_exchange_id", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -288,7 +288,7 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListingId is required")]
     public required TerraformProperty<string> ListingId
     {
-        get => GetProperty<TerraformProperty<string>>("listing_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("listing_id");
         set => this.WithProperty("listing_id", value);
     }
 
@@ -298,7 +298,7 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

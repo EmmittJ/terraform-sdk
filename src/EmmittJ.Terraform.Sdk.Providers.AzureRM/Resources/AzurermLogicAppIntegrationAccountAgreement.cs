@@ -14,7 +14,7 @@ public class AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Qualifier is required")]
     public required TerraformProperty<string> Qualifier
     {
-        get => GetProperty<TerraformProperty<string>>("qualifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("qualifier");
         set => WithProperty("qualifier", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Qualifier is required")]
     public required TerraformProperty<string> Qualifier
     {
-        get => GetProperty<TerraformProperty<string>>("qualifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("qualifier");
         set => WithProperty("qualifier", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermLogicAppIntegrationAccountAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgreementType is required")]
     public required TerraformProperty<string> AgreementType
     {
-        get => GetProperty<TerraformProperty<string>>("agreement_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("agreement_type");
         set => this.WithProperty("agreement_type", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermLogicAppIntegrationAccountAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermLogicAppIntegrationAccountAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuestPartnerName is required")]
     public required TerraformProperty<string> GuestPartnerName
     {
-        get => GetProperty<TerraformProperty<string>>("guest_partner_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("guest_partner_name");
         set => this.WithProperty("guest_partner_name", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermLogicAppIntegrationAccountAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostPartnerName is required")]
     public required TerraformProperty<string> HostPartnerName
     {
-        get => GetProperty<TerraformProperty<string>>("host_partner_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_partner_name");
         set => this.WithProperty("host_partner_name", value);
     }
 
@@ -172,7 +172,7 @@ public class AzurermLogicAppIntegrationAccountAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationAccountName is required")]
     public required TerraformProperty<string> IntegrationAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("integration_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("integration_account_name");
         set => this.WithProperty("integration_account_name", value);
     }
 
@@ -191,7 +191,7 @@ public class AzurermLogicAppIntegrationAccountAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -201,7 +201,7 @@ public class AzurermLogicAppIntegrationAccountAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

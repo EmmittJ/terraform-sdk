@@ -19,7 +19,7 @@ public class GoogleLoggingProjectBucketConfigCmekSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
         set => WithProperty("kms_key_name", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleLoggingProjectBucketConfigIndexConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldPath is required")]
     public required TerraformProperty<string> FieldPath
     {
-        get => GetProperty<TerraformProperty<string>>("field_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("field_path");
         set => WithProperty("field_path", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleLoggingProjectBucketConfigIndexConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleLoggingProjectBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketId is required")]
     public required TerraformProperty<string> BucketId
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket_id");
         set => this.WithProperty("bucket_id", value);
     }
 
@@ -149,7 +149,7 @@ public class GoogleLoggingProjectBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -168,7 +168,7 @@ public class GoogleLoggingProjectBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
+        get => GetRequiredProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

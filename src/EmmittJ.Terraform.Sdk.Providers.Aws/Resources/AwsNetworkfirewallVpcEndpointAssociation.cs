@@ -23,7 +23,7 @@ public class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => WithProperty("subnet_id", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsNetworkfirewallVpcEndpointAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallArn is required")]
     public required TerraformProperty<string> FirewallArn
     {
-        get => GetProperty<TerraformProperty<string>>("firewall_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("firewall_arn");
         set => this.WithProperty("firewall_arn", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsNetworkfirewallVpcEndpointAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

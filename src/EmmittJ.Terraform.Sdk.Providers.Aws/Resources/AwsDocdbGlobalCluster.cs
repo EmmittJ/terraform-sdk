@@ -97,7 +97,7 @@ public class AwsDocdbGlobalCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalClusterIdentifier is required")]
     public required TerraformProperty<string> GlobalClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("global_cluster_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("global_cluster_identifier");
         set => this.WithProperty("global_cluster_identifier", value);
     }
 

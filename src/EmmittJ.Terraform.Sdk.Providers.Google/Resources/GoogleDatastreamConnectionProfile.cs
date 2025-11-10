@@ -22,7 +22,7 @@ public class GoogleDatastreamConnectionProfileForwardSshConnectivityBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetProperty<TerraformProperty<string>>("hostname");
+        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
         set => WithProperty("hostname", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleDatastreamConnectionProfileForwardSshConnectivityBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleDatastreamConnectionProfileGcsProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => WithProperty("bucket", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -151,7 +151,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetProperty<TerraformProperty<string>>("hostname");
+        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
         set => WithProperty("hostname", value);
     }
 
@@ -188,7 +188,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -215,7 +215,7 @@ public class GoogleDatastreamConnectionProfileOracleProfileBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseService is required")]
     public required TerraformProperty<string> DatabaseService
     {
-        get => GetProperty<TerraformProperty<string>>("database_service");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_service");
         set => WithProperty("database_service", value);
     }
 
@@ -225,7 +225,7 @@ public class GoogleDatastreamConnectionProfileOracleProfileBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetProperty<TerraformProperty<string>>("hostname");
+        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
         set => WithProperty("hostname", value);
     }
 
@@ -262,7 +262,7 @@ public class GoogleDatastreamConnectionProfileOracleProfileBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -280,7 +280,7 @@ public class GoogleDatastreamConnectionProfilePostgresqlProfileBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetProperty<TerraformProperty<string>>("database");
+        get => GetRequiredProperty<TerraformProperty<string>>("database");
         set => WithProperty("database", value);
     }
 
@@ -290,7 +290,7 @@ public class GoogleDatastreamConnectionProfilePostgresqlProfileBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetProperty<TerraformProperty<string>>("hostname");
+        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
         set => WithProperty("hostname", value);
     }
 
@@ -327,7 +327,7 @@ public class GoogleDatastreamConnectionProfilePostgresqlProfileBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -345,7 +345,7 @@ public class GoogleDatastreamConnectionProfilePrivateConnectivityBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateConnection is required")]
     public required TerraformProperty<string> PrivateConnection
     {
-        get => GetProperty<TerraformProperty<string>>("private_connection");
+        get => GetRequiredProperty<TerraformProperty<string>>("private_connection");
         set => WithProperty("private_connection", value);
     }
 
@@ -363,7 +363,7 @@ public class GoogleDatastreamConnectionProfileSqlServerProfileBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetProperty<TerraformProperty<string>>("database");
+        get => GetRequiredProperty<TerraformProperty<string>>("database");
         set => WithProperty("database", value);
     }
 
@@ -373,7 +373,7 @@ public class GoogleDatastreamConnectionProfileSqlServerProfileBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetProperty<TerraformProperty<string>>("hostname");
+        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
         set => WithProperty("hostname", value);
     }
 
@@ -410,7 +410,7 @@ public class GoogleDatastreamConnectionProfileSqlServerProfileBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -475,7 +475,7 @@ public class GoogleDatastreamConnectionProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionProfileId is required")]
     public required TerraformProperty<string> ConnectionProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("connection_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_profile_id");
         set => this.WithProperty("connection_profile_id", value);
     }
 
@@ -494,7 +494,7 @@ public class GoogleDatastreamConnectionProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -525,7 +525,7 @@ public class GoogleDatastreamConnectionProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

@@ -58,7 +58,7 @@ public class AwsNetworkmanagerConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectedDeviceId is required")]
     public required TerraformProperty<string> ConnectedDeviceId
     {
-        get => GetProperty<TerraformProperty<string>>("connected_device_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("connected_device_id");
         set => this.WithProperty("connected_device_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsNetworkmanagerConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
     public required TerraformProperty<string> DeviceId
     {
-        get => GetProperty<TerraformProperty<string>>("device_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_id");
         set => this.WithProperty("device_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsNetworkmanagerConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformProperty<string> GlobalNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("global_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("global_network_id");
         set => this.WithProperty("global_network_id", value);
     }
 

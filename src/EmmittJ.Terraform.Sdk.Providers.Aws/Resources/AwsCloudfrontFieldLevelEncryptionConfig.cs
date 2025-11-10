@@ -14,7 +14,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardWhenContentTypeIsUnknown is required")]
     public required TerraformProperty<bool> ForwardWhenContentTypeIsUnknown
     {
-        get => GetProperty<TerraformProperty<bool>>("forward_when_content_type_is_unknown");
+        get => GetRequiredProperty<TerraformProperty<bool>>("forward_when_content_type_is_unknown");
         set => WithProperty("forward_when_content_type_is_unknown", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardWhenQueryArgProfileIsUnknown is required")]
     public required TerraformProperty<bool> ForwardWhenQueryArgProfileIsUnknown
     {
-        get => GetProperty<TerraformProperty<bool>>("forward_when_query_arg_profile_is_unknown");
+        get => GetRequiredProperty<TerraformProperty<bool>>("forward_when_query_arg_profile_is_unknown");
         set => WithProperty("forward_when_query_arg_profile_is_unknown", value);
     }
 

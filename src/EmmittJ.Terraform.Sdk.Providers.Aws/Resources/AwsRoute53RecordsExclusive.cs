@@ -41,7 +41,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsRoute53RecordsExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformProperty<string> ZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone_id");
         set => this.WithProperty("zone_id", value);
     }
 

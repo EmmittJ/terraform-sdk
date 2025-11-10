@@ -31,7 +31,7 @@ public class AwsGuarddutyOrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnableOrganizationMembers is required")]
     public required TerraformProperty<string> AutoEnableOrganizationMembers
     {
-        get => GetProperty<TerraformProperty<string>>("auto_enable_organization_members");
+        get => GetRequiredProperty<TerraformProperty<string>>("auto_enable_organization_members");
         set => this.WithProperty("auto_enable_organization_members", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsGuarddutyOrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     public required TerraformProperty<string> DetectorId
     {
-        get => GetProperty<TerraformProperty<string>>("detector_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("detector_id");
         set => this.WithProperty("detector_id", value);
     }
 

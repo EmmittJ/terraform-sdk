@@ -23,7 +23,7 @@ public class AwsSsmcontactsContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
     public required TerraformProperty<string> Alias
     {
-        get => GetProperty<TerraformProperty<string>>("alias");
+        get => GetRequiredProperty<TerraformProperty<string>>("alias");
         set => this.WithProperty("alias", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsSsmcontactsContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

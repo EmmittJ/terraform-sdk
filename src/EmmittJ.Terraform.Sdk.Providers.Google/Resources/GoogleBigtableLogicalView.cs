@@ -85,7 +85,7 @@ public class GoogleBigtableLogicalView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicalViewId is required")]
     public required TerraformProperty<string> LogicalViewId
     {
-        get => GetProperty<TerraformProperty<string>>("logical_view_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("logical_view_id");
         set => this.WithProperty("logical_view_id", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleBigtableLogicalView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetProperty<TerraformProperty<string>>("query");
+        get => GetRequiredProperty<TerraformProperty<string>>("query");
         set => this.WithProperty("query", value);
     }
 

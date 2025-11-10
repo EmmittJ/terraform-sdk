@@ -32,7 +32,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
         set => WithProperty("instance_type", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsEmrInstanceFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
     }
 

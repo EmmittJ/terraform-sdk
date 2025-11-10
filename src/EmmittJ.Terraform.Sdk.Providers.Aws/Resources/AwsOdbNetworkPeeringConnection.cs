@@ -67,7 +67,7 @@ public class AwsOdbNetworkPeeringConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsOdbNetworkPeeringConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     public required TerraformProperty<string> OdbNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("odb_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("odb_network_id");
         set => this.WithProperty("odb_network_id", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsOdbNetworkPeeringConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetworkId is required")]
     public required TerraformProperty<string> PeerNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("peer_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("peer_network_id");
         set => this.WithProperty("peer_network_id", value);
     }
 

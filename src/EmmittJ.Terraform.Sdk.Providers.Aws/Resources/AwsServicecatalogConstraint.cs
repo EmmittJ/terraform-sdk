@@ -95,7 +95,7 @@ public class AwsServicecatalogConstraint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameters is required")]
     public required TerraformProperty<string> Parameters
     {
-        get => GetProperty<TerraformProperty<string>>("parameters");
+        get => GetRequiredProperty<TerraformProperty<string>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsServicecatalogConstraint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
     public required TerraformProperty<string> PortfolioId
     {
-        get => GetProperty<TerraformProperty<string>>("portfolio_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("portfolio_id");
         set => this.WithProperty("portfolio_id", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsServicecatalogConstraint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     public required TerraformProperty<string> ProductId
     {
-        get => GetProperty<TerraformProperty<string>>("product_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("product_id");
         set => this.WithProperty("product_id", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsServicecatalogConstraint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

@@ -66,7 +66,7 @@ public class AzurermAppConfigurationKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     public required TerraformProperty<string> ConfigurationStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_store_id");
         set => this.WithProperty("configuration_store_id", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermAppConfigurationKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
     }
 

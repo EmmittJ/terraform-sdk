@@ -57,7 +57,7 @@ public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
     public required TerraformProperty<string> BackendAddressPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("backend_address_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("backend_address_pool_id");
         set => this.WithProperty("backend_address_pool_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfigurationName is required")]
     public required TerraformProperty<string> IpConfigurationName
     {
-        get => GetProperty<TerraformProperty<string>>("ip_configuration_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_configuration_name");
         set => this.WithProperty("ip_configuration_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
     }
 

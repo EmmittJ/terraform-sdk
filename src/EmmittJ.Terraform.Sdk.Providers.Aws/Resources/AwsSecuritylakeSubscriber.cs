@@ -22,7 +22,7 @@ public class AwsSecuritylakeSubscriberSubscriberIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
     public required TerraformProperty<string> ExternalId
     {
-        get => GetProperty<TerraformProperty<string>>("external_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("external_id");
         set => WithProperty("external_id", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsSecuritylakeSubscriberSubscriberIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal");
         set => WithProperty("principal", value);
     }
 

@@ -14,7 +14,7 @@ public class GoogleIdentityPlatformInboundSamlConfigIdpConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpEntityId is required")]
     public required TerraformProperty<string> IdpEntityId
     {
-        get => GetProperty<TerraformProperty<string>>("idp_entity_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("idp_entity_id");
         set => WithProperty("idp_entity_id", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleIdentityPlatformInboundSamlConfigIdpConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SsoUrl is required")]
     public required TerraformProperty<string> SsoUrl
     {
-        get => GetProperty<TerraformProperty<string>>("sso_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("sso_url");
         set => WithProperty("sso_url", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleIdentityPlatformInboundSamlConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleIdentityPlatformInboundSamlConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

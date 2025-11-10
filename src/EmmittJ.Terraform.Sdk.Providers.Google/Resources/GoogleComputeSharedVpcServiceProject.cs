@@ -58,7 +58,7 @@ public class GoogleComputeSharedVpcServiceProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostProject is required")]
     public required TerraformProperty<string> HostProject
     {
-        get => GetProperty<TerraformProperty<string>>("host_project");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_project");
         set => this.WithProperty("host_project", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleComputeSharedVpcServiceProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceProject is required")]
     public required TerraformProperty<string> ServiceProject
     {
-        get => GetProperty<TerraformProperty<string>>("service_project");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_project");
         set => this.WithProperty("service_project", value);
     }
 

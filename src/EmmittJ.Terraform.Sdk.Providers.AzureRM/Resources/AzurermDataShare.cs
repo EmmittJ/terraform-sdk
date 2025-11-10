@@ -14,7 +14,7 @@ public class AzurermDataShareSnapshotScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermDataShareSnapshotScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Recurrence is required")]
     public required TerraformProperty<string> Recurrence
     {
-        get => GetProperty<TerraformProperty<string>>("recurrence");
+        get => GetRequiredProperty<TerraformProperty<string>>("recurrence");
         set => WithProperty("recurrence", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermDataShareSnapshotScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("start_time");
         set => WithProperty("start_time", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermDataShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermDataShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformProperty<string> Kind
     {
-        get => GetProperty<TerraformProperty<string>>("kind");
+        get => GetRequiredProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermDataShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsApiGatewayStageAccessLogSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformProperty<string> DestinationArn
     {
-        get => GetProperty<TerraformProperty<string>>("destination_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_arn");
         set => WithProperty("destination_arn", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsApiGatewayStageAccessLogSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetProperty<TerraformProperty<string>>("format");
+        get => GetRequiredProperty<TerraformProperty<string>>("format");
         set => WithProperty("format", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsApiGatewayStageCanarySettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentId is required")]
     public required TerraformProperty<string> DeploymentId
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("deployment_id");
         set => WithProperty("deployment_id", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsApiGatewayStage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentId is required")]
     public required TerraformProperty<string> DeploymentId
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("deployment_id");
         set => this.WithProperty("deployment_id", value);
     }
 
@@ -173,7 +173,7 @@ public class AwsApiGatewayStage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformProperty<string> RestApiId
     {
-        get => GetProperty<TerraformProperty<string>>("rest_api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsApiGatewayStage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StageName is required")]
     public required TerraformProperty<string> StageName
     {
-        get => GetProperty<TerraformProperty<string>>("stage_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stage_name");
         set => this.WithProperty("stage_name", value);
     }
 

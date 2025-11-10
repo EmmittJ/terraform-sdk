@@ -66,7 +66,7 @@ public class AzureadAccessPackage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("catalog_id");
         set => this.WithProperty("catalog_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzureadAccessPackage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -86,7 +86,7 @@ public class AzureadAccessPackage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 

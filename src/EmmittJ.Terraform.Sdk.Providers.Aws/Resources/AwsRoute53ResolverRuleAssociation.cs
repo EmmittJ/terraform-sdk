@@ -75,7 +75,7 @@ public class AwsRoute53ResolverRuleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResolverRuleId is required")]
     public required TerraformProperty<string> ResolverRuleId
     {
-        get => GetProperty<TerraformProperty<string>>("resolver_rule_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resolver_rule_id");
         set => this.WithProperty("resolver_rule_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsRoute53ResolverRuleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

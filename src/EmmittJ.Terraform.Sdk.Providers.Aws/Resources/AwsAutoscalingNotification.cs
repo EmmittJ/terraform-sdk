@@ -60,7 +60,7 @@ public class AwsAutoscalingNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformProperty<string> TopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("topic_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic_arn");
         set => this.WithProperty("topic_arn", value);
     }
 

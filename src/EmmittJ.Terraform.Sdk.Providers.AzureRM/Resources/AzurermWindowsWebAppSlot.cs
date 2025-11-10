@@ -41,7 +41,7 @@ public class AzurermWindowsWebAppSlotAuthSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -229,7 +229,7 @@ public class AzurermWindowsWebAppSlotBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -239,7 +239,7 @@ public class AzurermWindowsWebAppSlotBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountUrl is required")]
     public required TerraformProperty<string> StorageAccountUrl
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_url");
         set => WithProperty("storage_account_url", value);
     }
 
@@ -257,7 +257,7 @@ public class AzurermWindowsWebAppSlotConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -267,7 +267,7 @@ public class AzurermWindowsWebAppSlotConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -277,7 +277,7 @@ public class AzurermWindowsWebAppSlotConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -322,7 +322,7 @@ public class AzurermWindowsWebAppSlotIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -635,7 +635,7 @@ public class AzurermWindowsWebAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKey is required")]
     public required TerraformProperty<string> AccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("access_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_key");
         set => WithProperty("access_key", value);
     }
 
@@ -645,7 +645,7 @@ public class AzurermWindowsWebAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetProperty<TerraformProperty<string>>("account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
         set => WithProperty("account_name", value);
     }
 
@@ -664,7 +664,7 @@ public class AzurermWindowsWebAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -674,7 +674,7 @@ public class AzurermWindowsWebAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
     public required TerraformProperty<string> ShareName
     {
-        get => GetProperty<TerraformProperty<string>>("share_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("share_name");
         set => WithProperty("share_name", value);
     }
 
@@ -684,7 +684,7 @@ public class AzurermWindowsWebAppSlotStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -764,7 +764,7 @@ public class AzurermWindowsWebAppSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceId is required")]
     public required TerraformProperty<string> AppServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("app_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_service_id");
         set => this.WithProperty("app_service_id", value);
     }
 
@@ -864,7 +864,7 @@ public class AzurermWindowsWebAppSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

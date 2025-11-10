@@ -75,7 +75,7 @@ public class AwsEc2InstanceState : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsEc2InstanceState : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
+        get => GetRequiredProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
     }
 

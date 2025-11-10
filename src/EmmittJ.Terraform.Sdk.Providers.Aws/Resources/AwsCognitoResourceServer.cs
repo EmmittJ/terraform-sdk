@@ -14,7 +14,7 @@ public class AwsCognitoResourceServerScopeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeDescription is required")]
     public required TerraformProperty<string> ScopeDescription
     {
-        get => GetProperty<TerraformProperty<string>>("scope_description");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope_description");
         set => WithProperty("scope_description", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsCognitoResourceServerScopeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeName is required")]
     public required TerraformProperty<string> ScopeName
     {
-        get => GetProperty<TerraformProperty<string>>("scope_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope_name");
         set => WithProperty("scope_name", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsCognitoResourceServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetProperty<TerraformProperty<string>>("identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
         set => this.WithProperty("identifier", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsCognitoResourceServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsCognitoResourceServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("user_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
         set => this.WithProperty("user_pool_id", value);
     }
 

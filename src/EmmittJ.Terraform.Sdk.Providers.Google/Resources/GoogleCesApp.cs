@@ -254,7 +254,7 @@ public class GoogleCesAppVariableDeclarationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => WithProperty("description", value);
     }
 
@@ -265,7 +265,7 @@ public class GoogleCesAppVariableDeclarationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -299,7 +299,7 @@ public class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetProperty<TerraformProperty<string>>("app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
@@ -318,7 +318,7 @@ public class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -359,7 +359,7 @@ public class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

@@ -58,7 +58,7 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndIpAddress is required")]
     public required TerraformProperty<string> EndIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("end_ip_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("end_ip_address");
         set => this.WithProperty("end_ip_address", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformProperty<string> ServerName
     {
-        get => GetProperty<TerraformProperty<string>>("server_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_name");
         set => this.WithProperty("server_name", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartIpAddress is required")]
     public required TerraformProperty<string> StartIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("start_ip_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("start_ip_address");
         set => this.WithProperty("start_ip_address", value);
     }
 

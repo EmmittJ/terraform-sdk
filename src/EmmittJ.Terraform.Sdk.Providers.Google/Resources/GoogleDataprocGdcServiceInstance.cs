@@ -14,7 +14,7 @@ public class GoogleDataprocGdcServiceInstanceGdceClusterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GdceCluster is required")]
     public required TerraformProperty<string> GdceCluster
     {
-        get => GetProperty<TerraformProperty<string>>("gdce_cluster");
+        get => GetRequiredProperty<TerraformProperty<string>>("gdce_cluster");
         set => WithProperty("gdce_cluster", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleDataprocGdcServiceInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -153,7 +153,7 @@ public class GoogleDataprocGdcServiceInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceInstanceId is required")]
     public required TerraformProperty<string> ServiceInstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("service_instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_instance_id");
         set => this.WithProperty("service_instance_id", value);
     }
 

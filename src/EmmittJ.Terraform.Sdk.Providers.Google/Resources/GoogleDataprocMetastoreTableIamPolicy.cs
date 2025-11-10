@@ -23,7 +23,7 @@ public class GoogleDataprocMetastoreTableIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
     public required TerraformProperty<string> DatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("database_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_id");
         set => this.WithProperty("database_id", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleDataprocMetastoreTableIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleDataprocMetastoreTableIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformProperty<string> ServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleDataprocMetastoreTableIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformProperty<string> Table
     {
-        get => GetProperty<TerraformProperty<string>>("table");
+        get => GetRequiredProperty<TerraformProperty<string>>("table");
         set => this.WithProperty("table", value);
     }
 

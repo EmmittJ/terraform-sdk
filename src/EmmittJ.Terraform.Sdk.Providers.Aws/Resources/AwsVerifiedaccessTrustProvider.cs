@@ -49,7 +49,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
         set => WithProperty("client_secret", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
         set => WithProperty("client_secret", value);
     }
 
@@ -281,7 +281,7 @@ public class AwsVerifiedaccessTrustProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyReferenceName is required")]
     public required TerraformProperty<string> PolicyReferenceName
     {
-        get => GetProperty<TerraformProperty<string>>("policy_reference_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_reference_name");
         set => this.WithProperty("policy_reference_name", value);
     }
 
@@ -318,7 +318,7 @@ public class AwsVerifiedaccessTrustProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustProviderType is required")]
     public required TerraformProperty<string> TrustProviderType
     {
-        get => GetProperty<TerraformProperty<string>>("trust_provider_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("trust_provider_type");
         set => this.WithProperty("trust_provider_type", value);
     }
 

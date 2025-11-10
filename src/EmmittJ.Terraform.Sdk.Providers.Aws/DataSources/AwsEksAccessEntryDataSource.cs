@@ -28,7 +28,7 @@ public class AwsEksAccessEntryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsEksAccessEntryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
     public required TerraformProperty<string> PrincipalArn
     {
-        get => GetProperty<TerraformProperty<string>>("principal_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_arn");
         set => this.WithProperty("principal_arn", value);
     }
 

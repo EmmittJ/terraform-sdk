@@ -14,7 +14,7 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Primary is required")]
     public required TerraformProperty<bool> Primary
     {
-        get => GetProperty<TerraformProperty<bool>>("primary");
+        get => GetRequiredProperty<TerraformProperty<bool>>("primary");
         set => WithProperty("primary", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => WithProperty("subnet_id", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -198,7 +198,7 @@ public class AzurermPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

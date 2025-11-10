@@ -33,7 +33,7 @@ public class AwsNotificationsNotificationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsNotificationsNotificationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

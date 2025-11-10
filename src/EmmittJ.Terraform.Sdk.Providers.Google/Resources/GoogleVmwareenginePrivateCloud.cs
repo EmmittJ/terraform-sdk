@@ -19,7 +19,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
         set => WithProperty("cluster_id", value);
     }
 
@@ -46,7 +46,7 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementCidr is required")]
     public required TerraformProperty<string> ManagementCidr
     {
-        get => GetProperty<TerraformProperty<string>>("management_cidr");
+        get => GetRequiredProperty<TerraformProperty<string>>("management_cidr");
         set => WithProperty("management_cidr", value);
     }
 
@@ -179,7 +179,7 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -189,7 +189,7 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

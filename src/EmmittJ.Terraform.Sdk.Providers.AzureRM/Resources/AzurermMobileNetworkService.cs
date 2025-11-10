@@ -14,7 +14,7 @@ public class AzurermMobileNetworkServicePccRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermMobileNetworkServicePccRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Precedence is required")]
     public required TerraformProperty<double> Precedence
     {
-        get => GetProperty<TerraformProperty<double>>("precedence");
+        get => GetRequiredProperty<TerraformProperty<double>>("precedence");
         set => WithProperty("precedence", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermMobileNetworkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermMobileNetworkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     public required TerraformProperty<string> MobileNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("mobile_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("mobile_network_id");
         set => this.WithProperty("mobile_network_id", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermMobileNetworkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermMobileNetworkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrecedence is required")]
     public required TerraformProperty<double> ServicePrecedence
     {
-        get => GetProperty<TerraformProperty<double>>("service_precedence");
+        get => GetRequiredProperty<TerraformProperty<double>>("service_precedence");
         set => this.WithProperty("service_precedence", value);
     }
 

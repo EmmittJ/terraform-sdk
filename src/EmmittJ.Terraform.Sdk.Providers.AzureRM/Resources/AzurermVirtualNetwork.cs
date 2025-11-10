@@ -14,7 +14,7 @@ public class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     public required TerraformProperty<bool> Enable
     {
-        get => GetProperty<TerraformProperty<bool>>("enable");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enable");
         set => WithProperty("enable", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermVirtualNetworkEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enforcement is required")]
     public required TerraformProperty<string> Enforcement
     {
-        get => GetProperty<TerraformProperty<string>>("enforcement");
+        get => GetRequiredProperty<TerraformProperty<string>>("enforcement");
         set => WithProperty("enforcement", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfIpAddresses is required")]
     public required TerraformProperty<string> NumberOfIpAddresses
     {
-        get => GetProperty<TerraformProperty<string>>("number_of_ip_addresses");
+        get => GetRequiredProperty<TerraformProperty<string>>("number_of_ip_addresses");
         set => WithProperty("number_of_ip_addresses", value);
     }
 
@@ -205,7 +205,7 @@ public class AzurermVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -215,7 +215,7 @@ public class AzurermVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -234,7 +234,7 @@ public class AzurermVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -29,7 +29,7 @@ public class AwsOrganizationsDelegatedAdministrator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
     }
 
@@ -48,7 +48,7 @@ public class AwsOrganizationsDelegatedAdministrator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipal is required")]
     public required TerraformProperty<string> ServicePrincipal
     {
-        get => GetProperty<TerraformProperty<string>>("service_principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_principal");
         set => this.WithProperty("service_principal", value);
     }
 

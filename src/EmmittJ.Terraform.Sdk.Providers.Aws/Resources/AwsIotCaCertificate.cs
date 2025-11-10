@@ -62,7 +62,7 @@ public class AwsIotCaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformProperty<bool> Active
     {
-        get => GetProperty<TerraformProperty<bool>>("active");
+        get => GetRequiredProperty<TerraformProperty<bool>>("active");
         set => this.WithProperty("active", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsIotCaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowAutoRegistration is required")]
     public required TerraformProperty<bool> AllowAutoRegistration
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_auto_registration");
+        get => GetRequiredProperty<TerraformProperty<bool>>("allow_auto_registration");
         set => this.WithProperty("allow_auto_registration", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsIotCaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaCertificatePem is required")]
     public required TerraformProperty<string> CaCertificatePem
     {
-        get => GetProperty<TerraformProperty<string>>("ca_certificate_pem");
+        get => GetRequiredProperty<TerraformProperty<string>>("ca_certificate_pem");
         set => this.WithProperty("ca_certificate_pem", value);
     }
 

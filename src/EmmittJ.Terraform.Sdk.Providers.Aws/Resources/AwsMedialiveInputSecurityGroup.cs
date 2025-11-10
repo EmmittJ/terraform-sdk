@@ -49,7 +49,7 @@ public class AwsMedialiveInputSecurityGroupWhitelistRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
     public required TerraformProperty<string> Cidr
     {
-        get => GetProperty<TerraformProperty<string>>("cidr");
+        get => GetRequiredProperty<TerraformProperty<string>>("cidr");
         set => WithProperty("cidr", value);
     }
 

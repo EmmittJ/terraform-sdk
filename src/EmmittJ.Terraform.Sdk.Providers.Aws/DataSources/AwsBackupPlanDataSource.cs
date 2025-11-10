@@ -35,7 +35,7 @@ public class AwsBackupPlanDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlanId is required")]
     public required TerraformProperty<string> PlanId
     {
-        get => GetProperty<TerraformProperty<string>>("plan_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("plan_id");
         set => this.WithProperty("plan_id", value);
     }
 

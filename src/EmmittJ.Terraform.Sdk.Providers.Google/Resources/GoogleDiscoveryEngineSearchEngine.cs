@@ -114,7 +114,7 @@ public class GoogleDiscoveryEngineSearchEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformProperty<string> CollectionId
     {
-        get => GetProperty<TerraformProperty<string>>("collection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("collection_id");
         set => this.WithProperty("collection_id", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleDiscoveryEngineSearchEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -144,7 +144,7 @@ public class GoogleDiscoveryEngineSearchEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     public required TerraformProperty<string> EngineId
     {
-        get => GetProperty<TerraformProperty<string>>("engine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine_id");
         set => this.WithProperty("engine_id", value);
     }
 
@@ -196,7 +196,7 @@ public class GoogleDiscoveryEngineSearchEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

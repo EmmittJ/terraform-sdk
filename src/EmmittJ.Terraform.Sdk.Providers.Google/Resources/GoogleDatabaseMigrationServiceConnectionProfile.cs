@@ -14,7 +14,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
         set => WithProperty("cluster_id", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseService is required")]
     public required TerraformProperty<string> DatabaseService
     {
-        get => GetProperty<TerraformProperty<string>>("database_service");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_service");
         set => WithProperty("database_service", value);
     }
 
@@ -140,7 +140,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformProperty<string> Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
+        get => GetRequiredProperty<TerraformProperty<string>>("host");
         set => WithProperty("host", value);
     }
 
@@ -151,7 +151,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => WithProperty("password", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => WithProperty("port", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -330,7 +330,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionProfileId is required")]
     public required TerraformProperty<string> ConnectionProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("connection_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_profile_id");
         set => this.WithProperty("connection_profile_id", value);
     }
 

@@ -50,7 +50,7 @@ public class AwsEc2NetworkInsightsAnalysis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInsightsPathId is required")]
     public required TerraformProperty<string> NetworkInsightsPathId
     {
-        get => GetProperty<TerraformProperty<string>>("network_insights_path_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_insights_path_id");
         set => this.WithProperty("network_insights_path_id", value);
     }
 

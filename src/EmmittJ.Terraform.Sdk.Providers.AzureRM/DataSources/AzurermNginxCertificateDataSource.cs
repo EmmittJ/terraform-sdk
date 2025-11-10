@@ -56,7 +56,7 @@ public class AzurermNginxCertificateDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -66,7 +66,7 @@ public class AzurermNginxCertificateDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformProperty<string> NginxDeploymentId
     {
-        get => GetProperty<TerraformProperty<string>>("nginx_deployment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("nginx_deployment_id");
         set => this.WithProperty("nginx_deployment_id", value);
     }
 

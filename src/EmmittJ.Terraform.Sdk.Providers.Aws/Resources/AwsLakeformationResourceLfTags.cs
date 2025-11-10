@@ -23,7 +23,7 @@ public class AwsLakeformationResourceLfTagsDatabaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsLakeformationResourceLfTagsLfTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsLakeformationResourceLfTagsLfTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsLakeformationResourceLfTagsTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => WithProperty("database_name", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsLakeformationResourceLfTagsTableWithColumnsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => WithProperty("database_name", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsLakeformationResourceLfTagsTableWithColumnsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 

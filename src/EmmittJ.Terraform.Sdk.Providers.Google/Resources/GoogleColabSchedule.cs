@@ -77,7 +77,7 @@ public class GoogleColabSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cron is required")]
     public required TerraformProperty<string> Cron
     {
-        get => GetProperty<TerraformProperty<string>>("cron");
+        get => GetRequiredProperty<TerraformProperty<string>>("cron");
         set => this.WithProperty("cron", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleColabSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleColabSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleColabSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxConcurrentRunCount is required")]
     public required TerraformProperty<string> MaxConcurrentRunCount
     {
-        get => GetProperty<TerraformProperty<string>>("max_concurrent_run_count");
+        get => GetRequiredProperty<TerraformProperty<string>>("max_concurrent_run_count");
         set => this.WithProperty("max_concurrent_run_count", value);
     }
 

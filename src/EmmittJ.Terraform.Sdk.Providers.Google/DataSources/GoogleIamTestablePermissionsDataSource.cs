@@ -32,7 +32,7 @@ public class GoogleIamTestablePermissionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullResourceName is required")]
     public required TerraformProperty<string> FullResourceName
     {
-        get => GetProperty<TerraformProperty<string>>("full_resource_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("full_resource_name");
         set => this.WithProperty("full_resource_name", value);
     }
 

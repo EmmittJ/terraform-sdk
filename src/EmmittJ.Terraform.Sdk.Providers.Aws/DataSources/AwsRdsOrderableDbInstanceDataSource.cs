@@ -40,7 +40,7 @@ public class AwsRdsOrderableDbInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     public required TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
     }
 

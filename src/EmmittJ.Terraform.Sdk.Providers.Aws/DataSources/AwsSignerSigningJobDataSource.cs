@@ -46,7 +46,7 @@ public class AwsSignerSigningJobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
     public required TerraformProperty<string> JobId
     {
-        get => GetProperty<TerraformProperty<string>>("job_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("job_id");
         set => this.WithProperty("job_id", value);
     }
 

@@ -93,7 +93,7 @@ public class GoogleEdgenetworkNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleEdgenetworkNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkId is required")]
     public required TerraformProperty<string> NetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_id");
         set => this.WithProperty("network_id", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleEdgenetworkNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

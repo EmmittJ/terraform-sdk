@@ -42,7 +42,7 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compression is required")]
     public required TerraformProperty<string> Compression
     {
-        get => GetProperty<TerraformProperty<string>>("compression");
+        get => GetRequiredProperty<TerraformProperty<string>>("compression");
         set => this.WithProperty("compression", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetProperty<TerraformProperty<string>>("format");
+        get => GetRequiredProperty<TerraformProperty<string>>("format");
         set => this.WithProperty("format", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportName is required")]
     public required TerraformProperty<string> ReportName
     {
-        get => GetProperty<TerraformProperty<string>>("report_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("report_name");
         set => this.WithProperty("report_name", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformProperty<string> S3Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("s3_bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket");
         set => this.WithProperty("s3_bucket", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Prefix is required")]
     public required TerraformProperty<string> S3Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("s3_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_prefix");
         set => this.WithProperty("s3_prefix", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Region is required")]
     public required TerraformProperty<string> S3Region
     {
-        get => GetProperty<TerraformProperty<string>>("s3_region");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_region");
         set => this.WithProperty("s3_region", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsCurReportDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeUnit is required")]
     public required TerraformProperty<string> TimeUnit
     {
-        get => GetProperty<TerraformProperty<string>>("time_unit");
+        get => GetRequiredProperty<TerraformProperty<string>>("time_unit");
         set => this.WithProperty("time_unit", value);
     }
 

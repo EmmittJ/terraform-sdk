@@ -95,7 +95,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsCodebuildProjectBuildBatchConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     public required TerraformProperty<string> ServiceRole
     {
-        get => GetProperty<TerraformProperty<string>>("service_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_role");
         set => WithProperty("service_role", value);
     }
 
@@ -193,7 +193,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeType is required")]
     public required TerraformProperty<string> ComputeType
     {
-        get => GetProperty<TerraformProperty<string>>("compute_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("compute_type");
         set => WithProperty("compute_type", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformProperty<string> Image
     {
-        get => GetProperty<TerraformProperty<string>>("image");
+        get => GetRequiredProperty<TerraformProperty<string>>("image");
         set => WithProperty("image", value);
     }
 
@@ -231,7 +231,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -310,7 +310,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactIdentifier is required")]
     public required TerraformProperty<string> ArtifactIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("artifact_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("artifact_identifier");
         set => WithProperty("artifact_identifier", value);
     }
 
@@ -392,7 +392,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -410,7 +410,7 @@ public class AwsCodebuildProjectSecondarySourceVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIdentifier is required")]
     public required TerraformProperty<string> SourceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("source_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_identifier");
         set => WithProperty("source_identifier", value);
     }
 
@@ -420,7 +420,7 @@ public class AwsCodebuildProjectSecondarySourceVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVersion is required")]
     public required TerraformProperty<string> SourceVersion
     {
-        get => GetProperty<TerraformProperty<string>>("source_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_version");
         set => WithProperty("source_version", value);
     }
 
@@ -483,7 +483,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIdentifier is required")]
     public required TerraformProperty<string> SourceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("source_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_identifier");
         set => WithProperty("source_identifier", value);
     }
 
@@ -493,7 +493,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -556,7 +556,7 @@ public class AwsCodebuildProjectSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -594,7 +594,7 @@ public class AwsCodebuildProjectVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => WithProperty("vpc_id", value);
     }
 
@@ -687,7 +687,7 @@ public class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -733,7 +733,7 @@ public class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     public required TerraformProperty<string> ServiceRole
     {
-        get => GetProperty<TerraformProperty<string>>("service_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_role");
         set => this.WithProperty("service_role", value);
     }
 

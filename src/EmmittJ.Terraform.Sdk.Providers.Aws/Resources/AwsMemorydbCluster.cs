@@ -61,7 +61,7 @@ public class AwsMemorydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AclName is required")]
     public required TerraformProperty<string> AclName
     {
-        get => GetProperty<TerraformProperty<string>>("acl_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("acl_name");
         set => this.WithProperty("acl_name", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsMemorydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformProperty<string> NodeType
     {
-        get => GetProperty<TerraformProperty<string>>("node_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("node_type");
         set => this.WithProperty("node_type", value);
     }
 

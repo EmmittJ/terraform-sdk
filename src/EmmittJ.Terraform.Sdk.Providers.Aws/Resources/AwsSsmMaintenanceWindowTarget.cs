@@ -14,7 +14,7 @@ public class AwsSsmMaintenanceWindowTargetTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsSsmMaintenanceWindowTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsSsmMaintenanceWindowTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WindowId is required")]
     public required TerraformProperty<string> WindowId
     {
-        get => GetProperty<TerraformProperty<string>>("window_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("window_id");
         set => this.WithProperty("window_id", value);
     }
 

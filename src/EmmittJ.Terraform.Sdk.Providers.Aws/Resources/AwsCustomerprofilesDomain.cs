@@ -14,7 +14,7 @@ public class AwsCustomerprofilesDomainMatchingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsCustomerprofilesDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultExpirationDays is required")]
     public required TerraformProperty<double> DefaultExpirationDays
     {
-        get => GetProperty<TerraformProperty<double>>("default_expiration_days");
+        get => GetRequiredProperty<TerraformProperty<double>>("default_expiration_days");
         set => this.WithProperty("default_expiration_days", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsCustomerprofilesDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 

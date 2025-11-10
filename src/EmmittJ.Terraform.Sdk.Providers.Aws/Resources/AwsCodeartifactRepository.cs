@@ -14,7 +14,7 @@ public class AwsCodeartifactRepositoryExternalConnectionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalConnectionName is required")]
     public required TerraformProperty<string> ExternalConnectionName
     {
-        get => GetProperty<TerraformProperty<string>>("external_connection_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("external_connection_name");
         set => WithProperty("external_connection_name", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsCodeartifactRepositoryUpstreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetProperty<TerraformProperty<string>>("repository_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
         set => WithProperty("repository_name", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsCodeartifactRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsCodeartifactRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformProperty<string> Repository
     {
-        get => GetProperty<TerraformProperty<string>>("repository");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository");
         set => this.WithProperty("repository", value);
     }
 

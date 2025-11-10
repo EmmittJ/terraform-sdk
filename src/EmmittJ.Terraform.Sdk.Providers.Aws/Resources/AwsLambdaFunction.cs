@@ -14,7 +14,7 @@ public class AwsLambdaFunctionDeadLetterConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformProperty<string> TargetArn
     {
-        get => GetProperty<TerraformProperty<string>>("target_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_arn");
         set => WithProperty("target_arn", value);
     }
 
@@ -66,7 +66,7 @@ public class AwsLambdaFunctionFileSystemConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("arn");
         set => WithProperty("arn", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsLambdaFunctionFileSystemConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalMountPath is required")]
     public required TerraformProperty<string> LocalMountPath
     {
-        get => GetProperty<TerraformProperty<string>>("local_mount_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("local_mount_path");
         set => WithProperty("local_mount_path", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsLambdaFunctionLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogFormat is required")]
     public required TerraformProperty<string> LogFormat
     {
-        get => GetProperty<TerraformProperty<string>>("log_format");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_format");
         set => WithProperty("log_format", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsLambdaFunctionSnapStartBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplyOn is required")]
     public required TerraformProperty<string> ApplyOn
     {
-        get => GetProperty<TerraformProperty<string>>("apply_on");
+        get => GetRequiredProperty<TerraformProperty<string>>("apply_on");
         set => WithProperty("apply_on", value);
     }
 
@@ -236,7 +236,7 @@ public class AwsLambdaFunctionTracingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("mode");
         set => WithProperty("mode", value);
     }
 
@@ -355,7 +355,7 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetProperty<TerraformProperty<string>>("function_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
     }
 
@@ -473,7 +473,7 @@ public class AwsLambdaFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

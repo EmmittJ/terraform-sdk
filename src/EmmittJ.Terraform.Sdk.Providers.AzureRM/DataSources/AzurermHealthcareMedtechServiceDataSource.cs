@@ -53,7 +53,7 @@ public class AzurermHealthcareMedtechServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermHealthcareMedtechServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

@@ -44,7 +44,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => WithProperty("display_name", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Combiner is required")]
     public required TerraformProperty<string> Combiner
     {
-        get => GetProperty<TerraformProperty<string>>("combiner");
+        get => GetRequiredProperty<TerraformProperty<string>>("combiner");
         set => this.WithProperty("combiner", value);
     }
 
@@ -178,7 +178,7 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 

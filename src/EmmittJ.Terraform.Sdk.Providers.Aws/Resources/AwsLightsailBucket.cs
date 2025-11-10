@@ -27,7 +27,7 @@ public class AwsLightsailBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
     public required TerraformProperty<string> BundleId
     {
-        get => GetProperty<TerraformProperty<string>>("bundle_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("bundle_id");
         set => this.WithProperty("bundle_id", value);
     }
 
@@ -55,7 +55,7 @@ public class AwsLightsailBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

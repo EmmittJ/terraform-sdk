@@ -23,7 +23,7 @@ public class GoogleDataCatalogEntryGroupIamBindingConditionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("expression");
         set => WithProperty("expression", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleDataCatalogEntryGroupIamBindingConditionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
+        get => GetRequiredProperty<TerraformProperty<string>>("title");
         set => WithProperty("title", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleDataCatalogEntryGroupIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroup is required")]
     public required TerraformProperty<string> EntryGroup
     {
-        get => GetProperty<TerraformProperty<string>>("entry_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("entry_group");
         set => this.WithProperty("entry_group", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleDataCatalogEntryGroupIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

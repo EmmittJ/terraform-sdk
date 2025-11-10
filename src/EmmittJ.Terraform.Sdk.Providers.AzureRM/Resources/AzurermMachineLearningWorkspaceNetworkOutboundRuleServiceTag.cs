@@ -75,7 +75,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortRanges is required")]
     public required TerraformProperty<string> PortRanges
     {
-        get => GetProperty<TerraformProperty<string>>("port_ranges");
+        get => GetRequiredProperty<TerraformProperty<string>>("port_ranges");
         set => this.WithProperty("port_ranges", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceTag is required")]
     public required TerraformProperty<string> ServiceTag
     {
-        get => GetProperty<TerraformProperty<string>>("service_tag");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_tag");
         set => this.WithProperty("service_tag", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

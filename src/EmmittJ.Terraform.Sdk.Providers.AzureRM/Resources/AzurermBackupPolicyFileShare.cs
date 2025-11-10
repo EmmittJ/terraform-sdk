@@ -14,7 +14,7 @@ public class AzurermBackupPolicyFileShareBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetProperty<TerraformProperty<string>>("frequency");
+        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
         set => WithProperty("frequency", value);
     }
 
@@ -41,7 +41,7 @@ public class AzurermBackupPolicyFileShareRetentionDailyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     public required TerraformProperty<double> Count
     {
-        get => GetProperty<TerraformProperty<double>>("count");
+        get => GetRequiredProperty<TerraformProperty<double>>("count");
         set => WithProperty("count", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermBackupPolicyFileShareRetentionMonthlyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     public required TerraformProperty<double> Count
     {
-        get => GetProperty<TerraformProperty<double>>("count");
+        get => GetRequiredProperty<TerraformProperty<double>>("count");
         set => WithProperty("count", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermBackupPolicyFileShareRetentionWeeklyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     public required TerraformProperty<double> Count
     {
-        get => GetProperty<TerraformProperty<double>>("count");
+        get => GetRequiredProperty<TerraformProperty<double>>("count");
         set => WithProperty("count", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermBackupPolicyFileShareRetentionYearlyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     public required TerraformProperty<double> Count
     {
-        get => GetProperty<TerraformProperty<double>>("count");
+        get => GetRequiredProperty<TerraformProperty<double>>("count");
         set => WithProperty("count", value);
     }
 
@@ -267,7 +267,7 @@ public class AzurermBackupPolicyFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -277,7 +277,7 @@ public class AzurermBackupPolicyFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformProperty<string> RecoveryVaultName
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_vault_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_name");
         set => this.WithProperty("recovery_vault_name", value);
     }
 
@@ -287,7 +287,7 @@ public class AzurermBackupPolicyFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

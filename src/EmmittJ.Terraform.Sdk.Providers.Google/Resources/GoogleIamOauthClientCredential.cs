@@ -89,7 +89,7 @@ public class GoogleIamOauthClientCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleIamOauthClientCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthClientCredentialId is required")]
     public required TerraformProperty<string> OauthClientCredentialId
     {
-        get => GetProperty<TerraformProperty<string>>("oauth_client_credential_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("oauth_client_credential_id");
         set => this.WithProperty("oauth_client_credential_id", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleIamOauthClientCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauthclient is required")]
     public required TerraformProperty<string> Oauthclient
     {
-        get => GetProperty<TerraformProperty<string>>("oauthclient");
+        get => GetRequiredProperty<TerraformProperty<string>>("oauthclient");
         set => this.WithProperty("oauthclient", value);
     }
 

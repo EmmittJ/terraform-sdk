@@ -49,7 +49,7 @@ public class AwsEvidentlyFeatureVariationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsEvidentlyFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsEvidentlyFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
+        get => GetRequiredProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

@@ -66,7 +66,7 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationGroupId is required")]
     public required TerraformProperty<string> ApplicationGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("application_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_group_id");
         set => this.WithProperty("application_group_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommandLineArgumentPolicy is required")]
     public required TerraformProperty<string> CommandLineArgumentPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("command_line_argument_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("command_line_argument_policy");
         set => this.WithProperty("command_line_argument_policy", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => this.WithProperty("path", value);
     }
 

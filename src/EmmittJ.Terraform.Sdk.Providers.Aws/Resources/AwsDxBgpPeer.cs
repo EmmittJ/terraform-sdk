@@ -51,7 +51,7 @@ public class AwsDxBgpPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
     public required TerraformProperty<string> AddressFamily
     {
-        get => GetProperty<TerraformProperty<string>>("address_family");
+        get => GetRequiredProperty<TerraformProperty<string>>("address_family");
         set => this.WithProperty("address_family", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsDxBgpPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpAsn is required")]
     public required TerraformProperty<double> BgpAsn
     {
-        get => GetProperty<TerraformProperty<double>>("bgp_asn");
+        get => GetRequiredProperty<TerraformProperty<double>>("bgp_asn");
         set => this.WithProperty("bgp_asn", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsDxBgpPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualInterfaceId is required")]
     public required TerraformProperty<string> VirtualInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_interface_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_interface_id");
         set => this.WithProperty("virtual_interface_id", value);
     }
 

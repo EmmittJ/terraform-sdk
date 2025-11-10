@@ -120,7 +120,7 @@ public class AzurermSynapseWorkspaceExtendedAuditingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
     }
 

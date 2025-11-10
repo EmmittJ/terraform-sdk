@@ -22,7 +22,7 @@ public class AwsCloudwatchLogDeliveryDestinationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryDestinationName is required")]
     public required TerraformProperty<string> DeliveryDestinationName
     {
-        get => GetProperty<TerraformProperty<string>>("delivery_destination_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("delivery_destination_name");
         set => this.WithProperty("delivery_destination_name", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsCloudwatchLogDeliveryDestinationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryDestinationPolicy is required")]
     public required TerraformProperty<string> DeliveryDestinationPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("delivery_destination_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("delivery_destination_policy");
         set => this.WithProperty("delivery_destination_policy", value);
     }
 

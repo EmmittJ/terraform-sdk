@@ -23,7 +23,7 @@ public class AwsGlueCrawlerCatalogTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => WithProperty("database_name", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsGlueCrawlerDeltaTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WriteManifest is required")]
     public required TerraformProperty<bool> WriteManifest
     {
-        get => GetProperty<TerraformProperty<bool>>("write_manifest");
+        get => GetRequiredProperty<TerraformProperty<bool>>("write_manifest");
         set => WithProperty("write_manifest", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsGlueCrawlerDynamodbTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => WithProperty("path", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsGlueCrawlerHudiTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumTraversalDepth is required")]
     public required TerraformProperty<double> MaximumTraversalDepth
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_traversal_depth");
+        get => GetRequiredProperty<TerraformProperty<double>>("maximum_traversal_depth");
         set => WithProperty("maximum_traversal_depth", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsGlueCrawlerIcebergTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumTraversalDepth is required")]
     public required TerraformProperty<double> MaximumTraversalDepth
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_traversal_depth");
+        get => GetRequiredProperty<TerraformProperty<double>>("maximum_traversal_depth");
         set => WithProperty("maximum_traversal_depth", value);
     }
 
@@ -243,7 +243,7 @@ public class AwsGlueCrawlerJdbcTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionName is required")]
     public required TerraformProperty<string> ConnectionName
     {
-        get => GetProperty<TerraformProperty<string>>("connection_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_name");
         set => WithProperty("connection_name", value);
     }
 
@@ -271,7 +271,7 @@ public class AwsGlueCrawlerJdbcTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => WithProperty("path", value);
     }
 
@@ -332,7 +332,7 @@ public class AwsGlueCrawlerMongodbTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionName is required")]
     public required TerraformProperty<string> ConnectionName
     {
-        get => GetProperty<TerraformProperty<string>>("connection_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_name");
         set => WithProperty("connection_name", value);
     }
 
@@ -342,7 +342,7 @@ public class AwsGlueCrawlerMongodbTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => WithProperty("path", value);
     }
 
@@ -422,7 +422,7 @@ public class AwsGlueCrawlerS3TargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => WithProperty("path", value);
     }
 
@@ -503,7 +503,7 @@ public class AwsGlueCrawler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
     }
 
@@ -531,7 +531,7 @@ public class AwsGlueCrawler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -550,7 +550,7 @@ public class AwsGlueCrawler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

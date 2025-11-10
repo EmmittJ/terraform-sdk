@@ -59,7 +59,7 @@ public class AwsChatbotTeamsChannelConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelId is required")]
     public required TerraformProperty<string> ChannelId
     {
-        get => GetProperty<TerraformProperty<string>>("channel_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("channel_id");
         set => this.WithProperty("channel_id", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsChatbotTeamsChannelConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationName is required")]
     public required TerraformProperty<string> ConfigurationName
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_name");
         set => this.WithProperty("configuration_name", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsChatbotTeamsChannelConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformProperty<string> IamRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsChatbotTeamsChannelConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TeamId is required")]
     public required TerraformProperty<string> TeamId
     {
-        get => GetProperty<TerraformProperty<string>>("team_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("team_id");
         set => this.WithProperty("team_id", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsChatbotTeamsChannelConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

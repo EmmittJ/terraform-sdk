@@ -66,7 +66,7 @@ public class AzurermApiManagementWorkspacePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementWorkspaceId is required")]
     public required TerraformProperty<string> ApiManagementWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_workspace_id");
         set => this.WithProperty("api_management_workspace_id", value);
     }
 

@@ -40,7 +40,7 @@ public class AzurermStorageTableEntitiesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermStorageTableEntitiesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
     public required TerraformProperty<string> StorageTableId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_table_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_table_id");
         set => this.WithProperty("storage_table_id", value);
     }
 

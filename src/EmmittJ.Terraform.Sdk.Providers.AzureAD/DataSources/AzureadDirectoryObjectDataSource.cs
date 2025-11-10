@@ -49,7 +49,7 @@ public class AzureadDirectoryObjectDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformProperty<string> ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("object_id");
         set => this.WithProperty("object_id", value);
     }
 

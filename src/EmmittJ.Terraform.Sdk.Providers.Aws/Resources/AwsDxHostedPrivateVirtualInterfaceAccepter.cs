@@ -94,7 +94,7 @@ public class AwsDxHostedPrivateVirtualInterfaceAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualInterfaceId is required")]
     public required TerraformProperty<string> VirtualInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_interface_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_interface_id");
         set => this.WithProperty("virtual_interface_id", value);
     }
 

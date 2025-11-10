@@ -52,7 +52,7 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubName is required")]
     public required TerraformProperty<string> VirtualHubName
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_hub_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_name");
         set => this.WithProperty("virtual_hub_name", value);
     }
 

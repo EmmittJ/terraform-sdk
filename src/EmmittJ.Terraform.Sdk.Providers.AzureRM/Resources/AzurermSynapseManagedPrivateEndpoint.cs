@@ -66,7 +66,7 @@ public class AzurermSynapseManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSynapseManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubresourceName is required")]
     public required TerraformProperty<string> SubresourceName
     {
-        get => GetProperty<TerraformProperty<string>>("subresource_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("subresource_name");
         set => this.WithProperty("subresource_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermSynapseManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermSynapseManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
         set => this.WithProperty("target_resource_id", value);
     }
 

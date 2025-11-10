@@ -24,7 +24,7 @@ public class GoogleDataplexGlossaryIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlossaryId is required")]
     public required TerraformProperty<string> GlossaryId
     {
-        get => GetProperty<TerraformProperty<string>>("glossary_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("glossary_id");
         set => this.WithProperty("glossary_id", value);
     }
 

@@ -33,7 +33,7 @@ public class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     public required TerraformProperty<string> SourceName
     {
-        get => GetProperty<TerraformProperty<string>>("source_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_name");
         set => WithProperty("source_name", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermRouteMapRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermRouteMap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermRouteMap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformProperty<string> VirtualHubId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_hub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_id");
         set => this.WithProperty("virtual_hub_id", value);
     }
 

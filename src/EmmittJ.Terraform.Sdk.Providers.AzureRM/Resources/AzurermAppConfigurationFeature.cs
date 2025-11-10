@@ -14,7 +14,7 @@ public class AzurermAppConfigurationFeatureTargetingFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRolloutPercentage is required")]
     public required TerraformProperty<double> DefaultRolloutPercentage
     {
-        get => GetProperty<TerraformProperty<double>>("default_rollout_percentage");
+        get => GetRequiredProperty<TerraformProperty<double>>("default_rollout_percentage");
         set => WithProperty("default_rollout_percentage", value);
     }
 
@@ -119,7 +119,7 @@ public class AzurermAppConfigurationFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     public required TerraformProperty<string> ConfigurationStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_store_id");
         set => this.WithProperty("configuration_store_id", value);
     }
 
@@ -192,7 +192,7 @@ public class AzurermAppConfigurationFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -90,7 +90,7 @@ public class AwsRdsCustomDbEngineVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     public required TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsRdsCustomDbEngineVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineVersion is required")]
     public required TerraformProperty<string> EngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("engine_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine_version");
         set => this.WithProperty("engine_version", value);
     }
 

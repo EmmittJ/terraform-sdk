@@ -41,7 +41,7 @@ public class AzurermStreamAnalyticsOutputServicebusTopicSerializationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermStreamAnalyticsOutputServicebusTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermStreamAnalyticsOutputServicebusTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermStreamAnalyticsOutputServicebusTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicebusNamespace is required")]
     public required TerraformProperty<string> ServicebusNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("servicebus_namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("servicebus_namespace");
         set => this.WithProperty("servicebus_namespace", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermStreamAnalyticsOutputServicebusTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformProperty<string> StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_name");
         set => this.WithProperty("stream_analytics_job_name", value);
     }
 
@@ -206,7 +206,7 @@ public class AzurermStreamAnalyticsOutputServicebusTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     public required TerraformProperty<string> TopicName
     {
-        get => GetProperty<TerraformProperty<string>>("topic_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic_name");
         set => this.WithProperty("topic_name", value);
     }
 

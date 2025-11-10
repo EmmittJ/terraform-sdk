@@ -41,7 +41,7 @@ public class AwsEcrPullThroughCacheRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EcrRepositoryPrefix is required")]
     public required TerraformProperty<string> EcrRepositoryPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("ecr_repository_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("ecr_repository_prefix");
         set => this.WithProperty("ecr_repository_prefix", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsEcrPullThroughCacheRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UpstreamRegistryUrl is required")]
     public required TerraformProperty<string> UpstreamRegistryUrl
     {
-        get => GetProperty<TerraformProperty<string>>("upstream_registry_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("upstream_registry_url");
         set => this.WithProperty("upstream_registry_url", value);
     }
 

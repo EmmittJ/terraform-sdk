@@ -23,7 +23,7 @@ public class GoogleIapTunnelDestGroupIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestGroup is required")]
     public required TerraformProperty<string> DestGroup
     {
-        get => GetProperty<TerraformProperty<string>>("dest_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("dest_group");
         set => this.WithProperty("dest_group", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleIapTunnelDestGroupIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

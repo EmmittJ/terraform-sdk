@@ -40,7 +40,7 @@ public class GoogleDataLossPreventionStoredInfoTypeRegexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformProperty<string> Pattern
     {
-        get => GetProperty<TerraformProperty<string>>("pattern");
+        get => GetRequiredProperty<TerraformProperty<string>>("pattern");
         set => WithProperty("pattern", value);
     }
 
@@ -135,7 +135,7 @@ public class GoogleDataLossPreventionStoredInfoType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 

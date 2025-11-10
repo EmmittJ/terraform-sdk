@@ -31,7 +31,7 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
+        get => GetRequiredProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

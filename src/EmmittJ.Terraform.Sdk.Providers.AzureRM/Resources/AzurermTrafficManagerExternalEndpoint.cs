@@ -14,7 +14,7 @@ public class AzurermTrafficManagerExternalEndpointCustomHeaderBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermTrafficManagerExternalEndpointCustomHeaderBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermTrafficManagerExternalEndpointSubnetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "First is required")]
     public required TerraformProperty<string> First
     {
-        get => GetProperty<TerraformProperty<string>>("first");
+        get => GetRequiredProperty<TerraformProperty<string>>("first");
         set => WithProperty("first", value);
     }
 
@@ -175,7 +175,7 @@ public class AzurermTrafficManagerExternalEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermTrafficManagerExternalEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     public required TerraformProperty<string> ProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("profile_id");
         set => this.WithProperty("profile_id", value);
     }
 
@@ -204,7 +204,7 @@ public class AzurermTrafficManagerExternalEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetProperty<TerraformProperty<string>>("target");
+        get => GetRequiredProperty<TerraformProperty<string>>("target");
         set => this.WithProperty("target", value);
     }
 

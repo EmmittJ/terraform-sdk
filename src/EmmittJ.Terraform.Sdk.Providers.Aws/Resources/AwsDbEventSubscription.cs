@@ -113,7 +113,7 @@ public class AwsDbEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsTopic is required")]
     public required TerraformProperty<string> SnsTopic
     {
-        get => GetProperty<TerraformProperty<string>>("sns_topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("sns_topic");
         set => this.WithProperty("sns_topic", value);
     }
 

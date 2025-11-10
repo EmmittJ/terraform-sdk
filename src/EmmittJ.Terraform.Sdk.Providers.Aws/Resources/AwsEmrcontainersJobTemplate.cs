@@ -14,7 +14,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("execution_role_arn");
         set => WithProperty("execution_role_arn", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
     public required TerraformProperty<string> ReleaseLabel
     {
-        get => GetProperty<TerraformProperty<string>>("release_label");
+        get => GetRequiredProperty<TerraformProperty<string>>("release_label");
         set => WithProperty("release_label", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsEmrcontainersJobTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

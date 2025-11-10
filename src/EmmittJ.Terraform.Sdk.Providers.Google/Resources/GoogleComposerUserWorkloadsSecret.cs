@@ -66,7 +66,7 @@ public class GoogleComposerUserWorkloadsSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetProperty<TerraformProperty<string>>("environment");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleComposerUserWorkloadsSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

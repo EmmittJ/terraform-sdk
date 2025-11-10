@@ -15,7 +15,7 @@ public class GoogleSiteVerificationWebResourceSiteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetProperty<TerraformProperty<string>>("identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
         set => WithProperty("identifier", value);
     }
 
@@ -25,7 +25,7 @@ public class GoogleSiteVerificationWebResourceSiteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleSiteVerificationWebResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerificationMethod is required")]
     public required TerraformProperty<string> VerificationMethod
     {
-        get => GetProperty<TerraformProperty<string>>("verification_method");
+        get => GetRequiredProperty<TerraformProperty<string>>("verification_method");
         set => this.WithProperty("verification_method", value);
     }
 

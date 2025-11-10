@@ -40,7 +40,7 @@ public class AzurermMonitorDiagnosticSettingEnabledMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformProperty<string> Category
     {
-        get => GetProperty<TerraformProperty<string>>("category");
+        get => GetRequiredProperty<TerraformProperty<string>>("category");
         set => WithProperty("category", value);
     }
 
@@ -58,7 +58,7 @@ public class AzurermMonitorDiagnosticSettingMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformProperty<string> Category
     {
-        get => GetProperty<TerraformProperty<string>>("category");
+        get => GetRequiredProperty<TerraformProperty<string>>("category");
         set => WithProperty("category", value);
     }
 
@@ -182,7 +182,7 @@ public class AzurermMonitorDiagnosticSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -210,7 +210,7 @@ public class AzurermMonitorDiagnosticSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
         set => this.WithProperty("target_resource_id", value);
     }
 

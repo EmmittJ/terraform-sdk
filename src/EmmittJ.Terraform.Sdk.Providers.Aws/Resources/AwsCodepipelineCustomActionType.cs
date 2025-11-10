@@ -23,7 +23,7 @@ public class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<bool> Key
     {
-        get => GetProperty<TerraformProperty<bool>>("key");
+        get => GetRequiredProperty<TerraformProperty<bool>>("key");
         set => WithProperty("key", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
     public required TerraformProperty<bool> Required
     {
-        get => GetProperty<TerraformProperty<bool>>("required");
+        get => GetRequiredProperty<TerraformProperty<bool>>("required");
         set => WithProperty("required", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformProperty<bool> Secret
     {
-        get => GetProperty<TerraformProperty<bool>>("secret");
+        get => GetRequiredProperty<TerraformProperty<bool>>("secret");
         set => WithProperty("secret", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsCodepipelineCustomActionTypeInputArtifactDetailsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumCount is required")]
     public required TerraformProperty<double> MaximumCount
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("maximum_count");
         set => WithProperty("maximum_count", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsCodepipelineCustomActionTypeInputArtifactDetailsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumCount is required")]
     public required TerraformProperty<double> MinimumCount
     {
-        get => GetProperty<TerraformProperty<double>>("minimum_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("minimum_count");
         set => WithProperty("minimum_count", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsCodepipelineCustomActionTypeOutputArtifactDetailsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumCount is required")]
     public required TerraformProperty<double> MaximumCount
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("maximum_count");
         set => WithProperty("maximum_count", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsCodepipelineCustomActionTypeOutputArtifactDetailsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumCount is required")]
     public required TerraformProperty<double> MinimumCount
     {
-        get => GetProperty<TerraformProperty<double>>("minimum_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("minimum_count");
         set => WithProperty("minimum_count", value);
     }
 
@@ -200,7 +200,7 @@ public class AwsCodepipelineCustomActionType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformProperty<string> Category
     {
-        get => GetProperty<TerraformProperty<string>>("category");
+        get => GetRequiredProperty<TerraformProperty<string>>("category");
         set => this.WithProperty("category", value);
     }
 
@@ -219,7 +219,7 @@ public class AwsCodepipelineCustomActionType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderName is required")]
     public required TerraformProperty<string> ProviderName
     {
-        get => GetProperty<TerraformProperty<string>>("provider_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("provider_name");
         set => this.WithProperty("provider_name", value);
     }
 
@@ -256,7 +256,7 @@ public class AwsCodepipelineCustomActionType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

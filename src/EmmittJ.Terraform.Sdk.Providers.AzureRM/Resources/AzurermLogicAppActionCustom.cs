@@ -66,7 +66,7 @@ public class AzurermLogicAppActionCustom : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformProperty<string> Body
     {
-        get => GetProperty<TerraformProperty<string>>("body");
+        get => GetRequiredProperty<TerraformProperty<string>>("body");
         set => this.WithProperty("body", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermLogicAppActionCustom : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformProperty<string> LogicAppId
     {
-        get => GetProperty<TerraformProperty<string>>("logic_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("logic_app_id");
         set => this.WithProperty("logic_app_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermLogicAppActionCustom : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

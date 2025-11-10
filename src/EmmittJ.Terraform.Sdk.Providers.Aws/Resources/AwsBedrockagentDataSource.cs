@@ -14,7 +14,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsBedrockagentDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnowledgeBaseId is required")]
     public required TerraformProperty<string> KnowledgeBaseId
     {
-        get => GetProperty<TerraformProperty<string>>("knowledge_base_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("knowledge_base_id");
         set => this.WithProperty("knowledge_base_id", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsBedrockagentDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

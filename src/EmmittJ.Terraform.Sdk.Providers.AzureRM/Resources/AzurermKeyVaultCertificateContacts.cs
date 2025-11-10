@@ -14,7 +14,7 @@ public class AzurermKeyVaultCertificateContactsContactBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
+        get => GetRequiredProperty<TerraformProperty<string>>("email");
         set => WithProperty("email", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermKeyVaultCertificateContacts : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
     }
 

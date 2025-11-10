@@ -34,7 +34,7 @@ public class AwsRoute53TrafficPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Document is required")]
     public required TerraformProperty<string> Document
     {
-        get => GetProperty<TerraformProperty<string>>("document");
+        get => GetRequiredProperty<TerraformProperty<string>>("document");
         set => this.WithProperty("document", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsRoute53TrafficPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

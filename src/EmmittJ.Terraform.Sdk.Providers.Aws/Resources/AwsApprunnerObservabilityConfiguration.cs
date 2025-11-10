@@ -53,7 +53,7 @@ public class AwsApprunnerObservabilityConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObservabilityConfigurationName is required")]
     public required TerraformProperty<string> ObservabilityConfigurationName
     {
-        get => GetProperty<TerraformProperty<string>>("observability_configuration_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("observability_configuration_name");
         set => this.WithProperty("observability_configuration_name", value);
     }
 

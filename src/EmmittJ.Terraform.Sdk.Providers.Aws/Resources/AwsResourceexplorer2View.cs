@@ -14,7 +14,7 @@ public class AwsResourceexplorer2ViewFiltersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterString is required")]
     public required TerraformProperty<string> FilterString
     {
-        get => GetProperty<TerraformProperty<string>>("filter_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter_string");
         set => WithProperty("filter_string", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsResourceexplorer2ViewIncludedPropertyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsResourceexplorer2View : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

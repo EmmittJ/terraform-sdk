@@ -66,7 +66,7 @@ public class AzurermBackupContainerStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformProperty<string> RecoveryVaultName
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_vault_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_name");
         set => this.WithProperty("recovery_vault_name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermBackupContainerStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermBackupContainerStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 

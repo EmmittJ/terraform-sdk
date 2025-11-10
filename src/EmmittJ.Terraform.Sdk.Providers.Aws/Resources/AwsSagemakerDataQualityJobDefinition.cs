@@ -23,7 +23,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageUri is required")]
     public required TerraformProperty<string> ImageUri
     {
-        get => GetProperty<TerraformProperty<string>>("image_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("image_uri");
         set => WithProperty("image_uri", value);
     }
 
@@ -180,7 +180,7 @@ public class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

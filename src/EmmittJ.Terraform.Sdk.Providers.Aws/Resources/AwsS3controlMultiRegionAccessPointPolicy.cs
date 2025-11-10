@@ -14,7 +14,7 @@ public class AwsS3controlMultiRegionAccessPointPolicyDetailsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsS3controlMultiRegionAccessPointPolicyDetailsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy");
         set => WithProperty("policy", value);
     }
 

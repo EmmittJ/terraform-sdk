@@ -31,7 +31,7 @@ public class AwsQuicksightAnalysisDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalysisId is required")]
     public required TerraformProperty<string> AnalysisId
     {
-        get => GetProperty<TerraformProperty<string>>("analysis_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("analysis_id");
         set => this.WithProperty("analysis_id", value);
     }
 

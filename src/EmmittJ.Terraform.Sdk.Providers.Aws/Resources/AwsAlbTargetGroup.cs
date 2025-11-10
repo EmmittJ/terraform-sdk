@@ -130,7 +130,7 @@ public class AwsAlbTargetGroupStickinessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -148,7 +148,7 @@ public class AwsAlbTargetGroupTargetFailoverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnDeregistration is required")]
     public required TerraformProperty<string> OnDeregistration
     {
-        get => GetProperty<TerraformProperty<string>>("on_deregistration");
+        get => GetRequiredProperty<TerraformProperty<string>>("on_deregistration");
         set => WithProperty("on_deregistration", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsAlbTargetGroupTargetFailoverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnUnhealthy is required")]
     public required TerraformProperty<string> OnUnhealthy
     {
-        get => GetProperty<TerraformProperty<string>>("on_unhealthy");
+        get => GetRequiredProperty<TerraformProperty<string>>("on_unhealthy");
         set => WithProperty("on_unhealthy", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsAlbTargetGroupTargetHealthStateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableUnhealthyConnectionTermination is required")]
     public required TerraformProperty<bool> EnableUnhealthyConnectionTermination
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_unhealthy_connection_termination");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enable_unhealthy_connection_termination");
         set => WithProperty("enable_unhealthy_connection_termination", value);
     }
 

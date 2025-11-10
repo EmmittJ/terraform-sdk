@@ -24,7 +24,7 @@ public class AwsAppstreamUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformProperty<string> AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication_type");
         set => this.WithProperty("authentication_type", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsAppstreamUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformProperty<string> UserName
     {
-        get => GetProperty<TerraformProperty<string>>("user_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 

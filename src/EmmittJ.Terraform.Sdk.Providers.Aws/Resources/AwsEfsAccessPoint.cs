@@ -14,7 +14,7 @@ public class AwsEfsAccessPointPosixUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
     public required TerraformProperty<double> Gid
     {
-        get => GetProperty<TerraformProperty<double>>("gid");
+        get => GetRequiredProperty<TerraformProperty<double>>("gid");
         set => WithProperty("gid", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsEfsAccessPointPosixUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
     public required TerraformProperty<double> Uid
     {
-        get => GetProperty<TerraformProperty<double>>("uid");
+        get => GetRequiredProperty<TerraformProperty<double>>("uid");
         set => WithProperty("uid", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsEfsAccessPoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformProperty<string> FileSystemId
     {
-        get => GetProperty<TerraformProperty<string>>("file_system_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("file_system_id");
         set => this.WithProperty("file_system_id", value);
     }
 

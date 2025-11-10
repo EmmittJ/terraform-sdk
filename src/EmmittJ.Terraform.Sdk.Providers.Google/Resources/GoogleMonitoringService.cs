@@ -116,7 +116,7 @@ public class GoogleMonitoringService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformProperty<string> ServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);
     }
 

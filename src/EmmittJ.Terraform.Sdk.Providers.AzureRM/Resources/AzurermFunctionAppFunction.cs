@@ -14,7 +14,7 @@ public class AzurermFunctionAppFunctionFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => WithProperty("content", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermFunctionAppFunctionFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermFunctionAppFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigJson is required")]
     public required TerraformProperty<string> ConfigJson
     {
-        get => GetProperty<TerraformProperty<string>>("config_json");
+        get => GetRequiredProperty<TerraformProperty<string>>("config_json");
         set => this.WithProperty("config_json", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermFunctionAppFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
     public required TerraformProperty<string> FunctionAppId
     {
-        get => GetProperty<TerraformProperty<string>>("function_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("function_app_id");
         set => this.WithProperty("function_app_id", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermFunctionAppFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

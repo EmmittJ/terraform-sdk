@@ -112,7 +112,7 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -140,7 +140,7 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionInstanceGroupManager is required")]
     public required TerraformProperty<string> RegionInstanceGroupManager
     {
-        get => GetProperty<TerraformProperty<string>>("region_instance_group_manager");
+        get => GetRequiredProperty<TerraformProperty<string>>("region_instance_group_manager");
         set => this.WithProperty("region_instance_group_manager", value);
     }
 

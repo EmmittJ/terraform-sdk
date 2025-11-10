@@ -76,7 +76,7 @@ public class GoogleServiceNetworkingConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleServiceNetworkingConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
+        get => GetRequiredProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
     }
 

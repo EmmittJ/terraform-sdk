@@ -35,7 +35,7 @@ public class AwsSagemakerImageVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseImage is required")]
     public required TerraformProperty<string> BaseImage
     {
-        get => GetProperty<TerraformProperty<string>>("base_image");
+        get => GetRequiredProperty<TerraformProperty<string>>("base_image");
         set => this.WithProperty("base_image", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsSagemakerImageVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformProperty<string> ImageName
     {
-        get => GetProperty<TerraformProperty<string>>("image_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("image_name");
         set => this.WithProperty("image_name", value);
     }
 

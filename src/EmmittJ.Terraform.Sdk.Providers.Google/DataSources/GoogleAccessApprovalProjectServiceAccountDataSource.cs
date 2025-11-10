@@ -33,7 +33,7 @@ public class GoogleAccessApprovalProjectServiceAccountDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformProperty<string> ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_id");
         set => this.WithProperty("project_id", value);
     }
 

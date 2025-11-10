@@ -87,7 +87,7 @@ public class AwsDatazoneDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainExecutionRole is required")]
     public required TerraformProperty<string> DomainExecutionRole
     {
-        get => GetProperty<TerraformProperty<string>>("domain_execution_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_execution_role");
         set => this.WithProperty("domain_execution_role", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsDatazoneDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -87,7 +87,7 @@ public class AzurermSentinelAlertRuleAnomalyBuiltIn : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermSentinelAlertRuleAnomalyBuiltIn : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermSentinelAlertRuleAnomalyBuiltIn : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("mode");
         set => this.WithProperty("mode", value);
     }
 

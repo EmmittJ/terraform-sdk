@@ -109,7 +109,7 @@ public class AzurermDatadogMonitorTagRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatadogMonitorId is required")]
     public required TerraformProperty<string> DatadogMonitorId
     {
-        get => GetProperty<TerraformProperty<string>>("datadog_monitor_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("datadog_monitor_id");
         set => this.WithProperty("datadog_monitor_id", value);
     }
 

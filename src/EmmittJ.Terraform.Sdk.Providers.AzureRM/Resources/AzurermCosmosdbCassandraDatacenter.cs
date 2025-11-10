@@ -94,7 +94,7 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CassandraClusterId is required")]
     public required TerraformProperty<string> CassandraClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("cassandra_cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cassandra_cluster_id");
         set => this.WithProperty("cassandra_cluster_id", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedManagementSubnetId is required")]
     public required TerraformProperty<string> DelegatedManagementSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("delegated_management_subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("delegated_management_subnet_id");
         set => this.WithProperty("delegated_management_subnet_id", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

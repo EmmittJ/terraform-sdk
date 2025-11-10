@@ -66,7 +66,7 @@ public class AwsCloudtrailInsightSelectorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightType is required")]
     public required TerraformProperty<string> InsightType
     {
-        get => GetProperty<TerraformProperty<string>>("insight_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("insight_type");
         set => WithProperty("insight_type", value);
     }
 
@@ -177,7 +177,7 @@ public class AwsCloudtrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -196,7 +196,7 @@ public class AwsCloudtrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformProperty<string> S3BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("s3_bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket_name");
         set => this.WithProperty("s3_bucket_name", value);
     }
 

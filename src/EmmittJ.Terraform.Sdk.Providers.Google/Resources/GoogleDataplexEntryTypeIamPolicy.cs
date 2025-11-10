@@ -23,7 +23,7 @@ public class GoogleDataplexEntryTypeIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryTypeId is required")]
     public required TerraformProperty<string> EntryTypeId
     {
-        get => GetProperty<TerraformProperty<string>>("entry_type_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("entry_type_id");
         set => this.WithProperty("entry_type_id", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleDataplexEntryTypeIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermDataFactoryLinkedServiceOdataBasicAuthenticationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => WithProperty("password", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermDataFactoryLinkedServiceOdataBasicAuthenticationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermDataFactoryLinkedServiceOdata : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetProperty<TerraformProperty<string>>("data_factory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermDataFactoryLinkedServiceOdata : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermDataFactoryLinkedServiceOdata : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => this.WithProperty("url", value);
     }
 

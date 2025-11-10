@@ -57,7 +57,7 @@ public class AzurermCommunicationServiceEmailDomainAssociation : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommunicationServiceId is required")]
     public required TerraformProperty<string> CommunicationServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("communication_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("communication_service_id");
         set => this.WithProperty("communication_service_id", value);
     }
 
@@ -67,7 +67,7 @@ public class AzurermCommunicationServiceEmailDomainAssociation : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailServiceDomainId is required")]
     public required TerraformProperty<string> EmailServiceDomainId
     {
-        get => GetProperty<TerraformProperty<string>>("email_service_domain_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("email_service_domain_id");
         set => this.WithProperty("email_service_domain_id", value);
     }
 

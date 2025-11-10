@@ -15,7 +15,7 @@ public class GoogleNetworkSecuritySecurityProfileCustomInterceptProfileBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterceptEndpointGroup is required")]
     public required TerraformProperty<string> InterceptEndpointGroup
     {
-        get => GetProperty<TerraformProperty<string>>("intercept_endpoint_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("intercept_endpoint_group");
         set => WithProperty("intercept_endpoint_group", value);
     }
 
@@ -34,7 +34,7 @@ public class GoogleNetworkSecuritySecurityProfileCustomMirroringProfileBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringEndpointGroup is required")]
     public required TerraformProperty<string> MirroringEndpointGroup
     {
-        get => GetProperty<TerraformProperty<string>>("mirroring_endpoint_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("mirroring_endpoint_group");
         set => WithProperty("mirroring_endpoint_group", value);
     }
 
@@ -151,7 +151,7 @@ public class GoogleNetworkSecuritySecurityProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -171,7 +171,7 @@ public class GoogleNetworkSecuritySecurityProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

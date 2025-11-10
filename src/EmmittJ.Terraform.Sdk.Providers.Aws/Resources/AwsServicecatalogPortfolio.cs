@@ -86,7 +86,7 @@ public class AwsServicecatalogPortfolio : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsServicecatalogPortfolio : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderName is required")]
     public required TerraformProperty<string> ProviderName
     {
-        get => GetProperty<TerraformProperty<string>>("provider_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("provider_name");
         set => this.WithProperty("provider_name", value);
     }
 

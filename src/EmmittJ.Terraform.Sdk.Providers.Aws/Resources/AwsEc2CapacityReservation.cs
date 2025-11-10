@@ -59,7 +59,7 @@ public class AwsEc2CapacityReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZone is required")]
     public required TerraformProperty<string> AvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("availability_zone");
         set => this.WithProperty("availability_zone", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsEc2CapacityReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
     public required TerraformProperty<double> InstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("instance_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("instance_count");
         set => this.WithProperty("instance_count", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsEc2CapacityReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePlatform is required")]
     public required TerraformProperty<string> InstancePlatform
     {
-        get => GetProperty<TerraformProperty<string>>("instance_platform");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_platform");
         set => this.WithProperty("instance_platform", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsEc2CapacityReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 

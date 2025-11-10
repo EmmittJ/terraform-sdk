@@ -14,7 +14,7 @@ public class AzurermNetworkManagerRoutingRuleDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformProperty<string> Address
     {
-        get => GetProperty<TerraformProperty<string>>("address");
+        get => GetRequiredProperty<TerraformProperty<string>>("address");
         set => WithProperty("address", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermNetworkManagerRoutingRuleDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermNetworkManagerRoutingRuleNextHopBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermNetworkManagerRoutingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermNetworkManagerRoutingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleCollectionId is required")]
     public required TerraformProperty<string> RuleCollectionId
     {
-        get => GetProperty<TerraformProperty<string>>("rule_collection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_collection_id");
         set => this.WithProperty("rule_collection_id", value);
     }
 

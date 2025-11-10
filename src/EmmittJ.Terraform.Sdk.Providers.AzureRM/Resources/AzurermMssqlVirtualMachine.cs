@@ -59,7 +59,7 @@ public class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodInDays is required")]
     public required TerraformProperty<double> RetentionPeriodInDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_period_in_days");
+        get => GetRequiredProperty<TerraformProperty<double>>("retention_period_in_days");
         set => WithProperty("retention_period_in_days", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountAccessKey is required")]
     public required TerraformProperty<string> StorageAccountAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_access_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_access_key");
         set => WithProperty("storage_account_access_key", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageBlobEndpoint is required")]
     public required TerraformProperty<string> StorageBlobEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("storage_blob_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_blob_endpoint");
         set => WithProperty("storage_blob_endpoint", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermMssqlVirtualMachineAutoPatchingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformProperty<string> DayOfWeek
     {
-        get => GetProperty<TerraformProperty<string>>("day_of_week");
+        get => GetRequiredProperty<TerraformProperty<string>>("day_of_week");
         set => WithProperty("day_of_week", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermMssqlVirtualMachineAutoPatchingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceWindowDurationInMinutes is required")]
     public required TerraformProperty<double> MaintenanceWindowDurationInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("maintenance_window_duration_in_minutes");
+        get => GetRequiredProperty<TerraformProperty<double>>("maintenance_window_duration_in_minutes");
         set => WithProperty("maintenance_window_duration_in_minutes", value);
     }
 
@@ -126,7 +126,7 @@ public class AzurermMssqlVirtualMachineAutoPatchingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceWindowStartingHour is required")]
     public required TerraformProperty<double> MaintenanceWindowStartingHour
     {
-        get => GetProperty<TerraformProperty<double>>("maintenance_window_starting_hour");
+        get => GetRequiredProperty<TerraformProperty<double>>("maintenance_window_starting_hour");
         set => WithProperty("maintenance_window_starting_hour", value);
     }
 
@@ -144,7 +144,7 @@ public class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultUrl is required")]
     public required TerraformProperty<string> KeyVaultUrl
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_url");
         set => WithProperty("key_vault_url", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalName is required")]
     public required TerraformProperty<string> ServicePrincipalName
     {
-        get => GetProperty<TerraformProperty<string>>("service_principal_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_principal_name");
         set => WithProperty("service_principal_name", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalSecret is required")]
     public required TerraformProperty<string> ServicePrincipalSecret
     {
-        get => GetProperty<TerraformProperty<string>>("service_principal_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_principal_secret");
         set => WithProperty("service_principal_secret", value);
     }
 
@@ -263,7 +263,7 @@ public class AzurermMssqlVirtualMachineStorageConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskType is required")]
     public required TerraformProperty<string> DiskType
     {
-        get => GetProperty<TerraformProperty<string>>("disk_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("disk_type");
         set => WithProperty("disk_type", value);
     }
 
@@ -273,7 +273,7 @@ public class AzurermMssqlVirtualMachineStorageConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageWorkloadType is required")]
     public required TerraformProperty<string> StorageWorkloadType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_workload_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_workload_type");
         set => WithProperty("storage_workload_type", value);
     }
 
@@ -344,7 +344,7 @@ public class AzurermMssqlVirtualMachineWsfcDomainCredentialBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterBootstrapAccountPassword is required")]
     public required TerraformProperty<string> ClusterBootstrapAccountPassword
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_bootstrap_account_password");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_bootstrap_account_password");
         set => WithProperty("cluster_bootstrap_account_password", value);
     }
 
@@ -354,7 +354,7 @@ public class AzurermMssqlVirtualMachineWsfcDomainCredentialBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterOperatorAccountPassword is required")]
     public required TerraformProperty<string> ClusterOperatorAccountPassword
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_operator_account_password");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_operator_account_password");
         set => WithProperty("cluster_operator_account_password", value);
     }
 
@@ -364,7 +364,7 @@ public class AzurermMssqlVirtualMachineWsfcDomainCredentialBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlServiceAccountPassword is required")]
     public required TerraformProperty<string> SqlServiceAccountPassword
     {
-        get => GetProperty<TerraformProperty<string>>("sql_service_account_password");
+        get => GetRequiredProperty<TerraformProperty<string>>("sql_service_account_password");
         set => WithProperty("sql_service_account_password", value);
     }
 
@@ -472,7 +472,7 @@ public class AzurermMssqlVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
     }
 

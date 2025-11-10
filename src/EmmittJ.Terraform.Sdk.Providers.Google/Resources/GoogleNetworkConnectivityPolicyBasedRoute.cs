@@ -32,7 +32,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolVersion is required")]
     public required TerraformProperty<string> ProtocolVersion
     {
-        get => GetProperty<TerraformProperty<string>>("protocol_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol_version");
         set => WithProperty("protocol_version", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttachmentBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
+        get => GetRequiredProperty<TerraformProperty<string>>("region");
         set => WithProperty("region", value);
     }
 
@@ -176,7 +176,7 @@ public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -186,7 +186,7 @@ public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 

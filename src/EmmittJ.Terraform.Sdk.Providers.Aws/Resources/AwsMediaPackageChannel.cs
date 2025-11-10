@@ -24,7 +24,7 @@ public class AwsMediaPackageChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelId is required")]
     public required TerraformProperty<string> ChannelId
     {
-        get => GetProperty<TerraformProperty<string>>("channel_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("channel_id");
         set => this.WithProperty("channel_id", value);
     }
 

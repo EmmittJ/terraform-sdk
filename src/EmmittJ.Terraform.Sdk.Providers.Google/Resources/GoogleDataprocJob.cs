@@ -209,7 +209,7 @@ public class GoogleDataprocJobPlacementBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => WithProperty("cluster_name", value);
     }
 
@@ -334,7 +334,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainPythonFileUri is required")]
     public required TerraformProperty<string> MainPythonFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("main_python_file_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("main_python_file_uri");
         set => WithProperty("main_python_file_uri", value);
     }
 
@@ -387,7 +387,7 @@ public class GoogleDataprocJobSchedulingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxFailuresPerHour is required")]
     public required TerraformProperty<double> MaxFailuresPerHour
     {
-        get => GetProperty<TerraformProperty<double>>("max_failures_per_hour");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_failures_per_hour");
         set => WithProperty("max_failures_per_hour", value);
     }
 
@@ -397,7 +397,7 @@ public class GoogleDataprocJobSchedulingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxFailuresTotal is required")]
     public required TerraformProperty<double> MaxFailuresTotal
     {
-        get => GetProperty<TerraformProperty<double>>("max_failures_total");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_failures_total");
         set => WithProperty("max_failures_total", value);
     }
 

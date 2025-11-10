@@ -58,7 +58,7 @@ public class AwsShieldDrtAccessRoleArnAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

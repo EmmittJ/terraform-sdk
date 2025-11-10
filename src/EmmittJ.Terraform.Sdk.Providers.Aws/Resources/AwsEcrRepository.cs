@@ -40,7 +40,7 @@ public class AwsEcrRepositoryImageScanningConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanOnPush is required")]
     public required TerraformProperty<bool> ScanOnPush
     {
-        get => GetProperty<TerraformProperty<bool>>("scan_on_push");
+        get => GetRequiredProperty<TerraformProperty<bool>>("scan_on_push");
         set => WithProperty("scan_on_push", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => WithProperty("filter", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformProperty<string> FilterType
     {
-        get => GetProperty<TerraformProperty<string>>("filter_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter_type");
         set => WithProperty("filter_type", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsEcrRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

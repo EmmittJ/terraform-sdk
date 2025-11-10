@@ -205,7 +205,7 @@ public class GoogleCloudRunServiceTrafficBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percent is required")]
     public required TerraformProperty<double> Percent
     {
-        get => GetProperty<TerraformProperty<double>>("percent");
+        get => GetRequiredProperty<TerraformProperty<double>>("percent");
         set => WithProperty("percent", value);
     }
 
@@ -284,7 +284,7 @@ public class GoogleCloudRunService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -297,7 +297,7 @@ public class GoogleCloudRunService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

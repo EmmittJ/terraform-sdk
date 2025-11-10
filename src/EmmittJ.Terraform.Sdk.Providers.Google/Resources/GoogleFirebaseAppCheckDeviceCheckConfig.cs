@@ -60,7 +60,7 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetProperty<TerraformProperty<string>>("app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformProperty<string> KeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_id");
         set => this.WithProperty("key_id", value);
     }
 
@@ -89,7 +89,7 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformProperty<string> PrivateKey
     {
-        get => GetProperty<TerraformProperty<string>>("private_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("private_key");
         set => this.WithProperty("private_key", value);
     }
 

@@ -66,7 +66,7 @@ public class AzurermApiManagementUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermApiManagementUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
+        get => GetRequiredProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermApiManagementUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstName is required")]
     public required TerraformProperty<string> FirstName
     {
-        get => GetProperty<TerraformProperty<string>>("first_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("first_name");
         set => this.WithProperty("first_name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermApiManagementUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LastName is required")]
     public required TerraformProperty<string> LastName
     {
-        get => GetProperty<TerraformProperty<string>>("last_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("last_name");
         set => this.WithProperty("last_name", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermApiManagementUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -161,7 +161,7 @@ public class AzurermApiManagementUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     public required TerraformProperty<string> UserId
     {
-        get => GetProperty<TerraformProperty<string>>("user_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_id");
         set => this.WithProperty("user_id", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsWafregionalXssMatchSetXssMatchTupleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     public required TerraformProperty<string> TextTransformation
     {
-        get => GetProperty<TerraformProperty<string>>("text_transformation");
+        get => GetRequiredProperty<TerraformProperty<string>>("text_transformation");
         set => WithProperty("text_transformation", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsWafregionalXssMatchSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

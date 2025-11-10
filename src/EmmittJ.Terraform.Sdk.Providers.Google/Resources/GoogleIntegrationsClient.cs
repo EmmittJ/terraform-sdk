@@ -16,7 +16,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsLocation is required")]
     public required TerraformProperty<string> KmsLocation
     {
-        get => GetProperty<TerraformProperty<string>>("kms_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_location");
         set => WithProperty("kms_location", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsRing is required")]
     public required TerraformProperty<string> KmsRing
     {
-        get => GetProperty<TerraformProperty<string>>("kms_ring");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_ring");
         set => WithProperty("kms_ring", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleIntegrationsClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

@@ -58,7 +58,7 @@ public class AwsShieldApplicationLayerAutomaticResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsShieldApplicationLayerAutomaticResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("resource_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
     }
 

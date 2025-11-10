@@ -23,7 +23,7 @@ public class GoogleIapWebTypeAppEngineIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetProperty<TerraformProperty<string>>("app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleIapWebTypeAppEngineIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

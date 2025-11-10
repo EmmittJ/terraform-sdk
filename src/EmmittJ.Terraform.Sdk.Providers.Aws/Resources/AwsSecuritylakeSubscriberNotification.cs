@@ -42,7 +42,7 @@ public class AwsSecuritylakeSubscriberNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriberId is required")]
     public required TerraformProperty<string> SubscriberId
     {
-        get => GetProperty<TerraformProperty<string>>("subscriber_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscriber_id");
         set => this.WithProperty("subscriber_id", value);
     }
 

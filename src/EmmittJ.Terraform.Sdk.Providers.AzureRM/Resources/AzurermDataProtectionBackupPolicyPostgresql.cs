@@ -14,7 +14,7 @@ public class AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<string> Duration
     {
-        get => GetProperty<TerraformProperty<string>>("duration");
+        get => GetRequiredProperty<TerraformProperty<string>>("duration");
         set => WithProperty("duration", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermDataProtectionBackupPolicyPostgresql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRetentionDuration is required")]
     public required TerraformProperty<string> DefaultRetentionDuration
     {
-        get => GetProperty<TerraformProperty<string>>("default_retention_duration");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_retention_duration");
         set => this.WithProperty("default_retention_duration", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermDataProtectionBackupPolicyPostgresql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermDataProtectionBackupPolicyPostgresql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermDataProtectionBackupPolicyPostgresql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultName is required")]
     public required TerraformProperty<string> VaultName
     {
-        get => GetProperty<TerraformProperty<string>>("vault_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("vault_name");
         set => this.WithProperty("vault_name", value);
     }
 

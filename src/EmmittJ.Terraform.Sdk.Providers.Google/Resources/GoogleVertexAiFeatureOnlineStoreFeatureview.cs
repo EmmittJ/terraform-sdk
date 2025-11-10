@@ -24,7 +24,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("uri");
         set => WithProperty("uri", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureOnlineStore is required")]
     public required TerraformProperty<string> FeatureOnlineStore
     {
-        get => GetProperty<TerraformProperty<string>>("feature_online_store");
+        get => GetRequiredProperty<TerraformProperty<string>>("feature_online_store");
         set => this.WithProperty("feature_online_store", value);
     }
 

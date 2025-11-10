@@ -24,7 +24,7 @@ public class GoogleLoggingLogViewIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleLoggingLogViewIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleLoggingLogViewIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 

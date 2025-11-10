@@ -66,7 +66,7 @@ public class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateVirtualPath is required")]
     public required TerraformProperty<string> CertificateVirtualPath
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_virtual_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_virtual_path");
         set => this.WithProperty("certificate_virtual_path", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultSecretId is required")]
     public required TerraformProperty<string> KeyVaultSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_secret_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_secret_id");
         set => this.WithProperty("key_vault_secret_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVirtualPath is required")]
     public required TerraformProperty<string> KeyVirtualPath
     {
-        get => GetProperty<TerraformProperty<string>>("key_virtual_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_virtual_path");
         set => this.WithProperty("key_virtual_path", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformProperty<string> NginxDeploymentId
     {
-        get => GetProperty<TerraformProperty<string>>("nginx_deployment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("nginx_deployment_id");
         set => this.WithProperty("nginx_deployment_id", value);
     }
 

@@ -32,7 +32,7 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskId is required")]
     public required TerraformProperty<string> DiskId
     {
-        get => GetProperty<TerraformProperty<string>>("disk_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("disk_id");
         set => this.WithProperty("disk_id", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
     public required TerraformProperty<string> GatewayArn
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("gateway_arn");
         set => this.WithProperty("gateway_arn", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreserveExistingData is required")]
     public required TerraformProperty<bool> PreserveExistingData
     {
-        get => GetProperty<TerraformProperty<bool>>("preserve_existing_data");
+        get => GetRequiredProperty<TerraformProperty<bool>>("preserve_existing_data");
         set => this.WithProperty("preserve_existing_data", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
     public required TerraformProperty<string> TargetName
     {
-        get => GetProperty<TerraformProperty<string>>("target_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_name");
         set => this.WithProperty("target_name", value);
     }
 

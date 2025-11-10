@@ -40,7 +40,7 @@ public class AwsSecretsmanagerSecretPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsSecretsmanagerSecretPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretArn is required")]
     public required TerraformProperty<string> SecretArn
     {
-        get => GetProperty<TerraformProperty<string>>("secret_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_arn");
         set => this.WithProperty("secret_arn", value);
     }
 

@@ -57,7 +57,7 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPolicyName is required")]
     public required TerraformProperty<string> AccessPolicyName
     {
-        get => GetProperty<TerraformProperty<string>>("access_policy_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_policy_name");
         set => this.WithProperty("access_policy_name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformProperty<string> ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("object_id");
         set => this.WithProperty("object_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectIdAlias is required")]
     public required TerraformProperty<string> ObjectIdAlias
     {
-        get => GetProperty<TerraformProperty<string>>("object_id_alias");
+        get => GetRequiredProperty<TerraformProperty<string>>("object_id_alias");
         set => this.WithProperty("object_id_alias", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisCacheId is required")]
     public required TerraformProperty<string> RedisCacheId
     {
-        get => GetProperty<TerraformProperty<string>>("redis_cache_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("redis_cache_id");
         set => this.WithProperty("redis_cache_id", value);
     }
 

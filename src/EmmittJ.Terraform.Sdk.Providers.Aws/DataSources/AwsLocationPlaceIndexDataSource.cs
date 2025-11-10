@@ -37,7 +37,7 @@ public class AwsLocationPlaceIndexDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformProperty<string> IndexName
     {
-        get => GetProperty<TerraformProperty<string>>("index_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("index_name");
         set => this.WithProperty("index_name", value);
     }
 

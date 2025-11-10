@@ -48,7 +48,7 @@ public class GoogleComputeBackendBucketSignedUrlKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendBucket is required")]
     public required TerraformProperty<string> BackendBucket
     {
-        get => GetProperty<TerraformProperty<string>>("backend_bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("backend_bucket");
         set => this.WithProperty("backend_bucket", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleComputeBackendBucketSignedUrlKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValue is required")]
     public required TerraformProperty<string> KeyValue
     {
-        get => GetProperty<TerraformProperty<string>>("key_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_value");
         set => this.WithProperty("key_value", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleComputeBackendBucketSignedUrlKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

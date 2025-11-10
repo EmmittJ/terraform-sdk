@@ -14,7 +14,7 @@ public class AwsApprunnerServiceEncryptionConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformProperty<string> KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key");
         set => WithProperty("kms_key", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsApprunnerServiceObservabilityConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObservabilityEnabled is required")]
     public required TerraformProperty<bool> ObservabilityEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("observability_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("observability_enabled");
         set => WithProperty("observability_enabled", value);
     }
 
@@ -230,7 +230,7 @@ public class AwsApprunnerService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
     }
 

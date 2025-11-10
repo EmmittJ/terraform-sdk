@@ -129,7 +129,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetValue is required")]
     public required TerraformProperty<double> TargetValue
     {
-        get => GetProperty<TerraformProperty<double>>("target_value");
+        get => GetRequiredProperty<TerraformProperty<double>>("target_value");
         set => WithProperty("target_value", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
     }
 
@@ -205,7 +205,7 @@ public class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalableDimension is required")]
     public required TerraformProperty<string> ScalableDimension
     {
-        get => GetProperty<TerraformProperty<string>>("scalable_dimension");
+        get => GetRequiredProperty<TerraformProperty<string>>("scalable_dimension");
         set => this.WithProperty("scalable_dimension", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     public required TerraformProperty<string> ServiceNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("service_namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_namespace");
         set => this.WithProperty("service_namespace", value);
     }
 

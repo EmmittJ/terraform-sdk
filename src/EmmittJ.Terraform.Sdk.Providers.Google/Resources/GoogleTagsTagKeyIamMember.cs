@@ -23,7 +23,7 @@ public class GoogleTagsTagKeyIamMemberConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("expression");
         set => WithProperty("expression", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleTagsTagKeyIamMemberConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
+        get => GetRequiredProperty<TerraformProperty<string>>("title");
         set => WithProperty("title", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleTagsTagKeyIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
     public required TerraformProperty<string> Member
     {
-        get => GetProperty<TerraformProperty<string>>("member");
+        get => GetRequiredProperty<TerraformProperty<string>>("member");
         set => this.WithProperty("member", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleTagsTagKeyIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleTagsTagKeyIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagKey is required")]
     public required TerraformProperty<string> TagKey
     {
-        get => GetProperty<TerraformProperty<string>>("tag_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("tag_key");
         set => this.WithProperty("tag_key", value);
     }
 

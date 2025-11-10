@@ -32,7 +32,7 @@ public class AwsGrafanaWorkspaceApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyName is required")]
     public required TerraformProperty<string> KeyName
     {
-        get => GetProperty<TerraformProperty<string>>("key_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_name");
         set => this.WithProperty("key_name", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsGrafanaWorkspaceApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRole is required")]
     public required TerraformProperty<string> KeyRole
     {
-        get => GetProperty<TerraformProperty<string>>("key_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_role");
         set => this.WithProperty("key_role", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsGrafanaWorkspaceApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecondsToLive is required")]
     public required TerraformProperty<double> SecondsToLive
     {
-        get => GetProperty<TerraformProperty<double>>("seconds_to_live");
+        get => GetRequiredProperty<TerraformProperty<double>>("seconds_to_live");
         set => this.WithProperty("seconds_to_live", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsGrafanaWorkspaceApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

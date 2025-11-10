@@ -31,7 +31,7 @@ public class AwsDmsCertificateDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
     public required TerraformProperty<string> CertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_id");
         set => this.WithProperty("certificate_id", value);
     }
 

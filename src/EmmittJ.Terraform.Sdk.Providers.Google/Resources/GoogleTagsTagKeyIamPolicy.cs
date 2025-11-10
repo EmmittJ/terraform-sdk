@@ -32,7 +32,7 @@ public class GoogleTagsTagKeyIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleTagsTagKeyIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagKey is required")]
     public required TerraformProperty<string> TagKey
     {
-        get => GetProperty<TerraformProperty<string>>("tag_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("tag_key");
         set => this.WithProperty("tag_key", value);
     }
 

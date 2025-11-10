@@ -84,7 +84,7 @@ public class AzurermDataFactoryLinkedServiceKusto : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetProperty<TerraformProperty<string>>("data_factory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermDataFactoryLinkedServiceKusto : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoDatabaseName is required")]
     public required TerraformProperty<string> KustoDatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("kusto_database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("kusto_database_name");
         set => this.WithProperty("kusto_database_name", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermDataFactoryLinkedServiceKusto : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoEndpoint is required")]
     public required TerraformProperty<string> KustoEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("kusto_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("kusto_endpoint");
         set => this.WithProperty("kusto_endpoint", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermDataFactoryLinkedServiceKusto : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

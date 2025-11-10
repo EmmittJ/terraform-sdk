@@ -65,7 +65,7 @@ public class GoogleComputeNetworkAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPreference is required")]
     public required TerraformProperty<string> ConnectionPreference
     {
-        get => GetProperty<TerraformProperty<string>>("connection_preference");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_preference");
         set => this.WithProperty("connection_preference", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleComputeNetworkAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingMetric is required")]
     public required TerraformProperty<string> AutoScalingMetric
     {
-        get => GetProperty<TerraformProperty<string>>("auto_scaling_metric");
+        get => GetRequiredProperty<TerraformProperty<string>>("auto_scaling_metric");
         set => WithProperty("auto_scaling_metric", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     public required TerraformProperty<double> MaxNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_node_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_node_count");
         set => WithProperty("max_node_count", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricTarget is required")]
     public required TerraformProperty<double> MetricTarget
     {
-        get => GetProperty<TerraformProperty<double>>("metric_target");
+        get => GetRequiredProperty<TerraformProperty<double>>("metric_target");
         set => WithProperty("metric_target", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     public required TerraformProperty<double> MinNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("min_node_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_node_count");
         set => WithProperty("min_node_count", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleInCooldownSeconds is required")]
     public required TerraformProperty<double> ScaleInCooldownSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("scale_in_cooldown_seconds");
+        get => GetRequiredProperty<TerraformProperty<double>>("scale_in_cooldown_seconds");
         set => WithProperty("scale_in_cooldown_seconds", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOutCooldownSeconds is required")]
     public required TerraformProperty<double> ScaleOutCooldownSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("scale_out_cooldown_seconds");
+        get => GetRequiredProperty<TerraformProperty<double>>("scale_out_cooldown_seconds");
         set => WithProperty("scale_out_cooldown_seconds", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsFinspaceKxClusterCacheStorageConfigurationsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformProperty<double> Size
     {
-        get => GetProperty<TerraformProperty<double>>("size");
+        get => GetRequiredProperty<TerraformProperty<double>>("size");
         set => WithProperty("size", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsFinspaceKxClusterCacheStorageConfigurationsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsFinspaceKxClusterCapacityConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformProperty<double> NodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("node_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("node_count");
         set => WithProperty("node_count", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsFinspaceKxClusterCapacityConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformProperty<string> NodeType
     {
-        get => GetProperty<TerraformProperty<string>>("node_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("node_type");
         set => WithProperty("node_type", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsFinspaceKxClusterCodeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformProperty<string> S3Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("s3_bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket");
         set => WithProperty("s3_bucket", value);
     }
 
@@ -148,7 +148,7 @@ public class AwsFinspaceKxClusterCodeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Key is required")]
     public required TerraformProperty<string> S3Key
     {
-        get => GetProperty<TerraformProperty<string>>("s3_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_key");
         set => WithProperty("s3_key", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsFinspaceKxClusterDatabaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => WithProperty("database_name", value);
     }
 
@@ -264,7 +264,7 @@ public class AwsFinspaceKxClusterScalingGroupConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryReservation is required")]
     public required TerraformProperty<double> MemoryReservation
     {
-        get => GetProperty<TerraformProperty<double>>("memory_reservation");
+        get => GetRequiredProperty<TerraformProperty<double>>("memory_reservation");
         set => WithProperty("memory_reservation", value);
     }
 
@@ -274,7 +274,7 @@ public class AwsFinspaceKxClusterScalingGroupConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformProperty<double> NodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("node_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("node_count");
         set => WithProperty("node_count", value);
     }
 
@@ -284,7 +284,7 @@ public class AwsFinspaceKxClusterScalingGroupConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingGroupName is required")]
     public required TerraformProperty<string> ScalingGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("scaling_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("scaling_group_name");
         set => WithProperty("scaling_group_name", value);
     }
 
@@ -355,7 +355,7 @@ public class AwsFinspaceKxClusterVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddressType is required")]
     public required TerraformProperty<string> IpAddressType
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_address_type");
         set => WithProperty("ip_address_type", value);
     }
 
@@ -385,7 +385,7 @@ public class AwsFinspaceKxClusterVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => WithProperty("vpc_id", value);
     }
 
@@ -426,7 +426,7 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzMode is required")]
     public required TerraformProperty<string> AzMode
     {
-        get => GetProperty<TerraformProperty<string>>("az_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("az_mode");
         set => this.WithProperty("az_mode", value);
     }
 
@@ -454,7 +454,7 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformProperty<string> EnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("environment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
     }
 
@@ -491,7 +491,7 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -510,7 +510,7 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
     public required TerraformProperty<string> ReleaseLabel
     {
-        get => GetProperty<TerraformProperty<string>>("release_label");
+        get => GetRequiredProperty<TerraformProperty<string>>("release_label");
         set => this.WithProperty("release_label", value);
     }
 
@@ -538,7 +538,7 @@ public class AwsFinspaceKxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

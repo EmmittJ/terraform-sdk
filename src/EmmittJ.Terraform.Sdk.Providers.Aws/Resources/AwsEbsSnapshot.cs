@@ -136,7 +136,7 @@ public class AwsEbsSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformProperty<string> VolumeId
     {
-        get => GetProperty<TerraformProperty<string>>("volume_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("volume_id");
         set => this.WithProperty("volume_id", value);
     }
 

@@ -55,7 +55,7 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerId is required")]
     public required TerraformProperty<string> TriggerId
     {
-        get => GetProperty<TerraformProperty<string>>("trigger_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("trigger_id");
         set => this.WithProperty("trigger_id", value);
     }
 

@@ -178,7 +178,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionName is required")]
     public required TerraformProperty<string> VersionName
     {
-        get => GetProperty<TerraformProperty<string>>("version_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("version_name");
         set => WithProperty("version_name", value);
     }
 
@@ -249,7 +249,7 @@ public class GoogleNetworkServicesWasmPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainVersionId is required")]
     public required TerraformProperty<string> MainVersionId
     {
-        get => GetProperty<TerraformProperty<string>>("main_version_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("main_version_id");
         set => this.WithProperty("main_version_id", value);
     }
 
@@ -259,7 +259,7 @@ public class GoogleNetworkServicesWasmPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsRedshiftserverlessWorkgroupConfigParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterKey is required")]
     public required TerraformProperty<string> ParameterKey
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("parameter_key");
         set => WithProperty("parameter_key", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsRedshiftserverlessWorkgroupConfigParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformProperty<string> ParameterValue
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("parameter_value");
         set => WithProperty("parameter_value", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsRedshiftserverlessWorkgroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformProperty<string> NamespaceName
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace_name");
         set => this.WithProperty("namespace_name", value);
     }
 
@@ -234,7 +234,7 @@ public class AwsRedshiftserverlessWorkgroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
     public required TerraformProperty<string> WorkgroupName
     {
-        get => GetProperty<TerraformProperty<string>>("workgroup_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("workgroup_name");
         set => this.WithProperty("workgroup_name", value);
     }
 

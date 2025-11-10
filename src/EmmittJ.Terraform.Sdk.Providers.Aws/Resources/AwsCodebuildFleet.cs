@@ -122,7 +122,7 @@ public class AwsCodebuildFleetVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => WithProperty("vpc_id", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsCodebuildFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseCapacity is required")]
     public required TerraformProperty<double> BaseCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("base_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("base_capacity");
         set => this.WithProperty("base_capacity", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsCodebuildFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeType is required")]
     public required TerraformProperty<string> ComputeType
     {
-        get => GetProperty<TerraformProperty<string>>("compute_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("compute_type");
         set => this.WithProperty("compute_type", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsCodebuildFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentType is required")]
     public required TerraformProperty<string> EnvironmentType
     {
-        get => GetProperty<TerraformProperty<string>>("environment_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment_type");
         set => this.WithProperty("environment_type", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsCodebuildFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

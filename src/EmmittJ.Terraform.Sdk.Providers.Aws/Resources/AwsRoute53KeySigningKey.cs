@@ -67,7 +67,7 @@ public class AwsRoute53KeySigningKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
     public required TerraformProperty<string> HostedZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("hosted_zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("hosted_zone_id");
         set => this.WithProperty("hosted_zone_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsRoute53KeySigningKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyManagementServiceArn is required")]
     public required TerraformProperty<string> KeyManagementServiceArn
     {
-        get => GetProperty<TerraformProperty<string>>("key_management_service_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_management_service_arn");
         set => this.WithProperty("key_management_service_arn", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsRoute53KeySigningKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

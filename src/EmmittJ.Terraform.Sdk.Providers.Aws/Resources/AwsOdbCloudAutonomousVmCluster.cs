@@ -50,7 +50,7 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Preference is required")]
     public required TerraformProperty<string> Preference
     {
-        get => GetProperty<TerraformProperty<string>>("preference");
+        get => GetRequiredProperty<TerraformProperty<string>>("preference");
         set => WithProperty("preference", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDataStorageSizeInTbs is required")]
     public required TerraformProperty<double> AutonomousDataStorageSizeInTbs
     {
-        get => GetProperty<TerraformProperty<double>>("autonomous_data_storage_size_in_tbs");
+        get => GetRequiredProperty<TerraformProperty<double>>("autonomous_data_storage_size_in_tbs");
         set => this.WithProperty("autonomous_data_storage_size_in_tbs", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformProperty<string> CloudExadataInfrastructureId
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
         set => this.WithProperty("cloud_exadata_infrastructure_id", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCountPerNode is required")]
     public required TerraformProperty<double> CpuCoreCountPerNode
     {
-        get => GetProperty<TerraformProperty<double>>("cpu_core_count_per_node");
+        get => GetRequiredProperty<TerraformProperty<double>>("cpu_core_count_per_node");
         set => this.WithProperty("cpu_core_count_per_node", value);
     }
 
@@ -204,7 +204,7 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -232,7 +232,7 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryPerOracleComputeUnitInGbs is required")]
     public required TerraformProperty<double> MemoryPerOracleComputeUnitInGbs
     {
-        get => GetProperty<TerraformProperty<double>>("memory_per_oracle_compute_unit_in_gbs");
+        get => GetRequiredProperty<TerraformProperty<double>>("memory_per_oracle_compute_unit_in_gbs");
         set => this.WithProperty("memory_per_oracle_compute_unit_in_gbs", value);
     }
 
@@ -242,7 +242,7 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     public required TerraformProperty<string> OdbNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("odb_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("odb_network_id");
         set => this.WithProperty("odb_network_id", value);
     }
 
@@ -261,7 +261,7 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanListenerPortNonTls is required")]
     public required TerraformProperty<double> ScanListenerPortNonTls
     {
-        get => GetProperty<TerraformProperty<double>>("scan_listener_port_non_tls");
+        get => GetRequiredProperty<TerraformProperty<double>>("scan_listener_port_non_tls");
         set => this.WithProperty("scan_listener_port_non_tls", value);
     }
 
@@ -271,7 +271,7 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanListenerPortTls is required")]
     public required TerraformProperty<double> ScanListenerPortTls
     {
-        get => GetProperty<TerraformProperty<double>>("scan_listener_port_tls");
+        get => GetRequiredProperty<TerraformProperty<double>>("scan_listener_port_tls");
         set => this.WithProperty("scan_listener_port_tls", value);
     }
 
@@ -299,7 +299,7 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalContainerDatabases is required")]
     public required TerraformProperty<double> TotalContainerDatabases
     {
-        get => GetProperty<TerraformProperty<double>>("total_container_databases");
+        get => GetRequiredProperty<TerraformProperty<double>>("total_container_databases");
         set => this.WithProperty("total_container_databases", value);
     }
 

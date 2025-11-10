@@ -57,7 +57,7 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     public required TerraformProperty<string> DigitalTwinsId
     {
-        get => GetProperty<TerraformProperty<string>>("digital_twins_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("digital_twins_id");
         set => this.WithProperty("digital_twins_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformProperty<string> EventhubName
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_name");
         set => this.WithProperty("eventhub_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceEndpointUri is required")]
     public required TerraformProperty<string> EventhubNamespaceEndpointUri
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_namespace_endpoint_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_namespace_endpoint_uri");
         set => this.WithProperty("eventhub_namespace_endpoint_uri", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceId is required")]
     public required TerraformProperty<string> EventhubNamespaceId
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_namespace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_namespace_id");
         set => this.WithProperty("eventhub_namespace_id", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoClusterId is required")]
     public required TerraformProperty<string> KustoClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("kusto_cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("kusto_cluster_id");
         set => this.WithProperty("kusto_cluster_id", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoClusterUri is required")]
     public required TerraformProperty<string> KustoClusterUri
     {
-        get => GetProperty<TerraformProperty<string>>("kusto_cluster_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("kusto_cluster_uri");
         set => this.WithProperty("kusto_cluster_uri", value);
     }
 
@@ -135,7 +135,7 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoDatabaseName is required")]
     public required TerraformProperty<string> KustoDatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("kusto_database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("kusto_database_name");
         set => this.WithProperty("kusto_database_name", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

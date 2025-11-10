@@ -51,7 +51,7 @@ public class GoogleSecretManagerRegionalSecretIamPolicyDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformProperty<string> SecretId
     {
-        get => GetProperty<TerraformProperty<string>>("secret_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_id");
         set => this.WithProperty("secret_id", value);
     }
 

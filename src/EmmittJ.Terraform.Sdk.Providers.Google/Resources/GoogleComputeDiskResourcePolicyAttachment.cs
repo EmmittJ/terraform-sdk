@@ -48,7 +48,7 @@ public class GoogleComputeDiskResourcePolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     public required TerraformProperty<string> Disk
     {
-        get => GetProperty<TerraformProperty<string>>("disk");
+        get => GetRequiredProperty<TerraformProperty<string>>("disk");
         set => this.WithProperty("disk", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleComputeDiskResourcePolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

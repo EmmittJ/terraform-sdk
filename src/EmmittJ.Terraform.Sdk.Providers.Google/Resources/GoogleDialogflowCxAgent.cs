@@ -49,7 +49,7 @@ public class GoogleDialogflowCxAgentClientCertificateSettingsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformProperty<string> PrivateKey
     {
-        get => GetProperty<TerraformProperty<string>>("private_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("private_key");
         set => WithProperty("private_key", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleDialogflowCxAgentClientCertificateSettingsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslCertificate is required")]
     public required TerraformProperty<string> SslCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_certificate");
+        get => GetRequiredProperty<TerraformProperty<string>>("ssl_certificate");
         set => WithProperty("ssl_certificate", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleDialogflowCxAgentGenAppBuilderSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     public required TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine");
         set => WithProperty("engine", value);
     }
 
@@ -220,7 +220,7 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLanguageCode is required")]
     public required TerraformProperty<string> DefaultLanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("default_language_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_language_code");
         set => this.WithProperty("default_language_code", value);
     }
 
@@ -261,7 +261,7 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -312,7 +312,7 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -368,7 +368,7 @@ public class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformProperty<string> TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("time_zone");
         set => this.WithProperty("time_zone", value);
     }
 

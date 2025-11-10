@@ -58,7 +58,7 @@ public class AzurermChaosStudioCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapabilityType is required")]
     public required TerraformProperty<string> CapabilityType
     {
-        get => GetProperty<TerraformProperty<string>>("capability_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("capability_type");
         set => this.WithProperty("capability_type", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermChaosStudioCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChaosStudioTargetId is required")]
     public required TerraformProperty<string> ChaosStudioTargetId
     {
-        get => GetProperty<TerraformProperty<string>>("chaos_studio_target_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("chaos_studio_target_id");
         set => this.WithProperty("chaos_studio_target_id", value);
     }
 

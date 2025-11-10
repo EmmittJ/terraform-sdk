@@ -84,7 +84,7 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceGroupManager is required")]
     public required TerraformProperty<string> InstanceGroupManager
     {
-        get => GetProperty<TerraformProperty<string>>("instance_group_manager");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_group_manager");
         set => this.WithProperty("instance_group_manager", value);
     }
 
@@ -122,7 +122,7 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -68,7 +68,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleDocumentAiWarehouseDocumentSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -159,7 +159,7 @@ public class GoogleDocumentAiWarehouseDocumentSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -169,7 +169,7 @@ public class GoogleDocumentAiWarehouseDocumentSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectNumber is required")]
     public required TerraformProperty<string> ProjectNumber
     {
-        get => GetProperty<TerraformProperty<string>>("project_number");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_number");
         set => this.WithProperty("project_number", value);
     }
 

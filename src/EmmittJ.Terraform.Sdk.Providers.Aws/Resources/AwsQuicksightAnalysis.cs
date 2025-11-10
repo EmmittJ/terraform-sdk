@@ -40,7 +40,7 @@ public class AwsQuicksightAnalysisPermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal");
         set => WithProperty("principal", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsQuicksightAnalysis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalysisId is required")]
     public required TerraformProperty<string> AnalysisId
     {
-        get => GetProperty<TerraformProperty<string>>("analysis_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("analysis_id");
         set => this.WithProperty("analysis_id", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsQuicksightAnalysis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

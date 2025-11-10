@@ -115,7 +115,7 @@ public class GoogleIamWorkforcePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleIamWorkforcePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -150,7 +150,7 @@ public class GoogleIamWorkforcePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformProperty<string> WorkforcePoolId
     {
-        get => GetProperty<TerraformProperty<string>>("workforce_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workforce_pool_id");
         set => this.WithProperty("workforce_pool_id", value);
     }
 

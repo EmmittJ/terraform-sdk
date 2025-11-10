@@ -40,7 +40,7 @@ public class AwsMacie2InvitationAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorAccountId is required")]
     public required TerraformProperty<string> AdministratorAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("administrator_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("administrator_account_id");
         set => this.WithProperty("administrator_account_id", value);
     }
 

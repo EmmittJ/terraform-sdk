@@ -14,7 +14,7 @@ public class AwsAppfabricAppAuthorizationConnectionAuthRequestBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformProperty<string> Code
     {
-        get => GetProperty<TerraformProperty<string>>("code");
+        get => GetRequiredProperty<TerraformProperty<string>>("code");
         set => WithProperty("code", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsAppfabricAppAuthorizationConnectionAuthRequestBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUri is required")]
     public required TerraformProperty<string> RedirectUri
     {
-        get => GetProperty<TerraformProperty<string>>("redirect_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("redirect_uri");
         set => WithProperty("redirect_uri", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsAppfabricAppAuthorizationConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppAuthorizationArn is required")]
     public required TerraformProperty<string> AppAuthorizationArn
     {
-        get => GetProperty<TerraformProperty<string>>("app_authorization_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_authorization_arn");
         set => this.WithProperty("app_authorization_arn", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsAppfabricAppAuthorizationConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
     public required TerraformProperty<string> AppBundleArn
     {
-        get => GetProperty<TerraformProperty<string>>("app_bundle_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_bundle_arn");
         set => this.WithProperty("app_bundle_arn", value);
     }
 

@@ -32,7 +32,7 @@ public class AwsSecurityhubInsight : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupByAttribute is required")]
     public required TerraformProperty<string> GroupByAttribute
     {
-        get => GetProperty<TerraformProperty<string>>("group_by_attribute");
+        get => GetRequiredProperty<TerraformProperty<string>>("group_by_attribute");
         set => this.WithProperty("group_by_attribute", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsSecurityhubInsight : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

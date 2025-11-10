@@ -58,7 +58,7 @@ public class AzurermLbBackendAddressPoolTunnelInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<double> Identifier
     {
-        get => GetProperty<TerraformProperty<double>>("identifier");
+        get => GetRequiredProperty<TerraformProperty<double>>("identifier");
         set => WithProperty("identifier", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermLbBackendAddressPoolTunnelInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => WithProperty("port", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermLbBackendAddressPoolTunnelInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermLbBackendAddressPoolTunnelInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -127,7 +127,7 @@ public class AzurermLbBackendAddressPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformProperty<string> LoadbalancerId
     {
-        get => GetProperty<TerraformProperty<string>>("loadbalancer_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("loadbalancer_id");
         set => this.WithProperty("loadbalancer_id", value);
     }
 
@@ -137,7 +137,7 @@ public class AzurermLbBackendAddressPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

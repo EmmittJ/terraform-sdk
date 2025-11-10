@@ -58,7 +58,7 @@ public class AwsRoute53recoveryreadinessRecoveryGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryGroupName is required")]
     public required TerraformProperty<string> RecoveryGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("recovery_group_name");
         set => this.WithProperty("recovery_group_name", value);
     }
 

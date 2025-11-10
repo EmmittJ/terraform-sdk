@@ -23,7 +23,7 @@ public class GoogleHealthcareFhirStoreIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FhirStoreId is required")]
     public required TerraformProperty<string> FhirStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("fhir_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("fhir_store_id");
         set => this.WithProperty("fhir_store_id", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleHealthcareFhirStoreIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

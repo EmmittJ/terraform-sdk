@@ -57,7 +57,7 @@ public class AzurermStaticWebAppFunctionAppRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
     public required TerraformProperty<string> FunctionAppId
     {
-        get => GetProperty<TerraformProperty<string>>("function_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("function_app_id");
         set => this.WithProperty("function_app_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermStaticWebAppFunctionAppRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticWebAppId is required")]
     public required TerraformProperty<string> StaticWebAppId
     {
-        get => GetProperty<TerraformProperty<string>>("static_web_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("static_web_app_id");
         set => this.WithProperty("static_web_app_id", value);
     }
 

@@ -41,7 +41,7 @@ public class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
     public required TerraformProperty<string> CloudVmClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_vm_cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cloud_vm_cluster_id");
         set => this.WithProperty("cloud_vm_cluster_id", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

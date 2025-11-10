@@ -155,7 +155,7 @@ public class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTimeFeatureName is required")]
     public required TerraformProperty<string> EventTimeFeatureName
     {
-        get => GetProperty<TerraformProperty<string>>("event_time_feature_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("event_time_feature_name");
         set => this.WithProperty("event_time_feature_name", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureGroupName is required")]
     public required TerraformProperty<string> FeatureGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("feature_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("feature_group_name");
         set => this.WithProperty("feature_group_name", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordIdentifierFeatureName is required")]
     public required TerraformProperty<string> RecordIdentifierFeatureName
     {
-        get => GetProperty<TerraformProperty<string>>("record_identifier_feature_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("record_identifier_feature_name");
         set => this.WithProperty("record_identifier_feature_name", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

@@ -76,7 +76,7 @@ public class AzurermDnsCnameRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermDnsCnameRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermDnsCnameRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformProperty<double> Ttl
     {
-        get => GetProperty<TerraformProperty<double>>("ttl");
+        get => GetRequiredProperty<TerraformProperty<double>>("ttl");
         set => this.WithProperty("ttl", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermDnsCnameRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
     public required TerraformProperty<string> ZoneName
     {
-        get => GetProperty<TerraformProperty<string>>("zone_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone_name");
         set => this.WithProperty("zone_name", value);
     }
 

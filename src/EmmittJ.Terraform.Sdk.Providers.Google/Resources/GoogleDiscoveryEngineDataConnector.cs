@@ -139,7 +139,7 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionDisplayName is required")]
     public required TerraformProperty<string> CollectionDisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("collection_display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("collection_display_name");
         set => this.WithProperty("collection_display_name", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformProperty<string> CollectionId
     {
-        get => GetProperty<TerraformProperty<string>>("collection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("collection_id");
         set => this.WithProperty("collection_id", value);
     }
 
@@ -177,7 +177,7 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
     public required TerraformProperty<string> DataSource
     {
-        get => GetProperty<TerraformProperty<string>>("data_source");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_source");
         set => this.WithProperty("data_source", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -274,7 +274,7 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefreshInterval is required")]
     public required TerraformProperty<string> RefreshInterval
     {
-        get => GetProperty<TerraformProperty<string>>("refresh_interval");
+        get => GetRequiredProperty<TerraformProperty<string>>("refresh_interval");
         set => this.WithProperty("refresh_interval", value);
     }
 

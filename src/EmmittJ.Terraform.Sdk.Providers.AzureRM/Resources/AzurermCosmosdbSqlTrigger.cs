@@ -66,7 +66,7 @@ public class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformProperty<string> Body
     {
-        get => GetProperty<TerraformProperty<string>>("body");
+        get => GetRequiredProperty<TerraformProperty<string>>("body");
         set => this.WithProperty("body", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     public required TerraformProperty<string> ContainerId
     {
-        get => GetProperty<TerraformProperty<string>>("container_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_id");
         set => this.WithProperty("container_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operation is required")]
     public required TerraformProperty<string> Operation
     {
-        get => GetProperty<TerraformProperty<string>>("operation");
+        get => GetRequiredProperty<TerraformProperty<string>>("operation");
         set => this.WithProperty("operation", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

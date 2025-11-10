@@ -14,7 +14,7 @@ public class GooglePubsubLiteSubscriptionDeliveryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryRequirement is required")]
     public required TerraformProperty<string> DeliveryRequirement
     {
-        get => GetProperty<TerraformProperty<string>>("delivery_requirement");
+        get => GetRequiredProperty<TerraformProperty<string>>("delivery_requirement");
         set => WithProperty("delivery_requirement", value);
     }
 
@@ -85,7 +85,7 @@ public class GooglePubsubLiteSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -113,7 +113,7 @@ public class GooglePubsubLiteSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic");
         set => this.WithProperty("topic", value);
     }
 

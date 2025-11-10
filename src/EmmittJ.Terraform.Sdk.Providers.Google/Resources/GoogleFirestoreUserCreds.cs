@@ -53,7 +53,7 @@ public class GoogleFirestoreUserCreds : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetProperty<TerraformProperty<string>>("database");
+        get => GetRequiredProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleFirestoreUserCreds : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -102,7 +102,7 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
     public required TerraformProperty<string> RulestackId
     {
-        get => GetProperty<TerraformProperty<string>>("rulestack_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("rulestack_id");
         set => this.WithProperty("rulestack_id", value);
     }
 

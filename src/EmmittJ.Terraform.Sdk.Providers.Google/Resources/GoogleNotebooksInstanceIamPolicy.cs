@@ -32,7 +32,7 @@ public class GoogleNotebooksInstanceIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformProperty<string> InstanceName
     {
-        get => GetProperty<TerraformProperty<string>>("instance_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleNotebooksInstanceIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

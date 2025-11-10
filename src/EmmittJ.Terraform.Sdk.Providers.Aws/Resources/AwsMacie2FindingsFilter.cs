@@ -49,7 +49,7 @@ public class AwsMacie2FindingsFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 

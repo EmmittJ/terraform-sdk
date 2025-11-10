@@ -110,7 +110,7 @@ public class AwsEc2InstanceTypeDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 

@@ -41,7 +41,7 @@ public class AzurermLinuxWebAppAuthSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -229,7 +229,7 @@ public class AzurermLinuxWebAppBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -239,7 +239,7 @@ public class AzurermLinuxWebAppBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountUrl is required")]
     public required TerraformProperty<string> StorageAccountUrl
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_url");
         set => WithProperty("storage_account_url", value);
     }
 
@@ -257,7 +257,7 @@ public class AzurermLinuxWebAppConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -267,7 +267,7 @@ public class AzurermLinuxWebAppConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -277,7 +277,7 @@ public class AzurermLinuxWebAppConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -322,7 +322,7 @@ public class AzurermLinuxWebAppIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -652,7 +652,7 @@ public class AzurermLinuxWebAppStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKey is required")]
     public required TerraformProperty<string> AccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("access_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_key");
         set => WithProperty("access_key", value);
     }
 
@@ -662,7 +662,7 @@ public class AzurermLinuxWebAppStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetProperty<TerraformProperty<string>>("account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
         set => WithProperty("account_name", value);
     }
 
@@ -681,7 +681,7 @@ public class AzurermLinuxWebAppStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -691,7 +691,7 @@ public class AzurermLinuxWebAppStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
     public required TerraformProperty<string> ShareName
     {
-        get => GetProperty<TerraformProperty<string>>("share_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("share_name");
         set => WithProperty("share_name", value);
     }
 
@@ -701,7 +701,7 @@ public class AzurermLinuxWebAppStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -871,7 +871,7 @@ public class AzurermLinuxWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -881,7 +881,7 @@ public class AzurermLinuxWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -900,7 +900,7 @@ public class AzurermLinuxWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -910,7 +910,7 @@ public class AzurermLinuxWebApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePlanId is required")]
     public required TerraformProperty<string> ServicePlanId
     {
-        get => GetProperty<TerraformProperty<string>>("service_plan_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_plan_id");
         set => this.WithProperty("service_plan_id", value);
     }
 

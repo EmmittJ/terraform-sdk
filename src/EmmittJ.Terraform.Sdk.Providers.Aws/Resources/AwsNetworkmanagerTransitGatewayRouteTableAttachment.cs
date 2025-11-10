@@ -67,7 +67,7 @@ public class AwsNetworkmanagerTransitGatewayRouteTableAttachment : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringId is required")]
     public required TerraformProperty<string> PeeringId
     {
-        get => GetProperty<TerraformProperty<string>>("peering_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("peering_id");
         set => this.WithProperty("peering_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsNetworkmanagerTransitGatewayRouteTableAttachment : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayRouteTableArn is required")]
     public required TerraformProperty<string> TransitGatewayRouteTableArn
     {
-        get => GetProperty<TerraformProperty<string>>("transit_gateway_route_table_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_route_table_arn");
         set => this.WithProperty("transit_gateway_route_table_arn", value);
     }
 

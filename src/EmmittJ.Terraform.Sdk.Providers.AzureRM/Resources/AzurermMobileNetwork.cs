@@ -76,7 +76,7 @@ public class AzurermMobileNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermMobileNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileCountryCode is required")]
     public required TerraformProperty<string> MobileCountryCode
     {
-        get => GetProperty<TerraformProperty<string>>("mobile_country_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("mobile_country_code");
         set => this.WithProperty("mobile_country_code", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermMobileNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkCode is required")]
     public required TerraformProperty<string> MobileNetworkCode
     {
-        get => GetProperty<TerraformProperty<string>>("mobile_network_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("mobile_network_code");
         set => this.WithProperty("mobile_network_code", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermMobileNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermMobileNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

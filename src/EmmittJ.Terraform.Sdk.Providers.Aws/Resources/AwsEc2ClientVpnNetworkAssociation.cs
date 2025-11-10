@@ -50,7 +50,7 @@ public class AwsEc2ClientVpnNetworkAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientVpnEndpointId is required")]
     public required TerraformProperty<string> ClientVpnEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("client_vpn_endpoint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_vpn_endpoint_id");
         set => this.WithProperty("client_vpn_endpoint_id", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsEc2ClientVpnNetworkAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

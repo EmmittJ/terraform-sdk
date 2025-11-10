@@ -32,7 +32,7 @@ public class AwsNotificationsEventRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public required TerraformProperty<string> EventType
     {
-        get => GetProperty<TerraformProperty<string>>("event_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("event_type");
         set => this.WithProperty("event_type", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsNotificationsEventRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationConfigurationArn is required")]
     public required TerraformProperty<string> NotificationConfigurationArn
     {
-        get => GetProperty<TerraformProperty<string>>("notification_configuration_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("notification_configuration_arn");
         set => this.WithProperty("notification_configuration_arn", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsNotificationsEventRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
+        get => GetRequiredProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
     }
 

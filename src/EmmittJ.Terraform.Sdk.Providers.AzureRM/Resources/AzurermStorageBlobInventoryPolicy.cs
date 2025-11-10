@@ -14,7 +14,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetProperty<TerraformProperty<string>>("format");
+        get => GetRequiredProperty<TerraformProperty<string>>("format");
         set => WithProperty("format", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformProperty<string> Schedule
     {
-        get => GetProperty<TerraformProperty<string>>("schedule");
+        get => GetRequiredProperty<TerraformProperty<string>>("schedule");
         set => WithProperty("schedule", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => WithProperty("scope", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     public required TerraformProperty<string> StorageContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_name");
         set => WithProperty("storage_container_name", value);
     }
 
@@ -144,7 +144,7 @@ public class AzurermStorageBlobInventoryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 

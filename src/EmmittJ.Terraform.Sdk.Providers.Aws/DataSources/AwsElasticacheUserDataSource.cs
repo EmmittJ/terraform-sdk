@@ -102,7 +102,7 @@ public class AwsElasticacheUserDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     public required TerraformProperty<string> UserId
     {
-        get => GetProperty<TerraformProperty<string>>("user_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_id");
         set => this.WithProperty("user_id", value);
     }
 

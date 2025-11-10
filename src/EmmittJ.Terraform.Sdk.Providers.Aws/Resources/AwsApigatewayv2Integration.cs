@@ -24,7 +24,7 @@ public class AwsApigatewayv2IntegrationResponseParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     public required TerraformProperty<string> StatusCode
     {
-        get => GetProperty<TerraformProperty<string>>("status_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("status_code");
         set => WithProperty("status_code", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsApigatewayv2Integration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
@@ -151,7 +151,7 @@ public class AwsApigatewayv2Integration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationType is required")]
     public required TerraformProperty<string> IntegrationType
     {
-        get => GetProperty<TerraformProperty<string>>("integration_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("integration_type");
         set => this.WithProperty("integration_type", value);
     }
 

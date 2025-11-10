@@ -14,7 +14,7 @@ public class AzurermMssqlFailoverGroupPartnerServerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("mode");
         set => WithProperty("mode", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermMssqlFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermMssqlFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformProperty<string> ServerId
     {
-        get => GetProperty<TerraformProperty<string>>("server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
     }
 

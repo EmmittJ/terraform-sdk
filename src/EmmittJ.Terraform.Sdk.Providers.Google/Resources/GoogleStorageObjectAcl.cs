@@ -22,7 +22,7 @@ public class GoogleStorageObjectAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -41,7 +41,7 @@ public class GoogleStorageObjectAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Object is required")]
     public required TerraformProperty<string> Object
     {
-        get => GetProperty<TerraformProperty<string>>("object");
+        get => GetRequiredProperty<TerraformProperty<string>>("object");
         set => this.WithProperty("object", value);
     }
 

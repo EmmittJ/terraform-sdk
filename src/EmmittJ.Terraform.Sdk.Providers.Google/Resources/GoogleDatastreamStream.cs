@@ -30,7 +30,7 @@ public class GoogleDatastreamStreamDestinationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationConnectionProfile is required")]
     public required TerraformProperty<string> DestinationConnectionProfile
     {
-        get => GetProperty<TerraformProperty<string>>("destination_connection_profile");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_connection_profile");
         set => WithProperty("destination_connection_profile", value);
     }
 
@@ -48,7 +48,7 @@ public class GoogleDatastreamStreamSourceConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceConnectionProfile is required")]
     public required TerraformProperty<string> SourceConnectionProfile
     {
-        get => GetProperty<TerraformProperty<string>>("source_connection_profile");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_connection_profile");
         set => WithProperty("source_connection_profile", value);
     }
 
@@ -145,7 +145,7 @@ public class GoogleDatastreamStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -176,7 +176,7 @@ public class GoogleDatastreamStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -195,7 +195,7 @@ public class GoogleDatastreamStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamId is required")]
     public required TerraformProperty<string> StreamId
     {
-        get => GetProperty<TerraformProperty<string>>("stream_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_id");
         set => this.WithProperty("stream_id", value);
     }
 

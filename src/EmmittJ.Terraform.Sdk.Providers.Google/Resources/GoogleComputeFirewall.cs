@@ -32,7 +32,7 @@ public class GoogleComputeFirewallAllowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleComputeFirewallDenyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleComputeFirewallLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metadata is required")]
     public required TerraformProperty<string> Metadata
     {
-        get => GetProperty<TerraformProperty<string>>("metadata");
+        get => GetRequiredProperty<TerraformProperty<string>>("metadata");
         set => WithProperty("metadata", value);
     }
 
@@ -241,7 +241,7 @@ public class GoogleComputeFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleComputeFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 

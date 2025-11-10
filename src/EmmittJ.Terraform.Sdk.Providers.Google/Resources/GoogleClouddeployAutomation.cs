@@ -93,7 +93,7 @@ public class GoogleClouddeployAutomation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryPipeline is required")]
     public required TerraformProperty<string> DeliveryPipeline
     {
-        get => GetProperty<TerraformProperty<string>>("delivery_pipeline");
+        get => GetRequiredProperty<TerraformProperty<string>>("delivery_pipeline");
         set => this.WithProperty("delivery_pipeline", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleClouddeployAutomation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleClouddeployAutomation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleClouddeployAutomation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformProperty<string> ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_account");
         set => this.WithProperty("service_account", value);
     }
 

@@ -67,7 +67,7 @@ public class AwsFsxOntapVolumeSnaplockConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnaplockType is required")]
     public required TerraformProperty<string> SnaplockType
     {
-        get => GetProperty<TerraformProperty<string>>("snaplock_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("snaplock_type");
         set => WithProperty("snaplock_type", value);
     }
 
@@ -213,7 +213,7 @@ public class AwsFsxOntapVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -295,7 +295,7 @@ public class AwsFsxOntapVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageVirtualMachineId is required")]
     public required TerraformProperty<string> StorageVirtualMachineId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_virtual_machine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_virtual_machine_id");
         set => this.WithProperty("storage_virtual_machine_id", value);
     }
 

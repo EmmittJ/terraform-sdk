@@ -23,7 +23,7 @@ public class GoogleIapWebRegionForwardingRuleServiceIamMemberConditionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("expression");
         set => WithProperty("expression", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleIapWebRegionForwardingRuleServiceIamMemberConditionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
+        get => GetRequiredProperty<TerraformProperty<string>>("title");
         set => WithProperty("title", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleIapWebRegionForwardingRuleServiceIamMember : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRuleRegionServiceName is required")]
     public required TerraformProperty<string> ForwardingRuleRegionServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("forwarding_rule_region_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("forwarding_rule_region_service_name");
         set => this.WithProperty("forwarding_rule_region_service_name", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleIapWebRegionForwardingRuleServiceIamMember : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
     public required TerraformProperty<string> Member
     {
-        get => GetProperty<TerraformProperty<string>>("member");
+        get => GetRequiredProperty<TerraformProperty<string>>("member");
         set => this.WithProperty("member", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleIapWebRegionForwardingRuleServiceIamMember : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

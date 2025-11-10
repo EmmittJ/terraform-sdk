@@ -42,7 +42,7 @@ public class AwsCloudfrontOriginAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsCloudfrontOriginAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginAccessControlOriginType is required")]
     public required TerraformProperty<string> OriginAccessControlOriginType
     {
-        get => GetProperty<TerraformProperty<string>>("origin_access_control_origin_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("origin_access_control_origin_type");
         set => this.WithProperty("origin_access_control_origin_type", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsCloudfrontOriginAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningBehavior is required")]
     public required TerraformProperty<string> SigningBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("signing_behavior");
+        get => GetRequiredProperty<TerraformProperty<string>>("signing_behavior");
         set => this.WithProperty("signing_behavior", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsCloudfrontOriginAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningProtocol is required")]
     public required TerraformProperty<string> SigningProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("signing_protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("signing_protocol");
         set => this.WithProperty("signing_protocol", value);
     }
 

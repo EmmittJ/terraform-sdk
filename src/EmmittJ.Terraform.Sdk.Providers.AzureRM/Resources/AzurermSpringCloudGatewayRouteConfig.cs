@@ -58,7 +58,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetProperty<TerraformProperty<double>>("order");
+        get => GetRequiredProperty<TerraformProperty<double>>("order");
         set => WithProperty("order", value);
     }
 
@@ -192,7 +192,7 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -211,7 +211,7 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
@@ -230,7 +230,7 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudGatewayId is required")]
     public required TerraformProperty<string> SpringCloudGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_gateway_id");
         set => this.WithProperty("spring_cloud_gateway_id", value);
     }
 

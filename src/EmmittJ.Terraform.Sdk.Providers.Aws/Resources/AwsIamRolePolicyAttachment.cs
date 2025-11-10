@@ -31,7 +31,7 @@ public class AwsIamRolePolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     public required TerraformProperty<string> PolicyArn
     {
-        get => GetProperty<TerraformProperty<string>>("policy_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_arn");
         set => this.WithProperty("policy_arn", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsIamRolePolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

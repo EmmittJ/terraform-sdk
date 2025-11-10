@@ -14,7 +14,7 @@ public class AwsFsxS3AccessPointAttachmentOpenzfsConfigurationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformProperty<string> VolumeId
     {
-        get => GetProperty<TerraformProperty<string>>("volume_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("volume_id");
         set => WithProperty("volume_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsFsxS3AccessPointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsFsxS3AccessPointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

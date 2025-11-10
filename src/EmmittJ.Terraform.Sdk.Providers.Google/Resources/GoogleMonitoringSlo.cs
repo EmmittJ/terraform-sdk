@@ -169,7 +169,7 @@ public class GoogleMonitoringSlo : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Goal is required")]
     public required TerraformProperty<double> Goal
     {
-        get => GetProperty<TerraformProperty<double>>("goal");
+        get => GetRequiredProperty<TerraformProperty<double>>("goal");
         set => this.WithProperty("goal", value);
     }
 
@@ -207,7 +207,7 @@ public class GoogleMonitoringSlo : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
+        get => GetRequiredProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
     }
 

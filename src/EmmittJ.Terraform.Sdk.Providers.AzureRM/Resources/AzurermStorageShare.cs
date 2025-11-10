@@ -14,7 +14,7 @@ public class AzurermStorageShareAclBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermStorageShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermStorageShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Quota is required")]
     public required TerraformProperty<double> Quota
     {
-        get => GetProperty<TerraformProperty<double>>("quota");
+        get => GetRequiredProperty<TerraformProperty<double>>("quota");
         set => this.WithProperty("quota", value);
     }
 

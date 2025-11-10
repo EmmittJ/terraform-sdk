@@ -14,7 +14,7 @@ public class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionName is required")]
     public required TerraformProperty<string> ActionName
     {
-        get => GetProperty<TerraformProperty<string>>("action_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("action_name");
         set => WithProperty("action_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionResult is required")]
     public required TerraformProperty<string> ActionResult
     {
-        get => GetProperty<TerraformProperty<string>>("action_result");
+        get => GetRequiredProperty<TerraformProperty<string>>("action_result");
         set => WithProperty("action_result", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermLogicAppActionHttp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformProperty<string> LogicAppId
     {
-        get => GetProperty<TerraformProperty<string>>("logic_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("logic_app_id");
         set => this.WithProperty("logic_app_id", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermLogicAppActionHttp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
     public required TerraformProperty<string> Method
     {
-        get => GetProperty<TerraformProperty<string>>("method");
+        get => GetRequiredProperty<TerraformProperty<string>>("method");
         set => this.WithProperty("method", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermLogicAppActionHttp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermLogicAppActionHttp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("uri");
         set => this.WithProperty("uri", value);
     }
 

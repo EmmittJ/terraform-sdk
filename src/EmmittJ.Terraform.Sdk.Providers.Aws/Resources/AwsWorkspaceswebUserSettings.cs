@@ -86,7 +86,7 @@ public class AwsWorkspaceswebUserSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyAllowed is required")]
     public required TerraformProperty<string> CopyAllowed
     {
-        get => GetProperty<TerraformProperty<string>>("copy_allowed");
+        get => GetRequiredProperty<TerraformProperty<string>>("copy_allowed");
         set => this.WithProperty("copy_allowed", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsWorkspaceswebUserSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DownloadAllowed is required")]
     public required TerraformProperty<string> DownloadAllowed
     {
-        get => GetProperty<TerraformProperty<string>>("download_allowed");
+        get => GetRequiredProperty<TerraformProperty<string>>("download_allowed");
         set => this.WithProperty("download_allowed", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsWorkspaceswebUserSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasteAllowed is required")]
     public required TerraformProperty<string> PasteAllowed
     {
-        get => GetProperty<TerraformProperty<string>>("paste_allowed");
+        get => GetRequiredProperty<TerraformProperty<string>>("paste_allowed");
         set => this.WithProperty("paste_allowed", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsWorkspaceswebUserSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrintAllowed is required")]
     public required TerraformProperty<string> PrintAllowed
     {
-        get => GetProperty<TerraformProperty<string>>("print_allowed");
+        get => GetRequiredProperty<TerraformProperty<string>>("print_allowed");
         set => this.WithProperty("print_allowed", value);
     }
 
@@ -180,7 +180,7 @@ public class AwsWorkspaceswebUserSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UploadAllowed is required")]
     public required TerraformProperty<string> UploadAllowed
     {
-        get => GetProperty<TerraformProperty<string>>("upload_allowed");
+        get => GetRequiredProperty<TerraformProperty<string>>("upload_allowed");
         set => this.WithProperty("upload_allowed", value);
     }
 

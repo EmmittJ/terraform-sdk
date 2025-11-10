@@ -22,7 +22,7 @@ public class AwsVpcEndpointPrivateDns : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsEnabled is required")]
     public required TerraformProperty<bool> PrivateDnsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("private_dns_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("private_dns_enabled");
         set => this.WithProperty("private_dns_enabled", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsVpcEndpointPrivateDns : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointId is required")]
     public required TerraformProperty<string> VpcEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_endpoint_id");
         set => this.WithProperty("vpc_endpoint_id", value);
     }
 

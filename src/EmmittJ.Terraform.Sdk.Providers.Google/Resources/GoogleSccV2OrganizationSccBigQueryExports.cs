@@ -62,7 +62,7 @@ public class GoogleSccV2OrganizationSccBigQueryExports : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
     public required TerraformProperty<string> BigQueryExportId
     {
-        get => GetProperty<TerraformProperty<string>>("big_query_export_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("big_query_export_id");
         set => this.WithProperty("big_query_export_id", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleSccV2OrganizationSccBigQueryExports : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetProperty<TerraformProperty<string>>("organization");
+        get => GetRequiredProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 

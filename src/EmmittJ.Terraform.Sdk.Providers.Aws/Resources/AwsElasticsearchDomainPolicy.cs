@@ -48,7 +48,7 @@ public class AwsElasticsearchDomainPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPolicies is required")]
     public required TerraformProperty<string> AccessPolicies
     {
-        get => GetProperty<TerraformProperty<string>>("access_policies");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_policies");
         set => this.WithProperty("access_policies", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsElasticsearchDomainPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 

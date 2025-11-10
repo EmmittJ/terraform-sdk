@@ -14,7 +14,7 @@ public class AwsEfsBackupPolicyBackupPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
+        get => GetRequiredProperty<TerraformProperty<string>>("status");
         set => WithProperty("status", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsEfsBackupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformProperty<string> FileSystemId
     {
-        get => GetProperty<TerraformProperty<string>>("file_system_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("file_system_id");
         set => this.WithProperty("file_system_id", value);
     }
 

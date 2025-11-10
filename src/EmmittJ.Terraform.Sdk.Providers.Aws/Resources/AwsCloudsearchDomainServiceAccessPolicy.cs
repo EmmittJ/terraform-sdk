@@ -48,7 +48,7 @@ public class AwsCloudsearchDomainServiceAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPolicy is required")]
     public required TerraformProperty<string> AccessPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("access_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_policy");
         set => this.WithProperty("access_policy", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsCloudsearchDomainServiceAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 

@@ -60,7 +60,7 @@ public class AwsBedrockagentcoreAgentRuntimeEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentRuntimeId is required")]
     public required TerraformProperty<string> AgentRuntimeId
     {
-        get => GetProperty<TerraformProperty<string>>("agent_runtime_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("agent_runtime_id");
         set => this.WithProperty("agent_runtime_id", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsBedrockagentcoreAgentRuntimeEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

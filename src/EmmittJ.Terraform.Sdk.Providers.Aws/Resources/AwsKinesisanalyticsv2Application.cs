@@ -31,7 +31,7 @@ public class AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogStreamArn is required")]
     public required TerraformProperty<string> LogStreamArn
     {
-        get => GetProperty<TerraformProperty<string>>("log_stream_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_stream_arn");
         set => WithProperty("log_stream_arn", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeEnvironment is required")]
     public required TerraformProperty<string> RuntimeEnvironment
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_environment");
+        get => GetRequiredProperty<TerraformProperty<string>>("runtime_environment");
         set => this.WithProperty("runtime_environment", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceExecutionRole is required")]
     public required TerraformProperty<string> ServiceExecutionRole
     {
-        get => GetProperty<TerraformProperty<string>>("service_execution_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_execution_role");
         set => this.WithProperty("service_execution_role", value);
     }
 

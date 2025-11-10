@@ -32,7 +32,7 @@ public class AzurermSpringCloudServiceConfigServerGitSettingBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("uri");
         set => WithProperty("uri", value);
     }
 
@@ -50,7 +50,7 @@ public class AzurermSpringCloudServiceContainerRegistryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermSpringCloudServiceContainerRegistryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => WithProperty("password", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermSpringCloudServiceContainerRegistryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformProperty<string> Server
     {
-        get => GetProperty<TerraformProperty<string>>("server");
+        get => GetRequiredProperty<TerraformProperty<string>>("server");
         set => WithProperty("server", value);
     }
 
@@ -80,7 +80,7 @@ public class AzurermSpringCloudServiceContainerRegistryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermSpringCloudServiceMarketplaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformProperty<string> Plan
     {
-        get => GetProperty<TerraformProperty<string>>("plan");
+        get => GetRequiredProperty<TerraformProperty<string>>("plan");
         set => WithProperty("plan", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermSpringCloudServiceMarketplaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformProperty<string> Product
     {
-        get => GetProperty<TerraformProperty<string>>("product");
+        get => GetRequiredProperty<TerraformProperty<string>>("product");
         set => WithProperty("product", value);
     }
 
@@ -135,7 +135,7 @@ public class AzurermSpringCloudServiceMarketplaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => WithProperty("publisher", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermSpringCloudServiceNetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppSubnetId is required")]
     public required TerraformProperty<string> AppSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("app_subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_subnet_id");
         set => WithProperty("app_subnet_id", value);
     }
 
@@ -209,7 +209,7 @@ public class AzurermSpringCloudServiceNetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRuntimeSubnetId is required")]
     public required TerraformProperty<string> ServiceRuntimeSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("service_runtime_subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_runtime_subnet_id");
         set => WithProperty("service_runtime_subnet_id", value);
     }
 
@@ -327,7 +327,7 @@ public class AzurermSpringCloudService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -355,7 +355,7 @@ public class AzurermSpringCloudService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -365,7 +365,7 @@ public class AzurermSpringCloudService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

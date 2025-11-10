@@ -14,7 +14,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceAccessRoleArn is required")]
     public required TerraformProperty<string> ResourceAccessRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("resource_access_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_access_role_arn");
         set => this.WithProperty("resource_access_role_arn", value);
     }
 

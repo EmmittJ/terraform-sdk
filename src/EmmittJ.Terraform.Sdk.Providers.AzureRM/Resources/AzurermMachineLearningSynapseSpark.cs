@@ -41,7 +41,7 @@ public class AzurermMachineLearningSynapseSparkIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermMachineLearningSynapseSpark : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermMachineLearningSynapseSpark : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
     public required TerraformProperty<string> MachineLearningWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("machine_learning_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("machine_learning_workspace_id");
         set => this.WithProperty("machine_learning_workspace_id", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermMachineLearningSynapseSpark : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermMachineLearningSynapseSpark : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseSparkPoolId is required")]
     public required TerraformProperty<string> SynapseSparkPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("synapse_spark_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("synapse_spark_pool_id");
         set => this.WithProperty("synapse_spark_pool_id", value);
     }
 

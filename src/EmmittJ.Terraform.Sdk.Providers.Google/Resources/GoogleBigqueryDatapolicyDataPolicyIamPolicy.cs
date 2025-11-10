@@ -23,7 +23,7 @@ public class GoogleBigqueryDatapolicyDataPolicyIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyId is required")]
     public required TerraformProperty<string> DataPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("data_policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_policy_id");
         set => this.WithProperty("data_policy_id", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleBigqueryDatapolicyDataPolicyIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

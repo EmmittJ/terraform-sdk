@@ -129,7 +129,7 @@ public class AzurermMaintenanceAssignmentDynamicScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceConfigurationId is required")]
     public required TerraformProperty<string> MaintenanceConfigurationId
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_configuration_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("maintenance_configuration_id");
         set => this.WithProperty("maintenance_configuration_id", value);
     }
 
@@ -139,7 +139,7 @@ public class AzurermMaintenanceAssignmentDynamicScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

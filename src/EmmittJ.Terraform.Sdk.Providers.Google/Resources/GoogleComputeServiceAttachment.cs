@@ -15,7 +15,7 @@ public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionLimit is required")]
     public required TerraformProperty<double> ConnectionLimit
     {
-        get => GetProperty<TerraformProperty<double>>("connection_limit");
+        get => GetRequiredProperty<TerraformProperty<double>>("connection_limit");
         set => WithProperty("connection_limit", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPreference is required")]
     public required TerraformProperty<string> ConnectionPreference
     {
-        get => GetProperty<TerraformProperty<string>>("connection_preference");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_preference");
         set => this.WithProperty("connection_preference", value);
     }
 
@@ -144,7 +144,7 @@ public class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableProxyProtocol is required")]
     public required TerraformProperty<bool> EnableProxyProtocol
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_proxy_protocol");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enable_proxy_protocol");
         set => this.WithProperty("enable_proxy_protocol", value);
     }
 
@@ -168,7 +168,7 @@ public class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -245,7 +245,7 @@ public class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetService is required")]
     public required TerraformProperty<string> TargetService
     {
-        get => GetProperty<TerraformProperty<string>>("target_service");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_service");
         set => this.WithProperty("target_service", value);
     }
 

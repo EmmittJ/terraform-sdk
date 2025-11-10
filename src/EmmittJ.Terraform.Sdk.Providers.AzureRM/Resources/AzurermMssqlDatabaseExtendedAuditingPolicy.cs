@@ -66,7 +66,7 @@ public class AzurermMssqlDatabaseExtendedAuditingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
     public required TerraformProperty<string> DatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("database_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_id");
         set => this.WithProperty("database_id", value);
     }
 

@@ -67,7 +67,7 @@ public class AwsConfigDeliveryChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformProperty<string> S3BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("s3_bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket_name");
         set => this.WithProperty("s3_bucket_name", value);
     }
 

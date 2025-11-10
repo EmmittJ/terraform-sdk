@@ -153,7 +153,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformProperty<string> RecoveryVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_id");
         set => this.WithProperty("recovery_vault_id", value);
     }
 
@@ -173,7 +173,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRecoveryFabricId is required")]
     public required TerraformProperty<string> SourceRecoveryFabricId
     {
-        get => GetProperty<TerraformProperty<string>>("source_recovery_fabric_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_recovery_fabric_id");
         set => this.WithProperty("source_recovery_fabric_id", value);
     }
 
@@ -183,7 +183,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRecoveryFabricId is required")]
     public required TerraformProperty<string> TargetRecoveryFabricId
     {
-        get => GetProperty<TerraformProperty<string>>("target_recovery_fabric_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_recovery_fabric_id");
         set => this.WithProperty("target_recovery_fabric_id", value);
     }
 

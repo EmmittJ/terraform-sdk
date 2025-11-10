@@ -58,7 +58,7 @@ public class AwsFinspaceKxUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformProperty<string> EnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("environment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsFinspaceKxUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRole is required")]
     public required TerraformProperty<string> IamRole
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("iam_role");
         set => this.WithProperty("iam_role", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsFinspaceKxUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

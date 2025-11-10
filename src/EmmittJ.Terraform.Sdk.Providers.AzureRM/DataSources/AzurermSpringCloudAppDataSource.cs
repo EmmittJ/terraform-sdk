@@ -55,7 +55,7 @@ public class AzurermSpringCloudAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -65,7 +65,7 @@ public class AzurermSpringCloudAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -75,7 +75,7 @@ public class AzurermSpringCloudAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
     }
 

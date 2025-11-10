@@ -25,7 +25,7 @@ public class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformProperty<string> DomainId
     {
-        get => GetProperty<TerraformProperty<string>>("domain_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_id");
         set => this.WithProperty("domain_id", value);
     }
 
@@ -35,7 +35,7 @@ public class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Managed is required")]
     public required TerraformProperty<bool> Managed
     {
-        get => GetProperty<TerraformProperty<bool>>("managed");
+        get => GetRequiredProperty<TerraformProperty<bool>>("managed");
         set => this.WithProperty("managed", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

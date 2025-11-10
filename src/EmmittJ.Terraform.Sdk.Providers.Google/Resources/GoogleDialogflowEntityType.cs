@@ -32,7 +32,7 @@ public class GoogleDialogflowEntityTypeEntitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleDialogflowEntityType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleDialogflowEntityType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformProperty<string> Kind
     {
-        get => GetProperty<TerraformProperty<string>>("kind");
+        get => GetRequiredProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
     }
 

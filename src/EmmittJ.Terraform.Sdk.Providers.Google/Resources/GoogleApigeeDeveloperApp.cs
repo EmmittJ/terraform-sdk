@@ -107,7 +107,7 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallbackUrl is required")]
     public required TerraformProperty<string> CallbackUrl
     {
-        get => GetProperty<TerraformProperty<string>>("callback_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("callback_url");
         set => this.WithProperty("callback_url", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeveloperEmail is required")]
     public required TerraformProperty<string> DeveloperEmail
     {
-        get => GetProperty<TerraformProperty<string>>("developer_email");
+        get => GetRequiredProperty<TerraformProperty<string>>("developer_email");
         set => this.WithProperty("developer_email", value);
     }
 
@@ -149,7 +149,7 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetProperty<TerraformProperty<string>>("org_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 

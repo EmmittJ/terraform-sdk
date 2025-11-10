@@ -94,7 +94,7 @@ public class AwsConfigOrganizationCustomRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaFunctionArn is required")]
     public required TerraformProperty<string> LambdaFunctionArn
     {
-        get => GetProperty<TerraformProperty<string>>("lambda_function_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("lambda_function_arn");
         set => this.WithProperty("lambda_function_arn", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsConfigOrganizationCustomRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

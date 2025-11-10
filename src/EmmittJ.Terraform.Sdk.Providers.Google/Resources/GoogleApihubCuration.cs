@@ -82,7 +82,7 @@ public class GoogleApihubCuration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CurationId is required")]
     public required TerraformProperty<string> CurationId
     {
-        get => GetProperty<TerraformProperty<string>>("curation_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("curation_id");
         set => this.WithProperty("curation_id", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleApihubCuration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleApihubCuration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

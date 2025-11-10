@@ -42,7 +42,7 @@ public class GoogleIamWorkforcePoolIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformProperty<string> WorkforcePoolId
     {
-        get => GetProperty<TerraformProperty<string>>("workforce_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workforce_pool_id");
         set => this.WithProperty("workforce_pool_id", value);
     }
 

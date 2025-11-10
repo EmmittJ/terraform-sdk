@@ -49,7 +49,7 @@ public class AwsVpclatticeAuthPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceIdentifier is required")]
     public required TerraformProperty<string> ResourceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("resource_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_identifier");
         set => this.WithProperty("resource_identifier", value);
     }
 

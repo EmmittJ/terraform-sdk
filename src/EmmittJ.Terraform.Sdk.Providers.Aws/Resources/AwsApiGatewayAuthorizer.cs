@@ -77,7 +77,7 @@ public class AwsApiGatewayAuthorizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsApiGatewayAuthorizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformProperty<string> RestApiId
     {
-        get => GetProperty<TerraformProperty<string>>("rest_api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsDirectoryServiceSharedDirectoryTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsDirectoryServiceSharedDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformProperty<string> DirectoryId
     {
-        get => GetProperty<TerraformProperty<string>>("directory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("directory_id");
         set => this.WithProperty("directory_id", value);
     }
 

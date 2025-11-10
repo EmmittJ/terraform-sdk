@@ -14,7 +14,7 @@ public class AwsAppsyncFunctionRuntimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsAppsyncFunctionRuntimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
     public required TerraformProperty<string> RuntimeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("runtime_version");
         set => WithProperty("runtime_version", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsAppsyncFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsAppsyncFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
     public required TerraformProperty<string> DataSource
     {
-        get => GetProperty<TerraformProperty<string>>("data_source");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_source");
         set => this.WithProperty("data_source", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsAppsyncFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

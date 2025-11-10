@@ -14,7 +14,7 @@ public class AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyName is required")]
     public required TerraformProperty<string> KeyName
     {
-        get => GetProperty<TerraformProperty<string>>("key_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_name");
         set => WithProperty("key_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
         set => WithProperty("key_vault_id", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermLogicAppIntegrationAccountCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationAccountName is required")]
     public required TerraformProperty<string> IntegrationAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("integration_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("integration_account_name");
         set => this.WithProperty("integration_account_name", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermLogicAppIntegrationAccountCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermLogicAppIntegrationAccountCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

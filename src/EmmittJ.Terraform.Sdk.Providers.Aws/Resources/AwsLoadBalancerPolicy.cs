@@ -57,7 +57,7 @@ public class AwsLoadBalancerPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerName is required")]
     public required TerraformProperty<string> LoadBalancerName
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancer_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("load_balancer_name");
         set => this.WithProperty("load_balancer_name", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsLoadBalancerPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyName is required")]
     public required TerraformProperty<string> PolicyName
     {
-        get => GetProperty<TerraformProperty<string>>("policy_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_name");
         set => this.WithProperty("policy_name", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsLoadBalancerPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyTypeName is required")]
     public required TerraformProperty<string> PolicyTypeName
     {
-        get => GetProperty<TerraformProperty<string>>("policy_type_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_type_name");
         set => this.WithProperty("policy_type_name", value);
     }
 

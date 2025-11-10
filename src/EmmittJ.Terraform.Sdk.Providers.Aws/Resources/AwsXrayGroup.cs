@@ -14,7 +14,7 @@ public class AwsXrayGroupInsightsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsEnabled is required")]
     public required TerraformProperty<bool> InsightsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("insights_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("insights_enabled");
         set => WithProperty("insights_enabled", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsXrayGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterExpression is required")]
     public required TerraformProperty<string> FilterExpression
     {
-        get => GetProperty<TerraformProperty<string>>("filter_expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter_expression");
         set => this.WithProperty("filter_expression", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsXrayGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformProperty<string> GroupName
     {
-        get => GetProperty<TerraformProperty<string>>("group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("group_name");
         set => this.WithProperty("group_name", value);
     }
 

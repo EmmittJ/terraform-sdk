@@ -97,7 +97,7 @@ public class AwsM2Application : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
     public required TerraformProperty<string> EngineType
     {
-        get => GetProperty<TerraformProperty<string>>("engine_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine_type");
         set => this.WithProperty("engine_type", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsM2Application : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

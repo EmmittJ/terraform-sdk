@@ -40,7 +40,7 @@ public class AwsPipesPipeLogConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Level is required")]
     public required TerraformProperty<string> Level
     {
-        get => GetProperty<TerraformProperty<string>>("level");
+        get => GetRequiredProperty<TerraformProperty<string>>("level");
         set => WithProperty("level", value);
     }
 
@@ -200,7 +200,7 @@ public class AwsPipesPipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsPipesPipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
+        get => GetRequiredProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
     }
 
@@ -238,7 +238,7 @@ public class AwsPipesPipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetProperty<TerraformProperty<string>>("target");
+        get => GetRequiredProperty<TerraformProperty<string>>("target");
         set => this.WithProperty("target", value);
     }
 

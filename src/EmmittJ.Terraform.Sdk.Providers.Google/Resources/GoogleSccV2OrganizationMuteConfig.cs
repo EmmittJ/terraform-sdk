@@ -74,7 +74,7 @@ public class GoogleSccV2OrganizationMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleSccV2OrganizationMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MuteConfigId is required")]
     public required TerraformProperty<string> MuteConfigId
     {
-        get => GetProperty<TerraformProperty<string>>("mute_config_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("mute_config_id");
         set => this.WithProperty("mute_config_id", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleSccV2OrganizationMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetProperty<TerraformProperty<string>>("organization");
+        get => GetRequiredProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleSccV2OrganizationMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

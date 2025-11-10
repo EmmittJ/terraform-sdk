@@ -57,7 +57,7 @@ public class AwsInternetGatewayAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternetGatewayId is required")]
     public required TerraformProperty<string> InternetGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("internet_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("internet_gateway_id");
         set => this.WithProperty("internet_gateway_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsInternetGatewayAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

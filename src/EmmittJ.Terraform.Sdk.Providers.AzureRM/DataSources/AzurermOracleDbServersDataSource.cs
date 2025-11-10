@@ -40,7 +40,7 @@ public class AzurermOracleDbServersDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureName is required")]
     public required TerraformProperty<string> CloudExadataInfrastructureName
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_name");
         set => this.WithProperty("cloud_exadata_infrastructure_name", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermOracleDbServersDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

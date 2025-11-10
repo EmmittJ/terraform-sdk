@@ -32,7 +32,7 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeySpec is required")]
     public required TerraformProperty<string> KeySpec
     {
-        get => GetProperty<TerraformProperty<string>>("key_spec");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_spec");
         set => WithProperty("key_spec", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformProperty<string> KeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_id");
         set => this.WithProperty("key_id", value);
     }
 
@@ -135,7 +135,7 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -145,7 +145,7 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     public required TerraformProperty<string> ProviderId
     {
-        get => GetProperty<TerraformProperty<string>>("provider_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("provider_id");
         set => this.WithProperty("provider_id", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Use is required")]
     public required TerraformProperty<string> Use
     {
-        get => GetProperty<TerraformProperty<string>>("use");
+        get => GetRequiredProperty<TerraformProperty<string>>("use");
         set => this.WithProperty("use", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformProperty<string> WorkforcePoolId
     {
-        get => GetProperty<TerraformProperty<string>>("workforce_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workforce_pool_id");
         set => this.WithProperty("workforce_pool_id", value);
     }
 

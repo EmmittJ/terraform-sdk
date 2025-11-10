@@ -66,7 +66,7 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformProperty<string> ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("object_id");
         set => this.WithProperty("object_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalName is required")]
     public required TerraformProperty<string> PrincipalName
     {
-        get => GetProperty<TerraformProperty<string>>("principal_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_name");
         set => this.WithProperty("principal_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     public required TerraformProperty<string> PrincipalType
     {
-        get => GetProperty<TerraformProperty<string>>("principal_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_type");
         set => this.WithProperty("principal_type", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformProperty<string> ServerName
     {
-        get => GetProperty<TerraformProperty<string>>("server_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_name");
         set => this.WithProperty("server_name", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermPostgresqlFlexibleServerActiveDirectoryAdministrator : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

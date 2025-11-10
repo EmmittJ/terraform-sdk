@@ -114,7 +114,7 @@ public class AwsWorkspacesWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
     public required TerraformProperty<string> BundleId
     {
-        get => GetProperty<TerraformProperty<string>>("bundle_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("bundle_id");
         set => this.WithProperty("bundle_id", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsWorkspacesWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformProperty<string> DirectoryId
     {
-        get => GetProperty<TerraformProperty<string>>("directory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("directory_id");
         set => this.WithProperty("directory_id", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsWorkspacesWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformProperty<string> UserName
     {
-        get => GetProperty<TerraformProperty<string>>("user_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 

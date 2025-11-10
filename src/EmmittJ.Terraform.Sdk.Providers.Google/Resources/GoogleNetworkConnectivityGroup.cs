@@ -92,7 +92,7 @@ public class GoogleNetworkConnectivityGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hub is required")]
     public required TerraformProperty<string> Hub
     {
-        get => GetProperty<TerraformProperty<string>>("hub");
+        get => GetRequiredProperty<TerraformProperty<string>>("hub");
         set => this.WithProperty("hub", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleNetworkConnectivityGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -76,7 +76,7 @@ public class AwsMainRouteTableAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
     public required TerraformProperty<string> RouteTableId
     {
-        get => GetProperty<TerraformProperty<string>>("route_table_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("route_table_id");
         set => this.WithProperty("route_table_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsMainRouteTableAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

@@ -57,7 +57,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HypervSiteId is required")]
     public required TerraformProperty<string> HypervSiteId
     {
-        get => GetProperty<TerraformProperty<string>>("hyperv_site_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("hyperv_site_id");
         set => this.WithProperty("hyperv_site_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformProperty<string> PolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_id");
         set => this.WithProperty("policy_id", value);
     }
 

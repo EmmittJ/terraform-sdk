@@ -50,7 +50,7 @@ public class GoogleApigeeEnvgroupAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvgroupId is required")]
     public required TerraformProperty<string> EnvgroupId
     {
-        get => GetProperty<TerraformProperty<string>>("envgroup_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("envgroup_id");
         set => this.WithProperty("envgroup_id", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleApigeeEnvgroupAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetProperty<TerraformProperty<string>>("environment");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 

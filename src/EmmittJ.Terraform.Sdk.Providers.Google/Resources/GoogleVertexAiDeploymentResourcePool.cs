@@ -23,7 +23,7 @@ public class GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicaCount is required")]
     public required TerraformProperty<double> MinReplicaCount
     {
-        get => GetProperty<TerraformProperty<double>>("min_replica_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_replica_count");
         set => WithProperty("min_replica_count", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleVertexAiDeploymentResourcePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

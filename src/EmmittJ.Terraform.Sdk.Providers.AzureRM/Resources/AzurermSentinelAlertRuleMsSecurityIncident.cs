@@ -84,7 +84,7 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductFilter is required")]
     public required TerraformProperty<string> ProductFilter
     {
-        get => GetProperty<TerraformProperty<string>>("product_filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("product_filter");
         set => this.WithProperty("product_filter", value);
     }
 

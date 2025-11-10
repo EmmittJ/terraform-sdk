@@ -71,7 +71,7 @@ public class GoogleLoggingLinkedDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleLoggingLinkedDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkId is required")]
     public required TerraformProperty<string> LinkId
     {
-        get => GetProperty<TerraformProperty<string>>("link_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("link_id");
         set => this.WithProperty("link_id", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermCapacityReservationSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     public required TerraformProperty<double> Capacity
     {
-        get => GetProperty<TerraformProperty<double>>("capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("capacity");
         set => WithProperty("capacity", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermCapacityReservationSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermCapacityReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityReservationGroupId is required")]
     public required TerraformProperty<string> CapacityReservationGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_reservation_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("capacity_reservation_group_id");
         set => this.WithProperty("capacity_reservation_group_id", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermCapacityReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

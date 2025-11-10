@@ -86,7 +86,7 @@ public class AwsSwfDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkflowExecutionRetentionPeriodInDays is required")]
     public required TerraformProperty<string> WorkflowExecutionRetentionPeriodInDays
     {
-        get => GetProperty<TerraformProperty<string>>("workflow_execution_retention_period_in_days");
+        get => GetRequiredProperty<TerraformProperty<string>>("workflow_execution_retention_period_in_days");
         set => this.WithProperty("workflow_execution_retention_period_in_days", value);
     }
 

@@ -67,7 +67,7 @@ public class AwsDynamodbTableReplica : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalTableArn is required")]
     public required TerraformProperty<string> GlobalTableArn
     {
-        get => GetProperty<TerraformProperty<string>>("global_table_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("global_table_arn");
         set => this.WithProperty("global_table_arn", value);
     }
 

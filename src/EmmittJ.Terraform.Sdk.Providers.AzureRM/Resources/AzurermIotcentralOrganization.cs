@@ -66,7 +66,7 @@ public class AzurermIotcentralOrganization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermIotcentralOrganization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IotcentralApplicationId is required")]
     public required TerraformProperty<string> IotcentralApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("iotcentral_application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("iotcentral_application_id");
         set => this.WithProperty("iotcentral_application_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermIotcentralOrganization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
     public required TerraformProperty<string> OrganizationId
     {
-        get => GetProperty<TerraformProperty<string>>("organization_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("organization_id");
         set => this.WithProperty("organization_id", value);
     }
 

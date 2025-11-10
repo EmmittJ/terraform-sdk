@@ -57,7 +57,7 @@ public class AwsServicecatalogBudgetResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BudgetName is required")]
     public required TerraformProperty<string> BudgetName
     {
-        get => GetProperty<TerraformProperty<string>>("budget_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("budget_name");
         set => this.WithProperty("budget_name", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsServicecatalogBudgetResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
     }
 

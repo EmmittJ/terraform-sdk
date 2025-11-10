@@ -70,7 +70,7 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchRuleId is required")]
     public required TerraformProperty<string> BranchRuleId
     {
-        get => GetProperty<TerraformProperty<string>>("branch_rule_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("branch_rule_id");
         set => this.WithProperty("branch_rule_id", value);
     }
 
@@ -98,7 +98,7 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncludePattern is required")]
     public required TerraformProperty<string> IncludePattern
     {
-        get => GetProperty<TerraformProperty<string>>("include_pattern");
+        get => GetRequiredProperty<TerraformProperty<string>>("include_pattern");
         set => this.WithProperty("include_pattern", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -145,7 +145,7 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformProperty<string> RepositoryId
     {
-        get => GetProperty<TerraformProperty<string>>("repository_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_id");
         set => this.WithProperty("repository_id", value);
     }
 

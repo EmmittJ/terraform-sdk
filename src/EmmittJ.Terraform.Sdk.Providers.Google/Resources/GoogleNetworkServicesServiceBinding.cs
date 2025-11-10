@@ -91,7 +91,7 @@ public class GoogleNetworkServicesServiceBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleNetworkServicesServiceBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
+        get => GetRequiredProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
     }
 

@@ -41,7 +41,7 @@ public class AwsElasticBeanstalkApplicationAppversionLifecycleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     public required TerraformProperty<string> ServiceRole
     {
-        get => GetProperty<TerraformProperty<string>>("service_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_role");
         set => WithProperty("service_role", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsElasticBeanstalkApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

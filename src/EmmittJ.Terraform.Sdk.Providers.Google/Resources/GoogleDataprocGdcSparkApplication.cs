@@ -50,7 +50,7 @@ public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainPythonFileUri is required")]
     public required TerraformProperty<string> MainPythonFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("main_python_file_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("main_python_file_uri");
         set => WithProperty("main_python_file_uri", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainRFileUri is required")]
     public required TerraformProperty<string> MainRFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("main_r_file_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("main_r_file_uri");
         set => WithProperty("main_r_file_uri", value);
     }
 
@@ -335,7 +335,7 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -372,7 +372,7 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serviceinstance is required")]
     public required TerraformProperty<string> Serviceinstance
     {
-        get => GetProperty<TerraformProperty<string>>("serviceinstance");
+        get => GetRequiredProperty<TerraformProperty<string>>("serviceinstance");
         set => this.WithProperty("serviceinstance", value);
     }
 
@@ -382,7 +382,7 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SparkApplicationId is required")]
     public required TerraformProperty<string> SparkApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("spark_application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spark_application_id");
         set => this.WithProperty("spark_application_id", value);
     }
 

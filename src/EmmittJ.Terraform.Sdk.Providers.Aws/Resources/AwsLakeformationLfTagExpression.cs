@@ -14,7 +14,7 @@ public class AwsLakeformationLfTagExpressionExpressionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagKey is required")]
     public required TerraformProperty<string> TagKey
     {
-        get => GetProperty<TerraformProperty<string>>("tag_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("tag_key");
         set => WithProperty("tag_key", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsLakeformationLfTagExpression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

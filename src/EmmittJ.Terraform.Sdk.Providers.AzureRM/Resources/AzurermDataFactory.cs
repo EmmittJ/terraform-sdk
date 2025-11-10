@@ -14,7 +14,7 @@ public class AzurermDataFactoryGithubConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetProperty<TerraformProperty<string>>("account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
         set => WithProperty("account_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermDataFactoryGithubConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformProperty<string> BranchName
     {
-        get => GetProperty<TerraformProperty<string>>("branch_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("branch_name");
         set => WithProperty("branch_name", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermDataFactoryGithubConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetProperty<TerraformProperty<string>>("repository_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
         set => WithProperty("repository_name", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermDataFactoryGithubConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolder is required")]
     public required TerraformProperty<string> RootFolder
     {
-        get => GetProperty<TerraformProperty<string>>("root_folder");
+        get => GetRequiredProperty<TerraformProperty<string>>("root_folder");
         set => WithProperty("root_folder", value);
     }
 
@@ -80,7 +80,7 @@ public class AzurermDataFactoryGlobalParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -90,7 +90,7 @@ public class AzurermDataFactoryGlobalParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -100,7 +100,7 @@ public class AzurermDataFactoryGlobalParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -145,7 +145,7 @@ public class AzurermDataFactoryIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -207,7 +207,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetProperty<TerraformProperty<string>>("account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
         set => WithProperty("account_name", value);
     }
 
@@ -217,7 +217,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformProperty<string> BranchName
     {
-        get => GetProperty<TerraformProperty<string>>("branch_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("branch_name");
         set => WithProperty("branch_name", value);
     }
 
@@ -227,7 +227,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformProperty<string> ProjectName
     {
-        get => GetProperty<TerraformProperty<string>>("project_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_name");
         set => WithProperty("project_name", value);
     }
 
@@ -246,7 +246,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetProperty<TerraformProperty<string>>("repository_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
         set => WithProperty("repository_name", value);
     }
 
@@ -256,7 +256,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolder is required")]
     public required TerraformProperty<string> RootFolder
     {
-        get => GetProperty<TerraformProperty<string>>("root_folder");
+        get => GetRequiredProperty<TerraformProperty<string>>("root_folder");
         set => WithProperty("root_folder", value);
     }
 
@@ -266,7 +266,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
         set => WithProperty("tenant_id", value);
     }
 
@@ -320,7 +320,7 @@ public class AzurermDataFactory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -339,7 +339,7 @@ public class AzurermDataFactory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -367,7 +367,7 @@ public class AzurermDataFactory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

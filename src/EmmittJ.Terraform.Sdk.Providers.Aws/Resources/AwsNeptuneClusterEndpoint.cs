@@ -24,7 +24,7 @@ public class AwsNeptuneClusterEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterEndpointIdentifier is required")]
     public required TerraformProperty<string> ClusterEndpointIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_endpoint_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_endpoint_identifier");
         set => this.WithProperty("cluster_endpoint_identifier", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsNeptuneClusterEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformProperty<string> ClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsNeptuneClusterEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformProperty<string> EndpointType
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_type");
         set => this.WithProperty("endpoint_type", value);
     }
 

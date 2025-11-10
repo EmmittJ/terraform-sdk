@@ -62,7 +62,7 @@ public class GoogleNetappBackupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DailyBackupLimit is required")]
     public required TerraformProperty<double> DailyBackupLimit
     {
-        get => GetProperty<TerraformProperty<double>>("daily_backup_limit");
+        get => GetRequiredProperty<TerraformProperty<double>>("daily_backup_limit");
         set => this.WithProperty("daily_backup_limit", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleNetappBackupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleNetappBackupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonthlyBackupLimit is required")]
     public required TerraformProperty<double> MonthlyBackupLimit
     {
-        get => GetProperty<TerraformProperty<double>>("monthly_backup_limit");
+        get => GetRequiredProperty<TerraformProperty<double>>("monthly_backup_limit");
         set => this.WithProperty("monthly_backup_limit", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleNetappBackupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleNetappBackupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WeeklyBackupLimit is required")]
     public required TerraformProperty<double> WeeklyBackupLimit
     {
-        get => GetProperty<TerraformProperty<double>>("weekly_backup_limit");
+        get => GetRequiredProperty<TerraformProperty<double>>("weekly_backup_limit");
         set => this.WithProperty("weekly_backup_limit", value);
     }
 

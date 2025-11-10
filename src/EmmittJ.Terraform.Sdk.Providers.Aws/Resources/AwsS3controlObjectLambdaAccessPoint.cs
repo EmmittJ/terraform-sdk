@@ -32,7 +32,7 @@ public class AwsS3controlObjectLambdaAccessPointConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportingAccessPoint is required")]
     public required TerraformProperty<string> SupportingAccessPoint
     {
-        get => GetProperty<TerraformProperty<string>>("supporting_access_point");
+        get => GetRequiredProperty<TerraformProperty<string>>("supporting_access_point");
         set => WithProperty("supporting_access_point", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsS3controlObjectLambdaAccessPoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

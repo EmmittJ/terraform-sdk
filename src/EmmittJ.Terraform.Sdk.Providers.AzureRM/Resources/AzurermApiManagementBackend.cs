@@ -58,7 +58,7 @@ public class AzurermApiManagementBackendProxyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => WithProperty("url", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermApiManagementBackendProxyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPartitionResolutionRetries is required")]
     public required TerraformProperty<double> MaxPartitionResolutionRetries
     {
-        get => GetProperty<TerraformProperty<double>>("max_partition_resolution_retries");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_partition_resolution_retries");
         set => WithProperty("max_partition_resolution_retries", value);
     }
 
@@ -220,7 +220,7 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
@@ -248,7 +248,7 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -258,7 +258,7 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -296,7 +296,7 @@ public class AzurermApiManagementBackend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => this.WithProperty("url", value);
     }
 

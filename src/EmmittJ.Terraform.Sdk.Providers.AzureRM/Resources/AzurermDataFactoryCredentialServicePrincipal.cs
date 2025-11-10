@@ -14,7 +14,7 @@ public class AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("linked_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
         set => WithProperty("linked_service_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformProperty<string> SecretName
     {
-        get => GetProperty<TerraformProperty<string>>("secret_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_name");
         set => WithProperty("secret_name", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetProperty<TerraformProperty<string>>("data_factory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformProperty<string> ServicePrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("service_principal_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_principal_id");
         set => this.WithProperty("service_principal_id", value);
     }
 
@@ -161,7 +161,7 @@ public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

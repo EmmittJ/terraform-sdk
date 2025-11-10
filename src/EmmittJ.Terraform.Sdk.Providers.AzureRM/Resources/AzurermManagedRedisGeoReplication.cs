@@ -85,7 +85,7 @@ public class AzurermManagedRedisGeoReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedRedisId is required")]
     public required TerraformProperty<string> ManagedRedisId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_redis_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_redis_id");
         set => this.WithProperty("managed_redis_id", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsLexv2modelsBotDataPrivacyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChildDirected is required")]
     public required TerraformProperty<bool> ChildDirected
     {
-        get => GetProperty<TerraformProperty<bool>>("child_directed");
+        get => GetRequiredProperty<TerraformProperty<bool>>("child_directed");
         set => WithProperty("child_directed", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasId is required")]
     public required TerraformProperty<string> AliasId
     {
-        get => GetProperty<TerraformProperty<string>>("alias_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("alias_id");
         set => WithProperty("alias_id", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasName is required")]
     public required TerraformProperty<string> AliasName
     {
-        get => GetProperty<TerraformProperty<string>>("alias_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("alias_name");
         set => WithProperty("alias_name", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsLexv2modelsBotMembersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => WithProperty("version", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsLexv2modelsBot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdleSessionTtlInSeconds is required")]
     public required TerraformProperty<double> IdleSessionTtlInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("idle_session_ttl_in_seconds");
+        get => GetRequiredProperty<TerraformProperty<double>>("idle_session_ttl_in_seconds");
         set => this.WithProperty("idle_session_ttl_in_seconds", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsLexv2modelsBot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsLexv2modelsBot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

@@ -67,7 +67,7 @@ public class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestorePointInTime is required")]
     public required TerraformProperty<string> RestorePointInTime
     {
-        get => GetProperty<TerraformProperty<string>>("restore_point_in_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("restore_point_in_time");
         set => WithProperty("restore_point_in_time", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatabaseId is required")]
     public required TerraformProperty<string> SourceDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("source_database_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_database_id");
         set => WithProperty("source_database_id", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermMssqlManagedDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformProperty<string> ManagedInstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_instance_id");
         set => this.WithProperty("managed_instance_id", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermMssqlManagedDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -58,7 +58,7 @@ public class AzurermStaticWebAppCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermStaticWebAppCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticWebAppId is required")]
     public required TerraformProperty<string> StaticWebAppId
     {
-        get => GetProperty<TerraformProperty<string>>("static_web_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("static_web_app_id");
         set => this.WithProperty("static_web_app_id", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermStaticWebAppCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidationType is required")]
     public required TerraformProperty<string> ValidationType
     {
-        get => GetProperty<TerraformProperty<string>>("validation_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("validation_type");
         set => this.WithProperty("validation_type", value);
     }
 

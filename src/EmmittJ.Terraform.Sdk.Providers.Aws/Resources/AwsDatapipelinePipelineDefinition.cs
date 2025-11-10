@@ -14,7 +14,7 @@ public class AwsDatapipelinePipelineDefinitionParameterObjectBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsDatapipelinePipelineDefinitionParameterValueBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsDatapipelinePipelineDefinitionParameterValueBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StringValue is required")]
     public required TerraformProperty<string> StringValue
     {
-        get => GetProperty<TerraformProperty<string>>("string_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("string_value");
         set => WithProperty("string_value", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsDatapipelinePipelineDefinitionPipelineObjectBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsDatapipelinePipelineDefinitionPipelineObjectBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsDatapipelinePipelineDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
     public required TerraformProperty<string> PipelineId
     {
-        get => GetProperty<TerraformProperty<string>>("pipeline_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("pipeline_id");
         set => this.WithProperty("pipeline_id", value);
     }
 

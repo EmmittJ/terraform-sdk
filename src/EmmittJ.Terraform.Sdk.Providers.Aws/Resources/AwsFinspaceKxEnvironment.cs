@@ -14,7 +14,7 @@ public class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDnsServerIp is required")]
     public required TerraformProperty<string> CustomDnsServerIp
     {
-        get => GetProperty<TerraformProperty<string>>("custom_dns_server_ip");
+        get => GetRequiredProperty<TerraformProperty<string>>("custom_dns_server_ip");
         set => WithProperty("custom_dns_server_ip", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDnsServerName is required")]
     public required TerraformProperty<string> CustomDnsServerName
     {
-        get => GetProperty<TerraformProperty<string>>("custom_dns_server_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("custom_dns_server_name");
         set => WithProperty("custom_dns_server_name", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutableCidrSpace is required")]
     public required TerraformProperty<string> RoutableCidrSpace
     {
-        get => GetProperty<TerraformProperty<string>>("routable_cidr_space");
+        get => GetRequiredProperty<TerraformProperty<string>>("routable_cidr_space");
         set => WithProperty("routable_cidr_space", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
     public required TerraformProperty<string> TransitGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("transit_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_id");
         set => WithProperty("transit_gateway_id", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsFinspaceKxEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_id");
         set => this.WithProperty("kms_key_id", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsFinspaceKxEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

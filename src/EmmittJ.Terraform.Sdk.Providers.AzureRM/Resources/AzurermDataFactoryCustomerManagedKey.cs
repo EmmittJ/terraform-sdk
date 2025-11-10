@@ -66,7 +66,7 @@ public class AzurermDataFactoryCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerManagedKeyId is required")]
     public required TerraformProperty<string> CustomerManagedKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("customer_managed_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("customer_managed_key_id");
         set => this.WithProperty("customer_managed_key_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermDataFactoryCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetProperty<TerraformProperty<string>>("data_factory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 

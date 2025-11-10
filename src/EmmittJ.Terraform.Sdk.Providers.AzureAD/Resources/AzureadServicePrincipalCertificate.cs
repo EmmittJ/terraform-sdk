@@ -103,7 +103,7 @@ public class AzureadServicePrincipalCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformProperty<string> ServicePrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("service_principal_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_principal_id");
         set => this.WithProperty("service_principal_id", value);
     }
 
@@ -131,7 +131,7 @@ public class AzureadServicePrincipalCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);
     }
 

@@ -76,7 +76,7 @@ public class GoogleVmwareengineSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     public required TerraformProperty<string> IpCidrRange
     {
-        get => GetProperty<TerraformProperty<string>>("ip_cidr_range");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_cidr_range");
         set => this.WithProperty("ip_cidr_range", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleVmwareengineSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleVmwareengineSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 

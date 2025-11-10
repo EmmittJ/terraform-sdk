@@ -23,7 +23,7 @@ public class AwsInspector2OrganizationConfigurationAutoEnableBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ec2 is required")]
     public required TerraformProperty<bool> Ec2
     {
-        get => GetProperty<TerraformProperty<bool>>("ec2");
+        get => GetRequiredProperty<TerraformProperty<bool>>("ec2");
         set => WithProperty("ec2", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsInspector2OrganizationConfigurationAutoEnableBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ecr is required")]
     public required TerraformProperty<bool> Ecr
     {
-        get => GetProperty<TerraformProperty<bool>>("ecr");
+        get => GetRequiredProperty<TerraformProperty<bool>>("ecr");
         set => WithProperty("ecr", value);
     }
 

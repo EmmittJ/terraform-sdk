@@ -75,7 +75,7 @@ public class AzurermIothubFallbackRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermIothubFallbackRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubName is required")]
     public required TerraformProperty<string> IothubName
     {
-        get => GetProperty<TerraformProperty<string>>("iothub_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("iothub_name");
         set => this.WithProperty("iothub_name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermIothubFallbackRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

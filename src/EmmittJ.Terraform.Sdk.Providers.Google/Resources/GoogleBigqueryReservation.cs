@@ -135,7 +135,7 @@ public class GoogleBigqueryReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -167,7 +167,7 @@ public class GoogleBigqueryReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotCapacity is required")]
     public required TerraformProperty<double> SlotCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("slot_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("slot_capacity");
         set => this.WithProperty("slot_capacity", value);
     }
 

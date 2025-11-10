@@ -25,7 +25,7 @@ public class AwsAuditmanagerAssessmentReport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssessmentId is required")]
     public required TerraformProperty<string> AssessmentId
     {
-        get => GetProperty<TerraformProperty<string>>("assessment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("assessment_id");
         set => this.WithProperty("assessment_id", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsAuditmanagerAssessmentReport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

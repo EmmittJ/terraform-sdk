@@ -27,7 +27,7 @@ public class AwsLocationRouteCalculatorDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CalculatorName is required")]
     public required TerraformProperty<string> CalculatorName
     {
-        get => GetProperty<TerraformProperty<string>>("calculator_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("calculator_name");
         set => this.WithProperty("calculator_name", value);
     }
 

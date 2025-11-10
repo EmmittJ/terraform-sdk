@@ -60,7 +60,7 @@ public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainServiceId is required")]
     public required TerraformProperty<string> DomainServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("domain_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_service_id");
         set => this.WithProperty("domain_service_id", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -89,7 +89,7 @@ public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

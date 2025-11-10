@@ -67,7 +67,7 @@ public class AwsRdsClusterS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
         set => WithProperty("bucket_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsRdsClusterS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionRole is required")]
     public required TerraformProperty<string> IngestionRole
     {
-        get => GetProperty<TerraformProperty<string>>("ingestion_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("ingestion_role");
         set => WithProperty("ingestion_role", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsRdsClusterS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEngine is required")]
     public required TerraformProperty<string> SourceEngine
     {
-        get => GetProperty<TerraformProperty<string>>("source_engine");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_engine");
         set => WithProperty("source_engine", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsRdsClusterS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEngineVersion is required")]
     public required TerraformProperty<string> SourceEngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("source_engine_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_engine_version");
         set => WithProperty("source_engine_version", value);
     }
 
@@ -186,7 +186,7 @@ public class AwsRdsClusterServerlessv2ScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     public required TerraformProperty<double> MaxCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("max_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_capacity");
         set => WithProperty("max_capacity", value);
     }
 
@@ -196,7 +196,7 @@ public class AwsRdsClusterServerlessv2ScalingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformProperty<double> MinCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("min_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_capacity");
         set => WithProperty("min_capacity", value);
     }
 
@@ -518,7 +518,7 @@ public class AwsRdsCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     public required TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
     }
 

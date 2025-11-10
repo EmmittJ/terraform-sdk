@@ -14,7 +14,7 @@ public class AwsSsmcontactsContactChannelDeliveryAddressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SimpleAddress is required")]
     public required TerraformProperty<string> SimpleAddress
     {
-        get => GetProperty<TerraformProperty<string>>("simple_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("simple_address");
         set => WithProperty("simple_address", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsSsmcontactsContactChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactId is required")]
     public required TerraformProperty<string> ContactId
     {
-        get => GetProperty<TerraformProperty<string>>("contact_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("contact_id");
         set => this.WithProperty("contact_id", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsSsmcontactsContactChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsSsmcontactsContactChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

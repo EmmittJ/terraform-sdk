@@ -59,7 +59,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => WithProperty("description", value);
     }
 
@@ -69,7 +69,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => WithProperty("display_name", value);
     }
 
@@ -88,7 +88,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -167,7 +167,7 @@ public class AzureadApplicationPasswordBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => WithProperty("display_name", value);
     }
 
@@ -238,7 +238,7 @@ public class AzureadApplicationRequiredResourceAccessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceAppId is required")]
     public required TerraformProperty<string> ResourceAppId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_app_id");
         set => WithProperty("resource_app_id", value);
     }
 
@@ -386,7 +386,7 @@ public class AzureadApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 

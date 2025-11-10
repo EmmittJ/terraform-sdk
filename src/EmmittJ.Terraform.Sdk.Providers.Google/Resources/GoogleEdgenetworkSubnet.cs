@@ -112,7 +112,7 @@ public class GoogleEdgenetworkSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleEdgenetworkSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -142,7 +142,7 @@ public class GoogleEdgenetworkSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
@@ -161,7 +161,7 @@ public class GoogleEdgenetworkSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

@@ -118,7 +118,7 @@ public class AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformProperty<string> ScheduleExpression
     {
-        get => GetProperty<TerraformProperty<string>>("schedule_expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("schedule_expression");
         set => WithProperty("schedule_expression", value);
     }
 
@@ -193,7 +193,7 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("execution_role_arn");
         set => this.WithProperty("execution_role_arn", value);
     }
 
@@ -212,7 +212,7 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -222,7 +222,7 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryString is required")]
     public required TerraformProperty<string> QueryString
     {
-        get => GetProperty<TerraformProperty<string>>("query_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("query_string");
         set => this.WithProperty("query_string", value);
     }
 

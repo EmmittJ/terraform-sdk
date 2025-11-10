@@ -14,7 +14,7 @@ public class AzurermVpnGatewayConnectionRoutingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociatedRouteTable is required")]
     public required TerraformProperty<string> AssociatedRouteTable
     {
-        get => GetProperty<TerraformProperty<string>>("associated_route_table");
+        get => GetRequiredProperty<TerraformProperty<string>>("associated_route_table");
         set => WithProperty("associated_route_table", value);
     }
 
@@ -185,7 +185,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -240,7 +240,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnSiteLinkId is required")]
     public required TerraformProperty<string> VpnSiteLinkId
     {
-        get => GetProperty<TerraformProperty<string>>("vpn_site_link_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpn_site_link_id");
         set => WithProperty("vpn_site_link_id", value);
     }
 
@@ -285,7 +285,7 @@ public class AzurermVpnGatewayConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -295,7 +295,7 @@ public class AzurermVpnGatewayConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVpnSiteId is required")]
     public required TerraformProperty<string> RemoteVpnSiteId
     {
-        get => GetProperty<TerraformProperty<string>>("remote_vpn_site_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("remote_vpn_site_id");
         set => this.WithProperty("remote_vpn_site_id", value);
     }
 
@@ -305,7 +305,7 @@ public class AzurermVpnGatewayConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnGatewayId is required")]
     public required TerraformProperty<string> VpnGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("vpn_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpn_gateway_id");
         set => this.WithProperty("vpn_gateway_id", value);
     }
 

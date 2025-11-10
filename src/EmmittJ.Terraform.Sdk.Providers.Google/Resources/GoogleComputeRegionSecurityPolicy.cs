@@ -52,7 +52,7 @@ public class GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DdosProtection is required")]
     public required TerraformProperty<string> DdosProtection
     {
-        get => GetProperty<TerraformProperty<string>>("ddos_protection");
+        get => GetRequiredProperty<TerraformProperty<string>>("ddos_protection");
         set => WithProperty("ddos_protection", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => WithProperty("action", value);
     }
 
@@ -110,7 +110,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -167,7 +167,7 @@ public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Base is required")]
     public required TerraformProperty<string> Base
     {
-        get => GetProperty<TerraformProperty<string>>("base");
+        get => GetRequiredProperty<TerraformProperty<string>>("base");
         set => WithProperty("base", value);
     }
 
@@ -255,7 +255,7 @@ public class GoogleComputeRegionSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

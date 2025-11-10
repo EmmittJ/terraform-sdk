@@ -22,7 +22,7 @@ public class AwsWorkspaceswebIpAccessSettingsAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAccessSettingsArn is required")]
     public required TerraformProperty<string> IpAccessSettingsArn
     {
-        get => GetProperty<TerraformProperty<string>>("ip_access_settings_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_access_settings_arn");
         set => this.WithProperty("ip_access_settings_arn", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsWorkspaceswebIpAccessSettingsAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
     public required TerraformProperty<string> PortalArn
     {
-        get => GetProperty<TerraformProperty<string>>("portal_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("portal_arn");
         set => this.WithProperty("portal_arn", value);
     }
 

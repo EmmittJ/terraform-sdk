@@ -32,7 +32,7 @@ public class AwsCloudwatchContributorManagedInsightRulesDataSource : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("resource_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
     }
 

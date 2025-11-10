@@ -67,7 +67,7 @@ public class AzurermResourceManagementPrivateLinkAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformProperty<string> ManagementGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("management_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("management_group_id");
         set => this.WithProperty("management_group_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermResourceManagementPrivateLinkAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicNetworkAccessEnabled is required")]
     public required TerraformProperty<bool> PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermResourceManagementPrivateLinkAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceManagementPrivateLinkId is required")]
     public required TerraformProperty<string> ResourceManagementPrivateLinkId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_management_private_link_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_management_private_link_id");
         set => this.WithProperty("resource_management_private_link_id", value);
     }
 

@@ -81,7 +81,7 @@ public class GoogleMemcacheInstanceNodeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCount is required")]
     public required TerraformProperty<double> CpuCount
     {
-        get => GetProperty<TerraformProperty<double>>("cpu_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("cpu_count");
         set => WithProperty("cpu_count", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleMemcacheInstanceNodeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeMb is required")]
     public required TerraformProperty<double> MemorySizeMb
     {
-        get => GetProperty<TerraformProperty<double>>("memory_size_mb");
+        get => GetRequiredProperty<TerraformProperty<double>>("memory_size_mb");
         set => WithProperty("memory_size_mb", value);
     }
 
@@ -226,7 +226,7 @@ public class GoogleMemcacheInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -236,7 +236,7 @@ public class GoogleMemcacheInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformProperty<double> NodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("node_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("node_count");
         set => this.WithProperty("node_count", value);
     }
 

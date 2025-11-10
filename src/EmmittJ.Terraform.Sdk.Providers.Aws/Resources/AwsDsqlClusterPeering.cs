@@ -49,7 +49,7 @@ public class AwsDsqlClusterPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetProperty<TerraformProperty<string>>("identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
         set => this.WithProperty("identifier", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsDsqlClusterPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WitnessRegion is required")]
     public required TerraformProperty<string> WitnessRegion
     {
-        get => GetProperty<TerraformProperty<string>>("witness_region");
+        get => GetRequiredProperty<TerraformProperty<string>>("witness_region");
         set => this.WithProperty("witness_region", value);
     }
 

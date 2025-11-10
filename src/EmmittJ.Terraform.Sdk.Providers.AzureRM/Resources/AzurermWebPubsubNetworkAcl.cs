@@ -32,7 +32,7 @@ public class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermWebPubsubNetworkAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     public required TerraformProperty<string> WebPubsubId
     {
-        get => GetProperty<TerraformProperty<string>>("web_pubsub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("web_pubsub_id");
         set => this.WithProperty("web_pubsub_id", value);
     }
 

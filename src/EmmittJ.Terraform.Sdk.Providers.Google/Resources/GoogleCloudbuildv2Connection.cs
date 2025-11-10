@@ -14,7 +14,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformProperty<string> WebhookSecretSecretVersion
     {
-        get => GetProperty<TerraformProperty<string>>("webhook_secret_secret_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("webhook_secret_secret_version");
         set => WithProperty("webhook_secret_secret_version", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Workspace is required")]
     public required TerraformProperty<string> Workspace
     {
-        get => GetProperty<TerraformProperty<string>>("workspace");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace");
         set => WithProperty("workspace", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformProperty<string> HostUri
     {
-        get => GetProperty<TerraformProperty<string>>("host_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_uri");
         set => WithProperty("host_uri", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformProperty<string> WebhookSecretSecretVersion
     {
-        get => GetProperty<TerraformProperty<string>>("webhook_secret_secret_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("webhook_secret_secret_version");
         set => WithProperty("webhook_secret_secret_version", value);
     }
 
@@ -132,7 +132,7 @@ public class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformProperty<string> HostUri
     {
-        get => GetProperty<TerraformProperty<string>>("host_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_uri");
         set => WithProperty("host_uri", value);
     }
 
@@ -204,7 +204,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformProperty<string> WebhookSecretSecretVersion
     {
-        get => GetProperty<TerraformProperty<string>>("webhook_secret_secret_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("webhook_secret_secret_version");
         set => WithProperty("webhook_secret_secret_version", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleCloudbuildv2Connection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -312,7 +312,7 @@ public class GoogleCloudbuildv2Connection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

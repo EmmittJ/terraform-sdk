@@ -51,7 +51,7 @@ public class AwsMemorydbSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 

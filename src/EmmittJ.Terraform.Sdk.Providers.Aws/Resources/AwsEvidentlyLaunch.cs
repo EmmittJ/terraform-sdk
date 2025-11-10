@@ -23,7 +23,7 @@ public class AwsEvidentlyLaunchGroupsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
     public required TerraformProperty<string> Feature
     {
-        get => GetProperty<TerraformProperty<string>>("feature");
+        get => GetRequiredProperty<TerraformProperty<string>>("feature");
         set => WithProperty("feature", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsEvidentlyLaunchGroupsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsEvidentlyLaunchGroupsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Variation is required")]
     public required TerraformProperty<string> Variation
     {
-        get => GetProperty<TerraformProperty<string>>("variation");
+        get => GetRequiredProperty<TerraformProperty<string>>("variation");
         set => WithProperty("variation", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsEvidentlyLaunch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -157,7 +157,7 @@ public class AwsEvidentlyLaunch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
+        get => GetRequiredProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

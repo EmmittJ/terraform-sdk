@@ -14,7 +14,7 @@ public class AzurermVpnGatewayNatRuleExternalMappingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     public required TerraformProperty<string> AddressSpace
     {
-        get => GetProperty<TerraformProperty<string>>("address_space");
+        get => GetRequiredProperty<TerraformProperty<string>>("address_space");
         set => WithProperty("address_space", value);
     }
 
@@ -41,7 +41,7 @@ public class AzurermVpnGatewayNatRuleInternalMappingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     public required TerraformProperty<string> AddressSpace
     {
-        get => GetProperty<TerraformProperty<string>>("address_space");
+        get => GetRequiredProperty<TerraformProperty<string>>("address_space");
         set => WithProperty("address_space", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermVpnGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -166,7 +166,7 @@ public class AzurermVpnGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnGatewayId is required")]
     public required TerraformProperty<string> VpnGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("vpn_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpn_gateway_id");
         set => this.WithProperty("vpn_gateway_id", value);
     }
 

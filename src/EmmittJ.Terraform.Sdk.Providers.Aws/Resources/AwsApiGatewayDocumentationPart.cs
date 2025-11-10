@@ -50,7 +50,7 @@ public class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsApiGatewayDocumentationPart : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Properties is required")]
     public required TerraformProperty<string> Properties
     {
-        get => GetProperty<TerraformProperty<string>>("properties");
+        get => GetRequiredProperty<TerraformProperty<string>>("properties");
         set => this.WithProperty("properties", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsApiGatewayDocumentationPart : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformProperty<string> RestApiId
     {
-        get => GetProperty<TerraformProperty<string>>("rest_api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
     }
 

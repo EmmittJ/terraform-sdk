@@ -53,7 +53,7 @@ public class AzurermLbBackendAddressPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformProperty<string> LoadbalancerId
     {
-        get => GetProperty<TerraformProperty<string>>("loadbalancer_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("loadbalancer_id");
         set => this.WithProperty("loadbalancer_id", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermLbBackendAddressPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

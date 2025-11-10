@@ -32,7 +32,7 @@ public class AwsStoragegatewayTapePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
     public required TerraformProperty<string> PoolName
     {
-        get => GetProperty<TerraformProperty<string>>("pool_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("pool_name");
         set => this.WithProperty("pool_name", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsStoragegatewayTapePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageClass is required")]
     public required TerraformProperty<string> StorageClass
     {
-        get => GetProperty<TerraformProperty<string>>("storage_class");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_class");
         set => this.WithProperty("storage_class", value);
     }
 

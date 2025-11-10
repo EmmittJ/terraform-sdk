@@ -138,7 +138,7 @@ public class AzurermVirtualHubConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermVirtualHubConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVirtualNetworkId is required")]
     public required TerraformProperty<string> RemoteVirtualNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("remote_virtual_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("remote_virtual_network_id");
         set => this.WithProperty("remote_virtual_network_id", value);
     }
 
@@ -158,7 +158,7 @@ public class AzurermVirtualHubConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformProperty<string> VirtualHubId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_hub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_id");
         set => this.WithProperty("virtual_hub_id", value);
     }
 

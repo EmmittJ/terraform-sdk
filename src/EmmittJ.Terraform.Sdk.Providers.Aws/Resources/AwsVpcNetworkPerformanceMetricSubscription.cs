@@ -23,7 +23,7 @@ public class AwsVpcNetworkPerformanceMetricSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetProperty<TerraformProperty<string>>("destination");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsVpcNetworkPerformanceMetricSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
+        get => GetRequiredProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
     }
 

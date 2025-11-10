@@ -66,7 +66,7 @@ public class AzurermLogicAppIntegrationAccountAssembly : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssemblyName is required")]
     public required TerraformProperty<string> AssemblyName
     {
-        get => GetProperty<TerraformProperty<string>>("assembly_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("assembly_name");
         set => this.WithProperty("assembly_name", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermLogicAppIntegrationAccountAssembly : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationAccountName is required")]
     public required TerraformProperty<string> IntegrationAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("integration_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("integration_account_name");
         set => this.WithProperty("integration_account_name", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermLogicAppIntegrationAccountAssembly : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermLogicAppIntegrationAccountAssembly : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermAutomationPowershell72ModuleModuleLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("uri");
         set => WithProperty("uri", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermAutomationPowershell72Module : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformProperty<string> AutomationAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("automation_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_id");
         set => this.WithProperty("automation_account_id", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermAutomationPowershell72Module : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -23,7 +23,7 @@ public class AwsAppconfigDeploymentStrategy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentDurationInMinutes is required")]
     public required TerraformProperty<double> DeploymentDurationInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("deployment_duration_in_minutes");
+        get => GetRequiredProperty<TerraformProperty<double>>("deployment_duration_in_minutes");
         set => this.WithProperty("deployment_duration_in_minutes", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsAppconfigDeploymentStrategy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrowthFactor is required")]
     public required TerraformProperty<double> GrowthFactor
     {
-        get => GetProperty<TerraformProperty<double>>("growth_factor");
+        get => GetRequiredProperty<TerraformProperty<double>>("growth_factor");
         set => this.WithProperty("growth_factor", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsAppconfigDeploymentStrategy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsAppconfigDeploymentStrategy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicateTo is required")]
     public required TerraformProperty<string> ReplicateTo
     {
-        get => GetProperty<TerraformProperty<string>>("replicate_to");
+        get => GetRequiredProperty<TerraformProperty<string>>("replicate_to");
         set => this.WithProperty("replicate_to", value);
     }
 

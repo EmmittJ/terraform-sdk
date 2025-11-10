@@ -23,7 +23,7 @@ public class AwsApprunnerDefaultAutoScalingConfigurationVersion : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingConfigurationArn is required")]
     public required TerraformProperty<string> AutoScalingConfigurationArn
     {
-        get => GetProperty<TerraformProperty<string>>("auto_scaling_configuration_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("auto_scaling_configuration_arn");
         set => this.WithProperty("auto_scaling_configuration_arn", value);
     }
 

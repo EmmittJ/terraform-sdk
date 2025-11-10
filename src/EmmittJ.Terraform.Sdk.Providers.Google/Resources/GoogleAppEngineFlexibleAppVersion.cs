@@ -32,7 +32,7 @@ public class GoogleAppEngineFlexibleAppVersionApiConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Script is required")]
     public required TerraformProperty<string> Script
     {
-        get => GetProperty<TerraformProperty<string>>("script");
+        get => GetRequiredProperty<TerraformProperty<string>>("script");
         set => WithProperty("script", value);
     }
 
@@ -186,7 +186,7 @@ public class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -213,7 +213,7 @@ public class GoogleAppEngineFlexibleAppVersionEntrypointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shell is required")]
     public required TerraformProperty<string> Shell
     {
-        get => GetProperty<TerraformProperty<string>>("shell");
+        get => GetRequiredProperty<TerraformProperty<string>>("shell");
         set => WithProperty("shell", value);
     }
 
@@ -347,7 +347,7 @@ public class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => WithProperty("path", value);
     }
 
@@ -386,7 +386,7 @@ public class GoogleAppEngineFlexibleAppVersionManualScalingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instances is required")]
     public required TerraformProperty<double> Instances
     {
-        get => GetProperty<TerraformProperty<double>>("instances");
+        get => GetRequiredProperty<TerraformProperty<double>>("instances");
         set => WithProperty("instances", value);
     }
 
@@ -422,7 +422,7 @@ public class GoogleAppEngineFlexibleAppVersionNetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -500,7 +500,7 @@ public class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => WithProperty("path", value);
     }
 
@@ -606,7 +606,7 @@ public class GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -728,7 +728,7 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     public required TerraformProperty<string> Runtime
     {
-        get => GetProperty<TerraformProperty<string>>("runtime");
+        get => GetRequiredProperty<TerraformProperty<string>>("runtime");
         set => this.WithProperty("runtime", value);
     }
 
@@ -767,7 +767,7 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
+        get => GetRequiredProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
     }
 

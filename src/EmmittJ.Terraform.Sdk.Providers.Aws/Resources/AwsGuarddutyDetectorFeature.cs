@@ -14,7 +14,7 @@ public class AwsGuarddutyDetectorFeatureAdditionalConfigurationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsGuarddutyDetectorFeatureAdditionalConfigurationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
+        get => GetRequiredProperty<TerraformProperty<string>>("status");
         set => WithProperty("status", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsGuarddutyDetectorFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     public required TerraformProperty<string> DetectorId
     {
-        get => GetProperty<TerraformProperty<string>>("detector_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("detector_id");
         set => this.WithProperty("detector_id", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsGuarddutyDetectorFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsGuarddutyDetectorFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
+        get => GetRequiredProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsVerifiedpermissionsPolicyStoreValidationSettingsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("mode");
         set => WithProperty("mode", value);
     }
 

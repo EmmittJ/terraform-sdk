@@ -24,7 +24,7 @@ public class GoogleSpannerDatabaseIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetProperty<TerraformProperty<string>>("database");
+        get => GetRequiredProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleSpannerDatabaseIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 

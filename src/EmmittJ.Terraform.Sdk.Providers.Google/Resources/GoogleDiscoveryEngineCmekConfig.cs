@@ -16,7 +16,7 @@ public class GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformProperty<string> KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key");
         set => WithProperty("kms_key", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformProperty<string> KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key");
         set => this.WithProperty("kms_key", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

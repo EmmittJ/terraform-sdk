@@ -76,7 +76,7 @@ public class AzurermHpcCacheBlobTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheName is required")]
     public required TerraformProperty<string> CacheName
     {
-        get => GetProperty<TerraformProperty<string>>("cache_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cache_name");
         set => this.WithProperty("cache_name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermHpcCacheBlobTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermHpcCacheBlobTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespacePath is required")]
     public required TerraformProperty<string> NamespacePath
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace_path");
         set => this.WithProperty("namespace_path", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermHpcCacheBlobTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermHpcCacheBlobTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
     public required TerraformProperty<string> StorageContainerId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_container_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_id");
         set => this.WithProperty("storage_container_id", value);
     }
 

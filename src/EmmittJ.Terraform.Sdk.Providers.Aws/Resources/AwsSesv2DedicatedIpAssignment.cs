@@ -48,7 +48,7 @@ public class AwsSesv2DedicatedIpAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPoolName is required")]
     public required TerraformProperty<string> DestinationPoolName
     {
-        get => GetProperty<TerraformProperty<string>>("destination_pool_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_pool_name");
         set => this.WithProperty("destination_pool_name", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsSesv2DedicatedIpAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ip is required")]
     public required TerraformProperty<string> Ip
     {
-        get => GetProperty<TerraformProperty<string>>("ip");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip");
         set => this.WithProperty("ip", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsSagemakerMonitoringScheduleMonitoringScheduleConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitoringJobDefinitionName is required")]
     public required TerraformProperty<string> MonitoringJobDefinitionName
     {
-        get => GetProperty<TerraformProperty<string>>("monitoring_job_definition_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("monitoring_job_definition_name");
         set => WithProperty("monitoring_job_definition_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsSagemakerMonitoringScheduleMonitoringScheduleConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitoringType is required")]
     public required TerraformProperty<string> MonitoringType
     {
-        get => GetProperty<TerraformProperty<string>>("monitoring_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("monitoring_type");
         set => WithProperty("monitoring_type", value);
     }
 

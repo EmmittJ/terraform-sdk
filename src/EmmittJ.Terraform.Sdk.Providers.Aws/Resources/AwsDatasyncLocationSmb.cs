@@ -70,7 +70,7 @@ public class AwsDatasyncLocationSmb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsDatasyncLocationSmb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerHostname is required")]
     public required TerraformProperty<string> ServerHostname
     {
-        get => GetProperty<TerraformProperty<string>>("server_hostname");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_hostname");
         set => this.WithProperty("server_hostname", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsDatasyncLocationSmb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subdirectory is required")]
     public required TerraformProperty<string> Subdirectory
     {
-        get => GetProperty<TerraformProperty<string>>("subdirectory");
+        get => GetRequiredProperty<TerraformProperty<string>>("subdirectory");
         set => this.WithProperty("subdirectory", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsDatasyncLocationSmb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformProperty<string> User
     {
-        get => GetProperty<TerraformProperty<string>>("user");
+        get => GetRequiredProperty<TerraformProperty<string>>("user");
         set => this.WithProperty("user", value);
     }
 

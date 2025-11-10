@@ -50,7 +50,7 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     public required TerraformProperty<string> SourceName
     {
-        get => GetProperty<TerraformProperty<string>>("source_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_name");
         set => WithProperty("source_name", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSetUpOption is required")]
     public required TerraformProperty<string> SourceSetUpOption
     {
-        get => GetProperty<TerraformProperty<string>>("source_set_up_option");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_set_up_option");
         set => WithProperty("source_set_up_option", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     public required TerraformProperty<string> SourceType
     {
-        get => GetProperty<TerraformProperty<string>>("source_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_type");
         set => WithProperty("source_type", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsAuditmanagerControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

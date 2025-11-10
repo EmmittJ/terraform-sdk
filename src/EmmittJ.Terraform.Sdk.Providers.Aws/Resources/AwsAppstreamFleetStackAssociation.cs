@@ -22,7 +22,7 @@ public class AwsAppstreamFleetStackAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FleetName is required")]
     public required TerraformProperty<string> FleetName
     {
-        get => GetProperty<TerraformProperty<string>>("fleet_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("fleet_name");
         set => this.WithProperty("fleet_name", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsAppstreamFleetStackAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackName is required")]
     public required TerraformProperty<string> StackName
     {
-        get => GetProperty<TerraformProperty<string>>("stack_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stack_name");
         set => this.WithProperty("stack_name", value);
     }
 

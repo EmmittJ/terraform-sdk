@@ -95,7 +95,7 @@ public class AwsElasticacheReservedCacheNode : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservedCacheNodesOfferingId is required")]
     public required TerraformProperty<string> ReservedCacheNodesOfferingId
     {
-        get => GetProperty<TerraformProperty<string>>("reserved_cache_nodes_offering_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("reserved_cache_nodes_offering_id");
         set => this.WithProperty("reserved_cache_nodes_offering_id", value);
     }
 

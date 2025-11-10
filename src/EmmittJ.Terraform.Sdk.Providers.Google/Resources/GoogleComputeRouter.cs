@@ -41,7 +41,7 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
     public required TerraformProperty<double> Asn
     {
-        get => GetProperty<TerraformProperty<double>>("asn");
+        get => GetRequiredProperty<TerraformProperty<double>>("asn");
         set => WithProperty("asn", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -217,7 +217,7 @@ public class GoogleComputeRouter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

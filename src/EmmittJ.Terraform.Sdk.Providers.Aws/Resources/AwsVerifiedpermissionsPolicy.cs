@@ -33,7 +33,7 @@ public class AwsVerifiedpermissionsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
     public required TerraformProperty<string> PolicyStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_store_id");
         set => this.WithProperty("policy_store_id", value);
     }
 

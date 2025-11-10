@@ -67,7 +67,7 @@ public class AzurermContainerAppJobIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermContainerAppJobRegistryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformProperty<string> Server
     {
-        get => GetProperty<TerraformProperty<string>>("server");
+        get => GetRequiredProperty<TerraformProperty<string>>("server");
         set => WithProperty("server", value);
     }
 
@@ -156,7 +156,7 @@ public class AzurermContainerAppJobScheduleTriggerConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CronExpression is required")]
     public required TerraformProperty<string> CronExpression
     {
-        get => GetProperty<TerraformProperty<string>>("cron_expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("cron_expression");
         set => WithProperty("cron_expression", value);
     }
 
@@ -210,7 +210,7 @@ public class AzurermContainerAppJobSecretBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -300,7 +300,7 @@ public class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformProperty<string> ContainerAppEnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("container_app_environment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_app_environment_id");
         set => this.WithProperty("container_app_environment_id", value);
     }
 
@@ -319,7 +319,7 @@ public class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -329,7 +329,7 @@ public class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -348,7 +348,7 @@ public class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicaTimeoutInSeconds is required")]
     public required TerraformProperty<double> ReplicaTimeoutInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("replica_timeout_in_seconds");
+        get => GetRequiredProperty<TerraformProperty<double>>("replica_timeout_in_seconds");
         set => this.WithProperty("replica_timeout_in_seconds", value);
     }
 
@@ -358,7 +358,7 @@ public class AzurermContainerAppJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

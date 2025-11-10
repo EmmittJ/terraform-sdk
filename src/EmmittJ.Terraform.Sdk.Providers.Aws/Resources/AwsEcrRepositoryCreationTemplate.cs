@@ -40,7 +40,7 @@ public class AwsEcrRepositoryCreationTemplateImageTagMutabilityExclusionFilterBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => WithProperty("filter", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsEcrRepositoryCreationTemplateImageTagMutabilityExclusionFilterBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformProperty<string> FilterType
     {
-        get => GetProperty<TerraformProperty<string>>("filter_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter_type");
         set => WithProperty("filter_type", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsEcrRepositoryCreationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformProperty<string> Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("prefix");
         set => this.WithProperty("prefix", value);
     }
 

@@ -108,7 +108,7 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticCloudEmailAddress is required")]
     public required TerraformProperty<string> ElasticCloudEmailAddress
     {
-        get => GetProperty<TerraformProperty<string>>("elastic_cloud_email_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("elastic_cloud_email_address");
         set => this.WithProperty("elastic_cloud_email_address", value);
     }
 
@@ -127,7 +127,7 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -146,7 +146,7 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -156,7 +156,7 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -166,7 +166,7 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetProperty<TerraformProperty<string>>("sku_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 

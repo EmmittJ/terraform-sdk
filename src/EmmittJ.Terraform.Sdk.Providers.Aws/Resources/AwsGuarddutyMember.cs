@@ -49,7 +49,7 @@ public class AwsGuarddutyMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsGuarddutyMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     public required TerraformProperty<string> DetectorId
     {
-        get => GetProperty<TerraformProperty<string>>("detector_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("detector_id");
         set => this.WithProperty("detector_id", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsGuarddutyMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
+        get => GetRequiredProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);
     }
 

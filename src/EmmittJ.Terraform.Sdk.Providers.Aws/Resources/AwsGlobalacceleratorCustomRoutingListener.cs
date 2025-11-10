@@ -85,7 +85,7 @@ public class AwsGlobalacceleratorCustomRoutingListener : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorArn is required")]
     public required TerraformProperty<string> AcceleratorArn
     {
-        get => GetProperty<TerraformProperty<string>>("accelerator_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("accelerator_arn");
         set => this.WithProperty("accelerator_arn", value);
     }
 

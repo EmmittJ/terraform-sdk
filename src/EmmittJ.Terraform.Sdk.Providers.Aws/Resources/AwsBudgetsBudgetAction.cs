@@ -14,7 +14,7 @@ public class AwsBudgetsBudgetActionActionThresholdBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionThresholdType is required")]
     public required TerraformProperty<string> ActionThresholdType
     {
-        get => GetProperty<TerraformProperty<string>>("action_threshold_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("action_threshold_type");
         set => WithProperty("action_threshold_type", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsBudgetsBudgetActionActionThresholdBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionThresholdValue is required")]
     public required TerraformProperty<double> ActionThresholdValue
     {
-        get => GetProperty<TerraformProperty<double>>("action_threshold_value");
+        get => GetRequiredProperty<TerraformProperty<double>>("action_threshold_value");
         set => WithProperty("action_threshold_value", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsBudgetsBudgetActionSubscriberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformProperty<string> Address
     {
-        get => GetProperty<TerraformProperty<string>>("address");
+        get => GetRequiredProperty<TerraformProperty<string>>("address");
         set => WithProperty("address", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsBudgetsBudgetActionSubscriberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionType is required")]
     public required TerraformProperty<string> SubscriptionType
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscription_type");
         set => WithProperty("subscription_type", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
     public required TerraformProperty<string> ActionType
     {
-        get => GetProperty<TerraformProperty<string>>("action_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("action_type");
         set => this.WithProperty("action_type", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApprovalModel is required")]
     public required TerraformProperty<string> ApprovalModel
     {
-        get => GetProperty<TerraformProperty<string>>("approval_model");
+        get => GetRequiredProperty<TerraformProperty<string>>("approval_model");
         set => this.WithProperty("approval_model", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BudgetName is required")]
     public required TerraformProperty<string> BudgetName
     {
-        get => GetProperty<TerraformProperty<string>>("budget_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("budget_name");
         set => this.WithProperty("budget_name", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("execution_role_arn");
         set => this.WithProperty("execution_role_arn", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     public required TerraformProperty<string> NotificationType
     {
-        get => GetProperty<TerraformProperty<string>>("notification_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("notification_type");
         set => this.WithProperty("notification_type", value);
     }
 

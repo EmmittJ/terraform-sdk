@@ -425,7 +425,7 @@ public class AwsElastictranscoderPreset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     public required TerraformProperty<string> Container
     {
-        get => GetProperty<TerraformProperty<string>>("container");
+        get => GetRequiredProperty<TerraformProperty<string>>("container");
         set => this.WithProperty("container", value);
     }
 

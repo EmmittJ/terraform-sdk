@@ -24,7 +24,7 @@ public class GoogleBigqueryDatasetAccessConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("expression");
         set => WithProperty("expression", value);
     }
 
@@ -81,7 +81,7 @@ public class GoogleBigqueryDatasetAccessRoutineBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetProperty<TerraformProperty<string>>("dataset_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
         set => WithProperty("dataset_id", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleBigqueryDatasetAccessRoutineBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformProperty<string> ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_id");
         set => WithProperty("project_id", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleBigqueryDatasetAccessRoutineBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineId is required")]
     public required TerraformProperty<string> RoutineId
     {
-        get => GetProperty<TerraformProperty<string>>("routine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("routine_id");
         set => WithProperty("routine_id", value);
     }
 
@@ -147,7 +147,7 @@ public class GoogleBigqueryDatasetAccessViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetProperty<TerraformProperty<string>>("dataset_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
         set => WithProperty("dataset_id", value);
     }
 
@@ -157,7 +157,7 @@ public class GoogleBigqueryDatasetAccessViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformProperty<string> ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_id");
         set => WithProperty("project_id", value);
     }
 
@@ -169,7 +169,7 @@ public class GoogleBigqueryDatasetAccessViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformProperty<string> TableId
     {
-        get => GetProperty<TerraformProperty<string>>("table_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_id");
         set => WithProperty("table_id", value);
     }
 
@@ -199,7 +199,7 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetProperty<TerraformProperty<string>>("dataset_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
     }
 

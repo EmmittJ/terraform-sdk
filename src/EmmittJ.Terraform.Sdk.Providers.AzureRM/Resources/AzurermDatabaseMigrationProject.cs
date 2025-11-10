@@ -75,7 +75,7 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePlatform is required")]
     public required TerraformProperty<string> SourcePlatform
     {
-        get => GetProperty<TerraformProperty<string>>("source_platform");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_platform");
         set => this.WithProperty("source_platform", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermDatabaseMigrationProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPlatform is required")]
     public required TerraformProperty<string> TargetPlatform
     {
-        get => GetProperty<TerraformProperty<string>>("target_platform");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_platform");
         set => this.WithProperty("target_platform", value);
     }
 

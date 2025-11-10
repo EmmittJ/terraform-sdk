@@ -58,7 +58,7 @@ public class GoogleMonitoringMonitoredProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricsScope is required")]
     public required TerraformProperty<string> MetricsScope
     {
-        get => GetProperty<TerraformProperty<string>>("metrics_scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("metrics_scope");
         set => this.WithProperty("metrics_scope", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleMonitoringMonitoredProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -75,7 +75,7 @@ public class AzurermVirtualHubBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermVirtualHubBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
     public required TerraformProperty<double> PeerAsn
     {
-        get => GetProperty<TerraformProperty<double>>("peer_asn");
+        get => GetRequiredProperty<TerraformProperty<double>>("peer_asn");
         set => this.WithProperty("peer_asn", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermVirtualHubBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerIp is required")]
     public required TerraformProperty<string> PeerIp
     {
-        get => GetProperty<TerraformProperty<string>>("peer_ip");
+        get => GetRequiredProperty<TerraformProperty<string>>("peer_ip");
         set => this.WithProperty("peer_ip", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermVirtualHubBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformProperty<string> VirtualHubId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_hub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_id");
         set => this.WithProperty("virtual_hub_id", value);
     }
 

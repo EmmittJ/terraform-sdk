@@ -23,7 +23,7 @@ public class AwsGlueDataQualityRulesetTargetTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => WithProperty("database_name", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsGlueDataQualityRulesetTargetTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
         set => WithProperty("table_name", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsGlueDataQualityRuleset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsGlueDataQualityRuleset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ruleset is required")]
     public required TerraformProperty<string> Ruleset
     {
-        get => GetProperty<TerraformProperty<string>>("ruleset");
+        get => GetRequiredProperty<TerraformProperty<string>>("ruleset");
         set => this.WithProperty("ruleset", value);
     }
 

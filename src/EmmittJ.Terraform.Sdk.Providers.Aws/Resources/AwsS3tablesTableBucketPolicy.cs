@@ -31,7 +31,7 @@ public class AwsS3tablesTableBucketPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourcePolicy is required")]
     public required TerraformProperty<string> ResourcePolicy
     {
-        get => GetProperty<TerraformProperty<string>>("resource_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_policy");
         set => this.WithProperty("resource_policy", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsS3tablesTableBucketPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableBucketArn is required")]
     public required TerraformProperty<string> TableBucketArn
     {
-        get => GetProperty<TerraformProperty<string>>("table_bucket_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_bucket_arn");
         set => this.WithProperty("table_bucket_arn", value);
     }
 

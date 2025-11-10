@@ -74,7 +74,7 @@ public class GoogleSccV2FolderMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleSccV2FolderMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
+        get => GetRequiredProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleSccV2FolderMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MuteConfigId is required")]
     public required TerraformProperty<string> MuteConfigId
     {
-        get => GetProperty<TerraformProperty<string>>("mute_config_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("mute_config_id");
         set => this.WithProperty("mute_config_id", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleSccV2FolderMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

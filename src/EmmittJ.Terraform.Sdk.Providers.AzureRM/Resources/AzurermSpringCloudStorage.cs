@@ -75,7 +75,7 @@ public class AzurermSpringCloudStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermSpringCloudStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermSpringCloudStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     public required TerraformProperty<string> StorageAccountKey
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_key");
         set => this.WithProperty("storage_account_key", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermSpringCloudStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformProperty<string> StorageAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
     }
 

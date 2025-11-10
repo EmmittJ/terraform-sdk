@@ -168,7 +168,7 @@ public class AwsStoragegatewayNfsFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
     public required TerraformProperty<string> GatewayArn
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("gateway_arn");
         set => this.WithProperty("gateway_arn", value);
     }
 
@@ -214,7 +214,7 @@ public class AwsStoragegatewayNfsFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationArn is required")]
     public required TerraformProperty<string> LocationArn
     {
-        get => GetProperty<TerraformProperty<string>>("location_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("location_arn");
         set => this.WithProperty("location_arn", value);
     }
 
@@ -269,7 +269,7 @@ public class AwsStoragegatewayNfsFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

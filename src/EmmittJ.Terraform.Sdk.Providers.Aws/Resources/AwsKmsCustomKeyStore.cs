@@ -49,7 +49,7 @@ public class AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKeyId is required")]
     public required TerraformProperty<string> AccessKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("access_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_key_id");
         set => WithProperty("access_key_id", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RawSecretAccessKey is required")]
     public required TerraformProperty<string> RawSecretAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("raw_secret_access_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("raw_secret_access_key");
         set => WithProperty("raw_secret_access_key", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsKmsCustomKeyStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomKeyStoreName is required")]
     public required TerraformProperty<string> CustomKeyStoreName
     {
-        get => GetProperty<TerraformProperty<string>>("custom_key_store_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("custom_key_store_name");
         set => this.WithProperty("custom_key_store_name", value);
     }
 

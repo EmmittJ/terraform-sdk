@@ -22,7 +22,7 @@ public class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -56,7 +56,7 @@ public class GoogleCloudIdentityGroupMembershipRolesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleCloudIdentityGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformProperty<string> Group
     {
-        get => GetProperty<TerraformProperty<string>>("group");
+        get => GetRequiredProperty<TerraformProperty<string>>("group");
         set => this.WithProperty("group", value);
     }
 

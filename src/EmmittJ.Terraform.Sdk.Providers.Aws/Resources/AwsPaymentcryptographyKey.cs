@@ -14,7 +14,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
     public required TerraformProperty<string> KeyAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("key_algorithm");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_algorithm");
         set => WithProperty("key_algorithm", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyClass is required")]
     public required TerraformProperty<string> KeyClass
     {
-        get => GetProperty<TerraformProperty<string>>("key_class");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_class");
         set => WithProperty("key_class", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUsage is required")]
     public required TerraformProperty<string> KeyUsage
     {
-        get => GetProperty<TerraformProperty<string>>("key_usage");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_usage");
         set => WithProperty("key_usage", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsPaymentcryptographyKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exportable is required")]
     public required TerraformProperty<bool> Exportable
     {
-        get => GetProperty<TerraformProperty<bool>>("exportable");
+        get => GetRequiredProperty<TerraformProperty<bool>>("exportable");
         set => this.WithProperty("exportable", value);
     }
 

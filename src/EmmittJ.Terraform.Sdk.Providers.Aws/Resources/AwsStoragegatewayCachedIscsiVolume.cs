@@ -29,7 +29,7 @@ public class AwsStoragegatewayCachedIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
     public required TerraformProperty<string> GatewayArn
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("gateway_arn");
         set => this.WithProperty("gateway_arn", value);
     }
 
@@ -66,7 +66,7 @@ public class AwsStoragegatewayCachedIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsStoragegatewayCachedIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
     public required TerraformProperty<string> TargetName
     {
-        get => GetProperty<TerraformProperty<string>>("target_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_name");
         set => this.WithProperty("target_name", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsStoragegatewayCachedIscsiVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeSizeInBytes is required")]
     public required TerraformProperty<double> VolumeSizeInBytes
     {
-        get => GetProperty<TerraformProperty<double>>("volume_size_in_bytes");
+        get => GetRequiredProperty<TerraformProperty<double>>("volume_size_in_bytes");
         set => this.WithProperty("volume_size_in_bytes", value);
     }
 

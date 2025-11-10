@@ -32,7 +32,7 @@ public class AwsBedrockagentPromptVariantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsBedrockagentPromptVariantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateType is required")]
     public required TerraformProperty<string> TemplateType
     {
-        get => GetProperty<TerraformProperty<string>>("template_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("template_type");
         set => WithProperty("template_type", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsBedrockagentPrompt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

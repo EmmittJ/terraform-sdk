@@ -22,7 +22,7 @@ public class AwsDetectiveOrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnable is required")]
     public required TerraformProperty<bool> AutoEnable
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_enable");
+        get => GetRequiredProperty<TerraformProperty<bool>>("auto_enable");
         set => this.WithProperty("auto_enable", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsDetectiveOrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GraphArn is required")]
     public required TerraformProperty<string> GraphArn
     {
-        get => GetProperty<TerraformProperty<string>>("graph_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("graph_arn");
         set => this.WithProperty("graph_arn", value);
     }
 

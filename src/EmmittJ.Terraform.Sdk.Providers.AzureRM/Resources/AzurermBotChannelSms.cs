@@ -66,7 +66,7 @@ public class AzurermBotChannelSms : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformProperty<string> BotName
     {
-        get => GetProperty<TerraformProperty<string>>("bot_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_name");
         set => this.WithProperty("bot_name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermBotChannelSms : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermBotChannelSms : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformProperty<string> PhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("phone_number");
+        get => GetRequiredProperty<TerraformProperty<string>>("phone_number");
         set => this.WithProperty("phone_number", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermBotChannelSms : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermBotChannelSms : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmsChannelAccountSecurityId is required")]
     public required TerraformProperty<string> SmsChannelAccountSecurityId
     {
-        get => GetProperty<TerraformProperty<string>>("sms_channel_account_security_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("sms_channel_account_security_id");
         set => this.WithProperty("sms_channel_account_security_id", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermBotChannelSms : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmsChannelAuthToken is required")]
     public required TerraformProperty<string> SmsChannelAuthToken
     {
-        get => GetProperty<TerraformProperty<string>>("sms_channel_auth_token");
+        get => GetRequiredProperty<TerraformProperty<string>>("sms_channel_auth_token");
         set => this.WithProperty("sms_channel_auth_token", value);
     }
 

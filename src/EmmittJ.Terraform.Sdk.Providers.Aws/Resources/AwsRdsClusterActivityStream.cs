@@ -41,7 +41,7 @@ public class AwsRdsClusterActivityStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_id");
         set => this.WithProperty("kms_key_id", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsRdsClusterActivityStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("mode");
         set => this.WithProperty("mode", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsRdsClusterActivityStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("resource_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
     }
 

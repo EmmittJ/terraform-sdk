@@ -15,7 +15,7 @@ public class GoogleDataprocMetastoreServiceEncryptionConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformProperty<string> KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key");
         set => WithProperty("kms_key", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => WithProperty("version", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleDataprocMetastoreServiceMaintenanceWindowBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformProperty<string> DayOfWeek
     {
-        get => GetProperty<TerraformProperty<string>>("day_of_week");
+        get => GetRequiredProperty<TerraformProperty<string>>("day_of_week");
         set => WithProperty("day_of_week", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleDataprocMetastoreServiceMaintenanceWindowBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     public required TerraformProperty<double> HourOfDay
     {
-        get => GetProperty<TerraformProperty<double>>("hour_of_day");
+        get => GetRequiredProperty<TerraformProperty<double>>("hour_of_day");
         set => WithProperty("hour_of_day", value);
     }
 
@@ -140,7 +140,7 @@ public class GoogleDataprocMetastoreServiceScheduledBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupLocation is required")]
     public required TerraformProperty<string> BackupLocation
     {
-        get => GetProperty<TerraformProperty<string>>("backup_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_location");
         set => WithProperty("backup_location", value);
     }
 
@@ -345,7 +345,7 @@ public class GoogleDataprocMetastoreService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformProperty<string> ServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);
     }
 

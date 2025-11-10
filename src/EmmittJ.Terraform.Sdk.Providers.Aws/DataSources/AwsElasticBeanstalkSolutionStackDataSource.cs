@@ -41,7 +41,7 @@ public class AwsElasticBeanstalkSolutionStackDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NameRegex is required")]
     public required TerraformProperty<string> NameRegex
     {
-        get => GetProperty<TerraformProperty<string>>("name_regex");
+        get => GetRequiredProperty<TerraformProperty<string>>("name_regex");
         set => this.WithProperty("name_regex", value);
     }
 

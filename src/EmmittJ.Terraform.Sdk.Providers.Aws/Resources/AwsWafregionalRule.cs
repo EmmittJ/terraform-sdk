@@ -14,7 +14,7 @@ public class AwsWafregionalRulePredicateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataId is required")]
     public required TerraformProperty<string> DataId
     {
-        get => GetProperty<TerraformProperty<string>>("data_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_id");
         set => WithProperty("data_id", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsWafregionalRulePredicateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Negated is required")]
     public required TerraformProperty<bool> Negated
     {
-        get => GetProperty<TerraformProperty<bool>>("negated");
+        get => GetRequiredProperty<TerraformProperty<bool>>("negated");
         set => WithProperty("negated", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsWafregionalRulePredicateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsWafregionalRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformProperty<string> MetricName
     {
-        get => GetProperty<TerraformProperty<string>>("metric_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("metric_name");
         set => this.WithProperty("metric_name", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsWafregionalRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

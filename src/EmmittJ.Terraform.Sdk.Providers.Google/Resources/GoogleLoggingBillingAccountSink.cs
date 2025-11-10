@@ -14,7 +14,7 @@ public class GoogleLoggingBillingAccountSinkBigqueryOptionsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsePartitionedTables is required")]
     public required TerraformProperty<bool> UsePartitionedTables
     {
-        get => GetProperty<TerraformProperty<bool>>("use_partitioned_tables");
+        get => GetRequiredProperty<TerraformProperty<bool>>("use_partitioned_tables");
         set => WithProperty("use_partitioned_tables", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleLoggingBillingAccountSinkExclusionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => WithProperty("filter", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleLoggingBillingAccountSinkExclusionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleLoggingBillingAccountSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     public required TerraformProperty<string> BillingAccount
     {
-        get => GetProperty<TerraformProperty<string>>("billing_account");
+        get => GetRequiredProperty<TerraformProperty<string>>("billing_account");
         set => this.WithProperty("billing_account", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleLoggingBillingAccountSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetProperty<TerraformProperty<string>>("destination");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
     }
 
@@ -144,7 +144,7 @@ public class GoogleLoggingBillingAccountSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -50,7 +50,7 @@ public class AwsGlueRegistry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryName is required")]
     public required TerraformProperty<string> RegistryName
     {
-        get => GetProperty<TerraformProperty<string>>("registry_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("registry_name");
         set => this.WithProperty("registry_name", value);
     }
 

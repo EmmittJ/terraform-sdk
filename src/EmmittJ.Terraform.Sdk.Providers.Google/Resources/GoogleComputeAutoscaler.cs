@@ -35,7 +35,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxReplicas is required")]
     public required TerraformProperty<double> MaxReplicas
     {
-        get => GetProperty<TerraformProperty<double>>("max_replicas");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_replicas");
         set => WithProperty("max_replicas", value);
     }
 
@@ -48,7 +48,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicas is required")]
     public required TerraformProperty<double> MinReplicas
     {
-        get => GetProperty<TerraformProperty<double>>("min_replicas");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_replicas");
         set => WithProperty("min_replicas", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleComputeAutoscaler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleComputeAutoscaler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetProperty<TerraformProperty<string>>("target");
+        get => GetRequiredProperty<TerraformProperty<string>>("target");
         set => this.WithProperty("target", value);
     }
 

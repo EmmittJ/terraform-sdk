@@ -72,7 +72,7 @@ public class AwsVpcIpamResourceDiscoveryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamId is required")]
     public required TerraformProperty<string> IpamId
     {
-        get => GetProperty<TerraformProperty<string>>("ipam_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("ipam_id");
         set => this.WithProperty("ipam_id", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsVpcIpamResourceDiscoveryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamResourceDiscoveryId is required")]
     public required TerraformProperty<string> IpamResourceDiscoveryId
     {
-        get => GetProperty<TerraformProperty<string>>("ipam_resource_discovery_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("ipam_resource_discovery_id");
         set => this.WithProperty("ipam_resource_discovery_id", value);
     }
 

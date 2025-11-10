@@ -108,7 +108,7 @@ public class AwsFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentType is required")]
     public required TerraformProperty<string> DeploymentType
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("deployment_type");
         set => this.WithProperty("deployment_type", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredSubnetId is required")]
     public required TerraformProperty<string> PreferredSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("preferred_subnet_id");
         set => this.WithProperty("preferred_subnet_id", value);
     }
 
@@ -200,7 +200,7 @@ public class AwsFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacity is required")]
     public required TerraformProperty<double> StorageCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("storage_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("storage_capacity");
         set => this.WithProperty("storage_capacity", value);
     }
 

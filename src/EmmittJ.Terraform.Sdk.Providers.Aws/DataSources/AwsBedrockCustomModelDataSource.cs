@@ -38,7 +38,7 @@ public class AwsBedrockCustomModelDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelId is required")]
     public required TerraformProperty<string> ModelId
     {
-        get => GetProperty<TerraformProperty<string>>("model_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("model_id");
         set => this.WithProperty("model_id", value);
     }
 

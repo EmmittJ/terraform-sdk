@@ -79,7 +79,7 @@ public class AwsDmsS3Endpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
         set => this.WithProperty("bucket_name", value);
     }
 
@@ -296,7 +296,7 @@ public class AwsDmsS3Endpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointId is required")]
     public required TerraformProperty<string> EndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_id");
         set => this.WithProperty("endpoint_id", value);
     }
 
@@ -306,7 +306,7 @@ public class AwsDmsS3Endpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformProperty<string> EndpointType
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_type");
         set => this.WithProperty("endpoint_type", value);
     }
 
@@ -451,7 +451,7 @@ public class AwsDmsS3Endpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccessRoleArn is required")]
     public required TerraformProperty<string> ServiceAccessRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_access_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_access_role_arn");
         set => this.WithProperty("service_access_role_arn", value);
     }
 

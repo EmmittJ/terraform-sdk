@@ -16,7 +16,7 @@ public class GoogleMemorystoreInstanceAutomatedBackupConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Retention is required")]
     public required TerraformProperty<string> Retention
     {
-        get => GetProperty<TerraformProperty<string>>("retention");
+        get => GetRequiredProperty<TerraformProperty<string>>("retention");
         set => WithProperty("retention", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => WithProperty("network", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformProperty<string> ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_id");
         set => WithProperty("project_id", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => WithProperty("network", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformProperty<string> ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_id");
         set => WithProperty("project_id", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleMemorystoreInstanceManagedBackupSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backup is required")]
     public required TerraformProperty<string> Backup
     {
-        get => GetProperty<TerraformProperty<string>>("backup");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup");
         set => WithProperty("backup", value);
     }
 
@@ -367,7 +367,7 @@ public class GoogleMemorystoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -398,7 +398,7 @@ public class GoogleMemorystoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -462,7 +462,7 @@ public class GoogleMemorystoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCount is required")]
     public required TerraformProperty<double> ShardCount
     {
-        get => GetProperty<TerraformProperty<double>>("shard_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("shard_count");
         set => this.WithProperty("shard_count", value);
     }
 

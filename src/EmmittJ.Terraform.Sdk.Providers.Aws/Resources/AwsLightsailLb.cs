@@ -46,7 +46,7 @@ public class AwsLightsailLb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePort is required")]
     public required TerraformProperty<double> InstancePort
     {
-        get => GetProperty<TerraformProperty<double>>("instance_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("instance_port");
         set => this.WithProperty("instance_port", value);
     }
 
@@ -65,7 +65,7 @@ public class AwsLightsailLb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -65,7 +65,7 @@ public class AwsVpcEndpointService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceptanceRequired is required")]
     public required TerraformProperty<bool> AcceptanceRequired
     {
-        get => GetProperty<TerraformProperty<bool>>("acceptance_required");
+        get => GetRequiredProperty<TerraformProperty<bool>>("acceptance_required");
         set => this.WithProperty("acceptance_required", value);
     }
 

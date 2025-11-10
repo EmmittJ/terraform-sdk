@@ -14,7 +14,7 @@ public class AzurermSubscriptionCostManagementExportExportDataOptionsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeFrame is required")]
     public required TerraformProperty<string> TimeFrame
     {
-        get => GetProperty<TerraformProperty<string>>("time_frame");
+        get => GetRequiredProperty<TerraformProperty<string>>("time_frame");
         set => WithProperty("time_frame", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermSubscriptionCostManagementExportExportDataOptionsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermSubscriptionCostManagementExportExportDataStorageLocationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     public required TerraformProperty<string> ContainerId
     {
-        get => GetProperty<TerraformProperty<string>>("container_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_id");
         set => WithProperty("container_id", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermSubscriptionCostManagementExportExportDataStorageLocationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolderPath is required")]
     public required TerraformProperty<string> RootFolderPath
     {
-        get => GetProperty<TerraformProperty<string>>("root_folder_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("root_folder_path");
         set => WithProperty("root_folder_path", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrencePeriodEndDate is required")]
     public required TerraformProperty<string> RecurrencePeriodEndDate
     {
-        get => GetProperty<TerraformProperty<string>>("recurrence_period_end_date");
+        get => GetRequiredProperty<TerraformProperty<string>>("recurrence_period_end_date");
         set => this.WithProperty("recurrence_period_end_date", value);
     }
 
@@ -170,7 +170,7 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrencePeriodStartDate is required")]
     public required TerraformProperty<string> RecurrencePeriodStartDate
     {
-        get => GetProperty<TerraformProperty<string>>("recurrence_period_start_date");
+        get => GetRequiredProperty<TerraformProperty<string>>("recurrence_period_start_date");
         set => this.WithProperty("recurrence_period_start_date", value);
     }
 
@@ -180,7 +180,7 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrenceType is required")]
     public required TerraformProperty<string> RecurrenceType
     {
-        get => GetProperty<TerraformProperty<string>>("recurrence_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("recurrence_type");
         set => this.WithProperty("recurrence_type", value);
     }
 
@@ -190,7 +190,7 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 

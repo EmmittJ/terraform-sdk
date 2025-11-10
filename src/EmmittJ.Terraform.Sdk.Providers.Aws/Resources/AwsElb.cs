@@ -14,7 +14,7 @@ public class AwsElbAccessLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => WithProperty("bucket", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsElbHealthCheckBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthyThreshold is required")]
     public required TerraformProperty<double> HealthyThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("healthy_threshold");
+        get => GetRequiredProperty<TerraformProperty<double>>("healthy_threshold");
         set => WithProperty("healthy_threshold", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsElbHealthCheckBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformProperty<double> Interval
     {
-        get => GetProperty<TerraformProperty<double>>("interval");
+        get => GetRequiredProperty<TerraformProperty<double>>("interval");
         set => WithProperty("interval", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsElbHealthCheckBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetProperty<TerraformProperty<string>>("target");
+        get => GetRequiredProperty<TerraformProperty<string>>("target");
         set => WithProperty("target", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsElbHealthCheckBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeout is required")]
     public required TerraformProperty<double> Timeout
     {
-        get => GetProperty<TerraformProperty<double>>("timeout");
+        get => GetRequiredProperty<TerraformProperty<double>>("timeout");
         set => WithProperty("timeout", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsElbHealthCheckBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnhealthyThreshold is required")]
     public required TerraformProperty<double> UnhealthyThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("unhealthy_threshold");
+        get => GetRequiredProperty<TerraformProperty<double>>("unhealthy_threshold");
         set => WithProperty("unhealthy_threshold", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsElbListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePort is required")]
     public required TerraformProperty<double> InstancePort
     {
-        get => GetProperty<TerraformProperty<double>>("instance_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("instance_port");
         set => WithProperty("instance_port", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsElbListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceProtocol is required")]
     public required TerraformProperty<string> InstanceProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("instance_protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_protocol");
         set => WithProperty("instance_protocol", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsElbListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbPort is required")]
     public required TerraformProperty<double> LbPort
     {
-        get => GetProperty<TerraformProperty<double>>("lb_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("lb_port");
         set => WithProperty("lb_port", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsElbListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbProtocol is required")]
     public required TerraformProperty<string> LbProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("lb_protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("lb_protocol");
         set => WithProperty("lb_protocol", value);
     }
 

@@ -42,7 +42,7 @@ public class AwsEc2TrafficMirrorSession : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsEc2TrafficMirrorSession : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionNumber is required")]
     public required TerraformProperty<double> SessionNumber
     {
-        get => GetProperty<TerraformProperty<double>>("session_number");
+        get => GetRequiredProperty<TerraformProperty<double>>("session_number");
         set => this.WithProperty("session_number", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsEc2TrafficMirrorSession : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficMirrorFilterId is required")]
     public required TerraformProperty<string> TrafficMirrorFilterId
     {
-        get => GetProperty<TerraformProperty<string>>("traffic_mirror_filter_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("traffic_mirror_filter_id");
         set => this.WithProperty("traffic_mirror_filter_id", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsEc2TrafficMirrorSession : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficMirrorTargetId is required")]
     public required TerraformProperty<string> TrafficMirrorTargetId
     {
-        get => GetProperty<TerraformProperty<string>>("traffic_mirror_target_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("traffic_mirror_target_id");
         set => this.WithProperty("traffic_mirror_target_id", value);
     }
 

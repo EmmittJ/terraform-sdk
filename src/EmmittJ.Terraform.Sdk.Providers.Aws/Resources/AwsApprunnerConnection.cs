@@ -24,7 +24,7 @@ public class AwsApprunnerConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionName is required")]
     public required TerraformProperty<string> ConnectionName
     {
-        get => GetProperty<TerraformProperty<string>>("connection_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_name");
         set => this.WithProperty("connection_name", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsApprunnerConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderType is required")]
     public required TerraformProperty<string> ProviderType
     {
-        get => GetProperty<TerraformProperty<string>>("provider_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("provider_type");
         set => this.WithProperty("provider_type", value);
     }
 

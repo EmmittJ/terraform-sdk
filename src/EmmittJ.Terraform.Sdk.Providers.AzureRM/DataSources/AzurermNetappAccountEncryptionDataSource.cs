@@ -53,7 +53,7 @@ public class AzurermNetappAccountEncryptionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappAccountId is required")]
     public required TerraformProperty<string> NetappAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("netapp_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("netapp_account_id");
         set => this.WithProperty("netapp_account_id", value);
     }
 

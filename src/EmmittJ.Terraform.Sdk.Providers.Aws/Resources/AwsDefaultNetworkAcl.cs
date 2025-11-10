@@ -14,7 +14,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => WithProperty("action", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformProperty<double> FromPort
     {
-        get => GetProperty<TerraformProperty<double>>("from_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("from_port");
         set => WithProperty("from_port", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNo is required")]
     public required TerraformProperty<double> RuleNo
     {
-        get => GetProperty<TerraformProperty<double>>("rule_no");
+        get => GetRequiredProperty<TerraformProperty<double>>("rule_no");
         set => WithProperty("rule_no", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformProperty<double> ToPort
     {
-        get => GetProperty<TerraformProperty<double>>("to_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("to_port");
         set => WithProperty("to_port", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => WithProperty("action", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformProperty<double> FromPort
     {
-        get => GetProperty<TerraformProperty<double>>("from_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("from_port");
         set => WithProperty("from_port", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNo is required")]
     public required TerraformProperty<double> RuleNo
     {
-        get => GetProperty<TerraformProperty<double>>("rule_no");
+        get => GetRequiredProperty<TerraformProperty<double>>("rule_no");
         set => WithProperty("rule_no", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformProperty<double> ToPort
     {
-        get => GetProperty<TerraformProperty<double>>("to_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("to_port");
         set => WithProperty("to_port", value);
     }
 
@@ -213,7 +213,7 @@ public class AwsDefaultNetworkAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultNetworkAclId is required")]
     public required TerraformProperty<string> DefaultNetworkAclId
     {
-        get => GetProperty<TerraformProperty<string>>("default_network_acl_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_network_acl_id");
         set => this.WithProperty("default_network_acl_id", value);
     }
 

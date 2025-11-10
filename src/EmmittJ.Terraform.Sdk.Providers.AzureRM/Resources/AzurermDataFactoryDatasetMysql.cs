@@ -23,7 +23,7 @@ public class AzurermDataFactoryDatasetMysqlSchemaColumnBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermDataFactoryDatasetMysql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetProperty<TerraformProperty<string>>("data_factory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermDataFactoryDatasetMysql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("linked_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
         set => this.WithProperty("linked_service_name", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermDataFactoryDatasetMysql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

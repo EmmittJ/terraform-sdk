@@ -31,7 +31,7 @@ public class AzurermResourceDeploymentScriptAzureCliEnvironmentVariableBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermResourceDeploymentScriptAzureCliIdentityBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermResourceDeploymentScriptAzureCliStorageAccountBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermResourceDeploymentScriptAzureCliStorageAccountBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -213,7 +213,7 @@ public class AzurermResourceDeploymentScriptAzureCli : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -223,7 +223,7 @@ public class AzurermResourceDeploymentScriptAzureCli : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -242,7 +242,7 @@ public class AzurermResourceDeploymentScriptAzureCli : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -252,7 +252,7 @@ public class AzurermResourceDeploymentScriptAzureCli : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInterval is required")]
     public required TerraformProperty<string> RetentionInterval
     {
-        get => GetProperty<TerraformProperty<string>>("retention_interval");
+        get => GetRequiredProperty<TerraformProperty<string>>("retention_interval");
         set => this.WithProperty("retention_interval", value);
     }
 
@@ -298,7 +298,7 @@ public class AzurermResourceDeploymentScriptAzureCli : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

@@ -41,7 +41,7 @@ public class AwsSagemakerHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HubDescription is required")]
     public required TerraformProperty<string> HubDescription
     {
-        get => GetProperty<TerraformProperty<string>>("hub_description");
+        get => GetRequiredProperty<TerraformProperty<string>>("hub_description");
         set => this.WithProperty("hub_description", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsSagemakerHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HubName is required")]
     public required TerraformProperty<string> HubName
     {
-        get => GetProperty<TerraformProperty<string>>("hub_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("hub_name");
         set => this.WithProperty("hub_name", value);
     }
 

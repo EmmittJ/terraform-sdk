@@ -129,7 +129,7 @@ public class AwsVpcPeeringConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerVpcId is required")]
     public required TerraformProperty<string> PeerVpcId
     {
-        get => GetProperty<TerraformProperty<string>>("peer_vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("peer_vpc_id");
         set => this.WithProperty("peer_vpc_id", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsVpcPeeringConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

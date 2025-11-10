@@ -81,7 +81,7 @@ public class GoogleVertexAiFeaturestoreEntitytype : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Featurestore is required")]
     public required TerraformProperty<string> Featurestore
     {
-        get => GetProperty<TerraformProperty<string>>("featurestore");
+        get => GetRequiredProperty<TerraformProperty<string>>("featurestore");
         set => this.WithProperty("featurestore", value);
     }
 

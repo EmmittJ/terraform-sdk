@@ -14,7 +14,7 @@ public class AzurermManagedApplicationPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermManagedApplicationPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformProperty<string> Product
     {
-        get => GetProperty<TerraformProperty<string>>("product");
+        get => GetRequiredProperty<TerraformProperty<string>>("product");
         set => WithProperty("product", value);
     }
 
@@ -43,7 +43,7 @@ public class AzurermManagedApplicationPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => WithProperty("publisher", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermManagedApplicationPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => WithProperty("version", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermManagedApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformProperty<string> Kind
     {
-        get => GetProperty<TerraformProperty<string>>("kind");
+        get => GetRequiredProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermManagedApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermManagedApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedResourceGroupName is required")]
     public required TerraformProperty<string> ManagedResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("managed_resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_resource_group_name");
         set => this.WithProperty("managed_resource_group_name", value);
     }
 
@@ -173,7 +173,7 @@ public class AzurermManagedApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -192,7 +192,7 @@ public class AzurermManagedApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

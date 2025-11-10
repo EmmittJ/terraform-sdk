@@ -118,7 +118,7 @@ public class AwsCognitoUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("user_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
         set => this.WithProperty("user_pool_id", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsCognitoUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

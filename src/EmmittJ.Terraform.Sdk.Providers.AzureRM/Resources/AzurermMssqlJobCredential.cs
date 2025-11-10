@@ -75,7 +75,7 @@ public class AzurermMssqlJobCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobAgentId is required")]
     public required TerraformProperty<string> JobAgentId
     {
-        get => GetProperty<TerraformProperty<string>>("job_agent_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("job_agent_id");
         set => this.WithProperty("job_agent_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermMssqlJobCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermMssqlJobCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

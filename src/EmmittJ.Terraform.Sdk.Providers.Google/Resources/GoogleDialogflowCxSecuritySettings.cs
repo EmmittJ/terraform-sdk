@@ -61,7 +61,7 @@ public class GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableInsightsExport is required")]
     public required TerraformProperty<bool> EnableInsightsExport
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_insights_export");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enable_insights_export");
         set => WithProperty("enable_insights_export", value);
     }
 
@@ -135,7 +135,7 @@ public class GoogleDialogflowCxSecuritySettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleDialogflowCxSecuritySettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

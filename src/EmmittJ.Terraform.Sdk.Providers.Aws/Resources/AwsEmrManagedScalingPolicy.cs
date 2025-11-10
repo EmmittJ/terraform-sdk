@@ -14,7 +14,7 @@ public class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumCapacityUnits is required")]
     public required TerraformProperty<double> MaximumCapacityUnits
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_capacity_units");
+        get => GetRequiredProperty<TerraformProperty<double>>("maximum_capacity_units");
         set => WithProperty("maximum_capacity_units", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumCapacityUnits is required")]
     public required TerraformProperty<double> MinimumCapacityUnits
     {
-        get => GetProperty<TerraformProperty<double>>("minimum_capacity_units");
+        get => GetRequiredProperty<TerraformProperty<double>>("minimum_capacity_units");
         set => WithProperty("minimum_capacity_units", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnitType is required")]
     public required TerraformProperty<string> UnitType
     {
-        get => GetProperty<TerraformProperty<string>>("unit_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("unit_type");
         set => WithProperty("unit_type", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsEmrManagedScalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
     }
 

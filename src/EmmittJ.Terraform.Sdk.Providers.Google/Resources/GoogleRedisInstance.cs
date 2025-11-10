@@ -292,7 +292,7 @@ public class GoogleRedisInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeGb is required")]
     public required TerraformProperty<double> MemorySizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("memory_size_gb");
+        get => GetRequiredProperty<TerraformProperty<double>>("memory_size_gb");
         set => this.WithProperty("memory_size_gb", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleRedisInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

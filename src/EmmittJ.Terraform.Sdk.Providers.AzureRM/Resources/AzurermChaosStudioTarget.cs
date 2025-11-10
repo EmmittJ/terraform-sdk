@@ -66,7 +66,7 @@ public class AzurermChaosStudioTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermChaosStudioTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
         set => this.WithProperty("target_resource_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermChaosStudioTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetType is required")]
     public required TerraformProperty<string> TargetType
     {
-        get => GetProperty<TerraformProperty<string>>("target_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_type");
         set => this.WithProperty("target_type", value);
     }
 

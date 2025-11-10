@@ -52,7 +52,7 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcpProject is required")]
     public required TerraformProperty<string> GcpProject
     {
-        get => GetProperty<TerraformProperty<string>>("gcp_project");
+        get => GetRequiredProperty<TerraformProperty<string>>("gcp_project");
         set => this.WithProperty("gcp_project", value);
     }
 
@@ -65,7 +65,7 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostProjectRegistrationId is required")]
     public required TerraformProperty<string> HostProjectRegistrationId
     {
-        get => GetProperty<TerraformProperty<string>>("host_project_registration_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_project_registration_id");
         set => this.WithProperty("host_project_registration_id", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

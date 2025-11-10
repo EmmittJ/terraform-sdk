@@ -40,7 +40,7 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryName is required")]
     public required TerraformProperty<string> GalleryName
     {
-        get => GetProperty<TerraformProperty<string>>("gallery_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("gallery_name");
         set => this.WithProperty("gallery_name", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformProperty<string> ImageName
     {
-        get => GetProperty<TerraformProperty<string>>("image_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("image_name");
         set => this.WithProperty("image_name", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -23,7 +23,7 @@ public class AwsEcsTaskSetCapacityProviderStrategyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformProperty<string> CapacityProvider
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_provider");
+        get => GetRequiredProperty<TerraformProperty<string>>("capacity_provider");
         set => WithProperty("capacity_provider", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsEcsTaskSetCapacityProviderStrategyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformProperty<double> Weight
     {
-        get => GetProperty<TerraformProperty<double>>("weight");
+        get => GetRequiredProperty<TerraformProperty<double>>("weight");
         set => WithProperty("weight", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsEcsTaskSetLoadBalancerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
         set => WithProperty("container_name", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsEcsTaskSetServiceRegistriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryArn is required")]
     public required TerraformProperty<string> RegistryArn
     {
-        get => GetProperty<TerraformProperty<string>>("registry_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("registry_arn");
         set => WithProperty("registry_arn", value);
     }
 
@@ -216,7 +216,7 @@ public class AwsEcsTaskSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetProperty<TerraformProperty<string>>("cluster");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
     }
 
@@ -280,7 +280,7 @@ public class AwsEcsTaskSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
+        get => GetRequiredProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
     }
 
@@ -308,7 +308,7 @@ public class AwsEcsTaskSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
     public required TerraformProperty<string> TaskDefinition
     {
-        get => GetProperty<TerraformProperty<string>>("task_definition");
+        get => GetRequiredProperty<TerraformProperty<string>>("task_definition");
         set => this.WithProperty("task_definition", value);
     }
 

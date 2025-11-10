@@ -85,7 +85,7 @@ public class GoogleBigtableMaterializedView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaterializedViewId is required")]
     public required TerraformProperty<string> MaterializedViewId
     {
-        get => GetProperty<TerraformProperty<string>>("materialized_view_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("materialized_view_id");
         set => this.WithProperty("materialized_view_id", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleBigtableMaterializedView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetProperty<TerraformProperty<string>>("query");
+        get => GetRequiredProperty<TerraformProperty<string>>("query");
         set => this.WithProperty("query", value);
     }
 

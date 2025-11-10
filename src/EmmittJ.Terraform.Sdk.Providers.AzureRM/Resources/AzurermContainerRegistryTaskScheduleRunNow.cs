@@ -57,7 +57,7 @@ public class AzurermContainerRegistryTaskScheduleRunNow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryTaskId is required")]
     public required TerraformProperty<string> ContainerRegistryTaskId
     {
-        get => GetProperty<TerraformProperty<string>>("container_registry_task_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_task_id");
         set => this.WithProperty("container_registry_task_id", value);
     }
 

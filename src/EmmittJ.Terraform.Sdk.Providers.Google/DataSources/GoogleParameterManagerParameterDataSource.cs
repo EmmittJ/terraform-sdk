@@ -40,7 +40,7 @@ public class GoogleParameterManagerParameterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterId is required")]
     public required TerraformProperty<string> ParameterId
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("parameter_id");
         set => this.WithProperty("parameter_id", value);
     }
 

@@ -79,7 +79,7 @@ public class AwsServicecatalogTagOptionResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsServicecatalogTagOptionResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagOptionId is required")]
     public required TerraformProperty<string> TagOptionId
     {
-        get => GetProperty<TerraformProperty<string>>("tag_option_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("tag_option_id");
         set => this.WithProperty("tag_option_id", value);
     }
 

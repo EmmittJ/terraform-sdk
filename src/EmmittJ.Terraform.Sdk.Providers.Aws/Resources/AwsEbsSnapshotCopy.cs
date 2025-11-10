@@ -118,7 +118,7 @@ public class AwsEbsSnapshotCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRegion is required")]
     public required TerraformProperty<string> SourceRegion
     {
-        get => GetProperty<TerraformProperty<string>>("source_region");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_region");
         set => this.WithProperty("source_region", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsEbsSnapshotCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSnapshotId is required")]
     public required TerraformProperty<string> SourceSnapshotId
     {
-        get => GetProperty<TerraformProperty<string>>("source_snapshot_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_snapshot_id");
         set => this.WithProperty("source_snapshot_id", value);
     }
 

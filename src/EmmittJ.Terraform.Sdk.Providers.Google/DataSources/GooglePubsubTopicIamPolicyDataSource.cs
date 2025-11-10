@@ -42,7 +42,7 @@ public class GooglePubsubTopicIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic");
         set => this.WithProperty("topic", value);
     }
 

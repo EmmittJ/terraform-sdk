@@ -66,7 +66,7 @@ public class AzurermDataProtectionBackupInstanceDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
     public required TerraformProperty<string> BackupPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("backup_policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_policy_id");
         set => this.WithProperty("backup_policy_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermDataProtectionBackupInstanceDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskId is required")]
     public required TerraformProperty<string> DiskId
     {
-        get => GetProperty<TerraformProperty<string>>("disk_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("disk_id");
         set => this.WithProperty("disk_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermDataProtectionBackupInstanceDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermDataProtectionBackupInstanceDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermDataProtectionBackupInstanceDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotResourceGroupName is required")]
     public required TerraformProperty<string> SnapshotResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_resource_group_name");
         set => this.WithProperty("snapshot_resource_group_name", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermDataProtectionBackupInstanceDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     public required TerraformProperty<string> VaultId
     {
-        get => GetProperty<TerraformProperty<string>>("vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vault_id");
         set => this.WithProperty("vault_id", value);
     }
 

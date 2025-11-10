@@ -14,7 +14,7 @@ public class GoogleBigtableSchemaBundleProtoSchemaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtoDescriptors is required")]
     public required TerraformProperty<string> ProtoDescriptors
     {
-        get => GetProperty<TerraformProperty<string>>("proto_descriptors");
+        get => GetRequiredProperty<TerraformProperty<string>>("proto_descriptors");
         set => WithProperty("proto_descriptors", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleBigtableSchemaBundle : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaBundleId is required")]
     public required TerraformProperty<string> SchemaBundleId
     {
-        get => GetProperty<TerraformProperty<string>>("schema_bundle_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("schema_bundle_id");
         set => this.WithProperty("schema_bundle_id", value);
     }
 

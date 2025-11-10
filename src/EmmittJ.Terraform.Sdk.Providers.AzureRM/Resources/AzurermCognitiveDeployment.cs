@@ -14,7 +14,7 @@ public class AzurermCognitiveDeploymentModelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetProperty<TerraformProperty<string>>("format");
+        get => GetRequiredProperty<TerraformProperty<string>>("format");
         set => WithProperty("format", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermCognitiveDeploymentModelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -158,7 +158,7 @@ public class AzurermCognitiveDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
     public required TerraformProperty<string> CognitiveAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("cognitive_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cognitive_account_id");
         set => this.WithProperty("cognitive_account_id", value);
     }
 
@@ -186,7 +186,7 @@ public class AzurermCognitiveDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

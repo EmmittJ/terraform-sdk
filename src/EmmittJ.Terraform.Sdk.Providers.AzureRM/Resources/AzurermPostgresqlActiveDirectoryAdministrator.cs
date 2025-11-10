@@ -76,7 +76,7 @@ public class AzurermPostgresqlActiveDirectoryAdministrator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Login is required")]
     public required TerraformProperty<string> Login
     {
-        get => GetProperty<TerraformProperty<string>>("login");
+        get => GetRequiredProperty<TerraformProperty<string>>("login");
         set => this.WithProperty("login", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermPostgresqlActiveDirectoryAdministrator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformProperty<string> ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("object_id");
         set => this.WithProperty("object_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermPostgresqlActiveDirectoryAdministrator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermPostgresqlActiveDirectoryAdministrator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformProperty<string> ServerName
     {
-        get => GetProperty<TerraformProperty<string>>("server_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_name");
         set => this.WithProperty("server_name", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermPostgresqlActiveDirectoryAdministrator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

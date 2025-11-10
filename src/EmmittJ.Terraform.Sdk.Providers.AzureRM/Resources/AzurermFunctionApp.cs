@@ -41,7 +41,7 @@ public class AzurermFunctionAppAuthSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermFunctionAppConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermFunctionAppConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermFunctionAppConnectionStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermFunctionAppIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -488,7 +488,7 @@ public class AzurermFunctionApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServicePlanId is required")]
     public required TerraformProperty<string> AppServicePlanId
     {
-        get => GetProperty<TerraformProperty<string>>("app_service_plan_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_service_plan_id");
         set => this.WithProperty("app_service_plan_id", value);
     }
 
@@ -570,7 +570,7 @@ public class AzurermFunctionApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -580,7 +580,7 @@ public class AzurermFunctionApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -599,7 +599,7 @@ public class AzurermFunctionApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -609,7 +609,7 @@ public class AzurermFunctionApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountAccessKey is required")]
     public required TerraformProperty<string> StorageAccountAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_access_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_access_key");
         set => this.WithProperty("storage_account_access_key", value);
     }
 
@@ -619,7 +619,7 @@ public class AzurermFunctionApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformProperty<string> StorageAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
     }
 

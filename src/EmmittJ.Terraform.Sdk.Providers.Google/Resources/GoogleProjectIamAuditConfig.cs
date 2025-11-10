@@ -23,7 +23,7 @@ public class GoogleProjectIamAuditConfigAuditLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformProperty<string> LogType
     {
-        get => GetProperty<TerraformProperty<string>>("log_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_type");
         set => WithProperty("log_type", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleProjectIamAuditConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
+        get => GetRequiredProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleProjectIamAuditConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
+        get => GetRequiredProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
     }
 

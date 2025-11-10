@@ -51,7 +51,7 @@ public class AwsDmsReplicationTaskDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationTaskId is required")]
     public required TerraformProperty<string> ReplicationTaskId
     {
-        get => GetProperty<TerraformProperty<string>>("replication_task_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("replication_task_id");
         set => this.WithProperty("replication_task_id", value);
     }
 

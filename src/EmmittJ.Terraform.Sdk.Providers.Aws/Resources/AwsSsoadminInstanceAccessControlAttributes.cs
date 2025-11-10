@@ -14,7 +14,7 @@ public class AwsSsoadminInstanceAccessControlAttributesAttributeBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsSsoadminInstanceAccessControlAttributes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformProperty<string> InstanceArn
     {
-        get => GetProperty<TerraformProperty<string>>("instance_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_arn");
         set => this.WithProperty("instance_arn", value);
     }
 

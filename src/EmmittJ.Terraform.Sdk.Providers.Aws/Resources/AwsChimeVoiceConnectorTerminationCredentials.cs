@@ -14,7 +14,7 @@ public class AwsChimeVoiceConnectorTerminationCredentialsCredentialsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => WithProperty("password", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsChimeVoiceConnectorTerminationCredentialsCredentialsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsChimeVoiceConnectorTerminationCredentials : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     public required TerraformProperty<string> VoiceConnectorId
     {
-        get => GetProperty<TerraformProperty<string>>("voice_connector_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("voice_connector_id");
         set => this.WithProperty("voice_connector_id", value);
     }
 

@@ -66,7 +66,7 @@ public class AzurermVmwareNetappVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermVmwareNetappVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappVolumeId is required")]
     public required TerraformProperty<string> NetappVolumeId
     {
-        get => GetProperty<TerraformProperty<string>>("netapp_volume_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("netapp_volume_id");
         set => this.WithProperty("netapp_volume_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermVmwareNetappVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareClusterId is required")]
     public required TerraformProperty<string> VmwareClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("vmware_cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vmware_cluster_id");
         set => this.WithProperty("vmware_cluster_id", value);
     }
 

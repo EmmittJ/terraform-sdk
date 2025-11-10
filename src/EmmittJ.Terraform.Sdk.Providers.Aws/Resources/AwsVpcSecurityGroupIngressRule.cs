@@ -62,7 +62,7 @@ public class AwsVpcSecurityGroupIngressRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpProtocol is required")]
     public required TerraformProperty<string> IpProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("ip_protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_protocol");
         set => this.WithProperty("ip_protocol", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsVpcSecurityGroupIngressRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
     public required TerraformProperty<string> SecurityGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("security_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_group_id");
         set => this.WithProperty("security_group_id", value);
     }
 

@@ -23,7 +23,7 @@ public class AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogStreamArn is required")]
     public required TerraformProperty<string> LogStreamArn
     {
-        get => GetProperty<TerraformProperty<string>>("log_stream_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_stream_arn");
         set => WithProperty("log_stream_arn", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsKinesisAnalyticsApplicationInputsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamePrefix is required")]
     public required TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("name_prefix");
         set => WithProperty("name_prefix", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsKinesisAnalyticsApplicationOutputsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
         set => WithProperty("table_name", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsKinesisAnalyticsApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

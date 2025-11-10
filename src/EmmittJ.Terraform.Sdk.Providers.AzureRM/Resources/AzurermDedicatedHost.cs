@@ -75,7 +75,7 @@ public class AzurermDedicatedHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DedicatedHostGroupId is required")]
     public required TerraformProperty<string> DedicatedHostGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("dedicated_host_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dedicated_host_group_id");
         set => this.WithProperty("dedicated_host_group_id", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermDedicatedHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermDedicatedHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermDedicatedHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformFaultDomain is required")]
     public required TerraformProperty<double> PlatformFaultDomain
     {
-        get => GetProperty<TerraformProperty<double>>("platform_fault_domain");
+        get => GetRequiredProperty<TerraformProperty<double>>("platform_fault_domain");
         set => this.WithProperty("platform_fault_domain", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermDedicatedHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetProperty<TerraformProperty<string>>("sku_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 

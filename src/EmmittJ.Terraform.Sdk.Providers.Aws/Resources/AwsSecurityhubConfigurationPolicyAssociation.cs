@@ -57,7 +57,7 @@ public class AwsSecurityhubConfigurationPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformProperty<string> PolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_id");
         set => this.WithProperty("policy_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsSecurityhubConfigurationPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     public required TerraformProperty<string> TargetId
     {
-        get => GetProperty<TerraformProperty<string>>("target_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_id");
         set => this.WithProperty("target_id", value);
     }
 

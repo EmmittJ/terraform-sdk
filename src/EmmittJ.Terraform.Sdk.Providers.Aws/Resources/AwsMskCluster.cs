@@ -33,7 +33,7 @@ public class AwsMskClusterBrokerNodeGroupInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
         set => WithProperty("instance_type", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsMskClusterConfigurationInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("arn");
         set => WithProperty("arn", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsMskClusterConfigurationInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformProperty<double> Revision
     {
-        get => GetProperty<TerraformProperty<double>>("revision");
+        get => GetRequiredProperty<TerraformProperty<double>>("revision");
         set => WithProperty("revision", value);
     }
 
@@ -198,7 +198,7 @@ public class AwsMskCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 
@@ -226,7 +226,7 @@ public class AwsMskCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaVersion is required")]
     public required TerraformProperty<string> KafkaVersion
     {
-        get => GetProperty<TerraformProperty<string>>("kafka_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("kafka_version");
         set => this.WithProperty("kafka_version", value);
     }
 
@@ -236,7 +236,7 @@ public class AwsMskCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfBrokerNodes is required")]
     public required TerraformProperty<double> NumberOfBrokerNodes
     {
-        get => GetProperty<TerraformProperty<double>>("number_of_broker_nodes");
+        get => GetRequiredProperty<TerraformProperty<double>>("number_of_broker_nodes");
         set => this.WithProperty("number_of_broker_nodes", value);
     }
 

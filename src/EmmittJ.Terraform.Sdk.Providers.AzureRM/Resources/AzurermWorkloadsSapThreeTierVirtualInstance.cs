@@ -24,7 +24,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppResourceGroupName is required")]
     public required TerraformProperty<string> AppResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("app_resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_resource_group_name");
         set => WithProperty("app_resource_group_name", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppLocation is required")]
     public required TerraformProperty<string> AppLocation
     {
-        get => GetProperty<TerraformProperty<string>>("app_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_location");
         set => this.WithProperty("app_location", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetProperty<TerraformProperty<string>>("environment");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -198,7 +198,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -208,7 +208,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SapFqdn is required")]
     public required TerraformProperty<string> SapFqdn
     {
-        get => GetProperty<TerraformProperty<string>>("sap_fqdn");
+        get => GetRequiredProperty<TerraformProperty<string>>("sap_fqdn");
         set => this.WithProperty("sap_fqdn", value);
     }
 
@@ -218,7 +218,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SapProduct is required")]
     public required TerraformProperty<string> SapProduct
     {
-        get => GetProperty<TerraformProperty<string>>("sap_product");
+        get => GetRequiredProperty<TerraformProperty<string>>("sap_product");
         set => this.WithProperty("sap_product", value);
     }
 

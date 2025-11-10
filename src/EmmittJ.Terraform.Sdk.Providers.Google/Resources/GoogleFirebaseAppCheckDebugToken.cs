@@ -61,7 +61,7 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetProperty<TerraformProperty<string>>("app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformProperty<string> Token
     {
-        get => GetProperty<TerraformProperty<string>>("token");
+        get => GetRequiredProperty<TerraformProperty<string>>("token");
         set => this.WithProperty("token", value);
     }
 

@@ -22,7 +22,7 @@ public class AwsDatazoneEnvironmentBlueprintConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformProperty<string> DomainId
     {
-        get => GetProperty<TerraformProperty<string>>("domain_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_id");
         set => this.WithProperty("domain_id", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsDatazoneEnvironmentBlueprintConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentBlueprintId is required")]
     public required TerraformProperty<string> EnvironmentBlueprintId
     {
-        get => GetProperty<TerraformProperty<string>>("environment_blueprint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment_blueprint_id");
         set => this.WithProperty("environment_blueprint_id", value);
     }
 

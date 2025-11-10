@@ -66,7 +66,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceResourceId is required")]
     public required TerraformProperty<string> ServiceResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("service_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_resource_id");
         set => this.WithProperty("service_resource_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubResourceTarget is required")]
     public required TerraformProperty<string> SubResourceTarget
     {
-        get => GetProperty<TerraformProperty<string>>("sub_resource_target");
+        get => GetRequiredProperty<TerraformProperty<string>>("sub_resource_target");
         set => this.WithProperty("sub_resource_target", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

@@ -84,7 +84,7 @@ public class AzurermKubernetesFleetMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     public required TerraformProperty<string> KubernetesClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("kubernetes_cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("kubernetes_cluster_id");
         set => this.WithProperty("kubernetes_cluster_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermKubernetesFleetMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesFleetId is required")]
     public required TerraformProperty<string> KubernetesFleetId
     {
-        get => GetProperty<TerraformProperty<string>>("kubernetes_fleet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("kubernetes_fleet_id");
         set => this.WithProperty("kubernetes_fleet_id", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermKubernetesFleetMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -22,7 +22,7 @@ public class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyStrategy is required")]
     public required TerraformProperty<string> CopyStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("copy_strategy");
+        get => GetRequiredProperty<TerraformProperty<string>>("copy_strategy");
         set => WithProperty("copy_strategy", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotArn is required")]
     public required TerraformProperty<string> SnapshotArn
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_arn");
         set => WithProperty("snapshot_arn", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<double> Id
     {
-        get => GetProperty<TerraformProperty<double>>("id");
+        get => GetRequiredProperty<TerraformProperty<double>>("id");
         set => WithProperty("id", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacityQuotaGib is required")]
     public required TerraformProperty<double> StorageCapacityQuotaGib
     {
-        get => GetProperty<TerraformProperty<double>>("storage_capacity_quota_gib");
+        get => GetRequiredProperty<TerraformProperty<double>>("storage_capacity_quota_gib");
         set => WithProperty("storage_capacity_quota_gib", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsFsxOpenzfsVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsFsxOpenzfsVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentVolumeId is required")]
     public required TerraformProperty<string> ParentVolumeId
     {
-        get => GetProperty<TerraformProperty<string>>("parent_volume_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent_volume_id");
         set => this.WithProperty("parent_volume_id", value);
     }
 

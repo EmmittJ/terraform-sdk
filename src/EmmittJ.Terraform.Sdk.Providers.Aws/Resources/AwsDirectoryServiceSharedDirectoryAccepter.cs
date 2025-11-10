@@ -70,7 +70,7 @@ public class AwsDirectoryServiceSharedDirectoryAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedDirectoryId is required")]
     public required TerraformProperty<string> SharedDirectoryId
     {
-        get => GetProperty<TerraformProperty<string>>("shared_directory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("shared_directory_id");
         set => this.WithProperty("shared_directory_id", value);
     }
 

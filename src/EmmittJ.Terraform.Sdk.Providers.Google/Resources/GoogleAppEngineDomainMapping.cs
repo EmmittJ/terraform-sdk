@@ -42,7 +42,7 @@ public class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslManagementType is required")]
     public required TerraformProperty<string> SslManagementType
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_management_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("ssl_management_type");
         set => WithProperty("ssl_management_type", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleAppEngineDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 

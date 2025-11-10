@@ -76,7 +76,7 @@ public class AzureadApplicationAppRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzureadApplicationAppRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -96,7 +96,7 @@ public class AzureadApplicationAppRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -115,7 +115,7 @@ public class AzureadApplicationAppRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformProperty<string> RoleId
     {
-        get => GetProperty<TerraformProperty<string>>("role_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_id");
         set => this.WithProperty("role_id", value);
     }
 

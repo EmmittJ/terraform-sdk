@@ -209,7 +209,7 @@ public class AwsElastictranscoderPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputBucket is required")]
     public required TerraformProperty<string> InputBucket
     {
-        get => GetProperty<TerraformProperty<string>>("input_bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("input_bucket");
         set => this.WithProperty("input_bucket", value);
     }
 
@@ -246,7 +246,7 @@ public class AwsElastictranscoderPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

@@ -33,7 +33,7 @@ public class AwsOrganizationsOrganizationalUnit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsOrganizationsOrganizationalUnit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
     public required TerraformProperty<string> ParentId
     {
-        get => GetProperty<TerraformProperty<string>>("parent_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent_id");
         set => this.WithProperty("parent_id", value);
     }
 

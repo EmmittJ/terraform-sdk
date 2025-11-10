@@ -50,7 +50,7 @@ public class GoogleApigeeEnvKeystore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformProperty<string> EnvId
     {
-        get => GetProperty<TerraformProperty<string>>("env_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("env_id");
         set => this.WithProperty("env_id", value);
     }
 

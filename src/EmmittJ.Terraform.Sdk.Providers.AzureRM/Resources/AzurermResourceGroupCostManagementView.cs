@@ -14,7 +14,7 @@ public class AzurermResourceGroupCostManagementViewDatasetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Granularity is required")]
     public required TerraformProperty<string> Granularity
     {
-        get => GetProperty<TerraformProperty<string>>("granularity");
+        get => GetRequiredProperty<TerraformProperty<string>>("granularity");
         set => WithProperty("granularity", value);
     }
 
@@ -32,7 +32,7 @@ public class AzurermResourceGroupCostManagementViewKpiBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -50,7 +50,7 @@ public class AzurermResourceGroupCostManagementViewPivotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermResourceGroupCostManagementViewPivotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Accumulated is required")]
     public required TerraformProperty<bool> Accumulated
     {
-        get => GetProperty<TerraformProperty<bool>>("accumulated");
+        get => GetRequiredProperty<TerraformProperty<bool>>("accumulated");
         set => this.WithProperty("accumulated", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChartType is required")]
     public required TerraformProperty<string> ChartType
     {
-        get => GetProperty<TerraformProperty<string>>("chart_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("chart_type");
         set => this.WithProperty("chart_type", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -170,7 +170,7 @@ public class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -180,7 +180,7 @@ public class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportType is required")]
     public required TerraformProperty<string> ReportType
     {
-        get => GetProperty<TerraformProperty<string>>("report_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("report_type");
         set => this.WithProperty("report_type", value);
     }
 
@@ -190,7 +190,7 @@ public class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     public required TerraformProperty<string> ResourceGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_id");
         set => this.WithProperty("resource_group_id", value);
     }
 
@@ -200,7 +200,7 @@ public class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeframe is required")]
     public required TerraformProperty<string> Timeframe
     {
-        get => GetProperty<TerraformProperty<string>>("timeframe");
+        get => GetRequiredProperty<TerraformProperty<string>>("timeframe");
         set => this.WithProperty("timeframe", value);
     }
 

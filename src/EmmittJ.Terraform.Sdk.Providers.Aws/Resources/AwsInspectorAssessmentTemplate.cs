@@ -14,7 +14,7 @@ public class AwsInspectorAssessmentTemplateEventSubscriptionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Event is required")]
     public required TerraformProperty<string> Event
     {
-        get => GetProperty<TerraformProperty<string>>("event");
+        get => GetRequiredProperty<TerraformProperty<string>>("event");
         set => WithProperty("event", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsInspectorAssessmentTemplateEventSubscriptionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformProperty<string> TopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("topic_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic_arn");
         set => WithProperty("topic_arn", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<double> Duration
     {
-        get => GetProperty<TerraformProperty<double>>("duration");
+        get => GetRequiredProperty<TerraformProperty<double>>("duration");
         set => this.WithProperty("duration", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformProperty<string> TargetArn
     {
-        get => GetProperty<TerraformProperty<string>>("target_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_arn");
         set => this.WithProperty("target_arn", value);
     }
 

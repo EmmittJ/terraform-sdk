@@ -14,7 +14,7 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntervalInSeconds is required")]
     public required TerraformProperty<double> IntervalInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("interval_in_seconds");
+        get => GetRequiredProperty<TerraformProperty<double>>("interval_in_seconds");
         set => WithProperty("interval_in_seconds", value);
     }
 
@@ -33,7 +33,7 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermCdnFrontdoorOriginGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
     public required TerraformProperty<string> CdnFrontdoorProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("cdn_frontdoor_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cdn_frontdoor_profile_id");
         set => this.WithProperty("cdn_frontdoor_profile_id", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermCdnFrontdoorOriginGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

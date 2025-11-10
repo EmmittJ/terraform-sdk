@@ -60,7 +60,7 @@ public class GoogleFirebaseAppCheckRecaptchaV3Config : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetProperty<TerraformProperty<string>>("app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
@@ -89,7 +89,7 @@ public class GoogleFirebaseAppCheckRecaptchaV3Config : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteSecret is required")]
     public required TerraformProperty<string> SiteSecret
     {
-        get => GetProperty<TerraformProperty<string>>("site_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("site_secret");
         set => this.WithProperty("site_secret", value);
     }
 

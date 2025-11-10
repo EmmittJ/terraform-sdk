@@ -65,7 +65,7 @@ public class GoogleLustreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
     public required TerraformProperty<string> CapacityGib
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_gib");
+        get => GetRequiredProperty<TerraformProperty<string>>("capacity_gib");
         set => this.WithProperty("capacity_gib", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleLustreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filesystem is required")]
     public required TerraformProperty<string> Filesystem
     {
-        get => GetProperty<TerraformProperty<string>>("filesystem");
+        get => GetRequiredProperty<TerraformProperty<string>>("filesystem");
         set => this.WithProperty("filesystem", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleLustreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -142,7 +142,7 @@ public class GoogleLustreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleLustreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleLustreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerUnitStorageThroughput is required")]
     public required TerraformProperty<string> PerUnitStorageThroughput
     {
-        get => GetProperty<TerraformProperty<string>>("per_unit_storage_throughput");
+        get => GetRequiredProperty<TerraformProperty<string>>("per_unit_storage_throughput");
         set => this.WithProperty("per_unit_storage_throughput", value);
     }
 

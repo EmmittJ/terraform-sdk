@@ -76,7 +76,7 @@ public class AzurermVirtualHubRouteTableRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationsType is required")]
     public required TerraformProperty<string> DestinationsType
     {
-        get => GetProperty<TerraformProperty<string>>("destinations_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("destinations_type");
         set => this.WithProperty("destinations_type", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermVirtualHubRouteTableRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermVirtualHubRouteTableRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHop is required")]
     public required TerraformProperty<string> NextHop
     {
-        get => GetProperty<TerraformProperty<string>>("next_hop");
+        get => GetRequiredProperty<TerraformProperty<string>>("next_hop");
         set => this.WithProperty("next_hop", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermVirtualHubRouteTableRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
     public required TerraformProperty<string> RouteTableId
     {
-        get => GetProperty<TerraformProperty<string>>("route_table_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("route_table_id");
         set => this.WithProperty("route_table_id", value);
     }
 

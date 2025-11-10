@@ -62,7 +62,7 @@ public class GoogleOsConfigPatchDeploymentOneTimeScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecuteTime is required")]
     public required TerraformProperty<string> ExecuteTime
     {
-        get => GetProperty<TerraformProperty<string>>("execute_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("execute_time");
         set => WithProperty("execute_time", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleOsConfigPatchDeploymentRolloutBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("mode");
         set => WithProperty("mode", value);
     }
 
@@ -244,7 +244,7 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchDeploymentId is required")]
     public required TerraformProperty<string> PatchDeploymentId
     {
-        get => GetProperty<TerraformProperty<string>>("patch_deployment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("patch_deployment_id");
         set => this.WithProperty("patch_deployment_id", value);
     }
 

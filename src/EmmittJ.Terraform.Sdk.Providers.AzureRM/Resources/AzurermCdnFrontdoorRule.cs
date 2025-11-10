@@ -93,7 +93,7 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorRuleSetId is required")]
     public required TerraformProperty<string> CdnFrontdoorRuleSetId
     {
-        get => GetProperty<TerraformProperty<string>>("cdn_frontdoor_rule_set_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cdn_frontdoor_rule_set_id");
         set => this.WithProperty("cdn_frontdoor_rule_set_id", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetProperty<TerraformProperty<double>>("order");
+        get => GetRequiredProperty<TerraformProperty<double>>("order");
         set => this.WithProperty("order", value);
     }
 

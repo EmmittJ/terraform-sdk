@@ -14,7 +14,7 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredChannelPipeline is required")]
     public required TerraformProperty<string> PreferredChannelPipeline
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_channel_pipeline");
+        get => GetRequiredProperty<TerraformProperty<string>>("preferred_channel_pipeline");
         set => WithProperty("preferred_channel_pipeline", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProgramNumber is required")]
     public required TerraformProperty<double> ProgramNumber
     {
-        get => GetProperty<TerraformProperty<double>>("program_number");
+        get => GetRequiredProperty<TerraformProperty<double>>("program_number");
         set => WithProperty("program_number", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsMedialiveMultiplexProgram : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MultiplexId is required")]
     public required TerraformProperty<string> MultiplexId
     {
-        get => GetProperty<TerraformProperty<string>>("multiplex_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("multiplex_id");
         set => this.WithProperty("multiplex_id", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsMedialiveMultiplexProgram : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProgramName is required")]
     public required TerraformProperty<string> ProgramName
     {
-        get => GetProperty<TerraformProperty<string>>("program_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("program_name");
         set => this.WithProperty("program_name", value);
     }
 

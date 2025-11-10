@@ -41,7 +41,7 @@ public class AwsServiceDiscoveryInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsServiceDiscoveryInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformProperty<string> ServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);
     }
 

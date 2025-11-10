@@ -57,7 +57,7 @@ public class AwsWafregionalWebAclAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("resource_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsWafregionalWebAclAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebAclId is required")]
     public required TerraformProperty<string> WebAclId
     {
-        get => GetProperty<TerraformProperty<string>>("web_acl_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("web_acl_id");
         set => this.WithProperty("web_acl_id", value);
     }
 

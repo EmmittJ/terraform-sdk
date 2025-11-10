@@ -14,7 +14,7 @@ public class AzurermNetappVolumeCoolAccessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoolnessPeriodInDays is required")]
     public required TerraformProperty<double> CoolnessPeriodInDays
     {
-        get => GetProperty<TerraformProperty<double>>("coolness_period_in_days");
+        get => GetRequiredProperty<TerraformProperty<double>>("coolness_period_in_days");
         set => WithProperty("coolness_period_in_days", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermNetappVolumeCoolAccessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetrievalPolicy is required")]
     public required TerraformProperty<string> RetrievalPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("retrieval_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("retrieval_policy");
         set => WithProperty("retrieval_policy", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermNetappVolumeCoolAccessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TieringPolicy is required")]
     public required TerraformProperty<string> TieringPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("tiering_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("tiering_policy");
         set => WithProperty("tiering_policy", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermNetappVolumeDataProtectionBackupPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
     public required TerraformProperty<string> BackupPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("backup_policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_policy_id");
         set => WithProperty("backup_policy_id", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermNetappVolumeDataProtectionBackupPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultId is required")]
     public required TerraformProperty<string> BackupVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("backup_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_vault_id");
         set => WithProperty("backup_vault_id", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVolumeLocation is required")]
     public required TerraformProperty<string> RemoteVolumeLocation
     {
-        get => GetProperty<TerraformProperty<string>>("remote_volume_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("remote_volume_location");
         set => WithProperty("remote_volume_location", value);
     }
 
@@ -108,7 +108,7 @@ public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVolumeResourceId is required")]
     public required TerraformProperty<string> RemoteVolumeResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("remote_volume_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("remote_volume_resource_id");
         set => WithProperty("remote_volume_resource_id", value);
     }
 
@@ -118,7 +118,7 @@ public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFrequency is required")]
     public required TerraformProperty<string> ReplicationFrequency
     {
-        get => GetProperty<TerraformProperty<string>>("replication_frequency");
+        get => GetRequiredProperty<TerraformProperty<string>>("replication_frequency");
         set => WithProperty("replication_frequency", value);
     }
 
@@ -136,7 +136,7 @@ public class AzurermNetappVolumeDataProtectionSnapshotPolicyBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotPolicyId is required")]
     public required TerraformProperty<string> SnapshotPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_policy_id");
         set => WithProperty("snapshot_policy_id", value);
     }
 
@@ -246,7 +246,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleIndex is required")]
     public required TerraformProperty<double> RuleIndex
     {
-        get => GetProperty<TerraformProperty<double>>("rule_index");
+        get => GetRequiredProperty<TerraformProperty<double>>("rule_index");
         set => WithProperty("rule_index", value);
     }
 
@@ -345,7 +345,7 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetProperty<TerraformProperty<string>>("account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
         set => this.WithProperty("account_name", value);
     }
 
@@ -418,7 +418,7 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -428,7 +428,7 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -447,7 +447,7 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
     public required TerraformProperty<string> PoolName
     {
-        get => GetProperty<TerraformProperty<string>>("pool_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("pool_name");
         set => this.WithProperty("pool_name", value);
     }
 
@@ -466,7 +466,7 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -485,7 +485,7 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLevel is required")]
     public required TerraformProperty<string> ServiceLevel
     {
-        get => GetProperty<TerraformProperty<string>>("service_level");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_level");
         set => this.WithProperty("service_level", value);
     }
 
@@ -540,7 +540,7 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageQuotaInGb is required")]
     public required TerraformProperty<double> StorageQuotaInGb
     {
-        get => GetProperty<TerraformProperty<double>>("storage_quota_in_gb");
+        get => GetRequiredProperty<TerraformProperty<double>>("storage_quota_in_gb");
         set => this.WithProperty("storage_quota_in_gb", value);
     }
 
@@ -550,7 +550,7 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
@@ -578,7 +578,7 @@ public class AzurermNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumePath is required")]
     public required TerraformProperty<string> VolumePath
     {
-        get => GetProperty<TerraformProperty<string>>("volume_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("volume_path");
         set => this.WithProperty("volume_path", value);
     }
 

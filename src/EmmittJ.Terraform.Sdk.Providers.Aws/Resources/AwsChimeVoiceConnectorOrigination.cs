@@ -14,7 +14,7 @@ public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformProperty<string> Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
+        get => GetRequiredProperty<TerraformProperty<string>>("host");
         set => WithProperty("host", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformProperty<double> Weight
     {
-        get => GetProperty<TerraformProperty<double>>("weight");
+        get => GetRequiredProperty<TerraformProperty<double>>("weight");
         set => WithProperty("weight", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsChimeVoiceConnectorOrigination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     public required TerraformProperty<string> VoiceConnectorId
     {
-        get => GetProperty<TerraformProperty<string>>("voice_connector_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("voice_connector_id");
         set => this.WithProperty("voice_connector_id", value);
     }
 

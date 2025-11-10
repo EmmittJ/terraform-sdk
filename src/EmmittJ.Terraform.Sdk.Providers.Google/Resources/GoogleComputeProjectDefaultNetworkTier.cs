@@ -48,7 +48,7 @@ public class GoogleComputeProjectDefaultNetworkTier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkTier is required")]
     public required TerraformProperty<string> NetworkTier
     {
-        get => GetProperty<TerraformProperty<string>>("network_tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_tier");
         set => this.WithProperty("network_tier", value);
     }
 

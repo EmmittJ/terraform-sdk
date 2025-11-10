@@ -90,7 +90,7 @@ public class GoogleBiglakeDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Catalog is required")]
     public required TerraformProperty<string> Catalog
     {
-        get => GetProperty<TerraformProperty<string>>("catalog");
+        get => GetRequiredProperty<TerraformProperty<string>>("catalog");
         set => this.WithProperty("catalog", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleBiglakeDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleBiglakeDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

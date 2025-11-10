@@ -61,7 +61,7 @@ public class AwsBedrockagentAgentAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAliasName is required")]
     public required TerraformProperty<string> AgentAliasName
     {
-        get => GetProperty<TerraformProperty<string>>("agent_alias_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("agent_alias_name");
         set => this.WithProperty("agent_alias_name", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsBedrockagentAgentAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformProperty<string> AgentId
     {
-        get => GetProperty<TerraformProperty<string>>("agent_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("agent_id");
         set => this.WithProperty("agent_id", value);
     }
 

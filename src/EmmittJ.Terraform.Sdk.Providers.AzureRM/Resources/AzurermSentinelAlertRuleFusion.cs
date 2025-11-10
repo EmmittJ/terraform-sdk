@@ -23,7 +23,7 @@ public class AzurermSentinelAlertRuleFusionSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -93,7 +93,7 @@ public class AzurermSentinelAlertRuleFusion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertRuleTemplateGuid is required")]
     public required TerraformProperty<string> AlertRuleTemplateGuid
     {
-        get => GetProperty<TerraformProperty<string>>("alert_rule_template_guid");
+        get => GetRequiredProperty<TerraformProperty<string>>("alert_rule_template_guid");
         set => this.WithProperty("alert_rule_template_guid", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermSentinelAlertRuleFusion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 

@@ -33,7 +33,7 @@ public class GoogleKmsKeyRingIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRingId is required")]
     public required TerraformProperty<string> KeyRingId
     {
-        get => GetProperty<TerraformProperty<string>>("key_ring_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_ring_id");
         set => this.WithProperty("key_ring_id", value);
     }
 

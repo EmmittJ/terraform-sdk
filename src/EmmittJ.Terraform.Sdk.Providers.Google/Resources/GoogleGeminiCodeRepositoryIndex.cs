@@ -63,7 +63,7 @@ public class GoogleGeminiCodeRepositoryIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeRepositoryIndexId is required")]
     public required TerraformProperty<string> CodeRepositoryIndexId
     {
-        get => GetProperty<TerraformProperty<string>>("code_repository_index_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("code_repository_index_id");
         set => this.WithProperty("code_repository_index_id", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleGeminiCodeRepositoryIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

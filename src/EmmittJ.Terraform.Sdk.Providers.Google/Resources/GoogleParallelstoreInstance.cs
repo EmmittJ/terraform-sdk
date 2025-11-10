@@ -66,7 +66,7 @@ public class GoogleParallelstoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
     public required TerraformProperty<string> CapacityGib
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_gib");
+        get => GetRequiredProperty<TerraformProperty<string>>("capacity_gib");
         set => this.WithProperty("capacity_gib", value);
     }
 
@@ -144,7 +144,7 @@ public class GoogleParallelstoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -187,7 +187,7 @@ public class GoogleParallelstoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

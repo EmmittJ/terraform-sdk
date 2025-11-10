@@ -66,7 +66,7 @@ public class AzurermArcMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcMachineId is required")]
     public required TerraformProperty<string> ArcMachineId
     {
-        get => GetProperty<TerraformProperty<string>>("arc_machine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("arc_machine_id");
         set => this.WithProperty("arc_machine_id", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermArcMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermArcMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermArcMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => this.WithProperty("publisher", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermArcMachineExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

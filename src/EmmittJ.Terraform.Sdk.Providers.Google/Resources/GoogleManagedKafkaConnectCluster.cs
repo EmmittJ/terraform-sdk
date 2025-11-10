@@ -14,7 +14,7 @@ public class GoogleManagedKafkaConnectClusterCapacityConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryBytes is required")]
     public required TerraformProperty<string> MemoryBytes
     {
-        get => GetProperty<TerraformProperty<string>>("memory_bytes");
+        get => GetRequiredProperty<TerraformProperty<string>>("memory_bytes");
         set => WithProperty("memory_bytes", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleManagedKafkaConnectClusterCapacityConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VcpuCount is required")]
     public required TerraformProperty<string> VcpuCount
     {
-        get => GetProperty<TerraformProperty<string>>("vcpu_count");
+        get => GetRequiredProperty<TerraformProperty<string>>("vcpu_count");
         set => WithProperty("vcpu_count", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectClusterId is required")]
     public required TerraformProperty<string> ConnectClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("connect_cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("connect_cluster_id");
         set => this.WithProperty("connect_cluster_id", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaCluster is required")]
     public required TerraformProperty<string> KafkaCluster
     {
-        get => GetProperty<TerraformProperty<string>>("kafka_cluster");
+        get => GetRequiredProperty<TerraformProperty<string>>("kafka_cluster");
         set => this.WithProperty("kafka_cluster", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

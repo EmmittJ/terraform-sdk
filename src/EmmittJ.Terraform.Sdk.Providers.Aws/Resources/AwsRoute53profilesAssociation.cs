@@ -63,7 +63,7 @@ public class AwsRoute53profilesAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsRoute53profilesAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     public required TerraformProperty<string> ProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("profile_id");
         set => this.WithProperty("profile_id", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsRoute53profilesAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
     }
 

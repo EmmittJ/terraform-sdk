@@ -14,7 +14,7 @@ public class AwsSesReceiptRuleAddHeaderActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformProperty<string> HeaderName
     {
-        get => GetProperty<TerraformProperty<string>>("header_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("header_name");
         set => WithProperty("header_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsSesReceiptRuleAddHeaderActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformProperty<string> HeaderValue
     {
-        get => GetProperty<TerraformProperty<string>>("header_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("header_value");
         set => WithProperty("header_value", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsSesReceiptRuleAddHeaderActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     public required TerraformProperty<double> Position
     {
-        get => GetProperty<TerraformProperty<double>>("position");
+        get => GetRequiredProperty<TerraformProperty<double>>("position");
         set => WithProperty("position", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsSesReceiptRuleBounceActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Message is required")]
     public required TerraformProperty<string> Message
     {
-        get => GetProperty<TerraformProperty<string>>("message");
+        get => GetRequiredProperty<TerraformProperty<string>>("message");
         set => WithProperty("message", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsSesReceiptRuleBounceActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     public required TerraformProperty<double> Position
     {
-        get => GetProperty<TerraformProperty<double>>("position");
+        get => GetRequiredProperty<TerraformProperty<double>>("position");
         set => WithProperty("position", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsSesReceiptRuleBounceActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sender is required")]
     public required TerraformProperty<string> Sender
     {
-        get => GetProperty<TerraformProperty<string>>("sender");
+        get => GetRequiredProperty<TerraformProperty<string>>("sender");
         set => WithProperty("sender", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsSesReceiptRuleBounceActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmtpReplyCode is required")]
     public required TerraformProperty<string> SmtpReplyCode
     {
-        get => GetProperty<TerraformProperty<string>>("smtp_reply_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("smtp_reply_code");
         set => WithProperty("smtp_reply_code", value);
     }
 
@@ -118,7 +118,7 @@ public class AwsSesReceiptRuleLambdaActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
     public required TerraformProperty<string> FunctionArn
     {
-        get => GetProperty<TerraformProperty<string>>("function_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("function_arn");
         set => WithProperty("function_arn", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsSesReceiptRuleLambdaActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     public required TerraformProperty<double> Position
     {
-        get => GetProperty<TerraformProperty<double>>("position");
+        get => GetRequiredProperty<TerraformProperty<double>>("position");
         set => WithProperty("position", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsSesReceiptRuleS3ActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
         set => WithProperty("bucket_name", value);
     }
 
@@ -201,7 +201,7 @@ public class AwsSesReceiptRuleS3ActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     public required TerraformProperty<double> Position
     {
-        get => GetProperty<TerraformProperty<double>>("position");
+        get => GetRequiredProperty<TerraformProperty<double>>("position");
         set => WithProperty("position", value);
     }
 
@@ -237,7 +237,7 @@ public class AwsSesReceiptRuleSnsActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     public required TerraformProperty<double> Position
     {
-        get => GetProperty<TerraformProperty<double>>("position");
+        get => GetRequiredProperty<TerraformProperty<double>>("position");
         set => WithProperty("position", value);
     }
 
@@ -247,7 +247,7 @@ public class AwsSesReceiptRuleSnsActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformProperty<string> TopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("topic_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic_arn");
         set => WithProperty("topic_arn", value);
     }
 
@@ -265,7 +265,7 @@ public class AwsSesReceiptRuleStopActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     public required TerraformProperty<double> Position
     {
-        get => GetProperty<TerraformProperty<double>>("position");
+        get => GetRequiredProperty<TerraformProperty<double>>("position");
         set => WithProperty("position", value);
     }
 
@@ -275,7 +275,7 @@ public class AwsSesReceiptRuleStopActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => WithProperty("scope", value);
     }
 
@@ -302,7 +302,7 @@ public class AwsSesReceiptRuleWorkmailActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationArn is required")]
     public required TerraformProperty<string> OrganizationArn
     {
-        get => GetProperty<TerraformProperty<string>>("organization_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("organization_arn");
         set => WithProperty("organization_arn", value);
     }
 
@@ -312,7 +312,7 @@ public class AwsSesReceiptRuleWorkmailActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     public required TerraformProperty<double> Position
     {
-        get => GetProperty<TerraformProperty<double>>("position");
+        get => GetRequiredProperty<TerraformProperty<double>>("position");
         set => WithProperty("position", value);
     }
 
@@ -375,7 +375,7 @@ public class AwsSesReceiptRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -403,7 +403,7 @@ public class AwsSesReceiptRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleSetName is required")]
     public required TerraformProperty<string> RuleSetName
     {
-        get => GetProperty<TerraformProperty<string>>("rule_set_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_set_name");
         set => this.WithProperty("rule_set_name", value);
     }
 

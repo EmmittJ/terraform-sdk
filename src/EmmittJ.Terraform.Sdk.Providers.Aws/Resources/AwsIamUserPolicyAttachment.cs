@@ -31,7 +31,7 @@ public class AwsIamUserPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     public required TerraformProperty<string> PolicyArn
     {
-        get => GetProperty<TerraformProperty<string>>("policy_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_arn");
         set => this.WithProperty("policy_arn", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsIamUserPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformProperty<string> User
     {
-        get => GetProperty<TerraformProperty<string>>("user");
+        get => GetRequiredProperty<TerraformProperty<string>>("user");
         set => this.WithProperty("user", value);
     }
 

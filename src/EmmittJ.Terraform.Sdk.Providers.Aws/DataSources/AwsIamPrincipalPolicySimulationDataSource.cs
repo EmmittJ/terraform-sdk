@@ -14,7 +14,7 @@ public class AwsIamPrincipalPolicySimulationDataSourceContextBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsIamPrincipalPolicySimulationDataSourceContextBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsIamPrincipalPolicySimulationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicySourceArn is required")]
     public required TerraformProperty<string> PolicySourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("policy_source_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_source_arn");
         set => this.WithProperty("policy_source_arn", value);
     }
 

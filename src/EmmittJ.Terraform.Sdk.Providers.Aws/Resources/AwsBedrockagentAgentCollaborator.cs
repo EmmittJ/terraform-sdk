@@ -14,7 +14,7 @@ public class AwsBedrockagentAgentCollaboratorAgentDescriptorBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasArn is required")]
     public required TerraformProperty<string> AliasArn
     {
-        get => GetProperty<TerraformProperty<string>>("alias_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("alias_arn");
         set => WithProperty("alias_arn", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsBedrockagentAgentCollaborator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformProperty<string> AgentId
     {
-        get => GetProperty<TerraformProperty<string>>("agent_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("agent_id");
         set => this.WithProperty("agent_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsBedrockagentAgentCollaborator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaborationInstruction is required")]
     public required TerraformProperty<string> CollaborationInstruction
     {
-        get => GetProperty<TerraformProperty<string>>("collaboration_instruction");
+        get => GetRequiredProperty<TerraformProperty<string>>("collaboration_instruction");
         set => this.WithProperty("collaboration_instruction", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsBedrockagentAgentCollaborator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaboratorName is required")]
     public required TerraformProperty<string> CollaboratorName
     {
-        get => GetProperty<TerraformProperty<string>>("collaborator_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("collaborator_name");
         set => this.WithProperty("collaborator_name", value);
     }
 

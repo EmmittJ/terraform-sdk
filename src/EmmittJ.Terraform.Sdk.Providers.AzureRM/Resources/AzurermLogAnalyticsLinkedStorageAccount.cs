@@ -66,7 +66,7 @@ public class AzurermLogAnalyticsLinkedStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceType is required")]
     public required TerraformProperty<string> DataSourceType
     {
-        get => GetProperty<TerraformProperty<string>>("data_source_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_source_type");
         set => this.WithProperty("data_source_type", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermLogAnalyticsLinkedStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

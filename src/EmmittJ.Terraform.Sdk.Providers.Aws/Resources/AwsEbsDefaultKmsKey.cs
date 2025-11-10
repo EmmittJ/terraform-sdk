@@ -31,7 +31,7 @@ public class AwsEbsDefaultKmsKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyArn is required")]
     public required TerraformProperty<string> KeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("key_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_arn");
         set => this.WithProperty("key_arn", value);
     }
 

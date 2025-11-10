@@ -93,7 +93,7 @@ public class AzurermSynapseSqlPoolExtendedAuditingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlPoolId is required")]
     public required TerraformProperty<string> SqlPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("sql_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("sql_pool_id");
         set => this.WithProperty("sql_pool_id", value);
     }
 

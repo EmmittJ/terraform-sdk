@@ -35,7 +35,7 @@ public class AwsS3controlAccessGrantsLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformProperty<string> IamRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsS3controlAccessGrantsLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationScope is required")]
     public required TerraformProperty<string> LocationScope
     {
-        get => GetProperty<TerraformProperty<string>>("location_scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("location_scope");
         set => this.WithProperty("location_scope", value);
     }
 

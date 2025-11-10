@@ -14,7 +14,7 @@ public class AwsBedrockagentcoreTokenVaultCmkKmsConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
     public required TerraformProperty<string> KeyType
     {
-        get => GetProperty<TerraformProperty<string>>("key_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_type");
         set => WithProperty("key_type", value);
     }
 

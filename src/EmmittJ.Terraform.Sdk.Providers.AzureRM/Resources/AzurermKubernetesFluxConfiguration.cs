@@ -23,7 +23,7 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     public required TerraformProperty<string> ContainerId
     {
-        get => GetProperty<TerraformProperty<string>>("container_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_id");
         set => WithProperty("container_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermKubernetesFluxConfigurationBucketBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
         set => WithProperty("bucket_name", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermKubernetesFluxConfigurationBucketBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => WithProperty("url", value);
     }
 
@@ -204,7 +204,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceType is required")]
     public required TerraformProperty<string> ReferenceType
     {
-        get => GetProperty<TerraformProperty<string>>("reference_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("reference_type");
         set => WithProperty("reference_type", value);
     }
 
@@ -214,7 +214,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceValue is required")]
     public required TerraformProperty<string> ReferenceValue
     {
-        get => GetProperty<TerraformProperty<string>>("reference_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("reference_value");
         set => WithProperty("reference_value", value);
     }
 
@@ -260,7 +260,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => WithProperty("url", value);
     }
 
@@ -296,7 +296,7 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -421,7 +421,7 @@ public class AzurermKubernetesFluxConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
     }
 
@@ -449,7 +449,7 @@ public class AzurermKubernetesFluxConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -459,7 +459,7 @@ public class AzurermKubernetesFluxConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
         set => this.WithProperty("namespace", value);
     }
 

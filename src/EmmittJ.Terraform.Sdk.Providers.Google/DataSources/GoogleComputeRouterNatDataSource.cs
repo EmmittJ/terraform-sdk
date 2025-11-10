@@ -54,7 +54,7 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformProperty<string> Router
     {
-        get => GetProperty<TerraformProperty<string>>("router");
+        get => GetRequiredProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);
     }
 

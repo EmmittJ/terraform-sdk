@@ -32,7 +32,7 @@ public class AwsLambdaCodeSigningConfigPoliciesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UntrustedArtifactOnDeployment is required")]
     public required TerraformProperty<string> UntrustedArtifactOnDeployment
     {
-        get => GetProperty<TerraformProperty<string>>("untrusted_artifact_on_deployment");
+        get => GetRequiredProperty<TerraformProperty<string>>("untrusted_artifact_on_deployment");
         set => WithProperty("untrusted_artifact_on_deployment", value);
     }
 

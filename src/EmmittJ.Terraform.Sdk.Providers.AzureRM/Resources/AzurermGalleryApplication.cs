@@ -93,7 +93,7 @@ public class AzurermGalleryApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryId is required")]
     public required TerraformProperty<string> GalleryId
     {
-        get => GetProperty<TerraformProperty<string>>("gallery_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("gallery_id");
         set => this.WithProperty("gallery_id", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermGalleryApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermGalleryApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermGalleryApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportedOsType is required")]
     public required TerraformProperty<string> SupportedOsType
     {
-        get => GetProperty<TerraformProperty<string>>("supported_os_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("supported_os_type");
         set => this.WithProperty("supported_os_type", value);
     }
 

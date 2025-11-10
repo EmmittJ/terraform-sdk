@@ -24,7 +24,7 @@ public class AwsNotificationscontactsEmailContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformProperty<string> EmailAddress
     {
-        get => GetProperty<TerraformProperty<string>>("email_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("email_address");
         set => this.WithProperty("email_address", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsNotificationscontactsEmailContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

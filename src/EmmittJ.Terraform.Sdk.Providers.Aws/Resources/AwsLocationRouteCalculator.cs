@@ -60,7 +60,7 @@ public class AwsLocationRouteCalculator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CalculatorName is required")]
     public required TerraformProperty<string> CalculatorName
     {
-        get => GetProperty<TerraformProperty<string>>("calculator_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("calculator_name");
         set => this.WithProperty("calculator_name", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsLocationRouteCalculator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
     public required TerraformProperty<string> DataSource
     {
-        get => GetProperty<TerraformProperty<string>>("data_source");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_source");
         set => this.WithProperty("data_source", value);
     }
 

@@ -44,7 +44,7 @@ public class AzurermDataShareDatasetBlobStorageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareId is required")]
     public required TerraformProperty<string> DataShareId
     {
-        get => GetProperty<TerraformProperty<string>>("data_share_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_share_id");
         set => this.WithProperty("data_share_id", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermDataShareDatasetBlobStorageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -128,7 +128,7 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
     public required TerraformProperty<string> Feature
     {
-        get => GetProperty<TerraformProperty<string>>("feature");
+        get => GetRequiredProperty<TerraformProperty<string>>("feature");
         set => this.WithProperty("feature", value);
     }
 
@@ -147,7 +147,7 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -157,7 +157,7 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Membership is required")]
     public required TerraformProperty<string> Membership
     {
-        get => GetProperty<TerraformProperty<string>>("membership");
+        get => GetRequiredProperty<TerraformProperty<string>>("membership");
         set => this.WithProperty("membership", value);
     }
 

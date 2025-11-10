@@ -24,7 +24,7 @@ public class GoogleCesToolsetOpenApiToolsetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OpenApiSchema is required")]
     public required TerraformProperty<string> OpenApiSchema
     {
-        get => GetProperty<TerraformProperty<string>>("open_api_schema");
+        get => GetRequiredProperty<TerraformProperty<string>>("open_api_schema");
         set => WithProperty("open_api_schema", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleCesToolset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "App is required")]
     public required TerraformProperty<string> App
     {
-        get => GetProperty<TerraformProperty<string>>("app");
+        get => GetRequiredProperty<TerraformProperty<string>>("app");
         set => this.WithProperty("app", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleCesToolset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleCesToolset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToolsetId is required")]
     public required TerraformProperty<string> ToolsetId
     {
-        get => GetProperty<TerraformProperty<string>>("toolset_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("toolset_id");
         set => this.WithProperty("toolset_id", value);
     }
 

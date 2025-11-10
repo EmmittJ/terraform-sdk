@@ -75,7 +75,7 @@ public class AzurermNetappAccountEncryption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionKey is required")]
     public required TerraformProperty<string> EncryptionKey
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("encryption_key");
         set => this.WithProperty("encryption_key", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermNetappAccountEncryption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappAccountId is required")]
     public required TerraformProperty<string> NetappAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("netapp_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("netapp_account_id");
         set => this.WithProperty("netapp_account_id", value);
     }
 

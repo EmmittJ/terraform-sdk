@@ -112,7 +112,7 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorType is required")]
     public required TerraformProperty<string> DetectorType
     {
-        get => GetProperty<TerraformProperty<string>>("detector_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("detector_type");
         set => this.WithProperty("detector_type", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetProperty<TerraformProperty<string>>("frequency");
+        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
         set => this.WithProperty("frequency", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -180,7 +180,7 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformProperty<string> Severity
     {
-        get => GetProperty<TerraformProperty<string>>("severity");
+        get => GetRequiredProperty<TerraformProperty<string>>("severity");
         set => this.WithProperty("severity", value);
     }
 

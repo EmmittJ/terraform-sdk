@@ -22,7 +22,7 @@ public class AwsVpnConnectionRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
     public required TerraformProperty<string> DestinationCidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("destination_cidr_block");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_cidr_block");
         set => this.WithProperty("destination_cidr_block", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsVpnConnectionRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnConnectionId is required")]
     public required TerraformProperty<string> VpnConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("vpn_connection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpn_connection_id");
         set => this.WithProperty("vpn_connection_id", value);
     }
 

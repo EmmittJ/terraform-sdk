@@ -14,7 +14,7 @@ public class GoogleComputePacketMirroringCollectorIlbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => WithProperty("url", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleComputePacketMirroringNetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => WithProperty("url", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleComputePacketMirroring : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

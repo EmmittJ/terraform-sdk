@@ -51,7 +51,7 @@ public class AwsBedrockProvisionedModelThroughput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelArn is required")]
     public required TerraformProperty<string> ModelArn
     {
-        get => GetProperty<TerraformProperty<string>>("model_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("model_arn");
         set => this.WithProperty("model_arn", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsBedrockProvisionedModelThroughput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelUnits is required")]
     public required TerraformProperty<double> ModelUnits
     {
-        get => GetProperty<TerraformProperty<double>>("model_units");
+        get => GetRequiredProperty<TerraformProperty<double>>("model_units");
         set => this.WithProperty("model_units", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsBedrockProvisionedModelThroughput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisionedModelName is required")]
     public required TerraformProperty<string> ProvisionedModelName
     {
-        get => GetProperty<TerraformProperty<string>>("provisioned_model_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("provisioned_model_name");
         set => this.WithProperty("provisioned_model_name", value);
     }
 

@@ -24,7 +24,7 @@ public class AwsSagemakerMlflowTrackingServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactStoreUri is required")]
     public required TerraformProperty<string> ArtifactStoreUri
     {
-        get => GetProperty<TerraformProperty<string>>("artifact_store_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("artifact_store_uri");
         set => this.WithProperty("artifact_store_uri", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsSagemakerMlflowTrackingServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsSagemakerMlflowTrackingServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrackingServerName is required")]
     public required TerraformProperty<string> TrackingServerName
     {
-        get => GetProperty<TerraformProperty<string>>("tracking_server_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("tracking_server_name");
         set => this.WithProperty("tracking_server_name", value);
     }
 

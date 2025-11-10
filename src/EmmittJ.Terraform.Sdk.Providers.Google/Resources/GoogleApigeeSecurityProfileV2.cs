@@ -14,7 +14,7 @@ public class GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Assessment is required")]
     public required TerraformProperty<string> Assessment
     {
-        get => GetProperty<TerraformProperty<string>>("assessment");
+        get => GetRequiredProperty<TerraformProperty<string>>("assessment");
         set => WithProperty("assessment", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformProperty<string> Weight
     {
-        get => GetProperty<TerraformProperty<string>>("weight");
+        get => GetRequiredProperty<TerraformProperty<string>>("weight");
         set => WithProperty("weight", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleApigeeSecurityProfileV2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetProperty<TerraformProperty<string>>("org_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleApigeeSecurityProfileV2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     public required TerraformProperty<string> ProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("profile_id");
         set => this.WithProperty("profile_id", value);
     }
 

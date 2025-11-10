@@ -41,7 +41,7 @@ public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => WithProperty("subnet_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsRoute53ResolverEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformProperty<string> Direction
     {
-        get => GetProperty<TerraformProperty<string>>("direction");
+        get => GetRequiredProperty<TerraformProperty<string>>("direction");
         set => this.WithProperty("direction", value);
     }
 

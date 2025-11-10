@@ -83,7 +83,7 @@ public class AwsBedrockagentcoreGatewayTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayIdentifier is required")]
     public required TerraformProperty<string> GatewayIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("gateway_identifier");
         set => this.WithProperty("gateway_identifier", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsBedrockagentcoreGatewayTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

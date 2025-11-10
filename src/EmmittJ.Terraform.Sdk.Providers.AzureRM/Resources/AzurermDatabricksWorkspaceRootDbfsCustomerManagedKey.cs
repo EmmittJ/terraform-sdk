@@ -84,7 +84,7 @@ public class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKey : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
         set => this.WithProperty("key_vault_key_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKey : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

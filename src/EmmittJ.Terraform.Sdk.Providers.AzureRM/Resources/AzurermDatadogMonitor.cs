@@ -14,7 +14,7 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformProperty<string> ApiKey
     {
-        get => GetProperty<TerraformProperty<string>>("api_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_key");
         set => WithProperty("api_key", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationKey is required")]
     public required TerraformProperty<string> ApplicationKey
     {
-        get => GetProperty<TerraformProperty<string>>("application_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_key");
         set => WithProperty("application_key", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermDatadogMonitorIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -176,7 +176,7 @@ public class AzurermDatadogMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
+        get => GetRequiredProperty<TerraformProperty<string>>("email");
         set => WithProperty("email", value);
     }
 
@@ -186,7 +186,7 @@ public class AzurermDatadogMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -232,7 +232,7 @@ public class AzurermDatadogMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -251,7 +251,7 @@ public class AzurermDatadogMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -261,7 +261,7 @@ public class AzurermDatadogMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -271,7 +271,7 @@ public class AzurermDatadogMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetProperty<TerraformProperty<string>>("sku_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 

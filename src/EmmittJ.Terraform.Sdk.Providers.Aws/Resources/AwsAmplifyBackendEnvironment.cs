@@ -23,7 +23,7 @@ public class AwsAmplifyBackendEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetProperty<TerraformProperty<string>>("app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsAmplifyBackendEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentName is required")]
     public required TerraformProperty<string> EnvironmentName
     {
-        get => GetProperty<TerraformProperty<string>>("environment_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment_name");
         set => this.WithProperty("environment_name", value);
     }
 

@@ -23,7 +23,7 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryType is required")]
     public required TerraformProperty<string> DirectoryType
     {
-        get => GetProperty<TerraformProperty<string>>("directory_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("directory_type");
         set => WithProperty("directory_type", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermStorageAccountCustomDomainBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -139,7 +139,7 @@ public class AzurermStorageAccountCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserAssignedIdentityId is required")]
     public required TerraformProperty<string> UserAssignedIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("user_assigned_identity_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_assigned_identity_id");
         set => WithProperty("user_assigned_identity_id", value);
     }
 
@@ -184,7 +184,7 @@ public class AzurermStorageAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -202,7 +202,7 @@ public class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowProtectedAppendWrites is required")]
     public required TerraformProperty<bool> AllowProtectedAppendWrites
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_protected_append_writes");
+        get => GetRequiredProperty<TerraformProperty<bool>>("allow_protected_append_writes");
         set => WithProperty("allow_protected_append_writes", value);
     }
 
@@ -212,7 +212,7 @@ public class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeriodSinceCreationInDays is required")]
     public required TerraformProperty<double> PeriodSinceCreationInDays
     {
-        get => GetProperty<TerraformProperty<double>>("period_since_creation_in_days");
+        get => GetRequiredProperty<TerraformProperty<double>>("period_since_creation_in_days");
         set => WithProperty("period_since_creation_in_days", value);
     }
 
@@ -222,7 +222,7 @@ public class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
+        get => GetRequiredProperty<TerraformProperty<string>>("state");
         set => WithProperty("state", value);
     }
 
@@ -249,7 +249,7 @@ public class AzurermStorageAccountNetworkRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformProperty<string> DefaultAction
     {
-        get => GetProperty<TerraformProperty<string>>("default_action");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_action");
         set => WithProperty("default_action", value);
     }
 
@@ -337,7 +337,7 @@ public class AzurermStorageAccountSasPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpirationPeriod is required")]
     public required TerraformProperty<string> ExpirationPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("expiration_period");
+        get => GetRequiredProperty<TerraformProperty<string>>("expiration_period");
         set => WithProperty("expiration_period", value);
     }
 
@@ -532,7 +532,7 @@ public class AzurermStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountReplicationType is required")]
     public required TerraformProperty<string> AccountReplicationType
     {
-        get => GetProperty<TerraformProperty<string>>("account_replication_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_replication_type");
         set => this.WithProperty("account_replication_type", value);
     }
 
@@ -542,7 +542,7 @@ public class AzurermStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountTier is required")]
     public required TerraformProperty<string> AccountTier
     {
-        get => GetProperty<TerraformProperty<string>>("account_tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_tier");
         set => this.WithProperty("account_tier", value);
     }
 
@@ -660,7 +660,7 @@ public class AzurermStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -679,7 +679,7 @@ public class AzurermStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -725,7 +725,7 @@ public class AzurermStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

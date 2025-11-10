@@ -127,7 +127,7 @@ public class GoogleComputeTargetHttpsProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -225,7 +225,7 @@ public class GoogleComputeTargetHttpsProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlMap is required")]
     public required TerraformProperty<string> UrlMap
     {
-        get => GetProperty<TerraformProperty<string>>("url_map");
+        get => GetRequiredProperty<TerraformProperty<string>>("url_map");
         set => this.WithProperty("url_map", value);
     }
 

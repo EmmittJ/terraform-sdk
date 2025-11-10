@@ -14,7 +14,7 @@ public class AwsAthenaDatabaseAclConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3AclOption is required")]
     public required TerraformProperty<string> S3AclOption
     {
-        get => GetProperty<TerraformProperty<string>>("s3_acl_option");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_acl_option");
         set => WithProperty("s3_acl_option", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsAthenaDatabaseEncryptionConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionOption is required")]
     public required TerraformProperty<string> EncryptionOption
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_option");
+        get => GetRequiredProperty<TerraformProperty<string>>("encryption_option");
         set => WithProperty("encryption_option", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsAthenaDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

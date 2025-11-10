@@ -73,7 +73,7 @@ public class AwsNetworkmanagerConnectPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectAttachmentId is required")]
     public required TerraformProperty<string> ConnectAttachmentId
     {
-        get => GetProperty<TerraformProperty<string>>("connect_attachment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("connect_attachment_id");
         set => this.WithProperty("connect_attachment_id", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsNetworkmanagerConnectPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAddress is required")]
     public required TerraformProperty<string> PeerAddress
     {
-        get => GetProperty<TerraformProperty<string>>("peer_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("peer_address");
         set => this.WithProperty("peer_address", value);
     }
 

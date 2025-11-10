@@ -32,7 +32,7 @@ public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
         set => WithProperty("key_vault_key_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => WithProperty("subnet_id", value);
     }
 
@@ -193,7 +193,7 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticSanId is required")]
     public required TerraformProperty<string> ElasticSanId
     {
-        get => GetProperty<TerraformProperty<string>>("elastic_san_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("elastic_san_id");
         set => this.WithProperty("elastic_san_id", value);
     }
 
@@ -221,7 +221,7 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

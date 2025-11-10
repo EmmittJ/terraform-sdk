@@ -66,7 +66,7 @@ public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccountId is required")]
     public required TerraformProperty<string> CosmosdbAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("cosmosdb_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cosmosdb_account_id");
         set => this.WithProperty("cosmosdb_account_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
     public required TerraformProperty<double> InstanceCount
     {
-        get => GetProperty<TerraformProperty<double>>("instance_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("instance_count");
         set => this.WithProperty("instance_count", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceSize is required")]
     public required TerraformProperty<string> InstanceSize
     {
-        get => GetProperty<TerraformProperty<string>>("instance_size");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_size");
         set => this.WithProperty("instance_size", value);
     }
 

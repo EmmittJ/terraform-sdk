@@ -41,7 +41,7 @@ public class AzurermHealthcareMedtechServiceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceMappingJson is required")]
     public required TerraformProperty<string> DeviceMappingJson
     {
-        get => GetProperty<TerraformProperty<string>>("device_mapping_json");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_mapping_json");
         set => this.WithProperty("device_mapping_json", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubConsumerGroupName is required")]
     public required TerraformProperty<string> EventhubConsumerGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_consumer_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_consumer_group_name");
         set => this.WithProperty("eventhub_consumer_group_name", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformProperty<string> EventhubName
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_name");
         set => this.WithProperty("eventhub_name", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceName is required")]
     public required TerraformProperty<string> EventhubNamespaceName
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_namespace_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_namespace_name");
         set => this.WithProperty("eventhub_namespace_name", value);
     }
 
@@ -161,7 +161,7 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -171,7 +171,7 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -190,7 +190,7 @@ public class AzurermHealthcareMedtechService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

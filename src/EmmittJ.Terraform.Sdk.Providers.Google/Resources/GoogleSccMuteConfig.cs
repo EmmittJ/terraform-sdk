@@ -87,7 +87,7 @@ public class GoogleSccMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleSccMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MuteConfigId is required")]
     public required TerraformProperty<string> MuteConfigId
     {
-        get => GetProperty<TerraformProperty<string>>("mute_config_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("mute_config_id");
         set => this.WithProperty("mute_config_id", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleSccMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 

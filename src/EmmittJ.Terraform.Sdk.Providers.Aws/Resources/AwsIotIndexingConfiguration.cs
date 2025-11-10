@@ -14,7 +14,7 @@ public class AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingGroupIndexingMode is required")]
     public required TerraformProperty<string> ThingGroupIndexingMode
     {
-        get => GetProperty<TerraformProperty<string>>("thing_group_indexing_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("thing_group_indexing_mode");
         set => WithProperty("thing_group_indexing_mode", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingIndexingMode is required")]
     public required TerraformProperty<string> ThingIndexingMode
     {
-        get => GetProperty<TerraformProperty<string>>("thing_indexing_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("thing_indexing_mode");
         set => WithProperty("thing_indexing_mode", value);
     }
 

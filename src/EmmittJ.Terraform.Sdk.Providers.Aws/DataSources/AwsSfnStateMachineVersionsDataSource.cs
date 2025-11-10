@@ -41,7 +41,7 @@ public class AwsSfnStateMachineVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatemachineArn is required")]
     public required TerraformProperty<string> StatemachineArn
     {
-        get => GetProperty<TerraformProperty<string>>("statemachine_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("statemachine_arn");
         set => this.WithProperty("statemachine_arn", value);
     }
 

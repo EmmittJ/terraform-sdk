@@ -58,7 +58,7 @@ public class AwsLexv2modelsBotLocaleVoiceSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceId is required")]
     public required TerraformProperty<string> VoiceId
     {
-        get => GetProperty<TerraformProperty<string>>("voice_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("voice_id");
         set => WithProperty("voice_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsLexv2modelsBotLocale : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
     public required TerraformProperty<string> BotId
     {
-        get => GetProperty<TerraformProperty<string>>("bot_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_id");
         set => this.WithProperty("bot_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsLexv2modelsBotLocale : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
     public required TerraformProperty<string> BotVersion
     {
-        get => GetProperty<TerraformProperty<string>>("bot_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_version");
         set => this.WithProperty("bot_version", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsLexv2modelsBotLocale : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
     public required TerraformProperty<string> LocaleId
     {
-        get => GetProperty<TerraformProperty<string>>("locale_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("locale_id");
         set => this.WithProperty("locale_id", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsLexv2modelsBotLocale : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NLuIntentConfidenceThreshold is required")]
     public required TerraformProperty<double> NLuIntentConfidenceThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("n_lu_intent_confidence_threshold");
+        get => GetRequiredProperty<TerraformProperty<double>>("n_lu_intent_confidence_threshold");
         set => this.WithProperty("n_lu_intent_confidence_threshold", value);
     }
 

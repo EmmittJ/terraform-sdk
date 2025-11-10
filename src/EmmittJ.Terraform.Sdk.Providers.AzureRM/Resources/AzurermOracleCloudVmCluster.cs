@@ -139,7 +139,7 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformProperty<string> CloudExadataInfrastructureId
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
         set => this.WithProperty("cloud_exadata_infrastructure_id", value);
     }
 
@@ -158,7 +158,7 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCount is required")]
     public required TerraformProperty<double> CpuCoreCount
     {
-        get => GetProperty<TerraformProperty<double>>("cpu_core_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("cpu_core_count");
         set => this.WithProperty("cpu_core_count", value);
     }
 
@@ -205,7 +205,7 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -224,7 +224,7 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GiVersion is required")]
     public required TerraformProperty<string> GiVersion
     {
-        get => GetProperty<TerraformProperty<string>>("gi_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("gi_version");
         set => this.WithProperty("gi_version", value);
     }
 
@@ -234,7 +234,7 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetProperty<TerraformProperty<string>>("hostname");
+        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
         set => this.WithProperty("hostname", value);
     }
 
@@ -253,7 +253,7 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseModel is required")]
     public required TerraformProperty<string> LicenseModel
     {
-        get => GetProperty<TerraformProperty<string>>("license_model");
+        get => GetRequiredProperty<TerraformProperty<string>>("license_model");
         set => this.WithProperty("license_model", value);
     }
 
@@ -272,7 +272,7 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -291,7 +291,7 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -301,7 +301,7 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -348,7 +348,7 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
@@ -385,7 +385,7 @@ public class AzurermOracleCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformProperty<string> VirtualNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_id");
         set => this.WithProperty("virtual_network_id", value);
     }
 

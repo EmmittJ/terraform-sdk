@@ -66,7 +66,7 @@ public class AzurermSentinelDataConnectorAwsCloudTrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRoleArn is required")]
     public required TerraformProperty<string> AwsRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("aws_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("aws_role_arn");
         set => this.WithProperty("aws_role_arn", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermSentinelDataConnectorAwsCloudTrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermSentinelDataConnectorAwsCloudTrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

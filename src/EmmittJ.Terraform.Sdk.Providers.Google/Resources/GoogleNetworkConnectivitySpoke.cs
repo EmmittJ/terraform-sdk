@@ -24,7 +24,7 @@ public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     public required TerraformProperty<bool> SiteToSiteDataTransfer
     {
-        get => GetProperty<TerraformProperty<bool>>("site_to_site_data_transfer");
+        get => GetRequiredProperty<TerraformProperty<bool>>("site_to_site_data_transfer");
         set => WithProperty("site_to_site_data_transfer", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => WithProperty("network", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     public required TerraformProperty<string> Peering
     {
-        get => GetProperty<TerraformProperty<string>>("peering");
+        get => GetRequiredProperty<TerraformProperty<string>>("peering");
         set => WithProperty("peering", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     public required TerraformProperty<bool> SiteToSiteDataTransfer
     {
-        get => GetProperty<TerraformProperty<bool>>("site_to_site_data_transfer");
+        get => GetRequiredProperty<TerraformProperty<bool>>("site_to_site_data_transfer");
         set => WithProperty("site_to_site_data_transfer", value);
     }
 
@@ -153,7 +153,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("uri");
         set => WithProperty("uri", value);
     }
 
@@ -181,7 +181,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     public required TerraformProperty<bool> SiteToSiteDataTransfer
     {
-        get => GetProperty<TerraformProperty<bool>>("site_to_site_data_transfer");
+        get => GetRequiredProperty<TerraformProperty<bool>>("site_to_site_data_transfer");
         set => WithProperty("site_to_site_data_transfer", value);
     }
 
@@ -278,7 +278,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hub is required")]
     public required TerraformProperty<string> Hub
     {
-        get => GetProperty<TerraformProperty<string>>("hub");
+        get => GetRequiredProperty<TerraformProperty<string>>("hub");
         set => this.WithProperty("hub", value);
     }
 
@@ -309,7 +309,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -319,7 +319,7 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

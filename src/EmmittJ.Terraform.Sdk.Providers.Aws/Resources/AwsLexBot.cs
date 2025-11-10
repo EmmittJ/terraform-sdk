@@ -31,7 +31,7 @@ public class AwsLexBotClarificationPromptBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAttempts is required")]
     public required TerraformProperty<double> MaxAttempts
     {
-        get => GetProperty<TerraformProperty<double>>("max_attempts");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_attempts");
         set => WithProperty("max_attempts", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsLexBotIntentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntentName is required")]
     public required TerraformProperty<string> IntentName
     {
-        get => GetProperty<TerraformProperty<string>>("intent_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("intent_name");
         set => WithProperty("intent_name", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsLexBotIntentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntentVersion is required")]
     public required TerraformProperty<string> IntentVersion
     {
-        get => GetProperty<TerraformProperty<string>>("intent_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("intent_version");
         set => WithProperty("intent_version", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsLexBot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChildDirected is required")]
     public required TerraformProperty<bool> ChildDirected
     {
-        get => GetProperty<TerraformProperty<bool>>("child_directed");
+        get => GetRequiredProperty<TerraformProperty<bool>>("child_directed");
         set => this.WithProperty("child_directed", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsLexBot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

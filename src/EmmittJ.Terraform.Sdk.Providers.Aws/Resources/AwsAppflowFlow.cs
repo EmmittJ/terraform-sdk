@@ -32,7 +32,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
     public required TerraformProperty<string> ConnectorType
     {
-        get => GetProperty<TerraformProperty<string>>("connector_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("connector_type");
         set => WithProperty("connector_type", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsAppflowFlowSourceFlowConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
     public required TerraformProperty<string> ConnectorType
     {
-        get => GetProperty<TerraformProperty<string>>("connector_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("connector_type");
         set => WithProperty("connector_type", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsAppflowFlowTaskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskType is required")]
     public required TerraformProperty<string> TaskType
     {
-        get => GetProperty<TerraformProperty<string>>("task_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("task_type");
         set => WithProperty("task_type", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsAppflowFlowTriggerConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerType is required")]
     public required TerraformProperty<string> TriggerType
     {
-        get => GetProperty<TerraformProperty<string>>("trigger_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("trigger_type");
         set => WithProperty("trigger_type", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsAppflowFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

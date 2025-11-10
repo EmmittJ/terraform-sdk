@@ -105,7 +105,7 @@ public class GoogleComputeRouterNatAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformProperty<string> Router
     {
-        get => GetProperty<TerraformProperty<string>>("router");
+        get => GetRequiredProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleComputeRouterNatAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouterNat is required")]
     public required TerraformProperty<string> RouterNat
     {
-        get => GetProperty<TerraformProperty<string>>("router_nat");
+        get => GetRequiredProperty<TerraformProperty<string>>("router_nat");
         set => this.WithProperty("router_nat", value);
     }
 

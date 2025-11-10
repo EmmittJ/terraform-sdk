@@ -14,7 +14,7 @@ public class AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasswordSecretId is required")]
     public required TerraformProperty<string> PasswordSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("password_secret_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("password_secret_id");
         set => WithProperty("password_secret_id", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsernameSecretId is required")]
     public required TerraformProperty<string> UsernameSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("username_secret_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("username_secret_id");
         set => WithProperty("username_secret_id", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermContainerRegistryCredentialSetIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermContainerRegistryCredentialSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     public required TerraformProperty<string> ContainerRegistryId
     {
-        get => GetProperty<TerraformProperty<string>>("container_registry_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_id");
         set => this.WithProperty("container_registry_id", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermContainerRegistryCredentialSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginServer is required")]
     public required TerraformProperty<string> LoginServer
     {
-        get => GetProperty<TerraformProperty<string>>("login_server");
+        get => GetRequiredProperty<TerraformProperty<string>>("login_server");
         set => this.WithProperty("login_server", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermContainerRegistryCredentialSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

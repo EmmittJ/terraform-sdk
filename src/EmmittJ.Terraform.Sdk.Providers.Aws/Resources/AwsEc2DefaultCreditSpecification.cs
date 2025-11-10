@@ -48,7 +48,7 @@ public class AwsEc2DefaultCreditSpecification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCredits is required")]
     public required TerraformProperty<string> CpuCredits
     {
-        get => GetProperty<TerraformProperty<string>>("cpu_credits");
+        get => GetRequiredProperty<TerraformProperty<string>>("cpu_credits");
         set => this.WithProperty("cpu_credits", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsEc2DefaultCreditSpecification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceFamily is required")]
     public required TerraformProperty<string> InstanceFamily
     {
-        get => GetProperty<TerraformProperty<string>>("instance_family");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_family");
         set => this.WithProperty("instance_family", value);
     }
 

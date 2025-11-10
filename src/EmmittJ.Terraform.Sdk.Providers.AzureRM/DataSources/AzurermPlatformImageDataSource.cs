@@ -48,7 +48,7 @@ public class AzurermPlatformImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -58,7 +58,7 @@ public class AzurermPlatformImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformProperty<string> Offer
     {
-        get => GetProperty<TerraformProperty<string>>("offer");
+        get => GetRequiredProperty<TerraformProperty<string>>("offer");
         set => this.WithProperty("offer", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermPlatformImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => this.WithProperty("publisher", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermPlatformImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 

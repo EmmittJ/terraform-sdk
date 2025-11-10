@@ -14,7 +14,7 @@ public class AwsRamResourceShareDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsRamResourceShareDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceOwner is required")]
     public required TerraformProperty<string> ResourceOwner
     {
-        get => GetProperty<TerraformProperty<string>>("resource_owner");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_owner");
         set => this.WithProperty("resource_owner", value);
     }
 

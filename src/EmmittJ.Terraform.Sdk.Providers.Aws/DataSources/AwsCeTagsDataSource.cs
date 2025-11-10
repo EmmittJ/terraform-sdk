@@ -48,7 +48,7 @@ public class AwsCeTagsDataSourceTimePeriodBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformProperty<string> End
     {
-        get => GetProperty<TerraformProperty<string>>("end");
+        get => GetRequiredProperty<TerraformProperty<string>>("end");
         set => WithProperty("end", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsCeTagsDataSourceTimePeriodBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformProperty<string> Start
     {
-        get => GetProperty<TerraformProperty<string>>("start");
+        get => GetRequiredProperty<TerraformProperty<string>>("start");
         set => WithProperty("start", value);
     }
 

@@ -66,7 +66,7 @@ public class AzurermAutomationWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformProperty<string> AutomationAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("automation_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_name");
         set => this.WithProperty("automation_account_name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermAutomationWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpiryTime is required")]
     public required TerraformProperty<string> ExpiryTime
     {
-        get => GetProperty<TerraformProperty<string>>("expiry_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("expiry_time");
         set => this.WithProperty("expiry_time", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermAutomationWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermAutomationWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermAutomationWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RunbookName is required")]
     public required TerraformProperty<string> RunbookName
     {
-        get => GetProperty<TerraformProperty<string>>("runbook_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("runbook_name");
         set => this.WithProperty("runbook_name", value);
     }
 

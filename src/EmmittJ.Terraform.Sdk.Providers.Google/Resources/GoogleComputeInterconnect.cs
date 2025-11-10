@@ -138,7 +138,7 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterconnectType is required")]
     public required TerraformProperty<string> InterconnectType
     {
-        get => GetProperty<TerraformProperty<string>>("interconnect_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("interconnect_type");
         set => this.WithProperty("interconnect_type", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkType is required")]
     public required TerraformProperty<string> LinkType
     {
-        get => GetProperty<TerraformProperty<string>>("link_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("link_type");
         set => this.WithProperty("link_type", value);
     }
 
@@ -177,7 +177,7 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -201,7 +201,7 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -256,7 +256,7 @@ public class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestedLinkCount is required")]
     public required TerraformProperty<double> RequestedLinkCount
     {
-        get => GetProperty<TerraformProperty<double>>("requested_link_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("requested_link_count");
         set => this.WithProperty("requested_link_count", value);
     }
 

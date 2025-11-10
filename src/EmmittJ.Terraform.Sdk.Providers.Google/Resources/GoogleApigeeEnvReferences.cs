@@ -67,7 +67,7 @@ public class GoogleApigeeEnvReferences : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformProperty<string> EnvId
     {
-        get => GetProperty<TerraformProperty<string>>("env_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("env_id");
         set => this.WithProperty("env_id", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleApigeeEnvReferences : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleApigeeEnvReferences : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Refers is required")]
     public required TerraformProperty<string> Refers
     {
-        get => GetProperty<TerraformProperty<string>>("refers");
+        get => GetRequiredProperty<TerraformProperty<string>>("refers");
         set => this.WithProperty("refers", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleApigeeEnvReferences : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
     }
 

@@ -178,7 +178,7 @@ public class AzureadUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -404,7 +404,7 @@ public class AzureadUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPrincipalName is required")]
     public required TerraformProperty<string> UserPrincipalName
     {
-        get => GetProperty<TerraformProperty<string>>("user_principal_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_principal_name");
         set => this.WithProperty("user_principal_name", value);
     }
 

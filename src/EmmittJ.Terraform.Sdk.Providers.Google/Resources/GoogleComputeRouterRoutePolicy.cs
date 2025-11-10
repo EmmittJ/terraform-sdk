@@ -14,7 +14,7 @@ public class GoogleComputeRouterRoutePolicyTermsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleComputeRouterRoutePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -114,7 +114,7 @@ public class GoogleComputeRouterRoutePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformProperty<string> Router
     {
-        get => GetProperty<TerraformProperty<string>>("router");
+        get => GetRequiredProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);
     }
 

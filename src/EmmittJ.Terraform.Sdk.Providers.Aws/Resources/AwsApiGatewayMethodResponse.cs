@@ -22,7 +22,7 @@ public class AwsApiGatewayMethodResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
     public required TerraformProperty<string> HttpMethod
     {
-        get => GetProperty<TerraformProperty<string>>("http_method");
+        get => GetRequiredProperty<TerraformProperty<string>>("http_method");
         set => this.WithProperty("http_method", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsApiGatewayMethodResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsApiGatewayMethodResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformProperty<string> RestApiId
     {
-        get => GetProperty<TerraformProperty<string>>("rest_api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsApiGatewayMethodResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     public required TerraformProperty<string> StatusCode
     {
-        get => GetProperty<TerraformProperty<string>>("status_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("status_code");
         set => this.WithProperty("status_code", value);
     }
 

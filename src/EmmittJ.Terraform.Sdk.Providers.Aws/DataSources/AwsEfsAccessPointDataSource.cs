@@ -28,7 +28,7 @@ public class AwsEfsAccessPointDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPointId is required")]
     public required TerraformProperty<string> AccessPointId
     {
-        get => GetProperty<TerraformProperty<string>>("access_point_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_point_id");
         set => this.WithProperty("access_point_id", value);
     }
 

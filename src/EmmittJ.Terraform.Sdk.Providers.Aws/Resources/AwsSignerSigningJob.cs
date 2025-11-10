@@ -71,7 +71,7 @@ public class AwsSignerSigningJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
     public required TerraformProperty<string> ProfileName
     {
-        get => GetProperty<TerraformProperty<string>>("profile_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("profile_name");
         set => this.WithProperty("profile_name", value);
     }
 

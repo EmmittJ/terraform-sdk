@@ -81,7 +81,7 @@ public class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GeminiGcpEnablementSettingId is required")]
     public required TerraformProperty<string> GeminiGcpEnablementSettingId
     {
-        get => GetProperty<TerraformProperty<string>>("gemini_gcp_enablement_setting_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("gemini_gcp_enablement_setting_id");
         set => this.WithProperty("gemini_gcp_enablement_setting_id", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

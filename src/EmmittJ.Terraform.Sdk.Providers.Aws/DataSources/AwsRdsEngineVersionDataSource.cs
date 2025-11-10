@@ -14,7 +14,7 @@ public class AwsRdsEngineVersionDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsRdsEngineVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     public required TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
     }
 

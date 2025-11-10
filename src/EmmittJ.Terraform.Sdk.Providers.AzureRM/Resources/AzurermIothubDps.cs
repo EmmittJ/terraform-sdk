@@ -14,7 +14,7 @@ public class AzurermIothubDpsIpFilterRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => WithProperty("action", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermIothubDpsIpFilterRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
     public required TerraformProperty<string> IpMask
     {
-        get => GetProperty<TerraformProperty<string>>("ip_mask");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_mask");
         set => WithProperty("ip_mask", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermIothubDpsIpFilterRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermIothubDpsLinkedHubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformProperty<string> ConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("connection_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_string");
         set => WithProperty("connection_string", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermIothubDpsLinkedHubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => WithProperty("location", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermIothubDpsSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     public required TerraformProperty<double> Capacity
     {
-        get => GetProperty<TerraformProperty<double>>("capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("capacity");
         set => WithProperty("capacity", value);
     }
 
@@ -126,7 +126,7 @@ public class AzurermIothubDpsSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -227,7 +227,7 @@ public class AzurermIothubDps : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -237,7 +237,7 @@ public class AzurermIothubDps : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -256,7 +256,7 @@ public class AzurermIothubDps : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

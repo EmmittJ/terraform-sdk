@@ -67,7 +67,7 @@ public class AzurermAdvisorSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermAdvisorSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecommendationId is required")]
     public required TerraformProperty<string> RecommendationId
     {
-        get => GetProperty<TerraformProperty<string>>("recommendation_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("recommendation_id");
         set => this.WithProperty("recommendation_id", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermAdvisorSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
     }
 

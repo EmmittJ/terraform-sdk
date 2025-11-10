@@ -23,7 +23,7 @@ public class AwsIdentitystoreGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformProperty<string> GroupId
     {
-        get => GetProperty<TerraformProperty<string>>("group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("group_id");
         set => this.WithProperty("group_id", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsIdentitystoreGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
     public required TerraformProperty<string> IdentityStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_store_id");
         set => this.WithProperty("identity_store_id", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsIdentitystoreGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberId is required")]
     public required TerraformProperty<string> MemberId
     {
-        get => GetProperty<TerraformProperty<string>>("member_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("member_id");
         set => this.WithProperty("member_id", value);
     }
 

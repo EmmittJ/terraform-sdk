@@ -76,7 +76,7 @@ public class GoogleOsLoginSshPublicKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleOsLoginSshPublicKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformProperty<string> User
     {
-        get => GetProperty<TerraformProperty<string>>("user");
+        get => GetRequiredProperty<TerraformProperty<string>>("user");
         set => this.WithProperty("user", value);
     }
 

@@ -57,7 +57,7 @@ public class AzurermApiManagementProductApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
@@ -67,7 +67,7 @@ public class AzurermApiManagementProductApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiName is required")]
     public required TerraformProperty<string> ApiName
     {
-        get => GetProperty<TerraformProperty<string>>("api_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_name");
         set => this.WithProperty("api_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermApiManagementProductApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     public required TerraformProperty<string> ProductId
     {
-        get => GetProperty<TerraformProperty<string>>("product_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("product_id");
         set => this.WithProperty("product_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermApiManagementProductApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

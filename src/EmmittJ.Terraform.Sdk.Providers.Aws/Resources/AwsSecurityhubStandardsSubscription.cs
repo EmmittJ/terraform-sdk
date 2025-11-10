@@ -66,7 +66,7 @@ public class AwsSecurityhubStandardsSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StandardsArn is required")]
     public required TerraformProperty<string> StandardsArn
     {
-        get => GetProperty<TerraformProperty<string>>("standards_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("standards_arn");
         set => this.WithProperty("standards_arn", value);
     }
 

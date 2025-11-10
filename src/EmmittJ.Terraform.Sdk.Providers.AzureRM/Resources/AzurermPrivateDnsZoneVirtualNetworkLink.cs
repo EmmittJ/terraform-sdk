@@ -75,7 +75,7 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsZoneName is required")]
     public required TerraformProperty<string> PrivateDnsZoneName
     {
-        get => GetProperty<TerraformProperty<string>>("private_dns_zone_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("private_dns_zone_name");
         set => this.WithProperty("private_dns_zone_name", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformProperty<string> VirtualNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_id");
         set => this.WithProperty("virtual_network_id", value);
     }
 

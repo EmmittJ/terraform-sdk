@@ -14,7 +14,7 @@ public class AwsEcrRegistryScanningConfigurationRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanFrequency is required")]
     public required TerraformProperty<string> ScanFrequency
     {
-        get => GetProperty<TerraformProperty<string>>("scan_frequency");
+        get => GetRequiredProperty<TerraformProperty<string>>("scan_frequency");
         set => WithProperty("scan_frequency", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsEcrRegistryScanningConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanType is required")]
     public required TerraformProperty<string> ScanType
     {
-        get => GetProperty<TerraformProperty<string>>("scan_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("scan_type");
         set => this.WithProperty("scan_type", value);
     }
 

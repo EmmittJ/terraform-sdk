@@ -23,7 +23,7 @@ public class AwsCloudwatchMetricStreamExcludeFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
         set => WithProperty("namespace", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsCloudwatchMetricStreamIncludeFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
         set => WithProperty("namespace", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsCloudwatchMetricStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirehoseArn is required")]
     public required TerraformProperty<string> FirehoseArn
     {
-        get => GetProperty<TerraformProperty<string>>("firehose_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("firehose_arn");
         set => this.WithProperty("firehose_arn", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsCloudwatchMetricStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputFormat is required")]
     public required TerraformProperty<string> OutputFormat
     {
-        get => GetProperty<TerraformProperty<string>>("output_format");
+        get => GetRequiredProperty<TerraformProperty<string>>("output_format");
         set => this.WithProperty("output_format", value);
     }
 
@@ -198,7 +198,7 @@ public class AwsCloudwatchMetricStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

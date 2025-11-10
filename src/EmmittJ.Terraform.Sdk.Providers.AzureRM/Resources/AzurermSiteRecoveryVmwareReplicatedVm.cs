@@ -14,7 +14,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskId is required")]
     public required TerraformProperty<string> DiskId
     {
-        get => GetProperty<TerraformProperty<string>>("disk_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("disk_id");
         set => WithProperty("disk_id", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDiskType is required")]
     public required TerraformProperty<string> TargetDiskType
     {
-        get => GetProperty<TerraformProperty<string>>("target_disk_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_disk_type");
         set => WithProperty("target_disk_type", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsPrimary is required")]
     public required TerraformProperty<bool> IsPrimary
     {
-        get => GetProperty<TerraformProperty<bool>>("is_primary");
+        get => GetRequiredProperty<TerraformProperty<bool>>("is_primary");
         set => WithProperty("is_primary", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceMacAddress is required")]
     public required TerraformProperty<string> SourceMacAddress
     {
-        get => GetProperty<TerraformProperty<string>>("source_mac_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_mac_address");
         set => WithProperty("source_mac_address", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplianceName is required")]
     public required TerraformProperty<string> ApplianceName
     {
-        get => GetProperty<TerraformProperty<string>>("appliance_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("appliance_name");
         set => this.WithProperty("appliance_name", value);
     }
 
@@ -231,7 +231,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -241,7 +241,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhysicalServerCredentialName is required")]
     public required TerraformProperty<string> PhysicalServerCredentialName
     {
-        get => GetProperty<TerraformProperty<string>>("physical_server_credential_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("physical_server_credential_name");
         set => this.WithProperty("physical_server_credential_name", value);
     }
 
@@ -251,7 +251,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryReplicationPolicyId is required")]
     public required TerraformProperty<string> RecoveryReplicationPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_replication_policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("recovery_replication_policy_id");
         set => this.WithProperty("recovery_replication_policy_id", value);
     }
 
@@ -261,7 +261,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformProperty<string> RecoveryVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_id");
         set => this.WithProperty("recovery_vault_id", value);
     }
 
@@ -271,7 +271,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVmName is required")]
     public required TerraformProperty<string> SourceVmName
     {
-        get => GetProperty<TerraformProperty<string>>("source_vm_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_vm_name");
         set => this.WithProperty("source_vm_name", value);
     }
 
@@ -317,7 +317,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceGroupId is required")]
     public required TerraformProperty<string> TargetResourceGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_group_id");
         set => this.WithProperty("target_resource_group_id", value);
     }
 
@@ -327,7 +327,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVmName is required")]
     public required TerraformProperty<string> TargetVmName
     {
-        get => GetProperty<TerraformProperty<string>>("target_vm_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_vm_name");
         set => this.WithProperty("target_vm_name", value);
     }
 

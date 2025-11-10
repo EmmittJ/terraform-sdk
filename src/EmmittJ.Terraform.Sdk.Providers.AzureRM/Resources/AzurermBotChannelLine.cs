@@ -14,7 +14,7 @@ public class AzurermBotChannelLineLineChannelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessToken is required")]
     public required TerraformProperty<string> AccessToken
     {
-        get => GetProperty<TerraformProperty<string>>("access_token");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_token");
         set => WithProperty("access_token", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermBotChannelLineLineChannelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformProperty<string> Secret
     {
-        get => GetProperty<TerraformProperty<string>>("secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret");
         set => WithProperty("secret", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermBotChannelLine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformProperty<string> BotName
     {
-        get => GetProperty<TerraformProperty<string>>("bot_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_name");
         set => this.WithProperty("bot_name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermBotChannelLine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermBotChannelLine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

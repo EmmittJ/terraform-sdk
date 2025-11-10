@@ -23,7 +23,7 @@ public class AzurermAutomationSourceControlSecurityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformProperty<string> Token
     {
-        get => GetProperty<TerraformProperty<string>>("token");
+        get => GetRequiredProperty<TerraformProperty<string>>("token");
         set => WithProperty("token", value);
     }
 
@@ -33,7 +33,7 @@ public class AzurermAutomationSourceControlSecurityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenType is required")]
     public required TerraformProperty<string> TokenType
     {
-        get => GetProperty<TerraformProperty<string>>("token_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("token_type");
         set => WithProperty("token_type", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermAutomationSourceControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformProperty<string> AutomationAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("automation_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_id");
         set => this.WithProperty("automation_account_id", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermAutomationSourceControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderPath is required")]
     public required TerraformProperty<string> FolderPath
     {
-        get => GetProperty<TerraformProperty<string>>("folder_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("folder_path");
         set => this.WithProperty("folder_path", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermAutomationSourceControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -179,7 +179,7 @@ public class AzurermAutomationSourceControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformProperty<string> RepositoryUrl
     {
-        get => GetProperty<TerraformProperty<string>>("repository_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_url");
         set => this.WithProperty("repository_url", value);
     }
 
@@ -189,7 +189,7 @@ public class AzurermAutomationSourceControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceControlType is required")]
     public required TerraformProperty<string> SourceControlType
     {
-        get => GetProperty<TerraformProperty<string>>("source_control_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_control_type");
         set => this.WithProperty("source_control_type", value);
     }
 

@@ -61,7 +61,7 @@ public class GoogleProjectIamCustomRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformProperty<string> RoleId
     {
-        get => GetProperty<TerraformProperty<string>>("role_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_id");
         set => this.WithProperty("role_id", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleProjectIamCustomRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
+        get => GetRequiredProperty<TerraformProperty<string>>("title");
         set => this.WithProperty("title", value);
     }
 

@@ -93,7 +93,7 @@ public class AzurermStorageAccountStaticWebsite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 

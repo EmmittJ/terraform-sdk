@@ -48,7 +48,7 @@ public class GoogleComputeInstanceGroupNamedPort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformProperty<string> Group
     {
-        get => GetProperty<TerraformProperty<string>>("group");
+        get => GetRequiredProperty<TerraformProperty<string>>("group");
         set => this.WithProperty("group", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleComputeInstanceGroupNamedPort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleComputeInstanceGroupNamedPort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 

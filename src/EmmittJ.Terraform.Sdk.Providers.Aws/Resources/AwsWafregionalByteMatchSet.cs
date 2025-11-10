@@ -14,7 +14,7 @@ public class AwsWafregionalByteMatchSetByteMatchTuplesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PositionalConstraint is required")]
     public required TerraformProperty<string> PositionalConstraint
     {
-        get => GetProperty<TerraformProperty<string>>("positional_constraint");
+        get => GetRequiredProperty<TerraformProperty<string>>("positional_constraint");
         set => WithProperty("positional_constraint", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsWafregionalByteMatchSetByteMatchTuplesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     public required TerraformProperty<string> TextTransformation
     {
-        get => GetProperty<TerraformProperty<string>>("text_transformation");
+        get => GetRequiredProperty<TerraformProperty<string>>("text_transformation");
         set => WithProperty("text_transformation", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsWafregionalByteMatchSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

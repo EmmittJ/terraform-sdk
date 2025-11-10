@@ -14,7 +14,7 @@ public class AzurermCosmosdbAccountAnalyticalStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaType is required")]
     public required TerraformProperty<string> SchemaType
     {
-        get => GetProperty<TerraformProperty<string>>("schema_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("schema_type");
         set => WithProperty("schema_type", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermCosmosdbAccountCapabilitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermCosmosdbAccountCapacityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalThroughputLimit is required")]
     public required TerraformProperty<double> TotalThroughputLimit
     {
-        get => GetProperty<TerraformProperty<double>>("total_throughput_limit");
+        get => GetRequiredProperty<TerraformProperty<double>>("total_throughput_limit");
         set => WithProperty("total_throughput_limit", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermCosmosdbAccountConsistencyPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsistencyLevel is required")]
     public required TerraformProperty<string> ConsistencyLevel
     {
-        get => GetProperty<TerraformProperty<string>>("consistency_level");
+        get => GetRequiredProperty<TerraformProperty<string>>("consistency_level");
         set => WithProperty("consistency_level", value);
     }
 
@@ -215,7 +215,7 @@ public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailoverPriority is required")]
     public required TerraformProperty<double> FailoverPriority
     {
-        get => GetProperty<TerraformProperty<double>>("failover_priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("failover_priority");
         set => WithProperty("failover_priority", value);
     }
 
@@ -234,7 +234,7 @@ public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => WithProperty("location", value);
     }
 
@@ -288,7 +288,7 @@ public class AzurermCosmosdbAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -306,7 +306,7 @@ public class AzurermCosmosdbAccountRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestoreTimestampInUtc is required")]
     public required TerraformProperty<string> RestoreTimestampInUtc
     {
-        get => GetProperty<TerraformProperty<string>>("restore_timestamp_in_utc");
+        get => GetRequiredProperty<TerraformProperty<string>>("restore_timestamp_in_utc");
         set => WithProperty("restore_timestamp_in_utc", value);
     }
 
@@ -316,7 +316,7 @@ public class AzurermCosmosdbAccountRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceCosmosdbAccountId is required")]
     public required TerraformProperty<string> SourceCosmosdbAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("source_cosmosdb_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_cosmosdb_account_id");
         set => WithProperty("source_cosmosdb_account_id", value);
     }
 
@@ -387,7 +387,7 @@ public class AzurermCosmosdbAccountVirtualNetworkRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -555,7 +555,7 @@ public class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -601,7 +601,7 @@ public class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -629,7 +629,7 @@ public class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferType is required")]
     public required TerraformProperty<string> OfferType
     {
-        get => GetProperty<TerraformProperty<string>>("offer_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("offer_type");
         set => this.WithProperty("offer_type", value);
     }
 
@@ -657,7 +657,7 @@ public class AzurermCosmosdbAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

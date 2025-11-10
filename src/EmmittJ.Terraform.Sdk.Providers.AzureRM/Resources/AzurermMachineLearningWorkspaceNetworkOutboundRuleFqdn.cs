@@ -66,7 +66,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdn : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationFqdn is required")]
     public required TerraformProperty<string> DestinationFqdn
     {
-        get => GetProperty<TerraformProperty<string>>("destination_fqdn");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_fqdn");
         set => this.WithProperty("destination_fqdn", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdn : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdn : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

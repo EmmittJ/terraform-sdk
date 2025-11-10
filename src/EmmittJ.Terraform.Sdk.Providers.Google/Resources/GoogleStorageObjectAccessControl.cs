@@ -62,7 +62,7 @@ public class GoogleStorageObjectAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleStorageObjectAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entity is required")]
     public required TerraformProperty<string> Entity
     {
-        get => GetProperty<TerraformProperty<string>>("entity");
+        get => GetRequiredProperty<TerraformProperty<string>>("entity");
         set => this.WithProperty("entity", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleStorageObjectAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Object is required")]
     public required TerraformProperty<string> Object
     {
-        get => GetProperty<TerraformProperty<string>>("object");
+        get => GetRequiredProperty<TerraformProperty<string>>("object");
         set => this.WithProperty("object", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleStorageObjectAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

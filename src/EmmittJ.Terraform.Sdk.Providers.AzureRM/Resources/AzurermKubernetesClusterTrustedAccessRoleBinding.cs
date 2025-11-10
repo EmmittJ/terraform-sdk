@@ -75,7 +75,7 @@ public class AzurermKubernetesClusterTrustedAccessRoleBinding : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     public required TerraformProperty<string> KubernetesClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("kubernetes_cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("kubernetes_cluster_id");
         set => this.WithProperty("kubernetes_cluster_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermKubernetesClusterTrustedAccessRoleBinding : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermKubernetesClusterTrustedAccessRoleBinding : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
     public required TerraformProperty<string> SourceResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("source_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_resource_id");
         set => this.WithProperty("source_resource_id", value);
     }
 

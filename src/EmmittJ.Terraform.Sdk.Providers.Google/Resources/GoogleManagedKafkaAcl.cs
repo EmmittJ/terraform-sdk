@@ -26,7 +26,7 @@ public class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operation is required")]
     public required TerraformProperty<string> Operation
     {
-        get => GetProperty<TerraformProperty<string>>("operation");
+        get => GetRequiredProperty<TerraformProperty<string>>("operation");
         set => WithProperty("operation", value);
     }
 
@@ -45,7 +45,7 @@ public class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal");
         set => WithProperty("principal", value);
     }
 
@@ -116,7 +116,7 @@ public class GoogleManagedKafkaAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AclId is required")]
     public required TerraformProperty<string> AclId
     {
-        get => GetProperty<TerraformProperty<string>>("acl_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("acl_id");
         set => this.WithProperty("acl_id", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleManagedKafkaAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetProperty<TerraformProperty<string>>("cluster");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
     }
 
@@ -145,7 +145,7 @@ public class GoogleManagedKafkaAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

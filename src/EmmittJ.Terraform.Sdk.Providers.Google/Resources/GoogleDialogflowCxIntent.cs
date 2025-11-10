@@ -15,7 +15,7 @@ public class GoogleDialogflowCxIntentParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityType is required")]
     public required TerraformProperty<string> EntityType
     {
-        get => GetProperty<TerraformProperty<string>>("entity_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("entity_type");
         set => WithProperty("entity_type", value);
     }
 
@@ -25,7 +25,7 @@ public class GoogleDialogflowCxIntentParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleDialogflowCxIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 

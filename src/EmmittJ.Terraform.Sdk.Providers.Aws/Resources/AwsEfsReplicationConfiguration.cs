@@ -124,7 +124,7 @@ public class AwsEfsReplicationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileSystemId is required")]
     public required TerraformProperty<string> SourceFileSystemId
     {
-        get => GetProperty<TerraformProperty<string>>("source_file_system_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_file_system_id");
         set => this.WithProperty("source_file_system_id", value);
     }
 

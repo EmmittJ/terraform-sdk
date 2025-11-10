@@ -192,7 +192,7 @@ public class AzurermServicebusSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxDeliveryCount is required")]
     public required TerraformProperty<double> MaxDeliveryCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_delivery_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_delivery_count");
         set => this.WithProperty("max_delivery_count", value);
     }
 
@@ -202,7 +202,7 @@ public class AzurermServicebusSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -230,7 +230,7 @@ public class AzurermServicebusSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicId is required")]
     public required TerraformProperty<string> TopicId
     {
-        get => GetProperty<TerraformProperty<string>>("topic_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic_id");
         set => this.WithProperty("topic_id", value);
     }
 

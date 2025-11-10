@@ -131,7 +131,7 @@ public class AwsDlmLifecyclePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsDlmLifecyclePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("execution_role_arn");
         set => this.WithProperty("execution_role_arn", value);
     }
 

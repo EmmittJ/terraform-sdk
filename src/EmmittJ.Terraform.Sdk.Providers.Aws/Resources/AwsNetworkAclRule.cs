@@ -85,7 +85,7 @@ public class AwsNetworkAclRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkAclId is required")]
     public required TerraformProperty<string> NetworkAclId
     {
-        get => GetProperty<TerraformProperty<string>>("network_acl_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_acl_id");
         set => this.WithProperty("network_acl_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsNetworkAclRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsNetworkAclRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleAction is required")]
     public required TerraformProperty<string> RuleAction
     {
-        get => GetProperty<TerraformProperty<string>>("rule_action");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_action");
         set => this.WithProperty("rule_action", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsNetworkAclRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformProperty<double> RuleNumber
     {
-        get => GetProperty<TerraformProperty<double>>("rule_number");
+        get => GetRequiredProperty<TerraformProperty<double>>("rule_number");
         set => this.WithProperty("rule_number", value);
     }
 

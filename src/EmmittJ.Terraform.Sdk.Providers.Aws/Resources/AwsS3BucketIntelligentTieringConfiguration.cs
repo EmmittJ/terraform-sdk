@@ -40,7 +40,7 @@ public class AwsS3BucketIntelligentTieringConfigurationTieringBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessTier is required")]
     public required TerraformProperty<string> AccessTier
     {
-        get => GetProperty<TerraformProperty<string>>("access_tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_tier");
         set => WithProperty("access_tier", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsS3BucketIntelligentTieringConfigurationTieringBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Days is required")]
     public required TerraformProperty<double> Days
     {
-        get => GetProperty<TerraformProperty<double>>("days");
+        get => GetRequiredProperty<TerraformProperty<double>>("days");
         set => WithProperty("days", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsS3BucketIntelligentTieringConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsS3BucketIntelligentTieringConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

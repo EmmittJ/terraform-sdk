@@ -56,7 +56,7 @@ public class AzurermSubnetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -66,7 +66,7 @@ public class AzurermSubnetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSubnetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkName is required")]
     public required TerraformProperty<string> VirtualNetworkName
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_name");
         set => this.WithProperty("virtual_network_name", value);
     }
 

@@ -14,7 +14,7 @@ public class GoogleVertexAiEndpointEncryptionSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
         set => WithProperty("kms_key_name", value);
     }
 
@@ -58,7 +58,7 @@ public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablePrivateServiceConnect is required")]
     public required TerraformProperty<bool> EnablePrivateServiceConnect
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_private_service_connect");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enable_private_service_connect");
         set => WithProperty("enable_private_service_connect", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleVertexAiEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -186,7 +186,7 @@ public class GoogleVertexAiEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -196,7 +196,7 @@ public class GoogleVertexAiEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

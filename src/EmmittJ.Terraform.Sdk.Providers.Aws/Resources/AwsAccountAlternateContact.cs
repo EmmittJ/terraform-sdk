@@ -66,7 +66,7 @@ public class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlternateContactType is required")]
     public required TerraformProperty<string> AlternateContactType
     {
-        get => GetProperty<TerraformProperty<string>>("alternate_contact_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("alternate_contact_type");
         set => this.WithProperty("alternate_contact_type", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformProperty<string> EmailAddress
     {
-        get => GetProperty<TerraformProperty<string>>("email_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("email_address");
         set => this.WithProperty("email_address", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformProperty<string> PhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("phone_number");
+        get => GetRequiredProperty<TerraformProperty<string>>("phone_number");
         set => this.WithProperty("phone_number", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
+        get => GetRequiredProperty<TerraformProperty<string>>("title");
         set => this.WithProperty("title", value);
     }
 

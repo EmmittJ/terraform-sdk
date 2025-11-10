@@ -127,7 +127,7 @@ public class GoogleProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformProperty<string> ProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("project_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_id");
         set => this.WithProperty("project_id", value);
     }
 

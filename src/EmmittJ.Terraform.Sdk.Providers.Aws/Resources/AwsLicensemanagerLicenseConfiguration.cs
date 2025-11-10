@@ -60,7 +60,7 @@ public class AwsLicensemanagerLicenseConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseCountingType is required")]
     public required TerraformProperty<string> LicenseCountingType
     {
-        get => GetProperty<TerraformProperty<string>>("license_counting_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("license_counting_type");
         set => this.WithProperty("license_counting_type", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsLicensemanagerLicenseConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

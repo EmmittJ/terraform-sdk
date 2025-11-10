@@ -38,7 +38,7 @@ public class AwsOamLinkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkIdentifier is required")]
     public required TerraformProperty<string> LinkIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("link_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("link_identifier");
         set => this.WithProperty("link_identifier", value);
     }
 

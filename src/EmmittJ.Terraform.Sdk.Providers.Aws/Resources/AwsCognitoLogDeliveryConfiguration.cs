@@ -14,7 +14,7 @@ public class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventSource is required")]
     public required TerraformProperty<string> EventSource
     {
-        get => GetProperty<TerraformProperty<string>>("event_source");
+        get => GetRequiredProperty<TerraformProperty<string>>("event_source");
         set => WithProperty("event_source", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogLevel is required")]
     public required TerraformProperty<string> LogLevel
     {
-        get => GetProperty<TerraformProperty<string>>("log_level");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_level");
         set => WithProperty("log_level", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsCognitoLogDeliveryConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("user_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
         set => this.WithProperty("user_pool_id", value);
     }
 

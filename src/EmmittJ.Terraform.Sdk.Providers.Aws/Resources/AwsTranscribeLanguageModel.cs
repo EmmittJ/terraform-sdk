@@ -14,7 +14,7 @@ public class AwsTranscribeLanguageModelInputDataConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessRoleArn is required")]
     public required TerraformProperty<string> DataAccessRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("data_access_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_access_role_arn");
         set => WithProperty("data_access_role_arn", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsTranscribeLanguageModelInputDataConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformProperty<string> S3Uri
     {
-        get => GetProperty<TerraformProperty<string>>("s3_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_uri");
         set => WithProperty("s3_uri", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsTranscribeLanguageModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseModelName is required")]
     public required TerraformProperty<string> BaseModelName
     {
-        get => GetProperty<TerraformProperty<string>>("base_model_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("base_model_name");
         set => this.WithProperty("base_model_name", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsTranscribeLanguageModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformProperty<string> LanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("language_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsTranscribeLanguageModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelName is required")]
     public required TerraformProperty<string> ModelName
     {
-        get => GetProperty<TerraformProperty<string>>("model_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("model_name");
         set => this.WithProperty("model_name", value);
     }
 

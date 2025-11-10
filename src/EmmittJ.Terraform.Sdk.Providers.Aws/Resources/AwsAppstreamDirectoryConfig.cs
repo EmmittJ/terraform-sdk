@@ -40,7 +40,7 @@ public class AwsAppstreamDirectoryConfigServiceAccountCredentialsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetProperty<TerraformProperty<string>>("account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
         set => WithProperty("account_name", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsAppstreamDirectoryConfigServiceAccountCredentialsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountPassword is required")]
     public required TerraformProperty<string> AccountPassword
     {
-        get => GetProperty<TerraformProperty<string>>("account_password");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_password");
         set => WithProperty("account_password", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsAppstreamDirectoryConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryName is required")]
     public required TerraformProperty<string> DirectoryName
     {
-        get => GetProperty<TerraformProperty<string>>("directory_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("directory_name");
         set => this.WithProperty("directory_name", value);
     }
 

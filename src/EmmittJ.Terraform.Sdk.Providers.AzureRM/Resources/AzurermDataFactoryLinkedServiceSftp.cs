@@ -14,7 +14,7 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("linked_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
         set => WithProperty("linked_service_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformProperty<string> SecretName
     {
-        get => GetProperty<TerraformProperty<string>>("secret_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_name");
         set => WithProperty("secret_name", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64B
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("linked_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
         set => WithProperty("linked_service_name", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64B
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformProperty<string> SecretName
     {
-        get => GetProperty<TerraformProperty<string>>("secret_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_name");
         set => WithProperty("secret_name", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("linked_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
         set => WithProperty("linked_service_name", value);
     }
 
@@ -80,7 +80,7 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformProperty<string> SecretName
     {
-        get => GetProperty<TerraformProperty<string>>("secret_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_name");
         set => WithProperty("secret_name", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermDataFactoryLinkedServiceSftp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformProperty<string> AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication_type");
         set => this.WithProperty("authentication_type", value);
     }
 
@@ -179,7 +179,7 @@ public class AzurermDataFactoryLinkedServiceSftp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetProperty<TerraformProperty<string>>("data_factory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
@@ -198,7 +198,7 @@ public class AzurermDataFactoryLinkedServiceSftp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformProperty<string> Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
+        get => GetRequiredProperty<TerraformProperty<string>>("host");
         set => this.WithProperty("host", value);
     }
 
@@ -235,7 +235,7 @@ public class AzurermDataFactoryLinkedServiceSftp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -263,7 +263,7 @@ public class AzurermDataFactoryLinkedServiceSftp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 
@@ -309,7 +309,7 @@ public class AzurermDataFactoryLinkedServiceSftp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

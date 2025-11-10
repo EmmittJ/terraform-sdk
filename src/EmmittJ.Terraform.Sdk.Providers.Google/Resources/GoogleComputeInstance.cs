@@ -148,7 +148,7 @@ public class GoogleComputeInstanceAttachedDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
+        get => GetRequiredProperty<TerraformProperty<string>>("source");
         set => WithProperty("source", value);
     }
 
@@ -312,7 +312,7 @@ public class GoogleComputeInstanceGuestAcceleratorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     public required TerraformProperty<double> Count
     {
-        get => GetProperty<TerraformProperty<double>>("count");
+        get => GetRequiredProperty<TerraformProperty<double>>("count");
         set => WithProperty("count", value);
     }
 
@@ -322,7 +322,7 @@ public class GoogleComputeInstanceGuestAcceleratorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -491,7 +491,7 @@ public class GoogleComputeInstanceNetworkPerformanceConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalEgressBandwidthTier is required")]
     public required TerraformProperty<string> TotalEgressBandwidthTier
     {
-        get => GetProperty<TerraformProperty<string>>("total_egress_bandwidth_tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("total_egress_bandwidth_tier");
         set => WithProperty("total_egress_bandwidth_tier", value);
     }
 
@@ -526,7 +526,7 @@ public class GoogleComputeInstanceReservationAffinityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -635,7 +635,7 @@ public class GoogleComputeInstanceScratchDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interface is required")]
     public required TerraformProperty<string> Interface
     {
-        get => GetProperty<TerraformProperty<string>>("interface");
+        get => GetRequiredProperty<TerraformProperty<string>>("interface");
         set => WithProperty("interface", value);
     }
 
@@ -871,7 +871,7 @@ public class GoogleComputeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineType is required")]
     public required TerraformProperty<string> MachineType
     {
-        get => GetProperty<TerraformProperty<string>>("machine_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("machine_type");
         set => this.WithProperty("machine_type", value);
     }
 
@@ -908,7 +908,7 @@ public class GoogleComputeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

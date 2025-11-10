@@ -41,7 +41,7 @@ public class AzurermKustoClusterIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermKustoClusterLanguageExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformProperty<string> Image
     {
-        get => GetProperty<TerraformProperty<string>>("image");
+        get => GetRequiredProperty<TerraformProperty<string>>("image");
         set => WithProperty("image", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermKustoClusterLanguageExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermKustoClusterLanguageExtensionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformProperty<string> Image
     {
-        get => GetProperty<TerraformProperty<string>>("image");
+        get => GetRequiredProperty<TerraformProperty<string>>("image");
         set => WithProperty("image", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermKustoClusterLanguageExtensionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermKustoClusterOptimizedAutoScaleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumInstances is required")]
     public required TerraformProperty<double> MaximumInstances
     {
-        get => GetProperty<TerraformProperty<double>>("maximum_instances");
+        get => GetRequiredProperty<TerraformProperty<double>>("maximum_instances");
         set => WithProperty("maximum_instances", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermKustoClusterOptimizedAutoScaleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumInstances is required")]
     public required TerraformProperty<double> MinimumInstances
     {
-        get => GetProperty<TerraformProperty<double>>("minimum_instances");
+        get => GetRequiredProperty<TerraformProperty<double>>("minimum_instances");
         set => WithProperty("minimum_instances", value);
     }
 
@@ -152,7 +152,7 @@ public class AzurermKustoClusterSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -214,7 +214,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataManagementPublicIpId is required")]
     public required TerraformProperty<string> DataManagementPublicIpId
     {
-        get => GetProperty<TerraformProperty<string>>("data_management_public_ip_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_management_public_ip_id");
         set => WithProperty("data_management_public_ip_id", value);
     }
 
@@ -224,7 +224,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnginePublicIpId is required")]
     public required TerraformProperty<string> EnginePublicIpId
     {
-        get => GetProperty<TerraformProperty<string>>("engine_public_ip_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine_public_ip_id");
         set => WithProperty("engine_public_ip_id", value);
     }
 
@@ -234,7 +234,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => WithProperty("subnet_id", value);
     }
 
@@ -317,7 +317,7 @@ public class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -327,7 +327,7 @@ public class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -373,7 +373,7 @@ public class AzurermKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -22,7 +22,7 @@ public class GoogleLoggingBillingAccountExclusion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     public required TerraformProperty<string> BillingAccount
     {
-        get => GetProperty<TerraformProperty<string>>("billing_account");
+        get => GetRequiredProperty<TerraformProperty<string>>("billing_account");
         set => this.WithProperty("billing_account", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleLoggingBillingAccountExclusion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleLoggingBillingAccountExclusion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

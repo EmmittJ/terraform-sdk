@@ -67,7 +67,7 @@ public class AwsRolesanywhereTrustAnchorSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     public required TerraformProperty<string> SourceType
     {
-        get => GetProperty<TerraformProperty<string>>("source_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_type");
         set => WithProperty("source_type", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsRolesanywhereTrustAnchor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -34,7 +34,7 @@ public class AwsWorkspaceswebBrowserSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BrowserPolicy is required")]
     public required TerraformProperty<string> BrowserPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("browser_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("browser_policy");
         set => this.WithProperty("browser_policy", value);
     }
 

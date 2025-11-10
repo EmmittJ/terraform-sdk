@@ -66,7 +66,7 @@ public class AzurermApiManagementOpenidConnectProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermApiManagementOpenidConnectProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermApiManagementOpenidConnectProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
         set => this.WithProperty("client_secret", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermApiManagementOpenidConnectProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermApiManagementOpenidConnectProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetadataEndpoint is required")]
     public required TerraformProperty<string> MetadataEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("metadata_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("metadata_endpoint");
         set => this.WithProperty("metadata_endpoint", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermApiManagementOpenidConnectProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -144,7 +144,7 @@ public class AzurermApiManagementOpenidConnectProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

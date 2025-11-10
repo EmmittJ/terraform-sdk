@@ -191,7 +191,7 @@ public class GoogleDialogflowCxGenerativeSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformProperty<string> LanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("language_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
     }
 

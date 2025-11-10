@@ -40,7 +40,7 @@ public class AwsVpnGatewayAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsVpnGatewayAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnGatewayId is required")]
     public required TerraformProperty<string> VpnGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("vpn_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpn_gateway_id");
         set => this.WithProperty("vpn_gateway_id", value);
     }
 

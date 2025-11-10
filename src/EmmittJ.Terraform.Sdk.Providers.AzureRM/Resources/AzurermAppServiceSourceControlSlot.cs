@@ -122,7 +122,7 @@ public class AzurermAppServiceSourceControlSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotId is required")]
     public required TerraformProperty<string> SlotId
     {
-        get => GetProperty<TerraformProperty<string>>("slot_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("slot_id");
         set => this.WithProperty("slot_id", value);
     }
 

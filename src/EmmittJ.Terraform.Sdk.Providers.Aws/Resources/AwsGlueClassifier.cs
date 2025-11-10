@@ -103,7 +103,7 @@ public class AwsGlueClassifierGrokClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
     public required TerraformProperty<string> Classification
     {
-        get => GetProperty<TerraformProperty<string>>("classification");
+        get => GetRequiredProperty<TerraformProperty<string>>("classification");
         set => WithProperty("classification", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsGlueClassifierGrokClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrokPattern is required")]
     public required TerraformProperty<string> GrokPattern
     {
-        get => GetProperty<TerraformProperty<string>>("grok_pattern");
+        get => GetRequiredProperty<TerraformProperty<string>>("grok_pattern");
         set => WithProperty("grok_pattern", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsGlueClassifierJsonClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JsonPath is required")]
     public required TerraformProperty<string> JsonPath
     {
-        get => GetProperty<TerraformProperty<string>>("json_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("json_path");
         set => WithProperty("json_path", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsGlueClassifierXmlClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
     public required TerraformProperty<string> Classification
     {
-        get => GetProperty<TerraformProperty<string>>("classification");
+        get => GetRequiredProperty<TerraformProperty<string>>("classification");
         set => WithProperty("classification", value);
     }
 
@@ -168,7 +168,7 @@ public class AwsGlueClassifierXmlClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowTag is required")]
     public required TerraformProperty<string> RowTag
     {
-        get => GetProperty<TerraformProperty<string>>("row_tag");
+        get => GetRequiredProperty<TerraformProperty<string>>("row_tag");
         set => WithProperty("row_tag", value);
     }
 
@@ -204,7 +204,7 @@ public class AwsGlueClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -84,7 +84,7 @@ public class AzurermDedicatedHostGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermDedicatedHostGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermDedicatedHostGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformFaultDomainCount is required")]
     public required TerraformProperty<double> PlatformFaultDomainCount
     {
-        get => GetProperty<TerraformProperty<double>>("platform_fault_domain_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("platform_fault_domain_count");
         set => this.WithProperty("platform_fault_domain_count", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermDedicatedHostGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

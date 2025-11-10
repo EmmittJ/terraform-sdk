@@ -28,7 +28,7 @@ public class AwsAuditmanagerFrameworkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkType is required")]
     public required TerraformProperty<string> FrameworkType
     {
-        get => GetProperty<TerraformProperty<string>>("framework_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("framework_type");
         set => this.WithProperty("framework_type", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsAuditmanagerFrameworkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

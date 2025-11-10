@@ -23,7 +23,7 @@ public class AwsFsxLustreFileSystemDataReadCacheConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizingMode is required")]
     public required TerraformProperty<string> SizingMode
     {
-        get => GetProperty<TerraformProperty<string>>("sizing_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("sizing_mode");
         set => WithProperty("sizing_mode", value);
     }
 

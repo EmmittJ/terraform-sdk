@@ -58,7 +58,7 @@ public class AwsVpcIpamPreviewNextCidrDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
     public required TerraformProperty<string> IpamPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("ipam_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("ipam_pool_id");
         set => this.WithProperty("ipam_pool_id", value);
     }
 

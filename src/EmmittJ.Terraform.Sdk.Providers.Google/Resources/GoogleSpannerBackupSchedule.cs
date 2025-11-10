@@ -17,7 +17,7 @@ public class GoogleSpannerBackupScheduleEncryptionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionType is required")]
     public required TerraformProperty<string> EncryptionType
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("encryption_type");
         set => WithProperty("encryption_type", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleSpannerBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetProperty<TerraformProperty<string>>("database");
+        get => GetRequiredProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
     }
 
@@ -142,7 +142,7 @@ public class GoogleSpannerBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleSpannerBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDuration is required")]
     public required TerraformProperty<string> RetentionDuration
     {
-        get => GetProperty<TerraformProperty<string>>("retention_duration");
+        get => GetRequiredProperty<TerraformProperty<string>>("retention_duration");
         set => this.WithProperty("retention_duration", value);
     }
 

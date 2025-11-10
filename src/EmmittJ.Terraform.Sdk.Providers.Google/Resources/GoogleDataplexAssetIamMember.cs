@@ -23,7 +23,7 @@ public class GoogleDataplexAssetIamMemberConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("expression");
         set => WithProperty("expression", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleDataplexAssetIamMemberConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
+        get => GetRequiredProperty<TerraformProperty<string>>("title");
         set => WithProperty("title", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleDataplexAssetIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asset is required")]
     public required TerraformProperty<string> Asset
     {
-        get => GetProperty<TerraformProperty<string>>("asset");
+        get => GetRequiredProperty<TerraformProperty<string>>("asset");
         set => this.WithProperty("asset", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleDataplexAssetIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataplexZone is required")]
     public required TerraformProperty<string> DataplexZone
     {
-        get => GetProperty<TerraformProperty<string>>("dataplex_zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataplex_zone");
         set => this.WithProperty("dataplex_zone", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleDataplexAssetIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
     public required TerraformProperty<string> Lake
     {
-        get => GetProperty<TerraformProperty<string>>("lake");
+        get => GetRequiredProperty<TerraformProperty<string>>("lake");
         set => this.WithProperty("lake", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleDataplexAssetIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
     public required TerraformProperty<string> Member
     {
-        get => GetProperty<TerraformProperty<string>>("member");
+        get => GetRequiredProperty<TerraformProperty<string>>("member");
         set => this.WithProperty("member", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleDataplexAssetIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

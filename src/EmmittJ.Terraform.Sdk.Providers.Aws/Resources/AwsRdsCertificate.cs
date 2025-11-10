@@ -22,7 +22,7 @@ public class AwsRdsCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateIdentifier is required")]
     public required TerraformProperty<string> CertificateIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_identifier");
         set => this.WithProperty("certificate_identifier", value);
     }
 

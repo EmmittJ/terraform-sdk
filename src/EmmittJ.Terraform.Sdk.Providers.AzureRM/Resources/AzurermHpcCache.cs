@@ -22,7 +22,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheNetbiosName is required")]
     public required TerraformProperty<string> CacheNetbiosName
     {
-        get => GetProperty<TerraformProperty<string>>("cache_netbios_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cache_netbios_name");
         set => WithProperty("cache_netbios_name", value);
     }
 
@@ -32,7 +32,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsPrimaryIp is required")]
     public required TerraformProperty<string> DnsPrimaryIp
     {
-        get => GetProperty<TerraformProperty<string>>("dns_primary_ip");
+        get => GetRequiredProperty<TerraformProperty<string>>("dns_primary_ip");
         set => WithProperty("dns_primary_ip", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => WithProperty("domain_name", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainNetbiosName is required")]
     public required TerraformProperty<string> DomainNetbiosName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_netbios_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_netbios_name");
         set => WithProperty("domain_netbios_name", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => WithProperty("password", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -99,7 +99,7 @@ public class AzurermHpcCacheDirectoryFlatFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupFileUri is required")]
     public required TerraformProperty<string> GroupFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("group_file_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("group_file_uri");
         set => WithProperty("group_file_uri", value);
     }
 
@@ -109,7 +109,7 @@ public class AzurermHpcCacheDirectoryFlatFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasswordFileUri is required")]
     public required TerraformProperty<string> PasswordFileUri
     {
-        get => GetProperty<TerraformProperty<string>>("password_file_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("password_file_uri");
         set => WithProperty("password_file_uri", value);
     }
 
@@ -127,7 +127,7 @@ public class AzurermHpcCacheDirectoryLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseDn is required")]
     public required TerraformProperty<string> BaseDn
     {
-        get => GetProperty<TerraformProperty<string>>("base_dn");
+        get => GetRequiredProperty<TerraformProperty<string>>("base_dn");
         set => WithProperty("base_dn", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermHpcCacheDirectoryLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformProperty<string> Server
     {
-        get => GetProperty<TerraformProperty<string>>("server");
+        get => GetRequiredProperty<TerraformProperty<string>>("server");
         set => WithProperty("server", value);
     }
 
@@ -236,7 +236,7 @@ public class AzurermHpcCacheIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -318,7 +318,7 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheSizeInGb is required")]
     public required TerraformProperty<double> CacheSizeInGb
     {
-        get => GetProperty<TerraformProperty<double>>("cache_size_in_gb");
+        get => GetRequiredProperty<TerraformProperty<double>>("cache_size_in_gb");
         set => this.WithProperty("cache_size_in_gb", value);
     }
 
@@ -346,7 +346,7 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -365,7 +365,7 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -384,7 +384,7 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -394,7 +394,7 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetProperty<TerraformProperty<string>>("sku_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 
@@ -404,7 +404,7 @@ public class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

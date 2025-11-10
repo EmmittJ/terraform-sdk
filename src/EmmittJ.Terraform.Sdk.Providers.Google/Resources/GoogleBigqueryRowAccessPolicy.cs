@@ -59,7 +59,7 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetProperty<TerraformProperty<string>>("dataset_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterPredicate is required")]
     public required TerraformProperty<string> FilterPredicate
     {
-        get => GetProperty<TerraformProperty<string>>("filter_predicate");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter_predicate");
         set => this.WithProperty("filter_predicate", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformProperty<string> PolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_id");
         set => this.WithProperty("policy_id", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformProperty<string> TableId
     {
-        get => GetProperty<TerraformProperty<string>>("table_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_id");
         set => this.WithProperty("table_id", value);
     }
 

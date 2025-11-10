@@ -24,7 +24,7 @@ public class AwsSyntheticsGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CanaryArn is required")]
     public required TerraformProperty<string> CanaryArn
     {
-        get => GetProperty<TerraformProperty<string>>("canary_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("canary_arn");
         set => this.WithProperty("canary_arn", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsSyntheticsGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformProperty<string> GroupName
     {
-        get => GetProperty<TerraformProperty<string>>("group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("group_name");
         set => this.WithProperty("group_name", value);
     }
 

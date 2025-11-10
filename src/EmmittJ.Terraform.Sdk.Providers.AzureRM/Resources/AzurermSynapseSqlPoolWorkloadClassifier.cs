@@ -111,7 +111,7 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberName is required")]
     public required TerraformProperty<string> MemberName
     {
-        get => GetProperty<TerraformProperty<string>>("member_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("member_name");
         set => this.WithProperty("member_name", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadGroupId is required")]
     public required TerraformProperty<string> WorkloadGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("workload_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workload_group_id");
         set => this.WithProperty("workload_group_id", value);
     }
 

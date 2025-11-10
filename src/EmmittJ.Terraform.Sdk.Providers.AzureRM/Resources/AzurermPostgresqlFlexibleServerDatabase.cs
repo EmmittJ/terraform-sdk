@@ -84,7 +84,7 @@ public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformProperty<string> ServerId
     {
-        get => GetProperty<TerraformProperty<string>>("server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
     }
 

@@ -30,7 +30,7 @@ public class AwsBedrockInferenceProfileDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InferenceProfileId is required")]
     public required TerraformProperty<string> InferenceProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("inference_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("inference_profile_id");
         set => this.WithProperty("inference_profile_id", value);
     }
 

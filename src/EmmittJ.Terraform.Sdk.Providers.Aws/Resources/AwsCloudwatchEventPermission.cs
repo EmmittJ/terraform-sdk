@@ -14,7 +14,7 @@ public class AwsCloudwatchEventPermissionConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsCloudwatchEventPermissionConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsCloudwatchEventPermissionConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsCloudwatchEventPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal");
         set => this.WithProperty("principal", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsCloudwatchEventPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatementId is required")]
     public required TerraformProperty<string> StatementId
     {
-        get => GetProperty<TerraformProperty<string>>("statement_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("statement_id");
         set => this.WithProperty("statement_id", value);
     }
 

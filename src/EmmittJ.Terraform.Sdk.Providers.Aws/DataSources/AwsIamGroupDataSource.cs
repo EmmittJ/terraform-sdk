@@ -26,7 +26,7 @@ public class AwsIamGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformProperty<string> GroupName
     {
-        get => GetProperty<TerraformProperty<string>>("group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("group_name");
         set => this.WithProperty("group_name", value);
     }
 

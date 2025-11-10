@@ -23,7 +23,7 @@ public class AwsCloudwatchEventApiDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionArn is required")]
     public required TerraformProperty<string> ConnectionArn
     {
-        get => GetProperty<TerraformProperty<string>>("connection_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_arn");
         set => this.WithProperty("connection_arn", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsCloudwatchEventApiDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
     public required TerraformProperty<string> HttpMethod
     {
-        get => GetProperty<TerraformProperty<string>>("http_method");
+        get => GetRequiredProperty<TerraformProperty<string>>("http_method");
         set => this.WithProperty("http_method", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsCloudwatchEventApiDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InvocationEndpoint is required")]
     public required TerraformProperty<string> InvocationEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("invocation_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("invocation_endpoint");
         set => this.WithProperty("invocation_endpoint", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsCloudwatchEventApiDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

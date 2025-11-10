@@ -24,7 +24,7 @@ public class GoogleHealthcareDicomStoreIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DicomStoreId is required")]
     public required TerraformProperty<string> DicomStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("dicom_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dicom_store_id");
         set => this.WithProperty("dicom_store_id", value);
     }
 

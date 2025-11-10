@@ -67,7 +67,7 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfo : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpirationDate is required")]
     public required TerraformProperty<string> ExpirationDate
     {
-        get => GetProperty<TerraformProperty<string>>("expiration_date");
+        get => GetRequiredProperty<TerraformProperty<string>>("expiration_date");
         set => this.WithProperty("expiration_date", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfo : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostpoolId is required")]
     public required TerraformProperty<string> HostpoolId
     {
-        get => GetProperty<TerraformProperty<string>>("hostpool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("hostpool_id");
         set => this.WithProperty("hostpool_id", value);
     }
 

@@ -41,7 +41,7 @@ public class AzurermMachineLearningInferenceClusterIdentityBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -183,7 +183,7 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     public required TerraformProperty<string> KubernetesClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("kubernetes_cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("kubernetes_cluster_id");
         set => this.WithProperty("kubernetes_cluster_id", value);
     }
 
@@ -193,7 +193,7 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -203,7 +203,7 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
     public required TerraformProperty<string> MachineLearningWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("machine_learning_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("machine_learning_workspace_id");
         set => this.WithProperty("machine_learning_workspace_id", value);
     }
 
@@ -213,7 +213,7 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

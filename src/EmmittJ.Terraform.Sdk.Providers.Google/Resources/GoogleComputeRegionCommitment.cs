@@ -32,7 +32,7 @@ public class GoogleComputeRegionCommitmentLicenseResourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "License is required")]
     public required TerraformProperty<string> License
     {
-        get => GetProperty<TerraformProperty<string>>("license");
+        get => GetRequiredProperty<TerraformProperty<string>>("license");
         set => WithProperty("license", value);
     }
 
@@ -186,7 +186,7 @@ public class GoogleComputeRegionCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -197,7 +197,7 @@ public class GoogleComputeRegionCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformProperty<string> Plan
     {
-        get => GetProperty<TerraformProperty<string>>("plan");
+        get => GetRequiredProperty<TerraformProperty<string>>("plan");
         set => this.WithProperty("plan", value);
     }
 

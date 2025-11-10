@@ -60,7 +60,7 @@ public class AwsVpcBlockPublicAccessExclusion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternetGatewayExclusionMode is required")]
     public required TerraformProperty<string> InternetGatewayExclusionMode
     {
-        get => GetProperty<TerraformProperty<string>>("internet_gateway_exclusion_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("internet_gateway_exclusion_mode");
         set => this.WithProperty("internet_gateway_exclusion_mode", value);
     }
 

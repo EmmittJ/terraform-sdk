@@ -75,7 +75,7 @@ public class AwsSesv2AccountVdmAttributes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VdmEnabled is required")]
     public required TerraformProperty<string> VdmEnabled
     {
-        get => GetProperty<TerraformProperty<string>>("vdm_enabled");
+        get => GetRequiredProperty<TerraformProperty<string>>("vdm_enabled");
         set => this.WithProperty("vdm_enabled", value);
     }
 

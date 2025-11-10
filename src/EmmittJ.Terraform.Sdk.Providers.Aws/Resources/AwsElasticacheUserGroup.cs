@@ -23,7 +23,7 @@ public class AwsElasticacheUserGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     public required TerraformProperty<string> Engine
     {
-        get => GetProperty<TerraformProperty<string>>("engine");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsElasticacheUserGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserGroupId is required")]
     public required TerraformProperty<string> UserGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("user_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_group_id");
         set => this.WithProperty("user_group_id", value);
     }
 

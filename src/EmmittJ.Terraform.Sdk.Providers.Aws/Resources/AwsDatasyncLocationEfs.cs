@@ -24,7 +24,7 @@ public class AwsDatasyncLocationEfsEc2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetArn is required")]
     public required TerraformProperty<string> SubnetArn
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_arn");
         set => WithProperty("subnet_arn", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsDatasyncLocationEfs : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EfsFileSystemArn is required")]
     public required TerraformProperty<string> EfsFileSystemArn
     {
-        get => GetProperty<TerraformProperty<string>>("efs_file_system_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("efs_file_system_arn");
         set => this.WithProperty("efs_file_system_arn", value);
     }
 

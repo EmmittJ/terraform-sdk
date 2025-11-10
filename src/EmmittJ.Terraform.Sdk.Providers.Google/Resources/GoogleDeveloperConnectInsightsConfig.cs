@@ -102,7 +102,7 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppHubApplication is required")]
     public required TerraformProperty<string> AppHubApplication
     {
-        get => GetProperty<TerraformProperty<string>>("app_hub_application");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_hub_application");
         set => this.WithProperty("app_hub_application", value);
     }
 
@@ -121,7 +121,7 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsConfigId is required")]
     public required TerraformProperty<string> InsightsConfigId
     {
-        get => GetProperty<TerraformProperty<string>>("insights_config_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("insights_config_id");
         set => this.WithProperty("insights_config_id", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

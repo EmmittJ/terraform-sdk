@@ -236,7 +236,7 @@ public class AzurermKubernetesClusterNodePoolUpgradeSettingsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSurge is required")]
     public required TerraformProperty<string> MaxSurge
     {
-        get => GetProperty<TerraformProperty<string>>("max_surge");
+        get => GetRequiredProperty<TerraformProperty<string>>("max_surge");
         set => WithProperty("max_surge", value);
     }
 
@@ -379,7 +379,7 @@ public class AzurermKubernetesClusterNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     public required TerraformProperty<string> KubernetesClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("kubernetes_cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("kubernetes_cluster_id");
         set => this.WithProperty("kubernetes_cluster_id", value);
     }
 
@@ -425,7 +425,7 @@ public class AzurermKubernetesClusterNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

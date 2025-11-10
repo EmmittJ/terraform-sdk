@@ -44,7 +44,7 @@ public class GoogleNetworkConnectivityInternalRangeMigrationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
+        get => GetRequiredProperty<TerraformProperty<string>>("source");
         set => WithProperty("source", value);
     }
 
@@ -57,7 +57,7 @@ public class GoogleNetworkConnectivityInternalRangeMigrationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetProperty<TerraformProperty<string>>("target");
+        get => GetRequiredProperty<TerraformProperty<string>>("target");
         set => WithProperty("target", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -193,7 +193,7 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -212,7 +212,7 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     public required TerraformProperty<string> Peering
     {
-        get => GetProperty<TerraformProperty<string>>("peering");
+        get => GetRequiredProperty<TerraformProperty<string>>("peering");
         set => this.WithProperty("peering", value);
     }
 
@@ -253,7 +253,7 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Usage is required")]
     public required TerraformProperty<string> Usage
     {
-        get => GetProperty<TerraformProperty<string>>("usage");
+        get => GetRequiredProperty<TerraformProperty<string>>("usage");
         set => this.WithProperty("usage", value);
     }
 

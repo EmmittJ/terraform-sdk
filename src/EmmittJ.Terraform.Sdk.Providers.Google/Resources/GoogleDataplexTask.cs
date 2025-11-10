@@ -50,7 +50,7 @@ public class GoogleDataplexTaskExecutionSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformProperty<string> ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_account");
         set => WithProperty("service_account", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleDataplexTaskNotebookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notebook is required")]
     public required TerraformProperty<string> Notebook
     {
-        get => GetProperty<TerraformProperty<string>>("notebook");
+        get => GetRequiredProperty<TerraformProperty<string>>("notebook");
         set => WithProperty("notebook", value);
     }
 
@@ -246,7 +246,7 @@ public class GoogleDataplexTaskTriggerSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 

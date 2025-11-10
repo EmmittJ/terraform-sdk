@@ -23,7 +23,7 @@ public class AwsCloudfrontDistributionCustomErrorResponseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ErrorCode is required")]
     public required TerraformProperty<double> ErrorCode
     {
-        get => GetProperty<TerraformProperty<double>>("error_code");
+        get => GetRequiredProperty<TerraformProperty<double>>("error_code");
         set => WithProperty("error_code", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetOriginId is required")]
     public required TerraformProperty<string> TargetOriginId
     {
-        get => GetProperty<TerraformProperty<string>>("target_origin_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_origin_id");
         set => WithProperty("target_origin_id", value);
     }
 
@@ -197,7 +197,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ViewerProtocolPolicy is required")]
     public required TerraformProperty<string> ViewerProtocolPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("viewer_protocol_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("viewer_protocol_policy");
         set => WithProperty("viewer_protocol_policy", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsCloudfrontDistributionLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => WithProperty("bucket", value);
     }
 
@@ -334,7 +334,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathPattern is required")]
     public required TerraformProperty<string> PathPattern
     {
-        get => GetProperty<TerraformProperty<string>>("path_pattern");
+        get => GetRequiredProperty<TerraformProperty<string>>("path_pattern");
         set => WithProperty("path_pattern", value);
     }
 
@@ -371,7 +371,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetOriginId is required")]
     public required TerraformProperty<string> TargetOriginId
     {
-        get => GetProperty<TerraformProperty<string>>("target_origin_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_origin_id");
         set => WithProperty("target_origin_id", value);
     }
 
@@ -399,7 +399,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ViewerProtocolPolicy is required")]
     public required TerraformProperty<string> ViewerProtocolPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("viewer_protocol_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("viewer_protocol_policy");
         set => WithProperty("viewer_protocol_policy", value);
     }
 
@@ -435,7 +435,7 @@ public class AwsCloudfrontDistributionOriginBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => WithProperty("domain_name", value);
     }
 
@@ -454,7 +454,7 @@ public class AwsCloudfrontDistributionOriginBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginId is required")]
     public required TerraformProperty<string> OriginId
     {
-        get => GetProperty<TerraformProperty<string>>("origin_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("origin_id");
         set => WithProperty("origin_id", value);
     }
 
@@ -490,7 +490,7 @@ public class AwsCloudfrontDistributionOriginGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginId is required")]
     public required TerraformProperty<string> OriginId
     {
-        get => GetProperty<TerraformProperty<string>>("origin_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("origin_id");
         set => WithProperty("origin_id", value);
     }
 
@@ -633,7 +633,7 @@ public class AwsCloudfrontDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 

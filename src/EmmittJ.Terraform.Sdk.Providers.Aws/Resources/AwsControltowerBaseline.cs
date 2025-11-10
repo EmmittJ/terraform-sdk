@@ -14,7 +14,7 @@ public class AwsControltowerBaselineParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsControltowerBaselineParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsControltowerBaseline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaselineIdentifier is required")]
     public required TerraformProperty<string> BaselineIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("baseline_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("baseline_identifier");
         set => this.WithProperty("baseline_identifier", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsControltowerBaseline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaselineVersion is required")]
     public required TerraformProperty<string> BaselineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("baseline_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("baseline_version");
         set => this.WithProperty("baseline_version", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsControltowerBaseline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetIdentifier is required")]
     public required TerraformProperty<string> TargetIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("target_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_identifier");
         set => this.WithProperty("target_identifier", value);
     }
 

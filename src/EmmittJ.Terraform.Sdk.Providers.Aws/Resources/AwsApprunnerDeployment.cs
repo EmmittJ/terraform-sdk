@@ -51,7 +51,7 @@ public class AwsApprunnerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceArn is required")]
     public required TerraformProperty<string> ServiceArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_arn");
         set => this.WithProperty("service_arn", value);
     }
 

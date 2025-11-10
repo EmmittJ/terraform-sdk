@@ -75,7 +75,7 @@ public class AzurermPostgresqlFlexibleServerVirtualEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermPostgresqlFlexibleServerVirtualEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicaServerId is required")]
     public required TerraformProperty<string> ReplicaServerId
     {
-        get => GetProperty<TerraformProperty<string>>("replica_server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("replica_server_id");
         set => this.WithProperty("replica_server_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermPostgresqlFlexibleServerVirtualEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceServerId is required")]
     public required TerraformProperty<string> SourceServerId
     {
-        get => GetProperty<TerraformProperty<string>>("source_server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_server_id");
         set => this.WithProperty("source_server_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermPostgresqlFlexibleServerVirtualEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

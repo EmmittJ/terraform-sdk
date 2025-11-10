@@ -49,7 +49,7 @@ public class AwsDxHostedTransitVirtualInterfaceAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DxGatewayId is required")]
     public required TerraformProperty<string> DxGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("dx_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dx_gateway_id");
         set => this.WithProperty("dx_gateway_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsDxHostedTransitVirtualInterfaceAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualInterfaceId is required")]
     public required TerraformProperty<string> VirtualInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_interface_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_interface_id");
         set => this.WithProperty("virtual_interface_id", value);
     }
 

@@ -75,7 +75,7 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLine : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLine : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLine : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformProperty<string> PhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("phone_number");
+        get => GetRequiredProperty<TerraformProperty<string>>("phone_number");
         set => this.WithProperty("phone_number", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLine : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Purpose is required")]
     public required TerraformProperty<string> Purpose
     {
-        get => GetProperty<TerraformProperty<string>>("purpose");
+        get => GetRequiredProperty<TerraformProperty<string>>("purpose");
         set => this.WithProperty("purpose", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLine : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceServicesCommunicationsGatewayId is required")]
     public required TerraformProperty<string> VoiceServicesCommunicationsGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("voice_services_communications_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("voice_services_communications_gateway_id");
         set => this.WithProperty("voice_services_communications_gateway_id", value);
     }
 

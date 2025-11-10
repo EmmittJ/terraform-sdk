@@ -39,7 +39,7 @@ public class AzurermBillingEnrollmentAccountScopeDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountName is required")]
     public required TerraformProperty<string> BillingAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("billing_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("billing_account_name");
         set => this.WithProperty("billing_account_name", value);
     }
 
@@ -49,7 +49,7 @@ public class AzurermBillingEnrollmentAccountScopeDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrollmentAccountName is required")]
     public required TerraformProperty<string> EnrollmentAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("enrollment_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("enrollment_account_name");
         set => this.WithProperty("enrollment_account_name", value);
     }
 

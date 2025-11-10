@@ -75,7 +75,7 @@ public class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
         set => WithProperty("namespace", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleCloudRunDomainMappingSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteName is required")]
     public required TerraformProperty<string> RouteName
     {
-        get => GetProperty<TerraformProperty<string>>("route_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("route_name");
         set => WithProperty("route_name", value);
     }
 
@@ -225,7 +225,7 @@ public class GoogleCloudRunDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -235,7 +235,7 @@ public class GoogleCloudRunDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

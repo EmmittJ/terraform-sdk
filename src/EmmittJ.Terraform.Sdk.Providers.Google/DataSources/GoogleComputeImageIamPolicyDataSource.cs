@@ -33,7 +33,7 @@ public class GoogleComputeImageIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformProperty<string> Image
     {
-        get => GetProperty<TerraformProperty<string>>("image");
+        get => GetRequiredProperty<TerraformProperty<string>>("image");
         set => this.WithProperty("image", value);
     }
 

@@ -138,7 +138,7 @@ public class AzurermFrontdoorCustomHttpsConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomHttpsProvisioningEnabled is required")]
     public required TerraformProperty<bool> CustomHttpsProvisioningEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("custom_https_provisioning_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("custom_https_provisioning_enabled");
         set => this.WithProperty("custom_https_provisioning_enabled", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermFrontdoorCustomHttpsConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendEndpointId is required")]
     public required TerraformProperty<string> FrontendEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("frontend_endpoint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("frontend_endpoint_id");
         set => this.WithProperty("frontend_endpoint_id", value);
     }
 

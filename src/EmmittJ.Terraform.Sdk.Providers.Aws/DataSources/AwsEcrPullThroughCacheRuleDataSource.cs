@@ -27,7 +27,7 @@ public class AwsEcrPullThroughCacheRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EcrRepositoryPrefix is required")]
     public required TerraformProperty<string> EcrRepositoryPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("ecr_repository_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("ecr_repository_prefix");
         set => this.WithProperty("ecr_repository_prefix", value);
     }
 

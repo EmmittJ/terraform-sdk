@@ -32,7 +32,7 @@ public class GoogleSecretManagerSecretIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleSecretManagerSecretIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformProperty<string> SecretId
     {
-        get => GetProperty<TerraformProperty<string>>("secret_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_id");
         set => this.WithProperty("secret_id", value);
     }
 

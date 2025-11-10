@@ -14,7 +14,7 @@ public class AwsAppintegrationsEventIntegrationEventFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
+        get => GetRequiredProperty<TerraformProperty<string>>("source");
         set => WithProperty("source", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsAppintegrationsEventIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventbridgeBus is required")]
     public required TerraformProperty<string> EventbridgeBus
     {
-        get => GetProperty<TerraformProperty<string>>("eventbridge_bus");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventbridge_bus");
         set => this.WithProperty("eventbridge_bus", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsAppintegrationsEventIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

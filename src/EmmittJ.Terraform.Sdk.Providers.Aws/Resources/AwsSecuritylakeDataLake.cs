@@ -23,7 +23,7 @@ public class AwsSecuritylakeDataLakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
+        get => GetRequiredProperty<TerraformProperty<string>>("region");
         set => WithProperty("region", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsSecuritylakeDataLake : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetaStoreManagerRoleArn is required")]
     public required TerraformProperty<string> MetaStoreManagerRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("meta_store_manager_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("meta_store_manager_role_arn");
         set => this.WithProperty("meta_store_manager_role_arn", value);
     }
 

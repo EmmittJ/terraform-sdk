@@ -109,7 +109,7 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
     public required TerraformProperty<string> Backend
     {
-        get => GetProperty<TerraformProperty<string>>("backend");
+        get => GetRequiredProperty<TerraformProperty<string>>("backend");
         set => this.WithProperty("backend", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

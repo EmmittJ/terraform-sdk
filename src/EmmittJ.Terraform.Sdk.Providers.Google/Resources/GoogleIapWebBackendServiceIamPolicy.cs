@@ -32,7 +32,7 @@ public class GoogleIapWebBackendServiceIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleIapWebBackendServiceIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebBackendService is required")]
     public required TerraformProperty<string> WebBackendService
     {
-        get => GetProperty<TerraformProperty<string>>("web_backend_service");
+        get => GetRequiredProperty<TerraformProperty<string>>("web_backend_service");
         set => this.WithProperty("web_backend_service", value);
     }
 

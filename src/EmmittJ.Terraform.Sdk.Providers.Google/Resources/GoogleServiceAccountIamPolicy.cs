@@ -32,7 +32,7 @@ public class GoogleServiceAccountIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleServiceAccountIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountId is required")]
     public required TerraformProperty<string> ServiceAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_account_id");
         set => this.WithProperty("service_account_id", value);
     }
 

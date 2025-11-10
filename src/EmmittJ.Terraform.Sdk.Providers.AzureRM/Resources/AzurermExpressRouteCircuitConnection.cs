@@ -66,7 +66,7 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixIpv4 is required")]
     public required TerraformProperty<string> AddressPrefixIpv4
     {
-        get => GetProperty<TerraformProperty<string>>("address_prefix_ipv4");
+        get => GetRequiredProperty<TerraformProperty<string>>("address_prefix_ipv4");
         set => this.WithProperty("address_prefix_ipv4", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerPeeringId is required")]
     public required TerraformProperty<string> PeerPeeringId
     {
-        get => GetProperty<TerraformProperty<string>>("peer_peering_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("peer_peering_id");
         set => this.WithProperty("peer_peering_id", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringId is required")]
     public required TerraformProperty<string> PeeringId
     {
-        get => GetProperty<TerraformProperty<string>>("peering_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("peering_id");
         set => this.WithProperty("peering_id", value);
     }
 

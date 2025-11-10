@@ -88,7 +88,7 @@ public class AwsDxGatewayAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DxGatewayId is required")]
     public required TerraformProperty<string> DxGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("dx_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dx_gateway_id");
         set => this.WithProperty("dx_gateway_id", value);
     }
 

@@ -66,7 +66,7 @@ public class AwsRoute53VpcAssociationAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsRoute53VpcAssociationAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformProperty<string> ZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone_id");
         set => this.WithProperty("zone_id", value);
     }
 

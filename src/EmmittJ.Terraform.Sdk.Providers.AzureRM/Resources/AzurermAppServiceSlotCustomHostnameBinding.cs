@@ -58,7 +58,7 @@ public class AzurermAppServiceSlotCustomHostnameBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceSlotId is required")]
     public required TerraformProperty<string> AppServiceSlotId
     {
-        get => GetProperty<TerraformProperty<string>>("app_service_slot_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_service_slot_id");
         set => this.WithProperty("app_service_slot_id", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermAppServiceSlotCustomHostnameBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetProperty<TerraformProperty<string>>("hostname");
+        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
         set => this.WithProperty("hostname", value);
     }
 

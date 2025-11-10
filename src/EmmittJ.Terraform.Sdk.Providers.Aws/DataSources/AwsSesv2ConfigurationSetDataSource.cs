@@ -29,7 +29,7 @@ public class AwsSesv2ConfigurationSetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
     public required TerraformProperty<string> ConfigurationSetName
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_set_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_set_name");
         set => this.WithProperty("configuration_set_name", value);
     }
 

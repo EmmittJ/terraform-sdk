@@ -66,7 +66,7 @@ public class AzurermCdnFrontdoorCustomDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorCustomDomainId is required")]
     public required TerraformProperty<string> CdnFrontdoorCustomDomainId
     {
-        get => GetProperty<TerraformProperty<string>>("cdn_frontdoor_custom_domain_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cdn_frontdoor_custom_domain_id");
         set => this.WithProperty("cdn_frontdoor_custom_domain_id", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsS3BucketLoggingTargetGrantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformProperty<string> Permission
     {
-        get => GetProperty<TerraformProperty<string>>("permission");
+        get => GetRequiredProperty<TerraformProperty<string>>("permission");
         set => WithProperty("permission", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsS3BucketLogging : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsS3BucketLogging : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetBucket is required")]
     public required TerraformProperty<string> TargetBucket
     {
-        get => GetProperty<TerraformProperty<string>>("target_bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_bucket");
         set => this.WithProperty("target_bucket", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsS3BucketLogging : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPrefix is required")]
     public required TerraformProperty<string> TargetPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("target_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_prefix");
         set => this.WithProperty("target_prefix", value);
     }
 

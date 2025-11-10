@@ -85,7 +85,7 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformProperty<string> Issuer
     {
-        get => GetProperty<TerraformProperty<string>>("issuer");
+        get => GetRequiredProperty<TerraformProperty<string>>("issuer");
         set => this.WithProperty("issuer", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
     public required TerraformProperty<string> ParentId
     {
-        get => GetProperty<TerraformProperty<string>>("parent_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent_id");
         set => this.WithProperty("parent_id", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     public required TerraformProperty<string> Subject
     {
-        get => GetProperty<TerraformProperty<string>>("subject");
+        get => GetRequiredProperty<TerraformProperty<string>>("subject");
         set => this.WithProperty("subject", value);
     }
 

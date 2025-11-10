@@ -25,7 +25,7 @@ public class GoogleContainerClusterAnonymousAuthenticationConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("mode");
         set => WithProperty("mode", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleContainerClusterAuthenticatorGroupsConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroup is required")]
     public required TerraformProperty<string> SecurityGroup
     {
-        get => GetProperty<TerraformProperty<string>>("security_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_group");
         set => WithProperty("security_group", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleContainerClusterConfidentialNodesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -167,7 +167,7 @@ public class GoogleContainerClusterCostManagementConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -194,7 +194,7 @@ public class GoogleContainerClusterDatabaseEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
+        get => GetRequiredProperty<TerraformProperty<string>>("state");
         set => WithProperty("state", value);
     }
 
@@ -212,7 +212,7 @@ public class GoogleContainerClusterDefaultSnatStatusBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disabled is required")]
     public required TerraformProperty<bool> Disabled
     {
-        get => GetProperty<TerraformProperty<bool>>("disabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("disabled");
         set => WithProperty("disabled", value);
     }
 
@@ -382,7 +382,7 @@ public class GoogleContainerClusterGatewayApiConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Channel is required")]
     public required TerraformProperty<string> Channel
     {
-        get => GetProperty<TerraformProperty<string>>("channel");
+        get => GetRequiredProperty<TerraformProperty<string>>("channel");
         set => WithProperty("channel", value);
     }
 
@@ -401,7 +401,7 @@ public class GoogleContainerClusterGkeAutoUpgradeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchMode is required")]
     public required TerraformProperty<string> PatchMode
     {
-        get => GetProperty<TerraformProperty<string>>("patch_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("patch_mode");
         set => WithProperty("patch_mode", value);
     }
 
@@ -576,7 +576,7 @@ public class GoogleContainerClusterMeshCertificatesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableCertificates is required")]
     public required TerraformProperty<bool> EnableCertificates
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_certificates");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enable_certificates");
         set => WithProperty("enable_certificates", value);
     }
 
@@ -611,7 +611,7 @@ public class GoogleContainerClusterNetworkPerformanceConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalEgressBandwidthTier is required")]
     public required TerraformProperty<string> TotalEgressBandwidthTier
     {
-        get => GetProperty<TerraformProperty<string>>("total_egress_bandwidth_tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("total_egress_bandwidth_tier");
         set => WithProperty("total_egress_bandwidth_tier", value);
     }
 
@@ -629,7 +629,7 @@ public class GoogleContainerClusterNetworkPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -1007,7 +1007,7 @@ public class GoogleContainerClusterPodAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HpaProfile is required")]
     public required TerraformProperty<string> HpaProfile
     {
-        get => GetProperty<TerraformProperty<string>>("hpa_profile");
+        get => GetRequiredProperty<TerraformProperty<string>>("hpa_profile");
         set => WithProperty("hpa_profile", value);
     }
 
@@ -1127,7 +1127,7 @@ public class GoogleContainerClusterReleaseChannelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Channel is required")]
     public required TerraformProperty<string> Channel
     {
-        get => GetProperty<TerraformProperty<string>>("channel");
+        get => GetRequiredProperty<TerraformProperty<string>>("channel");
         set => WithProperty("channel", value);
     }
 
@@ -1171,7 +1171,7 @@ public class GoogleContainerClusterSecretManagerConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -1215,7 +1215,7 @@ public class GoogleContainerClusterServiceExternalIpsConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -1357,7 +1357,7 @@ public class GoogleContainerClusterVerticalPodAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -1626,7 +1626,7 @@ public class GoogleContainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

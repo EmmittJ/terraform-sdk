@@ -20,7 +20,7 @@ public class GoogleDatastreamPrivateConnectionPscInterfaceConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkAttachment is required")]
     public required TerraformProperty<string> NetworkAttachment
     {
-        get => GetProperty<TerraformProperty<string>>("network_attachment");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_attachment");
         set => WithProperty("network_attachment", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnet is required")]
     public required TerraformProperty<string> Subnet
     {
-        get => GetProperty<TerraformProperty<string>>("subnet");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet");
         set => WithProperty("subnet", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vpc is required")]
     public required TerraformProperty<string> Vpc
     {
-        get => GetProperty<TerraformProperty<string>>("vpc");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc");
         set => WithProperty("vpc", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleDatastreamPrivateConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleDatastreamPrivateConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleDatastreamPrivateConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateConnectionId is required")]
     public required TerraformProperty<string> PrivateConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("private_connection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("private_connection_id");
         set => this.WithProperty("private_connection_id", value);
     }
 

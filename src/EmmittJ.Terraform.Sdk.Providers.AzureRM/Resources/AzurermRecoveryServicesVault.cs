@@ -14,7 +14,7 @@ public class AzurermRecoveryServicesVaultEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureEncryptionEnabled is required")]
     public required TerraformProperty<bool> InfrastructureEncryptionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("infrastructure_encryption_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("infrastructure_encryption_enabled");
         set => WithProperty("infrastructure_encryption_enabled", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermRecoveryServicesVaultEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformProperty<string> KeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_id");
         set => WithProperty("key_id", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermRecoveryServicesVaultIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -220,7 +220,7 @@ public class AzurermRecoveryServicesVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -230,7 +230,7 @@ public class AzurermRecoveryServicesVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -249,7 +249,7 @@ public class AzurermRecoveryServicesVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -259,7 +259,7 @@ public class AzurermRecoveryServicesVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 

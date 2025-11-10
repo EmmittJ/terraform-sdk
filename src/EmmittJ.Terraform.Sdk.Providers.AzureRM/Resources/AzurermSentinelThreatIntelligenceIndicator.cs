@@ -206,7 +206,7 @@ public class AzurermSentinelThreatIntelligenceIndicator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -252,7 +252,7 @@ public class AzurermSentinelThreatIntelligenceIndicator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformProperty<string> Pattern
     {
-        get => GetProperty<TerraformProperty<string>>("pattern");
+        get => GetRequiredProperty<TerraformProperty<string>>("pattern");
         set => this.WithProperty("pattern", value);
     }
 
@@ -262,7 +262,7 @@ public class AzurermSentinelThreatIntelligenceIndicator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternType is required")]
     public required TerraformProperty<string> PatternType
     {
-        get => GetProperty<TerraformProperty<string>>("pattern_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("pattern_type");
         set => this.WithProperty("pattern_type", value);
     }
 
@@ -290,7 +290,7 @@ public class AzurermSentinelThreatIntelligenceIndicator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
+        get => GetRequiredProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
     }
 
@@ -318,7 +318,7 @@ public class AzurermSentinelThreatIntelligenceIndicator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidateFromUtc is required")]
     public required TerraformProperty<string> ValidateFromUtc
     {
-        get => GetProperty<TerraformProperty<string>>("validate_from_utc");
+        get => GetRequiredProperty<TerraformProperty<string>>("validate_from_utc");
         set => this.WithProperty("validate_from_utc", value);
     }
 
@@ -337,7 +337,7 @@ public class AzurermSentinelThreatIntelligenceIndicator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

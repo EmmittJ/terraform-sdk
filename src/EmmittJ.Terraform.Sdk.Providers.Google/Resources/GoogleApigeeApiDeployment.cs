@@ -49,7 +49,7 @@ public class GoogleApigeeApiDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetProperty<TerraformProperty<string>>("environment");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleApigeeApiDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetProperty<TerraformProperty<string>>("org_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleApigeeApiDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProxyId is required")]
     public required TerraformProperty<string> ProxyId
     {
-        get => GetProperty<TerraformProperty<string>>("proxy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("proxy_id");
         set => this.WithProperty("proxy_id", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleApigeeApiDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformProperty<string> Revision
     {
-        get => GetProperty<TerraformProperty<string>>("revision");
+        get => GetRequiredProperty<TerraformProperty<string>>("revision");
         set => this.WithProperty("revision", value);
     }
 

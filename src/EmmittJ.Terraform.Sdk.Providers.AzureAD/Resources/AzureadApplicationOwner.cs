@@ -57,7 +57,7 @@ public class AzureadApplicationOwner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzureadApplicationOwner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerObjectId is required")]
     public required TerraformProperty<string> OwnerObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("owner_object_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("owner_object_id");
         set => this.WithProperty("owner_object_id", value);
     }
 

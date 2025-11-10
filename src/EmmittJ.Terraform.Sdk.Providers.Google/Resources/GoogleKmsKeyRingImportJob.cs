@@ -62,7 +62,7 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportJobId is required")]
     public required TerraformProperty<string> ImportJobId
     {
-        get => GetProperty<TerraformProperty<string>>("import_job_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("import_job_id");
         set => this.WithProperty("import_job_id", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportMethod is required")]
     public required TerraformProperty<string> ImportMethod
     {
-        get => GetProperty<TerraformProperty<string>>("import_method");
+        get => GetRequiredProperty<TerraformProperty<string>>("import_method");
         set => this.WithProperty("import_method", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     public required TerraformProperty<string> KeyRing
     {
-        get => GetProperty<TerraformProperty<string>>("key_ring");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_ring");
         set => this.WithProperty("key_ring", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionLevel is required")]
     public required TerraformProperty<string> ProtectionLevel
     {
-        get => GetProperty<TerraformProperty<string>>("protection_level");
+        get => GetRequiredProperty<TerraformProperty<string>>("protection_level");
         set => this.WithProperty("protection_level", value);
     }
 

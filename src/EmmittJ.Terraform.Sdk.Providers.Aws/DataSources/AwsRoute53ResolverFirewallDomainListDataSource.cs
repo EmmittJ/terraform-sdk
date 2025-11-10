@@ -31,7 +31,7 @@ public class AwsRoute53ResolverFirewallDomainListDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallDomainListId is required")]
     public required TerraformProperty<string> FirewallDomainListId
     {
-        get => GetProperty<TerraformProperty<string>>("firewall_domain_list_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("firewall_domain_list_id");
         set => this.WithProperty("firewall_domain_list_id", value);
     }
 

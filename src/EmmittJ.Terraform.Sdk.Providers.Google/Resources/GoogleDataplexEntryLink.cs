@@ -15,7 +15,7 @@ public class GoogleDataplexEntryLinkEntryReferencesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleDataplexEntryLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroupId is required")]
     public required TerraformProperty<string> EntryGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("entry_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("entry_group_id");
         set => this.WithProperty("entry_group_id", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleDataplexEntryLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryLinkId is required")]
     public required TerraformProperty<string> EntryLinkId
     {
-        get => GetProperty<TerraformProperty<string>>("entry_link_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("entry_link_id");
         set => this.WithProperty("entry_link_id", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleDataplexEntryLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryLinkType is required")]
     public required TerraformProperty<string> EntryLinkType
     {
-        get => GetProperty<TerraformProperty<string>>("entry_link_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("entry_link_type");
         set => this.WithProperty("entry_link_type", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleDataplexEntryLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

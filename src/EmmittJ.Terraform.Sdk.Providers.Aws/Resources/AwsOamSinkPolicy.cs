@@ -68,7 +68,7 @@ public class AwsOamSinkPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsOamSinkPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SinkIdentifier is required")]
     public required TerraformProperty<string> SinkIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("sink_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("sink_identifier");
         set => this.WithProperty("sink_identifier", value);
     }
 

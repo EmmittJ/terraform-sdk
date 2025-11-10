@@ -22,7 +22,7 @@ public class AwsAutoscalingLifecycleHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
     public required TerraformProperty<string> AutoscalingGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("autoscaling_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("autoscaling_group_name");
         set => this.WithProperty("autoscaling_group_name", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsAutoscalingLifecycleHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LifecycleTransition is required")]
     public required TerraformProperty<string> LifecycleTransition
     {
-        get => GetProperty<TerraformProperty<string>>("lifecycle_transition");
+        get => GetRequiredProperty<TerraformProperty<string>>("lifecycle_transition");
         set => this.WithProperty("lifecycle_transition", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsAutoscalingLifecycleHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsOdbCloudVmClusterDataCollectionOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDiagnosticsEventsEnabled is required")]
     public required TerraformProperty<bool> IsDiagnosticsEventsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("is_diagnostics_events_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("is_diagnostics_events_enabled");
         set => WithProperty("is_diagnostics_events_enabled", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsOdbCloudVmClusterDataCollectionOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsHealthMonitoringEnabled is required")]
     public required TerraformProperty<bool> IsHealthMonitoringEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("is_health_monitoring_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("is_health_monitoring_enabled");
         set => WithProperty("is_health_monitoring_enabled", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsOdbCloudVmClusterDataCollectionOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsIncidentLogsEnabled is required")]
     public required TerraformProperty<bool> IsIncidentLogsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("is_incident_logs_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("is_incident_logs_enabled");
         set => WithProperty("is_incident_logs_enabled", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsOdbCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformProperty<string> CloudExadataInfrastructureId
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
         set => this.WithProperty("cloud_exadata_infrastructure_id", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsOdbCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCount is required")]
     public required TerraformProperty<double> CpuCoreCount
     {
-        get => GetProperty<TerraformProperty<double>>("cpu_core_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("cpu_core_count");
         set => this.WithProperty("cpu_core_count", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsOdbCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStorageSizeInTbs is required")]
     public required TerraformProperty<double> DataStorageSizeInTbs
     {
-        get => GetProperty<TerraformProperty<double>>("data_storage_size_in_tbs");
+        get => GetRequiredProperty<TerraformProperty<double>>("data_storage_size_in_tbs");
         set => this.WithProperty("data_storage_size_in_tbs", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsOdbCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsOdbCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GiVersion is required")]
     public required TerraformProperty<string> GiVersion
     {
-        get => GetProperty<TerraformProperty<string>>("gi_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("gi_version");
         set => this.WithProperty("gi_version", value);
     }
 
@@ -199,7 +199,7 @@ public class AwsOdbCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostnamePrefix is required")]
     public required TerraformProperty<string> HostnamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("hostname_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("hostname_prefix");
         set => this.WithProperty("hostname_prefix", value);
     }
 
@@ -245,7 +245,7 @@ public class AwsOdbCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     public required TerraformProperty<string> OdbNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("odb_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("odb_network_id");
         set => this.WithProperty("odb_network_id", value);
     }
 

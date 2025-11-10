@@ -41,7 +41,7 @@ public class GoogleGkeHubMembershipIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
     public required TerraformProperty<string> MembershipId
     {
-        get => GetProperty<TerraformProperty<string>>("membership_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("membership_id");
         set => this.WithProperty("membership_id", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleGkeHubMembershipIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

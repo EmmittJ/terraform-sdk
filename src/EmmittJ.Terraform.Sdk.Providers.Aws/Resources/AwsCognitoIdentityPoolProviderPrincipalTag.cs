@@ -31,7 +31,7 @@ public class AwsCognitoIdentityPoolProviderPrincipalTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     public required TerraformProperty<string> IdentityPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_pool_id");
         set => this.WithProperty("identity_pool_id", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsCognitoIdentityPoolProviderPrincipalTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderName is required")]
     public required TerraformProperty<string> IdentityProviderName
     {
-        get => GetProperty<TerraformProperty<string>>("identity_provider_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_provider_name");
         set => this.WithProperty("identity_provider_name", value);
     }
 

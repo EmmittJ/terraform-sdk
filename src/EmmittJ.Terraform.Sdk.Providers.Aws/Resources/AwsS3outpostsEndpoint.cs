@@ -53,7 +53,7 @@ public class AwsS3outpostsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutpostId is required")]
     public required TerraformProperty<string> OutpostId
     {
-        get => GetProperty<TerraformProperty<string>>("outpost_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("outpost_id");
         set => this.WithProperty("outpost_id", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsS3outpostsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
     public required TerraformProperty<string> SecurityGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("security_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_group_id");
         set => this.WithProperty("security_group_id", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsS3outpostsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

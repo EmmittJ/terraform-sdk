@@ -41,7 +41,7 @@ public class AwsKmsCiphertextDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformProperty<string> KeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_id");
         set => this.WithProperty("key_id", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsKmsCiphertextDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plaintext is required")]
     public required TerraformProperty<string> Plaintext
     {
-        get => GetProperty<TerraformProperty<string>>("plaintext");
+        get => GetRequiredProperty<TerraformProperty<string>>("plaintext");
         set => this.WithProperty("plaintext", value);
     }
 

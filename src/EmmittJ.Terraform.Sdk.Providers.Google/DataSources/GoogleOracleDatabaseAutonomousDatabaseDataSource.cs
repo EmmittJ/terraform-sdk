@@ -40,7 +40,7 @@ public class GoogleOracleDatabaseAutonomousDatabaseDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     public required TerraformProperty<string> AutonomousDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("autonomous_database_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("autonomous_database_id");
         set => this.WithProperty("autonomous_database_id", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleOracleDatabaseAutonomousDatabaseDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

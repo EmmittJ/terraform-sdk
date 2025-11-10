@@ -58,7 +58,7 @@ public class GoogleKmsAutokeyConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
+        get => GetRequiredProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 

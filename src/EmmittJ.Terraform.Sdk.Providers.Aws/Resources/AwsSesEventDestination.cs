@@ -14,7 +14,7 @@ public class AwsSesEventDestinationCloudwatchDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultValue is required")]
     public required TerraformProperty<string> DefaultValue
     {
-        get => GetProperty<TerraformProperty<string>>("default_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_value");
         set => WithProperty("default_value", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsSesEventDestinationCloudwatchDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DimensionName is required")]
     public required TerraformProperty<string> DimensionName
     {
-        get => GetProperty<TerraformProperty<string>>("dimension_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("dimension_name");
         set => WithProperty("dimension_name", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsSesEventDestinationCloudwatchDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueSource is required")]
     public required TerraformProperty<string> ValueSource
     {
-        get => GetProperty<TerraformProperty<string>>("value_source");
+        get => GetRequiredProperty<TerraformProperty<string>>("value_source");
         set => WithProperty("value_source", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsSesEventDestinationKinesisDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsSesEventDestinationKinesisDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
     public required TerraformProperty<string> StreamArn
     {
-        get => GetProperty<TerraformProperty<string>>("stream_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_arn");
         set => WithProperty("stream_arn", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsSesEventDestinationSnsDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformProperty<string> TopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("topic_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic_arn");
         set => WithProperty("topic_arn", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsSesEventDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
     public required TerraformProperty<string> ConfigurationSetName
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_set_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_set_name");
         set => this.WithProperty("configuration_set_name", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsSesEventDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

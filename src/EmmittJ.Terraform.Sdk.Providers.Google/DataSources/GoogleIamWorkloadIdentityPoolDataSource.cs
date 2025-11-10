@@ -47,7 +47,7 @@ public class GoogleIamWorkloadIdentityPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
     public required TerraformProperty<string> WorkloadIdentityPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("workload_identity_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workload_identity_pool_id");
         set => this.WithProperty("workload_identity_pool_id", value);
     }
 

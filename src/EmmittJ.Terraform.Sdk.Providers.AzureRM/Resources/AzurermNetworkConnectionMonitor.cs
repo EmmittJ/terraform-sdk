@@ -50,7 +50,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -251,7 +251,7 @@ public class AzurermNetworkConnectionMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -261,7 +261,7 @@ public class AzurermNetworkConnectionMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -271,7 +271,7 @@ public class AzurermNetworkConnectionMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherId is required")]
     public required TerraformProperty<string> NetworkWatcherId
     {
-        get => GetProperty<TerraformProperty<string>>("network_watcher_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_watcher_id");
         set => this.WithProperty("network_watcher_id", value);
     }
 

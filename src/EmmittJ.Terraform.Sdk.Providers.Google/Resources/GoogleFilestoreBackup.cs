@@ -97,7 +97,7 @@ public class GoogleFilestoreBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -114,7 +114,7 @@ public class GoogleFilestoreBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleFilestoreBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileShare is required")]
     public required TerraformProperty<string> SourceFileShare
     {
-        get => GetProperty<TerraformProperty<string>>("source_file_share");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_file_share");
         set => this.WithProperty("source_file_share", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleFilestoreBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstance is required")]
     public required TerraformProperty<string> SourceInstance
     {
-        get => GetProperty<TerraformProperty<string>>("source_instance");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_instance");
         set => this.WithProperty("source_instance", value);
     }
 

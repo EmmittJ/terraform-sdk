@@ -66,7 +66,7 @@ public class AzureadAccessPackageCatalogRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("catalog_id");
         set => this.WithProperty("catalog_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AzureadAccessPackageCatalogRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalObjectId is required")]
     public required TerraformProperty<string> PrincipalObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_object_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_object_id");
         set => this.WithProperty("principal_object_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzureadAccessPackageCatalogRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformProperty<string> RoleId
     {
-        get => GetProperty<TerraformProperty<string>>("role_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_id");
         set => this.WithProperty("role_id", value);
     }
 

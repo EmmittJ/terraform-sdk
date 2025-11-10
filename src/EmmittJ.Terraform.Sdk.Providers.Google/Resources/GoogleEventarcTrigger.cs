@@ -40,7 +40,7 @@ public class GoogleEventarcTriggerMatchingCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attribute is required")]
     public required TerraformProperty<string> Attribute
     {
-        get => GetProperty<TerraformProperty<string>>("attribute");
+        get => GetRequiredProperty<TerraformProperty<string>>("attribute");
         set => WithProperty("attribute", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleEventarcTriggerMatchingCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleEventarcTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -185,7 +185,7 @@ public class GoogleEventarcTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

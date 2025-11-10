@@ -92,7 +92,7 @@ public class AwsInstanceEbsBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformProperty<string> DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_name");
         set => WithProperty("device_name", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsInstanceEphemeralBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformProperty<string> DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_name");
         set => WithProperty("device_name", value);
     }
 
@@ -384,7 +384,7 @@ public class AwsInstanceNetworkInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceIndex is required")]
     public required TerraformProperty<double> DeviceIndex
     {
-        get => GetProperty<TerraformProperty<double>>("device_index");
+        get => GetRequiredProperty<TerraformProperty<double>>("device_index");
         set => WithProperty("device_index", value);
     }
 
@@ -403,7 +403,7 @@ public class AwsInstanceNetworkInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
         set => WithProperty("network_interface_id", value);
     }
 
@@ -430,7 +430,7 @@ public class AwsInstancePrimaryNetworkInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
         set => WithProperty("network_interface_id", value);
     }
 

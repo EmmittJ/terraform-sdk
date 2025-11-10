@@ -23,7 +23,7 @@ public class AwsMedialiveMultiplexMultiplexSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransportStreamBitrate is required")]
     public required TerraformProperty<double> TransportStreamBitrate
     {
-        get => GetProperty<TerraformProperty<double>>("transport_stream_bitrate");
+        get => GetRequiredProperty<TerraformProperty<double>>("transport_stream_bitrate");
         set => WithProperty("transport_stream_bitrate", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsMedialiveMultiplexMultiplexSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransportStreamId is required")]
     public required TerraformProperty<double> TransportStreamId
     {
-        get => GetProperty<TerraformProperty<double>>("transport_stream_id");
+        get => GetRequiredProperty<TerraformProperty<double>>("transport_stream_id");
         set => WithProperty("transport_stream_id", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsMedialiveMultiplex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

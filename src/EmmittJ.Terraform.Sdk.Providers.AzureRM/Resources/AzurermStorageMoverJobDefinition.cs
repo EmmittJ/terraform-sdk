@@ -75,7 +75,7 @@ public class AzurermStorageMoverJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyMode is required")]
     public required TerraformProperty<string> CopyMode
     {
-        get => GetProperty<TerraformProperty<string>>("copy_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("copy_mode");
         set => this.WithProperty("copy_mode", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermStorageMoverJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermStorageMoverJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     public required TerraformProperty<string> SourceName
     {
-        get => GetProperty<TerraformProperty<string>>("source_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_name");
         set => this.WithProperty("source_name", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermStorageMoverJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageMoverProjectId is required")]
     public required TerraformProperty<string> StorageMoverProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_mover_project_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_mover_project_id");
         set => this.WithProperty("storage_mover_project_id", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermStorageMoverJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
     public required TerraformProperty<string> TargetName
     {
-        get => GetProperty<TerraformProperty<string>>("target_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_name");
         set => this.WithProperty("target_name", value);
     }
 

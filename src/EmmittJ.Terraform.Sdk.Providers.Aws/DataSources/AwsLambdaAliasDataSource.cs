@@ -26,7 +26,7 @@ public class AwsLambdaAliasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetProperty<TerraformProperty<string>>("function_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsLambdaAliasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

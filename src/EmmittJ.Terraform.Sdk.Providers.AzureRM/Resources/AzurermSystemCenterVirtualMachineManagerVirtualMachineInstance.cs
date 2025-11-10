@@ -147,7 +147,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetwo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -333,7 +333,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstance : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
     public required TerraformProperty<string> CustomLocationId
     {
-        get => GetProperty<TerraformProperty<string>>("custom_location_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("custom_location_id");
         set => this.WithProperty("custom_location_id", value);
     }
 
@@ -352,7 +352,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstance : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopedResourceId is required")]
     public required TerraformProperty<string> ScopedResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("scoped_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("scoped_resource_id");
         set => this.WithProperty("scoped_resource_id", value);
     }
 

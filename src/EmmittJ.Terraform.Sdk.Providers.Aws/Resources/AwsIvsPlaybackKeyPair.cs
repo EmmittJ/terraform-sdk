@@ -68,7 +68,7 @@ public class AwsIvsPlaybackKeyPair : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     public required TerraformProperty<string> PublicKey
     {
-        get => GetProperty<TerraformProperty<string>>("public_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("public_key");
         set => this.WithProperty("public_key", value);
     }
 

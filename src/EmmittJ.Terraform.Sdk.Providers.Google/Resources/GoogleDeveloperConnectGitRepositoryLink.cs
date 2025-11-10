@@ -78,7 +78,7 @@ public class GoogleDeveloperConnectGitRepositoryLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloneUri is required")]
     public required TerraformProperty<string> CloneUri
     {
-        get => GetProperty<TerraformProperty<string>>("clone_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("clone_uri");
         set => this.WithProperty("clone_uri", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleDeveloperConnectGitRepositoryLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GitRepositoryLinkId is required")]
     public required TerraformProperty<string> GitRepositoryLinkId
     {
-        get => GetProperty<TerraformProperty<string>>("git_repository_link_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("git_repository_link_id");
         set => this.WithProperty("git_repository_link_id", value);
     }
 
@@ -132,7 +132,7 @@ public class GoogleDeveloperConnectGitRepositoryLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -142,7 +142,7 @@ public class GoogleDeveloperConnectGitRepositoryLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentConnection is required")]
     public required TerraformProperty<string> ParentConnection
     {
-        get => GetProperty<TerraformProperty<string>>("parent_connection");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent_connection");
         set => this.WithProperty("parent_connection", value);
     }
 

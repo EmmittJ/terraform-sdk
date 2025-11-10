@@ -14,7 +14,7 @@ public class AzurermManagedRedisCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
         set => WithProperty("key_vault_key_id", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermManagedRedisCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserAssignedIdentityId is required")]
     public required TerraformProperty<string> UserAssignedIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("user_assigned_identity_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_assigned_identity_id");
         set => WithProperty("user_assigned_identity_id", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermManagedRedisIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -239,7 +239,7 @@ public class AzurermManagedRedis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -249,7 +249,7 @@ public class AzurermManagedRedis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -259,7 +259,7 @@ public class AzurermManagedRedis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -269,7 +269,7 @@ public class AzurermManagedRedis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetProperty<TerraformProperty<string>>("sku_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 

@@ -57,7 +57,7 @@ public class GoogleResourceManagerCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapabilityName is required")]
     public required TerraformProperty<string> CapabilityName
     {
-        get => GetProperty<TerraformProperty<string>>("capability_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("capability_name");
         set => this.WithProperty("capability_name", value);
     }
 
@@ -76,7 +76,7 @@ public class GoogleResourceManagerCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleResourceManagerCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<bool> Value
     {
-        get => GetProperty<TerraformProperty<bool>>("value");
+        get => GetRequiredProperty<TerraformProperty<bool>>("value");
         set => this.WithProperty("value", value);
     }
 

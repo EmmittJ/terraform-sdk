@@ -24,7 +24,7 @@ public class AwsQuicksightFolderPermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal");
         set => WithProperty("principal", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsQuicksightFolder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     public required TerraformProperty<string> FolderId
     {
-        get => GetProperty<TerraformProperty<string>>("folder_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("folder_id");
         set => this.WithProperty("folder_id", value);
     }
 

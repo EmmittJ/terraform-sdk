@@ -84,7 +84,7 @@ public class AzurermDataFactoryLinkedServiceKeyVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetProperty<TerraformProperty<string>>("data_factory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermDataFactoryLinkedServiceKeyVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermDataFactoryLinkedServiceKeyVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

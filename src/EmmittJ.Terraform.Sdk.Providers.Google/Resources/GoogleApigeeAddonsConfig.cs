@@ -75,7 +75,7 @@ public class GoogleApigeeAddonsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Org is required")]
     public required TerraformProperty<string> Org
     {
-        get => GetProperty<TerraformProperty<string>>("org");
+        get => GetRequiredProperty<TerraformProperty<string>>("org");
         set => this.WithProperty("org", value);
     }
 

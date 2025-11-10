@@ -38,7 +38,7 @@ public class GoogleMonitoringAppEngineServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModuleId is required")]
     public required TerraformProperty<string> ModuleId
     {
-        get => GetProperty<TerraformProperty<string>>("module_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("module_id");
         set => this.WithProperty("module_id", value);
     }
 

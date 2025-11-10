@@ -23,7 +23,7 @@ public class AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermDevTestGlobalVmShutdownSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DailyRecurrenceTime is required")]
     public required TerraformProperty<string> DailyRecurrenceTime
     {
-        get => GetProperty<TerraformProperty<string>>("daily_recurrence_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("daily_recurrence_time");
         set => this.WithProperty("daily_recurrence_time", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermDevTestGlobalVmShutdownSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermDevTestGlobalVmShutdownSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timezone is required")]
     public required TerraformProperty<string> Timezone
     {
-        get => GetProperty<TerraformProperty<string>>("timezone");
+        get => GetRequiredProperty<TerraformProperty<string>>("timezone");
         set => this.WithProperty("timezone", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermDevTestGlobalVmShutdownSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
     }
 

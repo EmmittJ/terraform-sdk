@@ -23,7 +23,7 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupConnectivity is required")]
     public required TerraformProperty<string> GroupConnectivity
     {
-        get => GetProperty<TerraformProperty<string>>("group_connectivity");
+        get => GetRequiredProperty<TerraformProperty<string>>("group_connectivity");
         set => WithProperty("group_connectivity", value);
     }
 
@@ -33,7 +33,7 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupId is required")]
     public required TerraformProperty<string> NetworkGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("network_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_group_id");
         set => WithProperty("network_group_id", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermNetworkManagerConnectivityConfigurationHubBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
         set => WithProperty("resource_id", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermNetworkManagerConnectivityConfigurationHubBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
         set => WithProperty("resource_type", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectivityTopology is required")]
     public required TerraformProperty<string> ConnectivityTopology
     {
-        get => GetProperty<TerraformProperty<string>>("connectivity_topology");
+        get => GetRequiredProperty<TerraformProperty<string>>("connectivity_topology");
         set => this.WithProperty("connectivity_topology", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -197,7 +197,7 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformProperty<string> NetworkManagerId
     {
-        get => GetProperty<TerraformProperty<string>>("network_manager_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_manager_id");
         set => this.WithProperty("network_manager_id", value);
     }
 

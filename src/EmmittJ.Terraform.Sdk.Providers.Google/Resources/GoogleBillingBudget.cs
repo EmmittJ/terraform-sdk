@@ -218,7 +218,7 @@ public class GoogleBillingBudgetThresholdRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThresholdPercent is required")]
     public required TerraformProperty<double> ThresholdPercent
     {
-        get => GetProperty<TerraformProperty<double>>("threshold_percent");
+        get => GetRequiredProperty<TerraformProperty<double>>("threshold_percent");
         set => WithProperty("threshold_percent", value);
     }
 
@@ -281,7 +281,7 @@ public class GoogleBillingBudget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     public required TerraformProperty<string> BillingAccount
     {
-        get => GetProperty<TerraformProperty<string>>("billing_account");
+        get => GetRequiredProperty<TerraformProperty<string>>("billing_account");
         set => this.WithProperty("billing_account", value);
     }
 

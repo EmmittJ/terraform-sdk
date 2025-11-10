@@ -51,7 +51,7 @@ public class AwsDatazoneUserProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformProperty<string> DomainIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("domain_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_identifier");
         set => this.WithProperty("domain_identifier", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsDatazoneUserProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserIdentifier is required")]
     public required TerraformProperty<string> UserIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("user_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_identifier");
         set => this.WithProperty("user_identifier", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermSynapseLinkedServiceIntegrationRuntimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermSynapseLinkedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermSynapseLinkedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermSynapseLinkedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermSynapseLinkedService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypePropertiesJson is required")]
     public required TerraformProperty<string> TypePropertiesJson
     {
-        get => GetProperty<TerraformProperty<string>>("type_properties_json");
+        get => GetRequiredProperty<TerraformProperty<string>>("type_properties_json");
         set => this.WithProperty("type_properties_json", value);
     }
 

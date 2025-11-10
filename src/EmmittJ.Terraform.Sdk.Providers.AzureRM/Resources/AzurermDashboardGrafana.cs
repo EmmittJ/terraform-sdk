@@ -14,7 +14,7 @@ public class AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
         set => WithProperty("resource_id", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermDashboardGrafanaIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromAddress is required")]
     public required TerraformProperty<string> FromAddress
     {
-        get => GetProperty<TerraformProperty<string>>("from_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("from_address");
         set => WithProperty("from_address", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformProperty<string> Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
+        get => GetRequiredProperty<TerraformProperty<string>>("host");
         set => WithProperty("host", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => WithProperty("password", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTlsPolicy is required")]
     public required TerraformProperty<string> StartTlsPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("start_tls_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("start_tls_policy");
         set => WithProperty("start_tls_policy", value);
     }
 
@@ -135,7 +135,7 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformProperty<string> User
     {
-        get => GetProperty<TerraformProperty<string>>("user");
+        get => GetRequiredProperty<TerraformProperty<string>>("user");
         set => WithProperty("user", value);
     }
 
@@ -245,7 +245,7 @@ public class AzurermDashboardGrafana : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrafanaMajorVersion is required")]
     public required TerraformProperty<string> GrafanaMajorVersion
     {
-        get => GetProperty<TerraformProperty<string>>("grafana_major_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("grafana_major_version");
         set => this.WithProperty("grafana_major_version", value);
     }
 
@@ -264,7 +264,7 @@ public class AzurermDashboardGrafana : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -274,7 +274,7 @@ public class AzurermDashboardGrafana : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -293,7 +293,7 @@ public class AzurermDashboardGrafana : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

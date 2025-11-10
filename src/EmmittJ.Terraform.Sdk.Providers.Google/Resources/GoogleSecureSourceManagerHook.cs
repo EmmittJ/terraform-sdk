@@ -101,7 +101,7 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HookId is required")]
     public required TerraformProperty<string> HookId
     {
-        get => GetProperty<TerraformProperty<string>>("hook_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("hook_id");
         set => this.WithProperty("hook_id", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -139,7 +139,7 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformProperty<string> RepositoryId
     {
-        get => GetProperty<TerraformProperty<string>>("repository_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_id");
         set => this.WithProperty("repository_id", value);
     }
 
@@ -158,7 +158,7 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetUri is required")]
     public required TerraformProperty<string> TargetUri
     {
-        get => GetProperty<TerraformProperty<string>>("target_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_uri");
         set => this.WithProperty("target_uri", value);
     }
 

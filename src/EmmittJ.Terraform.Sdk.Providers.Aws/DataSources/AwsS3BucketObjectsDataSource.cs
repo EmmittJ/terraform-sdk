@@ -27,7 +27,7 @@ public class AwsS3BucketObjectsDataSource : TerraformDataSource
     [Obsolete("This property is deprecated.")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 

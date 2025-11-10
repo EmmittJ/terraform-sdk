@@ -14,7 +14,7 @@ public class AwsRedshiftParameterGroupParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsRedshiftParameterGroupParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsRedshiftParameterGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformProperty<string> Family
     {
-        get => GetProperty<TerraformProperty<string>>("family");
+        get => GetRequiredProperty<TerraformProperty<string>>("family");
         set => this.WithProperty("family", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsRedshiftParameterGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

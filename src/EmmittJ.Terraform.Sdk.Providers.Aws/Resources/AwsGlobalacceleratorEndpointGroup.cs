@@ -58,7 +58,7 @@ public class AwsGlobalacceleratorEndpointGroupPortOverrideBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointPort is required")]
     public required TerraformProperty<double> EndpointPort
     {
-        get => GetProperty<TerraformProperty<double>>("endpoint_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("endpoint_port");
         set => WithProperty("endpoint_port", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsGlobalacceleratorEndpointGroupPortOverrideBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerPort is required")]
     public required TerraformProperty<double> ListenerPort
     {
-        get => GetProperty<TerraformProperty<double>>("listener_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("listener_port");
         set => WithProperty("listener_port", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsGlobalacceleratorEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArn is required")]
     public required TerraformProperty<string> ListenerArn
     {
-        get => GetProperty<TerraformProperty<string>>("listener_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("listener_arn");
         set => this.WithProperty("listener_arn", value);
     }
 

@@ -68,7 +68,7 @@ public class AzurermVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterNodeCount is required")]
     public required TerraformProperty<double> ClusterNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("cluster_node_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("cluster_node_count");
         set => this.WithProperty("cluster_node_count", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetProperty<TerraformProperty<string>>("sku_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareCloudId is required")]
     public required TerraformProperty<string> VmwareCloudId
     {
-        get => GetProperty<TerraformProperty<string>>("vmware_cloud_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vmware_cloud_id");
         set => this.WithProperty("vmware_cloud_id", value);
     }
 

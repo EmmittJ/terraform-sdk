@@ -26,7 +26,7 @@ public class AwsVpcIpamOrganizationAdminAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedAdminAccountId is required")]
     public required TerraformProperty<string> DelegatedAdminAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("delegated_admin_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("delegated_admin_account_id");
         set => this.WithProperty("delegated_admin_account_id", value);
     }
 

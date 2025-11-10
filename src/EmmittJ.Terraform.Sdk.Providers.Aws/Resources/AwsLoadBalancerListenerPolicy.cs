@@ -31,7 +31,7 @@ public class AwsLoadBalancerListenerPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerName is required")]
     public required TerraformProperty<string> LoadBalancerName
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancer_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("load_balancer_name");
         set => this.WithProperty("load_balancer_name", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsLoadBalancerListenerPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerPort is required")]
     public required TerraformProperty<double> LoadBalancerPort
     {
-        get => GetProperty<TerraformProperty<double>>("load_balancer_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("load_balancer_port");
         set => this.WithProperty("load_balancer_port", value);
     }
 

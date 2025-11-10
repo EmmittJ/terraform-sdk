@@ -76,7 +76,7 @@ public class AwsAutoscalingPolicyStepAdjustmentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingAdjustment is required")]
     public required TerraformProperty<double> ScalingAdjustment
     {
-        get => GetProperty<TerraformProperty<double>>("scaling_adjustment");
+        get => GetRequiredProperty<TerraformProperty<double>>("scaling_adjustment");
         set => WithProperty("scaling_adjustment", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsAutoscalingPolicyTargetTrackingConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetValue is required")]
     public required TerraformProperty<double> TargetValue
     {
-        get => GetProperty<TerraformProperty<double>>("target_value");
+        get => GetRequiredProperty<TerraformProperty<double>>("target_value");
         set => WithProperty("target_value", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsAutoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
     public required TerraformProperty<string> AutoscalingGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("autoscaling_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("autoscaling_group_name");
         set => this.WithProperty("autoscaling_group_name", value);
     }
 
@@ -204,7 +204,7 @@ public class AwsAutoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

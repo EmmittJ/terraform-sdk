@@ -66,7 +66,7 @@ public class AzurermVirtualMachineRunCommandParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermVirtualMachineRunCommandParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermVirtualMachineRunCommandProtectedParameterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermVirtualMachineRunCommandProtectedParameterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -229,7 +229,7 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -239,7 +239,7 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -285,7 +285,7 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
     }
 

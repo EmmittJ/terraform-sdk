@@ -68,7 +68,7 @@ public class AzurermBatchCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetProperty<TerraformProperty<string>>("account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
         set => this.WithProperty("account_name", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermBatchCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
     public required TerraformProperty<string> Certificate
     {
-        get => GetProperty<TerraformProperty<string>>("certificate");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate");
         set => this.WithProperty("certificate", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermBatchCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetProperty<TerraformProperty<string>>("format");
+        get => GetRequiredProperty<TerraformProperty<string>>("format");
         set => this.WithProperty("format", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermBatchCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -126,7 +126,7 @@ public class AzurermBatchCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
     public required TerraformProperty<string> Thumbprint
     {
-        get => GetProperty<TerraformProperty<string>>("thumbprint");
+        get => GetRequiredProperty<TerraformProperty<string>>("thumbprint");
         set => this.WithProperty("thumbprint", value);
     }
 
@@ -136,7 +136,7 @@ public class AzurermBatchCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThumbprintAlgorithm is required")]
     public required TerraformProperty<string> ThumbprintAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("thumbprint_algorithm");
+        get => GetRequiredProperty<TerraformProperty<string>>("thumbprint_algorithm");
         set => this.WithProperty("thumbprint_algorithm", value);
     }
 

@@ -17,7 +17,7 @@ public class GoogleBinaryAuthorizationPolicyAdmissionWhitelistPatternsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamePattern is required")]
     public required TerraformProperty<string> NamePattern
     {
-        get => GetProperty<TerraformProperty<string>>("name_pattern");
+        get => GetRequiredProperty<TerraformProperty<string>>("name_pattern");
         set => WithProperty("name_pattern", value);
     }
 
@@ -35,7 +35,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetProperty<TerraformProperty<string>>("cluster");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
         set => WithProperty("cluster", value);
     }
 
@@ -45,7 +45,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnforcementMode is required")]
     public required TerraformProperty<string> EnforcementMode
     {
-        get => GetProperty<TerraformProperty<string>>("enforcement_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("enforcement_mode");
         set => WithProperty("enforcement_mode", value);
     }
 
@@ -55,7 +55,7 @@ public class GoogleBinaryAuthorizationPolicyClusterAdmissionRulesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationMode is required")]
     public required TerraformProperty<string> EvaluationMode
     {
-        get => GetProperty<TerraformProperty<string>>("evaluation_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("evaluation_mode");
         set => WithProperty("evaluation_mode", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnforcementMode is required")]
     public required TerraformProperty<string> EnforcementMode
     {
-        get => GetProperty<TerraformProperty<string>>("enforcement_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("enforcement_mode");
         set => WithProperty("enforcement_mode", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleBinaryAuthorizationPolicyDefaultAdmissionRuleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationMode is required")]
     public required TerraformProperty<string> EvaluationMode
     {
-        get => GetProperty<TerraformProperty<string>>("evaluation_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("evaluation_mode");
         set => WithProperty("evaluation_mode", value);
     }
 

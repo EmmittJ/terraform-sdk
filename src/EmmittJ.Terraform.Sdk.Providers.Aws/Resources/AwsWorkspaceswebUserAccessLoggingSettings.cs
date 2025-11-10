@@ -25,7 +25,7 @@ public class AwsWorkspaceswebUserAccessLoggingSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KinesisStreamArn is required")]
     public required TerraformProperty<string> KinesisStreamArn
     {
-        get => GetProperty<TerraformProperty<string>>("kinesis_stream_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("kinesis_stream_arn");
         set => this.WithProperty("kinesis_stream_arn", value);
     }
 

@@ -53,7 +53,7 @@ public class AwsConnectVocabulary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsConnectVocabulary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsConnectVocabulary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformProperty<string> LanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("language_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsConnectVocabulary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

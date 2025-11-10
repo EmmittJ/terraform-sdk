@@ -14,7 +14,7 @@ public class AwsChimesdkvoiceSipMediaApplicationEndpointsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaArn is required")]
     public required TerraformProperty<string> LambdaArn
     {
-        get => GetProperty<TerraformProperty<string>>("lambda_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("lambda_arn");
         set => WithProperty("lambda_arn", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsChimesdkvoiceSipMediaApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRegion is required")]
     public required TerraformProperty<string> AwsRegion
     {
-        get => GetProperty<TerraformProperty<string>>("aws_region");
+        get => GetRequiredProperty<TerraformProperty<string>>("aws_region");
         set => this.WithProperty("aws_region", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsChimesdkvoiceSipMediaApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

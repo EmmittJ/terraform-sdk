@@ -66,7 +66,7 @@ public class AzurermPostgresqlFlexibleServerFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndIpAddress is required")]
     public required TerraformProperty<string> EndIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("end_ip_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("end_ip_address");
         set => this.WithProperty("end_ip_address", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermPostgresqlFlexibleServerFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermPostgresqlFlexibleServerFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformProperty<string> ServerId
     {
-        get => GetProperty<TerraformProperty<string>>("server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermPostgresqlFlexibleServerFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartIpAddress is required")]
     public required TerraformProperty<string> StartIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("start_ip_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("start_ip_address");
         set => this.WithProperty("start_ip_address", value);
     }
 

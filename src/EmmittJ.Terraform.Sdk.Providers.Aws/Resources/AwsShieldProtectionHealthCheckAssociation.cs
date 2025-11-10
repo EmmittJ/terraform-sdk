@@ -22,7 +22,7 @@ public class AwsShieldProtectionHealthCheckAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthCheckArn is required")]
     public required TerraformProperty<string> HealthCheckArn
     {
-        get => GetProperty<TerraformProperty<string>>("health_check_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("health_check_arn");
         set => this.WithProperty("health_check_arn", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsShieldProtectionHealthCheckAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShieldProtectionId is required")]
     public required TerraformProperty<string> ShieldProtectionId
     {
-        get => GetProperty<TerraformProperty<string>>("shield_protection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("shield_protection_id");
         set => this.WithProperty("shield_protection_id", value);
     }
 

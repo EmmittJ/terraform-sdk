@@ -139,7 +139,7 @@ public class AwsDbProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineFamily is required")]
     public required TerraformProperty<string> EngineFamily
     {
-        get => GetProperty<TerraformProperty<string>>("engine_family");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine_family");
         set => this.WithProperty("engine_family", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsDbProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsDbProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

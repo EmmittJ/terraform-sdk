@@ -45,7 +45,7 @@ public class AwsDmsReplicationSubnetGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationSubnetGroupId is required")]
     public required TerraformProperty<string> ReplicationSubnetGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("replication_subnet_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("replication_subnet_group_id");
         set => this.WithProperty("replication_subnet_group_id", value);
     }
 

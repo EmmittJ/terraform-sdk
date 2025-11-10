@@ -84,7 +84,7 @@ public class AzurermNetworkManagerAdminRuleCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermNetworkManagerAdminRuleCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityAdminConfigurationId is required")]
     public required TerraformProperty<string> SecurityAdminConfigurationId
     {
-        get => GetProperty<TerraformProperty<string>>("security_admin_configuration_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_admin_configuration_id");
         set => this.WithProperty("security_admin_configuration_id", value);
     }
 

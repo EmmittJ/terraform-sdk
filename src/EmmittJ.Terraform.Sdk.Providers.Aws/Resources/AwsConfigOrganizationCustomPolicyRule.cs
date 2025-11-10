@@ -112,7 +112,7 @@ public class AwsConfigOrganizationCustomPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsConfigOrganizationCustomPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyRuntime is required")]
     public required TerraformProperty<string> PolicyRuntime
     {
-        get => GetProperty<TerraformProperty<string>>("policy_runtime");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_runtime");
         set => this.WithProperty("policy_runtime", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsConfigOrganizationCustomPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyText is required")]
     public required TerraformProperty<string> PolicyText
     {
-        get => GetProperty<TerraformProperty<string>>("policy_text");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_text");
         set => this.WithProperty("policy_text", value);
     }
 

@@ -103,7 +103,7 @@ public class AwsConfigOrganizationManagedRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsConfigOrganizationManagedRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleIdentifier is required")]
     public required TerraformProperty<string> RuleIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("rule_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_identifier");
         set => this.WithProperty("rule_identifier", value);
     }
 

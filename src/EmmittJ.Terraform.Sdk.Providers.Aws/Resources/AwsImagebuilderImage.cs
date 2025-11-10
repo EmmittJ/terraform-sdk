@@ -92,7 +92,7 @@ public class AwsImagebuilderImageWorkflowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkflowArn is required")]
     public required TerraformProperty<string> WorkflowArn
     {
-        get => GetProperty<TerraformProperty<string>>("workflow_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("workflow_arn");
         set => WithProperty("workflow_arn", value);
     }
 
@@ -180,7 +180,7 @@ public class AwsImagebuilderImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureConfigurationArn is required")]
     public required TerraformProperty<string> InfrastructureConfigurationArn
     {
-        get => GetProperty<TerraformProperty<string>>("infrastructure_configuration_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("infrastructure_configuration_arn");
         set => this.WithProperty("infrastructure_configuration_arn", value);
     }
 

@@ -75,7 +75,7 @@ public class AzurermLogAnalyticsQueryPackQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformProperty<string> Body
     {
-        get => GetProperty<TerraformProperty<string>>("body");
+        get => GetRequiredProperty<TerraformProperty<string>>("body");
         set => this.WithProperty("body", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermLogAnalyticsQueryPackQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermLogAnalyticsQueryPackQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryPackId is required")]
     public required TerraformProperty<string> QueryPackId
     {
-        get => GetProperty<TerraformProperty<string>>("query_pack_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("query_pack_id");
         set => this.WithProperty("query_pack_id", value);
     }
 

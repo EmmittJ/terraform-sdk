@@ -103,7 +103,7 @@ public class AwsCodedeployDeploymentConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentConfigName is required")]
     public required TerraformProperty<string> DeploymentConfigName
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_config_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("deployment_config_name");
         set => this.WithProperty("deployment_config_name", value);
     }
 

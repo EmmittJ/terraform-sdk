@@ -62,7 +62,7 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformProperty<string> AutomationAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("automation_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_name");
         set => this.WithProperty("automation_account_name", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -91,7 +91,7 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmResourceId is required")]
     public required TerraformProperty<string> VmResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("vm_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vm_resource_id");
         set => this.WithProperty("vm_resource_id", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerGroupName is required")]
     public required TerraformProperty<string> WorkerGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("worker_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("worker_group_name");
         set => this.WithProperty("worker_group_name", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerId is required")]
     public required TerraformProperty<string> WorkerId
     {
-        get => GetProperty<TerraformProperty<string>>("worker_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("worker_id");
         set => this.WithProperty("worker_id", value);
     }
 

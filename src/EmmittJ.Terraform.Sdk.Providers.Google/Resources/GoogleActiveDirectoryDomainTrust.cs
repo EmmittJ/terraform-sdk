@@ -58,7 +58,7 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDomainName is required")]
     public required TerraformProperty<string> TargetDomainName
     {
-        get => GetProperty<TerraformProperty<string>>("target_domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_domain_name");
         set => this.WithProperty("target_domain_name", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustDirection is required")]
     public required TerraformProperty<string> TrustDirection
     {
-        get => GetProperty<TerraformProperty<string>>("trust_direction");
+        get => GetRequiredProperty<TerraformProperty<string>>("trust_direction");
         set => this.WithProperty("trust_direction", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustHandshakeSecret is required")]
     public required TerraformProperty<string> TrustHandshakeSecret
     {
-        get => GetProperty<TerraformProperty<string>>("trust_handshake_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("trust_handshake_secret");
         set => this.WithProperty("trust_handshake_secret", value);
     }
 
@@ -135,7 +135,7 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustType is required")]
     public required TerraformProperty<string> TrustType
     {
-        get => GetProperty<TerraformProperty<string>>("trust_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("trust_type");
         set => this.WithProperty("trust_type", value);
     }
 

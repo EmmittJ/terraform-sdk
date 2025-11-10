@@ -23,7 +23,7 @@ public class GoogleContainerAnalysisNoteIamBindingConditionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("expression");
         set => WithProperty("expression", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleContainerAnalysisNoteIamBindingConditionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
+        get => GetRequiredProperty<TerraformProperty<string>>("title");
         set => WithProperty("title", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleContainerAnalysisNoteIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Note is required")]
     public required TerraformProperty<string> Note
     {
-        get => GetProperty<TerraformProperty<string>>("note");
+        get => GetRequiredProperty<TerraformProperty<string>>("note");
         set => this.WithProperty("note", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleContainerAnalysisNoteIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

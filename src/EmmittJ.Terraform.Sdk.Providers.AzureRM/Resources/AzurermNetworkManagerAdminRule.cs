@@ -14,7 +14,7 @@ public class AzurermNetworkManagerAdminRuleDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefix is required")]
     public required TerraformProperty<string> AddressPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("address_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("address_prefix");
         set => WithProperty("address_prefix", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermNetworkManagerAdminRuleDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixType is required")]
     public required TerraformProperty<string> AddressPrefixType
     {
-        get => GetProperty<TerraformProperty<string>>("address_prefix_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("address_prefix_type");
         set => WithProperty("address_prefix_type", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermNetworkManagerAdminRuleSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefix is required")]
     public required TerraformProperty<string> AddressPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("address_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("address_prefix");
         set => WithProperty("address_prefix", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermNetworkManagerAdminRuleSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixType is required")]
     public required TerraformProperty<string> AddressPrefixType
     {
-        get => GetProperty<TerraformProperty<string>>("address_prefix_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("address_prefix_type");
         set => WithProperty("address_prefix_type", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermNetworkManagerAdminRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermNetworkManagerAdminRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminRuleCollectionId is required")]
     public required TerraformProperty<string> AdminRuleCollectionId
     {
-        get => GetProperty<TerraformProperty<string>>("admin_rule_collection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_rule_collection_id");
         set => this.WithProperty("admin_rule_collection_id", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermNetworkManagerAdminRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformProperty<string> Direction
     {
-        get => GetProperty<TerraformProperty<string>>("direction");
+        get => GetRequiredProperty<TerraformProperty<string>>("direction");
         set => this.WithProperty("direction", value);
     }
 
@@ -179,7 +179,7 @@ public class AzurermNetworkManagerAdminRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -189,7 +189,7 @@ public class AzurermNetworkManagerAdminRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
@@ -199,7 +199,7 @@ public class AzurermNetworkManagerAdminRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 

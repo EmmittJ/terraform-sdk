@@ -23,7 +23,7 @@ public class AwsBackupReportPlanReportDeliveryChannelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformProperty<string> S3BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("s3_bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket_name");
         set => WithProperty("s3_bucket_name", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportTemplate is required")]
     public required TerraformProperty<string> ReportTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("report_template");
+        get => GetRequiredProperty<TerraformProperty<string>>("report_template");
         set => WithProperty("report_template", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsBackupReportPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

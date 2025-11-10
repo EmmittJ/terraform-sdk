@@ -116,7 +116,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetProperty<TerraformProperty<string>>("organization");
+        get => GetRequiredProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 
@@ -137,7 +137,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalAccessBoundaryPolicyId is required")]
     public required TerraformProperty<string> PrincipalAccessBoundaryPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_access_boundary_policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_access_boundary_policy_id");
         set => this.WithProperty("principal_access_boundary_policy_id", value);
     }
 

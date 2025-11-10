@@ -71,7 +71,7 @@ public class AwsCodecommitRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetProperty<TerraformProperty<string>>("repository_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
         set => this.WithProperty("repository_name", value);
     }
 

@@ -66,7 +66,7 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformProperty<string> RecoveryVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_id");
         set => this.WithProperty("recovery_vault_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceNetworkName is required")]
     public required TerraformProperty<string> SourceNetworkName
     {
-        get => GetProperty<TerraformProperty<string>>("source_network_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_network_name");
         set => this.WithProperty("source_network_name", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSystemCenterVirtualMachineManagerName is required")]
     public required TerraformProperty<string> SourceSystemCenterVirtualMachineManagerName
     {
-        get => GetProperty<TerraformProperty<string>>("source_system_center_virtual_machine_manager_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_system_center_virtual_machine_manager_name");
         set => this.WithProperty("source_system_center_virtual_machine_manager_name", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkId is required")]
     public required TerraformProperty<string> TargetNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("target_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_network_id");
         set => this.WithProperty("target_network_id", value);
     }
 

@@ -41,7 +41,7 @@ public class AwsSagemakerStudioLifecycleConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StudioLifecycleConfigAppType is required")]
     public required TerraformProperty<string> StudioLifecycleConfigAppType
     {
-        get => GetProperty<TerraformProperty<string>>("studio_lifecycle_config_app_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("studio_lifecycle_config_app_type");
         set => this.WithProperty("studio_lifecycle_config_app_type", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsSagemakerStudioLifecycleConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StudioLifecycleConfigContent is required")]
     public required TerraformProperty<string> StudioLifecycleConfigContent
     {
-        get => GetProperty<TerraformProperty<string>>("studio_lifecycle_config_content");
+        get => GetRequiredProperty<TerraformProperty<string>>("studio_lifecycle_config_content");
         set => this.WithProperty("studio_lifecycle_config_content", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsSagemakerStudioLifecycleConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StudioLifecycleConfigName is required")]
     public required TerraformProperty<string> StudioLifecycleConfigName
     {
-        get => GetProperty<TerraformProperty<string>>("studio_lifecycle_config_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("studio_lifecycle_config_name");
         set => this.WithProperty("studio_lifecycle_config_name", value);
     }
 

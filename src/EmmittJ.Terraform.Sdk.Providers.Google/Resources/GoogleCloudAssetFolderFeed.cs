@@ -24,7 +24,7 @@ public class GoogleCloudAssetFolderFeedConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("expression");
         set => WithProperty("expression", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleCloudAssetFolderFeed : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingProject is required")]
     public required TerraformProperty<string> BillingProject
     {
-        get => GetProperty<TerraformProperty<string>>("billing_project");
+        get => GetRequiredProperty<TerraformProperty<string>>("billing_project");
         set => this.WithProperty("billing_project", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleCloudAssetFolderFeed : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeedId is required")]
     public required TerraformProperty<string> FeedId
     {
-        get => GetProperty<TerraformProperty<string>>("feed_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("feed_id");
         set => this.WithProperty("feed_id", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleCloudAssetFolderFeed : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
+        get => GetRequiredProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 

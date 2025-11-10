@@ -37,7 +37,7 @@ public class AwsLambdaInvocationEphemeralResource : TerraformEphemeralResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetProperty<TerraformProperty<string>>("function_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
     }
 
@@ -56,7 +56,7 @@ public class AwsLambdaInvocationEphemeralResource : TerraformEphemeralResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
     public required TerraformProperty<string> Payload
     {
-        get => GetProperty<TerraformProperty<string>>("payload");
+        get => GetRequiredProperty<TerraformProperty<string>>("payload");
         set => this.WithProperty("payload", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformProperty<string> ConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("connection_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_string");
         set => WithProperty("connection_string", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceUpdateAccountId is required")]
     public required TerraformProperty<string> DeviceUpdateAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("device_update_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_update_account_id");
         set => this.WithProperty("device_update_account_id", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformProperty<string> IothubId
     {
-        get => GetProperty<TerraformProperty<string>>("iothub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("iothub_id");
         set => this.WithProperty("iothub_id", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

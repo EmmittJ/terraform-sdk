@@ -60,7 +60,7 @@ public class AwsMskconnectCustomPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformProperty<string> ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("content_type");
         set => this.WithProperty("content_type", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsMskconnectCustomPlugin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

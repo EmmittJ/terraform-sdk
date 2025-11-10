@@ -31,7 +31,7 @@ public class AwsEfsFileSystemPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformProperty<string> FileSystemId
     {
-        get => GetProperty<TerraformProperty<string>>("file_system_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("file_system_id");
         set => this.WithProperty("file_system_id", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsEfsFileSystemPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 

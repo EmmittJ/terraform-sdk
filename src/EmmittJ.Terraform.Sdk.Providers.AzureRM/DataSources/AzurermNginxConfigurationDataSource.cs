@@ -52,7 +52,7 @@ public class AzurermNginxConfigurationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformProperty<string> NginxDeploymentId
     {
-        get => GetProperty<TerraformProperty<string>>("nginx_deployment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("nginx_deployment_id");
         set => this.WithProperty("nginx_deployment_id", value);
     }
 

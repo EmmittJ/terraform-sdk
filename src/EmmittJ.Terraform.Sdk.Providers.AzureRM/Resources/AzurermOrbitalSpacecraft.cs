@@ -14,7 +14,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BandwidthMhz is required")]
     public required TerraformProperty<double> BandwidthMhz
     {
-        get => GetProperty<TerraformProperty<double>>("bandwidth_mhz");
+        get => GetRequiredProperty<TerraformProperty<double>>("bandwidth_mhz");
         set => WithProperty("bandwidth_mhz", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CenterFrequencyMhz is required")]
     public required TerraformProperty<double> CenterFrequencyMhz
     {
-        get => GetProperty<TerraformProperty<double>>("center_frequency_mhz");
+        get => GetRequiredProperty<TerraformProperty<double>>("center_frequency_mhz");
         set => WithProperty("center_frequency_mhz", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformProperty<string> Direction
     {
-        get => GetProperty<TerraformProperty<string>>("direction");
+        get => GetRequiredProperty<TerraformProperty<string>>("direction");
         set => WithProperty("direction", value);
     }
 
@@ -44,7 +44,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Polarization is required")]
     public required TerraformProperty<string> Polarization
     {
-        get => GetProperty<TerraformProperty<string>>("polarization");
+        get => GetRequiredProperty<TerraformProperty<string>>("polarization");
         set => WithProperty("polarization", value);
     }
 
@@ -135,7 +135,7 @@ public class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -145,7 +145,7 @@ public class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -155,7 +155,7 @@ public class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoradId is required")]
     public required TerraformProperty<string> NoradId
     {
-        get => GetProperty<TerraformProperty<string>>("norad_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("norad_id");
         set => this.WithProperty("norad_id", value);
     }
 
@@ -165,7 +165,7 @@ public class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -184,7 +184,7 @@ public class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TitleLine is required")]
     public required TerraformProperty<string> TitleLine
     {
-        get => GetProperty<TerraformProperty<string>>("title_line");
+        get => GetRequiredProperty<TerraformProperty<string>>("title_line");
         set => this.WithProperty("title_line", value);
     }
 

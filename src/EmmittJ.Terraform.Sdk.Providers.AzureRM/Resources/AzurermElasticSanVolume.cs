@@ -14,7 +14,7 @@ public class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceId is required")]
     public required TerraformProperty<string> SourceId
     {
-        get => GetProperty<TerraformProperty<string>>("source_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_id");
         set => WithProperty("source_id", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     public required TerraformProperty<string> SourceType
     {
-        get => GetProperty<TerraformProperty<string>>("source_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_type");
         set => WithProperty("source_type", value);
     }
 
@@ -108,7 +108,7 @@ public class AzurermElasticSanVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -118,7 +118,7 @@ public class AzurermElasticSanVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGib is required")]
     public required TerraformProperty<double> SizeInGib
     {
-        get => GetProperty<TerraformProperty<double>>("size_in_gib");
+        get => GetRequiredProperty<TerraformProperty<double>>("size_in_gib");
         set => this.WithProperty("size_in_gib", value);
     }
 
@@ -128,7 +128,7 @@ public class AzurermElasticSanVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeGroupId is required")]
     public required TerraformProperty<string> VolumeGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("volume_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("volume_group_id");
         set => this.WithProperty("volume_group_id", value);
     }
 

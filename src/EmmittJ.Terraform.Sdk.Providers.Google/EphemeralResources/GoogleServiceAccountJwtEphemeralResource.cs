@@ -42,7 +42,7 @@ public class GoogleServiceAccountJwtEphemeralResource : TerraformEphemeralResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
     public required TerraformProperty<string> Payload
     {
-        get => GetProperty<TerraformProperty<string>>("payload");
+        get => GetRequiredProperty<TerraformProperty<string>>("payload");
         set => this.WithProperty("payload", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleServiceAccountJwtEphemeralResource : TerraformEphemeralResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
     public required TerraformProperty<string> TargetServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("target_service_account");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_service_account");
         set => this.WithProperty("target_service_account", value);
     }
 

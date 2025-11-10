@@ -28,7 +28,7 @@ public class GoogleFolderOrganizationPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
     public required TerraformProperty<string> Constraint
     {
-        get => GetProperty<TerraformProperty<string>>("constraint");
+        get => GetRequiredProperty<TerraformProperty<string>>("constraint");
         set => this.WithProperty("constraint", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleFolderOrganizationPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
+        get => GetRequiredProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 

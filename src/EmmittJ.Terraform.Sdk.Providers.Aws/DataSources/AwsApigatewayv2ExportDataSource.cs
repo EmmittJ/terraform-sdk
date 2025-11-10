@@ -23,7 +23,7 @@ public class AwsApigatewayv2ExportDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsApigatewayv2ExportDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputType is required")]
     public required TerraformProperty<string> OutputType
     {
-        get => GetProperty<TerraformProperty<string>>("output_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("output_type");
         set => this.WithProperty("output_type", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsApigatewayv2ExportDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Specification is required")]
     public required TerraformProperty<string> Specification
     {
-        get => GetProperty<TerraformProperty<string>>("specification");
+        get => GetRequiredProperty<TerraformProperty<string>>("specification");
         set => this.WithProperty("specification", value);
     }
 

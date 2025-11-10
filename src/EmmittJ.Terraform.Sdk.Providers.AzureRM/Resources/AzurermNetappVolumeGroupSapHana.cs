@@ -58,7 +58,7 @@ public class AzurermNetappVolumeGroupSapHanaVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityPoolId is required")]
     public required TerraformProperty<string> CapacityPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("capacity_pool_id");
         set => WithProperty("capacity_pool_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermNetappVolumeGroupSapHanaVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermNetappVolumeGroupSapHanaVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityStyle is required")]
     public required TerraformProperty<string> SecurityStyle
     {
-        get => GetProperty<TerraformProperty<string>>("security_style");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_style");
         set => WithProperty("security_style", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermNetappVolumeGroupSapHanaVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLevel is required")]
     public required TerraformProperty<string> ServiceLevel
     {
-        get => GetProperty<TerraformProperty<string>>("service_level");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_level");
         set => WithProperty("service_level", value);
     }
 
@@ -135,7 +135,7 @@ public class AzurermNetappVolumeGroupSapHanaVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotDirectoryVisible is required")]
     public required TerraformProperty<bool> SnapshotDirectoryVisible
     {
-        get => GetProperty<TerraformProperty<bool>>("snapshot_directory_visible");
+        get => GetRequiredProperty<TerraformProperty<bool>>("snapshot_directory_visible");
         set => WithProperty("snapshot_directory_visible", value);
     }
 
@@ -145,7 +145,7 @@ public class AzurermNetappVolumeGroupSapHanaVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageQuotaInGb is required")]
     public required TerraformProperty<double> StorageQuotaInGb
     {
-        get => GetProperty<TerraformProperty<double>>("storage_quota_in_gb");
+        get => GetRequiredProperty<TerraformProperty<double>>("storage_quota_in_gb");
         set => WithProperty("storage_quota_in_gb", value);
     }
 
@@ -155,7 +155,7 @@ public class AzurermNetappVolumeGroupSapHanaVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => WithProperty("subnet_id", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermNetappVolumeGroupSapHanaVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThroughputInMibps is required")]
     public required TerraformProperty<double> ThroughputInMibps
     {
-        get => GetProperty<TerraformProperty<double>>("throughput_in_mibps");
+        get => GetRequiredProperty<TerraformProperty<double>>("throughput_in_mibps");
         set => WithProperty("throughput_in_mibps", value);
     }
 
@@ -184,7 +184,7 @@ public class AzurermNetappVolumeGroupSapHanaVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumePath is required")]
     public required TerraformProperty<string> VolumePath
     {
-        get => GetProperty<TerraformProperty<string>>("volume_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("volume_path");
         set => WithProperty("volume_path", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermNetappVolumeGroupSapHanaVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeSpecName is required")]
     public required TerraformProperty<string> VolumeSpecName
     {
-        get => GetProperty<TerraformProperty<string>>("volume_spec_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("volume_spec_name");
         set => WithProperty("volume_spec_name", value);
     }
 
@@ -221,7 +221,7 @@ public class AzurermNetappVolumeGroupSapHana : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetProperty<TerraformProperty<string>>("account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
         set => this.WithProperty("account_name", value);
     }
 
@@ -231,7 +231,7 @@ public class AzurermNetappVolumeGroupSapHana : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationIdentifier is required")]
     public required TerraformProperty<string> ApplicationIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("application_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_identifier");
         set => this.WithProperty("application_identifier", value);
     }
 
@@ -241,7 +241,7 @@ public class AzurermNetappVolumeGroupSapHana : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupDescription is required")]
     public required TerraformProperty<string> GroupDescription
     {
-        get => GetProperty<TerraformProperty<string>>("group_description");
+        get => GetRequiredProperty<TerraformProperty<string>>("group_description");
         set => this.WithProperty("group_description", value);
     }
 
@@ -260,7 +260,7 @@ public class AzurermNetappVolumeGroupSapHana : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -270,7 +270,7 @@ public class AzurermNetappVolumeGroupSapHana : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -280,7 +280,7 @@ public class AzurermNetappVolumeGroupSapHana : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

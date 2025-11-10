@@ -136,7 +136,7 @@ public class AwsDynamodbTableExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformProperty<string> S3Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("s3_bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket");
         set => this.WithProperty("s3_bucket", value);
     }
 
@@ -182,7 +182,7 @@ public class AwsDynamodbTableExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableArn is required")]
     public required TerraformProperty<string> TableArn
     {
-        get => GetProperty<TerraformProperty<string>>("table_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_arn");
         set => this.WithProperty("table_arn", value);
     }
 

@@ -23,7 +23,7 @@ public class AwsDbOptionGroupOptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OptionName is required")]
     public required TerraformProperty<string> OptionName
     {
-        get => GetProperty<TerraformProperty<string>>("option_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("option_name");
         set => WithProperty("option_name", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsDbOptionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineName is required")]
     public required TerraformProperty<string> EngineName
     {
-        get => GetProperty<TerraformProperty<string>>("engine_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine_name");
         set => this.WithProperty("engine_name", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsDbOptionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MajorEngineVersion is required")]
     public required TerraformProperty<string> MajorEngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("major_engine_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("major_engine_version");
         set => this.WithProperty("major_engine_version", value);
     }
 

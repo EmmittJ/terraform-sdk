@@ -111,7 +111,7 @@ public class AzurermMssqlManagedInstanceSecurityAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceName is required")]
     public required TerraformProperty<string> ManagedInstanceName
     {
-        get => GetProperty<TerraformProperty<string>>("managed_instance_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_instance_name");
         set => this.WithProperty("managed_instance_name", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermMssqlManagedInstanceSecurityAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

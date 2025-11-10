@@ -54,7 +54,7 @@ public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformProperty<string> ScopeId
     {
-        get => GetProperty<TerraformProperty<string>>("scope_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope_id");
         set => this.WithProperty("scope_id", value);
     }
 

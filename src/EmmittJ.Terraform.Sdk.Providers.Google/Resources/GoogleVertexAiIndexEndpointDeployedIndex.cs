@@ -53,7 +53,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicaCount is required")]
     public required TerraformProperty<double> MinReplicaCount
     {
-        get => GetProperty<TerraformProperty<double>>("min_replica_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_replica_count");
         set => WithProperty("min_replica_count", value);
     }
 
@@ -127,7 +127,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeployedIndexId is required")]
     public required TerraformProperty<string> DeployedIndexId
     {
-        get => GetProperty<TerraformProperty<string>>("deployed_index_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("deployed_index_id");
         set => this.WithProperty("deployed_index_id", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Index is required")]
     public required TerraformProperty<string> Index
     {
-        get => GetProperty<TerraformProperty<string>>("index");
+        get => GetRequiredProperty<TerraformProperty<string>>("index");
         set => this.WithProperty("index", value);
     }
 
@@ -186,7 +186,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexEndpoint is required")]
     public required TerraformProperty<string> IndexEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("index_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("index_endpoint");
         set => this.WithProperty("index_endpoint", value);
     }
 

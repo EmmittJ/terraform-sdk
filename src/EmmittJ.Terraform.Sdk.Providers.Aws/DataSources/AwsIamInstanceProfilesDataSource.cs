@@ -34,7 +34,7 @@ public class AwsIamInstanceProfilesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     public required TerraformProperty<string> RoleName
     {
-        get => GetProperty<TerraformProperty<string>>("role_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_name");
         set => this.WithProperty("role_name", value);
     }
 

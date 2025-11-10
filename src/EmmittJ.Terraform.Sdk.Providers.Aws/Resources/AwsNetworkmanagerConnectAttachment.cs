@@ -75,7 +75,7 @@ public class AwsNetworkmanagerConnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformProperty<string> CoreNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("core_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("core_network_id");
         set => this.WithProperty("core_network_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsNetworkmanagerConnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EdgeLocation is required")]
     public required TerraformProperty<string> EdgeLocation
     {
-        get => GetProperty<TerraformProperty<string>>("edge_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("edge_location");
         set => this.WithProperty("edge_location", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsNetworkmanagerConnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransportAttachmentId is required")]
     public required TerraformProperty<string> TransportAttachmentId
     {
-        get => GetProperty<TerraformProperty<string>>("transport_attachment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("transport_attachment_id");
         set => this.WithProperty("transport_attachment_id", value);
     }
 

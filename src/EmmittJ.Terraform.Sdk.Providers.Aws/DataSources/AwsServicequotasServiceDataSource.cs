@@ -41,7 +41,7 @@ public class AwsServicequotasServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
     }
 

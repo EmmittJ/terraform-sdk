@@ -40,7 +40,7 @@ public class AzurermDynatraceMonitorIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermDynatraceMonitorPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformProperty<string> Plan
     {
-        get => GetProperty<TerraformProperty<string>>("plan");
+        get => GetRequiredProperty<TerraformProperty<string>>("plan");
         set => WithProperty("plan", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Country is required")]
     public required TerraformProperty<string> Country
     {
-        get => GetProperty<TerraformProperty<string>>("country");
+        get => GetRequiredProperty<TerraformProperty<string>>("country");
         set => WithProperty("country", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
+        get => GetRequiredProperty<TerraformProperty<string>>("email");
         set => WithProperty("email", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstName is required")]
     public required TerraformProperty<string> FirstName
     {
-        get => GetProperty<TerraformProperty<string>>("first_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("first_name");
         set => WithProperty("first_name", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LastName is required")]
     public required TerraformProperty<string> LastName
     {
-        get => GetProperty<TerraformProperty<string>>("last_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("last_name");
         set => WithProperty("last_name", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformProperty<string> PhoneNumber
     {
-        get => GetProperty<TerraformProperty<string>>("phone_number");
+        get => GetRequiredProperty<TerraformProperty<string>>("phone_number");
         set => WithProperty("phone_number", value);
     }
 
@@ -223,7 +223,7 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -233,7 +233,7 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MarketplaceSubscription is required")]
     public required TerraformProperty<string> MarketplaceSubscription
     {
-        get => GetProperty<TerraformProperty<string>>("marketplace_subscription");
+        get => GetRequiredProperty<TerraformProperty<string>>("marketplace_subscription");
         set => this.WithProperty("marketplace_subscription", value);
     }
 
@@ -252,7 +252,7 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -262,7 +262,7 @@ public class AzurermDynatraceMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

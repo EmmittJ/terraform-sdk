@@ -276,7 +276,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetProperty<TerraformProperty<string>>("dataset_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
     }
 
@@ -287,7 +287,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefinitionBody is required")]
     public required TerraformProperty<string> DefinitionBody
     {
-        get => GetProperty<TerraformProperty<string>>("definition_body");
+        get => GetRequiredProperty<TerraformProperty<string>>("definition_body");
         set => this.WithProperty("definition_body", value);
     }
 
@@ -382,7 +382,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineId is required")]
     public required TerraformProperty<string> RoutineId
     {
-        get => GetProperty<TerraformProperty<string>>("routine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("routine_id");
         set => this.WithProperty("routine_id", value);
     }
 
@@ -392,7 +392,7 @@ public class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineType is required")]
     public required TerraformProperty<string> RoutineType
     {
-        get => GetProperty<TerraformProperty<string>>("routine_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("routine_type");
         set => this.WithProperty("routine_type", value);
     }
 

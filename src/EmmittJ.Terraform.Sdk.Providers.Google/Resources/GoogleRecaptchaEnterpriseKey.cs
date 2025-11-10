@@ -127,7 +127,7 @@ public class GoogleRecaptchaEnterpriseKeyWafSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WafFeature is required")]
     public required TerraformProperty<string> WafFeature
     {
-        get => GetProperty<TerraformProperty<string>>("waf_feature");
+        get => GetRequiredProperty<TerraformProperty<string>>("waf_feature");
         set => WithProperty("waf_feature", value);
     }
 
@@ -137,7 +137,7 @@ public class GoogleRecaptchaEnterpriseKeyWafSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WafService is required")]
     public required TerraformProperty<string> WafService
     {
-        get => GetProperty<TerraformProperty<string>>("waf_service");
+        get => GetRequiredProperty<TerraformProperty<string>>("waf_service");
         set => WithProperty("waf_service", value);
     }
 
@@ -191,7 +191,7 @@ public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationType is required")]
     public required TerraformProperty<string> IntegrationType
     {
-        get => GetProperty<TerraformProperty<string>>("integration_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("integration_type");
         set => WithProperty("integration_type", value);
     }
 
@@ -222,7 +222,7 @@ public class GoogleRecaptchaEnterpriseKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 

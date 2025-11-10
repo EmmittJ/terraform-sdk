@@ -14,7 +14,7 @@ public class AzurermNginxConfigurationConfigFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => WithProperty("content", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermNginxConfigurationConfigFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
     public required TerraformProperty<string> VirtualPath
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_path");
         set => WithProperty("virtual_path", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermNginxConfigurationProtectedFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => WithProperty("content", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermNginxConfigurationProtectedFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
     public required TerraformProperty<string> VirtualPath
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_path");
         set => WithProperty("virtual_path", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermNginxConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformProperty<string> NginxDeploymentId
     {
-        get => GetProperty<TerraformProperty<string>>("nginx_deployment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("nginx_deployment_id");
         set => this.WithProperty("nginx_deployment_id", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermNginxConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFile is required")]
     public required TerraformProperty<string> RootFile
     {
-        get => GetProperty<TerraformProperty<string>>("root_file");
+        get => GetRequiredProperty<TerraformProperty<string>>("root_file");
         set => this.WithProperty("root_file", value);
     }
 

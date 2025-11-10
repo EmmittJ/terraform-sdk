@@ -15,7 +15,7 @@ public class GoogleContainerAnalysisOccurrenceAttestationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SerializedPayload is required")]
     public required TerraformProperty<string> SerializedPayload
     {
-        get => GetProperty<TerraformProperty<string>>("serialized_payload");
+        get => GetRequiredProperty<TerraformProperty<string>>("serialized_payload");
         set => WithProperty("serialized_payload", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoteName is required")]
     public required TerraformProperty<string> NoteName
     {
-        get => GetProperty<TerraformProperty<string>>("note_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("note_name");
         set => this.WithProperty("note_name", value);
     }
 
@@ -122,7 +122,7 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceUri is required")]
     public required TerraformProperty<string> ResourceUri
     {
-        get => GetProperty<TerraformProperty<string>>("resource_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_uri");
         set => this.WithProperty("resource_uri", value);
     }
 

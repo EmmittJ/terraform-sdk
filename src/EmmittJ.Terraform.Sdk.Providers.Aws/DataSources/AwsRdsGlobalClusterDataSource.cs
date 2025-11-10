@@ -33,7 +33,7 @@ public class AwsRdsGlobalClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetProperty<TerraformProperty<string>>("identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
         set => this.WithProperty("identifier", value);
     }
 

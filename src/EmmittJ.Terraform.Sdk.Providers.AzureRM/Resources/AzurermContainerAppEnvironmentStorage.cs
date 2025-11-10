@@ -75,7 +75,7 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessMode is required")]
     public required TerraformProperty<string> AccessMode
     {
-        get => GetProperty<TerraformProperty<string>>("access_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_mode");
         set => this.WithProperty("access_mode", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformProperty<string> ContainerAppEnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("container_app_environment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_app_environment_id");
         set => this.WithProperty("container_app_environment_id", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
     public required TerraformProperty<string> ShareName
     {
-        get => GetProperty<TerraformProperty<string>>("share_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("share_name");
         set => this.WithProperty("share_name", value);
     }
 

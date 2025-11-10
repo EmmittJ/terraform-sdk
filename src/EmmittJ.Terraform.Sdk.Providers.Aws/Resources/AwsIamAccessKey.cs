@@ -55,7 +55,7 @@ public class AwsIamAccessKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformProperty<string> User
     {
-        get => GetProperty<TerraformProperty<string>>("user");
+        get => GetRequiredProperty<TerraformProperty<string>>("user");
         set => this.WithProperty("user", value);
     }
 

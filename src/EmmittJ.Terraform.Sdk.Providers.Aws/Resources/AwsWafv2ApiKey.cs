@@ -32,7 +32,7 @@ public class AwsWafv2ApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

@@ -23,7 +23,7 @@ public class AwsSagemakerCodeRepositoryGitConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformProperty<string> RepositoryUrl
     {
-        get => GetProperty<TerraformProperty<string>>("repository_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_url");
         set => WithProperty("repository_url", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsSagemakerCodeRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeRepositoryName is required")]
     public required TerraformProperty<string> CodeRepositoryName
     {
-        get => GetProperty<TerraformProperty<string>>("code_repository_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("code_repository_name");
         set => this.WithProperty("code_repository_name", value);
     }
 

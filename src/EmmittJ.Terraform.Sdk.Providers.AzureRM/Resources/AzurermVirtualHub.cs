@@ -24,7 +24,7 @@ public class AzurermVirtualHubRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHopIpAddress is required")]
     public required TerraformProperty<string> NextHopIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("next_hop_ip_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("next_hop_ip_address");
         set => WithProperty("next_hop_ip_address", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermVirtualHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermVirtualHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermVirtualHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

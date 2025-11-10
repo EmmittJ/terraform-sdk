@@ -93,7 +93,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfiguration : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchGroupName is required")]
     public required TerraformProperty<string> BatchGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("batch_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("batch_group_name");
         set => this.WithProperty("batch_group_name", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfiguration : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationAccountName is required")]
     public required TerraformProperty<string> IntegrationAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("integration_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("integration_account_name");
         set => this.WithProperty("integration_account_name", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfiguration : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfiguration : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

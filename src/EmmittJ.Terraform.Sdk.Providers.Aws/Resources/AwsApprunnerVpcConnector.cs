@@ -81,7 +81,7 @@ public class AwsApprunnerVpcConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConnectorName is required")]
     public required TerraformProperty<string> VpcConnectorName
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_connector_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_connector_name");
         set => this.WithProperty("vpc_connector_name", value);
     }
 

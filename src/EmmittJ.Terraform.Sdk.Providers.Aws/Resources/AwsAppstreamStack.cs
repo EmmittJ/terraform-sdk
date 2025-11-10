@@ -14,7 +14,7 @@ public class AwsAppstreamStackAccessEndpointsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformProperty<string> EndpointType
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_type");
         set => WithProperty("endpoint_type", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsAppstreamStackApplicationSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsAppstreamStackStorageConnectorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
     public required TerraformProperty<string> ConnectorType
     {
-        get => GetProperty<TerraformProperty<string>>("connector_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("connector_type");
         set => WithProperty("connector_type", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsAppstreamStackUserSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => WithProperty("action", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsAppstreamStackUserSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformProperty<string> Permission
     {
-        get => GetProperty<TerraformProperty<string>>("permission");
+        get => GetRequiredProperty<TerraformProperty<string>>("permission");
         set => WithProperty("permission", value);
     }
 
@@ -205,7 +205,7 @@ public class AwsAppstreamStack : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

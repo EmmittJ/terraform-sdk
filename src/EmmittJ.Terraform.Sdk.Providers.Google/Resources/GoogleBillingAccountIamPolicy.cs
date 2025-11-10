@@ -23,7 +23,7 @@ public class GoogleBillingAccountIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountId is required")]
     public required TerraformProperty<string> BillingAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("billing_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("billing_account_id");
         set => this.WithProperty("billing_account_id", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleBillingAccountIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

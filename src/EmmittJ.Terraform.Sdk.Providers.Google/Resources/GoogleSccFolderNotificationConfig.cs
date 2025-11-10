@@ -38,7 +38,7 @@ public class GoogleSccFolderNotificationConfigStreamingConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => WithProperty("filter", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleSccFolderNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
     public required TerraformProperty<string> ConfigId
     {
-        get => GetProperty<TerraformProperty<string>>("config_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("config_id");
         set => this.WithProperty("config_id", value);
     }
 
@@ -121,7 +121,7 @@ public class GoogleSccFolderNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
+        get => GetRequiredProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleSccFolderNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformProperty<string> PubsubTopic
     {
-        get => GetProperty<TerraformProperty<string>>("pubsub_topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("pubsub_topic");
         set => this.WithProperty("pubsub_topic", value);
     }
 

@@ -76,7 +76,7 @@ public class AwsAppfabricIngestionDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
     public required TerraformProperty<string> AppBundleArn
     {
-        get => GetProperty<TerraformProperty<string>>("app_bundle_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_bundle_arn");
         set => this.WithProperty("app_bundle_arn", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsAppfabricIngestionDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionArn is required")]
     public required TerraformProperty<string> IngestionArn
     {
-        get => GetProperty<TerraformProperty<string>>("ingestion_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("ingestion_arn");
         set => this.WithProperty("ingestion_arn", value);
     }
 

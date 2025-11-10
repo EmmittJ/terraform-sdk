@@ -92,7 +92,7 @@ public class AwsQuicksightDataSetFieldFoldersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldFoldersId is required")]
     public required TerraformProperty<string> FieldFoldersId
     {
-        get => GetProperty<TerraformProperty<string>>("field_folders_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("field_folders_id");
         set => WithProperty("field_folders_id", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
     public required TerraformProperty<string> Alias
     {
-        get => GetProperty<TerraformProperty<string>>("alias");
+        get => GetRequiredProperty<TerraformProperty<string>>("alias");
         set => WithProperty("alias", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsQuicksightDataSetLogicalTableMapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicalTableMapId is required")]
     public required TerraformProperty<string> LogicalTableMapId
     {
-        get => GetProperty<TerraformProperty<string>>("logical_table_map_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("logical_table_map_id");
         set => WithProperty("logical_table_map_id", value);
     }
 
@@ -148,7 +148,7 @@ public class AwsQuicksightDataSetPermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal");
         set => WithProperty("principal", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhysicalTableMapId is required")]
     public required TerraformProperty<string> PhysicalTableMapId
     {
-        get => GetProperty<TerraformProperty<string>>("physical_table_map_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("physical_table_map_id");
         set => WithProperty("physical_table_map_id", value);
     }
 
@@ -192,7 +192,7 @@ public class AwsQuicksightDataSetRowLevelPermissionDataSetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("arn");
         set => WithProperty("arn", value);
     }
 
@@ -220,7 +220,7 @@ public class AwsQuicksightDataSetRowLevelPermissionDataSetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionPolicy is required")]
     public required TerraformProperty<string> PermissionPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("permission_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("permission_policy");
         set => WithProperty("permission_policy", value);
     }
 
@@ -284,7 +284,7 @@ public class AwsQuicksightDataSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
     public required TerraformProperty<string> DataSetId
     {
-        get => GetProperty<TerraformProperty<string>>("data_set_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_set_id");
         set => this.WithProperty("data_set_id", value);
     }
 
@@ -303,7 +303,7 @@ public class AwsQuicksightDataSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportMode is required")]
     public required TerraformProperty<string> ImportMode
     {
-        get => GetProperty<TerraformProperty<string>>("import_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("import_mode");
         set => this.WithProperty("import_mode", value);
     }
 
@@ -313,7 +313,7 @@ public class AwsQuicksightDataSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

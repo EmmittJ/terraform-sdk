@@ -152,7 +152,7 @@ public class GoogleGkeonpremBareMetalClusterOsEnvironmentConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageRepoExcluded is required")]
     public required TerraformProperty<bool> PackageRepoExcluded
     {
-        get => GetProperty<TerraformProperty<bool>>("package_repo_excluded");
+        get => GetRequiredProperty<TerraformProperty<bool>>("package_repo_excluded");
         set => WithProperty("package_repo_excluded", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleGkeonpremBareMetalClusterProxyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("uri");
         set => WithProperty("uri", value);
     }
 
@@ -292,7 +292,7 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminClusterMembership is required")]
     public required TerraformProperty<string> AdminClusterMembership
     {
-        get => GetProperty<TerraformProperty<string>>("admin_cluster_membership");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_cluster_membership");
         set => this.WithProperty("admin_cluster_membership", value);
     }
 
@@ -322,7 +322,7 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BareMetalVersion is required")]
     public required TerraformProperty<string> BareMetalVersion
     {
-        get => GetProperty<TerraformProperty<string>>("bare_metal_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("bare_metal_version");
         set => this.WithProperty("bare_metal_version", value);
     }
 
@@ -350,7 +350,7 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -360,7 +360,7 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

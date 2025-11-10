@@ -14,7 +14,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomActionTimeoutInMins is required")]
     public required TerraformProperty<double> CustomActionTimeoutInMins
     {
-        get => GetProperty<TerraformProperty<double>>("custom_action_timeout_in_mins");
+        get => GetRequiredProperty<TerraformProperty<double>>("custom_action_timeout_in_mins");
         set => WithProperty("custom_action_timeout_in_mins", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsCustomActionTimeoutEnabled is required")]
     public required TerraformProperty<bool> IsCustomActionTimeoutEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("is_custom_action_timeout_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("is_custom_action_timeout_enabled");
         set => WithProperty("is_custom_action_timeout_enabled", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchingMode is required")]
     public required TerraformProperty<string> PatchingMode
     {
-        get => GetProperty<TerraformProperty<string>>("patching_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("patching_mode");
         set => WithProperty("patching_mode", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Preference is required")]
     public required TerraformProperty<string> Preference
     {
-        get => GetProperty<TerraformProperty<string>>("preference");
+        get => GetRequiredProperty<TerraformProperty<string>>("preference");
         set => WithProperty("preference", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZoneId is required")]
     public required TerraformProperty<string> AvailabilityZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("availability_zone_id");
         set => this.WithProperty("availability_zone_id", value);
     }
 
@@ -225,7 +225,7 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -244,7 +244,7 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
     public required TerraformProperty<string> Shape
     {
-        get => GetProperty<TerraformProperty<string>>("shape");
+        get => GetRequiredProperty<TerraformProperty<string>>("shape");
         set => this.WithProperty("shape", value);
     }
 

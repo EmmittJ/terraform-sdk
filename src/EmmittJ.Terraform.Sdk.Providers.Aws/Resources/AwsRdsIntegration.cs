@@ -69,7 +69,7 @@ public class AwsRdsIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationName is required")]
     public required TerraformProperty<string> IntegrationName
     {
-        get => GetProperty<TerraformProperty<string>>("integration_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("integration_name");
         set => this.WithProperty("integration_name", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsRdsIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
     public required TerraformProperty<string> SourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("source_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_arn");
         set => this.WithProperty("source_arn", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsRdsIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformProperty<string> TargetArn
     {
-        get => GetProperty<TerraformProperty<string>>("target_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_arn");
         set => this.WithProperty("target_arn", value);
     }
 

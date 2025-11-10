@@ -32,7 +32,7 @@ public class AwsCloudwatchLogStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformProperty<string> LogGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("log_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_group_name");
         set => this.WithProperty("log_group_name", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsCloudwatchLogStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

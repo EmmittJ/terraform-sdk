@@ -14,7 +14,7 @@ public class GoogleNetappBackupVaultBackupRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupMinimumEnforcedRetentionDays is required")]
     public required TerraformProperty<double> BackupMinimumEnforcedRetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("backup_minimum_enforced_retention_days");
+        get => GetRequiredProperty<TerraformProperty<double>>("backup_minimum_enforced_retention_days");
         set => WithProperty("backup_minimum_enforced_retention_days", value);
     }
 
@@ -168,7 +168,7 @@ public class GoogleNetappBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -178,7 +178,7 @@ public class GoogleNetappBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

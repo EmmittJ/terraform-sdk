@@ -33,7 +33,7 @@ public class AwsKinesisStreamConsumer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsKinesisStreamConsumer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
     public required TerraformProperty<string> StreamArn
     {
-        get => GetProperty<TerraformProperty<string>>("stream_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_arn");
         set => this.WithProperty("stream_arn", value);
     }
 

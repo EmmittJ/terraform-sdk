@@ -14,7 +14,7 @@ public class AwsEc2TransitGatewayRouteTableAssociationsDataSourceFilterBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsEc2TransitGatewayRouteTableAssociationsDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayRouteTableId is required")]
     public required TerraformProperty<string> TransitGatewayRouteTableId
     {
-        get => GetProperty<TerraformProperty<string>>("transit_gateway_route_table_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_route_table_id");
         set => this.WithProperty("transit_gateway_route_table_id", value);
     }
 

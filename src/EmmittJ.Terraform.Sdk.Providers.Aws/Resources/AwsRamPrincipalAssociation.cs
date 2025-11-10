@@ -31,7 +31,7 @@ public class AwsRamPrincipalAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal");
         set => this.WithProperty("principal", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsRamPrincipalAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceShareArn is required")]
     public required TerraformProperty<string> ResourceShareArn
     {
-        get => GetProperty<TerraformProperty<string>>("resource_share_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_share_arn");
         set => this.WithProperty("resource_share_arn", value);
     }
 

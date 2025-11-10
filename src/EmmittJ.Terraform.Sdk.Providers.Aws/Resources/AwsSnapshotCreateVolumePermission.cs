@@ -48,7 +48,7 @@ public class AwsSnapshotCreateVolumePermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsSnapshotCreateVolumePermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotId is required")]
     public required TerraformProperty<string> SnapshotId
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_id");
         set => this.WithProperty("snapshot_id", value);
     }
 

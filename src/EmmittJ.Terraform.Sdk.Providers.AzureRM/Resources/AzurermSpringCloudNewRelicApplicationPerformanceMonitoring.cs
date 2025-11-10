@@ -75,7 +75,7 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
     public required TerraformProperty<string> AppName
     {
-        get => GetProperty<TerraformProperty<string>>("app_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_name");
         set => this.WithProperty("app_name", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseKey is required")]
     public required TerraformProperty<string> LicenseKey
     {
-        get => GetProperty<TerraformProperty<string>>("license_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("license_key");
         set => this.WithProperty("license_key", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
     }
 

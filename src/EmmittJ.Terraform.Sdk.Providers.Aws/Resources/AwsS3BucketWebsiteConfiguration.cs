@@ -14,7 +14,7 @@ public class AwsS3BucketWebsiteConfigurationErrorDocumentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsS3BucketWebsiteConfigurationIndexDocumentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Suffix is required")]
     public required TerraformProperty<string> Suffix
     {
-        get => GetProperty<TerraformProperty<string>>("suffix");
+        get => GetRequiredProperty<TerraformProperty<string>>("suffix");
         set => WithProperty("suffix", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetProperty<TerraformProperty<string>>("host_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
         set => WithProperty("host_name", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 

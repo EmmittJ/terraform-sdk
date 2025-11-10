@@ -32,7 +32,7 @@ public class AwsAmplifyDomainAssociationCertificateSettingsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsAmplifyDomainAssociationSubDomainBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformProperty<string> BranchName
     {
-        get => GetProperty<TerraformProperty<string>>("branch_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("branch_name");
         set => WithProperty("branch_name", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsAmplifyDomainAssociationSubDomainBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformProperty<string> Prefix
     {
-        get => GetProperty<TerraformProperty<string>>("prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("prefix");
         set => WithProperty("prefix", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsAmplifyDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetProperty<TerraformProperty<string>>("app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsAmplifyDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 

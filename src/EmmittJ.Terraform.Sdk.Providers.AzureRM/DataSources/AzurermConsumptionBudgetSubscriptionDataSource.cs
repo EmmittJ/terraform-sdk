@@ -53,7 +53,7 @@ public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 

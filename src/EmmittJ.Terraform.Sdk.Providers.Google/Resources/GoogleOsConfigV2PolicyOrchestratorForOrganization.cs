@@ -108,7 +108,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganization : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
@@ -151,7 +151,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganization : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
     public required TerraformProperty<string> OrganizationId
     {
-        get => GetProperty<TerraformProperty<string>>("organization_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("organization_id");
         set => this.WithProperty("organization_id", value);
     }
 
@@ -168,7 +168,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganization : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyOrchestratorId is required")]
     public required TerraformProperty<string> PolicyOrchestratorId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_orchestrator_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_orchestrator_id");
         set => this.WithProperty("policy_orchestrator_id", value);
     }
 

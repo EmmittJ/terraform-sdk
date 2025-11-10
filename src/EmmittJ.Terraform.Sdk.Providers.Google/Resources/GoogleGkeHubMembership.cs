@@ -15,7 +15,7 @@ public class GoogleGkeHubMembershipAuthorityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformProperty<string> Issuer
     {
-        get => GetProperty<TerraformProperty<string>>("issuer");
+        get => GetRequiredProperty<TerraformProperty<string>>("issuer");
         set => WithProperty("issuer", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleGkeHubMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
     public required TerraformProperty<string> MembershipId
     {
-        get => GetProperty<TerraformProperty<string>>("membership_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("membership_id");
         set => this.WithProperty("membership_id", value);
     }
 

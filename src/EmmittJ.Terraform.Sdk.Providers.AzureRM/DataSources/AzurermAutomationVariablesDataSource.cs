@@ -46,7 +46,7 @@ public class AzurermAutomationVariablesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformProperty<string> AutomationAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("automation_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_id");
         set => this.WithProperty("automation_account_id", value);
     }
 

@@ -24,7 +24,7 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
     public required TerraformProperty<string> LayerName
     {
-        get => GetProperty<TerraformProperty<string>>("layer_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("layer_name");
         set => this.WithProperty("layer_name", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal");
         set => this.WithProperty("principal", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatementId is required")]
     public required TerraformProperty<string> StatementId
     {
-        get => GetProperty<TerraformProperty<string>>("statement_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("statement_id");
         set => this.WithProperty("statement_id", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionNumber is required")]
     public required TerraformProperty<double> VersionNumber
     {
-        get => GetProperty<TerraformProperty<double>>("version_number");
+        get => GetRequiredProperty<TerraformProperty<double>>("version_number");
         set => this.WithProperty("version_number", value);
     }
 

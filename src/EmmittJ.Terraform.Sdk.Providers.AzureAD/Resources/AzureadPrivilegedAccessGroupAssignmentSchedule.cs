@@ -67,7 +67,7 @@ public class AzureadPrivilegedAccessGroupAssignmentSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentType is required")]
     public required TerraformProperty<string> AssignmentType
     {
-        get => GetProperty<TerraformProperty<string>>("assignment_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("assignment_type");
         set => this.WithProperty("assignment_type", value);
     }
 
@@ -95,7 +95,7 @@ public class AzureadPrivilegedAccessGroupAssignmentSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformProperty<string> GroupId
     {
-        get => GetProperty<TerraformProperty<string>>("group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("group_id");
         set => this.WithProperty("group_id", value);
     }
 
@@ -132,7 +132,7 @@ public class AzureadPrivilegedAccessGroupAssignmentSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
     }
 

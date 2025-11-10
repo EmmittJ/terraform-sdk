@@ -24,7 +24,7 @@ public class AwsRedshiftHsmClientCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmClientCertificateIdentifier is required")]
     public required TerraformProperty<string> HsmClientCertificateIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("hsm_client_certificate_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("hsm_client_certificate_identifier");
         set => this.WithProperty("hsm_client_certificate_identifier", value);
     }
 

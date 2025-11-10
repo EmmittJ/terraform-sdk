@@ -84,7 +84,7 @@ public class AwsDynamodbContributorInsights : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
     }
 

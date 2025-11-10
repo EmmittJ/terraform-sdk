@@ -31,7 +31,7 @@ public class AwsSecurityhubFindingAggregator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkingMode is required")]
     public required TerraformProperty<string> LinkingMode
     {
-        get => GetProperty<TerraformProperty<string>>("linking_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("linking_mode");
         set => this.WithProperty("linking_mode", value);
     }
 

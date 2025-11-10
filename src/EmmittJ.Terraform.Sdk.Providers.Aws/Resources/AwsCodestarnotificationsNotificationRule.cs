@@ -14,7 +14,7 @@ public class AwsCodestarnotificationsNotificationRuleTargetBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformProperty<string> Address
     {
-        get => GetProperty<TerraformProperty<string>>("address");
+        get => GetRequiredProperty<TerraformProperty<string>>("address");
         set => WithProperty("address", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsCodestarnotificationsNotificationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetailType is required")]
     public required TerraformProperty<string> DetailType
     {
-        get => GetProperty<TerraformProperty<string>>("detail_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("detail_type");
         set => this.WithProperty("detail_type", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsCodestarnotificationsNotificationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsCodestarnotificationsNotificationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformProperty<string> Resource
     {
-        get => GetProperty<TerraformProperty<string>>("resource");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource");
         set => this.WithProperty("resource", value);
     }
 

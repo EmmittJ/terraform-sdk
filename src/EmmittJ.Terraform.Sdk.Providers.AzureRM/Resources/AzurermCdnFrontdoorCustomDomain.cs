@@ -105,7 +105,7 @@ public class AzurermCdnFrontdoorCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
     public required TerraformProperty<string> CdnFrontdoorProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("cdn_frontdoor_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cdn_frontdoor_profile_id");
         set => this.WithProperty("cdn_frontdoor_profile_id", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermCdnFrontdoorCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetProperty<TerraformProperty<string>>("host_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
         set => this.WithProperty("host_name", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermCdnFrontdoorCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

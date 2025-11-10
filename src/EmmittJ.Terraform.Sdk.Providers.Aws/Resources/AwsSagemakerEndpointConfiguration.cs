@@ -22,7 +22,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationS3Uri is required")]
     public required TerraformProperty<string> DestinationS3Uri
     {
-        get => GetProperty<TerraformProperty<string>>("destination_s3_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_s3_uri");
         set => WithProperty("destination_s3_uri", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialSamplingPercentage is required")]
     public required TerraformProperty<double> InitialSamplingPercentage
     {
-        get => GetProperty<TerraformProperty<double>>("initial_sampling_percentage");
+        get => GetRequiredProperty<TerraformProperty<double>>("initial_sampling_percentage");
         set => WithProperty("initial_sampling_percentage", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelName is required")]
     public required TerraformProperty<string> ModelName
     {
-        get => GetProperty<TerraformProperty<string>>("model_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("model_name");
         set => WithProperty("model_name", value);
     }
 
@@ -248,7 +248,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelName is required")]
     public required TerraformProperty<string> ModelName
     {
-        get => GetProperty<TerraformProperty<string>>("model_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("model_name");
         set => WithProperty("model_name", value);
     }
 

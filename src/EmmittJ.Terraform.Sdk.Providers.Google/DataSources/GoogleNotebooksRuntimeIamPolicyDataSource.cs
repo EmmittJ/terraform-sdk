@@ -51,7 +51,7 @@ public class GoogleNotebooksRuntimeIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeName is required")]
     public required TerraformProperty<string> RuntimeName
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("runtime_name");
         set => this.WithProperty("runtime_name", value);
     }
 

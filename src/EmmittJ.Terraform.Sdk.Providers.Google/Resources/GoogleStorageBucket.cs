@@ -14,7 +14,7 @@ public class GoogleStorageBucketAutoclassBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleStorageBucketEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultKmsKeyName is required")]
     public required TerraformProperty<string> DefaultKmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("default_kms_key_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_kms_key_name");
         set => WithProperty("default_kms_key_name", value);
     }
 
@@ -121,7 +121,7 @@ public class GoogleStorageBucketHierarchicalNamespaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -157,7 +157,7 @@ public class GoogleStorageBucketIpFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("mode");
         set => WithProperty("mode", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleStorageBucketLoggingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogBucket is required")]
     public required TerraformProperty<string> LogBucket
     {
-        get => GetProperty<TerraformProperty<string>>("log_bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_bucket");
         set => WithProperty("log_bucket", value);
     }
 
@@ -219,7 +219,7 @@ public class GoogleStorageBucketRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriod is required")]
     public required TerraformProperty<string> RetentionPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("retention_period");
+        get => GetRequiredProperty<TerraformProperty<string>>("retention_period");
         set => WithProperty("retention_period", value);
     }
 
@@ -298,7 +298,7 @@ public class GoogleStorageBucketVersioningBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -403,7 +403,7 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -413,7 +413,7 @@ public class GoogleStorageBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

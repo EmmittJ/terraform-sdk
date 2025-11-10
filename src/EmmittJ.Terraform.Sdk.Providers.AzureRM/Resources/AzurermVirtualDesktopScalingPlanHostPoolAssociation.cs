@@ -66,7 +66,7 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociation : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociation : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostPoolId is required")]
     public required TerraformProperty<string> HostPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("host_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_pool_id");
         set => this.WithProperty("host_pool_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociation : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingPlanId is required")]
     public required TerraformProperty<string> ScalingPlanId
     {
-        get => GetProperty<TerraformProperty<string>>("scaling_plan_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("scaling_plan_id");
         set => this.WithProperty("scaling_plan_id", value);
     }
 

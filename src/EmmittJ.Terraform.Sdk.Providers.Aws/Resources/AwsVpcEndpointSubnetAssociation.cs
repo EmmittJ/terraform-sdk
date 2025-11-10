@@ -66,7 +66,7 @@ public class AwsVpcEndpointSubnetAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsVpcEndpointSubnetAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointId is required")]
     public required TerraformProperty<string> VpcEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_endpoint_id");
         set => this.WithProperty("vpc_endpoint_id", value);
     }
 

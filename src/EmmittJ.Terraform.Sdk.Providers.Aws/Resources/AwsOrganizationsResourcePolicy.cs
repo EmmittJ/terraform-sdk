@@ -23,7 +23,7 @@ public class AwsOrganizationsResourcePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
     }
 

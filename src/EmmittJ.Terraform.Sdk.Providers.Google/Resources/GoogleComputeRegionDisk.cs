@@ -14,7 +14,7 @@ public class GoogleComputeRegionDiskAsyncPrimaryDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     public required TerraformProperty<string> Disk
     {
-        get => GetProperty<TerraformProperty<string>>("disk");
+        get => GetRequiredProperty<TerraformProperty<string>>("disk");
         set => WithProperty("disk", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleComputeRegionDiskGuestOsFeaturesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -262,7 +262,7 @@ public class GoogleComputeRegionDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

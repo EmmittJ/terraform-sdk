@@ -14,7 +14,7 @@ public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessControlAllowCredentials is required")]
     public required TerraformProperty<bool> AccessControlAllowCredentials
     {
-        get => GetProperty<TerraformProperty<bool>>("access_control_allow_credentials");
+        get => GetRequiredProperty<TerraformProperty<bool>>("access_control_allow_credentials");
         set => WithProperty("access_control_allow_credentials", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginOverride is required")]
     public required TerraformProperty<bool> OriginOverride
     {
-        get => GetProperty<TerraformProperty<bool>>("origin_override");
+        get => GetRequiredProperty<TerraformProperty<bool>>("origin_override");
         set => WithProperty("origin_override", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingRate is required")]
     public required TerraformProperty<double> SamplingRate
     {
-        get => GetProperty<TerraformProperty<double>>("sampling_rate");
+        get => GetRequiredProperty<TerraformProperty<double>>("sampling_rate");
         set => WithProperty("sampling_rate", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

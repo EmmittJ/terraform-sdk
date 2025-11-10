@@ -49,7 +49,7 @@ public class AwsNatGatewayEipAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationId is required")]
     public required TerraformProperty<string> AllocationId
     {
-        get => GetProperty<TerraformProperty<string>>("allocation_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("allocation_id");
         set => this.WithProperty("allocation_id", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsNatGatewayEipAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatGatewayId is required")]
     public required TerraformProperty<string> NatGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("nat_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("nat_gateway_id");
         set => this.WithProperty("nat_gateway_id", value);
     }
 

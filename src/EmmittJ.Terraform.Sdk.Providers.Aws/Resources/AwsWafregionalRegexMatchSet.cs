@@ -14,7 +14,7 @@ public class AwsWafregionalRegexMatchSetRegexMatchTupleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegexPatternSetId is required")]
     public required TerraformProperty<string> RegexPatternSetId
     {
-        get => GetProperty<TerraformProperty<string>>("regex_pattern_set_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("regex_pattern_set_id");
         set => WithProperty("regex_pattern_set_id", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsWafregionalRegexMatchSetRegexMatchTupleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     public required TerraformProperty<string> TextTransformation
     {
-        get => GetProperty<TerraformProperty<string>>("text_transformation");
+        get => GetRequiredProperty<TerraformProperty<string>>("text_transformation");
         set => WithProperty("text_transformation", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsWafregionalRegexMatchSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

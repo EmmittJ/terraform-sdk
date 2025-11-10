@@ -119,7 +119,7 @@ public class AzurermContainerRegistryTokenPassword : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryTokenId is required")]
     public required TerraformProperty<string> ContainerRegistryTokenId
     {
-        get => GetProperty<TerraformProperty<string>>("container_registry_token_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_token_id");
         set => this.WithProperty("container_registry_token_id", value);
     }
 

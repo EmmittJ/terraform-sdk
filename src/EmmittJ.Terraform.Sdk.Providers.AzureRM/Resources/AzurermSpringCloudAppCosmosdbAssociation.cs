@@ -66,7 +66,7 @@ public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiType is required")]
     public required TerraformProperty<string> ApiType
     {
-        get => GetProperty<TerraformProperty<string>>("api_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_type");
         set => this.WithProperty("api_type", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccessKey is required")]
     public required TerraformProperty<string> CosmosdbAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("cosmosdb_access_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("cosmosdb_access_key");
         set => this.WithProperty("cosmosdb_access_key", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccountId is required")]
     public required TerraformProperty<string> CosmosdbAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("cosmosdb_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cosmosdb_account_id");
         set => this.WithProperty("cosmosdb_account_id", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformProperty<string> SpringCloudAppId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_app_id");
         set => this.WithProperty("spring_cloud_app_id", value);
     }
 

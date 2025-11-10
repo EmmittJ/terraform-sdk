@@ -117,7 +117,7 @@ public class GoogleDataflowJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -199,7 +199,7 @@ public class GoogleDataflowJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TempGcsLocation is required")]
     public required TerraformProperty<string> TempGcsLocation
     {
-        get => GetProperty<TerraformProperty<string>>("temp_gcs_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("temp_gcs_location");
         set => this.WithProperty("temp_gcs_location", value);
     }
 
@@ -209,7 +209,7 @@ public class GoogleDataflowJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateGcsPath is required")]
     public required TerraformProperty<string> TemplateGcsPath
     {
-        get => GetProperty<TerraformProperty<string>>("template_gcs_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("template_gcs_path");
         set => this.WithProperty("template_gcs_path", value);
     }
 

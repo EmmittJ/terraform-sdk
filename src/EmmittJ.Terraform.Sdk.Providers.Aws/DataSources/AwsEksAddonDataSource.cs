@@ -29,7 +29,7 @@ public class AwsEksAddonDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddonName is required")]
     public required TerraformProperty<string> AddonName
     {
-        get => GetProperty<TerraformProperty<string>>("addon_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("addon_name");
         set => this.WithProperty("addon_name", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsEksAddonDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 

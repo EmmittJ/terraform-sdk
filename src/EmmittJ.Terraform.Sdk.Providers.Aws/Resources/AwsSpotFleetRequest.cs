@@ -14,7 +14,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ami is required")]
     public required TerraformProperty<string> Ami
     {
-        get => GetProperty<TerraformProperty<string>>("ami");
+        get => GetRequiredProperty<TerraformProperty<string>>("ami");
         set => WithProperty("ami", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
         set => WithProperty("instance_type", value);
     }
 
@@ -275,7 +275,7 @@ public class AwsSpotFleetRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamFleetRole is required")]
     public required TerraformProperty<string> IamFleetRole
     {
-        get => GetProperty<TerraformProperty<string>>("iam_fleet_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("iam_fleet_role");
         set => this.WithProperty("iam_fleet_role", value);
     }
 
@@ -393,7 +393,7 @@ public class AwsSpotFleetRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetCapacity is required")]
     public required TerraformProperty<double> TargetCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("target_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("target_capacity");
         set => this.WithProperty("target_capacity", value);
     }
 

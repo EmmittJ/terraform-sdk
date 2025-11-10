@@ -39,7 +39,7 @@ public class AwsS3BucketInventoryScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetProperty<TerraformProperty<string>>("frequency");
+        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
         set => WithProperty("frequency", value);
     }
 
@@ -66,7 +66,7 @@ public class AwsS3BucketInventory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsS3BucketInventory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncludedObjectVersions is required")]
     public required TerraformProperty<string> IncludedObjectVersions
     {
-        get => GetProperty<TerraformProperty<string>>("included_object_versions");
+        get => GetRequiredProperty<TerraformProperty<string>>("included_object_versions");
         set => this.WithProperty("included_object_versions", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsS3BucketInventory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

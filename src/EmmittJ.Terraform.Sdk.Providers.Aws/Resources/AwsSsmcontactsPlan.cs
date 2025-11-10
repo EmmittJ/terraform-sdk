@@ -14,7 +14,7 @@ public class AwsSsmcontactsPlanStageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DurationInMinutes is required")]
     public required TerraformProperty<double> DurationInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("duration_in_minutes");
+        get => GetRequiredProperty<TerraformProperty<double>>("duration_in_minutes");
         set => WithProperty("duration_in_minutes", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsSsmcontactsPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactId is required")]
     public required TerraformProperty<string> ContactId
     {
-        get => GetProperty<TerraformProperty<string>>("contact_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("contact_id");
         set => this.WithProperty("contact_id", value);
     }
 

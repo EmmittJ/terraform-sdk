@@ -14,7 +14,7 @@ public class AzurermSynapseSparkPoolAutoPauseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelayInMinutes is required")]
     public required TerraformProperty<double> DelayInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("delay_in_minutes");
+        get => GetRequiredProperty<TerraformProperty<double>>("delay_in_minutes");
         set => WithProperty("delay_in_minutes", value);
     }
 
@@ -32,7 +32,7 @@ public class AzurermSynapseSparkPoolAutoScaleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     public required TerraformProperty<double> MaxNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_node_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_node_count");
         set => WithProperty("max_node_count", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermSynapseSparkPoolAutoScaleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     public required TerraformProperty<double> MinNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("min_node_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_node_count");
         set => WithProperty("min_node_count", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermSynapseSparkPoolLibraryRequirementBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => WithProperty("content", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermSynapseSparkPoolLibraryRequirementBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
     public required TerraformProperty<string> Filename
     {
-        get => GetProperty<TerraformProperty<string>>("filename");
+        get => GetRequiredProperty<TerraformProperty<string>>("filename");
         set => WithProperty("filename", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermSynapseSparkPoolSparkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => WithProperty("content", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermSynapseSparkPoolSparkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
     public required TerraformProperty<string> Filename
     {
-        get => GetProperty<TerraformProperty<string>>("filename");
+        get => GetRequiredProperty<TerraformProperty<string>>("filename");
         set => WithProperty("filename", value);
     }
 
@@ -223,7 +223,7 @@ public class AzurermSynapseSparkPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -242,7 +242,7 @@ public class AzurermSynapseSparkPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeSize is required")]
     public required TerraformProperty<string> NodeSize
     {
-        get => GetProperty<TerraformProperty<string>>("node_size");
+        get => GetRequiredProperty<TerraformProperty<string>>("node_size");
         set => this.WithProperty("node_size", value);
     }
 
@@ -252,7 +252,7 @@ public class AzurermSynapseSparkPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeSizeFamily is required")]
     public required TerraformProperty<string> NodeSizeFamily
     {
-        get => GetProperty<TerraformProperty<string>>("node_size_family");
+        get => GetRequiredProperty<TerraformProperty<string>>("node_size_family");
         set => this.WithProperty("node_size_family", value);
     }
 
@@ -289,7 +289,7 @@ public class AzurermSynapseSparkPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SparkVersion is required")]
     public required TerraformProperty<string> SparkVersion
     {
-        get => GetProperty<TerraformProperty<string>>("spark_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("spark_version");
         set => this.WithProperty("spark_version", value);
     }
 
@@ -299,7 +299,7 @@ public class AzurermSynapseSparkPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
     }
 

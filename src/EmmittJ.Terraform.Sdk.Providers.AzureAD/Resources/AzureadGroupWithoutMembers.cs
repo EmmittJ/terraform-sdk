@@ -14,7 +14,7 @@ public class AzureadGroupWithoutMembersDynamicMembershipBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -24,7 +24,7 @@ public class AzureadGroupWithoutMembersDynamicMembershipBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformProperty<string> Rule
     {
-        get => GetProperty<TerraformProperty<string>>("rule");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule");
         set => WithProperty("rule", value);
     }
 
@@ -149,7 +149,7 @@ public class AzureadGroupWithoutMembers : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 

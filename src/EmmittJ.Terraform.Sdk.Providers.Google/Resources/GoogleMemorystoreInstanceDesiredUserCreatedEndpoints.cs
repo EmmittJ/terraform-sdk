@@ -74,7 +74,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
+        get => GetRequiredProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

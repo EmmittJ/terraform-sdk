@@ -31,7 +31,7 @@ public class GoogleClouddeployTargetAssociatedEntitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityId is required")]
     public required TerraformProperty<string> EntityId
     {
-        get => GetProperty<TerraformProperty<string>>("entity_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("entity_id");
         set => WithProperty("entity_id", value);
     }
 
@@ -49,7 +49,7 @@ public class GoogleClouddeployTargetCustomTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomTargetType is required")]
     public required TerraformProperty<string> CustomTargetType
     {
-        get => GetProperty<TerraformProperty<string>>("custom_target_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("custom_target_type");
         set => WithProperty("custom_target_type", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleClouddeployTargetRunBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => WithProperty("location", value);
     }
 
@@ -313,7 +313,7 @@ public class GoogleClouddeployTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -323,7 +323,7 @@ public class GoogleClouddeployTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

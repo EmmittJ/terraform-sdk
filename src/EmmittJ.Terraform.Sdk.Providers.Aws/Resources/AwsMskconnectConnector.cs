@@ -115,7 +115,7 @@ public class AwsMskconnectConnectorWorkerConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("arn");
         set => WithProperty("arn", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsMskconnectConnectorWorkerConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformProperty<double> Revision
     {
-        get => GetProperty<TerraformProperty<double>>("revision");
+        get => GetRequiredProperty<TerraformProperty<double>>("revision");
         set => WithProperty("revision", value);
     }
 
@@ -182,7 +182,7 @@ public class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaconnectVersion is required")]
     public required TerraformProperty<string> KafkaconnectVersion
     {
-        get => GetProperty<TerraformProperty<string>>("kafkaconnect_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("kafkaconnect_version");
         set => this.WithProperty("kafkaconnect_version", value);
     }
 
@@ -192,7 +192,7 @@ public class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -211,7 +211,7 @@ public class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceExecutionRoleArn is required")]
     public required TerraformProperty<string> ServiceExecutionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_execution_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_execution_role_arn");
         set => this.WithProperty("service_execution_role_arn", value);
     }
 

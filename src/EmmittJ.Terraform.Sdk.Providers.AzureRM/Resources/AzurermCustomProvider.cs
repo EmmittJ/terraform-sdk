@@ -14,7 +14,7 @@ public class AzurermCustomProviderActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformProperty<string> Endpoint
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint");
         set => WithProperty("endpoint", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermCustomProviderActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermCustomProviderResourceTypeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformProperty<string> Endpoint
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint");
         set => WithProperty("endpoint", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermCustomProviderResourceTypeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermCustomProviderValidationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Specification is required")]
     public required TerraformProperty<string> Specification
     {
-        get => GetProperty<TerraformProperty<string>>("specification");
+        get => GetRequiredProperty<TerraformProperty<string>>("specification");
         set => WithProperty("specification", value);
     }
 
@@ -158,7 +158,7 @@ public class AzurermCustomProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -168,7 +168,7 @@ public class AzurermCustomProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermCustomProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

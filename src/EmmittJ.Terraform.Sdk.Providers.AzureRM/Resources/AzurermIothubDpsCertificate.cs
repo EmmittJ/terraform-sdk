@@ -66,7 +66,7 @@ public class AzurermIothubDpsCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateContent is required")]
     public required TerraformProperty<string> CertificateContent
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_content");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_content");
         set => this.WithProperty("certificate_content", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermIothubDpsCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IotDpsName is required")]
     public required TerraformProperty<string> IotDpsName
     {
-        get => GetProperty<TerraformProperty<string>>("iot_dps_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("iot_dps_name");
         set => this.WithProperty("iot_dps_name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermIothubDpsCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermIothubDpsCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

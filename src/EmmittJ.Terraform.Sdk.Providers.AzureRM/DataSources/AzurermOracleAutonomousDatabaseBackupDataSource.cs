@@ -56,7 +56,7 @@ public class AzurermOracleAutonomousDatabaseBackupDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     public required TerraformProperty<string> AutonomousDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("autonomous_database_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("autonomous_database_id");
         set => this.WithProperty("autonomous_database_id", value);
     }
 
@@ -66,7 +66,7 @@ public class AzurermOracleAutonomousDatabaseBackupDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

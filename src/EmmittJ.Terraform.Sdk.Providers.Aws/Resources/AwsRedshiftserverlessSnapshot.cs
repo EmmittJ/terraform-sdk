@@ -38,7 +38,7 @@ public class AwsRedshiftserverlessSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformProperty<string> NamespaceName
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace_name");
         set => this.WithProperty("namespace_name", value);
     }
 
@@ -66,7 +66,7 @@ public class AwsRedshiftserverlessSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotName is required")]
     public required TerraformProperty<string> SnapshotName
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_name");
         set => this.WithProperty("snapshot_name", value);
     }
 

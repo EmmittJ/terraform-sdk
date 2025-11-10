@@ -23,7 +23,7 @@ public class AwsBackupVaultLockConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultName is required")]
     public required TerraformProperty<string> BackupVaultName
     {
-        get => GetProperty<TerraformProperty<string>>("backup_vault_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_vault_name");
         set => this.WithProperty("backup_vault_name", value);
     }
 

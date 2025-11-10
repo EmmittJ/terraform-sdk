@@ -14,7 +14,7 @@ public class GoogleBigqueryTableBiglakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformProperty<string> ConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("connection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_id");
         set => WithProperty("connection_id", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleBigqueryTableBiglakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileFormat is required")]
     public required TerraformProperty<string> FileFormat
     {
-        get => GetProperty<TerraformProperty<string>>("file_format");
+        get => GetRequiredProperty<TerraformProperty<string>>("file_format");
         set => WithProperty("file_format", value);
     }
 
@@ -34,7 +34,7 @@ public class GoogleBigqueryTableBiglakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageUri is required")]
     public required TerraformProperty<string> StorageUri
     {
-        get => GetProperty<TerraformProperty<string>>("storage_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_uri");
         set => WithProperty("storage_uri", value);
     }
 
@@ -44,7 +44,7 @@ public class GoogleBigqueryTableBiglakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableFormat is required")]
     public required TerraformProperty<string> TableFormat
     {
-        get => GetProperty<TerraformProperty<string>>("table_format");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_format");
         set => WithProperty("table_format", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleBigqueryTableEncryptionConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
         set => WithProperty("kms_key_name", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Autodetect is required")]
     public required TerraformProperty<bool> Autodetect
     {
-        get => GetProperty<TerraformProperty<bool>>("autodetect");
+        get => GetRequiredProperty<TerraformProperty<bool>>("autodetect");
         set => WithProperty("autodetect", value);
     }
 
@@ -260,7 +260,7 @@ public class GoogleBigqueryTableMaterializedViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetProperty<TerraformProperty<string>>("query");
+        get => GetRequiredProperty<TerraformProperty<string>>("query");
         set => WithProperty("query", value);
     }
 
@@ -287,7 +287,7 @@ public class GoogleBigqueryTableRangePartitioningBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     public required TerraformProperty<string> Field
     {
-        get => GetProperty<TerraformProperty<string>>("field");
+        get => GetRequiredProperty<TerraformProperty<string>>("field");
         set => WithProperty("field", value);
     }
 
@@ -305,7 +305,7 @@ public class GoogleBigqueryTableSchemaForeignTypeInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeSystem is required")]
     public required TerraformProperty<string> TypeSystem
     {
-        get => GetProperty<TerraformProperty<string>>("type_system");
+        get => GetRequiredProperty<TerraformProperty<string>>("type_system");
         set => WithProperty("type_system", value);
     }
 
@@ -340,7 +340,7 @@ public class GoogleBigqueryTableTableReplicationInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatasetId is required")]
     public required TerraformProperty<string> SourceDatasetId
     {
-        get => GetProperty<TerraformProperty<string>>("source_dataset_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_dataset_id");
         set => WithProperty("source_dataset_id", value);
     }
 
@@ -350,7 +350,7 @@ public class GoogleBigqueryTableTableReplicationInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceProjectId is required")]
     public required TerraformProperty<string> SourceProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("source_project_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_project_id");
         set => WithProperty("source_project_id", value);
     }
 
@@ -360,7 +360,7 @@ public class GoogleBigqueryTableTableReplicationInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceTableId is required")]
     public required TerraformProperty<string> SourceTableId
     {
-        get => GetProperty<TerraformProperty<string>>("source_table_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_table_id");
         set => WithProperty("source_table_id", value);
     }
 
@@ -406,7 +406,7 @@ public class GoogleBigqueryTableTimePartitioningBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -424,7 +424,7 @@ public class GoogleBigqueryTableViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetProperty<TerraformProperty<string>>("query");
+        get => GetRequiredProperty<TerraformProperty<string>>("query");
         set => WithProperty("query", value);
     }
 
@@ -481,7 +481,7 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetProperty<TerraformProperty<string>>("dataset_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
     }
 
@@ -611,7 +611,7 @@ public class GoogleBigqueryTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformProperty<string> TableId
     {
-        get => GetProperty<TerraformProperty<string>>("table_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_id");
         set => this.WithProperty("table_id", value);
     }
 

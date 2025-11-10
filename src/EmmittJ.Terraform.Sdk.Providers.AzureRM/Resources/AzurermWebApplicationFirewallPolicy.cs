@@ -14,7 +14,7 @@ public class AzurermWebApplicationFirewallPolicyCustomRulesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => WithProperty("action", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermWebApplicationFirewallPolicyCustomRulesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermWebApplicationFirewallPolicyCustomRulesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleType is required")]
     public required TerraformProperty<string> RuleType
     {
-        get => GetProperty<TerraformProperty<string>>("rule_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_type");
         set => WithProperty("rule_type", value);
     }
 
@@ -258,7 +258,7 @@ public class AzurermWebApplicationFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermWebApplicationFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -278,7 +278,7 @@ public class AzurermWebApplicationFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

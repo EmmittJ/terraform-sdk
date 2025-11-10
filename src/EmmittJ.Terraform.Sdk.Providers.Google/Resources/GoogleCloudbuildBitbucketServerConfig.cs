@@ -14,7 +14,7 @@ public class GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectKey is required")]
     public required TerraformProperty<string> ProjectKey
     {
-        get => GetProperty<TerraformProperty<string>>("project_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_key");
         set => WithProperty("project_key", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoSlug is required")]
     public required TerraformProperty<string> RepoSlug
     {
-        get => GetProperty<TerraformProperty<string>>("repo_slug");
+        get => GetRequiredProperty<TerraformProperty<string>>("repo_slug");
         set => WithProperty("repo_slug", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleCloudbuildBitbucketServerConfigSecretsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminAccessTokenVersionName is required")]
     public required TerraformProperty<string> AdminAccessTokenVersionName
     {
-        get => GetProperty<TerraformProperty<string>>("admin_access_token_version_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_access_token_version_name");
         set => WithProperty("admin_access_token_version_name", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleCloudbuildBitbucketServerConfigSecretsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadAccessTokenVersionName is required")]
     public required TerraformProperty<string> ReadAccessTokenVersionName
     {
-        get => GetProperty<TerraformProperty<string>>("read_access_token_version_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("read_access_token_version_name");
         set => WithProperty("read_access_token_version_name", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleCloudbuildBitbucketServerConfigSecretsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretVersionName is required")]
     public required TerraformProperty<string> WebhookSecretVersionName
     {
-        get => GetProperty<TerraformProperty<string>>("webhook_secret_version_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("webhook_secret_version_name");
         set => WithProperty("webhook_secret_version_name", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformProperty<string> ApiKey
     {
-        get => GetProperty<TerraformProperty<string>>("api_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_key");
         set => this.WithProperty("api_key", value);
     }
 
@@ -138,7 +138,7 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
     public required TerraformProperty<string> ConfigId
     {
-        get => GetProperty<TerraformProperty<string>>("config_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("config_id");
         set => this.WithProperty("config_id", value);
     }
 
@@ -149,7 +149,7 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformProperty<string> HostUri
     {
-        get => GetProperty<TerraformProperty<string>>("host_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_uri");
         set => this.WithProperty("host_uri", value);
     }
 
@@ -168,7 +168,7 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

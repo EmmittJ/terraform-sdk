@@ -50,7 +50,7 @@ public class AwsSecurityhubAutomationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsSecurityhubAutomationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformProperty<string> RuleName
     {
-        get => GetProperty<TerraformProperty<string>>("rule_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_name");
         set => this.WithProperty("rule_name", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsSecurityhubAutomationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleOrder is required")]
     public required TerraformProperty<double> RuleOrder
     {
-        get => GetProperty<TerraformProperty<double>>("rule_order");
+        get => GetRequiredProperty<TerraformProperty<double>>("rule_order");
         set => this.WithProperty("rule_order", value);
     }
 

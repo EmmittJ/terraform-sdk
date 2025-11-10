@@ -72,7 +72,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entitytype is required")]
     public required TerraformProperty<string> Entitytype
     {
-        get => GetProperty<TerraformProperty<string>>("entitytype");
+        get => GetRequiredProperty<TerraformProperty<string>>("entitytype");
         set => this.WithProperty("entitytype", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     public required TerraformProperty<string> ValueType
     {
-        get => GetProperty<TerraformProperty<string>>("value_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("value_type");
         set => this.WithProperty("value_type", value);
     }
 

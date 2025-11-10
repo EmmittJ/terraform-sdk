@@ -23,7 +23,7 @@ public class AwsDrsReplicationConfigurationTemplatePitPolicyBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformProperty<double> Interval
     {
-        get => GetProperty<TerraformProperty<double>>("interval");
+        get => GetRequiredProperty<TerraformProperty<double>>("interval");
         set => WithProperty("interval", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsDrsReplicationConfigurationTemplatePitPolicyBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDuration is required")]
     public required TerraformProperty<double> RetentionDuration
     {
-        get => GetProperty<TerraformProperty<double>>("retention_duration");
+        get => GetRequiredProperty<TerraformProperty<double>>("retention_duration");
         set => WithProperty("retention_duration", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsDrsReplicationConfigurationTemplatePitPolicyBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Units is required")]
     public required TerraformProperty<string> Units
     {
-        get => GetProperty<TerraformProperty<string>>("units");
+        get => GetRequiredProperty<TerraformProperty<string>>("units");
         set => WithProperty("units", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociateDefaultSecurityGroup is required")]
     public required TerraformProperty<bool> AssociateDefaultSecurityGroup
     {
-        get => GetProperty<TerraformProperty<bool>>("associate_default_security_group");
+        get => GetRequiredProperty<TerraformProperty<bool>>("associate_default_security_group");
         set => this.WithProperty("associate_default_security_group", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BandwidthThrottling is required")]
     public required TerraformProperty<double> BandwidthThrottling
     {
-        get => GetProperty<TerraformProperty<double>>("bandwidth_throttling");
+        get => GetRequiredProperty<TerraformProperty<double>>("bandwidth_throttling");
         set => this.WithProperty("bandwidth_throttling", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreatePublicIp is required")]
     public required TerraformProperty<bool> CreatePublicIp
     {
-        get => GetProperty<TerraformProperty<bool>>("create_public_ip");
+        get => GetRequiredProperty<TerraformProperty<bool>>("create_public_ip");
         set => this.WithProperty("create_public_ip", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPlaneRouting is required")]
     public required TerraformProperty<string> DataPlaneRouting
     {
-        get => GetProperty<TerraformProperty<string>>("data_plane_routing");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_plane_routing");
         set => this.WithProperty("data_plane_routing", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLargeStagingDiskType is required")]
     public required TerraformProperty<string> DefaultLargeStagingDiskType
     {
-        get => GetProperty<TerraformProperty<string>>("default_large_staging_disk_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_large_staging_disk_type");
         set => this.WithProperty("default_large_staging_disk_type", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EbsEncryption is required")]
     public required TerraformProperty<string> EbsEncryption
     {
-        get => GetProperty<TerraformProperty<string>>("ebs_encryption");
+        get => GetRequiredProperty<TerraformProperty<string>>("ebs_encryption");
         set => this.WithProperty("ebs_encryption", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationServerInstanceType is required")]
     public required TerraformProperty<string> ReplicationServerInstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("replication_server_instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("replication_server_instance_type");
         set => this.WithProperty("replication_server_instance_type", value);
     }
 
@@ -223,7 +223,7 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StagingAreaSubnetId is required")]
     public required TerraformProperty<string> StagingAreaSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("staging_area_subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("staging_area_subnet_id");
         set => this.WithProperty("staging_area_subnet_id", value);
     }
 
@@ -252,7 +252,7 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UseDedicatedReplicationServer is required")]
     public required TerraformProperty<bool> UseDedicatedReplicationServer
     {
-        get => GetProperty<TerraformProperty<bool>>("use_dedicated_replication_server");
+        get => GetRequiredProperty<TerraformProperty<bool>>("use_dedicated_replication_server");
         set => this.WithProperty("use_dedicated_replication_server", value);
     }
 

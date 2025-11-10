@@ -48,7 +48,7 @@ public class AwsNetworkmanagerAttachmentAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentId is required")]
     public required TerraformProperty<string> AttachmentId
     {
-        get => GetProperty<TerraformProperty<string>>("attachment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("attachment_id");
         set => this.WithProperty("attachment_id", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsNetworkmanagerAttachmentAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentType is required")]
     public required TerraformProperty<string> AttachmentType
     {
-        get => GetProperty<TerraformProperty<string>>("attachment_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("attachment_type");
         set => this.WithProperty("attachment_type", value);
     }
 

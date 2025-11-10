@@ -120,7 +120,7 @@ public class AzurermExpressRouteConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitPeeringId is required")]
     public required TerraformProperty<string> ExpressRouteCircuitPeeringId
     {
-        get => GetProperty<TerraformProperty<string>>("express_route_circuit_peering_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("express_route_circuit_peering_id");
         set => this.WithProperty("express_route_circuit_peering_id", value);
     }
 
@@ -139,7 +139,7 @@ public class AzurermExpressRouteConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteGatewayId is required")]
     public required TerraformProperty<string> ExpressRouteGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("express_route_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("express_route_gateway_id");
         set => this.WithProperty("express_route_gateway_id", value);
     }
 
@@ -158,7 +158,7 @@ public class AzurermExpressRouteConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

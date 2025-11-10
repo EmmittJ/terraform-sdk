@@ -66,7 +66,7 @@ public class AzurermPrivateDnsResolverVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
     public required TerraformProperty<string> DnsForwardingRulesetId
     {
-        get => GetProperty<TerraformProperty<string>>("dns_forwarding_ruleset_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dns_forwarding_ruleset_id");
         set => this.WithProperty("dns_forwarding_ruleset_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermPrivateDnsResolverVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermPrivateDnsResolverVirtualNetworkLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformProperty<string> VirtualNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_id");
         set => this.WithProperty("virtual_network_id", value);
     }
 

@@ -101,7 +101,7 @@ public class GoogleBackupDrBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupMinimumEnforcedRetentionDuration is required")]
     public required TerraformProperty<string> BackupMinimumEnforcedRetentionDuration
     {
-        get => GetProperty<TerraformProperty<string>>("backup_minimum_enforced_retention_duration");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_minimum_enforced_retention_duration");
         set => this.WithProperty("backup_minimum_enforced_retention_duration", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleBackupDrBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultId is required")]
     public required TerraformProperty<string> BackupVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("backup_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_vault_id");
         set => this.WithProperty("backup_vault_id", value);
     }
 
@@ -213,7 +213,7 @@ public class GoogleBackupDrBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

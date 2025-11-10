@@ -14,7 +14,7 @@ public class AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Inverted is required")]
     public required TerraformProperty<bool> Inverted
     {
-        get => GetProperty<TerraformProperty<bool>>("inverted");
+        get => GetRequiredProperty<TerraformProperty<bool>>("inverted");
         set => WithProperty("inverted", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformProperty<double> Threshold
     {
-        get => GetProperty<TerraformProperty<double>>("threshold");
+        get => GetRequiredProperty<TerraformProperty<double>>("threshold");
         set => WithProperty("threshold", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsRoute53recoverycontrolconfigSafetyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlPanelArn is required")]
     public required TerraformProperty<string> ControlPanelArn
     {
-        get => GetProperty<TerraformProperty<string>>("control_panel_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("control_panel_arn");
         set => this.WithProperty("control_panel_arn", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsRoute53recoverycontrolconfigSafetyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsRoute53recoverycontrolconfigSafetyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WaitPeriodMs is required")]
     public required TerraformProperty<double> WaitPeriodMs
     {
-        get => GetProperty<TerraformProperty<double>>("wait_period_ms");
+        get => GetRequiredProperty<TerraformProperty<double>>("wait_period_ms");
         set => this.WithProperty("wait_period_ms", value);
     }
 

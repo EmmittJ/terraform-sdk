@@ -80,7 +80,7 @@ public class AwsVpclatticeServiceNetworkServiceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceIdentifier is required")]
     public required TerraformProperty<string> ServiceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("service_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_identifier");
         set => this.WithProperty("service_identifier", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsVpclatticeServiceNetworkServiceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNetworkIdentifier is required")]
     public required TerraformProperty<string> ServiceNetworkIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("service_network_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_network_identifier");
         set => this.WithProperty("service_network_identifier", value);
     }
 

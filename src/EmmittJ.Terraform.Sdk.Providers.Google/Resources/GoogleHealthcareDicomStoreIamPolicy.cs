@@ -23,7 +23,7 @@ public class GoogleHealthcareDicomStoreIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DicomStoreId is required")]
     public required TerraformProperty<string> DicomStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("dicom_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dicom_store_id");
         set => this.WithProperty("dicom_store_id", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleHealthcareDicomStoreIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

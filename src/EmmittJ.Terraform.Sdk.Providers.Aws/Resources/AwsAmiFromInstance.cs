@@ -223,7 +223,7 @@ public class AwsAmiFromInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -251,7 +251,7 @@ public class AwsAmiFromInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstanceId is required")]
     public required TerraformProperty<string> SourceInstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("source_instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_instance_id");
         set => this.WithProperty("source_instance_id", value);
     }
 

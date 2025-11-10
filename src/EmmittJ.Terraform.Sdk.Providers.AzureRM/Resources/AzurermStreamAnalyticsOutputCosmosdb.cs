@@ -75,7 +75,7 @@ public class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
         set => this.WithProperty("container_name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccountKey is required")]
     public required TerraformProperty<string> CosmosdbAccountKey
     {
-        get => GetProperty<TerraformProperty<string>>("cosmosdb_account_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("cosmosdb_account_key");
         set => this.WithProperty("cosmosdb_account_key", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbSqlDatabaseId is required")]
     public required TerraformProperty<string> CosmosdbSqlDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("cosmosdb_sql_database_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cosmosdb_sql_database_id");
         set => this.WithProperty("cosmosdb_sql_database_id", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformProperty<string> StreamAnalyticsJobId
     {
-        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_id");
         set => this.WithProperty("stream_analytics_job_id", value);
     }
 

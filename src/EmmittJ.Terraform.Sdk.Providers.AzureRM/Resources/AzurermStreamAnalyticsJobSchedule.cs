@@ -76,7 +76,7 @@ public class AzurermStreamAnalyticsJobSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartMode is required")]
     public required TerraformProperty<string> StartMode
     {
-        get => GetProperty<TerraformProperty<string>>("start_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("start_mode");
         set => this.WithProperty("start_mode", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermStreamAnalyticsJobSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformProperty<string> StreamAnalyticsJobId
     {
-        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_id");
         set => this.WithProperty("stream_analytics_job_id", value);
     }
 

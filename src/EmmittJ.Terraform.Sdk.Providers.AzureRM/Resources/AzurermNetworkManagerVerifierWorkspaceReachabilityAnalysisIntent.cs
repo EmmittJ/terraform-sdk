@@ -125,7 +125,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationResourceId is required")]
     public required TerraformProperty<string> DestinationResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("destination_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_resource_id");
         set => this.WithProperty("destination_resource_id", value);
     }
 
@@ -144,7 +144,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
     public required TerraformProperty<string> SourceResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("source_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_resource_id");
         set => this.WithProperty("source_resource_id", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifierWorkspaceId is required")]
     public required TerraformProperty<string> VerifierWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("verifier_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("verifier_workspace_id");
         set => this.WithProperty("verifier_workspace_id", value);
     }
 

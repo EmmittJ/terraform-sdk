@@ -217,7 +217,7 @@ public class GoogleApigeeSecurityAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformProperty<string> EnvId
     {
-        get => GetProperty<TerraformProperty<string>>("env_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("env_id");
         set => this.WithProperty("env_id", value);
     }
 
@@ -248,7 +248,7 @@ public class GoogleApigeeSecurityAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetProperty<TerraformProperty<string>>("org_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
@@ -259,7 +259,7 @@ public class GoogleApigeeSecurityAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityActionId is required")]
     public required TerraformProperty<string> SecurityActionId
     {
-        get => GetProperty<TerraformProperty<string>>("security_action_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_action_id");
         set => this.WithProperty("security_action_id", value);
     }
 
@@ -269,7 +269,7 @@ public class GoogleApigeeSecurityAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
+        get => GetRequiredProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
     }
 

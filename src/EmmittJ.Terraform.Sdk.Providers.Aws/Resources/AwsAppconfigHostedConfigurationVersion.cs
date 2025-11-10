@@ -24,7 +24,7 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationProfileId is required")]
     public required TerraformProperty<string> ConfigurationProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_profile_id");
         set => this.WithProperty("configuration_profile_id", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformProperty<string> ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("content_type");
         set => this.WithProperty("content_type", value);
     }
 

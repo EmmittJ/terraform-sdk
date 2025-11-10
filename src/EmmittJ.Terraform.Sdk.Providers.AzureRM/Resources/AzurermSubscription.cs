@@ -103,7 +103,7 @@ public class AzurermSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionName is required")]
     public required TerraformProperty<string> SubscriptionName
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscription_name");
         set => this.WithProperty("subscription_name", value);
     }
 

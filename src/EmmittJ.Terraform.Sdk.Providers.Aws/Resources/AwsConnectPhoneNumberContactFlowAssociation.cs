@@ -22,7 +22,7 @@ public class AwsConnectPhoneNumberContactFlowAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactFlowId is required")]
     public required TerraformProperty<string> ContactFlowId
     {
-        get => GetProperty<TerraformProperty<string>>("contact_flow_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("contact_flow_id");
         set => this.WithProperty("contact_flow_id", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsConnectPhoneNumberContactFlowAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsConnectPhoneNumberContactFlowAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumberId is required")]
     public required TerraformProperty<string> PhoneNumberId
     {
-        get => GetProperty<TerraformProperty<string>>("phone_number_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("phone_number_id");
         set => this.WithProperty("phone_number_id", value);
     }
 

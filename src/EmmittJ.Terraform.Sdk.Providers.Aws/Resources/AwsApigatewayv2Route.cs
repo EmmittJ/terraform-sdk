@@ -14,7 +14,7 @@ public class AwsApigatewayv2RouteRequestParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestParameterKey is required")]
     public required TerraformProperty<string> RequestParameterKey
     {
-        get => GetProperty<TerraformProperty<string>>("request_parameter_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("request_parameter_key");
         set => WithProperty("request_parameter_key", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsApigatewayv2RouteRequestParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
     public required TerraformProperty<bool> Required
     {
-        get => GetProperty<TerraformProperty<bool>>("required");
+        get => GetRequiredProperty<TerraformProperty<bool>>("required");
         set => WithProperty("required", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsApigatewayv2Route : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsApigatewayv2Route : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteKey is required")]
     public required TerraformProperty<string> RouteKey
     {
-        get => GetProperty<TerraformProperty<string>>("route_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("route_key");
         set => this.WithProperty("route_key", value);
     }
 

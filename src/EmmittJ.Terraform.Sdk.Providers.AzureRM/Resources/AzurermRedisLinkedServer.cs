@@ -68,7 +68,7 @@ public class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheId is required")]
     public required TerraformProperty<string> LinkedRedisCacheId
     {
-        get => GetProperty<TerraformProperty<string>>("linked_redis_cache_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("linked_redis_cache_id");
         set => this.WithProperty("linked_redis_cache_id", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheLocation is required")]
     public required TerraformProperty<string> LinkedRedisCacheLocation
     {
-        get => GetProperty<TerraformProperty<string>>("linked_redis_cache_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("linked_redis_cache_location");
         set => this.WithProperty("linked_redis_cache_location", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerRole is required")]
     public required TerraformProperty<string> ServerRole
     {
-        get => GetProperty<TerraformProperty<string>>("server_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_role");
         set => this.WithProperty("server_role", value);
     }
 
@@ -108,7 +108,7 @@ public class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRedisCacheName is required")]
     public required TerraformProperty<string> TargetRedisCacheName
     {
-        get => GetProperty<TerraformProperty<string>>("target_redis_cache_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_redis_cache_name");
         set => this.WithProperty("target_redis_cache_name", value);
     }
 

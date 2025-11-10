@@ -27,7 +27,7 @@ public class AwsIamServiceLinkedRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsServiceName is required")]
     public required TerraformProperty<string> AwsServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("aws_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("aws_service_name");
         set => this.WithProperty("aws_service_name", value);
     }
 

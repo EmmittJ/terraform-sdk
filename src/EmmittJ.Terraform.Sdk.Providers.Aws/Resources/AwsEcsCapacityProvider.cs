@@ -14,7 +14,7 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingGroupArn is required")]
     public required TerraformProperty<string> AutoScalingGroupArn
     {
-        get => GetProperty<TerraformProperty<string>>("auto_scaling_group_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("auto_scaling_group_arn");
         set => WithProperty("auto_scaling_group_arn", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureRoleArn is required")]
     public required TerraformProperty<string> InfrastructureRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("infrastructure_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("infrastructure_role_arn");
         set => WithProperty("infrastructure_role_arn", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsEcsCapacityProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

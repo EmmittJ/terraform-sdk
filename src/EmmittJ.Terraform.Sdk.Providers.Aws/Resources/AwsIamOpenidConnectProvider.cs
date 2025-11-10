@@ -69,7 +69,7 @@ public class AwsIamOpenidConnectProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => this.WithProperty("url", value);
     }
 

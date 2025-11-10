@@ -85,7 +85,7 @@ public class AwsQldbLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionsMode is required")]
     public required TerraformProperty<string> PermissionsMode
     {
-        get => GetProperty<TerraformProperty<string>>("permissions_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("permissions_mode");
         set => this.WithProperty("permissions_mode", value);
     }
 

@@ -48,7 +48,7 @@ public class AwsDbInstanceRoleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceIdentifier is required")]
     public required TerraformProperty<string> DbInstanceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("db_instance_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_instance_identifier");
         set => this.WithProperty("db_instance_identifier", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsDbInstanceRoleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureName is required")]
     public required TerraformProperty<string> FeatureName
     {
-        get => GetProperty<TerraformProperty<string>>("feature_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("feature_name");
         set => this.WithProperty("feature_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsDbInstanceRoleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

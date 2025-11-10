@@ -14,7 +14,7 @@ public class AwsCleanroomsConfiguredTableTableReferenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => WithProperty("database_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsCleanroomsConfiguredTableTableReferenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
         set => WithProperty("table_name", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsCleanroomsConfiguredTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalysisMethod is required")]
     public required TerraformProperty<string> AnalysisMethod
     {
-        get => GetProperty<TerraformProperty<string>>("analysis_method");
+        get => GetRequiredProperty<TerraformProperty<string>>("analysis_method");
         set => this.WithProperty("analysis_method", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsCleanroomsConfiguredTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

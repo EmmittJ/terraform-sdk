@@ -14,7 +14,7 @@ public class AzurermContainerRegistryTaskAgentSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
     public required TerraformProperty<double> Cpu
     {
-        get => GetProperty<TerraformProperty<double>>("cpu");
+        get => GetRequiredProperty<TerraformProperty<double>>("cpu");
         set => WithProperty("cpu", value);
     }
 
@@ -41,7 +41,7 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContextAccessToken is required")]
     public required TerraformProperty<string> ContextAccessToken
     {
-        get => GetProperty<TerraformProperty<string>>("context_access_token");
+        get => GetRequiredProperty<TerraformProperty<string>>("context_access_token");
         set => WithProperty("context_access_token", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContextPath is required")]
     public required TerraformProperty<string> ContextPath
     {
-        get => GetProperty<TerraformProperty<string>>("context_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("context_path");
         set => WithProperty("context_path", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DockerfilePath is required")]
     public required TerraformProperty<string> DockerfilePath
     {
-        get => GetProperty<TerraformProperty<string>>("dockerfile_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("dockerfile_path");
         set => WithProperty("dockerfile_path", value);
     }
 
@@ -206,7 +206,7 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskContent is required")]
     public required TerraformProperty<string> TaskContent
     {
-        get => GetProperty<TerraformProperty<string>>("task_content");
+        get => GetRequiredProperty<TerraformProperty<string>>("task_content");
         set => WithProperty("task_content", value);
     }
 
@@ -269,7 +269,7 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskFilePath is required")]
     public required TerraformProperty<string> TaskFilePath
     {
-        get => GetProperty<TerraformProperty<string>>("task_file_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("task_file_path");
         set => WithProperty("task_file_path", value);
     }
 
@@ -332,7 +332,7 @@ public class AzurermContainerRegistryTaskIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -359,7 +359,7 @@ public class AzurermContainerRegistryTaskPlatformBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Os is required")]
     public required TerraformProperty<string> Os
     {
-        get => GetProperty<TerraformProperty<string>>("os");
+        get => GetRequiredProperty<TerraformProperty<string>>("os");
         set => WithProperty("os", value);
     }
 
@@ -422,7 +422,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -432,7 +432,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformProperty<string> RepositoryUrl
     {
-        get => GetProperty<TerraformProperty<string>>("repository_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_url");
         set => WithProperty("repository_url", value);
     }
 
@@ -442,7 +442,7 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     public required TerraformProperty<string> SourceType
     {
-        get => GetProperty<TerraformProperty<string>>("source_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_type");
         set => WithProperty("source_type", value);
     }
 
@@ -513,7 +513,7 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -523,7 +523,7 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformProperty<string> Schedule
     {
-        get => GetProperty<TerraformProperty<string>>("schedule");
+        get => GetRequiredProperty<TerraformProperty<string>>("schedule");
         set => WithProperty("schedule", value);
     }
 
@@ -559,7 +559,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     public required TerraformProperty<string> ContainerRegistryId
     {
-        get => GetProperty<TerraformProperty<string>>("container_registry_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_id");
         set => this.WithProperty("container_registry_id", value);
     }
 
@@ -605,7 +605,7 @@ public class AzurermContainerRegistryTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

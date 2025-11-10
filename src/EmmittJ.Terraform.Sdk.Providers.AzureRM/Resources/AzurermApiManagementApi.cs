@@ -49,7 +49,7 @@ public class AzurermApiManagementApiImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentFormat is required")]
     public required TerraformProperty<string> ContentFormat
     {
-        get => GetProperty<TerraformProperty<string>>("content_format");
+        get => GetRequiredProperty<TerraformProperty<string>>("content_format");
         set => WithProperty("content_format", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermApiManagementApiImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentValue is required")]
     public required TerraformProperty<string> ContentValue
     {
-        get => GetProperty<TerraformProperty<string>>("content_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("content_value");
         set => WithProperty("content_value", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermApiManagementApiOauth2AuthorizationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationServerName is required")]
     public required TerraformProperty<string> AuthorizationServerName
     {
-        get => GetProperty<TerraformProperty<string>>("authorization_server_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("authorization_server_name");
         set => WithProperty("authorization_server_name", value);
     }
 
@@ -139,7 +139,7 @@ public class AzurermApiManagementApiOpenidAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OpenidProviderName is required")]
     public required TerraformProperty<string> OpenidProviderName
     {
-        get => GetProperty<TerraformProperty<string>>("openid_provider_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("openid_provider_name");
         set => WithProperty("openid_provider_name", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermApiManagementApiSubscriptionKeyParameterNamesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Header is required")]
     public required TerraformProperty<string> Header
     {
-        get => GetProperty<TerraformProperty<string>>("header");
+        get => GetRequiredProperty<TerraformProperty<string>>("header");
         set => WithProperty("header", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermApiManagementApiSubscriptionKeyParameterNamesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetProperty<TerraformProperty<string>>("query");
+        get => GetRequiredProperty<TerraformProperty<string>>("query");
         set => WithProperty("query", value);
     }
 
@@ -240,7 +240,7 @@ public class AzurermApiManagementApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
@@ -286,7 +286,7 @@ public class AzurermApiManagementApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -314,7 +314,7 @@ public class AzurermApiManagementApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -324,7 +324,7 @@ public class AzurermApiManagementApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformProperty<string> Revision
     {
-        get => GetProperty<TerraformProperty<string>>("revision");
+        get => GetRequiredProperty<TerraformProperty<string>>("revision");
         set => this.WithProperty("revision", value);
     }
 

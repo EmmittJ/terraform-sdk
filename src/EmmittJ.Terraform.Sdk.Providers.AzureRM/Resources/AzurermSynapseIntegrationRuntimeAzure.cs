@@ -102,7 +102,7 @@ public class AzurermSynapseIntegrationRuntimeAzure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermSynapseIntegrationRuntimeAzure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermSynapseIntegrationRuntimeAzure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
     }
 

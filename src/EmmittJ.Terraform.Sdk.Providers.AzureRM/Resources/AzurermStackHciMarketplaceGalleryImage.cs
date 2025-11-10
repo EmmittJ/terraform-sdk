@@ -14,7 +14,7 @@ public class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformProperty<string> Offer
     {
-        get => GetProperty<TerraformProperty<string>>("offer");
+        get => GetRequiredProperty<TerraformProperty<string>>("offer");
         set => WithProperty("offer", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => WithProperty("publisher", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku");
         set => WithProperty("sku", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
     public required TerraformProperty<string> CustomLocationId
     {
-        get => GetProperty<TerraformProperty<string>>("custom_location_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("custom_location_id");
         set => this.WithProperty("custom_location_id", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HypervGeneration is required")]
     public required TerraformProperty<string> HypervGeneration
     {
-        get => GetProperty<TerraformProperty<string>>("hyperv_generation");
+        get => GetRequiredProperty<TerraformProperty<string>>("hyperv_generation");
         set => this.WithProperty("hyperv_generation", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -144,7 +144,7 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformProperty<string> OsType
     {
-        get => GetProperty<TerraformProperty<string>>("os_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("os_type");
         set => this.WithProperty("os_type", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -192,7 +192,7 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

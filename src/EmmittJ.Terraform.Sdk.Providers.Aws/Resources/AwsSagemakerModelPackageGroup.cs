@@ -41,7 +41,7 @@ public class AwsSagemakerModelPackageGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelPackageGroupName is required")]
     public required TerraformProperty<string> ModelPackageGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("model_package_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("model_package_group_name");
         set => this.WithProperty("model_package_group_name", value);
     }
 

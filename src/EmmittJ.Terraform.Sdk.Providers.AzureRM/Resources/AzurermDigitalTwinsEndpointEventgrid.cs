@@ -75,7 +75,7 @@ public class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     public required TerraformProperty<string> DigitalTwinsId
     {
-        get => GetProperty<TerraformProperty<string>>("digital_twins_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("digital_twins_id");
         set => this.WithProperty("digital_twins_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicEndpoint is required")]
     public required TerraformProperty<string> EventgridTopicEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("eventgrid_topic_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventgrid_topic_endpoint");
         set => this.WithProperty("eventgrid_topic_endpoint", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicPrimaryAccessKey is required")]
     public required TerraformProperty<string> EventgridTopicPrimaryAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("eventgrid_topic_primary_access_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventgrid_topic_primary_access_key");
         set => this.WithProperty("eventgrid_topic_primary_access_key", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicSecondaryAccessKey is required")]
     public required TerraformProperty<string> EventgridTopicSecondaryAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("eventgrid_topic_secondary_access_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventgrid_topic_secondary_access_key");
         set => this.WithProperty("eventgrid_topic_secondary_access_key", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -42,7 +42,7 @@ public class GooglePubsubSubscriptionIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subscription is required")]
     public required TerraformProperty<string> Subscription
     {
-        get => GetProperty<TerraformProperty<string>>("subscription");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscription");
         set => this.WithProperty("subscription", value);
     }
 

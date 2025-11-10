@@ -105,7 +105,7 @@ public class AzureadServicePrincipalPassword : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformProperty<string> ServicePrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("service_principal_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_principal_id");
         set => this.WithProperty("service_principal_id", value);
     }
 

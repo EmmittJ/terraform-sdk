@@ -32,7 +32,7 @@ public class GoogleDataCatalogTaxonomyIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleDataCatalogTaxonomyIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Taxonomy is required")]
     public required TerraformProperty<string> Taxonomy
     {
-        get => GetProperty<TerraformProperty<string>>("taxonomy");
+        get => GetRequiredProperty<TerraformProperty<string>>("taxonomy");
         set => this.WithProperty("taxonomy", value);
     }
 

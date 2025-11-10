@@ -14,7 +14,7 @@ public class AwsAppintegrationsDataIntegrationScheduleConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstExecutionFrom is required")]
     public required TerraformProperty<string> FirstExecutionFrom
     {
-        get => GetProperty<TerraformProperty<string>>("first_execution_from");
+        get => GetRequiredProperty<TerraformProperty<string>>("first_execution_from");
         set => WithProperty("first_execution_from", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsAppintegrationsDataIntegrationScheduleConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Object is required")]
     public required TerraformProperty<string> Object
     {
-        get => GetProperty<TerraformProperty<string>>("object");
+        get => GetRequiredProperty<TerraformProperty<string>>("object");
         set => WithProperty("object", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsAppintegrationsDataIntegrationScheduleConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformProperty<string> ScheduleExpression
     {
-        get => GetProperty<TerraformProperty<string>>("schedule_expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("schedule_expression");
         set => WithProperty("schedule_expression", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsAppintegrationsDataIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformProperty<string> KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key");
         set => this.WithProperty("kms_key", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsAppintegrationsDataIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsAppintegrationsDataIntegration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUri is required")]
     public required TerraformProperty<string> SourceUri
     {
-        get => GetProperty<TerraformProperty<string>>("source_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_uri");
         set => this.WithProperty("source_uri", value);
     }
 

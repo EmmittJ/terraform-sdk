@@ -84,7 +84,7 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginUsername is required")]
     public required TerraformProperty<string> LoginUsername
     {
-        get => GetProperty<TerraformProperty<string>>("login_username");
+        get => GetRequiredProperty<TerraformProperty<string>>("login_username");
         set => this.WithProperty("login_username", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformProperty<string> ManagedInstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_instance_id");
         set => this.WithProperty("managed_instance_id", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformProperty<string> ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("object_id");
         set => this.WithProperty("object_id", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

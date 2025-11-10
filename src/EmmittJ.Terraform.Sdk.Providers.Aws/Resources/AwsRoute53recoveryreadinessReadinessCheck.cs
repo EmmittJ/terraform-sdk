@@ -49,7 +49,7 @@ public class AwsRoute53recoveryreadinessReadinessCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadinessCheckName is required")]
     public required TerraformProperty<string> ReadinessCheckName
     {
-        get => GetProperty<TerraformProperty<string>>("readiness_check_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("readiness_check_name");
         set => this.WithProperty("readiness_check_name", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsRoute53recoveryreadinessReadinessCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceSetName is required")]
     public required TerraformProperty<string> ResourceSetName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_set_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_set_name");
         set => this.WithProperty("resource_set_name", value);
     }
 

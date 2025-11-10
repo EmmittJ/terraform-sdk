@@ -14,7 +14,7 @@ public class GoogleDataFusionInstanceAcceleratorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorType is required")]
     public required TerraformProperty<string> AcceleratorType
     {
-        get => GetProperty<TerraformProperty<string>>("accelerator_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("accelerator_type");
         set => WithProperty("accelerator_type", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleDataFusionInstanceAcceleratorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
+        get => GetRequiredProperty<TerraformProperty<string>>("state");
         set => WithProperty("state", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleDataFusionInstanceCryptoKeyConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyReference is required")]
     public required TerraformProperty<string> KeyReference
     {
-        get => GetProperty<TerraformProperty<string>>("key_reference");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_reference");
         set => WithProperty("key_reference", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleDataFusionInstanceEventPublishConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleDataFusionInstanceEventPublishConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic");
         set => WithProperty("topic", value);
     }
 
@@ -260,7 +260,7 @@ public class GoogleDataFusionInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -329,7 +329,7 @@ public class GoogleDataFusionInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

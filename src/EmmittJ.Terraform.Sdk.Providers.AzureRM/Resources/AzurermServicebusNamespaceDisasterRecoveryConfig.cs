@@ -88,7 +88,7 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfig : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfig : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerNamespaceId is required")]
     public required TerraformProperty<string> PartnerNamespaceId
     {
-        get => GetProperty<TerraformProperty<string>>("partner_namespace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("partner_namespace_id");
         set => this.WithProperty("partner_namespace_id", value);
     }
 
@@ -108,7 +108,7 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfig : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryNamespaceId is required")]
     public required TerraformProperty<string> PrimaryNamespaceId
     {
-        get => GetProperty<TerraformProperty<string>>("primary_namespace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("primary_namespace_id");
         set => this.WithProperty("primary_namespace_id", value);
     }
 

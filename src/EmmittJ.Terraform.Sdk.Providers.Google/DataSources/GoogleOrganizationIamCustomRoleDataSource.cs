@@ -37,7 +37,7 @@ public class GoogleOrganizationIamCustomRoleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetProperty<TerraformProperty<string>>("org_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
@@ -47,7 +47,7 @@ public class GoogleOrganizationIamCustomRoleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformProperty<string> RoleId
     {
-        get => GetProperty<TerraformProperty<string>>("role_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_id");
         set => this.WithProperty("role_id", value);
     }
 

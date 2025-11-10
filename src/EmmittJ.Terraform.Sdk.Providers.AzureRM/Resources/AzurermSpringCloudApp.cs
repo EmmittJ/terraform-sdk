@@ -23,7 +23,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformProperty<string> MountPath
     {
-        get => GetProperty<TerraformProperty<string>>("mount_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("mount_path");
         set => WithProperty("mount_path", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
     public required TerraformProperty<string> ShareName
     {
-        get => GetProperty<TerraformProperty<string>>("share_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("share_name");
         set => WithProperty("share_name", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageName is required")]
     public required TerraformProperty<string> StorageName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_name");
         set => WithProperty("storage_name", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermSpringCloudAppIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermSpringCloudAppPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGb is required")]
     public required TerraformProperty<double> SizeInGb
     {
-        get => GetProperty<TerraformProperty<double>>("size_in_gb");
+        get => GetRequiredProperty<TerraformProperty<double>>("size_in_gb");
         set => WithProperty("size_in_gb", value);
     }
 
@@ -286,7 +286,7 @@ public class AzurermSpringCloudApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -305,7 +305,7 @@ public class AzurermSpringCloudApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -315,7 +315,7 @@ public class AzurermSpringCloudApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
     }
 

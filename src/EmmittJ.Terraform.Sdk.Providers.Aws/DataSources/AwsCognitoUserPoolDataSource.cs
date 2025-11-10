@@ -55,7 +55,7 @@ public class AwsCognitoUserPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("user_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
         set => this.WithProperty("user_pool_id", value);
     }
 

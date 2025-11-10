@@ -23,7 +23,7 @@ public class AwsRoute53ResolverFirewallRuleGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallRuleGroupId is required")]
     public required TerraformProperty<string> FirewallRuleGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("firewall_rule_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("firewall_rule_group_id");
         set => this.WithProperty("firewall_rule_group_id", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsRoute53ResolverFirewallRuleGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsRoute53ResolverFirewallRuleGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsRoute53ResolverFirewallRuleGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

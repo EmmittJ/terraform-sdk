@@ -14,7 +14,7 @@ public class GoogleLoggingProjectSinkBigqueryOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsePartitionedTables is required")]
     public required TerraformProperty<bool> UsePartitionedTables
     {
-        get => GetProperty<TerraformProperty<bool>>("use_partitioned_tables");
+        get => GetRequiredProperty<TerraformProperty<bool>>("use_partitioned_tables");
         set => WithProperty("use_partitioned_tables", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleLoggingProjectSinkExclusionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => WithProperty("filter", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleLoggingProjectSinkExclusionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleLoggingProjectSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetProperty<TerraformProperty<string>>("destination");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleLoggingProjectSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

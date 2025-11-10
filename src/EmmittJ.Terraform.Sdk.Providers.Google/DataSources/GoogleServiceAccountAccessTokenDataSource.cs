@@ -60,7 +60,7 @@ public class GoogleServiceAccountAccessTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
     public required TerraformProperty<string> TargetServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("target_service_account");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_service_account");
         set => this.WithProperty("target_service_account", value);
     }
 

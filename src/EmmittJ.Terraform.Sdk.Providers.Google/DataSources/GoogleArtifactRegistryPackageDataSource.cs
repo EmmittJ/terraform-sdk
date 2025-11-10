@@ -35,7 +35,7 @@ public class GoogleArtifactRegistryPackageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -45,7 +45,7 @@ public class GoogleArtifactRegistryPackageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleArtifactRegistryPackageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformProperty<string> RepositoryId
     {
-        get => GetProperty<TerraformProperty<string>>("repository_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_id");
         set => this.WithProperty("repository_id", value);
     }
 

@@ -39,7 +39,7 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformProperty<string> ImageName
     {
-        get => GetProperty<TerraformProperty<string>>("image_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("image_name");
         set => this.WithProperty("image_name", value);
     }
 
@@ -49,7 +49,7 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformProperty<string> RepositoryId
     {
-        get => GetProperty<TerraformProperty<string>>("repository_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_id");
         set => this.WithProperty("repository_id", value);
     }
 

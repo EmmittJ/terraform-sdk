@@ -24,7 +24,7 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheNodeType is required")]
     public required TerraformProperty<string> CacheNodeType
     {
-        get => GetProperty<TerraformProperty<string>>("cache_node_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("cache_node_type");
         set => this.WithProperty("cache_node_type", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<string> Duration
     {
-        get => GetProperty<TerraformProperty<string>>("duration");
+        get => GetRequiredProperty<TerraformProperty<string>>("duration");
         set => this.WithProperty("duration", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferingType is required")]
     public required TerraformProperty<string> OfferingType
     {
-        get => GetProperty<TerraformProperty<string>>("offering_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("offering_type");
         set => this.WithProperty("offering_type", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductDescription is required")]
     public required TerraformProperty<string> ProductDescription
     {
-        get => GetProperty<TerraformProperty<string>>("product_description");
+        get => GetRequiredProperty<TerraformProperty<string>>("product_description");
         set => this.WithProperty("product_description", value);
     }
 

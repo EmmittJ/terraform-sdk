@@ -84,7 +84,7 @@ public class AwsBedrockagentAgentVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformProperty<string> AgentId
     {
-        get => GetProperty<TerraformProperty<string>>("agent_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("agent_id");
         set => this.WithProperty("agent_id", value);
     }
 

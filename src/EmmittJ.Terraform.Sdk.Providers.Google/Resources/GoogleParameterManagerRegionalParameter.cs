@@ -115,7 +115,7 @@ public class GoogleParameterManagerRegionalParameter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleParameterManagerRegionalParameter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterId is required")]
     public required TerraformProperty<string> ParameterId
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("parameter_id");
         set => this.WithProperty("parameter_id", value);
     }
 

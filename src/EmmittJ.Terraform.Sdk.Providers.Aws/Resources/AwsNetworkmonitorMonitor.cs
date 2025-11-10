@@ -34,7 +34,7 @@ public class AwsNetworkmonitorMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorName is required")]
     public required TerraformProperty<string> MonitorName
     {
-        get => GetProperty<TerraformProperty<string>>("monitor_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("monitor_name");
         set => this.WithProperty("monitor_name", value);
     }
 

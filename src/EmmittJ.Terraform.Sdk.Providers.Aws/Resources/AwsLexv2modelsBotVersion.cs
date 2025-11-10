@@ -49,7 +49,7 @@ public class AwsLexv2modelsBotVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
     public required TerraformProperty<string> BotId
     {
-        get => GetProperty<TerraformProperty<string>>("bot_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_id");
         set => this.WithProperty("bot_id", value);
     }
 

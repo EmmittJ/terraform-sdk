@@ -14,7 +14,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActiveDirectoryOrganizationalUnitPath is required")]
     public required TerraformProperty<string> ActiveDirectoryOrganizationalUnitPath
     {
-        get => GetProperty<TerraformProperty<string>>("active_directory_organizational_unit_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("active_directory_organizational_unit_path");
         set => WithProperty("active_directory_organizational_unit_path", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainFqdn is required")]
     public required TerraformProperty<string> DomainFqdn
     {
-        get => GetProperty<TerraformProperty<string>>("domain_fqdn");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_fqdn");
         set => WithProperty("domain_fqdn", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamePrefix is required")]
     public required TerraformProperty<string> NamePrefix
     {
-        get => GetProperty<TerraformProperty<string>>("name_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("name_prefix");
         set => WithProperty("name_prefix", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretsLocation is required")]
     public required TerraformProperty<string> SecretsLocation
     {
-        get => GetProperty<TerraformProperty<string>>("secrets_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("secrets_location");
         set => WithProperty("secrets_location", value);
     }
 
@@ -242,7 +242,7 @@ public class AzurermStackHciDeploymentSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackHciClusterId is required")]
     public required TerraformProperty<string> StackHciClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("stack_hci_cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("stack_hci_cluster_id");
         set => this.WithProperty("stack_hci_cluster_id", value);
     }
 
@@ -252,7 +252,7 @@ public class AzurermStackHciDeploymentSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

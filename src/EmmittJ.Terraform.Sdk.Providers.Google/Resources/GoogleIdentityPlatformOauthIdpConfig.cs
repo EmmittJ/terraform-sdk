@@ -84,7 +84,7 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformProperty<string> Issuer
     {
-        get => GetProperty<TerraformProperty<string>>("issuer");
+        get => GetRequiredProperty<TerraformProperty<string>>("issuer");
         set => this.WithProperty("issuer", value);
     }
 
@@ -140,7 +140,7 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -41,7 +41,7 @@ public class AwsApiGatewayDomainNameMutualTlsAuthenticationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TruststoreUri is required")]
     public required TerraformProperty<string> TruststoreUri
     {
-        get => GetProperty<TerraformProperty<string>>("truststore_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("truststore_uri");
         set => WithProperty("truststore_uri", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsApiGatewayDomainName : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 

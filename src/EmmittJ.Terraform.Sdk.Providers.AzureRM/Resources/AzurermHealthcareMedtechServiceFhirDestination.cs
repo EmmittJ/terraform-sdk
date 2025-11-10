@@ -66,7 +66,7 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationFhirMappingJson is required")]
     public required TerraformProperty<string> DestinationFhirMappingJson
     {
-        get => GetProperty<TerraformProperty<string>>("destination_fhir_mapping_json");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_fhir_mapping_json");
         set => this.WithProperty("destination_fhir_mapping_json", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationFhirServiceId is required")]
     public required TerraformProperty<string> DestinationFhirServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("destination_fhir_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_fhir_service_id");
         set => this.WithProperty("destination_fhir_service_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIdentityResolutionType is required")]
     public required TerraformProperty<string> DestinationIdentityResolutionType
     {
-        get => GetProperty<TerraformProperty<string>>("destination_identity_resolution_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_identity_resolution_type");
         set => this.WithProperty("destination_identity_resolution_type", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MedtechServiceId is required")]
     public required TerraformProperty<string> MedtechServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("medtech_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("medtech_service_id");
         set => this.WithProperty("medtech_service_id", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -66,7 +66,7 @@ public class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
     public required TerraformProperty<string> BackupPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("backup_policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_policy_id");
         set => this.WithProperty("backup_policy_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformProperty<string> RecoveryVaultName
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_vault_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_name");
         set => this.WithProperty("recovery_vault_name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileShareName is required")]
     public required TerraformProperty<string> SourceFileShareName
     {
-        get => GetProperty<TerraformProperty<string>>("source_file_share_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_file_share_name");
         set => this.WithProperty("source_file_share_name", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceStorageAccountId is required")]
     public required TerraformProperty<string> SourceStorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("source_storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_storage_account_id");
         set => this.WithProperty("source_storage_account_id", value);
     }
 

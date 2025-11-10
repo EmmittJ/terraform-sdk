@@ -66,7 +66,7 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxii : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiRootUrl is required")]
     public required TerraformProperty<string> ApiRootUrl
     {
-        get => GetProperty<TerraformProperty<string>>("api_root_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_root_url");
         set => this.WithProperty("api_root_url", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxii : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformProperty<string> CollectionId
     {
-        get => GetProperty<TerraformProperty<string>>("collection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("collection_id");
         set => this.WithProperty("collection_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxii : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxii : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxii : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

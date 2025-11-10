@@ -22,7 +22,7 @@ public class GoogleCloudfunctionsFunctionEventTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public required TerraformProperty<string> EventType
     {
-        get => GetProperty<TerraformProperty<string>>("event_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("event_type");
         set => WithProperty("event_type", value);
     }
 
@@ -32,7 +32,7 @@ public class GoogleCloudfunctionsFunctionEventTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformProperty<string> Resource
     {
-        get => GetProperty<TerraformProperty<string>>("resource");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource");
         set => WithProperty("resource", value);
     }
 
@@ -67,7 +67,7 @@ public class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformProperty<string> Secret
     {
-        get => GetProperty<TerraformProperty<string>>("secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret");
         set => WithProperty("secret", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => WithProperty("version", value);
     }
 
@@ -114,7 +114,7 @@ public class GoogleCloudfunctionsFunctionSecretVolumesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformProperty<string> MountPath
     {
-        get => GetProperty<TerraformProperty<string>>("mount_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("mount_path");
         set => WithProperty("mount_path", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleCloudfunctionsFunctionSecretVolumesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformProperty<string> Secret
     {
-        get => GetProperty<TerraformProperty<string>>("secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret");
         set => WithProperty("secret", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleCloudfunctionsFunctionSourceRepositoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => WithProperty("url", value);
     }
 
@@ -391,7 +391,7 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -419,7 +419,7 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     public required TerraformProperty<string> Runtime
     {
-        get => GetProperty<TerraformProperty<string>>("runtime");
+        get => GetRequiredProperty<TerraformProperty<string>>("runtime");
         set => this.WithProperty("runtime", value);
     }
 

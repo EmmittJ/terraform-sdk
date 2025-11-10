@@ -66,7 +66,7 @@ public class AzurermLighthouseAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LighthouseDefinitionId is required")]
     public required TerraformProperty<string> LighthouseDefinitionId
     {
-        get => GetProperty<TerraformProperty<string>>("lighthouse_definition_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("lighthouse_definition_id");
         set => this.WithProperty("lighthouse_definition_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermLighthouseAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

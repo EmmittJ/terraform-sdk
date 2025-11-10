@@ -87,7 +87,7 @@ public class GoogleNetworkSecurityMirroringEndpointGroupAssociation : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleNetworkSecurityMirroringEndpointGroupAssociation : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringEndpointGroup is required")]
     public required TerraformProperty<string> MirroringEndpointGroup
     {
-        get => GetProperty<TerraformProperty<string>>("mirroring_endpoint_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("mirroring_endpoint_group");
         set => this.WithProperty("mirroring_endpoint_group", value);
     }
 
@@ -122,7 +122,7 @@ public class GoogleNetworkSecurityMirroringEndpointGroupAssociation : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 

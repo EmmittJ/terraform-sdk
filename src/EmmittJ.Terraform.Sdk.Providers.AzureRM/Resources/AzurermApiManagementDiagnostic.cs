@@ -180,7 +180,7 @@ public class AzurermApiManagementDiagnostic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementLoggerId is required")]
     public required TerraformProperty<string> ApiManagementLoggerId
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_logger_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_logger_id");
         set => this.WithProperty("api_management_logger_id", value);
     }
 
@@ -190,7 +190,7 @@ public class AzurermApiManagementDiagnostic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
@@ -218,7 +218,7 @@ public class AzurermApiManagementDiagnostic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetProperty<TerraformProperty<string>>("identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
         set => this.WithProperty("identifier", value);
     }
 
@@ -246,7 +246,7 @@ public class AzurermApiManagementDiagnostic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
     public required TerraformProperty<string> KeyAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("key_algorithm");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_algorithm");
         set => WithProperty("key_algorithm", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
     public required TerraformProperty<string> SigningAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("signing_algorithm");
+        get => GetRequiredProperty<TerraformProperty<string>>("signing_algorithm");
         set => WithProperty("signing_algorithm", value);
     }
 

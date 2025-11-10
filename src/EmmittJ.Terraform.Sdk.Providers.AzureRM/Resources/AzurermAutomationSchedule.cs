@@ -14,7 +14,7 @@ public class AzurermAutomationScheduleMonthlyOccurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformProperty<string> Day
     {
-        get => GetProperty<TerraformProperty<string>>("day");
+        get => GetRequiredProperty<TerraformProperty<string>>("day");
         set => WithProperty("day", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermAutomationScheduleMonthlyOccurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Occurrence is required")]
     public required TerraformProperty<double> Occurrence
     {
-        get => GetProperty<TerraformProperty<double>>("occurrence");
+        get => GetRequiredProperty<TerraformProperty<double>>("occurrence");
         set => WithProperty("occurrence", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermAutomationSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformProperty<string> AutomationAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("automation_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_name");
         set => this.WithProperty("automation_account_name", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermAutomationSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetProperty<TerraformProperty<string>>("frequency");
+        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
         set => this.WithProperty("frequency", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermAutomationSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -170,7 +170,7 @@ public class AzurermAutomationSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

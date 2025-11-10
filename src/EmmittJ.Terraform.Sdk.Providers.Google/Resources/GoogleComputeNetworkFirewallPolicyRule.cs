@@ -185,7 +185,7 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
@@ -204,7 +204,7 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformProperty<string> Direction
     {
-        get => GetProperty<TerraformProperty<string>>("direction");
+        get => GetRequiredProperty<TerraformProperty<string>>("direction");
         set => this.WithProperty("direction", value);
     }
 
@@ -237,7 +237,7 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicy is required")]
     public required TerraformProperty<string> FirewallPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("firewall_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("firewall_policy");
         set => this.WithProperty("firewall_policy", value);
     }
 
@@ -258,7 +258,7 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 

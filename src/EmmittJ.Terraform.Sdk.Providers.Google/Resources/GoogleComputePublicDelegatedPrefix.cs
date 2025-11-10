@@ -77,7 +77,7 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     public required TerraformProperty<string> IpCidrRange
     {
-        get => GetProperty<TerraformProperty<string>>("ip_cidr_range");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_cidr_range");
         set => this.WithProperty("ip_cidr_range", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -121,7 +121,7 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentPrefix is required")]
     public required TerraformProperty<string> ParentPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("parent_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent_prefix");
         set => this.WithProperty("parent_prefix", value);
     }
 
@@ -140,7 +140,7 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
+        get => GetRequiredProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

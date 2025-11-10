@@ -23,7 +23,7 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -33,7 +33,7 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddress is required")]
     public required TerraformProperty<string> PrivateIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("private_ip_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("private_ip_address");
         set => WithProperty("private_ip_address", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsManualConnection is required")]
     public required TerraformProperty<bool> IsManualConnection
     {
-        get => GetProperty<TerraformProperty<bool>>("is_manual_connection");
+        get => GetRequiredProperty<TerraformProperty<bool>>("is_manual_connection");
         set => WithProperty("is_manual_connection", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -244,7 +244,7 @@ public class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -254,7 +254,7 @@ public class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -264,7 +264,7 @@ public class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -274,7 +274,7 @@ public class AzurermPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

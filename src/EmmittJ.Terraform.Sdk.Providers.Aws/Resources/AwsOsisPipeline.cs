@@ -14,7 +14,7 @@ public class AwsOsisPipelineBufferOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PersistentBufferEnabled is required")]
     public required TerraformProperty<bool> PersistentBufferEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("persistent_buffer_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("persistent_buffer_enabled");
         set => WithProperty("persistent_buffer_enabled", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsOsisPipelineEncryptionAtRestOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformProperty<string> KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_arn");
         set => WithProperty("kms_key_arn", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsOsisPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnits is required")]
     public required TerraformProperty<double> MaxUnits
     {
-        get => GetProperty<TerraformProperty<double>>("max_units");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_units");
         set => this.WithProperty("max_units", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsOsisPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinUnits is required")]
     public required TerraformProperty<double> MinUnits
     {
-        get => GetProperty<TerraformProperty<double>>("min_units");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_units");
         set => this.WithProperty("min_units", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsOsisPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineConfigurationBody is required")]
     public required TerraformProperty<string> PipelineConfigurationBody
     {
-        get => GetProperty<TerraformProperty<string>>("pipeline_configuration_body");
+        get => GetRequiredProperty<TerraformProperty<string>>("pipeline_configuration_body");
         set => this.WithProperty("pipeline_configuration_body", value);
     }
 
@@ -180,7 +180,7 @@ public class AwsOsisPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineName is required")]
     public required TerraformProperty<string> PipelineName
     {
-        get => GetProperty<TerraformProperty<string>>("pipeline_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("pipeline_name");
         set => this.WithProperty("pipeline_name", value);
     }
 

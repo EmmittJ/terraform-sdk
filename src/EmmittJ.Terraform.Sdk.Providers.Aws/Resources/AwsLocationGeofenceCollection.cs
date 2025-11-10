@@ -60,7 +60,7 @@ public class AwsLocationGeofenceCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionName is required")]
     public required TerraformProperty<string> CollectionName
     {
-        get => GetProperty<TerraformProperty<string>>("collection_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("collection_name");
         set => this.WithProperty("collection_name", value);
     }
 

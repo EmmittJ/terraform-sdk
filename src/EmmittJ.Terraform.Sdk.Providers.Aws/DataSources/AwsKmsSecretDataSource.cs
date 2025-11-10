@@ -32,7 +32,7 @@ public class AwsKmsSecretDataSourceSecretBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsKmsSecretDataSourceSecretBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
     public required TerraformProperty<string> Payload
     {
-        get => GetProperty<TerraformProperty<string>>("payload");
+        get => GetRequiredProperty<TerraformProperty<string>>("payload");
         set => WithProperty("payload", value);
     }
 

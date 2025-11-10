@@ -61,7 +61,7 @@ public class AwsApprunnerVpcIngressConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsApprunnerVpcIngressConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceArn is required")]
     public required TerraformProperty<string> ServiceArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_arn");
         set => this.WithProperty("service_arn", value);
     }
 

@@ -66,7 +66,7 @@ public class AzurermSecurityCenterContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertNotifications is required")]
     public required TerraformProperty<bool> AlertNotifications
     {
-        get => GetProperty<TerraformProperty<bool>>("alert_notifications");
+        get => GetRequiredProperty<TerraformProperty<bool>>("alert_notifications");
         set => this.WithProperty("alert_notifications", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSecurityCenterContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertsToAdmins is required")]
     public required TerraformProperty<bool> AlertsToAdmins
     {
-        get => GetProperty<TerraformProperty<bool>>("alerts_to_admins");
+        get => GetRequiredProperty<TerraformProperty<bool>>("alerts_to_admins");
         set => this.WithProperty("alerts_to_admins", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermSecurityCenterContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
+        get => GetRequiredProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermSecurityCenterContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

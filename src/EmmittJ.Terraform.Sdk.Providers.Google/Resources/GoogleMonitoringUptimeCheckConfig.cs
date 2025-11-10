@@ -14,7 +14,7 @@ public class GoogleMonitoringUptimeCheckConfigContentMatchersBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => WithProperty("content", value);
     }
 
@@ -149,7 +149,7 @@ public class GoogleMonitoringUptimeCheckConfigMonitoredResourceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -201,7 +201,7 @@ public class GoogleMonitoringUptimeCheckConfigTcpCheckBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => WithProperty("port", value);
     }
 
@@ -274,7 +274,7 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -329,7 +329,7 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeout is required")]
     public required TerraformProperty<string> Timeout
     {
-        get => GetProperty<TerraformProperty<string>>("timeout");
+        get => GetRequiredProperty<TerraformProperty<string>>("timeout");
         set => this.WithProperty("timeout", value);
     }
 

@@ -36,7 +36,7 @@ public class AwsAppmeshGatewayRouteDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshName is required")]
     public required TerraformProperty<string> MeshName
     {
-        get => GetProperty<TerraformProperty<string>>("mesh_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("mesh_name");
         set => this.WithProperty("mesh_name", value);
     }
 
@@ -55,7 +55,7 @@ public class AwsAppmeshGatewayRouteDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsAppmeshGatewayRouteDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualGatewayName is required")]
     public required TerraformProperty<string> VirtualGatewayName
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_gateway_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_gateway_name");
         set => this.WithProperty("virtual_gateway_name", value);
     }
 

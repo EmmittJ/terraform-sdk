@@ -84,7 +84,7 @@ public class AwsSyntheticsCanaryScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("expression");
         set => WithProperty("expression", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactS3Location is required")]
     public required TerraformProperty<string> ArtifactS3Location
     {
-        get => GetProperty<TerraformProperty<string>>("artifact_s3_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("artifact_s3_location");
         set => this.WithProperty("artifact_s3_location", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformProperty<string> ExecutionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("execution_role_arn");
         set => this.WithProperty("execution_role_arn", value);
     }
 
@@ -198,7 +198,7 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Handler is required")]
     public required TerraformProperty<string> Handler
     {
-        get => GetProperty<TerraformProperty<string>>("handler");
+        get => GetRequiredProperty<TerraformProperty<string>>("handler");
         set => this.WithProperty("handler", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -236,7 +236,7 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
     public required TerraformProperty<string> RuntimeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("runtime_version");
         set => this.WithProperty("runtime_version", value);
     }
 

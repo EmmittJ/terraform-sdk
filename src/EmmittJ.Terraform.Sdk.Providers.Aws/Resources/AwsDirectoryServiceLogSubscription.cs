@@ -22,7 +22,7 @@ public class AwsDirectoryServiceLogSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformProperty<string> DirectoryId
     {
-        get => GetProperty<TerraformProperty<string>>("directory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("directory_id");
         set => this.WithProperty("directory_id", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsDirectoryServiceLogSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformProperty<string> LogGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("log_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_group_name");
         set => this.WithProperty("log_group_name", value);
     }
 

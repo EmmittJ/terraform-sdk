@@ -75,7 +75,7 @@ public class AzurermStreamAnalyticsOutputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetProperty<TerraformProperty<string>>("database");
+        get => GetRequiredProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermStreamAnalyticsOutputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermStreamAnalyticsOutputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermStreamAnalyticsOutputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformProperty<string> Server
     {
-        get => GetProperty<TerraformProperty<string>>("server");
+        get => GetRequiredProperty<TerraformProperty<string>>("server");
         set => this.WithProperty("server", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermStreamAnalyticsOutputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformProperty<string> StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_name");
         set => this.WithProperty("stream_analytics_job_name", value);
     }
 
@@ -161,7 +161,7 @@ public class AzurermStreamAnalyticsOutputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformProperty<string> Table
     {
-        get => GetProperty<TerraformProperty<string>>("table");
+        get => GetRequiredProperty<TerraformProperty<string>>("table");
         set => this.WithProperty("table", value);
     }
 

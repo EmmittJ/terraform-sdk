@@ -75,7 +75,7 @@ public class AwsAthenaPreparedStatement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsAthenaPreparedStatement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryStatement is required")]
     public required TerraformProperty<string> QueryStatement
     {
-        get => GetProperty<TerraformProperty<string>>("query_statement");
+        get => GetRequiredProperty<TerraformProperty<string>>("query_statement");
         set => this.WithProperty("query_statement", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsAthenaPreparedStatement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Workgroup is required")]
     public required TerraformProperty<string> Workgroup
     {
-        get => GetProperty<TerraformProperty<string>>("workgroup");
+        get => GetRequiredProperty<TerraformProperty<string>>("workgroup");
         set => this.WithProperty("workgroup", value);
     }
 

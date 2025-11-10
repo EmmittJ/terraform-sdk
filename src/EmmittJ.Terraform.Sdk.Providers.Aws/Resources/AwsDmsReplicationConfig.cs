@@ -77,7 +77,7 @@ public class AwsDmsReplicationConfigComputeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationSubnetGroupId is required")]
     public required TerraformProperty<string> ReplicationSubnetGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("replication_subnet_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("replication_subnet_group_id");
         set => WithProperty("replication_subnet_group_id", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsDmsReplicationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationConfigIdentifier is required")]
     public required TerraformProperty<string> ReplicationConfigIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("replication_config_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("replication_config_identifier");
         set => this.WithProperty("replication_config_identifier", value);
     }
 
@@ -186,7 +186,7 @@ public class AwsDmsReplicationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationType is required")]
     public required TerraformProperty<string> ReplicationType
     {
-        get => GetProperty<TerraformProperty<string>>("replication_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("replication_type");
         set => this.WithProperty("replication_type", value);
     }
 
@@ -205,7 +205,7 @@ public class AwsDmsReplicationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEndpointArn is required")]
     public required TerraformProperty<string> SourceEndpointArn
     {
-        get => GetProperty<TerraformProperty<string>>("source_endpoint_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_endpoint_arn");
         set => this.WithProperty("source_endpoint_arn", value);
     }
 
@@ -233,7 +233,7 @@ public class AwsDmsReplicationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableMappings is required")]
     public required TerraformProperty<string> TableMappings
     {
-        get => GetProperty<TerraformProperty<string>>("table_mappings");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_mappings");
         set => this.WithProperty("table_mappings", value);
     }
 
@@ -261,7 +261,7 @@ public class AwsDmsReplicationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetEndpointArn is required")]
     public required TerraformProperty<string> TargetEndpointArn
     {
-        get => GetProperty<TerraformProperty<string>>("target_endpoint_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_endpoint_arn");
         set => this.WithProperty("target_endpoint_arn", value);
     }
 

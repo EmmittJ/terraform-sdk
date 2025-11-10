@@ -66,7 +66,7 @@ public class AzurermApplicationLoadBalancerSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationLoadBalancerId is required")]
     public required TerraformProperty<string> ApplicationLoadBalancerId
     {
-        get => GetProperty<TerraformProperty<string>>("application_load_balancer_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_load_balancer_id");
         set => this.WithProperty("application_load_balancer_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermApplicationLoadBalancerSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermApplicationLoadBalancerSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermApplicationLoadBalancerSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebApplicationFirewallPolicyId is required")]
     public required TerraformProperty<string> WebApplicationFirewallPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("web_application_firewall_policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("web_application_firewall_policy_id");
         set => this.WithProperty("web_application_firewall_policy_id", value);
     }
 

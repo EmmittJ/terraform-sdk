@@ -75,7 +75,7 @@ public class AzurermSentinelWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermSentinelWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ItemSearchKey is required")]
     public required TerraformProperty<string> ItemSearchKey
     {
-        get => GetProperty<TerraformProperty<string>>("item_search_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("item_search_key");
         set => this.WithProperty("item_search_key", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermSentinelWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermSentinelWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

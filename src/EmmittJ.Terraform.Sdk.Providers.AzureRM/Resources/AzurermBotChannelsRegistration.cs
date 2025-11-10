@@ -147,7 +147,7 @@ public class AzurermBotChannelsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermBotChannelsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MicrosoftAppId is required")]
     public required TerraformProperty<string> MicrosoftAppId
     {
-        get => GetProperty<TerraformProperty<string>>("microsoft_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("microsoft_app_id");
         set => this.WithProperty("microsoft_app_id", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermBotChannelsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -186,7 +186,7 @@ public class AzurermBotChannelsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -196,7 +196,7 @@ public class AzurermBotChannelsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 

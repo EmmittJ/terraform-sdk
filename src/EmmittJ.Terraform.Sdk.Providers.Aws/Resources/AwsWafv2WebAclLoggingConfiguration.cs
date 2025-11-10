@@ -14,7 +14,7 @@ public class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultBehavior is required")]
     public required TerraformProperty<string> DefaultBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("default_behavior");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_behavior");
         set => WithProperty("default_behavior", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("resource_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
     }
 

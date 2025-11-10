@@ -14,7 +14,7 @@ public class AwsRoute53RecordAliasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluateTargetHealth is required")]
     public required TerraformProperty<bool> EvaluateTargetHealth
     {
-        get => GetProperty<TerraformProperty<bool>>("evaluate_target_health");
+        get => GetRequiredProperty<TerraformProperty<bool>>("evaluate_target_health");
         set => WithProperty("evaluate_target_health", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsRoute53RecordAliasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsRoute53RecordAliasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformProperty<string> ZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone_id");
         set => WithProperty("zone_id", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsRoute53RecordCidrRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformProperty<string> CollectionId
     {
-        get => GetProperty<TerraformProperty<string>>("collection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("collection_id");
         set => WithProperty("collection_id", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsRoute53RecordCidrRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationName is required")]
     public required TerraformProperty<string> LocationName
     {
-        get => GetProperty<TerraformProperty<string>>("location_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("location_name");
         set => WithProperty("location_name", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsRoute53RecordFailoverRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -168,7 +168,7 @@ public class AwsRoute53RecordLatencyRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
+        get => GetRequiredProperty<TerraformProperty<string>>("region");
         set => WithProperty("region", value);
     }
 
@@ -221,7 +221,7 @@ public class AwsRoute53RecordWeightedRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformProperty<double> Weight
     {
-        get => GetProperty<TerraformProperty<double>>("weight");
+        get => GetRequiredProperty<TerraformProperty<double>>("weight");
         set => WithProperty("weight", value);
     }
 
@@ -285,7 +285,7 @@ public class AwsRoute53Record : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -322,7 +322,7 @@ public class AwsRoute53Record : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
@@ -332,7 +332,7 @@ public class AwsRoute53Record : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformProperty<string> ZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone_id");
         set => this.WithProperty("zone_id", value);
     }
 

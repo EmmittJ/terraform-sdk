@@ -25,7 +25,7 @@ public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceClass is required")]
     public required TerraformProperty<string> DbInstanceClass
     {
-        get => GetProperty<TerraformProperty<string>>("db_instance_class");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_instance_class");
         set => this.WithProperty("db_instance_class", value);
     }
 
@@ -35,7 +35,7 @@ public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<double> Duration
     {
-        get => GetProperty<TerraformProperty<double>>("duration");
+        get => GetRequiredProperty<TerraformProperty<double>>("duration");
         set => this.WithProperty("duration", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MultiAz is required")]
     public required TerraformProperty<bool> MultiAz
     {
-        get => GetProperty<TerraformProperty<bool>>("multi_az");
+        get => GetRequiredProperty<TerraformProperty<bool>>("multi_az");
         set => this.WithProperty("multi_az", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferingType is required")]
     public required TerraformProperty<string> OfferingType
     {
-        get => GetProperty<TerraformProperty<string>>("offering_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("offering_type");
         set => this.WithProperty("offering_type", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductDescription is required")]
     public required TerraformProperty<string> ProductDescription
     {
-        get => GetProperty<TerraformProperty<string>>("product_description");
+        get => GetRequiredProperty<TerraformProperty<string>>("product_description");
         set => this.WithProperty("product_description", value);
     }
 

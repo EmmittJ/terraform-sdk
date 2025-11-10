@@ -33,7 +33,7 @@ public class AwsPlacementGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsPlacementGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Strategy is required")]
     public required TerraformProperty<string> Strategy
     {
-        get => GetProperty<TerraformProperty<string>>("strategy");
+        get => GetRequiredProperty<TerraformProperty<string>>("strategy");
         set => this.WithProperty("strategy", value);
     }
 

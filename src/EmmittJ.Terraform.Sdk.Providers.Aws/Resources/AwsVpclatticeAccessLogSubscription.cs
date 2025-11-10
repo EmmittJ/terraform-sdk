@@ -24,7 +24,7 @@ public class AwsVpclatticeAccessLogSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformProperty<string> DestinationArn
     {
-        get => GetProperty<TerraformProperty<string>>("destination_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_arn");
         set => this.WithProperty("destination_arn", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsVpclatticeAccessLogSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceIdentifier is required")]
     public required TerraformProperty<string> ResourceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("resource_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_identifier");
         set => this.WithProperty("resource_identifier", value);
     }
 

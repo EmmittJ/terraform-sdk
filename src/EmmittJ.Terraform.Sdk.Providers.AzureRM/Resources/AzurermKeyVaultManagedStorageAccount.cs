@@ -75,7 +75,7 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     public required TerraformProperty<string> StorageAccountKey
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_key");
         set => this.WithProperty("storage_account_key", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermStorageAccountSasDataSourcePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Add is required")]
     public required TerraformProperty<bool> Add
     {
-        get => GetProperty<TerraformProperty<bool>>("add");
+        get => GetRequiredProperty<TerraformProperty<bool>>("add");
         set => WithProperty("add", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermStorageAccountSasDataSourcePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Create is required")]
     public required TerraformProperty<bool> Create
     {
-        get => GetProperty<TerraformProperty<bool>>("create");
+        get => GetRequiredProperty<TerraformProperty<bool>>("create");
         set => WithProperty("create", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermStorageAccountSasDataSourcePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delete is required")]
     public required TerraformProperty<bool> Delete
     {
-        get => GetProperty<TerraformProperty<bool>>("delete");
+        get => GetRequiredProperty<TerraformProperty<bool>>("delete");
         set => WithProperty("delete", value);
     }
 
@@ -44,7 +44,7 @@ public class AzurermStorageAccountSasDataSourcePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<bool> Filter
     {
-        get => GetProperty<TerraformProperty<bool>>("filter");
+        get => GetRequiredProperty<TerraformProperty<bool>>("filter");
         set => WithProperty("filter", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermStorageAccountSasDataSourcePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "List is required")]
     public required TerraformProperty<bool> List
     {
-        get => GetProperty<TerraformProperty<bool>>("list");
+        get => GetRequiredProperty<TerraformProperty<bool>>("list");
         set => WithProperty("list", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermStorageAccountSasDataSourcePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Process is required")]
     public required TerraformProperty<bool> Process
     {
-        get => GetProperty<TerraformProperty<bool>>("process");
+        get => GetRequiredProperty<TerraformProperty<bool>>("process");
         set => WithProperty("process", value);
     }
 
@@ -74,7 +74,7 @@ public class AzurermStorageAccountSasDataSourcePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Read is required")]
     public required TerraformProperty<bool> Read
     {
-        get => GetProperty<TerraformProperty<bool>>("read");
+        get => GetRequiredProperty<TerraformProperty<bool>>("read");
         set => WithProperty("read", value);
     }
 
@@ -84,7 +84,7 @@ public class AzurermStorageAccountSasDataSourcePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tag is required")]
     public required TerraformProperty<bool> Tag
     {
-        get => GetProperty<TerraformProperty<bool>>("tag");
+        get => GetRequiredProperty<TerraformProperty<bool>>("tag");
         set => WithProperty("tag", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermStorageAccountSasDataSourcePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Update is required")]
     public required TerraformProperty<bool> Update
     {
-        get => GetProperty<TerraformProperty<bool>>("update");
+        get => GetRequiredProperty<TerraformProperty<bool>>("update");
         set => WithProperty("update", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermStorageAccountSasDataSourcePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Write is required")]
     public required TerraformProperty<bool> Write
     {
-        get => GetProperty<TerraformProperty<bool>>("write");
+        get => GetRequiredProperty<TerraformProperty<bool>>("write");
         set => WithProperty("write", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermStorageAccountSasDataSourceResourceTypesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     public required TerraformProperty<bool> Container
     {
-        get => GetProperty<TerraformProperty<bool>>("container");
+        get => GetRequiredProperty<TerraformProperty<bool>>("container");
         set => WithProperty("container", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermStorageAccountSasDataSourceResourceTypesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Object is required")]
     public required TerraformProperty<bool> Object
     {
-        get => GetProperty<TerraformProperty<bool>>("object");
+        get => GetRequiredProperty<TerraformProperty<bool>>("object");
         set => WithProperty("object", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermStorageAccountSasDataSourceResourceTypesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<bool> Service
     {
-        get => GetProperty<TerraformProperty<bool>>("service");
+        get => GetRequiredProperty<TerraformProperty<bool>>("service");
         set => WithProperty("service", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermStorageAccountSasDataSourceServicesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Blob is required")]
     public required TerraformProperty<bool> Blob
     {
-        get => GetProperty<TerraformProperty<bool>>("blob");
+        get => GetRequiredProperty<TerraformProperty<bool>>("blob");
         set => WithProperty("blob", value);
     }
 
@@ -170,7 +170,7 @@ public class AzurermStorageAccountSasDataSourceServicesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "File is required")]
     public required TerraformProperty<bool> File
     {
-        get => GetProperty<TerraformProperty<bool>>("file");
+        get => GetRequiredProperty<TerraformProperty<bool>>("file");
         set => WithProperty("file", value);
     }
 
@@ -180,7 +180,7 @@ public class AzurermStorageAccountSasDataSourceServicesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Queue is required")]
     public required TerraformProperty<bool> Queue
     {
-        get => GetProperty<TerraformProperty<bool>>("queue");
+        get => GetRequiredProperty<TerraformProperty<bool>>("queue");
         set => WithProperty("queue", value);
     }
 
@@ -190,7 +190,7 @@ public class AzurermStorageAccountSasDataSourceServicesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformProperty<bool> Table
     {
-        get => GetProperty<TerraformProperty<bool>>("table");
+        get => GetRequiredProperty<TerraformProperty<bool>>("table");
         set => WithProperty("table", value);
     }
 
@@ -235,7 +235,7 @@ public class AzurermStorageAccountSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformProperty<string> ConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("connection_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_string");
         set => this.WithProperty("connection_string", value);
     }
 
@@ -245,7 +245,7 @@ public class AzurermStorageAccountSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
     public required TerraformProperty<string> Expiry
     {
-        get => GetProperty<TerraformProperty<string>>("expiry");
+        get => GetRequiredProperty<TerraformProperty<string>>("expiry");
         set => this.WithProperty("expiry", value);
     }
 
@@ -291,7 +291,7 @@ public class AzurermStorageAccountSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformProperty<string> Start
     {
-        get => GetProperty<TerraformProperty<string>>("start");
+        get => GetRequiredProperty<TerraformProperty<string>>("start");
         set => this.WithProperty("start", value);
     }
 

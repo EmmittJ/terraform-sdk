@@ -23,7 +23,7 @@ public class GooglePrivatecaCaPoolIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaPool is required")]
     public required TerraformProperty<string> CaPool
     {
-        get => GetProperty<TerraformProperty<string>>("ca_pool");
+        get => GetRequiredProperty<TerraformProperty<string>>("ca_pool");
         set => this.WithProperty("ca_pool", value);
     }
 
@@ -51,7 +51,7 @@ public class GooglePrivatecaCaPoolIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

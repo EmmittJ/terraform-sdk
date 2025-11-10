@@ -23,7 +23,7 @@ public class AwsRedshiftUsageLimit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     public required TerraformProperty<double> Amount
     {
-        get => GetProperty<TerraformProperty<double>>("amount");
+        get => GetRequiredProperty<TerraformProperty<double>>("amount");
         set => this.WithProperty("amount", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsRedshiftUsageLimit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformProperty<string> ClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsRedshiftUsageLimit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureType is required")]
     public required TerraformProperty<string> FeatureType
     {
-        get => GetProperty<TerraformProperty<string>>("feature_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("feature_type");
         set => this.WithProperty("feature_type", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsRedshiftUsageLimit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LimitType is required")]
     public required TerraformProperty<string> LimitType
     {
-        get => GetProperty<TerraformProperty<string>>("limit_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("limit_type");
         set => this.WithProperty("limit_type", value);
     }
 

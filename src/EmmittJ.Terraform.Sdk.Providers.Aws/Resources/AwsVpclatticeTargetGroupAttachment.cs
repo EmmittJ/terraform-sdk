@@ -14,7 +14,7 @@ public class AwsVpclatticeTargetGroupAttachmentTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsVpclatticeTargetGroupAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetGroupIdentifier is required")]
     public required TerraformProperty<string> TargetGroupIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("target_group_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_group_identifier");
         set => this.WithProperty("target_group_identifier", value);
     }
 

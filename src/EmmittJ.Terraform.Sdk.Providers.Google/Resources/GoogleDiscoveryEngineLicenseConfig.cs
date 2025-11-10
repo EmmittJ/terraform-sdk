@@ -156,7 +156,7 @@ public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseConfigId is required")]
     public required TerraformProperty<string> LicenseConfigId
     {
-        get => GetProperty<TerraformProperty<string>>("license_config_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("license_config_id");
         set => this.WithProperty("license_config_id", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseCount is required")]
     public required TerraformProperty<double> LicenseCount
     {
-        get => GetProperty<TerraformProperty<double>>("license_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("license_count");
         set => this.WithProperty("license_count", value);
     }
 
@@ -177,7 +177,7 @@ public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -196,7 +196,7 @@ public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionTerm is required")]
     public required TerraformProperty<string> SubscriptionTerm
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_term");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscription_term");
         set => this.WithProperty("subscription_term", value);
     }
 
@@ -206,7 +206,7 @@ public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionTier is required")]
     public required TerraformProperty<string> SubscriptionTier
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscription_tier");
         set => this.WithProperty("subscription_tier", value);
     }
 

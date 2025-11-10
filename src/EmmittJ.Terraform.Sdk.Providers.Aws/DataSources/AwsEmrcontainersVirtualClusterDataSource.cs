@@ -54,7 +54,7 @@ public class AwsEmrcontainersVirtualClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualClusterId is required")]
     public required TerraformProperty<string> VirtualClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_cluster_id");
         set => this.WithProperty("virtual_cluster_id", value);
     }
 

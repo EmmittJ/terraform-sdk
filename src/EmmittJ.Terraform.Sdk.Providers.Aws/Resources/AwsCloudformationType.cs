@@ -14,7 +14,7 @@ public class AwsCloudformationTypeLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformProperty<string> LogGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("log_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_group_name");
         set => WithProperty("log_group_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsCloudformationTypeLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogRoleArn is required")]
     public required TerraformProperty<string> LogRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("log_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_role_arn");
         set => WithProperty("log_role_arn", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsCloudformationType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaHandlerPackage is required")]
     public required TerraformProperty<string> SchemaHandlerPackage
     {
-        get => GetProperty<TerraformProperty<string>>("schema_handler_package");
+        get => GetRequiredProperty<TerraformProperty<string>>("schema_handler_package");
         set => this.WithProperty("schema_handler_package", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsCloudformationType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeName is required")]
     public required TerraformProperty<string> TypeName
     {
-        get => GetProperty<TerraformProperty<string>>("type_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("type_name");
         set => this.WithProperty("type_name", value);
     }
 

@@ -23,7 +23,7 @@ public class AwsGlueDataCatalogEncryptionSettingsDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("catalog_id");
         set => this.WithProperty("catalog_id", value);
     }
 

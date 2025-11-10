@@ -75,7 +75,7 @@ public class AzurermIothubFileUpload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformProperty<string> ConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("connection_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_string");
         set => this.WithProperty("connection_string", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermIothubFileUpload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
         set => this.WithProperty("container_name", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermIothubFileUpload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformProperty<string> IothubId
     {
-        get => GetProperty<TerraformProperty<string>>("iothub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("iothub_id");
         set => this.WithProperty("iothub_id", value);
     }
 

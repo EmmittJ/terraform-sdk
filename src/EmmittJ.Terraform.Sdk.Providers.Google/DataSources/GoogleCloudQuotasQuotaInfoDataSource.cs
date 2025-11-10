@@ -45,7 +45,7 @@ public class GoogleCloudQuotasQuotaInfoDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -55,7 +55,7 @@ public class GoogleCloudQuotasQuotaInfoDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaId is required")]
     public required TerraformProperty<string> QuotaId
     {
-        get => GetProperty<TerraformProperty<string>>("quota_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("quota_id");
         set => this.WithProperty("quota_id", value);
     }
 
@@ -65,7 +65,7 @@ public class GoogleCloudQuotasQuotaInfoDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
+        get => GetRequiredProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
     }
 

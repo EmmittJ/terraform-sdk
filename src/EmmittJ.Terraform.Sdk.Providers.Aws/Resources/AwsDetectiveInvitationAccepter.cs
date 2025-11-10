@@ -22,7 +22,7 @@ public class AwsDetectiveInvitationAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GraphArn is required")]
     public required TerraformProperty<string> GraphArn
     {
-        get => GetProperty<TerraformProperty<string>>("graph_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("graph_arn");
         set => this.WithProperty("graph_arn", value);
     }
 

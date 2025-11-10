@@ -14,7 +14,7 @@ public class AzurermApplicationGatewayAuthenticationCertificateBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Data is required")]
     public required TerraformProperty<string> Data
     {
-        get => GetProperty<TerraformProperty<string>>("data");
+        get => GetRequiredProperty<TerraformProperty<string>>("data");
         set => WithProperty("data", value);
     }
 
@@ -33,7 +33,7 @@ public class AzurermApplicationGatewayAuthenticationCertificateBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermApplicationGatewayAutoscaleConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformProperty<double> MinCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("min_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_capacity");
         set => WithProperty("min_capacity", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermApplicationGatewayBackendAddressPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookieBasedAffinity is required")]
     public required TerraformProperty<string> CookieBasedAffinity
     {
-        get => GetProperty<TerraformProperty<string>>("cookie_based_affinity");
+        get => GetRequiredProperty<TerraformProperty<string>>("cookie_based_affinity");
         set => WithProperty("cookie_based_affinity", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => WithProperty("port", value);
     }
 
@@ -216,7 +216,7 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -252,7 +252,7 @@ public class AzurermApplicationGatewayCustomErrorConfigurationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomErrorPageUrl is required")]
     public required TerraformProperty<string> CustomErrorPageUrl
     {
-        get => GetProperty<TerraformProperty<string>>("custom_error_page_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("custom_error_page_url");
         set => WithProperty("custom_error_page_url", value);
     }
 
@@ -271,7 +271,7 @@ public class AzurermApplicationGatewayCustomErrorConfigurationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     public required TerraformProperty<string> StatusCode
     {
-        get => GetProperty<TerraformProperty<string>>("status_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("status_code");
         set => WithProperty("status_code", value);
     }
 
@@ -298,7 +298,7 @@ public class AzurermApplicationGatewayFrontendIpConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -379,7 +379,7 @@ public class AzurermApplicationGatewayFrontendPortBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -389,7 +389,7 @@ public class AzurermApplicationGatewayFrontendPortBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => WithProperty("port", value);
     }
 
@@ -416,7 +416,7 @@ public class AzurermApplicationGatewayGatewayIpConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -426,7 +426,7 @@ public class AzurermApplicationGatewayGatewayIpConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => WithProperty("subnet_id", value);
     }
 
@@ -444,7 +444,7 @@ public class AzurermApplicationGatewayGlobalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestBufferingEnabled is required")]
     public required TerraformProperty<bool> RequestBufferingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("request_buffering_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("request_buffering_enabled");
         set => WithProperty("request_buffering_enabled", value);
     }
 
@@ -454,7 +454,7 @@ public class AzurermApplicationGatewayGlobalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponseBufferingEnabled is required")]
     public required TerraformProperty<bool> ResponseBufferingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("response_buffering_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("response_buffering_enabled");
         set => WithProperty("response_buffering_enabled", value);
     }
 
@@ -490,7 +490,7 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendIpConfigurationName is required")]
     public required TerraformProperty<string> FrontendIpConfigurationName
     {
-        get => GetProperty<TerraformProperty<string>>("frontend_ip_configuration_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("frontend_ip_configuration_name");
         set => WithProperty("frontend_ip_configuration_name", value);
     }
 
@@ -509,7 +509,7 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPortName is required")]
     public required TerraformProperty<string> FrontendPortName
     {
-        get => GetProperty<TerraformProperty<string>>("frontend_port_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("frontend_port_name");
         set => WithProperty("frontend_port_name", value);
     }
 
@@ -546,7 +546,7 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -556,7 +556,7 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -646,7 +646,7 @@ public class AzurermApplicationGatewayIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -673,7 +673,7 @@ public class AzurermApplicationGatewayPrivateLinkConfigurationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -709,7 +709,7 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformProperty<double> Interval
     {
-        get => GetProperty<TerraformProperty<double>>("interval");
+        get => GetRequiredProperty<TerraformProperty<double>>("interval");
         set => WithProperty("interval", value);
     }
 
@@ -728,7 +728,7 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -738,7 +738,7 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => WithProperty("path", value);
     }
 
@@ -766,7 +766,7 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -776,7 +776,7 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeout is required")]
     public required TerraformProperty<double> Timeout
     {
-        get => GetProperty<TerraformProperty<double>>("timeout");
+        get => GetRequiredProperty<TerraformProperty<double>>("timeout");
         set => WithProperty("timeout", value);
     }
 
@@ -786,7 +786,7 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnhealthyThreshold is required")]
     public required TerraformProperty<double> UnhealthyThreshold
     {
-        get => GetProperty<TerraformProperty<double>>("unhealthy_threshold");
+        get => GetRequiredProperty<TerraformProperty<double>>("unhealthy_threshold");
         set => WithProperty("unhealthy_threshold", value);
     }
 
@@ -831,7 +831,7 @@ public class AzurermApplicationGatewayRedirectConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -841,7 +841,7 @@ public class AzurermApplicationGatewayRedirectConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectType is required")]
     public required TerraformProperty<string> RedirectType
     {
-        get => GetProperty<TerraformProperty<string>>("redirect_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("redirect_type");
         set => WithProperty("redirect_type", value);
     }
 
@@ -931,7 +931,7 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpListenerName is required")]
     public required TerraformProperty<string> HttpListenerName
     {
-        get => GetProperty<TerraformProperty<string>>("http_listener_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("http_listener_name");
         set => WithProperty("http_listener_name", value);
     }
 
@@ -950,7 +950,7 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -1005,7 +1005,7 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleType is required")]
     public required TerraformProperty<string> RuleType
     {
-        get => GetProperty<TerraformProperty<string>>("rule_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_type");
         set => WithProperty("rule_type", value);
     }
 
@@ -1050,7 +1050,7 @@ public class AzurermApplicationGatewayRewriteRuleSetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -1077,7 +1077,7 @@ public class AzurermApplicationGatewaySkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -1087,7 +1087,7 @@ public class AzurermApplicationGatewaySkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("tier");
         set => WithProperty("tier", value);
     }
 
@@ -1132,7 +1132,7 @@ public class AzurermApplicationGatewaySslCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -1230,7 +1230,7 @@ public class AzurermApplicationGatewaySslProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -1319,7 +1319,7 @@ public class AzurermApplicationGatewayTrustedClientCertificateBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Data is required")]
     public required TerraformProperty<string> Data
     {
-        get => GetProperty<TerraformProperty<string>>("data");
+        get => GetRequiredProperty<TerraformProperty<string>>("data");
         set => WithProperty("data", value);
     }
 
@@ -1338,7 +1338,7 @@ public class AzurermApplicationGatewayTrustedClientCertificateBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -1383,7 +1383,7 @@ public class AzurermApplicationGatewayTrustedRootCertificateBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -1482,7 +1482,7 @@ public class AzurermApplicationGatewayUrlPathMapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -1500,7 +1500,7 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -1519,7 +1519,7 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallMode is required")]
     public required TerraformProperty<string> FirewallMode
     {
-        get => GetProperty<TerraformProperty<string>>("firewall_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("firewall_mode");
         set => WithProperty("firewall_mode", value);
     }
 
@@ -1556,7 +1556,7 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleSetVersion is required")]
     public required TerraformProperty<string> RuleSetVersion
     {
-        get => GetProperty<TerraformProperty<string>>("rule_set_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_set_version");
         set => WithProperty("rule_set_version", value);
     }
 
@@ -1629,7 +1629,7 @@ public class AzurermApplicationGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -1639,7 +1639,7 @@ public class AzurermApplicationGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -1649,7 +1649,7 @@ public class AzurermApplicationGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxReadyCapacity is required")]
     public required TerraformProperty<double> MaxReadyCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("max_ready_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_ready_capacity");
         set => WithProperty("max_ready_capacity", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReadyCapacity is required")]
     public required TerraformProperty<double> MinReadyCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("min_ready_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_ready_capacity");
         set => WithProperty("min_ready_capacity", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermVirtualMachineScaleSetStandbyPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachedVirtualMachineScaleSetId is required")]
     public required TerraformProperty<string> AttachedVirtualMachineScaleSetId
     {
-        get => GetProperty<TerraformProperty<string>>("attached_virtual_machine_scale_set_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("attached_virtual_machine_scale_set_id");
         set => this.WithProperty("attached_virtual_machine_scale_set_id", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermVirtualMachineScaleSetStandbyPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermVirtualMachineScaleSetStandbyPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermVirtualMachineScaleSetStandbyPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermVirtualMachineScaleSetStandbyPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineState is required")]
     public required TerraformProperty<string> VirtualMachineState
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_machine_state");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_state");
         set => this.WithProperty("virtual_machine_state", value);
     }
 

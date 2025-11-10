@@ -49,7 +49,7 @@ public class GoogleStorageInsightsDatasetConfigIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -177,7 +177,7 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetConfigId is required")]
     public required TerraformProperty<string> DatasetConfigId
     {
-        get => GetProperty<TerraformProperty<string>>("dataset_config_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset_config_id");
         set => this.WithProperty("dataset_config_id", value);
     }
 
@@ -227,7 +227,7 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -265,7 +265,7 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodDays is required")]
     public required TerraformProperty<double> RetentionPeriodDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_period_days");
+        get => GetRequiredProperty<TerraformProperty<double>>("retention_period_days");
         set => this.WithProperty("retention_period_days", value);
     }
 

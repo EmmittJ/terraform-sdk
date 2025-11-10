@@ -69,7 +69,7 @@ public class AwsBedrockagentcoreMemory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventExpiryDuration is required")]
     public required TerraformProperty<double> EventExpiryDuration
     {
-        get => GetProperty<TerraformProperty<double>>("event_expiry_duration");
+        get => GetRequiredProperty<TerraformProperty<double>>("event_expiry_duration");
         set => this.WithProperty("event_expiry_duration", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsBedrockagentcoreMemory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

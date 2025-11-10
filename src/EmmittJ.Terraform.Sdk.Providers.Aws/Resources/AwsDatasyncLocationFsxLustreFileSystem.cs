@@ -25,7 +25,7 @@ public class AwsDatasyncLocationFsxLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FsxFilesystemArn is required")]
     public required TerraformProperty<string> FsxFilesystemArn
     {
-        get => GetProperty<TerraformProperty<string>>("fsx_filesystem_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("fsx_filesystem_arn");
         set => this.WithProperty("fsx_filesystem_arn", value);
     }
 

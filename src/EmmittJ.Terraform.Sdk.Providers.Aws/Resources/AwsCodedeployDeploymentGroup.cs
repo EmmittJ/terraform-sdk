@@ -152,7 +152,7 @@ public class AwsCodedeployDeploymentGroupEcsServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => WithProperty("cluster_name", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsCodedeployDeploymentGroupEcsServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
         set => WithProperty("service_name", value);
     }
 
@@ -233,7 +233,7 @@ public class AwsCodedeployDeploymentGroupTriggerConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerName is required")]
     public required TerraformProperty<string> TriggerName
     {
-        get => GetProperty<TerraformProperty<string>>("trigger_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("trigger_name");
         set => WithProperty("trigger_name", value);
     }
 
@@ -243,7 +243,7 @@ public class AwsCodedeployDeploymentGroupTriggerConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerTargetArn is required")]
     public required TerraformProperty<string> TriggerTargetArn
     {
-        get => GetProperty<TerraformProperty<string>>("trigger_target_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("trigger_target_arn");
         set => WithProperty("trigger_target_arn", value);
     }
 
@@ -273,7 +273,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
     public required TerraformProperty<string> AppName
     {
-        get => GetProperty<TerraformProperty<string>>("app_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_name");
         set => this.WithProperty("app_name", value);
     }
 
@@ -301,7 +301,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentGroupName is required")]
     public required TerraformProperty<string> DeploymentGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("deployment_group_name");
         set => this.WithProperty("deployment_group_name", value);
     }
 
@@ -338,7 +338,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRoleArn is required")]
     public required TerraformProperty<string> ServiceRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_role_arn");
         set => this.WithProperty("service_role_arn", value);
     }
 

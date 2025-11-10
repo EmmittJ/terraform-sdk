@@ -40,7 +40,7 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerTenantId is required")]
     public required TerraformProperty<string> CustomerTenantId
     {
-        get => GetProperty<TerraformProperty<string>>("customer_tenant_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("customer_tenant_id");
         set => WithProperty("customer_tenant_id", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetProperty<TerraformProperty<string>>("database");
+        get => GetRequiredProperty<TerraformProperty<string>>("database");
         set => WithProperty("database", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetProperty<TerraformProperty<string>>("database");
+        get => GetRequiredProperty<TerraformProperty<string>>("database");
         set => WithProperty("database", value);
     }
 
@@ -185,7 +185,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => WithProperty("instance_id", value);
     }
 
@@ -204,7 +204,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 

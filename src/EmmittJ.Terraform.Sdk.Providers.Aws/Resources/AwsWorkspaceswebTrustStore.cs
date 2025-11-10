@@ -14,7 +14,7 @@ public class AwsWorkspaceswebTrustStoreCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformProperty<string> Body
     {
-        get => GetProperty<TerraformProperty<string>>("body");
+        get => GetRequiredProperty<TerraformProperty<string>>("body");
         set => WithProperty("body", value);
     }
 

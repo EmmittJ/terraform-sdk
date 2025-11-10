@@ -14,7 +14,7 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformProperty<double> FromPort
     {
-        get => GetProperty<TerraformProperty<double>>("from_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("from_port");
         set => WithProperty("from_port", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformProperty<double> ToPort
     {
-        get => GetProperty<TerraformProperty<double>>("to_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("to_port");
         set => WithProperty("to_port", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArn is required")]
     public required TerraformProperty<string> ListenerArn
     {
-        get => GetProperty<TerraformProperty<string>>("listener_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("listener_arn");
         set => this.WithProperty("listener_arn", value);
     }
 

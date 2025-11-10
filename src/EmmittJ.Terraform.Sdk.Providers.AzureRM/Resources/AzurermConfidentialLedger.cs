@@ -14,7 +14,7 @@ public class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerRoleName is required")]
     public required TerraformProperty<string> LedgerRoleName
     {
-        get => GetProperty<TerraformProperty<string>>("ledger_role_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("ledger_role_name");
         set => WithProperty("ledger_role_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
         set => WithProperty("principal_id", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
         set => WithProperty("tenant_id", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerRoleName is required")]
     public required TerraformProperty<string> LedgerRoleName
     {
-        get => GetProperty<TerraformProperty<string>>("ledger_role_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("ledger_role_name");
         set => WithProperty("ledger_role_name", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PemPublicKey is required")]
     public required TerraformProperty<string> PemPublicKey
     {
-        get => GetProperty<TerraformProperty<string>>("pem_public_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("pem_public_key");
         set => WithProperty("pem_public_key", value);
     }
 
@@ -144,7 +144,7 @@ public class AzurermConfidentialLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerType is required")]
     public required TerraformProperty<string> LedgerType
     {
-        get => GetProperty<TerraformProperty<string>>("ledger_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("ledger_type");
         set => this.WithProperty("ledger_type", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermConfidentialLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermConfidentialLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermConfidentialLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

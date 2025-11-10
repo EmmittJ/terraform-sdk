@@ -88,7 +88,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformProperty<string> OsType
     {
-        get => GetProperty<TerraformProperty<string>>("os_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("os_type");
         set => WithProperty("os_type", value);
     }
 
@@ -382,7 +382,7 @@ public class GoogleNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
     public required TerraformProperty<string> CapacityGib
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_gib");
+        get => GetRequiredProperty<TerraformProperty<string>>("capacity_gib");
         set => this.WithProperty("capacity_gib", value);
     }
 
@@ -453,7 +453,7 @@ public class GoogleNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -473,7 +473,7 @@ public class GoogleNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -548,7 +548,7 @@ public class GoogleNetappVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePool is required")]
     public required TerraformProperty<string> StoragePool
     {
-        get => GetProperty<TerraformProperty<string>>("storage_pool");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_pool");
         set => this.WithProperty("storage_pool", value);
     }
 

@@ -46,7 +46,7 @@ public class AwsDmsEndpointDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointId is required")]
     public required TerraformProperty<string> EndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_id");
         set => this.WithProperty("endpoint_id", value);
     }
 

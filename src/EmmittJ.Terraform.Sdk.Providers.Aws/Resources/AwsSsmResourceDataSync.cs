@@ -14,7 +14,7 @@ public class AwsSsmResourceDataSyncS3DestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
         set => WithProperty("bucket_name", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsSsmResourceDataSyncS3DestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
+        get => GetRequiredProperty<TerraformProperty<string>>("region");
         set => WithProperty("region", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsSsmResourceDataSync : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -34,7 +34,7 @@ public class AwsIdentitystoreGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsIdentitystoreGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
     public required TerraformProperty<string> IdentityStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_store_id");
         set => this.WithProperty("identity_store_id", value);
     }
 

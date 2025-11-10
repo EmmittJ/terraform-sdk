@@ -68,7 +68,7 @@ public class AzurermVmwareExpressRouteAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermVmwareExpressRouteAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateCloudId is required")]
     public required TerraformProperty<string> PrivateCloudId
     {
-        get => GetProperty<TerraformProperty<string>>("private_cloud_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("private_cloud_id");
         set => this.WithProperty("private_cloud_id", value);
     }
 

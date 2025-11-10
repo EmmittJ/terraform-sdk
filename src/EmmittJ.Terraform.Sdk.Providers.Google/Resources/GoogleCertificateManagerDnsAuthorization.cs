@@ -71,7 +71,7 @@ public class GoogleCertificateManagerDnsAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleCertificateManagerDnsAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

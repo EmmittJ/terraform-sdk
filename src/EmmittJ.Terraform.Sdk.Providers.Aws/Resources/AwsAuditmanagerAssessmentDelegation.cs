@@ -25,7 +25,7 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssessmentId is required")]
     public required TerraformProperty<string> AssessmentId
     {
-        get => GetProperty<TerraformProperty<string>>("assessment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("assessment_id");
         set => this.WithProperty("assessment_id", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlSetId is required")]
     public required TerraformProperty<string> ControlSetId
     {
-        get => GetProperty<TerraformProperty<string>>("control_set_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("control_set_id");
         set => this.WithProperty("control_set_id", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleType is required")]
     public required TerraformProperty<string> RoleType
     {
-        get => GetProperty<TerraformProperty<string>>("role_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_type");
         set => this.WithProperty("role_type", value);
     }
 

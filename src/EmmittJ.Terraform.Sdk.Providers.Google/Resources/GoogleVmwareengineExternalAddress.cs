@@ -80,7 +80,7 @@ public class GoogleVmwareengineExternalAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternalIp is required")]
     public required TerraformProperty<string> InternalIp
     {
-        get => GetProperty<TerraformProperty<string>>("internal_ip");
+        get => GetRequiredProperty<TerraformProperty<string>>("internal_ip");
         set => this.WithProperty("internal_ip", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleVmwareengineExternalAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleVmwareengineExternalAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermDevTestScheduleDailyRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
     public required TerraformProperty<string> Time
     {
-        get => GetProperty<TerraformProperty<string>>("time");
+        get => GetRequiredProperty<TerraformProperty<string>>("time");
         set => WithProperty("time", value);
     }
 
@@ -32,7 +32,7 @@ public class AzurermDevTestScheduleHourlyRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
     public required TerraformProperty<double> Minute
     {
-        get => GetProperty<TerraformProperty<double>>("minute");
+        get => GetRequiredProperty<TerraformProperty<double>>("minute");
         set => WithProperty("minute", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermDevTestScheduleWeeklyRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
     public required TerraformProperty<string> Time
     {
-        get => GetProperty<TerraformProperty<string>>("time");
+        get => GetRequiredProperty<TerraformProperty<string>>("time");
         set => WithProperty("time", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
     public required TerraformProperty<string> LabName
     {
-        get => GetProperty<TerraformProperty<string>>("lab_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("lab_name");
         set => this.WithProperty("lab_name", value);
     }
 
@@ -184,7 +184,7 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -204,7 +204,7 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -232,7 +232,7 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskType is required")]
     public required TerraformProperty<string> TaskType
     {
-        get => GetProperty<TerraformProperty<string>>("task_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("task_type");
         set => this.WithProperty("task_type", value);
     }
 
@@ -242,7 +242,7 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZoneId is required")]
     public required TerraformProperty<string> TimeZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("time_zone_id");
         set => this.WithProperty("time_zone_id", value);
     }
 

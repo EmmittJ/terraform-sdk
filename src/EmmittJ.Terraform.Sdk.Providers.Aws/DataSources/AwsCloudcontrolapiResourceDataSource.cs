@@ -32,7 +32,7 @@ public class AwsCloudcontrolapiResourceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetProperty<TerraformProperty<string>>("identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
         set => this.WithProperty("identifier", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsCloudcontrolapiResourceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeName is required")]
     public required TerraformProperty<string> TypeName
     {
-        get => GetProperty<TerraformProperty<string>>("type_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("type_name");
         set => this.WithProperty("type_name", value);
     }
 

@@ -47,7 +47,7 @@ public class AzurermApiManagementSubscriptionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformProperty<string> ApiManagementId
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_id");
         set => this.WithProperty("api_management_id", value);
     }
 
@@ -66,7 +66,7 @@ public class AzurermApiManagementSubscriptionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 

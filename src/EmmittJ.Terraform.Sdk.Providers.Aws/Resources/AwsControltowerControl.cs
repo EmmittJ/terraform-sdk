@@ -14,7 +14,7 @@ public class AwsControltowerControlParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsControltowerControlParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsControltowerControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlIdentifier is required")]
     public required TerraformProperty<string> ControlIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("control_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("control_identifier");
         set => this.WithProperty("control_identifier", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsControltowerControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetIdentifier is required")]
     public required TerraformProperty<string> TargetIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("target_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_identifier");
         set => this.WithProperty("target_identifier", value);
     }
 

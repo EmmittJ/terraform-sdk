@@ -75,7 +75,7 @@ public class AwsServicecatalogPrincipalPortfolioAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
     public required TerraformProperty<string> PortfolioId
     {
-        get => GetProperty<TerraformProperty<string>>("portfolio_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("portfolio_id");
         set => this.WithProperty("portfolio_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsServicecatalogPrincipalPortfolioAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
     public required TerraformProperty<string> PrincipalArn
     {
-        get => GetProperty<TerraformProperty<string>>("principal_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_arn");
         set => this.WithProperty("principal_arn", value);
     }
 

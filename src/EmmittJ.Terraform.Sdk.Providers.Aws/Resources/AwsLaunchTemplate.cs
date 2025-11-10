@@ -135,7 +135,7 @@ public class AwsLaunchTemplateHibernationOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Configured is required")]
     public required TerraformProperty<bool> Configured
     {
-        get => GetProperty<TerraformProperty<bool>>("configured");
+        get => GetRequiredProperty<TerraformProperty<bool>>("configured");
         set => WithProperty("configured", value);
     }
 
@@ -339,7 +339,7 @@ public class AwsLaunchTemplateLicenseSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseConfigurationArn is required")]
     public required TerraformProperty<string> LicenseConfigurationArn
     {
-        get => GetProperty<TerraformProperty<string>>("license_configuration_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("license_configuration_arn");
         set => WithProperty("license_configuration_arn", value);
     }
 

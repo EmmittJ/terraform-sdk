@@ -59,7 +59,7 @@ public class GoogleSpannerInstancePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     public required TerraformProperty<string> Config
     {
-        get => GetProperty<TerraformProperty<string>>("config");
+        get => GetRequiredProperty<TerraformProperty<string>>("config");
         set => this.WithProperty("config", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleSpannerInstancePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -89,7 +89,7 @@ public class GoogleSpannerInstancePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleSpannerInstancePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

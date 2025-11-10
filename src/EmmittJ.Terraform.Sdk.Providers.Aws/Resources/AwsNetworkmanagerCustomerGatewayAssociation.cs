@@ -48,7 +48,7 @@ public class AwsNetworkmanagerCustomerGatewayAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerGatewayArn is required")]
     public required TerraformProperty<string> CustomerGatewayArn
     {
-        get => GetProperty<TerraformProperty<string>>("customer_gateway_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("customer_gateway_arn");
         set => this.WithProperty("customer_gateway_arn", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsNetworkmanagerCustomerGatewayAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
     public required TerraformProperty<string> DeviceId
     {
-        get => GetProperty<TerraformProperty<string>>("device_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_id");
         set => this.WithProperty("device_id", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsNetworkmanagerCustomerGatewayAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformProperty<string> GlobalNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("global_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("global_network_id");
         set => this.WithProperty("global_network_id", value);
     }
 

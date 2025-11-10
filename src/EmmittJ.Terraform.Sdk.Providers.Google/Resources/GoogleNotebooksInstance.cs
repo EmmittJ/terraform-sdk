@@ -14,7 +14,7 @@ public class GoogleNotebooksInstanceAcceleratorConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreCount is required")]
     public required TerraformProperty<double> CoreCount
     {
-        get => GetProperty<TerraformProperty<double>>("core_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("core_count");
         set => WithProperty("core_count", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleNotebooksInstanceAcceleratorConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleNotebooksInstanceContainerImageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformProperty<string> Repository
     {
-        get => GetProperty<TerraformProperty<string>>("repository");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository");
         set => WithProperty("repository", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleNotebooksInstanceReservationAffinityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumeReservationType is required")]
     public required TerraformProperty<string> ConsumeReservationType
     {
-        get => GetProperty<TerraformProperty<string>>("consume_reservation_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("consume_reservation_type");
         set => WithProperty("consume_reservation_type", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleNotebooksInstanceVmImageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
+        get => GetRequiredProperty<TerraformProperty<string>>("project");
         set => WithProperty("project", value);
     }
 
@@ -369,7 +369,7 @@ public class GoogleNotebooksInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -379,7 +379,7 @@ public class GoogleNotebooksInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineType is required")]
     public required TerraformProperty<string> MachineType
     {
-        get => GetProperty<TerraformProperty<string>>("machine_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("machine_type");
         set => this.WithProperty("machine_type", value);
     }
 
@@ -399,7 +399,7 @@ public class GoogleNotebooksInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

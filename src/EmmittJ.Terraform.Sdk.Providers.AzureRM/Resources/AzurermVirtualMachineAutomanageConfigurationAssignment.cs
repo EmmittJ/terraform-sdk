@@ -57,7 +57,7 @@ public class AzurermVirtualMachineAutomanageConfigurationAssignment : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationId is required")]
     public required TerraformProperty<string> ConfigurationId
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_id");
         set => this.WithProperty("configuration_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermVirtualMachineAutomanageConfigurationAssignment : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
     }
 

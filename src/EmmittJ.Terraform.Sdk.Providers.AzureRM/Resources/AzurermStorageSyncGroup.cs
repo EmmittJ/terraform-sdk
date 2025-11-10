@@ -66,7 +66,7 @@ public class AzurermStorageSyncGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermStorageSyncGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSyncId is required")]
     public required TerraformProperty<string> StorageSyncId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_sync_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_sync_id");
         set => this.WithProperty("storage_sync_id", value);
     }
 

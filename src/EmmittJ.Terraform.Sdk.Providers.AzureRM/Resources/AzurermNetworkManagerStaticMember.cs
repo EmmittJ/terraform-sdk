@@ -67,7 +67,7 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupId is required")]
     public required TerraformProperty<string> NetworkGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("network_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_group_id");
         set => this.WithProperty("network_group_id", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVirtualNetworkId is required")]
     public required TerraformProperty<string> TargetVirtualNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("target_virtual_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_virtual_network_id");
         set => this.WithProperty("target_virtual_network_id", value);
     }
 

@@ -93,7 +93,7 @@ public class AzurermNetworkManagerRoutingRuleCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermNetworkManagerRoutingRuleCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingConfigurationId is required")]
     public required TerraformProperty<string> RoutingConfigurationId
     {
-        get => GetProperty<TerraformProperty<string>>("routing_configuration_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("routing_configuration_id");
         set => this.WithProperty("routing_configuration_id", value);
     }
 

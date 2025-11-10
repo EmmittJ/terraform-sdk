@@ -31,7 +31,7 @@ public class AzurermLinuxVirtualMachineScaleSetAdminSshKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     public required TerraformProperty<string> PublicKey
     {
-        get => GetProperty<TerraformProperty<string>>("public_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("public_key");
         set => WithProperty("public_key", value);
     }
 
@@ -41,7 +41,7 @@ public class AzurermLinuxVirtualMachineScaleSetAdminSshKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermLinuxVirtualMachineScaleSetAutomaticInstanceRepairBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisableAutomaticRollback is required")]
     public required TerraformProperty<bool> DisableAutomaticRollback
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_automatic_rollback");
+        get => GetRequiredProperty<TerraformProperty<bool>>("disable_automatic_rollback");
         set => WithProperty("disable_automatic_rollback", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermLinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableAutomaticOsUpgrade is required")]
     public required TerraformProperty<bool> EnableAutomaticOsUpgrade
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_automatic_os_upgrade");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enable_automatic_os_upgrade");
         set => WithProperty("enable_automatic_os_upgrade", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
     public required TerraformProperty<string> Caching
     {
-        get => GetProperty<TerraformProperty<string>>("caching");
+        get => GetRequiredProperty<TerraformProperty<string>>("caching");
         set => WithProperty("caching", value);
     }
 
@@ -168,7 +168,7 @@ public class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
     public required TerraformProperty<double> DiskSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
+        get => GetRequiredProperty<TerraformProperty<double>>("disk_size_gb");
         set => WithProperty("disk_size_gb", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
     public required TerraformProperty<double> Lun
     {
-        get => GetProperty<TerraformProperty<double>>("lun");
+        get => GetRequiredProperty<TerraformProperty<double>>("lun");
         set => WithProperty("lun", value);
     }
 
@@ -197,7 +197,7 @@ public class AzurermLinuxVirtualMachineScaleSetDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
     public required TerraformProperty<string> StorageAccountType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_type");
         set => WithProperty("storage_account_type", value);
     }
 
@@ -269,7 +269,7 @@ public class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -297,7 +297,7 @@ public class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => WithProperty("publisher", value);
     }
 
@@ -316,7 +316,7 @@ public class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -326,7 +326,7 @@ public class AzurermLinuxVirtualMachineScaleSetExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeHandlerVersion is required")]
     public required TerraformProperty<string> TypeHandlerVersion
     {
-        get => GetProperty<TerraformProperty<string>>("type_handler_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("type_handler_version");
         set => WithProperty("type_handler_version", value);
     }
 
@@ -371,7 +371,7 @@ public class AzurermLinuxVirtualMachineScaleSetGalleryApplicationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionId is required")]
     public required TerraformProperty<string> VersionId
     {
-        get => GetProperty<TerraformProperty<string>>("version_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("version_id");
         set => WithProperty("version_id", value);
     }
 
@@ -416,7 +416,7 @@ public class AzurermLinuxVirtualMachineScaleSetIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -479,7 +479,7 @@ public class AzurermLinuxVirtualMachineScaleSetNetworkInterfaceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -515,7 +515,7 @@ public class AzurermLinuxVirtualMachineScaleSetOsDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
     public required TerraformProperty<string> Caching
     {
-        get => GetProperty<TerraformProperty<string>>("caching");
+        get => GetRequiredProperty<TerraformProperty<string>>("caching");
         set => WithProperty("caching", value);
     }
 
@@ -561,7 +561,7 @@ public class AzurermLinuxVirtualMachineScaleSetOsDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
     public required TerraformProperty<string> StorageAccountType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_type");
         set => WithProperty("storage_account_type", value);
     }
 
@@ -588,7 +588,7 @@ public class AzurermLinuxVirtualMachineScaleSetPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -598,7 +598,7 @@ public class AzurermLinuxVirtualMachineScaleSetPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformProperty<string> Product
     {
-        get => GetProperty<TerraformProperty<string>>("product");
+        get => GetRequiredProperty<TerraformProperty<string>>("product");
         set => WithProperty("product", value);
     }
 
@@ -608,7 +608,7 @@ public class AzurermLinuxVirtualMachineScaleSetPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => WithProperty("publisher", value);
     }
 
@@ -635,7 +635,7 @@ public class AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxBatchInstancePercent is required")]
     public required TerraformProperty<double> MaxBatchInstancePercent
     {
-        get => GetProperty<TerraformProperty<double>>("max_batch_instance_percent");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_batch_instance_percent");
         set => WithProperty("max_batch_instance_percent", value);
     }
 
@@ -645,7 +645,7 @@ public class AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnhealthyInstancePercent is required")]
     public required TerraformProperty<double> MaxUnhealthyInstancePercent
     {
-        get => GetProperty<TerraformProperty<double>>("max_unhealthy_instance_percent");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_unhealthy_instance_percent");
         set => WithProperty("max_unhealthy_instance_percent", value);
     }
 
@@ -655,7 +655,7 @@ public class AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnhealthyUpgradedInstancePercent is required")]
     public required TerraformProperty<double> MaxUnhealthyUpgradedInstancePercent
     {
-        get => GetProperty<TerraformProperty<double>>("max_unhealthy_upgraded_instance_percent");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_unhealthy_upgraded_instance_percent");
         set => WithProperty("max_unhealthy_upgraded_instance_percent", value);
     }
 
@@ -674,7 +674,7 @@ public class AzurermLinuxVirtualMachineScaleSetRollingUpgradePolicyBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PauseTimeBetweenBatches is required")]
     public required TerraformProperty<string> PauseTimeBetweenBatches
     {
-        get => GetProperty<TerraformProperty<string>>("pause_time_between_batches");
+        get => GetRequiredProperty<TerraformProperty<string>>("pause_time_between_batches");
         set => WithProperty("pause_time_between_batches", value);
     }
 
@@ -727,7 +727,7 @@ public class AzurermLinuxVirtualMachineScaleSetSecretBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
         set => WithProperty("key_vault_id", value);
     }
 
@@ -745,7 +745,7 @@ public class AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformProperty<string> Offer
     {
-        get => GetProperty<TerraformProperty<string>>("offer");
+        get => GetRequiredProperty<TerraformProperty<string>>("offer");
         set => WithProperty("offer", value);
     }
 
@@ -755,7 +755,7 @@ public class AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => WithProperty("publisher", value);
     }
 
@@ -765,7 +765,7 @@ public class AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku");
         set => WithProperty("sku", value);
     }
 
@@ -775,7 +775,7 @@ public class AzurermLinuxVirtualMachineScaleSetSourceImageReferenceBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => WithProperty("version", value);
     }
 
@@ -819,7 +819,7 @@ public class AzurermLinuxVirtualMachineScaleSetTerminationNotificationBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -909,7 +909,7 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformProperty<string> AdminUsername
     {
-        get => GetProperty<TerraformProperty<string>>("admin_username");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_username");
         set => this.WithProperty("admin_username", value);
     }
 
@@ -1045,7 +1045,7 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -1064,7 +1064,7 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -1137,7 +1137,7 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -1165,7 +1165,7 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 

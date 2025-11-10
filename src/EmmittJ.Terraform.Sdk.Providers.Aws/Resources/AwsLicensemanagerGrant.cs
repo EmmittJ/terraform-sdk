@@ -46,7 +46,7 @@ public class AwsLicensemanagerGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseArn is required")]
     public required TerraformProperty<string> LicenseArn
     {
-        get => GetProperty<TerraformProperty<string>>("license_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("license_arn");
         set => this.WithProperty("license_arn", value);
     }
 
@@ -56,7 +56,7 @@ public class AwsLicensemanagerGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -66,7 +66,7 @@ public class AwsLicensemanagerGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal");
         set => this.WithProperty("principal", value);
     }
 

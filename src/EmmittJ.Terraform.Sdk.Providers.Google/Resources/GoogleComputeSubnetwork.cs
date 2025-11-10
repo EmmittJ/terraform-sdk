@@ -117,7 +117,7 @@ public class GoogleComputeSubnetworkSecondaryIpRangeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeName is required")]
     public required TerraformProperty<string> RangeName
     {
-        get => GetProperty<TerraformProperty<string>>("range_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("range_name");
         set => WithProperty("range_name", value);
     }
 
@@ -274,7 +274,7 @@ public class GoogleComputeSubnetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -285,7 +285,7 @@ public class GoogleComputeSubnetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 

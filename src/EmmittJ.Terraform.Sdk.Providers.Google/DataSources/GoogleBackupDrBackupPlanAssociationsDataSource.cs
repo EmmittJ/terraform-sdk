@@ -32,7 +32,7 @@ public class GoogleBackupDrBackupPlanAssociationsDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleBackupDrBackupPlanAssociationsDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
     }
 

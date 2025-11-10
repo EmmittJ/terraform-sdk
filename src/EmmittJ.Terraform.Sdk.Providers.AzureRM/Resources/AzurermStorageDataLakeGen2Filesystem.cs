@@ -23,7 +23,7 @@ public class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public required TerraformProperty<string> Permissions
     {
-        get => GetProperty<TerraformProperty<string>>("permissions");
+        get => GetRequiredProperty<TerraformProperty<string>>("permissions");
         set => WithProperty("permissions", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -139,7 +139,7 @@ public class AzurermStorageDataLakeGen2Filesystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermStorageDataLakeGen2Filesystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 

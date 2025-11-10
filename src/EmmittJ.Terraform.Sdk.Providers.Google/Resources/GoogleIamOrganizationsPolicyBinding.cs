@@ -162,7 +162,7 @@ public class GoogleIamOrganizationsPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleIamOrganizationsPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetProperty<TerraformProperty<string>>("organization");
+        get => GetRequiredProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 
@@ -182,7 +182,7 @@ public class GoogleIamOrganizationsPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleIamOrganizationsPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyBindingId is required")]
     public required TerraformProperty<string> PolicyBindingId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_binding_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_binding_id");
         set => this.WithProperty("policy_binding_id", value);
     }
 

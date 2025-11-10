@@ -80,7 +80,7 @@ public class GoogleParameterManagerRegionalParameterVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
     public required TerraformProperty<string> Parameter
     {
-        get => GetProperty<TerraformProperty<string>>("parameter");
+        get => GetRequiredProperty<TerraformProperty<string>>("parameter");
         set => this.WithProperty("parameter", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleParameterManagerRegionalParameterVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterData is required")]
     public required TerraformProperty<string> ParameterData
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("parameter_data");
         set => this.WithProperty("parameter_data", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleParameterManagerRegionalParameterVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterVersionId is required")]
     public required TerraformProperty<string> ParameterVersionId
     {
-        get => GetProperty<TerraformProperty<string>>("parameter_version_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("parameter_version_id");
         set => this.WithProperty("parameter_version_id", value);
     }
 

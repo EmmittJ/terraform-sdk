@@ -87,7 +87,7 @@ public class GooglePubsubTopicSchemaSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformProperty<string> Schema
     {
-        get => GetProperty<TerraformProperty<string>>("schema");
+        get => GetRequiredProperty<TerraformProperty<string>>("schema");
         set => WithProperty("schema", value);
     }
 
@@ -202,7 +202,7 @@ public class GooglePubsubTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

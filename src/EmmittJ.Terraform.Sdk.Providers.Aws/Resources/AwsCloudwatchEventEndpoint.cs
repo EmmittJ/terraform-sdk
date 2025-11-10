@@ -14,7 +14,7 @@ public class AwsCloudwatchEventEndpointEventBusBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventBusArn is required")]
     public required TerraformProperty<string> EventBusArn
     {
-        get => GetProperty<TerraformProperty<string>>("event_bus_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("event_bus_arn");
         set => WithProperty("event_bus_arn", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsCloudwatchEventEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -23,7 +23,7 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
     public required TerraformProperty<string> HostedZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("hosted_zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("hosted_zone_id");
         set => this.WithProperty("hosted_zone_id", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficPolicyId is required")]
     public required TerraformProperty<string> TrafficPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("traffic_policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("traffic_policy_id");
         set => this.WithProperty("traffic_policy_id", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficPolicyVersion is required")]
     public required TerraformProperty<double> TrafficPolicyVersion
     {
-        get => GetProperty<TerraformProperty<double>>("traffic_policy_version");
+        get => GetRequiredProperty<TerraformProperty<double>>("traffic_policy_version");
         set => this.WithProperty("traffic_policy_version", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformProperty<double> Ttl
     {
-        get => GetProperty<TerraformProperty<double>>("ttl");
+        get => GetRequiredProperty<TerraformProperty<double>>("ttl");
         set => this.WithProperty("ttl", value);
     }
 

@@ -67,7 +67,7 @@ public class AzureadUserFlowAttribute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataType is required")]
     public required TerraformProperty<string> DataType
     {
-        get => GetProperty<TerraformProperty<string>>("data_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_type");
         set => this.WithProperty("data_type", value);
     }
 
@@ -77,7 +77,7 @@ public class AzureadUserFlowAttribute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -87,7 +87,7 @@ public class AzureadUserFlowAttribute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 

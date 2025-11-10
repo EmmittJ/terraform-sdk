@@ -22,7 +22,7 @@ public class AwsCloudwatchLogDestinationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPolicy is required")]
     public required TerraformProperty<string> AccessPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("access_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_policy");
         set => this.WithProperty("access_policy", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsCloudwatchLogDestinationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationName is required")]
     public required TerraformProperty<string> DestinationName
     {
-        get => GetProperty<TerraformProperty<string>>("destination_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_name");
         set => this.WithProperty("destination_name", value);
     }
 

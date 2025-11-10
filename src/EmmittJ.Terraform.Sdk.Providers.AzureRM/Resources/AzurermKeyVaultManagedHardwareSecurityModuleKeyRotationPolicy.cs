@@ -66,7 +66,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicy : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpireAfter is required")]
     public required TerraformProperty<string> ExpireAfter
     {
-        get => GetProperty<TerraformProperty<string>>("expire_after");
+        get => GetRequiredProperty<TerraformProperty<string>>("expire_after");
         set => this.WithProperty("expire_after", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicy : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmKeyId is required")]
     public required TerraformProperty<string> ManagedHsmKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_hsm_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_hsm_key_id");
         set => this.WithProperty("managed_hsm_key_id", value);
     }
 

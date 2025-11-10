@@ -32,7 +32,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
     public required TerraformProperty<string> AlarmName
     {
-        get => GetProperty<TerraformProperty<string>>("alarm_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("alarm_name");
         set => this.WithProperty("alarm_name", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComparisonOperator is required")]
     public required TerraformProperty<string> ComparisonOperator
     {
-        get => GetProperty<TerraformProperty<string>>("comparison_operator");
+        get => GetRequiredProperty<TerraformProperty<string>>("comparison_operator");
         set => this.WithProperty("comparison_operator", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationPeriods is required")]
     public required TerraformProperty<double> EvaluationPeriods
     {
-        get => GetProperty<TerraformProperty<double>>("evaluation_periods");
+        get => GetRequiredProperty<TerraformProperty<double>>("evaluation_periods");
         set => this.WithProperty("evaluation_periods", value);
     }
 

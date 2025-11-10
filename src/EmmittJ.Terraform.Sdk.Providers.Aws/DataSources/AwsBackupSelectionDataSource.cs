@@ -34,7 +34,7 @@ public class AwsBackupSelectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlanId is required")]
     public required TerraformProperty<string> PlanId
     {
-        get => GetProperty<TerraformProperty<string>>("plan_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("plan_id");
         set => this.WithProperty("plan_id", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsBackupSelectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SelectionId is required")]
     public required TerraformProperty<string> SelectionId
     {
-        get => GetProperty<TerraformProperty<string>>("selection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("selection_id");
         set => this.WithProperty("selection_id", value);
     }
 

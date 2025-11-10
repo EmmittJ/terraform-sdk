@@ -33,7 +33,7 @@ public class AwsCloudwatchContributorInsightRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleDefinition is required")]
     public required TerraformProperty<string> RuleDefinition
     {
-        get => GetProperty<TerraformProperty<string>>("rule_definition");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_definition");
         set => this.WithProperty("rule_definition", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsCloudwatchContributorInsightRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformProperty<string> RuleName
     {
-        get => GetProperty<TerraformProperty<string>>("rule_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_name");
         set => this.WithProperty("rule_name", value);
     }
 

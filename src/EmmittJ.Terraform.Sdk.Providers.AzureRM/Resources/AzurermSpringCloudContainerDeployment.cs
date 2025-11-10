@@ -147,7 +147,7 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformProperty<string> Image
     {
-        get => GetProperty<TerraformProperty<string>>("image");
+        get => GetRequiredProperty<TerraformProperty<string>>("image");
         set => this.WithProperty("image", value);
     }
 
@@ -175,7 +175,7 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -185,7 +185,7 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformProperty<string> Server
     {
-        get => GetProperty<TerraformProperty<string>>("server");
+        get => GetRequiredProperty<TerraformProperty<string>>("server");
         set => this.WithProperty("server", value);
     }
 
@@ -195,7 +195,7 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformProperty<string> SpringCloudAppId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_app_id");
         set => this.WithProperty("spring_cloud_app_id", value);
     }
 

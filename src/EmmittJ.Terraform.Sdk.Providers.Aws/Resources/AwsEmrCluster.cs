@@ -40,7 +40,7 @@ public class AwsEmrClusterBootstrapActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsEmrClusterBootstrapActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => WithProperty("path", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
         set => WithProperty("instance_type", value);
     }
 
@@ -229,7 +229,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceProfile is required")]
     public required TerraformProperty<string> InstanceProfile
     {
-        get => GetProperty<TerraformProperty<string>>("instance_profile");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_profile");
         set => WithProperty("instance_profile", value);
     }
 
@@ -310,7 +310,7 @@ public class AwsEmrClusterKerberosAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KdcAdminPassword is required")]
     public required TerraformProperty<string> KdcAdminPassword
     {
-        get => GetProperty<TerraformProperty<string>>("kdc_admin_password");
+        get => GetRequiredProperty<TerraformProperty<string>>("kdc_admin_password");
         set => WithProperty("kdc_admin_password", value);
     }
 
@@ -320,7 +320,7 @@ public class AwsEmrClusterKerberosAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Realm is required")]
     public required TerraformProperty<string> Realm
     {
-        get => GetProperty<TerraformProperty<string>>("realm");
+        get => GetRequiredProperty<TerraformProperty<string>>("realm");
         set => WithProperty("realm", value);
     }
 
@@ -427,7 +427,7 @@ public class AwsEmrClusterMasterInstanceGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
         set => WithProperty("instance_type", value);
     }
 
@@ -574,7 +574,7 @@ public class AwsEmrCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -611,7 +611,7 @@ public class AwsEmrCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
     public required TerraformProperty<string> ReleaseLabel
     {
-        get => GetProperty<TerraformProperty<string>>("release_label");
+        get => GetRequiredProperty<TerraformProperty<string>>("release_label");
         set => this.WithProperty("release_label", value);
     }
 
@@ -639,7 +639,7 @@ public class AwsEmrCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     public required TerraformProperty<string> ServiceRole
     {
-        get => GetProperty<TerraformProperty<string>>("service_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_role");
         set => this.WithProperty("service_role", value);
     }
 

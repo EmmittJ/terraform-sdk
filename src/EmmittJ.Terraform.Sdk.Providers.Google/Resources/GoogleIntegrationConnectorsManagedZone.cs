@@ -70,7 +70,7 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dns is required")]
     public required TerraformProperty<string> Dns
     {
-        get => GetProperty<TerraformProperty<string>>("dns");
+        get => GetRequiredProperty<TerraformProperty<string>>("dns");
         set => this.WithProperty("dns", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -121,7 +121,7 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetProject is required")]
     public required TerraformProperty<string> TargetProject
     {
-        get => GetProperty<TerraformProperty<string>>("target_project");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_project");
         set => this.WithProperty("target_project", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVpc is required")]
     public required TerraformProperty<string> TargetVpc
     {
-        get => GetProperty<TerraformProperty<string>>("target_vpc");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_vpc");
         set => this.WithProperty("target_vpc", value);
     }
 

@@ -60,7 +60,7 @@ public class AwsEc2TransitGatewayPeeringAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerRegion is required")]
     public required TerraformProperty<string> PeerRegion
     {
-        get => GetProperty<TerraformProperty<string>>("peer_region");
+        get => GetRequiredProperty<TerraformProperty<string>>("peer_region");
         set => this.WithProperty("peer_region", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsEc2TransitGatewayPeeringAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerTransitGatewayId is required")]
     public required TerraformProperty<string> PeerTransitGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("peer_transit_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("peer_transit_gateway_id");
         set => this.WithProperty("peer_transit_gateway_id", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsEc2TransitGatewayPeeringAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
     public required TerraformProperty<string> TransitGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("transit_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_id");
         set => this.WithProperty("transit_gateway_id", value);
     }
 

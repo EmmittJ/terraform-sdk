@@ -23,7 +23,7 @@ public class AzurermExtendedLocationCustomLocationAuthenticationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostResourceId is required")]
     public required TerraformProperty<string> HostResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("host_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_resource_id");
         set => this.WithProperty("host_resource_id", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -161,7 +161,7 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
         set => this.WithProperty("namespace", value);
     }
 
@@ -171,7 +171,7 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

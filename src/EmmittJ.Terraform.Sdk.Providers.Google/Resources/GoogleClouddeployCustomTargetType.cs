@@ -14,7 +14,7 @@ public class GoogleClouddeployCustomTargetTypeCustomActionsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeployAction is required")]
     public required TerraformProperty<string> DeployAction
     {
-        get => GetProperty<TerraformProperty<string>>("deploy_action");
+        get => GetRequiredProperty<TerraformProperty<string>>("deploy_action");
         set => WithProperty("deploy_action", value);
     }
 
@@ -135,7 +135,7 @@ public class GoogleClouddeployCustomTargetType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -145,7 +145,7 @@ public class GoogleClouddeployCustomTargetType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

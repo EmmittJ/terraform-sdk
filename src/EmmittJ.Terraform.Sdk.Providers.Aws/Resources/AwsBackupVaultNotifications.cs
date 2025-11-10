@@ -33,7 +33,7 @@ public class AwsBackupVaultNotifications : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultName is required")]
     public required TerraformProperty<string> BackupVaultName
     {
-        get => GetProperty<TerraformProperty<string>>("backup_vault_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_vault_name");
         set => this.WithProperty("backup_vault_name", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsBackupVaultNotifications : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsTopicArn is required")]
     public required TerraformProperty<string> SnsTopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("sns_topic_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("sns_topic_arn");
         set => this.WithProperty("sns_topic_arn", value);
     }
 

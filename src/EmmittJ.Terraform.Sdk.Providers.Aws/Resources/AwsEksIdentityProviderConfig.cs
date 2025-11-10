@@ -14,7 +14,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
         set => WithProperty("client_id", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderConfigName is required")]
     public required TerraformProperty<string> IdentityProviderConfigName
     {
-        get => GetProperty<TerraformProperty<string>>("identity_provider_config_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_provider_config_name");
         set => WithProperty("identity_provider_config_name", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUrl is required")]
     public required TerraformProperty<string> IssuerUrl
     {
-        get => GetProperty<TerraformProperty<string>>("issuer_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("issuer_url");
         set => WithProperty("issuer_url", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsEksIdentityProviderConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 

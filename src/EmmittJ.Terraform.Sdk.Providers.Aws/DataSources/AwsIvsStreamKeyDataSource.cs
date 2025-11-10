@@ -24,7 +24,7 @@ public class AwsIvsStreamKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelArn is required")]
     public required TerraformProperty<string> ChannelArn
     {
-        get => GetProperty<TerraformProperty<string>>("channel_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("channel_arn");
         set => this.WithProperty("channel_arn", value);
     }
 

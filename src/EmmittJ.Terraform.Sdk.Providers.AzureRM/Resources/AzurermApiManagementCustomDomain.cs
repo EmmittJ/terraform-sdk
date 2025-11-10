@@ -59,7 +59,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetProperty<TerraformProperty<string>>("host_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
         set => WithProperty("host_name", value);
     }
 
@@ -186,7 +186,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetProperty<TerraformProperty<string>>("host_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
         set => WithProperty("host_name", value);
     }
 
@@ -304,7 +304,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetProperty<TerraformProperty<string>>("host_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
         set => WithProperty("host_name", value);
     }
 
@@ -422,7 +422,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetProperty<TerraformProperty<string>>("host_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
         set => WithProperty("host_name", value);
     }
 
@@ -540,7 +540,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetProperty<TerraformProperty<string>>("host_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
         set => WithProperty("host_name", value);
     }
 
@@ -665,7 +665,7 @@ public class AzurermApiManagementCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformProperty<string> ApiManagementId
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_id");
         set => this.WithProperty("api_management_id", value);
     }
 

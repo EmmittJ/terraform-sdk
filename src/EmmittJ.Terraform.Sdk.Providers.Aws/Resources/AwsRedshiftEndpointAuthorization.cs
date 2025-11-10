@@ -26,7 +26,7 @@ public class AwsRedshiftEndpointAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Account is required")]
     public required TerraformProperty<string> Account
     {
-        get => GetProperty<TerraformProperty<string>>("account");
+        get => GetRequiredProperty<TerraformProperty<string>>("account");
         set => this.WithProperty("account", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsRedshiftEndpointAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformProperty<string> ClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
     }
 

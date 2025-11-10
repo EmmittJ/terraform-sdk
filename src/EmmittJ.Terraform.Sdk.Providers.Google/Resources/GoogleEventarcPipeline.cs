@@ -240,7 +240,7 @@ public class GoogleEventarcPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleEventarcPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
     public required TerraformProperty<string> PipelineId
     {
-        get => GetProperty<TerraformProperty<string>>("pipeline_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("pipeline_id");
         set => this.WithProperty("pipeline_id", value);
     }
 

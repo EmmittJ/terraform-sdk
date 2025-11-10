@@ -89,7 +89,7 @@ public class GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
         set => WithProperty("kms_key_name", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleBigqueryDatasetExternalDatasetReferenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Connection is required")]
     public required TerraformProperty<string> Connection
     {
-        get => GetProperty<TerraformProperty<string>>("connection");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection");
         set => WithProperty("connection", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleBigqueryDatasetExternalDatasetReferenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalSource is required")]
     public required TerraformProperty<string> ExternalSource
     {
-        get => GetProperty<TerraformProperty<string>>("external_source");
+        get => GetRequiredProperty<TerraformProperty<string>>("external_source");
         set => WithProperty("external_source", value);
     }
 
@@ -216,7 +216,7 @@ public class GoogleBigqueryDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetProperty<TerraformProperty<string>>("dataset_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
     }
 

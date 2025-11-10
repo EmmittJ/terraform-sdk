@@ -58,7 +58,7 @@ public class AzurermWebPubsubCustomCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomCertificateId is required")]
     public required TerraformProperty<string> CustomCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("custom_certificate_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("custom_certificate_id");
         set => this.WithProperty("custom_certificate_id", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermWebPubsubCustomCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermWebPubsubCustomCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     public required TerraformProperty<string> WebPubsubId
     {
-        get => GetProperty<TerraformProperty<string>>("web_pubsub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("web_pubsub_id");
         set => this.WithProperty("web_pubsub_id", value);
     }
 

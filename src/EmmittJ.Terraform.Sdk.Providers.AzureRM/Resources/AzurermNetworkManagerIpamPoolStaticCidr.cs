@@ -84,7 +84,7 @@ public class AzurermNetworkManagerIpamPoolStaticCidr : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
     public required TerraformProperty<string> IpamPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("ipam_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("ipam_pool_id");
         set => this.WithProperty("ipam_pool_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermNetworkManagerIpamPoolStaticCidr : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

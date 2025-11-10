@@ -25,7 +25,7 @@ public class GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => WithProperty("path", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
+        get => GetRequiredProperty<TerraformProperty<string>>("service");
         set => WithProperty("service", value);
     }
 

@@ -57,7 +57,7 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportCustomRoutes is required")]
     public required TerraformProperty<bool> ExportCustomRoutes
     {
-        get => GetProperty<TerraformProperty<bool>>("export_custom_routes");
+        get => GetRequiredProperty<TerraformProperty<bool>>("export_custom_routes");
         set => this.WithProperty("export_custom_routes", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportCustomRoutes is required")]
     public required TerraformProperty<bool> ImportCustomRoutes
     {
-        get => GetProperty<TerraformProperty<bool>>("import_custom_routes");
+        get => GetRequiredProperty<TerraformProperty<bool>>("import_custom_routes");
         set => this.WithProperty("import_custom_routes", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     public required TerraformProperty<string> Peering
     {
-        get => GetProperty<TerraformProperty<string>>("peering");
+        get => GetRequiredProperty<TerraformProperty<string>>("peering");
         set => this.WithProperty("peering", value);
     }
 

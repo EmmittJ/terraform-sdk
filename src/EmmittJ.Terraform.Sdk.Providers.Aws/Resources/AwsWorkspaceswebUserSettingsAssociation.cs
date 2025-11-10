@@ -22,7 +22,7 @@ public class AwsWorkspaceswebUserSettingsAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
     public required TerraformProperty<string> PortalArn
     {
-        get => GetProperty<TerraformProperty<string>>("portal_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("portal_arn");
         set => this.WithProperty("portal_arn", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsWorkspaceswebUserSettingsAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserSettingsArn is required")]
     public required TerraformProperty<string> UserSettingsArn
     {
-        get => GetProperty<TerraformProperty<string>>("user_settings_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_settings_arn");
         set => this.WithProperty("user_settings_arn", value);
     }
 

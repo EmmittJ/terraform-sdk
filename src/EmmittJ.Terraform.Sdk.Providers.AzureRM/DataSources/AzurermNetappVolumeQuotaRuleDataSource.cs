@@ -52,7 +52,7 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformProperty<string> VolumeId
     {
-        get => GetProperty<TerraformProperty<string>>("volume_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("volume_id");
         set => this.WithProperty("volume_id", value);
     }
 

@@ -59,7 +59,7 @@ public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => WithProperty("subnet_id", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfxCertificate is required")]
     public required TerraformProperty<string> PfxCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("pfx_certificate");
+        get => GetRequiredProperty<TerraformProperty<string>>("pfx_certificate");
         set => WithProperty("pfx_certificate", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfxCertificatePassword is required")]
     public required TerraformProperty<string> PfxCertificatePassword
     {
-        get => GetProperty<TerraformProperty<string>>("pfx_certificate_password");
+        get => GetRequiredProperty<TerraformProperty<string>>("pfx_certificate_password");
         set => WithProperty("pfx_certificate_password", value);
     }
 
@@ -324,7 +324,7 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
@@ -352,7 +352,7 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -362,7 +362,7 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -372,7 +372,7 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -382,7 +382,7 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 

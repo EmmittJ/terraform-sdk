@@ -20,7 +20,7 @@ public class GoogleComputeGlobalForwardingRuleMetadataFiltersBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterMatchCriteria is required")]
     public required TerraformProperty<string> FilterMatchCriteria
     {
-        get => GetProperty<TerraformProperty<string>>("filter_match_criteria");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter_match_criteria");
         set => WithProperty("filter_match_criteria", value);
     }
 
@@ -284,7 +284,7 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -412,7 +412,7 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetProperty<TerraformProperty<string>>("target");
+        get => GetRequiredProperty<TerraformProperty<string>>("target");
         set => this.WithProperty("target", value);
     }
 

@@ -105,7 +105,7 @@ public class AwsS3BucketNotificationQueueBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueArn is required")]
     public required TerraformProperty<string> QueueArn
     {
-        get => GetProperty<TerraformProperty<string>>("queue_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("queue_arn");
         set => WithProperty("queue_arn", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsS3BucketNotificationTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformProperty<string> TopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("topic_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic_arn");
         set => WithProperty("topic_arn", value);
     }
 
@@ -186,7 +186,7 @@ public class AwsS3BucketNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 

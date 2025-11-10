@@ -23,7 +23,7 @@ public class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     public required TerraformProperty<string> ProductId
     {
-        get => GetProperty<TerraformProperty<string>>("product_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("product_id");
         set => WithProperty("product_id", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsSagemakerProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformProperty<string> ProjectName
     {
-        get => GetProperty<TerraformProperty<string>>("project_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_name");
         set => this.WithProperty("project_name", value);
     }
 

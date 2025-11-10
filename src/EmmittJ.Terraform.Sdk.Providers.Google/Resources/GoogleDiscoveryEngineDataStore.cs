@@ -105,7 +105,7 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentConfig is required")]
     public required TerraformProperty<string> ContentConfig
     {
-        get => GetProperty<TerraformProperty<string>>("content_config");
+        get => GetRequiredProperty<TerraformProperty<string>>("content_config");
         set => this.WithProperty("content_config", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     public required TerraformProperty<string> DataStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("data_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_store_id");
         set => this.WithProperty("data_store_id", value);
     }
 
@@ -137,7 +137,7 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndustryVertical is required")]
     public required TerraformProperty<string> IndustryVertical
     {
-        get => GetProperty<TerraformProperty<string>>("industry_vertical");
+        get => GetRequiredProperty<TerraformProperty<string>>("industry_vertical");
         set => this.WithProperty("industry_vertical", value);
     }
 
@@ -181,7 +181,7 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

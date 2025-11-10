@@ -16,7 +16,7 @@ public class GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformProperty<string> SecretVersion
     {
-        get => GetProperty<TerraformProperty<string>>("secret_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_version");
         set => WithProperty("secret_version", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

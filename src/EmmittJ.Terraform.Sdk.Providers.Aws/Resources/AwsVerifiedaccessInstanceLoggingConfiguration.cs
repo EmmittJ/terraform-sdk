@@ -67,7 +67,7 @@ public class AwsVerifiedaccessInstanceLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedaccessInstanceId is required")]
     public required TerraformProperty<string> VerifiedaccessInstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("verifiedaccess_instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("verifiedaccess_instance_id");
         set => this.WithProperty("verifiedaccess_instance_id", value);
     }
 

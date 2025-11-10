@@ -61,7 +61,7 @@ public class AwsDocdbelasticCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUserName is required")]
     public required TerraformProperty<string> AdminUserName
     {
-        get => GetProperty<TerraformProperty<string>>("admin_user_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_user_name");
         set => this.WithProperty("admin_user_name", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsDocdbelasticCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUserPassword is required")]
     public required TerraformProperty<string> AdminUserPassword
     {
-        get => GetProperty<TerraformProperty<string>>("admin_user_password");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_user_password");
         set => this.WithProperty("admin_user_password", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsDocdbelasticCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformProperty<string> AuthType
     {
-        get => GetProperty<TerraformProperty<string>>("auth_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("auth_type");
         set => this.WithProperty("auth_type", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsDocdbelasticCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsDocdbelasticCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCapacity is required")]
     public required TerraformProperty<double> ShardCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("shard_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("shard_capacity");
         set => this.WithProperty("shard_capacity", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsDocdbelasticCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCount is required")]
     public required TerraformProperty<double> ShardCount
     {
-        get => GetProperty<TerraformProperty<double>>("shard_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("shard_count");
         set => this.WithProperty("shard_count", value);
     }
 

@@ -68,7 +68,7 @@ public class AwsQuicksightThemeDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThemeId is required")]
     public required TerraformProperty<string> ThemeId
     {
-        get => GetProperty<TerraformProperty<string>>("theme_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("theme_id");
         set => this.WithProperty("theme_id", value);
     }
 

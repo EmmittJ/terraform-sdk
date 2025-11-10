@@ -57,7 +57,7 @@ public class AwsGlueCatalogDatabaseTargetDatabaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("catalog_id");
         set => WithProperty("catalog_id", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsGlueCatalogDatabaseTargetDatabaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => WithProperty("database_name", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsGlueCatalogDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

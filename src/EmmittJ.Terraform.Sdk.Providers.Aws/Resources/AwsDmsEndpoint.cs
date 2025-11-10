@@ -14,7 +14,7 @@ public class AwsDmsEndpointElasticsearchSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointUri is required")]
     public required TerraformProperty<string> EndpointUri
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_uri");
         set => WithProperty("endpoint_uri", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsDmsEndpointElasticsearchSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccessRoleArn is required")]
     public required TerraformProperty<string> ServiceAccessRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_access_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_access_role_arn");
         set => WithProperty("service_access_role_arn", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsDmsEndpointKafkaSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Broker is required")]
     public required TerraformProperty<string> Broker
     {
-        get => GetProperty<TerraformProperty<string>>("broker");
+        get => GetRequiredProperty<TerraformProperty<string>>("broker");
         set => WithProperty("broker", value);
     }
 
@@ -703,7 +703,7 @@ public class AwsDmsEndpointRedisSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformProperty<string> AuthType
     {
-        get => GetProperty<TerraformProperty<string>>("auth_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("auth_type");
         set => WithProperty("auth_type", value);
     }
 
@@ -722,7 +722,7 @@ public class AwsDmsEndpointRedisSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => WithProperty("port", value);
     }
 
@@ -732,7 +732,7 @@ public class AwsDmsEndpointRedisSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformProperty<string> ServerName
     {
-        get => GetProperty<TerraformProperty<string>>("server_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_name");
         set => WithProperty("server_name", value);
     }
 
@@ -875,7 +875,7 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointId is required")]
     public required TerraformProperty<string> EndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_id");
         set => this.WithProperty("endpoint_id", value);
     }
 
@@ -885,7 +885,7 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformProperty<string> EndpointType
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_type");
         set => this.WithProperty("endpoint_type", value);
     }
 
@@ -895,7 +895,7 @@ public class AwsDmsEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineName is required")]
     public required TerraformProperty<string> EngineName
     {
-        get => GetProperty<TerraformProperty<string>>("engine_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine_name");
         set => this.WithProperty("engine_name", value);
     }
 

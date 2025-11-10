@@ -31,7 +31,7 @@ public class AwsLexv2modelsSlotObfuscationSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObfuscationSettingType is required")]
     public required TerraformProperty<string> ObfuscationSettingType
     {
-        get => GetProperty<TerraformProperty<string>>("obfuscation_setting_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("obfuscation_setting_type");
         set => WithProperty("obfuscation_setting_type", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotConstraint is required")]
     public required TerraformProperty<string> SlotConstraint
     {
-        get => GetProperty<TerraformProperty<string>>("slot_constraint");
+        get => GetRequiredProperty<TerraformProperty<string>>("slot_constraint");
         set => WithProperty("slot_constraint", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsLexv2modelsSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
     public required TerraformProperty<string> BotId
     {
-        get => GetProperty<TerraformProperty<string>>("bot_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_id");
         set => this.WithProperty("bot_id", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsLexv2modelsSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
     public required TerraformProperty<string> BotVersion
     {
-        get => GetProperty<TerraformProperty<string>>("bot_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_version");
         set => this.WithProperty("bot_version", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsLexv2modelsSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntentId is required")]
     public required TerraformProperty<string> IntentId
     {
-        get => GetProperty<TerraformProperty<string>>("intent_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("intent_id");
         set => this.WithProperty("intent_id", value);
     }
 
@@ -168,7 +168,7 @@ public class AwsLexv2modelsSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
     public required TerraformProperty<string> LocaleId
     {
-        get => GetProperty<TerraformProperty<string>>("locale_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("locale_id");
         set => this.WithProperty("locale_id", value);
     }
 
@@ -178,7 +178,7 @@ public class AwsLexv2modelsSlot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

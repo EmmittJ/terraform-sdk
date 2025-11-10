@@ -58,7 +58,7 @@ public class AwsQuicksightDataSourcePermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal");
         set => WithProperty("principal", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsQuicksightDataSourceSslPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisableSsl is required")]
     public required TerraformProperty<bool> DisableSsl
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_ssl");
+        get => GetRequiredProperty<TerraformProperty<bool>>("disable_ssl");
         set => WithProperty("disable_ssl", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsQuicksightDataSourceVpcConnectionPropertiesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConnectionArn is required")]
     public required TerraformProperty<string> VpcConnectionArn
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_connection_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_connection_arn");
         set => WithProperty("vpc_connection_arn", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     public required TerraformProperty<string> DataSourceId
     {
-        get => GetProperty<TerraformProperty<string>>("data_source_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_source_id");
         set => this.WithProperty("data_source_id", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -187,7 +187,7 @@ public class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

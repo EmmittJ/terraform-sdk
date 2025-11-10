@@ -59,7 +59,7 @@ public class AwsEipDomainName : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationId is required")]
     public required TerraformProperty<string> AllocationId
     {
-        get => GetProperty<TerraformProperty<string>>("allocation_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("allocation_id");
         set => this.WithProperty("allocation_id", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsEipDomainName : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 

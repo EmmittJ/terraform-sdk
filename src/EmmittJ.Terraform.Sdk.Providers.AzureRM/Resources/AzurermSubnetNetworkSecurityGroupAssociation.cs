@@ -66,7 +66,7 @@ public class AzurermSubnetNetworkSecurityGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSecurityGroupId is required")]
     public required TerraformProperty<string> NetworkSecurityGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("network_security_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_security_group_id");
         set => this.WithProperty("network_security_group_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSubnetNetworkSecurityGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

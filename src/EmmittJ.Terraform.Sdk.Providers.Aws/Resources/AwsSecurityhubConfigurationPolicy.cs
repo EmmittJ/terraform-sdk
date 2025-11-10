@@ -23,7 +23,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceEnabled is required")]
     public required TerraformProperty<bool> ServiceEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("service_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("service_enabled");
         set => WithProperty("service_enabled", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsSecurityhubConfigurationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

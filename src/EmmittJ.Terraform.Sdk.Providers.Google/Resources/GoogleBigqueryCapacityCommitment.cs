@@ -110,7 +110,7 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformProperty<string> Plan
     {
-        get => GetProperty<TerraformProperty<string>>("plan");
+        get => GetRequiredProperty<TerraformProperty<string>>("plan");
         set => this.WithProperty("plan", value);
     }
 
@@ -138,7 +138,7 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotCount is required")]
     public required TerraformProperty<double> SlotCount
     {
-        get => GetProperty<TerraformProperty<double>>("slot_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("slot_count");
         set => this.WithProperty("slot_count", value);
     }
 

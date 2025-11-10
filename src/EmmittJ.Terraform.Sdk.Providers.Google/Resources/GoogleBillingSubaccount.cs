@@ -34,7 +34,7 @@ public class GoogleBillingSubaccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleBillingSubaccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterBillingAccount is required")]
     public required TerraformProperty<string> MasterBillingAccount
     {
-        get => GetProperty<TerraformProperty<string>>("master_billing_account");
+        get => GetRequiredProperty<TerraformProperty<string>>("master_billing_account");
         set => this.WithProperty("master_billing_account", value);
     }
 

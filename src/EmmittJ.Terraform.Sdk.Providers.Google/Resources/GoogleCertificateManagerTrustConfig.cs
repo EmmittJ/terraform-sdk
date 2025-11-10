@@ -14,7 +14,7 @@ public class GoogleCertificateManagerTrustConfigAllowlistedCertificatesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PemCertificate is required")]
     public required TerraformProperty<string> PemCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("pem_certificate");
+        get => GetRequiredProperty<TerraformProperty<string>>("pem_certificate");
         set => WithProperty("pem_certificate", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleCertificateManagerTrustConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -127,7 +127,7 @@ public class GoogleCertificateManagerTrustConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

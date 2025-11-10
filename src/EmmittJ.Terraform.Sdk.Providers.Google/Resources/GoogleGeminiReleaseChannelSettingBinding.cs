@@ -110,7 +110,7 @@ public class GoogleGeminiReleaseChannelSettingBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseChannelSettingId is required")]
     public required TerraformProperty<string> ReleaseChannelSettingId
     {
-        get => GetProperty<TerraformProperty<string>>("release_channel_setting_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("release_channel_setting_id");
         set => this.WithProperty("release_channel_setting_id", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleGeminiReleaseChannelSettingBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SettingBindingId is required")]
     public required TerraformProperty<string> SettingBindingId
     {
-        get => GetProperty<TerraformProperty<string>>("setting_binding_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("setting_binding_id");
         set => this.WithProperty("setting_binding_id", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleGeminiReleaseChannelSettingBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetProperty<TerraformProperty<string>>("target");
+        get => GetRequiredProperty<TerraformProperty<string>>("target");
         set => this.WithProperty("target", value);
     }
 

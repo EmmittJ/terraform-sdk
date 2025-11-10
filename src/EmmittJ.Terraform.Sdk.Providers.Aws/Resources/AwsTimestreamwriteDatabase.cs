@@ -24,7 +24,7 @@ public class AwsTimestreamwriteDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
     }
 

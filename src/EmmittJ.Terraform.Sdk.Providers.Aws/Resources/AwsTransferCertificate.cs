@@ -26,7 +26,7 @@ public class AwsTransferCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
     public required TerraformProperty<string> Certificate
     {
-        get => GetProperty<TerraformProperty<string>>("certificate");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate");
         set => this.WithProperty("certificate", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsTransferCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Usage is required")]
     public required TerraformProperty<string> Usage
     {
-        get => GetProperty<TerraformProperty<string>>("usage");
+        get => GetRequiredProperty<TerraformProperty<string>>("usage");
         set => this.WithProperty("usage", value);
     }
 

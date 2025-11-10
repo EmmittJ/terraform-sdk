@@ -102,7 +102,7 @@ public class GoogleNetappHostGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleNetappHostGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleNetappHostGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformProperty<string> OsType
     {
-        get => GetProperty<TerraformProperty<string>>("os_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("os_type");
         set => this.WithProperty("os_type", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleNetappHostGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

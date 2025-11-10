@@ -162,7 +162,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetProperty<TerraformProperty<string>>("destination");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
     }
 
@@ -233,7 +233,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MigrationJobId is required")]
     public required TerraformProperty<string> MigrationJobId
     {
-        get => GetProperty<TerraformProperty<string>>("migration_job_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("migration_job_id");
         set => this.WithProperty("migration_job_id", value);
     }
 
@@ -252,7 +252,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
+        get => GetRequiredProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
     }
 
@@ -262,7 +262,7 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

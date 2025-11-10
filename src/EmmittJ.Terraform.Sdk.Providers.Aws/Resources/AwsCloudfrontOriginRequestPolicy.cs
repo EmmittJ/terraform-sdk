@@ -14,7 +14,7 @@ public class AwsCloudfrontOriginRequestPolicyCookiesConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookieBehavior is required")]
     public required TerraformProperty<string> CookieBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("cookie_behavior");
+        get => GetRequiredProperty<TerraformProperty<string>>("cookie_behavior");
         set => WithProperty("cookie_behavior", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryStringBehavior is required")]
     public required TerraformProperty<string> QueryStringBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("query_string_behavior");
+        get => GetRequiredProperty<TerraformProperty<string>>("query_string_behavior");
         set => WithProperty("query_string_behavior", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsCloudfrontOriginRequestPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

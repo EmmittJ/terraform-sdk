@@ -75,7 +75,7 @@ public class AzurermStorageContainerImmutabilityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImmutabilityPeriodInDays is required")]
     public required TerraformProperty<double> ImmutabilityPeriodInDays
     {
-        get => GetProperty<TerraformProperty<double>>("immutability_period_in_days");
+        get => GetRequiredProperty<TerraformProperty<double>>("immutability_period_in_days");
         set => this.WithProperty("immutability_period_in_days", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermStorageContainerImmutabilityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerResourceManagerId is required")]
     public required TerraformProperty<string> StorageContainerResourceManagerId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_container_resource_manager_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_resource_manager_id");
         set => this.WithProperty("storage_container_resource_manager_id", value);
     }
 

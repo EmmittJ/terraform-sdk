@@ -14,7 +14,7 @@ public class AwsServiceDiscoveryServiceDnsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
     public required TerraformProperty<string> NamespaceId
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace_id");
         set => WithProperty("namespace_id", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsServiceDiscoveryService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

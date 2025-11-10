@@ -23,7 +23,7 @@ public class AwsSsmcontactsPlanDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactId is required")]
     public required TerraformProperty<string> ContactId
     {
-        get => GetProperty<TerraformProperty<string>>("contact_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("contact_id");
         set => this.WithProperty("contact_id", value);
     }
 

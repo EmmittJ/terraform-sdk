@@ -14,7 +14,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetProperty<TerraformProperty<string>>("destination");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination");
         set => WithProperty("destination", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationType is required")]
     public required TerraformProperty<string> DestinationType
     {
-        get => GetProperty<TerraformProperty<string>>("destination_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_type");
         set => WithProperty("destination_type", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogFormat is required")]
     public required TerraformProperty<string> LogFormat
     {
-        get => GetProperty<TerraformProperty<string>>("log_format");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_format");
         set => WithProperty("log_format", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformProperty<string> LogType
     {
-        get => GetProperty<TerraformProperty<string>>("log_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_type");
         set => WithProperty("log_type", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsElasticacheCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
     }
 

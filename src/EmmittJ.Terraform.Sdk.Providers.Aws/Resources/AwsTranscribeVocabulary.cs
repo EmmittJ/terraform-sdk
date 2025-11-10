@@ -68,7 +68,7 @@ public class AwsTranscribeVocabulary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformProperty<string> LanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("language_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsTranscribeVocabulary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VocabularyName is required")]
     public required TerraformProperty<string> VocabularyName
     {
-        get => GetProperty<TerraformProperty<string>>("vocabulary_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("vocabulary_name");
         set => this.WithProperty("vocabulary_name", value);
     }
 

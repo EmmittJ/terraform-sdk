@@ -50,7 +50,7 @@ public class AwsRedshiftSnapshotCopyGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotCopyGrantName is required")]
     public required TerraformProperty<string> SnapshotCopyGrantName
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_copy_grant_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_copy_grant_name");
         set => this.WithProperty("snapshot_copy_grant_name", value);
     }
 

@@ -66,7 +66,7 @@ public class GoogleApigeeFlowhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetProperty<TerraformProperty<string>>("environment");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 
@@ -76,7 +76,7 @@ public class GoogleApigeeFlowhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowHookPoint is required")]
     public required TerraformProperty<string> FlowHookPoint
     {
-        get => GetProperty<TerraformProperty<string>>("flow_hook_point");
+        get => GetRequiredProperty<TerraformProperty<string>>("flow_hook_point");
         set => this.WithProperty("flow_hook_point", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleApigeeFlowhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetProperty<TerraformProperty<string>>("org_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleApigeeFlowhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sharedflow is required")]
     public required TerraformProperty<string> Sharedflow
     {
-        get => GetProperty<TerraformProperty<string>>("sharedflow");
+        get => GetRequiredProperty<TerraformProperty<string>>("sharedflow");
         set => this.WithProperty("sharedflow", value);
     }
 

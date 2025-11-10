@@ -50,7 +50,7 @@ public class AwsEc2ClientVpnEndpointAuthenticationOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsEc2ClientVpnEndpointConnectionLogOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -266,7 +266,7 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerCertificateArn is required")]
     public required TerraformProperty<string> ServerCertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("server_certificate_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_certificate_arn");
         set => this.WithProperty("server_certificate_arn", value);
     }
 

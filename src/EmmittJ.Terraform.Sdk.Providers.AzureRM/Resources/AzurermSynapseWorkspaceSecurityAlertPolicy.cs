@@ -102,7 +102,7 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyState is required")]
     public required TerraformProperty<string> PolicyState
     {
-        get => GetProperty<TerraformProperty<string>>("policy_state");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_state");
         set => this.WithProperty("policy_state", value);
     }
 
@@ -139,7 +139,7 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
     }
 

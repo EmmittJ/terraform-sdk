@@ -33,7 +33,7 @@ public class AwsAcmpcaPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArn is required")]
     public required TerraformProperty<string> CertificateAuthorityArn
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_authority_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_authority_arn");
         set => this.WithProperty("certificate_authority_arn", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsAcmpcaPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal");
         set => this.WithProperty("principal", value);
     }
 

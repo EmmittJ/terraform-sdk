@@ -50,7 +50,7 @@ public class AwsQuicksightIamPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentName is required")]
     public required TerraformProperty<string> AssignmentName
     {
-        get => GetProperty<TerraformProperty<string>>("assignment_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("assignment_name");
         set => this.WithProperty("assignment_name", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsQuicksightIamPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentStatus is required")]
     public required TerraformProperty<string> AssignmentStatus
     {
-        get => GetProperty<TerraformProperty<string>>("assignment_status");
+        get => GetRequiredProperty<TerraformProperty<string>>("assignment_status");
         set => this.WithProperty("assignment_status", value);
     }
 

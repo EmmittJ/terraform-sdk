@@ -58,7 +58,7 @@ public class AwsAccountRegion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsAccountRegion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     public required TerraformProperty<string> RegionName
     {
-        get => GetProperty<TerraformProperty<string>>("region_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("region_name");
         set => this.WithProperty("region_name", value);
     }
 

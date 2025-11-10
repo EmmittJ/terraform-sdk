@@ -22,7 +22,7 @@ public class AwsMacie2OrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnable is required")]
     public required TerraformProperty<bool> AutoEnable
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_enable");
+        get => GetRequiredProperty<TerraformProperty<bool>>("auto_enable");
         set => this.WithProperty("auto_enable", value);
     }
 

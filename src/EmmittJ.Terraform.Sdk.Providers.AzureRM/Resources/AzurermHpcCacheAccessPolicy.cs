@@ -14,7 +14,7 @@ public class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
     public required TerraformProperty<string> Access
     {
-        get => GetProperty<TerraformProperty<string>>("access");
+        get => GetRequiredProperty<TerraformProperty<string>>("access");
         set => WithProperty("access", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => WithProperty("scope", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermHpcCacheAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HpcCacheId is required")]
     public required TerraformProperty<string> HpcCacheId
     {
-        get => GetProperty<TerraformProperty<string>>("hpc_cache_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("hpc_cache_id");
         set => this.WithProperty("hpc_cache_id", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermHpcCacheAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -34,7 +34,7 @@ public class AwsWorkspaceswebIdentityProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderName is required")]
     public required TerraformProperty<string> IdentityProviderName
     {
-        get => GetProperty<TerraformProperty<string>>("identity_provider_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_provider_name");
         set => this.WithProperty("identity_provider_name", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsWorkspaceswebIdentityProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderType is required")]
     public required TerraformProperty<string> IdentityProviderType
     {
-        get => GetProperty<TerraformProperty<string>>("identity_provider_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_provider_type");
         set => this.WithProperty("identity_provider_type", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsWorkspaceswebIdentityProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
     public required TerraformProperty<string> PortalArn
     {
-        get => GetProperty<TerraformProperty<string>>("portal_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("portal_arn");
         set => this.WithProperty("portal_arn", value);
     }
 

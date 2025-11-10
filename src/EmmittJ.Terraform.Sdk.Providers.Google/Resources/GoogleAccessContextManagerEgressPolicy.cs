@@ -49,7 +49,7 @@ public class GoogleAccessContextManagerEgressPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EgressPolicyName is required")]
     public required TerraformProperty<string> EgressPolicyName
     {
-        get => GetProperty<TerraformProperty<string>>("egress_policy_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("egress_policy_name");
         set => this.WithProperty("egress_policy_name", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleAccessContextManagerEgressPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformProperty<string> Resource
     {
-        get => GetProperty<TerraformProperty<string>>("resource");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource");
         set => this.WithProperty("resource", value);
     }
 

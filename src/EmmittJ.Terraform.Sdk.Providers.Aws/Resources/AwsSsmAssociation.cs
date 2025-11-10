@@ -14,7 +14,7 @@ public class AwsSsmAssociationOutputLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformProperty<string> S3BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("s3_bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket_name");
         set => WithProperty("s3_bucket_name", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsSsmAssociationTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsSsmAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -122,7 +122,7 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceProfileName is required")]
     public required TerraformProperty<string> InstanceProfileName
     {
-        get => GetProperty<TerraformProperty<string>>("instance_profile_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_profile_name");
         set => this.WithProperty("instance_profile_name", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

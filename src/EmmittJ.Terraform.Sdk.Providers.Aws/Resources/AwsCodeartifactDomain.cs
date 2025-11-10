@@ -28,7 +28,7 @@ public class AwsCodeartifactDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
     }
 

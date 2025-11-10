@@ -14,7 +14,7 @@ public class AwsEc2ManagedPrefixListEntryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
     public required TerraformProperty<string> Cidr
     {
-        get => GetProperty<TerraformProperty<string>>("cidr");
+        get => GetRequiredProperty<TerraformProperty<string>>("cidr");
         set => WithProperty("cidr", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEc2ManagedPrefixList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
     public required TerraformProperty<string> AddressFamily
     {
-        get => GetProperty<TerraformProperty<string>>("address_family");
+        get => GetRequiredProperty<TerraformProperty<string>>("address_family");
         set => this.WithProperty("address_family", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsEc2ManagedPrefixList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxEntries is required")]
     public required TerraformProperty<double> MaxEntries
     {
-        get => GetProperty<TerraformProperty<double>>("max_entries");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_entries");
         set => this.WithProperty("max_entries", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsEc2ManagedPrefixList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

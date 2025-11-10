@@ -97,7 +97,7 @@ public class GoogleManagedKafkaConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectCluster is required")]
     public required TerraformProperty<string> ConnectCluster
     {
-        get => GetProperty<TerraformProperty<string>>("connect_cluster");
+        get => GetRequiredProperty<TerraformProperty<string>>("connect_cluster");
         set => this.WithProperty("connect_cluster", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleManagedKafkaConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorId is required")]
     public required TerraformProperty<string> ConnectorId
     {
-        get => GetProperty<TerraformProperty<string>>("connector_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("connector_id");
         set => this.WithProperty("connector_id", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleManagedKafkaConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

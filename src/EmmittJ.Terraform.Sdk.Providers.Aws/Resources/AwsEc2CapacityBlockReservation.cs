@@ -54,7 +54,7 @@ public class AwsEc2CapacityBlockReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityBlockOfferingId is required")]
     public required TerraformProperty<string> CapacityBlockOfferingId
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_block_offering_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("capacity_block_offering_id");
         set => this.WithProperty("capacity_block_offering_id", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsEc2CapacityBlockReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePlatform is required")]
     public required TerraformProperty<string> InstancePlatform
     {
-        get => GetProperty<TerraformProperty<string>>("instance_platform");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_platform");
         set => this.WithProperty("instance_platform", value);
     }
 

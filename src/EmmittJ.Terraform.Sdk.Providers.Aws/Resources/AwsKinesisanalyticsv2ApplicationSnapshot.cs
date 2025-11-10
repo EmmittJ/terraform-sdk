@@ -50,7 +50,7 @@ public class AwsKinesisanalyticsv2ApplicationSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationName is required")]
     public required TerraformProperty<string> ApplicationName
     {
-        get => GetProperty<TerraformProperty<string>>("application_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_name");
         set => this.WithProperty("application_name", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsKinesisanalyticsv2ApplicationSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotName is required")]
     public required TerraformProperty<string> SnapshotName
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_name");
         set => this.WithProperty("snapshot_name", value);
     }
 

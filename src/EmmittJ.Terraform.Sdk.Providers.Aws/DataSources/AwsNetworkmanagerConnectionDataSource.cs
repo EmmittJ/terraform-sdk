@@ -28,7 +28,7 @@ public class AwsNetworkmanagerConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformProperty<string> ConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("connection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_id");
         set => this.WithProperty("connection_id", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsNetworkmanagerConnectionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformProperty<string> GlobalNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("global_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("global_network_id");
         set => this.WithProperty("global_network_id", value);
     }
 

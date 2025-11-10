@@ -27,7 +27,7 @@ public class AwsGlueSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compatibility is required")]
     public required TerraformProperty<string> Compatibility
     {
-        get => GetProperty<TerraformProperty<string>>("compatibility");
+        get => GetRequiredProperty<TerraformProperty<string>>("compatibility");
         set => this.WithProperty("compatibility", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsGlueSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFormat is required")]
     public required TerraformProperty<string> DataFormat
     {
-        get => GetProperty<TerraformProperty<string>>("data_format");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_format");
         set => this.WithProperty("data_format", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsGlueSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaDefinition is required")]
     public required TerraformProperty<string> SchemaDefinition
     {
-        get => GetProperty<TerraformProperty<string>>("schema_definition");
+        get => GetRequiredProperty<TerraformProperty<string>>("schema_definition");
         set => this.WithProperty("schema_definition", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsGlueSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaName is required")]
     public required TerraformProperty<string> SchemaName
     {
-        get => GetProperty<TerraformProperty<string>>("schema_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("schema_name");
         set => this.WithProperty("schema_name", value);
     }
 

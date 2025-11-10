@@ -63,7 +63,7 @@ public class AwsIamVirtualMfaDevice : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMfaDeviceName is required")]
     public required TerraformProperty<string> VirtualMfaDeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_mfa_device_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_mfa_device_name");
         set => this.WithProperty("virtual_mfa_device_name", value);
     }
 

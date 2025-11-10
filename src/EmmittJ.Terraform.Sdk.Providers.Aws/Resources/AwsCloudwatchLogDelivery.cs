@@ -25,7 +25,7 @@ public class AwsCloudwatchLogDelivery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryDestinationArn is required")]
     public required TerraformProperty<string> DeliveryDestinationArn
     {
-        get => GetProperty<TerraformProperty<string>>("delivery_destination_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("delivery_destination_arn");
         set => this.WithProperty("delivery_destination_arn", value);
     }
 
@@ -35,7 +35,7 @@ public class AwsCloudwatchLogDelivery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliverySourceName is required")]
     public required TerraformProperty<string> DeliverySourceName
     {
-        get => GetProperty<TerraformProperty<string>>("delivery_source_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("delivery_source_name");
         set => this.WithProperty("delivery_source_name", value);
     }
 

@@ -75,7 +75,7 @@ public class AzurermLogAnalyticsClusterCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
         set => this.WithProperty("key_vault_key_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermLogAnalyticsClusterCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsClusterId is required")]
     public required TerraformProperty<string> LogAnalyticsClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_cluster_id");
         set => this.WithProperty("log_analytics_cluster_id", value);
     }
 

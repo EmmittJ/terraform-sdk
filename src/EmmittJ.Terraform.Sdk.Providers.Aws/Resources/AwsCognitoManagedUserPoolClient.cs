@@ -67,7 +67,7 @@ public class AwsCognitoManagedUserPoolClientRefreshTokenRotationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
     public required TerraformProperty<string> Feature
     {
-        get => GetProperty<TerraformProperty<string>>("feature");
+        get => GetRequiredProperty<TerraformProperty<string>>("feature");
         set => WithProperty("feature", value);
     }
 
@@ -311,7 +311,7 @@ public class AwsCognitoManagedUserPoolClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("user_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
         set => this.WithProperty("user_pool_id", value);
     }
 

@@ -43,7 +43,7 @@ public class AwsLocationPlaceIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
     public required TerraformProperty<string> DataSource
     {
-        get => GetProperty<TerraformProperty<string>>("data_source");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_source");
         set => this.WithProperty("data_source", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsLocationPlaceIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformProperty<string> IndexName
     {
-        get => GetProperty<TerraformProperty<string>>("index_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("index_name");
         set => this.WithProperty("index_name", value);
     }
 

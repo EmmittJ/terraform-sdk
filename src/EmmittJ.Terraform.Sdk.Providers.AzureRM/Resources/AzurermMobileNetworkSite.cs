@@ -76,7 +76,7 @@ public class AzurermMobileNetworkSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermMobileNetworkSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     public required TerraformProperty<string> MobileNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("mobile_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("mobile_network_id");
         set => this.WithProperty("mobile_network_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermMobileNetworkSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

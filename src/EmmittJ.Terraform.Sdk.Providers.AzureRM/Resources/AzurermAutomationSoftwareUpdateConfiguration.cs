@@ -165,7 +165,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetProperty<TerraformProperty<string>>("frequency");
+        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
         set => WithProperty("frequency", value);
     }
 
@@ -364,7 +364,7 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformProperty<string> AutomationAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("automation_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_id");
         set => this.WithProperty("automation_account_id", value);
     }
 
@@ -392,7 +392,7 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

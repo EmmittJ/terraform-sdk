@@ -42,7 +42,7 @@ public class AwsDxMacsecKeyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformProperty<string> ConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("connection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_id");
         set => this.WithProperty("connection_id", value);
     }
 

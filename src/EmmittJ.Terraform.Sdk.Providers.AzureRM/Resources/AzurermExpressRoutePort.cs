@@ -41,7 +41,7 @@ public class AzurermExpressRoutePortIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -329,7 +329,7 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BandwidthInGbps is required")]
     public required TerraformProperty<double> BandwidthInGbps
     {
-        get => GetProperty<TerraformProperty<double>>("bandwidth_in_gbps");
+        get => GetRequiredProperty<TerraformProperty<double>>("bandwidth_in_gbps");
         set => this.WithProperty("bandwidth_in_gbps", value);
     }
 
@@ -348,7 +348,7 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encapsulation is required")]
     public required TerraformProperty<string> Encapsulation
     {
-        get => GetProperty<TerraformProperty<string>>("encapsulation");
+        get => GetRequiredProperty<TerraformProperty<string>>("encapsulation");
         set => this.WithProperty("encapsulation", value);
     }
 
@@ -367,7 +367,7 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -377,7 +377,7 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -387,7 +387,7 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringLocation is required")]
     public required TerraformProperty<string> PeeringLocation
     {
-        get => GetProperty<TerraformProperty<string>>("peering_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("peering_location");
         set => this.WithProperty("peering_location", value);
     }
 
@@ -397,7 +397,7 @@ public class AzurermExpressRoutePort : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

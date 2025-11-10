@@ -66,7 +66,7 @@ public class AzurermEventhubConsumerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformProperty<string> EventhubName
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_name");
         set => this.WithProperty("eventhub_name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermEventhubConsumerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermEventhubConsumerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformProperty<string> NamespaceName
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace_name");
         set => this.WithProperty("namespace_name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermEventhubConsumerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

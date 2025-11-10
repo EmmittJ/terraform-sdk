@@ -14,7 +14,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetProperty<TerraformProperty<string>>("account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
         set => WithProperty("account_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformProperty<string> BranchName
     {
-        get => GetProperty<TerraformProperty<string>>("branch_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("branch_name");
         set => WithProperty("branch_name", value);
     }
 
@@ -43,7 +43,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformProperty<string> ProjectName
     {
-        get => GetProperty<TerraformProperty<string>>("project_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_name");
         set => WithProperty("project_name", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetProperty<TerraformProperty<string>>("repository_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
         set => WithProperty("repository_name", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolder is required")]
     public required TerraformProperty<string> RootFolder
     {
-        get => GetProperty<TerraformProperty<string>>("root_folder");
+        get => GetRequiredProperty<TerraformProperty<string>>("root_folder");
         set => WithProperty("root_folder", value);
     }
 
@@ -99,7 +99,7 @@ public class AzurermSynapseWorkspaceCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVersionlessId is required")]
     public required TerraformProperty<string> KeyVersionlessId
     {
-        get => GetProperty<TerraformProperty<string>>("key_versionless_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_versionless_id");
         set => WithProperty("key_versionless_id", value);
     }
 
@@ -126,7 +126,7 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetProperty<TerraformProperty<string>>("account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
         set => WithProperty("account_name", value);
     }
 
@@ -136,7 +136,7 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformProperty<string> BranchName
     {
-        get => GetProperty<TerraformProperty<string>>("branch_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("branch_name");
         set => WithProperty("branch_name", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetProperty<TerraformProperty<string>>("repository_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
         set => WithProperty("repository_name", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolder is required")]
     public required TerraformProperty<string> RootFolder
     {
-        get => GetProperty<TerraformProperty<string>>("root_folder");
+        get => GetRequiredProperty<TerraformProperty<string>>("root_folder");
         set => WithProperty("root_folder", value);
     }
 
@@ -219,7 +219,7 @@ public class AzurermSynapseWorkspaceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -336,7 +336,7 @@ public class AzurermSynapseWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -364,7 +364,7 @@ public class AzurermSynapseWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -392,7 +392,7 @@ public class AzurermSynapseWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -429,7 +429,7 @@ public class AzurermSynapseWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageDataLakeGen2FilesystemId is required")]
     public required TerraformProperty<string> StorageDataLakeGen2FilesystemId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_data_lake_gen2_filesystem_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_data_lake_gen2_filesystem_id");
         set => this.WithProperty("storage_data_lake_gen2_filesystem_id", value);
     }
 

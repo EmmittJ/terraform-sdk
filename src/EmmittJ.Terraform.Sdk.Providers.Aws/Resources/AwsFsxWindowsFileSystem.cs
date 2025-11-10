@@ -85,7 +85,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => WithProperty("domain_name", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => WithProperty("password", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -364,7 +364,7 @@ public class AwsFsxWindowsFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThroughputCapacity is required")]
     public required TerraformProperty<double> ThroughputCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("throughput_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("throughput_capacity");
         set => this.WithProperty("throughput_capacity", value);
     }
 

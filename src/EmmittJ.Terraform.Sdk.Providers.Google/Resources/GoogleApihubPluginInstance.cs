@@ -15,7 +15,7 @@ public class GoogleApihubPluginInstanceActionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionId is required")]
     public required TerraformProperty<string> ActionId
     {
-        get => GetProperty<TerraformProperty<string>>("action_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("action_id");
         set => WithProperty("action_id", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleApihubPluginInstanceAuthConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformProperty<string> AuthType
     {
-        get => GetProperty<TerraformProperty<string>>("auth_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("auth_type");
         set => WithProperty("auth_type", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleApihubPluginInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -179,7 +179,7 @@ public class GoogleApihubPluginInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -189,7 +189,7 @@ public class GoogleApihubPluginInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plugin is required")]
     public required TerraformProperty<string> Plugin
     {
-        get => GetProperty<TerraformProperty<string>>("plugin");
+        get => GetRequiredProperty<TerraformProperty<string>>("plugin");
         set => this.WithProperty("plugin", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleApihubPluginInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PluginInstanceId is required")]
     public required TerraformProperty<string> PluginInstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("plugin_instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("plugin_instance_id");
         set => this.WithProperty("plugin_instance_id", value);
     }
 

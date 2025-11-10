@@ -96,7 +96,7 @@ public class GoogleFirestoreIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     public required TerraformProperty<string> Collection
     {
-        get => GetProperty<TerraformProperty<string>>("collection");
+        get => GetRequiredProperty<TerraformProperty<string>>("collection");
         set => this.WithProperty("collection", value);
     }
 

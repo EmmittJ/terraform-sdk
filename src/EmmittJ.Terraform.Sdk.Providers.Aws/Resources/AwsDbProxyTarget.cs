@@ -46,7 +46,7 @@ public class AwsDbProxyTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyName is required")]
     public required TerraformProperty<string> DbProxyName
     {
-        get => GetProperty<TerraformProperty<string>>("db_proxy_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_proxy_name");
         set => this.WithProperty("db_proxy_name", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsDbProxyTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetGroupName is required")]
     public required TerraformProperty<string> TargetGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("target_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_group_name");
         set => this.WithProperty("target_group_name", value);
     }
 

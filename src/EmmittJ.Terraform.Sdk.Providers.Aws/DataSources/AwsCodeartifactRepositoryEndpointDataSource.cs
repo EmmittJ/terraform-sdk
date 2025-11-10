@@ -23,7 +23,7 @@ public class AwsCodeartifactRepositoryEndpointDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsCodeartifactRepositoryEndpointDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetProperty<TerraformProperty<string>>("format");
+        get => GetRequiredProperty<TerraformProperty<string>>("format");
         set => this.WithProperty("format", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsCodeartifactRepositoryEndpointDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformProperty<string> Repository
     {
-        get => GetProperty<TerraformProperty<string>>("repository");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository");
         set => this.WithProperty("repository", value);
     }
 

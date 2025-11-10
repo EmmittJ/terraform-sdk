@@ -57,7 +57,7 @@ public class AzureadAccessPackageResourcePackageAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPackageId is required")]
     public required TerraformProperty<string> AccessPackageId
     {
-        get => GetProperty<TerraformProperty<string>>("access_package_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_package_id");
         set => this.WithProperty("access_package_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzureadAccessPackageResourcePackageAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogResourceAssociationId is required")]
     public required TerraformProperty<string> CatalogResourceAssociationId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_resource_association_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("catalog_resource_association_id");
         set => this.WithProperty("catalog_resource_association_id", value);
     }
 

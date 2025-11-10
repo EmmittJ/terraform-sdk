@@ -56,7 +56,7 @@ public class AwsDbSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceIdentifier is required")]
     public required TerraformProperty<string> DbInstanceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("db_instance_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_instance_identifier");
         set => this.WithProperty("db_instance_identifier", value);
     }
 
@@ -66,7 +66,7 @@ public class AwsDbSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbSnapshotIdentifier is required")]
     public required TerraformProperty<string> DbSnapshotIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("db_snapshot_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_snapshot_identifier");
         set => this.WithProperty("db_snapshot_identifier", value);
     }
 

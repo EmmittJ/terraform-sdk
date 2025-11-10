@@ -14,7 +14,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
     public required TerraformProperty<double> ComputeCount
     {
-        get => GetProperty<TerraformProperty<double>>("compute_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("compute_count");
         set => WithProperty("compute_count", value);
     }
 
@@ -49,7 +49,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseEdition is required")]
     public required TerraformProperty<string> DatabaseEdition
     {
-        get => GetProperty<TerraformProperty<string>>("database_edition");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_edition");
         set => WithProperty("database_edition", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialDataStorageSizeGb is required")]
     public required TerraformProperty<double> InitialDataStorageSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("initial_data_storage_size_gb");
+        get => GetRequiredProperty<TerraformProperty<double>>("initial_data_storage_size_gb");
         set => WithProperty("initial_data_storage_size_gb", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseModel is required")]
     public required TerraformProperty<string> LicenseModel
     {
-        get => GetProperty<TerraformProperty<string>>("license_model");
+        get => GetRequiredProperty<TerraformProperty<string>>("license_model");
         set => WithProperty("license_model", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
     public required TerraformProperty<string> Shape
     {
-        get => GetProperty<TerraformProperty<string>>("shape");
+        get => GetRequiredProperty<TerraformProperty<string>>("shape");
         set => WithProperty("shape", value);
     }
 
@@ -255,7 +255,7 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbSystemId is required")]
     public required TerraformProperty<string> DbSystemId
     {
-        get => GetProperty<TerraformProperty<string>>("db_system_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_system_id");
         set => this.WithProperty("db_system_id", value);
     }
 
@@ -275,7 +275,7 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -317,7 +317,7 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -341,7 +341,7 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbSubnet is required")]
     public required TerraformProperty<string> OdbSubnet
     {
-        get => GetProperty<TerraformProperty<string>>("odb_subnet");
+        get => GetRequiredProperty<TerraformProperty<string>>("odb_subnet");
         set => this.WithProperty("odb_subnet", value);
     }
 

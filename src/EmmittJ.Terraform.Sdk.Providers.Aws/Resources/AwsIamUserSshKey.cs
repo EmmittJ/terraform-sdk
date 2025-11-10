@@ -24,7 +24,7 @@ public class AwsIamUserSshKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encoding is required")]
     public required TerraformProperty<string> Encoding
     {
-        get => GetProperty<TerraformProperty<string>>("encoding");
+        get => GetRequiredProperty<TerraformProperty<string>>("encoding");
         set => this.WithProperty("encoding", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsIamUserSshKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     public required TerraformProperty<string> PublicKey
     {
-        get => GetProperty<TerraformProperty<string>>("public_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("public_key");
         set => this.WithProperty("public_key", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsIamUserSshKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

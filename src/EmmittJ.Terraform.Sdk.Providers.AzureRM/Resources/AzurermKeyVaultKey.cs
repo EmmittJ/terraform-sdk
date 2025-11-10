@@ -149,7 +149,7 @@ public class AzurermKeyVaultKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
     public required TerraformProperty<string> KeyType
     {
-        get => GetProperty<TerraformProperty<string>>("key_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_type");
         set => this.WithProperty("key_type", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermKeyVaultKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermKeyVaultKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

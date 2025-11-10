@@ -14,7 +14,7 @@ public class AwsLexBotAliasConversationLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformProperty<string> IamRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("iam_role_arn");
         set => WithProperty("iam_role_arn", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsLexBotAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformProperty<string> BotName
     {
-        get => GetProperty<TerraformProperty<string>>("bot_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_name");
         set => this.WithProperty("bot_name", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsLexBotAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
     public required TerraformProperty<string> BotVersion
     {
-        get => GetProperty<TerraformProperty<string>>("bot_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_version");
         set => this.WithProperty("bot_version", value);
     }
 
@@ -118,7 +118,7 @@ public class AwsLexBotAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

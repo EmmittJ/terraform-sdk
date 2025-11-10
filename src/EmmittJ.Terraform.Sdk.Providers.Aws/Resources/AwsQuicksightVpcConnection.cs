@@ -79,7 +79,7 @@ public class AwsQuicksightVpcConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsQuicksightVpcConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsQuicksightVpcConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConnectionId is required")]
     public required TerraformProperty<string> VpcConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_connection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_connection_id");
         set => this.WithProperty("vpc_connection_id", value);
     }
 

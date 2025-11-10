@@ -104,7 +104,7 @@ public class AwsComprehendEntityRecognizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessRoleArn is required")]
     public required TerraformProperty<string> DataAccessRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("data_access_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_access_role_arn");
         set => this.WithProperty("data_access_role_arn", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsComprehendEntityRecognizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformProperty<string> LanguageCode
     {
-        get => GetProperty<TerraformProperty<string>>("language_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsComprehendEntityRecognizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

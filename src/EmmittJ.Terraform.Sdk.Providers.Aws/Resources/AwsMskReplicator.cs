@@ -31,7 +31,7 @@ public class AwsMskReplicatorReplicationInfoListBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceKafkaClusterArn is required")]
     public required TerraformProperty<string> SourceKafkaClusterArn
     {
-        get => GetProperty<TerraformProperty<string>>("source_kafka_cluster_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_kafka_cluster_arn");
         set => WithProperty("source_kafka_cluster_arn", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsMskReplicatorReplicationInfoListBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetCompressionType is required")]
     public required TerraformProperty<string> TargetCompressionType
     {
-        get => GetProperty<TerraformProperty<string>>("target_compression_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_compression_type");
         set => WithProperty("target_compression_type", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsMskReplicatorReplicationInfoListBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetKafkaClusterArn is required")]
     public required TerraformProperty<string> TargetKafkaClusterArn
     {
-        get => GetProperty<TerraformProperty<string>>("target_kafka_cluster_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_kafka_cluster_arn");
         set => WithProperty("target_kafka_cluster_arn", value);
     }
 
@@ -151,7 +151,7 @@ public class AwsMskReplicator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicatorName is required")]
     public required TerraformProperty<string> ReplicatorName
     {
-        get => GetProperty<TerraformProperty<string>>("replicator_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("replicator_name");
         set => this.WithProperty("replicator_name", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsMskReplicator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceExecutionRoleArn is required")]
     public required TerraformProperty<string> ServiceExecutionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_execution_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_execution_role_arn");
         set => this.WithProperty("service_execution_role_arn", value);
     }
 

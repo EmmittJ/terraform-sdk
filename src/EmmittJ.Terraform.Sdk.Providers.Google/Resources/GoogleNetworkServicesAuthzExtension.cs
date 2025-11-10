@@ -61,7 +61,7 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authority is required")]
     public required TerraformProperty<string> Authority
     {
-        get => GetProperty<TerraformProperty<string>>("authority");
+        get => GetRequiredProperty<TerraformProperty<string>>("authority");
         set => this.WithProperty("authority", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingScheme is required")]
     public required TerraformProperty<string> LoadBalancingScheme
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancing_scheme");
+        get => GetRequiredProperty<TerraformProperty<string>>("load_balancing_scheme");
         set => this.WithProperty("load_balancing_scheme", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -176,7 +176,7 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
+        get => GetRequiredProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
     }
 
@@ -186,7 +186,7 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeout is required")]
     public required TerraformProperty<string> Timeout
     {
-        get => GetProperty<TerraformProperty<string>>("timeout");
+        get => GetRequiredProperty<TerraformProperty<string>>("timeout");
         set => this.WithProperty("timeout", value);
     }
 

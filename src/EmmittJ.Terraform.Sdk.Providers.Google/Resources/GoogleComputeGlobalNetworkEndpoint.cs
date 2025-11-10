@@ -58,7 +58,7 @@ public class GoogleComputeGlobalNetworkEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkEndpointGroup is required")]
     public required TerraformProperty<string> GlobalNetworkEndpointGroup
     {
-        get => GetProperty<TerraformProperty<string>>("global_network_endpoint_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("global_network_endpoint_group");
         set => this.WithProperty("global_network_endpoint_group", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleComputeGlobalNetworkEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 

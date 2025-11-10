@@ -23,7 +23,7 @@ public class GoogleColabNotebookExecutionDataformRepositorySourceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataformRepositoryResourceName is required")]
     public required TerraformProperty<string> DataformRepositoryResourceName
     {
-        get => GetProperty<TerraformProperty<string>>("dataform_repository_resource_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataform_repository_resource_name");
         set => WithProperty("dataform_repository_resource_name", value);
     }
 
@@ -41,7 +41,7 @@ public class GoogleColabNotebookExecutionDirectNotebookSourceBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => WithProperty("content", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleColabNotebookExecutionGcsNotebookSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("uri");
         set => WithProperty("uri", value);
     }
 
@@ -121,7 +121,7 @@ public class GoogleColabNotebookExecution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -149,7 +149,7 @@ public class GoogleColabNotebookExecution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcsOutputUri is required")]
     public required TerraformProperty<string> GcsOutputUri
     {
-        get => GetProperty<TerraformProperty<string>>("gcs_output_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("gcs_output_uri");
         set => this.WithProperty("gcs_output_uri", value);
     }
 
@@ -168,7 +168,7 @@ public class GoogleColabNotebookExecution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

@@ -66,7 +66,7 @@ public class AzureadApplicationPreAuthorized : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzureadApplicationPreAuthorized : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizedClientId is required")]
     public required TerraformProperty<string> AuthorizedClientId
     {
-        get => GetProperty<TerraformProperty<string>>("authorized_client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("authorized_client_id");
         set => this.WithProperty("authorized_client_id", value);
     }
 

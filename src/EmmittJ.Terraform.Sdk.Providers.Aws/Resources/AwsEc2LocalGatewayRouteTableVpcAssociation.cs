@@ -32,7 +32,7 @@ public class AwsEc2LocalGatewayRouteTableVpcAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalGatewayRouteTableId is required")]
     public required TerraformProperty<string> LocalGatewayRouteTableId
     {
-        get => GetProperty<TerraformProperty<string>>("local_gateway_route_table_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("local_gateway_route_table_id");
         set => this.WithProperty("local_gateway_route_table_id", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsEc2LocalGatewayRouteTableVpcAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

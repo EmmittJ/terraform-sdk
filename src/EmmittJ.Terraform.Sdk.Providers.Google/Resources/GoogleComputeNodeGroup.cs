@@ -56,7 +56,7 @@ public class GoogleComputeNodeGroupMaintenanceWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("start_time");
         set => WithProperty("start_time", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleComputeNodeGroupShareSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareType is required")]
     public required TerraformProperty<string> ShareType
     {
-        get => GetProperty<TerraformProperty<string>>("share_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("share_type");
         set => WithProperty("share_type", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleComputeNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -185,7 +185,7 @@ public class GoogleComputeNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTemplate is required")]
     public required TerraformProperty<string> NodeTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("node_template");
+        get => GetRequiredProperty<TerraformProperty<string>>("node_template");
         set => this.WithProperty("node_template", value);
     }
 

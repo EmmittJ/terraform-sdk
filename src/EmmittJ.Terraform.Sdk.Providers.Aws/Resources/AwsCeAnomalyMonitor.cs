@@ -50,7 +50,7 @@ public class AwsCeAnomalyMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorType is required")]
     public required TerraformProperty<string> MonitorType
     {
-        get => GetProperty<TerraformProperty<string>>("monitor_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("monitor_type");
         set => this.WithProperty("monitor_type", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsCeAnomalyMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

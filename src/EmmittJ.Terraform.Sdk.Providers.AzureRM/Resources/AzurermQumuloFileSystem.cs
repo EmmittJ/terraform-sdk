@@ -66,7 +66,7 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminPassword is required")]
     public required TerraformProperty<string> AdminPassword
     {
-        get => GetProperty<TerraformProperty<string>>("admin_password");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_password");
         set => this.WithProperty("admin_password", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
+        get => GetRequiredProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -152,7 +152,7 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSku is required")]
     public required TerraformProperty<string> StorageSku
     {
-        get => GetProperty<TerraformProperty<string>>("storage_sku");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_sku");
         set => this.WithProperty("storage_sku", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermQumuloFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

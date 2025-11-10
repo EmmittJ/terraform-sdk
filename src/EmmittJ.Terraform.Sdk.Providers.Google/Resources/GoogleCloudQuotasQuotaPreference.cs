@@ -34,7 +34,7 @@ public class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredValue is required")]
     public required TerraformProperty<string> PreferredValue
     {
-        get => GetProperty<TerraformProperty<string>>("preferred_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("preferred_value");
         set => WithProperty("preferred_value", value);
     }
 

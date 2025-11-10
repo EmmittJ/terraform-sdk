@@ -70,7 +70,7 @@ public class AwsSsmPatchBaselineDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
     public required TerraformProperty<string> Owner
     {
-        get => GetProperty<TerraformProperty<string>>("owner");
+        get => GetRequiredProperty<TerraformProperty<string>>("owner");
         set => this.WithProperty("owner", value);
     }
 

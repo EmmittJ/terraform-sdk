@@ -78,7 +78,7 @@ public class GoogleContainerAttachedClusterFleetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformProperty<string> Project
     {
-        get => GetProperty<TerraformProperty<string>>("project");
+        get => GetRequiredProperty<TerraformProperty<string>>("project");
         set => WithProperty("project", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleContainerAttachedClusterOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUrl is required")]
     public required TerraformProperty<string> IssuerUrl
     {
-        get => GetProperty<TerraformProperty<string>>("issuer_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("issuer_url");
         set => WithProperty("issuer_url", value);
     }
 
@@ -147,7 +147,7 @@ public class GoogleContainerAttachedClusterSecurityPostureConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VulnerabilityMode is required")]
     public required TerraformProperty<string> VulnerabilityMode
     {
-        get => GetProperty<TerraformProperty<string>>("vulnerability_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("vulnerability_mode");
         set => WithProperty("vulnerability_mode", value);
     }
 
@@ -258,7 +258,7 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Distribution is required")]
     public required TerraformProperty<string> Distribution
     {
-        get => GetProperty<TerraformProperty<string>>("distribution");
+        get => GetRequiredProperty<TerraformProperty<string>>("distribution");
         set => this.WithProperty("distribution", value);
     }
 
@@ -277,7 +277,7 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -287,7 +287,7 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -297,7 +297,7 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformVersion is required")]
     public required TerraformProperty<string> PlatformVersion
     {
-        get => GetProperty<TerraformProperty<string>>("platform_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("platform_version");
         set => this.WithProperty("platform_version", value);
     }
 

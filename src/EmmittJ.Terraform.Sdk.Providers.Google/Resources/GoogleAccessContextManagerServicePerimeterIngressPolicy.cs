@@ -127,7 +127,7 @@ public class GoogleAccessContextManagerServicePerimeterIngressPolicy : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Perimeter is required")]
     public required TerraformProperty<string> Perimeter
     {
-        get => GetProperty<TerraformProperty<string>>("perimeter");
+        get => GetRequiredProperty<TerraformProperty<string>>("perimeter");
         set => this.WithProperty("perimeter", value);
     }
 

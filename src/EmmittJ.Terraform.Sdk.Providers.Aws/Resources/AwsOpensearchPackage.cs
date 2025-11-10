@@ -14,7 +14,7 @@ public class AwsOpensearchPackagePackageSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformProperty<string> S3BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("s3_bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket_name");
         set => WithProperty("s3_bucket_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsOpensearchPackagePackageSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Key is required")]
     public required TerraformProperty<string> S3Key
     {
-        get => GetProperty<TerraformProperty<string>>("s3_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_key");
         set => WithProperty("s3_key", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsOpensearchPackage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageName is required")]
     public required TerraformProperty<string> PackageName
     {
-        get => GetProperty<TerraformProperty<string>>("package_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("package_name");
         set => this.WithProperty("package_name", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsOpensearchPackage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageType is required")]
     public required TerraformProperty<string> PackageType
     {
-        get => GetProperty<TerraformProperty<string>>("package_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("package_type");
         set => this.WithProperty("package_type", value);
     }
 

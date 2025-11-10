@@ -28,7 +28,7 @@ public class AwsNetworkmonitorProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetProperty<TerraformProperty<string>>("destination");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsNetworkmonitorProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorName is required")]
     public required TerraformProperty<string> MonitorName
     {
-        get => GetProperty<TerraformProperty<string>>("monitor_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("monitor_name");
         set => this.WithProperty("monitor_name", value);
     }
 
@@ -66,7 +66,7 @@ public class AwsNetworkmonitorProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsNetworkmonitorProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
     public required TerraformProperty<string> SourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("source_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_arn");
         set => this.WithProperty("source_arn", value);
     }
 

@@ -109,7 +109,7 @@ public class AwsSesv2ConfigurationSetTrackingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomRedirectDomain is required")]
     public required TerraformProperty<string> CustomRedirectDomain
     {
-        get => GetProperty<TerraformProperty<string>>("custom_redirect_domain");
+        get => GetRequiredProperty<TerraformProperty<string>>("custom_redirect_domain");
         set => WithProperty("custom_redirect_domain", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsSesv2ConfigurationSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
     public required TerraformProperty<string> ConfigurationSetName
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_set_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_set_name");
         set => this.WithProperty("configuration_set_name", value);
     }
 

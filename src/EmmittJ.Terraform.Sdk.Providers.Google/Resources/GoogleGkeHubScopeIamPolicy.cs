@@ -32,7 +32,7 @@ public class GoogleGkeHubScopeIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleGkeHubScopeIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformProperty<string> ScopeId
     {
-        get => GetProperty<TerraformProperty<string>>("scope_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope_id");
         set => this.WithProperty("scope_id", value);
     }
 

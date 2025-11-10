@@ -66,7 +66,7 @@ public class AzurermManagementGroupSubscriptionAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformProperty<string> ManagementGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("management_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("management_group_id");
         set => this.WithProperty("management_group_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermManagementGroupSubscriptionAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 

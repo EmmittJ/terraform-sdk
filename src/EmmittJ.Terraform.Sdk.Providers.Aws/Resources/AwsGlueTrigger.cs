@@ -67,7 +67,7 @@ public class AwsGlueTriggerEventBatchingConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchSize is required")]
     public required TerraformProperty<double> BatchSize
     {
-        get => GetProperty<TerraformProperty<double>>("batch_size");
+        get => GetRequiredProperty<TerraformProperty<double>>("batch_size");
         set => WithProperty("batch_size", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsGlueTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -239,7 +239,7 @@ public class AwsGlueTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

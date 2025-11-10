@@ -71,7 +71,7 @@ public class AzurermWebAppHybridConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetProperty<TerraformProperty<string>>("hostname");
+        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
         set => this.WithProperty("hostname", value);
     }
 
@@ -90,7 +90,7 @@ public class AzurermWebAppHybridConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 
@@ -100,7 +100,7 @@ public class AzurermWebAppHybridConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelayId is required")]
     public required TerraformProperty<string> RelayId
     {
-        get => GetProperty<TerraformProperty<string>>("relay_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("relay_id");
         set => this.WithProperty("relay_id", value);
     }
 
@@ -119,7 +119,7 @@ public class AzurermWebAppHybridConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebAppId is required")]
     public required TerraformProperty<string> WebAppId
     {
-        get => GetProperty<TerraformProperty<string>>("web_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("web_app_id");
         set => this.WithProperty("web_app_id", value);
     }
 

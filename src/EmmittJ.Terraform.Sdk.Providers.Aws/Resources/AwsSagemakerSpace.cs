@@ -14,7 +14,7 @@ public class AwsSagemakerSpaceOwnershipSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerUserProfileName is required")]
     public required TerraformProperty<string> OwnerUserProfileName
     {
-        get => GetProperty<TerraformProperty<string>>("owner_user_profile_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("owner_user_profile_name");
         set => WithProperty("owner_user_profile_name", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsSagemakerSpaceSpaceSharingSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharingType is required")]
     public required TerraformProperty<string> SharingType
     {
-        get => GetProperty<TerraformProperty<string>>("sharing_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("sharing_type");
         set => WithProperty("sharing_type", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsSagemakerSpace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformProperty<string> DomainId
     {
-        get => GetProperty<TerraformProperty<string>>("domain_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_id");
         set => this.WithProperty("domain_id", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsSagemakerSpace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
     public required TerraformProperty<string> SpaceName
     {
-        get => GetProperty<TerraformProperty<string>>("space_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("space_name");
         set => this.WithProperty("space_name", value);
     }
 

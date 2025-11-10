@@ -66,7 +66,7 @@ public class AwsNetworkmanagerDxGatewayAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformProperty<string> CoreNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("core_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("core_network_id");
         set => this.WithProperty("core_network_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsNetworkmanagerDxGatewayAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectConnectGatewayArn is required")]
     public required TerraformProperty<string> DirectConnectGatewayArn
     {
-        get => GetProperty<TerraformProperty<string>>("direct_connect_gateway_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("direct_connect_gateway_arn");
         set => this.WithProperty("direct_connect_gateway_arn", value);
     }
 

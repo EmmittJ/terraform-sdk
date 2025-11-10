@@ -67,7 +67,7 @@ public class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformProperty<double> NodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("node_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("node_count");
         set => WithProperty("node_count", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTypeId is required")]
     public required TerraformProperty<string> NodeTypeId
     {
-        get => GetProperty<TerraformProperty<string>>("node_type_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("node_type_id");
         set => WithProperty("node_type_id", value);
     }
 
@@ -153,7 +153,7 @@ public class GoogleVmwareengineCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleVmwareengineCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 

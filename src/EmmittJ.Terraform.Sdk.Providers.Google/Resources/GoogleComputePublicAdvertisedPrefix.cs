@@ -59,7 +59,7 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsVerificationIp is required")]
     public required TerraformProperty<string> DnsVerificationIp
     {
-        get => GetProperty<TerraformProperty<string>>("dns_verification_ip");
+        get => GetRequiredProperty<TerraformProperty<string>>("dns_verification_ip");
         set => this.WithProperty("dns_verification_ip", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     public required TerraformProperty<string> IpCidrRange
     {
-        get => GetProperty<TerraformProperty<string>>("ip_cidr_range");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_cidr_range");
         set => this.WithProperty("ip_cidr_range", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

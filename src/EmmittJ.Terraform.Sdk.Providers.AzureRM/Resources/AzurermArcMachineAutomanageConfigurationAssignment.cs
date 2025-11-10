@@ -57,7 +57,7 @@ public class AzurermArcMachineAutomanageConfigurationAssignment : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcMachineId is required")]
     public required TerraformProperty<string> ArcMachineId
     {
-        get => GetProperty<TerraformProperty<string>>("arc_machine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("arc_machine_id");
         set => this.WithProperty("arc_machine_id", value);
     }
 
@@ -67,7 +67,7 @@ public class AzurermArcMachineAutomanageConfigurationAssignment : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationId is required")]
     public required TerraformProperty<string> ConfigurationId
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_id");
         set => this.WithProperty("configuration_id", value);
     }
 

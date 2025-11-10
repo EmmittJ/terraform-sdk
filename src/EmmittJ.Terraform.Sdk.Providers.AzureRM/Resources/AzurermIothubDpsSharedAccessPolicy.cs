@@ -97,7 +97,7 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubDpsName is required")]
     public required TerraformProperty<string> IothubDpsName
     {
-        get => GetProperty<TerraformProperty<string>>("iothub_dps_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("iothub_dps_name");
         set => this.WithProperty("iothub_dps_name", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -135,7 +135,7 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

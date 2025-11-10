@@ -84,7 +84,7 @@ public class AzurermStorageMoverTargetEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermStorageMoverTargetEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermStorageMoverTargetEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     public required TerraformProperty<string> StorageContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_name");
         set => this.WithProperty("storage_container_name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermStorageMoverTargetEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageMoverId is required")]
     public required TerraformProperty<string> StorageMoverId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_mover_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_mover_id");
         set => this.WithProperty("storage_mover_id", value);
     }
 

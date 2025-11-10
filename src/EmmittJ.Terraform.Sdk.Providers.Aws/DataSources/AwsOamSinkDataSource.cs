@@ -43,7 +43,7 @@ public class AwsOamSinkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SinkIdentifier is required")]
     public required TerraformProperty<string> SinkIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("sink_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("sink_identifier");
         set => this.WithProperty("sink_identifier", value);
     }
 

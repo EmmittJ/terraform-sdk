@@ -111,7 +111,7 @@ public class GoogleEventarcGoogleApiSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetProperty<TerraformProperty<string>>("destination");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleEventarcGoogleApiSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GoogleApiSourceId is required")]
     public required TerraformProperty<string> GoogleApiSourceId
     {
-        get => GetProperty<TerraformProperty<string>>("google_api_source_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("google_api_source_id");
         set => this.WithProperty("google_api_source_id", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleEventarcGoogleApiSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

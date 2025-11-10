@@ -14,7 +14,7 @@ public class AwsGameliftBuildStorageLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => WithProperty("bucket", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsGameliftBuildStorageLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsGameliftBuildStorageLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsGameliftBuild : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsGameliftBuild : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatingSystem is required")]
     public required TerraformProperty<string> OperatingSystem
     {
-        get => GetProperty<TerraformProperty<string>>("operating_system");
+        get => GetRequiredProperty<TerraformProperty<string>>("operating_system");
         set => this.WithProperty("operating_system", value);
     }
 

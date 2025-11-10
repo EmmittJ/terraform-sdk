@@ -41,7 +41,7 @@ public class AzurermRedisCacheIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermRedisCachePatchScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformProperty<string> DayOfWeek
     {
-        get => GetProperty<TerraformProperty<string>>("day_of_week");
+        get => GetRequiredProperty<TerraformProperty<string>>("day_of_week");
         set => WithProperty("day_of_week", value);
     }
 
@@ -325,7 +325,7 @@ public class AzurermRedisCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     public required TerraformProperty<double> Capacity
     {
-        get => GetProperty<TerraformProperty<double>>("capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("capacity");
         set => this.WithProperty("capacity", value);
     }
 
@@ -335,7 +335,7 @@ public class AzurermRedisCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformProperty<string> Family
     {
-        get => GetProperty<TerraformProperty<string>>("family");
+        get => GetRequiredProperty<TerraformProperty<string>>("family");
         set => this.WithProperty("family", value);
     }
 
@@ -354,7 +354,7 @@ public class AzurermRedisCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -373,7 +373,7 @@ public class AzurermRedisCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -437,7 +437,7 @@ public class AzurermRedisCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -456,7 +456,7 @@ public class AzurermRedisCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetProperty<TerraformProperty<string>>("sku_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 

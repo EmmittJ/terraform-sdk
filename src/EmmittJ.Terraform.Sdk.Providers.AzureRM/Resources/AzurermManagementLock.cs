@@ -66,7 +66,7 @@ public class AzurermManagementLock : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LockLevel is required")]
     public required TerraformProperty<string> LockLevel
     {
-        get => GetProperty<TerraformProperty<string>>("lock_level");
+        get => GetRequiredProperty<TerraformProperty<string>>("lock_level");
         set => this.WithProperty("lock_level", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermManagementLock : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermManagementLock : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

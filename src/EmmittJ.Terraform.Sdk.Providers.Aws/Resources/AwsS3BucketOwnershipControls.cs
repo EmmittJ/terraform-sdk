@@ -14,7 +14,7 @@ public class AwsS3BucketOwnershipControlsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectOwnership is required")]
     public required TerraformProperty<string> ObjectOwnership
     {
-        get => GetProperty<TerraformProperty<string>>("object_ownership");
+        get => GetRequiredProperty<TerraformProperty<string>>("object_ownership");
         set => WithProperty("object_ownership", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsS3BucketOwnershipControls : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 

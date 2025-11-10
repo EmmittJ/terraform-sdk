@@ -58,7 +58,7 @@ public class GoogleOrgPolicyCustomConstraint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
     public required TerraformProperty<string> ActionType
     {
-        get => GetProperty<TerraformProperty<string>>("action_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("action_type");
         set => this.WithProperty("action_type", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleOrgPolicyCustomConstraint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Condition is required")]
     public required TerraformProperty<string> Condition
     {
-        get => GetProperty<TerraformProperty<string>>("condition");
+        get => GetRequiredProperty<TerraformProperty<string>>("condition");
         set => this.WithProperty("condition", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleOrgPolicyCustomConstraint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleOrgPolicyCustomConstraint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 

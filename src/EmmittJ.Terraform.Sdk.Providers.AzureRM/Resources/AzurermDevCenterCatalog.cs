@@ -14,7 +14,7 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
     public required TerraformProperty<string> Branch
     {
-        get => GetProperty<TerraformProperty<string>>("branch");
+        get => GetRequiredProperty<TerraformProperty<string>>("branch");
         set => WithProperty("branch", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyUrl is required")]
     public required TerraformProperty<string> KeyVaultKeyUrl
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_url");
         set => WithProperty("key_vault_key_url", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => WithProperty("path", value);
     }
 
@@ -44,7 +44,7 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("uri");
         set => WithProperty("uri", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
     public required TerraformProperty<string> Branch
     {
-        get => GetProperty<TerraformProperty<string>>("branch");
+        get => GetRequiredProperty<TerraformProperty<string>>("branch");
         set => WithProperty("branch", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyUrl is required")]
     public required TerraformProperty<string> KeyVaultKeyUrl
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_url");
         set => WithProperty("key_vault_key_url", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => WithProperty("path", value);
     }
 
@@ -92,7 +92,7 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("uri");
         set => WithProperty("uri", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermDevCenterCatalog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
     public required TerraformProperty<string> DevCenterId
     {
-        get => GetProperty<TerraformProperty<string>>("dev_center_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dev_center_id");
         set => this.WithProperty("dev_center_id", value);
     }
 
@@ -182,7 +182,7 @@ public class AzurermDevCenterCatalog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -192,7 +192,7 @@ public class AzurermDevCenterCatalog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

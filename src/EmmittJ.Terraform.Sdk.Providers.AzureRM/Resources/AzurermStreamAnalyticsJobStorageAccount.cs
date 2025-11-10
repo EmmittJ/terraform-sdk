@@ -66,7 +66,7 @@ public class AzurermStreamAnalyticsJobStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationMode is required")]
     public required TerraformProperty<string> AuthenticationMode
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication_mode");
         set => this.WithProperty("authentication_mode", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermStreamAnalyticsJobStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformProperty<string> StorageAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermStreamAnalyticsJobStorageAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformProperty<string> StreamAnalyticsJobId
     {
-        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_id");
         set => this.WithProperty("stream_analytics_job_id", value);
     }
 

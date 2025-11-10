@@ -34,7 +34,7 @@ public class AwsApiGatewayExportDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportType is required")]
     public required TerraformProperty<string> ExportType
     {
-        get => GetProperty<TerraformProperty<string>>("export_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("export_type");
         set => this.WithProperty("export_type", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsApiGatewayExportDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformProperty<string> RestApiId
     {
-        get => GetProperty<TerraformProperty<string>>("rest_api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsApiGatewayExportDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StageName is required")]
     public required TerraformProperty<string> StageName
     {
-        get => GetProperty<TerraformProperty<string>>("stage_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stage_name");
         set => this.WithProperty("stage_name", value);
     }
 

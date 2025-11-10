@@ -66,7 +66,7 @@ public class AzurermBatchJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchPoolId is required")]
     public required TerraformProperty<string> BatchPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("batch_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("batch_pool_id");
         set => this.WithProperty("batch_pool_id", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermBatchJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -14,7 +14,7 @@ public class GoogleContainerAzureNodePoolAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     public required TerraformProperty<double> MaxNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_node_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_node_count");
         set => WithProperty("max_node_count", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleContainerAzureNodePoolAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     public required TerraformProperty<double> MinNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("min_node_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_node_count");
         set => WithProperty("min_node_count", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleContainerAzureNodePoolMaxPodsConstraintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPodsPerNode is required")]
     public required TerraformProperty<double> MaxPodsPerNode
     {
-        get => GetProperty<TerraformProperty<double>>("max_pods_per_node");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_pods_per_node");
         set => WithProperty("max_pods_per_node", value);
     }
 
@@ -184,7 +184,7 @@ public class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetProperty<TerraformProperty<string>>("cluster");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
     }
 
@@ -203,7 +203,7 @@ public class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -213,7 +213,7 @@ public class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -232,7 +232,7 @@ public class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermTrafficManagerNestedEndpointCustomHeaderBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermTrafficManagerNestedEndpointCustomHeaderBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermTrafficManagerNestedEndpointSubnetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "First is required")]
     public required TerraformProperty<string> First
     {
-        get => GetProperty<TerraformProperty<string>>("first");
+        get => GetRequiredProperty<TerraformProperty<string>>("first");
         set => WithProperty("first", value);
     }
 
@@ -166,7 +166,7 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumChildEndpoints is required")]
     public required TerraformProperty<double> MinimumChildEndpoints
     {
-        get => GetProperty<TerraformProperty<double>>("minimum_child_endpoints");
+        get => GetRequiredProperty<TerraformProperty<double>>("minimum_child_endpoints");
         set => this.WithProperty("minimum_child_endpoints", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -213,7 +213,7 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     public required TerraformProperty<string> ProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("profile_id");
         set => this.WithProperty("profile_id", value);
     }
 
@@ -223,7 +223,7 @@ public class AzurermTrafficManagerNestedEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
         set => this.WithProperty("target_resource_id", value);
     }
 

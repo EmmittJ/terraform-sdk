@@ -41,7 +41,7 @@ public class GoogleIamWorkforcePoolIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleIamWorkforcePoolIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformProperty<string> WorkforcePoolId
     {
-        get => GetProperty<TerraformProperty<string>>("workforce_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workforce_pool_id");
         set => this.WithProperty("workforce_pool_id", value);
     }
 

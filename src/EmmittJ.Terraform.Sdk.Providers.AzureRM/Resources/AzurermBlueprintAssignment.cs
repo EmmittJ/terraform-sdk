@@ -41,7 +41,7 @@ public class AzurermBlueprintAssignmentIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermBlueprintAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermBlueprintAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -190,7 +190,7 @@ public class AzurermBlueprintAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetSubscriptionId is required")]
     public required TerraformProperty<string> TargetSubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("target_subscription_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_subscription_id");
         set => this.WithProperty("target_subscription_id", value);
     }
 
@@ -200,7 +200,7 @@ public class AzurermBlueprintAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionId is required")]
     public required TerraformProperty<string> VersionId
     {
-        get => GetProperty<TerraformProperty<string>>("version_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("version_id");
         set => this.WithProperty("version_id", value);
     }
 

@@ -33,7 +33,7 @@ public class AwsCognitoIdentityOpenidTokenForDeveloperIdentityEphemeralResource 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     public required TerraformProperty<string> IdentityPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_pool_id");
         set => this.WithProperty("identity_pool_id", value);
     }
 

@@ -24,7 +24,7 @@ public class AwsEfsAccessPointsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformProperty<string> FileSystemId
     {
-        get => GetProperty<TerraformProperty<string>>("file_system_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("file_system_id");
         set => this.WithProperty("file_system_id", value);
     }
 

@@ -43,7 +43,7 @@ public class AwsRekognitionCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformProperty<string> CollectionId
     {
-        get => GetProperty<TerraformProperty<string>>("collection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("collection_id");
         set => this.WithProperty("collection_id", value);
     }
 

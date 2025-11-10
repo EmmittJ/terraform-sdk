@@ -97,7 +97,7 @@ public class GoogleNetworkSecurityMirroringDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleNetworkSecurityMirroringDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringDeploymentGroupId is required")]
     public required TerraformProperty<string> MirroringDeploymentGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("mirroring_deployment_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("mirroring_deployment_group_id");
         set => this.WithProperty("mirroring_deployment_group_id", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleNetworkSecurityMirroringDeploymentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 

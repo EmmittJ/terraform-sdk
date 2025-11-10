@@ -43,7 +43,7 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     public required TerraformProperty<string> KeyRing
     {
-        get => GetProperty<TerraformProperty<string>>("key_ring");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_ring");
         set => this.WithProperty("key_ring", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

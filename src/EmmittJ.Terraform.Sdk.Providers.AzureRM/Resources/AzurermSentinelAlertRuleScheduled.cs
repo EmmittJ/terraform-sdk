@@ -58,7 +58,7 @@ public class AzurermSentinelAlertRuleScheduledEntityMappingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityType is required")]
     public required TerraformProperty<string> EntityType
     {
-        get => GetProperty<TerraformProperty<string>>("entity_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("entity_type");
         set => WithProperty("entity_type", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSentinelAlertRuleScheduledEventGroupingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AggregationMethod is required")]
     public required TerraformProperty<string> AggregationMethod
     {
-        get => GetProperty<TerraformProperty<string>>("aggregation_method");
+        get => GetRequiredProperty<TerraformProperty<string>>("aggregation_method");
         set => WithProperty("aggregation_method", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermSentinelAlertRuleScheduledIncidentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateIncidentEnabled is required")]
     public required TerraformProperty<bool> CreateIncidentEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("create_incident_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("create_incident_enabled");
         set => WithProperty("create_incident_enabled", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermSentinelAlertRuleScheduledSentinelEntityMappingBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
     public required TerraformProperty<string> ColumnName
     {
-        get => GetProperty<TerraformProperty<string>>("column_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("column_name");
         set => WithProperty("column_name", value);
     }
 
@@ -219,7 +219,7 @@ public class AzurermSentinelAlertRuleScheduled : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -247,7 +247,7 @@ public class AzurermSentinelAlertRuleScheduled : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
@@ -257,7 +257,7 @@ public class AzurermSentinelAlertRuleScheduled : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -267,7 +267,7 @@ public class AzurermSentinelAlertRuleScheduled : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetProperty<TerraformProperty<string>>("query");
+        get => GetRequiredProperty<TerraformProperty<string>>("query");
         set => this.WithProperty("query", value);
     }
 
@@ -295,7 +295,7 @@ public class AzurermSentinelAlertRuleScheduled : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformProperty<string> Severity
     {
-        get => GetProperty<TerraformProperty<string>>("severity");
+        get => GetRequiredProperty<TerraformProperty<string>>("severity");
         set => this.WithProperty("severity", value);
     }
 

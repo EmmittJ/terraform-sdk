@@ -49,7 +49,7 @@ public class AwsKeyspacesTableClientSideTimestampsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
+        get => GetRequiredProperty<TerraformProperty<string>>("status");
         set => WithProperty("status", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsKeyspacesTableTtlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
+        get => GetRequiredProperty<TerraformProperty<string>>("status");
         set => WithProperty("status", value);
     }
 
@@ -216,7 +216,7 @@ public class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyspaceName is required")]
     public required TerraformProperty<string> KeyspaceName
     {
-        get => GetProperty<TerraformProperty<string>>("keyspace_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("keyspace_name");
         set => this.WithProperty("keyspace_name", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
     }
 

@@ -25,7 +25,7 @@ public class AwsServicecatalogappregistryAttributeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attributes is required")]
     public required TerraformProperty<string> Attributes
     {
-        get => GetProperty<TerraformProperty<string>>("attributes");
+        get => GetRequiredProperty<TerraformProperty<string>>("attributes");
         set => this.WithProperty("attributes", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsServicecatalogappregistryAttributeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

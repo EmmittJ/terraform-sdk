@@ -49,7 +49,7 @@ public class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSource : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InventoryType is required")]
     public required TerraformProperty<string> InventoryType
     {
-        get => GetProperty<TerraformProperty<string>>("inventory_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("inventory_type");
         set => this.WithProperty("inventory_type", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSource : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SystemCenterVirtualMachineManagerServerId is required")]
     public required TerraformProperty<string> SystemCenterVirtualMachineManagerServerId
     {
-        get => GetProperty<TerraformProperty<string>>("system_center_virtual_machine_manager_server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("system_center_virtual_machine_manager_server_id");
         set => this.WithProperty("system_center_virtual_machine_manager_server_id", value);
     }
 

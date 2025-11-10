@@ -59,7 +59,7 @@ public class GoogleBillingProjectInfo : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     public required TerraformProperty<string> BillingAccount
     {
-        get => GetProperty<TerraformProperty<string>>("billing_account");
+        get => GetRequiredProperty<TerraformProperty<string>>("billing_account");
         set => this.WithProperty("billing_account", value);
     }
 

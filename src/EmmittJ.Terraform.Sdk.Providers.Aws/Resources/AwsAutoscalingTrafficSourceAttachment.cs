@@ -40,7 +40,7 @@ public class AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetProperty<TerraformProperty<string>>("identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
         set => WithProperty("identifier", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsAutoscalingTrafficSourceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
     public required TerraformProperty<string> AutoscalingGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("autoscaling_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("autoscaling_group_name");
         set => this.WithProperty("autoscaling_group_name", value);
     }
 

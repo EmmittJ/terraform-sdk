@@ -50,7 +50,7 @@ public class AwsEc2ClientVpnRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientVpnEndpointId is required")]
     public required TerraformProperty<string> ClientVpnEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("client_vpn_endpoint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_vpn_endpoint_id");
         set => this.WithProperty("client_vpn_endpoint_id", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsEc2ClientVpnRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
     public required TerraformProperty<string> DestinationCidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("destination_cidr_block");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_cidr_block");
         set => this.WithProperty("destination_cidr_block", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsEc2ClientVpnRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVpcSubnetId is required")]
     public required TerraformProperty<string> TargetVpcSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("target_vpc_subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_vpc_subnet_id");
         set => this.WithProperty("target_vpc_subnet_id", value);
     }
 

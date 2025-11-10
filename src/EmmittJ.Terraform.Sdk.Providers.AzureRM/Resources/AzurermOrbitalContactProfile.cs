@@ -14,7 +14,7 @@ public class AzurermOrbitalContactProfileLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformProperty<string> Direction
     {
-        get => GetProperty<TerraformProperty<string>>("direction");
+        get => GetRequiredProperty<TerraformProperty<string>>("direction");
         set => WithProperty("direction", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermOrbitalContactProfileLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermOrbitalContactProfileLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Polarization is required")]
     public required TerraformProperty<string> Polarization
     {
-        get => GetProperty<TerraformProperty<string>>("polarization");
+        get => GetRequiredProperty<TerraformProperty<string>>("polarization");
         set => WithProperty("polarization", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermOrbitalContactProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoTracking is required")]
     public required TerraformProperty<string> AutoTracking
     {
-        get => GetProperty<TerraformProperty<string>>("auto_tracking");
+        get => GetRequiredProperty<TerraformProperty<string>>("auto_tracking");
         set => this.WithProperty("auto_tracking", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermOrbitalContactProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermOrbitalContactProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumVariableContactDuration is required")]
     public required TerraformProperty<string> MinimumVariableContactDuration
     {
-        get => GetProperty<TerraformProperty<string>>("minimum_variable_contact_duration");
+        get => GetRequiredProperty<TerraformProperty<string>>("minimum_variable_contact_duration");
         set => this.WithProperty("minimum_variable_contact_duration", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermOrbitalContactProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -173,7 +173,7 @@ public class AzurermOrbitalContactProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkConfigurationSubnetId is required")]
     public required TerraformProperty<string> NetworkConfigurationSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("network_configuration_subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_configuration_subnet_id");
         set => this.WithProperty("network_configuration_subnet_id", value);
     }
 
@@ -183,7 +183,7 @@ public class AzurermOrbitalContactProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

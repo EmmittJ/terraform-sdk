@@ -14,7 +14,7 @@ public class AwsConnectQuickConnectQuickConnectConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuickConnectType is required")]
     public required TerraformProperty<string> QuickConnectType
     {
-        get => GetProperty<TerraformProperty<string>>("quick_connect_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("quick_connect_type");
         set => WithProperty("quick_connect_type", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsConnectQuickConnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsConnectQuickConnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -40,7 +40,7 @@ public class AwsNetworkfirewallLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallArn is required")]
     public required TerraformProperty<string> FirewallArn
     {
-        get => GetProperty<TerraformProperty<string>>("firewall_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("firewall_arn");
         set => this.WithProperty("firewall_arn", value);
     }
 

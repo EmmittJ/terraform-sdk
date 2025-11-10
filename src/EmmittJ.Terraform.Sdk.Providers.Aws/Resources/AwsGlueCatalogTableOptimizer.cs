@@ -14,7 +14,7 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsGlueCatalogTableOptimizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("catalog_id");
         set => this.WithProperty("catalog_id", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsGlueCatalogTableOptimizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsGlueCatalogTableOptimizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsGlueCatalogTableOptimizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

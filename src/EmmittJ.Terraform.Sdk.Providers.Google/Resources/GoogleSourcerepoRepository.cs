@@ -16,7 +16,7 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageFormat is required")]
     public required TerraformProperty<string> MessageFormat
     {
-        get => GetProperty<TerraformProperty<string>>("message_format");
+        get => GetRequiredProperty<TerraformProperty<string>>("message_format");
         set => WithProperty("message_format", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic");
         set => WithProperty("topic", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleSourcerepoRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

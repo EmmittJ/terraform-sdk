@@ -75,7 +75,7 @@ public class AzurermSpringCloudApiPortalCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermSpringCloudApiPortalCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudApiPortalId is required")]
     public required TerraformProperty<string> SpringCloudApiPortalId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_api_portal_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_api_portal_id");
         set => this.WithProperty("spring_cloud_api_portal_id", value);
     }
 

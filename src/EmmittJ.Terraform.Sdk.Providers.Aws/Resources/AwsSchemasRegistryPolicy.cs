@@ -31,7 +31,7 @@ public class AwsSchemasRegistryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsSchemasRegistryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryName is required")]
     public required TerraformProperty<string> RegistryName
     {
-        get => GetProperty<TerraformProperty<string>>("registry_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("registry_name");
         set => this.WithProperty("registry_name", value);
     }
 

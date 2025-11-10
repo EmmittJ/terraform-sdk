@@ -66,7 +66,7 @@ public class AzurermSubnetNatGatewayAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatGatewayId is required")]
     public required TerraformProperty<string> NatGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("nat_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("nat_gateway_id");
         set => this.WithProperty("nat_gateway_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSubnetNatGatewayAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

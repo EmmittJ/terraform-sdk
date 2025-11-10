@@ -30,7 +30,7 @@ public class AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkMode is required")]
     public required TerraformProperty<string> NetworkMode
     {
-        get => GetProperty<TerraformProperty<string>>("network_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_mode");
         set => WithProperty("network_mode", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsBedrockagentcoreAgentRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentRuntimeName is required")]
     public required TerraformProperty<string> AgentRuntimeName
     {
-        get => GetProperty<TerraformProperty<string>>("agent_runtime_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("agent_runtime_name");
         set => this.WithProperty("agent_runtime_name", value);
     }
 
@@ -176,7 +176,7 @@ public class AwsBedrockagentcoreAgentRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

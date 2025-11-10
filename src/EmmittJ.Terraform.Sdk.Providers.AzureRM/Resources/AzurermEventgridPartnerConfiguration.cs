@@ -23,7 +23,7 @@ public class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerName is required")]
     public required TerraformProperty<string> PartnerName
     {
-        get => GetProperty<TerraformProperty<string>>("partner_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("partner_name");
         set => WithProperty("partner_name", value);
     }
 
@@ -33,7 +33,7 @@ public class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerRegistrationId is required")]
     public required TerraformProperty<string> PartnerRegistrationId
     {
-        get => GetProperty<TerraformProperty<string>>("partner_registration_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("partner_registration_id");
         set => WithProperty("partner_registration_id", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermEventgridPartnerConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

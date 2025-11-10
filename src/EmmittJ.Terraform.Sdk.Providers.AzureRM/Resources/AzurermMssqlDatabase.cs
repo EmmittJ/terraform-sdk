@@ -24,7 +24,7 @@ public class AzurermMssqlDatabaseIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorLogin is required")]
     public required TerraformProperty<string> AdministratorLogin
     {
-        get => GetProperty<TerraformProperty<string>>("administrator_login");
+        get => GetRequiredProperty<TerraformProperty<string>>("administrator_login");
         set => WithProperty("administrator_login", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorLoginPassword is required")]
     public required TerraformProperty<string> AdministratorLoginPassword
     {
-        get => GetProperty<TerraformProperty<string>>("administrator_login_password");
+        get => GetRequiredProperty<TerraformProperty<string>>("administrator_login_password");
         set => WithProperty("administrator_login_password", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformProperty<string> AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication_type");
         set => WithProperty("authentication_type", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageKey is required")]
     public required TerraformProperty<string> StorageKey
     {
-        get => GetProperty<TerraformProperty<string>>("storage_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_key");
         set => WithProperty("storage_key", value);
     }
 
@@ -91,7 +91,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageKeyType is required")]
     public required TerraformProperty<string> StorageKeyType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_key_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_key_type");
         set => WithProperty("storage_key_type", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageUri is required")]
     public required TerraformProperty<string> StorageUri
     {
-        get => GetProperty<TerraformProperty<string>>("storage_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_uri");
         set => WithProperty("storage_uri", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDays is required")]
     public required TerraformProperty<double> RetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_days");
+        get => GetRequiredProperty<TerraformProperty<double>>("retention_days");
         set => WithProperty("retention_days", value);
     }
 
@@ -440,7 +440,7 @@ public class AzurermMssqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -531,7 +531,7 @@ public class AzurermMssqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformProperty<string> ServerId
     {
-        get => GetProperty<TerraformProperty<string>>("server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
     }
 

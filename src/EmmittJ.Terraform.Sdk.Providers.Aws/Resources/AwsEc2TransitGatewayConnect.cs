@@ -120,7 +120,7 @@ public class AwsEc2TransitGatewayConnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
     public required TerraformProperty<string> TransitGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("transit_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_id");
         set => this.WithProperty("transit_gateway_id", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsEc2TransitGatewayConnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransportAttachmentId is required")]
     public required TerraformProperty<string> TransportAttachmentId
     {
-        get => GetProperty<TerraformProperty<string>>("transport_attachment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("transport_attachment_id");
         set => this.WithProperty("transport_attachment_id", value);
     }
 

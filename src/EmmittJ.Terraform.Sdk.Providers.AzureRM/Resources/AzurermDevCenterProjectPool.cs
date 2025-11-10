@@ -66,7 +66,7 @@ public class AzurermDevCenterProjectPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevBoxDefinitionName is required")]
     public required TerraformProperty<string> DevBoxDefinitionName
     {
-        get => GetProperty<TerraformProperty<string>>("dev_box_definition_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("dev_box_definition_name");
         set => this.WithProperty("dev_box_definition_name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermDevCenterProjectPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterAttachedNetworkName is required")]
     public required TerraformProperty<string> DevCenterAttachedNetworkName
     {
-        get => GetProperty<TerraformProperty<string>>("dev_center_attached_network_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("dev_center_attached_network_name");
         set => this.WithProperty("dev_center_attached_network_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermDevCenterProjectPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
     public required TerraformProperty<string> DevCenterProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("dev_center_project_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dev_center_project_id");
         set => this.WithProperty("dev_center_project_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermDevCenterProjectPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalAdministratorEnabled is required")]
     public required TerraformProperty<bool> LocalAdministratorEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("local_administrator_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("local_administrator_enabled");
         set => this.WithProperty("local_administrator_enabled", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermDevCenterProjectPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermDevCenterProjectPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

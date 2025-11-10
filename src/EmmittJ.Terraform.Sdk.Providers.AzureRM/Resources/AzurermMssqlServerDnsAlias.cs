@@ -67,7 +67,7 @@ public class AzurermMssqlServerDnsAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MssqlServerId is required")]
     public required TerraformProperty<string> MssqlServerId
     {
-        get => GetProperty<TerraformProperty<string>>("mssql_server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("mssql_server_id");
         set => this.WithProperty("mssql_server_id", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermMssqlServerDnsAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

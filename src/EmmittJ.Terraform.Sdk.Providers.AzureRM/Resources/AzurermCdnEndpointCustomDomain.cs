@@ -14,7 +14,7 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateType is required")]
     public required TerraformProperty<string> CertificateType
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_type");
         set => WithProperty("certificate_type", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolType is required")]
     public required TerraformProperty<string> ProtocolType
     {
-        get => GetProperty<TerraformProperty<string>>("protocol_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol_type");
         set => WithProperty("protocol_type", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultSecretId is required")]
     public required TerraformProperty<string> KeyVaultSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_secret_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_secret_id");
         set => WithProperty("key_vault_secret_id", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnEndpointId is required")]
     public required TerraformProperty<string> CdnEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("cdn_endpoint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cdn_endpoint_id");
         set => this.WithProperty("cdn_endpoint_id", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetProperty<TerraformProperty<string>>("host_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
         set => this.WithProperty("host_name", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

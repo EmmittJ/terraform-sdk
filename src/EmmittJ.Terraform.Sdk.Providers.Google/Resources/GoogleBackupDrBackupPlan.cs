@@ -14,7 +14,7 @@ public class GoogleBackupDrBackupPlanBackupRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRetentionDays is required")]
     public required TerraformProperty<double> BackupRetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("backup_retention_days");
+        get => GetRequiredProperty<TerraformProperty<double>>("backup_retention_days");
         set => WithProperty("backup_retention_days", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleBackupDrBackupPlanBackupRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
     public required TerraformProperty<string> RuleId
     {
-        get => GetProperty<TerraformProperty<string>>("rule_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_id");
         set => WithProperty("rule_id", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleBackupDrBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanId is required")]
     public required TerraformProperty<string> BackupPlanId
     {
-        get => GetProperty<TerraformProperty<string>>("backup_plan_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_plan_id");
         set => this.WithProperty("backup_plan_id", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleBackupDrBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVault is required")]
     public required TerraformProperty<string> BackupVault
     {
-        get => GetProperty<TerraformProperty<string>>("backup_vault");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_vault");
         set => this.WithProperty("backup_vault", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleBackupDrBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -158,7 +158,7 @@ public class GoogleBackupDrBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
     }
 

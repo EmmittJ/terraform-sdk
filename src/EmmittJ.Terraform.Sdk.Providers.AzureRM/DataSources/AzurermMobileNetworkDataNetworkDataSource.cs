@@ -51,7 +51,7 @@ public class AzurermMobileNetworkDataNetworkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     public required TerraformProperty<string> MobileNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("mobile_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("mobile_network_id");
         set => this.WithProperty("mobile_network_id", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermMobileNetworkDataNetworkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

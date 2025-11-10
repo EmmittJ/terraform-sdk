@@ -58,7 +58,7 @@ public class GoogleManagedKafkaTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetProperty<TerraformProperty<string>>("cluster");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleManagedKafkaTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -114,7 +114,7 @@ public class GoogleManagedKafkaTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFactor is required")]
     public required TerraformProperty<double> ReplicationFactor
     {
-        get => GetProperty<TerraformProperty<double>>("replication_factor");
+        get => GetRequiredProperty<TerraformProperty<double>>("replication_factor");
         set => this.WithProperty("replication_factor", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleManagedKafkaTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicId is required")]
     public required TerraformProperty<string> TopicId
     {
-        get => GetProperty<TerraformProperty<string>>("topic_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic_id");
         set => this.WithProperty("topic_id", value);
     }
 

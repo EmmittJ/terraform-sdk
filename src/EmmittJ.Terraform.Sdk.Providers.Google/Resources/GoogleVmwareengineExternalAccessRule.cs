@@ -114,7 +114,7 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpProtocol is required")]
     public required TerraformProperty<string> IpProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("ip_protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_protocol");
         set => this.WithProperty("ip_protocol", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -184,7 +184,7 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 

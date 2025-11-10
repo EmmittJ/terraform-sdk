@@ -49,7 +49,7 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformProperty<string> AgentId
     {
-        get => GetProperty<TerraformProperty<string>>("agent_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("agent_id");
         set => this.WithProperty("agent_id", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnowledgeBaseId is required")]
     public required TerraformProperty<string> KnowledgeBaseId
     {
-        get => GetProperty<TerraformProperty<string>>("knowledge_base_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("knowledge_base_id");
         set => this.WithProperty("knowledge_base_id", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnowledgeBaseState is required")]
     public required TerraformProperty<string> KnowledgeBaseState
     {
-        get => GetProperty<TerraformProperty<string>>("knowledge_base_state");
+        get => GetRequiredProperty<TerraformProperty<string>>("knowledge_base_state");
         set => this.WithProperty("knowledge_base_state", value);
     }
 

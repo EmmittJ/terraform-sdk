@@ -83,7 +83,7 @@ public class GoogleGeminiLoggingSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleGeminiLoggingSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoggingSettingId is required")]
     public required TerraformProperty<string> LoggingSettingId
     {
-        get => GetProperty<TerraformProperty<string>>("logging_setting_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("logging_setting_id");
         set => this.WithProperty("logging_setting_id", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermVpnServerConfigurationAzureActiveDirectoryAuthenticationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Audience is required")]
     public required TerraformProperty<string> Audience
     {
-        get => GetProperty<TerraformProperty<string>>("audience");
+        get => GetRequiredProperty<TerraformProperty<string>>("audience");
         set => WithProperty("audience", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermVpnServerConfigurationAzureActiveDirectoryAuthenticationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformProperty<string> Issuer
     {
-        get => GetProperty<TerraformProperty<string>>("issuer");
+        get => GetRequiredProperty<TerraformProperty<string>>("issuer");
         set => WithProperty("issuer", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermVpnServerConfigurationAzureActiveDirectoryAuthenticationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tenant is required")]
     public required TerraformProperty<string> Tenant
     {
-        get => GetProperty<TerraformProperty<string>>("tenant");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant");
         set => WithProperty("tenant", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermVpnServerConfigurationClientRevokedCertificateBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermVpnServerConfigurationClientRevokedCertificateBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
     public required TerraformProperty<string> Thumbprint
     {
-        get => GetProperty<TerraformProperty<string>>("thumbprint");
+        get => GetRequiredProperty<TerraformProperty<string>>("thumbprint");
         set => WithProperty("thumbprint", value);
     }
 
@@ -80,7 +80,7 @@ public class AzurermVpnServerConfigurationClientRootCertificateBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -90,7 +90,7 @@ public class AzurermVpnServerConfigurationClientRootCertificateBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicCertData is required")]
     public required TerraformProperty<string> PublicCertData
     {
-        get => GetProperty<TerraformProperty<string>>("public_cert_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("public_cert_data");
         set => WithProperty("public_cert_data", value);
     }
 
@@ -108,7 +108,7 @@ public class AzurermVpnServerConfigurationIpsecPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DhGroup is required")]
     public required TerraformProperty<string> DhGroup
     {
-        get => GetProperty<TerraformProperty<string>>("dh_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("dh_group");
         set => WithProperty("dh_group", value);
     }
 
@@ -118,7 +118,7 @@ public class AzurermVpnServerConfigurationIpsecPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IkeEncryption is required")]
     public required TerraformProperty<string> IkeEncryption
     {
-        get => GetProperty<TerraformProperty<string>>("ike_encryption");
+        get => GetRequiredProperty<TerraformProperty<string>>("ike_encryption");
         set => WithProperty("ike_encryption", value);
     }
 
@@ -128,7 +128,7 @@ public class AzurermVpnServerConfigurationIpsecPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IkeIntegrity is required")]
     public required TerraformProperty<string> IkeIntegrity
     {
-        get => GetProperty<TerraformProperty<string>>("ike_integrity");
+        get => GetRequiredProperty<TerraformProperty<string>>("ike_integrity");
         set => WithProperty("ike_integrity", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermVpnServerConfigurationIpsecPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpsecEncryption is required")]
     public required TerraformProperty<string> IpsecEncryption
     {
-        get => GetProperty<TerraformProperty<string>>("ipsec_encryption");
+        get => GetRequiredProperty<TerraformProperty<string>>("ipsec_encryption");
         set => WithProperty("ipsec_encryption", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermVpnServerConfigurationIpsecPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpsecIntegrity is required")]
     public required TerraformProperty<string> IpsecIntegrity
     {
-        get => GetProperty<TerraformProperty<string>>("ipsec_integrity");
+        get => GetRequiredProperty<TerraformProperty<string>>("ipsec_integrity");
         set => WithProperty("ipsec_integrity", value);
     }
 
@@ -158,7 +158,7 @@ public class AzurermVpnServerConfigurationIpsecPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfsGroup is required")]
     public required TerraformProperty<string> PfsGroup
     {
-        get => GetProperty<TerraformProperty<string>>("pfs_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("pfs_group");
         set => WithProperty("pfs_group", value);
     }
 
@@ -168,7 +168,7 @@ public class AzurermVpnServerConfigurationIpsecPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SaDataSizeKilobytes is required")]
     public required TerraformProperty<double> SaDataSizeKilobytes
     {
-        get => GetProperty<TerraformProperty<double>>("sa_data_size_kilobytes");
+        get => GetRequiredProperty<TerraformProperty<double>>("sa_data_size_kilobytes");
         set => WithProperty("sa_data_size_kilobytes", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermVpnServerConfigurationIpsecPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SaLifetimeSeconds is required")]
     public required TerraformProperty<double> SaLifetimeSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("sa_lifetime_seconds");
+        get => GetRequiredProperty<TerraformProperty<double>>("sa_lifetime_seconds");
         set => WithProperty("sa_lifetime_seconds", value);
     }
 
@@ -266,7 +266,7 @@ public class AzurermVpnServerConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -276,7 +276,7 @@ public class AzurermVpnServerConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -286,7 +286,7 @@ public class AzurermVpnServerConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

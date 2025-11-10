@@ -37,7 +37,7 @@ public class GoogleMonitoringMeshIstioServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshUid is required")]
     public required TerraformProperty<string> MeshUid
     {
-        get => GetProperty<TerraformProperty<string>>("mesh_uid");
+        get => GetRequiredProperty<TerraformProperty<string>>("mesh_uid");
         set => this.WithProperty("mesh_uid", value);
     }
 
@@ -57,7 +57,7 @@ public class GoogleMonitoringMeshIstioServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleMonitoringMeshIstioServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     public required TerraformProperty<string> ServiceNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("service_namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_namespace");
         set => this.WithProperty("service_namespace", value);
     }
 

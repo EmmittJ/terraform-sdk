@@ -22,7 +22,7 @@ public class AwsIamGroupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformProperty<string> Group
     {
-        get => GetProperty<TerraformProperty<string>>("group");
+        get => GetRequiredProperty<TerraformProperty<string>>("group");
         set => this.WithProperty("group", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsIamGroupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 

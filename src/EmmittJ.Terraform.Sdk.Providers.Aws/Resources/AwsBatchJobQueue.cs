@@ -14,7 +14,7 @@ public class AwsBatchJobQueueComputeEnvironmentOrderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeEnvironment is required")]
     public required TerraformProperty<string> ComputeEnvironment
     {
-        get => GetProperty<TerraformProperty<string>>("compute_environment");
+        get => GetRequiredProperty<TerraformProperty<string>>("compute_environment");
         set => WithProperty("compute_environment", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsBatchJobQueueComputeEnvironmentOrderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetProperty<TerraformProperty<double>>("order");
+        get => GetRequiredProperty<TerraformProperty<double>>("order");
         set => WithProperty("order", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => WithProperty("action", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxTimeSeconds is required")]
     public required TerraformProperty<double> MaxTimeSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("max_time_seconds");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_time_seconds");
         set => WithProperty("max_time_seconds", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reason is required")]
     public required TerraformProperty<string> Reason
     {
-        get => GetProperty<TerraformProperty<string>>("reason");
+        get => GetRequiredProperty<TerraformProperty<string>>("reason");
         set => WithProperty("reason", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
+        get => GetRequiredProperty<TerraformProperty<string>>("state");
         set => WithProperty("state", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsBatchJobQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsBatchJobQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsBatchJobQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
+        get => GetRequiredProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
     }
 

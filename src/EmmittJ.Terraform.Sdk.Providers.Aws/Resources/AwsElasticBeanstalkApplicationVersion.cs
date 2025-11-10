@@ -23,7 +23,7 @@ public class AwsElasticBeanstalkApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Application is required")]
     public required TerraformProperty<string> Application
     {
-        get => GetProperty<TerraformProperty<string>>("application");
+        get => GetRequiredProperty<TerraformProperty<string>>("application");
         set => this.WithProperty("application", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsElasticBeanstalkApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsElasticBeanstalkApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsElasticBeanstalkApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -33,7 +33,7 @@ public class AwsSecurityhubStandardsControlAssociationsDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityControlId is required")]
     public required TerraformProperty<string> SecurityControlId
     {
-        get => GetProperty<TerraformProperty<string>>("security_control_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_control_id");
         set => this.WithProperty("security_control_id", value);
     }
 

@@ -74,7 +74,7 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformProperty<string> EnvId
     {
-        get => GetProperty<TerraformProperty<string>>("env_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("env_id");
         set => this.WithProperty("env_id", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformProperty<string> ProjectName
     {
-        get => GetProperty<TerraformProperty<string>>("project_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_name");
         set => this.WithProperty("project_name", value);
     }
 
@@ -112,7 +112,7 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
     public required TerraformProperty<string> SpaceName
     {
-        get => GetProperty<TerraformProperty<string>>("space_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("space_name");
         set => this.WithProperty("space_name", value);
     }
 

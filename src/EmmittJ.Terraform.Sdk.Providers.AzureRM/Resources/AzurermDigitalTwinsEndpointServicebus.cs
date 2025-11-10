@@ -75,7 +75,7 @@ public class AzurermDigitalTwinsEndpointServicebus : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     public required TerraformProperty<string> DigitalTwinsId
     {
-        get => GetProperty<TerraformProperty<string>>("digital_twins_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("digital_twins_id");
         set => this.WithProperty("digital_twins_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermDigitalTwinsEndpointServicebus : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermDigitalTwinsEndpointServicebus : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicebusPrimaryConnectionString is required")]
     public required TerraformProperty<string> ServicebusPrimaryConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("servicebus_primary_connection_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("servicebus_primary_connection_string");
         set => this.WithProperty("servicebus_primary_connection_string", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermDigitalTwinsEndpointServicebus : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicebusSecondaryConnectionString is required")]
     public required TerraformProperty<string> ServicebusSecondaryConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("servicebus_secondary_connection_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("servicebus_secondary_connection_string");
         set => this.WithProperty("servicebus_secondary_connection_string", value);
     }
 

@@ -41,7 +41,7 @@ public class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => WithProperty("location", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Codecs is required")]
     public required TerraformProperty<string> Codecs
     {
-        get => GetProperty<TerraformProperty<string>>("codecs");
+        get => GetRequiredProperty<TerraformProperty<string>>("codecs");
         set => this.WithProperty("codecs", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Connectivity is required")]
     public required TerraformProperty<string> Connectivity
     {
-        get => GetProperty<TerraformProperty<string>>("connectivity");
+        get => GetRequiredProperty<TerraformProperty<string>>("connectivity");
         set => this.WithProperty("connectivity", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "E911Type is required")]
     public required TerraformProperty<string> E911Type
     {
-        get => GetProperty<TerraformProperty<string>>("e911_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("e911_type");
         set => this.WithProperty("e911_type", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -207,7 +207,7 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -236,7 +236,7 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -27,7 +27,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Recommendation is required")]
     public required TerraformProperty<string> Recommendation
     {
-        get => GetProperty<TerraformProperty<string>>("recommendation");
+        get => GetRequiredProperty<TerraformProperty<string>>("recommendation");
         set => WithProperty("recommendation", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformProperty<string> Severity
     {
-        get => GetProperty<TerraformProperty<string>>("severity");
+        get => GetRequiredProperty<TerraformProperty<string>>("severity");
         set => WithProperty("severity", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleSccFolderCustomModule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleSccFolderCustomModule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablementState is required")]
     public required TerraformProperty<string> EnablementState
     {
-        get => GetProperty<TerraformProperty<string>>("enablement_state");
+        get => GetRequiredProperty<TerraformProperty<string>>("enablement_state");
         set => this.WithProperty("enablement_state", value);
     }
 
@@ -127,7 +127,7 @@ public class GoogleSccFolderCustomModule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
+        get => GetRequiredProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 

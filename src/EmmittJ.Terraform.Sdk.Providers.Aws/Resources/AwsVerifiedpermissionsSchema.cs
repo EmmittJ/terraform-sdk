@@ -14,7 +14,7 @@ public class AwsVerifiedpermissionsSchemaDefinitionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsVerifiedpermissionsSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
     public required TerraformProperty<string> PolicyStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_store_id");
         set => this.WithProperty("policy_store_id", value);
     }
 

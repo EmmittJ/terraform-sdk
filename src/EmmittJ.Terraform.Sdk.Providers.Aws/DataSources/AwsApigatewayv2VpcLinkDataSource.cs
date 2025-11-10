@@ -53,7 +53,7 @@ public class AwsApigatewayv2VpcLinkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcLinkId is required")]
     public required TerraformProperty<string> VpcLinkId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_link_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_link_id");
         set => this.WithProperty("vpc_link_id", value);
     }
 

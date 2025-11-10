@@ -28,7 +28,7 @@ public class AwsLexBotAliasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformProperty<string> BotName
     {
-        get => GetProperty<TerraformProperty<string>>("bot_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_name");
         set => this.WithProperty("bot_name", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsLexBotAliasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

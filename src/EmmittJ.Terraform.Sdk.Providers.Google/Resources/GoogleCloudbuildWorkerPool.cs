@@ -14,7 +14,7 @@ public class GoogleCloudbuildWorkerPoolNetworkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeredNetwork is required")]
     public required TerraformProperty<string> PeeredNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("peered_network");
+        get => GetRequiredProperty<TerraformProperty<string>>("peered_network");
         set => WithProperty("peered_network", value);
     }
 
@@ -41,7 +41,7 @@ public class GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkAttachment is required")]
     public required TerraformProperty<string> NetworkAttachment
     {
-        get => GetProperty<TerraformProperty<string>>("network_attachment");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_attachment");
         set => WithProperty("network_attachment", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleCloudbuildWorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleCloudbuildWorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

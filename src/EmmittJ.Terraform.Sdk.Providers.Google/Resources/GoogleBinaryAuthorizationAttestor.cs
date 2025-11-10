@@ -37,7 +37,7 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoteReference is required")]
     public required TerraformProperty<string> NoteReference
     {
-        get => GetProperty<TerraformProperty<string>>("note_reference");
+        get => GetRequiredProperty<TerraformProperty<string>>("note_reference");
         set => WithProperty("note_reference", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleBinaryAuthorizationAttestor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

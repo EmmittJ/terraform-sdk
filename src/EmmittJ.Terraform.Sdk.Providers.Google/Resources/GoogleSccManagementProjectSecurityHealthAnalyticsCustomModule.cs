@@ -27,7 +27,7 @@ public class GoogleSccManagementProjectSecurityHealthAnalyticsCustomModuleCustom
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Recommendation is required")]
     public required TerraformProperty<string> Recommendation
     {
-        get => GetProperty<TerraformProperty<string>>("recommendation");
+        get => GetRequiredProperty<TerraformProperty<string>>("recommendation");
         set => WithProperty("recommendation", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleSccManagementProjectSecurityHealthAnalyticsCustomModuleCustom
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformProperty<string> Severity
     {
-        get => GetProperty<TerraformProperty<string>>("severity");
+        get => GetRequiredProperty<TerraformProperty<string>>("severity");
         set => WithProperty("severity", value);
     }
 

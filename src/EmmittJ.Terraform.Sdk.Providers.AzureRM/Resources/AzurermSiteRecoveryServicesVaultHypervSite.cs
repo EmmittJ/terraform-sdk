@@ -66,7 +66,7 @@ public class AzurermSiteRecoveryServicesVaultHypervSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSiteRecoveryServicesVaultHypervSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformProperty<string> RecoveryVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_id");
         set => this.WithProperty("recovery_vault_id", value);
     }
 

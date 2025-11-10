@@ -23,7 +23,7 @@ public class AwsIotAuthorizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerFunctionArn is required")]
     public required TerraformProperty<string> AuthorizerFunctionArn
     {
-        get => GetProperty<TerraformProperty<string>>("authorizer_function_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("authorizer_function_arn");
         set => this.WithProperty("authorizer_function_arn", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsIotAuthorizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

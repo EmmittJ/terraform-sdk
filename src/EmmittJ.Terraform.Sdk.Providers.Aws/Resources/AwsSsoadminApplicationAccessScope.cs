@@ -23,7 +23,7 @@ public class AwsSsoadminApplicationAccessScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationArn is required")]
     public required TerraformProperty<string> ApplicationArn
     {
-        get => GetProperty<TerraformProperty<string>>("application_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_arn");
         set => this.WithProperty("application_arn", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsSsoadminApplicationAccessScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

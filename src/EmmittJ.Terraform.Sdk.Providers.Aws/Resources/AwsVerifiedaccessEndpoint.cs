@@ -14,7 +14,7 @@ public class AwsVerifiedaccessEndpointCidrOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
     public required TerraformProperty<string> Cidr
     {
-        get => GetProperty<TerraformProperty<string>>("cidr");
+        get => GetRequiredProperty<TerraformProperty<string>>("cidr");
         set => WithProperty("cidr", value);
     }
 
@@ -282,7 +282,7 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentType is required")]
     public required TerraformProperty<string> AttachmentType
     {
-        get => GetProperty<TerraformProperty<string>>("attachment_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("attachment_type");
         set => this.WithProperty("attachment_type", value);
     }
 
@@ -319,7 +319,7 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformProperty<string> EndpointType
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_type");
         set => this.WithProperty("endpoint_type", value);
     }
 
@@ -383,7 +383,7 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedAccessGroupId is required")]
     public required TerraformProperty<string> VerifiedAccessGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("verified_access_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("verified_access_group_id");
         set => this.WithProperty("verified_access_group_id", value);
     }
 

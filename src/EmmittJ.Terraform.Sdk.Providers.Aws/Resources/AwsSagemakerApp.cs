@@ -77,7 +77,7 @@ public class AwsSagemakerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
     public required TerraformProperty<string> AppName
     {
-        get => GetProperty<TerraformProperty<string>>("app_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_name");
         set => this.WithProperty("app_name", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsSagemakerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppType is required")]
     public required TerraformProperty<string> AppType
     {
-        get => GetProperty<TerraformProperty<string>>("app_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_type");
         set => this.WithProperty("app_type", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsSagemakerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformProperty<string> DomainId
     {
-        get => GetProperty<TerraformProperty<string>>("domain_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_id");
         set => this.WithProperty("domain_id", value);
     }
 

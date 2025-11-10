@@ -99,7 +99,7 @@ public class AzurermServicebusQueueAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -109,7 +109,7 @@ public class AzurermServicebusQueueAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueId is required")]
     public required TerraformProperty<string> QueueId
     {
-        get => GetProperty<TerraformProperty<string>>("queue_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("queue_id");
         set => this.WithProperty("queue_id", value);
     }
 

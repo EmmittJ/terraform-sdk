@@ -23,7 +23,7 @@ public class AwsPrometheusRuleGroupNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Data is required")]
     public required TerraformProperty<string> Data
     {
-        get => GetProperty<TerraformProperty<string>>("data");
+        get => GetRequiredProperty<TerraformProperty<string>>("data");
         set => this.WithProperty("data", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsPrometheusRuleGroupNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsPrometheusRuleGroupNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

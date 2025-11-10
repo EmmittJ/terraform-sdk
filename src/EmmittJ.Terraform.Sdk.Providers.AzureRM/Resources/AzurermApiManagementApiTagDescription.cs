@@ -66,7 +66,7 @@ public class AzurermApiManagementApiTagDescription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiTagId is required")]
     public required TerraformProperty<string> ApiTagId
     {
-        get => GetProperty<TerraformProperty<string>>("api_tag_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_tag_id");
         set => this.WithProperty("api_tag_id", value);
     }
 

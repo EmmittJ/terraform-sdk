@@ -61,7 +61,7 @@ public class AwsVpclatticeServiceNetworkResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceConfigurationIdentifier is required")]
     public required TerraformProperty<string> ResourceConfigurationIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("resource_configuration_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_configuration_identifier");
         set => this.WithProperty("resource_configuration_identifier", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsVpclatticeServiceNetworkResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNetworkIdentifier is required")]
     public required TerraformProperty<string> ServiceNetworkIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("service_network_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_network_identifier");
         set => this.WithProperty("service_network_identifier", value);
     }
 

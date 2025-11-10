@@ -24,7 +24,7 @@ public class GoogleIapWebRegionForwardingRuleServiceIamPolicyDataSource : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRuleRegionServiceName is required")]
     public required TerraformProperty<string> ForwardingRuleRegionServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("forwarding_rule_region_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("forwarding_rule_region_service_name");
         set => this.WithProperty("forwarding_rule_region_service_name", value);
     }
 

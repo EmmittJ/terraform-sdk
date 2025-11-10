@@ -14,7 +14,7 @@ public class AwsAppconfigExtensionActionPointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Point is required")]
     public required TerraformProperty<string> Point
     {
-        get => GetProperty<TerraformProperty<string>>("point");
+        get => GetRequiredProperty<TerraformProperty<string>>("point");
         set => WithProperty("point", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsAppconfigExtensionParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsAppconfigExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

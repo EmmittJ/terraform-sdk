@@ -66,7 +66,7 @@ public class AwsNetworkInterfaceSgAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsNetworkInterfaceSgAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
     public required TerraformProperty<string> SecurityGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("security_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_group_id");
         set => this.WithProperty("security_group_id", value);
     }
 

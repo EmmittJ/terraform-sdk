@@ -61,7 +61,7 @@ public class GoogleResourceManagerLien : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
     public required TerraformProperty<string> Origin
     {
-        get => GetProperty<TerraformProperty<string>>("origin");
+        get => GetRequiredProperty<TerraformProperty<string>>("origin");
         set => this.WithProperty("origin", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleResourceManagerLien : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleResourceManagerLien : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reason is required")]
     public required TerraformProperty<string> Reason
     {
-        get => GetProperty<TerraformProperty<string>>("reason");
+        get => GetRequiredProperty<TerraformProperty<string>>("reason");
         set => this.WithProperty("reason", value);
     }
 

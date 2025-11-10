@@ -66,7 +66,7 @@ public class AzurermSynapseFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndIpAddress is required")]
     public required TerraformProperty<string> EndIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("end_ip_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("end_ip_address");
         set => this.WithProperty("end_ip_address", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermSynapseFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermSynapseFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartIpAddress is required")]
     public required TerraformProperty<string> StartIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("start_ip_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("start_ip_address");
         set => this.WithProperty("start_ip_address", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermSynapseFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
     }
 

@@ -58,7 +58,7 @@ public class AwsCloudcontrolapiResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredState is required")]
     public required TerraformProperty<string> DesiredState
     {
-        get => GetProperty<TerraformProperty<string>>("desired_state");
+        get => GetRequiredProperty<TerraformProperty<string>>("desired_state");
         set => this.WithProperty("desired_state", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsCloudcontrolapiResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeName is required")]
     public required TerraformProperty<string> TypeName
     {
-        get => GetProperty<TerraformProperty<string>>("type_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("type_name");
         set => this.WithProperty("type_name", value);
     }
 

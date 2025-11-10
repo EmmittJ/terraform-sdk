@@ -77,7 +77,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxVcpus is required")]
     public required TerraformProperty<double> MaxVcpus
     {
-        get => GetProperty<TerraformProperty<double>>("max_vcpus");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_vcpus");
         set => WithProperty("max_vcpus", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsBatchComputeEnvironmentComputeResourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsBatchComputeEnvironmentEksConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EksClusterArn is required")]
     public required TerraformProperty<string> EksClusterArn
     {
-        get => GetProperty<TerraformProperty<string>>("eks_cluster_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("eks_cluster_arn");
         set => WithProperty("eks_cluster_arn", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsBatchComputeEnvironmentEksConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesNamespace is required")]
     public required TerraformProperty<string> KubernetesNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("kubernetes_namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("kubernetes_namespace");
         set => WithProperty("kubernetes_namespace", value);
     }
 
@@ -299,7 +299,7 @@ public class AwsBatchComputeEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

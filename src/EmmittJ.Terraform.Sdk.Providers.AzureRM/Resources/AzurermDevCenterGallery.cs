@@ -57,7 +57,7 @@ public class AzurermDevCenterGallery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
     public required TerraformProperty<string> DevCenterId
     {
-        get => GetProperty<TerraformProperty<string>>("dev_center_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dev_center_id");
         set => this.WithProperty("dev_center_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermDevCenterGallery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermDevCenterGallery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedGalleryId is required")]
     public required TerraformProperty<string> SharedGalleryId
     {
-        get => GetProperty<TerraformProperty<string>>("shared_gallery_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("shared_gallery_id");
         set => this.WithProperty("shared_gallery_id", value);
     }
 

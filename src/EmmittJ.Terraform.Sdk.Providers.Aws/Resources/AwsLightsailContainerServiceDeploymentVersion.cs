@@ -23,7 +23,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
         set => WithProperty("container_name", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformProperty<string> Image
     {
-        get => GetProperty<TerraformProperty<string>>("image");
+        get => GetRequiredProperty<TerraformProperty<string>>("image");
         set => WithProperty("image", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
         set => WithProperty("container_name", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerPort is required")]
     public required TerraformProperty<double> ContainerPort
     {
-        get => GetProperty<TerraformProperty<double>>("container_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("container_port");
         set => WithProperty("container_port", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsLightsailContainerServiceDeploymentVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
     }
 

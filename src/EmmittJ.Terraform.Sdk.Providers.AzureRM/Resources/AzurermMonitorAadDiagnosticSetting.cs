@@ -14,7 +14,7 @@ public class AzurermMonitorAadDiagnosticSettingEnabledLogBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformProperty<string> Category
     {
-        get => GetProperty<TerraformProperty<string>>("category");
+        get => GetRequiredProperty<TerraformProperty<string>>("category");
         set => WithProperty("category", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermMonitorAadDiagnosticSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

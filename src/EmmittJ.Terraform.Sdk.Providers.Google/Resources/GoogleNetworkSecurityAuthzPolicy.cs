@@ -40,7 +40,7 @@ public class GoogleNetworkSecurityAuthzPolicyTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingScheme is required")]
     public required TerraformProperty<string> LoadBalancingScheme
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancing_scheme");
+        get => GetRequiredProperty<TerraformProperty<string>>("load_balancing_scheme");
         set => WithProperty("load_balancing_scheme", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleNetworkSecurityAuthzPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
@@ -164,7 +164,7 @@ public class GoogleNetworkSecurityAuthzPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleNetworkSecurityAuthzPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

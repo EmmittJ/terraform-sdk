@@ -238,7 +238,7 @@ public class AwsCloudformationStackInstances : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackSetName is required")]
     public required TerraformProperty<string> StackSetName
     {
-        get => GetProperty<TerraformProperty<string>>("stack_set_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stack_set_name");
         set => this.WithProperty("stack_set_name", value);
     }
 

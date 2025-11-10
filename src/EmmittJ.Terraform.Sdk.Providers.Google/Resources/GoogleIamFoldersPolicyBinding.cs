@@ -151,7 +151,7 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
+        get => GetRequiredProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 
@@ -190,7 +190,7 @@ public class GoogleIamFoldersPolicyBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyBindingId is required")]
     public required TerraformProperty<string> PolicyBindingId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_binding_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_binding_id");
         set => this.WithProperty("policy_binding_id", value);
     }
 

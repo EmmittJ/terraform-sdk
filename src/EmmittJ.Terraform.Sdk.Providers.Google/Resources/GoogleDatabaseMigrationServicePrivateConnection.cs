@@ -49,7 +49,7 @@ public class GoogleDatabaseMigrationServicePrivateConnectionVpcPeeringConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnet is required")]
     public required TerraformProperty<string> Subnet
     {
-        get => GetProperty<TerraformProperty<string>>("subnet");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet");
         set => WithProperty("subnet", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleDatabaseMigrationServicePrivateConnectionVpcPeeringConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcName is required")]
     public required TerraformProperty<string> VpcName
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_name");
         set => WithProperty("vpc_name", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleDatabaseMigrationServicePrivateConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleDatabaseMigrationServicePrivateConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateConnectionId is required")]
     public required TerraformProperty<string> PrivateConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("private_connection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("private_connection_id");
         set => this.WithProperty("private_connection_id", value);
     }
 

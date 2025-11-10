@@ -41,7 +41,7 @@ public class AzurermManagementGroupPolicyAssignmentIdentityBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermManagementGroupPolicyAssignmentNonComplianceMessageBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => WithProperty("content", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermManagementGroupPolicyAssignmentOverridesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -219,7 +219,7 @@ public class AzurermManagementGroupPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformProperty<string> ManagementGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("management_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("management_group_id");
         set => this.WithProperty("management_group_id", value);
     }
 
@@ -238,7 +238,7 @@ public class AzurermManagementGroupPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -266,7 +266,7 @@ public class AzurermManagementGroupPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDefinitionId is required")]
     public required TerraformProperty<string> PolicyDefinitionId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_definition_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_definition_id");
         set => this.WithProperty("policy_definition_id", value);
     }
 

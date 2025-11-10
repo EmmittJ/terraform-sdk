@@ -25,7 +25,7 @@ public class AwsAppfabricIngestion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "App is required")]
     public required TerraformProperty<string> App
     {
-        get => GetProperty<TerraformProperty<string>>("app");
+        get => GetRequiredProperty<TerraformProperty<string>>("app");
         set => this.WithProperty("app", value);
     }
 
@@ -35,7 +35,7 @@ public class AwsAppfabricIngestion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
     public required TerraformProperty<string> AppBundleArn
     {
-        get => GetProperty<TerraformProperty<string>>("app_bundle_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_bundle_arn");
         set => this.WithProperty("app_bundle_arn", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsAppfabricIngestion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionType is required")]
     public required TerraformProperty<string> IngestionType
     {
-        get => GetProperty<TerraformProperty<string>>("ingestion_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("ingestion_type");
         set => this.WithProperty("ingestion_type", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsAppfabricIngestion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

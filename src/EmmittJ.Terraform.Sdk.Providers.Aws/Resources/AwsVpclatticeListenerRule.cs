@@ -85,7 +85,7 @@ public class AwsVpclatticeListenerRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerIdentifier is required")]
     public required TerraformProperty<string> ListenerIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("listener_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("listener_identifier");
         set => this.WithProperty("listener_identifier", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsVpclatticeListenerRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsVpclatticeListenerRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsVpclatticeListenerRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceIdentifier is required")]
     public required TerraformProperty<string> ServiceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("service_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_identifier");
         set => this.WithProperty("service_identifier", value);
     }
 

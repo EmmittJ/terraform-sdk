@@ -32,7 +32,7 @@ public class AwsLightsailStaticIpAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformProperty<string> InstanceName
     {
-        get => GetProperty<TerraformProperty<string>>("instance_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsLightsailStaticIpAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticIpName is required")]
     public required TerraformProperty<string> StaticIpName
     {
-        get => GetProperty<TerraformProperty<string>>("static_ip_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("static_ip_name");
         set => this.WithProperty("static_ip_name", value);
     }
 

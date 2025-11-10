@@ -61,7 +61,7 @@ public class GoogleFirestoreDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     public required TerraformProperty<string> Collection
     {
-        get => GetProperty<TerraformProperty<string>>("collection");
+        get => GetRequiredProperty<TerraformProperty<string>>("collection");
         set => this.WithProperty("collection", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleFirestoreDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentId is required")]
     public required TerraformProperty<string> DocumentId
     {
-        get => GetProperty<TerraformProperty<string>>("document_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("document_id");
         set => this.WithProperty("document_id", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleFirestoreDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
     public required TerraformProperty<string> Fields
     {
-        get => GetProperty<TerraformProperty<string>>("fields");
+        get => GetRequiredProperty<TerraformProperty<string>>("fields");
         set => this.WithProperty("fields", value);
     }
 

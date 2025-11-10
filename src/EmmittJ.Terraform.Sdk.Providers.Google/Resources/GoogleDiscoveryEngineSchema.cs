@@ -49,7 +49,7 @@ public class GoogleDiscoveryEngineSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     public required TerraformProperty<string> DataStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("data_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_store_id");
         set => this.WithProperty("data_store_id", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleDiscoveryEngineSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleDiscoveryEngineSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaId is required")]
     public required TerraformProperty<string> SchemaId
     {
-        get => GetProperty<TerraformProperty<string>>("schema_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("schema_id");
         set => this.WithProperty("schema_id", value);
     }
 

@@ -76,7 +76,7 @@ public class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublishCaCert is required")]
     public required TerraformProperty<bool> PublishCaCert
     {
-        get => GetProperty<TerraformProperty<bool>>("publish_ca_cert");
+        get => GetRequiredProperty<TerraformProperty<bool>>("publish_ca_cert");
         set => WithProperty("publish_ca_cert", value);
     }
 
@@ -89,7 +89,7 @@ public class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublishCrl is required")]
     public required TerraformProperty<bool> PublishCrl
     {
-        get => GetProperty<TerraformProperty<bool>>("publish_crl");
+        get => GetRequiredProperty<TerraformProperty<bool>>("publish_crl");
         set => WithProperty("publish_crl", value);
     }
 
@@ -179,7 +179,7 @@ public class GooglePrivatecaCaPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -189,7 +189,7 @@ public class GooglePrivatecaCaPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -208,7 +208,7 @@ public class GooglePrivatecaCaPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("tier");
         set => this.WithProperty("tier", value);
     }
 

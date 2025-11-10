@@ -31,7 +31,7 @@ public class AwsSsmMaintenanceWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cutoff is required")]
     public required TerraformProperty<double> Cutoff
     {
-        get => GetProperty<TerraformProperty<double>>("cutoff");
+        get => GetRequiredProperty<TerraformProperty<double>>("cutoff");
         set => this.WithProperty("cutoff", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsSsmMaintenanceWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<double> Duration
     {
-        get => GetProperty<TerraformProperty<double>>("duration");
+        get => GetRequiredProperty<TerraformProperty<double>>("duration");
         set => this.WithProperty("duration", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsSsmMaintenanceWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsSsmMaintenanceWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformProperty<string> Schedule
     {
-        get => GetProperty<TerraformProperty<string>>("schedule");
+        get => GetRequiredProperty<TerraformProperty<string>>("schedule");
         set => this.WithProperty("schedule", value);
     }
 

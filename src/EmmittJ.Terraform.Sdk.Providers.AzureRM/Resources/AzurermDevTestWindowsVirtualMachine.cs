@@ -14,7 +14,7 @@ public class AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformProperty<string> Offer
     {
-        get => GetProperty<TerraformProperty<string>>("offer");
+        get => GetRequiredProperty<TerraformProperty<string>>("offer");
         set => WithProperty("offer", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => WithProperty("publisher", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku");
         set => WithProperty("sku", value);
     }
 
@@ -44,7 +44,7 @@ public class AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => WithProperty("version", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermDevTestWindowsVirtualMachineInboundNatRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
     public required TerraformProperty<double> BackendPort
     {
-        get => GetProperty<TerraformProperty<double>>("backend_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("backend_port");
         set => WithProperty("backend_port", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermDevTestWindowsVirtualMachineInboundNatRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
     public required TerraformProperty<string> LabName
     {
-        get => GetProperty<TerraformProperty<string>>("lab_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("lab_name");
         set => this.WithProperty("lab_name", value);
     }
 
@@ -191,7 +191,7 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabSubnetName is required")]
     public required TerraformProperty<string> LabSubnetName
     {
-        get => GetProperty<TerraformProperty<string>>("lab_subnet_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("lab_subnet_name");
         set => this.WithProperty("lab_subnet_name", value);
     }
 
@@ -201,7 +201,7 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabVirtualNetworkId is required")]
     public required TerraformProperty<string> LabVirtualNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("lab_virtual_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("lab_virtual_network_id");
         set => this.WithProperty("lab_virtual_network_id", value);
     }
 
@@ -211,7 +211,7 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -221,7 +221,7 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -240,7 +240,7 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
@@ -250,7 +250,7 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -260,7 +260,7 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformProperty<string> Size
     {
-        get => GetProperty<TerraformProperty<string>>("size");
+        get => GetRequiredProperty<TerraformProperty<string>>("size");
         set => this.WithProperty("size", value);
     }
 
@@ -270,7 +270,7 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
     public required TerraformProperty<string> StorageType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_type");
         set => this.WithProperty("storage_type", value);
     }
 
@@ -289,7 +289,7 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

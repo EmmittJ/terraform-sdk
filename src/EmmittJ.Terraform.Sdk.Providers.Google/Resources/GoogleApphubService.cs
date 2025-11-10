@@ -73,7 +73,7 @@ public class GoogleApphubService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleApphubService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiscoveredService is required")]
     public required TerraformProperty<string> DiscoveredService
     {
-        get => GetProperty<TerraformProperty<string>>("discovered_service");
+        get => GetRequiredProperty<TerraformProperty<string>>("discovered_service");
         set => this.WithProperty("discovered_service", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleApphubService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -139,7 +139,7 @@ public class GoogleApphubService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformProperty<string> ServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);
     }
 

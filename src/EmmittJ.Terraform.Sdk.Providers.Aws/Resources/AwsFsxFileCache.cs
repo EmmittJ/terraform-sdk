@@ -23,7 +23,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRepositoryPath is required")]
     public required TerraformProperty<string> DataRepositoryPath
     {
-        get => GetProperty<TerraformProperty<string>>("data_repository_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_repository_path");
         set => WithProperty("data_repository_path", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileCachePath is required")]
     public required TerraformProperty<string> FileCachePath
     {
-        get => GetProperty<TerraformProperty<string>>("file_cache_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("file_cache_path");
         set => WithProperty("file_cache_path", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentType is required")]
     public required TerraformProperty<string> DeploymentType
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("deployment_type");
         set => WithProperty("deployment_type", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerUnitStorageThroughput is required")]
     public required TerraformProperty<double> PerUnitStorageThroughput
     {
-        get => GetProperty<TerraformProperty<double>>("per_unit_storage_throughput");
+        get => GetRequiredProperty<TerraformProperty<double>>("per_unit_storage_throughput");
         set => WithProperty("per_unit_storage_throughput", value);
     }
 
@@ -229,7 +229,7 @@ public class AwsFsxFileCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileCacheType is required")]
     public required TerraformProperty<string> FileCacheType
     {
-        get => GetProperty<TerraformProperty<string>>("file_cache_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("file_cache_type");
         set => this.WithProperty("file_cache_type", value);
     }
 
@@ -239,7 +239,7 @@ public class AwsFsxFileCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileCacheTypeVersion is required")]
     public required TerraformProperty<string> FileCacheTypeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("file_cache_type_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("file_cache_type_version");
         set => this.WithProperty("file_cache_type_version", value);
     }
 
@@ -285,7 +285,7 @@ public class AwsFsxFileCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacity is required")]
     public required TerraformProperty<double> StorageCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("storage_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("storage_capacity");
         set => this.WithProperty("storage_capacity", value);
     }
 

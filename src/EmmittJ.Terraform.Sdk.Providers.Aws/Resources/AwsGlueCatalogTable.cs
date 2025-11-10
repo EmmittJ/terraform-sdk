@@ -22,7 +22,7 @@ public class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformProperty<string> IndexName
     {
-        get => GetProperty<TerraformProperty<string>>("index_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("index_name");
         set => WithProperty("index_name", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -193,7 +193,7 @@ public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("catalog_id");
         set => WithProperty("catalog_id", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => WithProperty("database_name", value);
     }
 
@@ -213,7 +213,7 @@ public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -259,7 +259,7 @@ public class AwsGlueCatalogTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
     }
 
@@ -287,7 +287,7 @@ public class AwsGlueCatalogTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

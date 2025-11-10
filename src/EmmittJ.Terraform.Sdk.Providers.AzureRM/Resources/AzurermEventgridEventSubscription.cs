@@ -22,7 +22,7 @@ public class AzurermEventgridEventSubscriptionAzureFunctionEndpointBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionId is required")]
     public required TerraformProperty<string> FunctionId
     {
-        get => GetProperty<TerraformProperty<string>>("function_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("function_id");
         set => WithProperty("function_id", value);
     }
 
@@ -58,7 +58,7 @@ public class AzurermEventgridEventSubscriptionDeadLetterIdentityBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermEventgridEventSubscriptionDeliveryIdentityBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermEventgridEventSubscriptionDeliveryPropertyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformProperty<string> HeaderName
     {
-        get => GetProperty<TerraformProperty<string>>("header_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("header_name");
         set => WithProperty("header_name", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermEventgridEventSubscriptionDeliveryPropertyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermEventgridEventSubscriptionRetryPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTimeToLive is required")]
     public required TerraformProperty<double> EventTimeToLive
     {
-        get => GetProperty<TerraformProperty<double>>("event_time_to_live");
+        get => GetRequiredProperty<TerraformProperty<double>>("event_time_to_live");
         set => WithProperty("event_time_to_live", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermEventgridEventSubscriptionRetryPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxDeliveryAttempts is required")]
     public required TerraformProperty<double> MaxDeliveryAttempts
     {
-        get => GetProperty<TerraformProperty<double>>("max_delivery_attempts");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_delivery_attempts");
         set => WithProperty("max_delivery_attempts", value);
     }
 
@@ -195,7 +195,7 @@ public class AzurermEventgridEventSubscriptionStorageBlobDeadLetterDestinationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
         set => WithProperty("storage_account_id", value);
     }
 
@@ -205,7 +205,7 @@ public class AzurermEventgridEventSubscriptionStorageBlobDeadLetterDestinationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageBlobContainerName is required")]
     public required TerraformProperty<string> StorageBlobContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_blob_container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_blob_container_name");
         set => WithProperty("storage_blob_container_name", value);
     }
 
@@ -232,7 +232,7 @@ public class AzurermEventgridEventSubscriptionStorageQueueEndpointBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueName is required")]
     public required TerraformProperty<string> QueueName
     {
-        get => GetProperty<TerraformProperty<string>>("queue_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("queue_name");
         set => WithProperty("queue_name", value);
     }
 
@@ -242,7 +242,7 @@ public class AzurermEventgridEventSubscriptionStorageQueueEndpointBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
         set => WithProperty("storage_account_id", value);
     }
 
@@ -384,7 +384,7 @@ public class AzurermEventgridEventSubscriptionWebhookEndpointBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => WithProperty("url", value);
     }
 
@@ -483,7 +483,7 @@ public class AzurermEventgridEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -493,7 +493,7 @@ public class AzurermEventgridEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

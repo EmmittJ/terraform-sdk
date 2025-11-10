@@ -69,7 +69,7 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BasicProfile is required")]
     public required TerraformProperty<string> BasicProfile
     {
-        get => GetProperty<TerraformProperty<string>>("basic_profile");
+        get => GetRequiredProperty<TerraformProperty<string>>("basic_profile");
         set => this.WithProperty("basic_profile", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
@@ -98,7 +98,7 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewaySecurityPolicy is required")]
     public required TerraformProperty<string> GatewaySecurityPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_security_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("gateway_security_policy");
         set => this.WithProperty("gateway_security_policy", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -138,7 +138,7 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
@@ -157,7 +157,7 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionMatcher is required")]
     public required TerraformProperty<string> SessionMatcher
     {
-        get => GetProperty<TerraformProperty<string>>("session_matcher");
+        get => GetRequiredProperty<TerraformProperty<string>>("session_matcher");
         set => this.WithProperty("session_matcher", value);
     }
 

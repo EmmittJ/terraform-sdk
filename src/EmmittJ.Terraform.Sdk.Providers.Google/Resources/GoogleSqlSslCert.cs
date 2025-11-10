@@ -55,7 +55,7 @@ public class GoogleSqlSslCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommonName is required")]
     public required TerraformProperty<string> CommonName
     {
-        get => GetProperty<TerraformProperty<string>>("common_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("common_name");
         set => this.WithProperty("common_name", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleSqlSslCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 

@@ -28,7 +28,7 @@ public class GoogleKmsCryptoKeyLatestVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     public required TerraformProperty<string> CryptoKey
     {
-        get => GetProperty<TerraformProperty<string>>("crypto_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("crypto_key");
         set => this.WithProperty("crypto_key", value);
     }
 

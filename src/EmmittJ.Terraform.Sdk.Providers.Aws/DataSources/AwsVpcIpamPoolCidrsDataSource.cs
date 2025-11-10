@@ -14,7 +14,7 @@ public class AwsVpcIpamPoolCidrsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsVpcIpamPoolCidrsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
     public required TerraformProperty<string> IpamPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("ipam_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("ipam_pool_id");
         set => this.WithProperty("ipam_pool_id", value);
     }
 

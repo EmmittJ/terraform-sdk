@@ -14,7 +14,7 @@ public class AwsSagemakerWorkforceCognitoConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
         set => WithProperty("client_id", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsSagemakerWorkforceCognitoConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPool is required")]
     public required TerraformProperty<string> UserPool
     {
-        get => GetProperty<TerraformProperty<string>>("user_pool");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_pool");
         set => WithProperty("user_pool", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
     public required TerraformProperty<string> AuthorizationEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("authorization_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("authorization_endpoint");
         set => WithProperty("authorization_endpoint", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
         set => WithProperty("client_id", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
         set => WithProperty("client_secret", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformProperty<string> Issuer
     {
-        get => GetProperty<TerraformProperty<string>>("issuer");
+        get => GetRequiredProperty<TerraformProperty<string>>("issuer");
         set => WithProperty("issuer", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JwksUri is required")]
     public required TerraformProperty<string> JwksUri
     {
-        get => GetProperty<TerraformProperty<string>>("jwks_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("jwks_uri");
         set => WithProperty("jwks_uri", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogoutEndpoint is required")]
     public required TerraformProperty<string> LogoutEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("logout_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("logout_endpoint");
         set => WithProperty("logout_endpoint", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenEndpoint is required")]
     public required TerraformProperty<string> TokenEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("token_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("token_endpoint");
         set => WithProperty("token_endpoint", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserInfoEndpoint is required")]
     public required TerraformProperty<string> UserInfoEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("user_info_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_info_endpoint");
         set => WithProperty("user_info_endpoint", value);
     }
 
@@ -239,7 +239,7 @@ public class AwsSagemakerWorkforce : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforceName is required")]
     public required TerraformProperty<string> WorkforceName
     {
-        get => GetProperty<TerraformProperty<string>>("workforce_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("workforce_name");
         set => this.WithProperty("workforce_name", value);
     }
 

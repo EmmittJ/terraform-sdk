@@ -101,7 +101,7 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CassandraKeyspaceId is required")]
     public required TerraformProperty<string> CassandraKeyspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("cassandra_keyspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cassandra_keyspace_id");
         set => this.WithProperty("cassandra_keyspace_id", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

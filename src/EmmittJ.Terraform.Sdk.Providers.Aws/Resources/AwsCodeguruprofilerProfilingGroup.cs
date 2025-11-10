@@ -14,7 +14,7 @@ public class AwsCodeguruprofilerProfilingGroupAgentOrchestrationConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfilingEnabled is required")]
     public required TerraformProperty<bool> ProfilingEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("profiling_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("profiling_enabled");
         set => WithProperty("profiling_enabled", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsCodeguruprofilerProfilingGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermFrontdoorRulesEngineRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermFrontdoorRulesEngineRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermFrontdoorRulesEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontdoorName is required")]
     public required TerraformProperty<string> FrontdoorName
     {
-        get => GetProperty<TerraformProperty<string>>("frontdoor_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("frontdoor_name");
         set => this.WithProperty("frontdoor_name", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermFrontdoorRulesEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermFrontdoorRulesEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

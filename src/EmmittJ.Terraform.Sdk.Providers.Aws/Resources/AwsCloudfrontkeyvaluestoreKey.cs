@@ -24,7 +24,7 @@ public class AwsCloudfrontkeyvaluestoreKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsCloudfrontkeyvaluestoreKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValueStoreArn is required")]
     public required TerraformProperty<string> KeyValueStoreArn
     {
-        get => GetProperty<TerraformProperty<string>>("key_value_store_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_value_store_arn");
         set => this.WithProperty("key_value_store_arn", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsCloudfrontkeyvaluestoreKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);
     }
 

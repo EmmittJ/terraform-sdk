@@ -24,7 +24,7 @@ public class AzurermVirtualHubRouteTableRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationsType is required")]
     public required TerraformProperty<string> DestinationsType
     {
-        get => GetProperty<TerraformProperty<string>>("destinations_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("destinations_type");
         set => WithProperty("destinations_type", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermVirtualHubRouteTableRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -44,7 +44,7 @@ public class AzurermVirtualHubRouteTableRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHop is required")]
     public required TerraformProperty<string> NextHop
     {
-        get => GetProperty<TerraformProperty<string>>("next_hop");
+        get => GetRequiredProperty<TerraformProperty<string>>("next_hop");
         set => WithProperty("next_hop", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermVirtualHubRouteTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermVirtualHubRouteTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformProperty<string> VirtualHubId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_hub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_id");
         set => this.WithProperty("virtual_hub_id", value);
     }
 

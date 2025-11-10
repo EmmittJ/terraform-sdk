@@ -23,7 +23,7 @@ public class AwsEksAccessPolicyAssociationAccessScopeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     public required TerraformProperty<string> PolicyArn
     {
-        get => GetProperty<TerraformProperty<string>>("policy_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_arn");
         set => this.WithProperty("policy_arn", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
     public required TerraformProperty<string> PrincipalArn
     {
-        get => GetProperty<TerraformProperty<string>>("principal_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_arn");
         set => this.WithProperty("principal_arn", value);
     }
 

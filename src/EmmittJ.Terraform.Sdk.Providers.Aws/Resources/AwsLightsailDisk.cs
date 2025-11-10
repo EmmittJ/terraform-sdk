@@ -25,7 +25,7 @@ public class AwsLightsailDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZone is required")]
     public required TerraformProperty<string> AvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("availability_zone");
         set => this.WithProperty("availability_zone", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsLightsailDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsLightsailDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGb is required")]
     public required TerraformProperty<double> SizeInGb
     {
-        get => GetProperty<TerraformProperty<double>>("size_in_gb");
+        get => GetRequiredProperty<TerraformProperty<double>>("size_in_gb");
         set => this.WithProperty("size_in_gb", value);
     }
 

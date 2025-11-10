@@ -14,7 +14,7 @@ public class AwsMedialiveChannelCdiInputSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resolution is required")]
     public required TerraformProperty<string> Resolution
     {
-        get => GetProperty<TerraformProperty<string>>("resolution");
+        get => GetRequiredProperty<TerraformProperty<string>>("resolution");
         set => WithProperty("resolution", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsMedialiveChannelDestinationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsMedialiveChannelInputAttachmentsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputAttachmentName is required")]
     public required TerraformProperty<string> InputAttachmentName
     {
-        get => GetProperty<TerraformProperty<string>>("input_attachment_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("input_attachment_name");
         set => WithProperty("input_attachment_name", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsMedialiveChannelInputAttachmentsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputId is required")]
     public required TerraformProperty<string> InputId
     {
-        get => GetProperty<TerraformProperty<string>>("input_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("input_id");
         set => WithProperty("input_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsMedialiveChannelInputSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Codec is required")]
     public required TerraformProperty<string> Codec
     {
-        get => GetProperty<TerraformProperty<string>>("codec");
+        get => GetRequiredProperty<TerraformProperty<string>>("codec");
         set => WithProperty("codec", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsMedialiveChannelInputSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputResolution is required")]
     public required TerraformProperty<string> InputResolution
     {
-        get => GetProperty<TerraformProperty<string>>("input_resolution");
+        get => GetRequiredProperty<TerraformProperty<string>>("input_resolution");
         set => WithProperty("input_resolution", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsMedialiveChannelInputSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumBitrate is required")]
     public required TerraformProperty<string> MaximumBitrate
     {
-        get => GetProperty<TerraformProperty<string>>("maximum_bitrate");
+        get => GetRequiredProperty<TerraformProperty<string>>("maximum_bitrate");
         set => WithProperty("maximum_bitrate", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsMedialiveChannelMaintenanceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceDay is required")]
     public required TerraformProperty<string> MaintenanceDay
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_day");
+        get => GetRequiredProperty<TerraformProperty<string>>("maintenance_day");
         set => WithProperty("maintenance_day", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsMedialiveChannelMaintenanceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceStartTime is required")]
     public required TerraformProperty<string> MaintenanceStartTime
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_start_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("maintenance_start_time");
         set => WithProperty("maintenance_start_time", value);
     }
 
@@ -253,7 +253,7 @@ public class AwsMedialiveChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelClass is required")]
     public required TerraformProperty<string> ChannelClass
     {
-        get => GetProperty<TerraformProperty<string>>("channel_class");
+        get => GetRequiredProperty<TerraformProperty<string>>("channel_class");
         set => this.WithProperty("channel_class", value);
     }
 
@@ -281,7 +281,7 @@ public class AwsMedialiveChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

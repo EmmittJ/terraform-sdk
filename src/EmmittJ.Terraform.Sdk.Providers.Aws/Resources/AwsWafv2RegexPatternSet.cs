@@ -14,7 +14,7 @@ public class AwsWafv2RegexPatternSetRegularExpressionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegexString is required")]
     public required TerraformProperty<string> RegexString
     {
-        get => GetProperty<TerraformProperty<string>>("regex_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("regex_string");
         set => WithProperty("regex_string", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsWafv2RegexPatternSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

@@ -51,7 +51,7 @@ public class AwsMskConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsMskConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerProperties is required")]
     public required TerraformProperty<string> ServerProperties
     {
-        get => GetProperty<TerraformProperty<string>>("server_properties");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_properties");
         set => this.WithProperty("server_properties", value);
     }
 

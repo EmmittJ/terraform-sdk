@@ -24,7 +24,7 @@ public class AwsBackupPlanAdvancedBackupSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
         set => WithProperty("resource_type", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsBackupPlanRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformProperty<string> RuleName
     {
-        get => GetProperty<TerraformProperty<string>>("rule_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_name");
         set => WithProperty("rule_name", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsBackupPlanRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVaultName is required")]
     public required TerraformProperty<string> TargetVaultName
     {
-        get => GetProperty<TerraformProperty<string>>("target_vault_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_vault_name");
         set => WithProperty("target_vault_name", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

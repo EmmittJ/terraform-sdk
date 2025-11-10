@@ -179,7 +179,7 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessScopeId is required")]
     public required TerraformProperty<string> DataAccessScopeId
     {
-        get => GetProperty<TerraformProperty<string>>("data_access_scope_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_access_scope_id");
         set => this.WithProperty("data_access_scope_id", value);
     }
 
@@ -207,7 +207,7 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
@@ -217,7 +217,7 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

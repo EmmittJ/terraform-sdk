@@ -75,7 +75,7 @@ public class AzurermKustoScript : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
     public required TerraformProperty<string> DatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("database_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_id");
         set => this.WithProperty("database_id", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermKustoScript : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

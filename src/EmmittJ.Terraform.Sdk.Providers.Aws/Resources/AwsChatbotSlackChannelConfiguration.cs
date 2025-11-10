@@ -61,7 +61,7 @@ public class AwsChatbotSlackChannelConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationName is required")]
     public required TerraformProperty<string> ConfigurationName
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_name");
         set => this.WithProperty("configuration_name", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsChatbotSlackChannelConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformProperty<string> IamRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsChatbotSlackChannelConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlackChannelId is required")]
     public required TerraformProperty<string> SlackChannelId
     {
-        get => GetProperty<TerraformProperty<string>>("slack_channel_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("slack_channel_id");
         set => this.WithProperty("slack_channel_id", value);
     }
 
@@ -118,7 +118,7 @@ public class AwsChatbotSlackChannelConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlackTeamId is required")]
     public required TerraformProperty<string> SlackTeamId
     {
-        get => GetProperty<TerraformProperty<string>>("slack_team_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("slack_team_id");
         set => this.WithProperty("slack_team_id", value);
     }
 

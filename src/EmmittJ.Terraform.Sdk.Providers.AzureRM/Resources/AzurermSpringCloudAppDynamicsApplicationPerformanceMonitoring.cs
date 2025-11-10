@@ -66,7 +66,7 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAccountAccessKey is required")]
     public required TerraformProperty<string> AgentAccountAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("agent_account_access_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("agent_account_access_key");
         set => this.WithProperty("agent_account_access_key", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAccountName is required")]
     public required TerraformProperty<string> AgentAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("agent_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("agent_account_name");
         set => this.WithProperty("agent_account_name", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControllerHostName is required")]
     public required TerraformProperty<string> ControllerHostName
     {
-        get => GetProperty<TerraformProperty<string>>("controller_host_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("controller_host_name");
         set => this.WithProperty("controller_host_name", value);
     }
 
@@ -168,7 +168,7 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
     }
 

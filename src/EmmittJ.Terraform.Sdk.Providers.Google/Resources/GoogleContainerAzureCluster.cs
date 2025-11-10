@@ -22,7 +22,7 @@ public class GoogleContainerAzureClusterAzureServicesAuthenticationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => WithProperty("application_id", value);
     }
 
@@ -32,7 +32,7 @@ public class GoogleContainerAzureClusterAzureServicesAuthenticationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
         set => WithProperty("tenant_id", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleContainerAzureClusterControlPlaneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => WithProperty("subnet_id", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleContainerAzureClusterControlPlaneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => WithProperty("version", value);
     }
 
@@ -142,7 +142,7 @@ public class GoogleContainerAzureClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformProperty<string> VirtualNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_id");
         set => WithProperty("virtual_network_id", value);
     }
 
@@ -225,7 +225,7 @@ public class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureRegion is required")]
     public required TerraformProperty<string> AzureRegion
     {
-        get => GetProperty<TerraformProperty<string>>("azure_region");
+        get => GetRequiredProperty<TerraformProperty<string>>("azure_region");
         set => this.WithProperty("azure_region", value);
     }
 
@@ -262,7 +262,7 @@ public class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -272,7 +272,7 @@ public class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -291,7 +291,7 @@ public class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     public required TerraformProperty<string> ResourceGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_id");
         set => this.WithProperty("resource_group_id", value);
     }
 

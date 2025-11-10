@@ -42,7 +42,7 @@ public class AwsSsmServiceSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SettingId is required")]
     public required TerraformProperty<string> SettingId
     {
-        get => GetProperty<TerraformProperty<string>>("setting_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("setting_id");
         set => this.WithProperty("setting_id", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsSsmServiceSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SettingValue is required")]
     public required TerraformProperty<string> SettingValue
     {
-        get => GetProperty<TerraformProperty<string>>("setting_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("setting_value");
         set => this.WithProperty("setting_value", value);
     }
 

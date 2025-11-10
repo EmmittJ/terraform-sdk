@@ -84,7 +84,7 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureDeploymentId is required")]
     public required TerraformProperty<string> PostureDeploymentId
     {
-        get => GetProperty<TerraformProperty<string>>("posture_deployment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("posture_deployment_id");
         set => this.WithProperty("posture_deployment_id", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureId is required")]
     public required TerraformProperty<string> PostureId
     {
-        get => GetProperty<TerraformProperty<string>>("posture_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("posture_id");
         set => this.WithProperty("posture_id", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureRevisionId is required")]
     public required TerraformProperty<string> PostureRevisionId
     {
-        get => GetProperty<TerraformProperty<string>>("posture_revision_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("posture_revision_id");
         set => this.WithProperty("posture_revision_id", value);
     }
 
@@ -138,7 +138,7 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResource is required")]
     public required TerraformProperty<string> TargetResource
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_resource");
         set => this.WithProperty("target_resource", value);
     }
 

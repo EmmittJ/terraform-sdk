@@ -41,7 +41,7 @@ public class AwsStoragegatewayLocalDiskDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
     public required TerraformProperty<string> GatewayArn
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("gateway_arn");
         set => this.WithProperty("gateway_arn", value);
     }
 

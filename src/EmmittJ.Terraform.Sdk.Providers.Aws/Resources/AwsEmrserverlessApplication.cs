@@ -57,7 +57,7 @@ public class AwsEmrserverlessApplicationImageConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageUri is required")]
     public required TerraformProperty<string> ImageUri
     {
-        get => GetProperty<TerraformProperty<string>>("image_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("image_uri");
         set => WithProperty("image_uri", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsEmrserverlessApplicationInitialCapacityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialCapacityType is required")]
     public required TerraformProperty<string> InitialCapacityType
     {
-        get => GetProperty<TerraformProperty<string>>("initial_capacity_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("initial_capacity_type");
         set => WithProperty("initial_capacity_type", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsEmrserverlessApplicationMaximumCapacityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
     public required TerraformProperty<string> Cpu
     {
-        get => GetProperty<TerraformProperty<string>>("cpu");
+        get => GetRequiredProperty<TerraformProperty<string>>("cpu");
         set => WithProperty("cpu", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsEmrserverlessApplicationMaximumCapacityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Memory is required")]
     public required TerraformProperty<string> Memory
     {
-        get => GetProperty<TerraformProperty<string>>("memory");
+        get => GetRequiredProperty<TerraformProperty<string>>("memory");
         set => WithProperty("memory", value);
     }
 
@@ -190,7 +190,7 @@ public class AwsEmrserverlessApplicationRuntimeConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
     public required TerraformProperty<string> Classification
     {
-        get => GetProperty<TerraformProperty<string>>("classification");
+        get => GetRequiredProperty<TerraformProperty<string>>("classification");
         set => WithProperty("classification", value);
     }
 
@@ -271,7 +271,7 @@ public class AwsEmrserverlessApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -290,7 +290,7 @@ public class AwsEmrserverlessApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
     public required TerraformProperty<string> ReleaseLabel
     {
-        get => GetProperty<TerraformProperty<string>>("release_label");
+        get => GetRequiredProperty<TerraformProperty<string>>("release_label");
         set => this.WithProperty("release_label", value);
     }
 
@@ -318,7 +318,7 @@ public class AwsEmrserverlessApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

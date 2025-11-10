@@ -82,7 +82,7 @@ public class GoogleCloudbuildv2Repository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleCloudbuildv2Repository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentConnection is required")]
     public required TerraformProperty<string> ParentConnection
     {
-        get => GetProperty<TerraformProperty<string>>("parent_connection");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent_connection");
         set => this.WithProperty("parent_connection", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleCloudbuildv2Repository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteUri is required")]
     public required TerraformProperty<string> RemoteUri
     {
-        get => GetProperty<TerraformProperty<string>>("remote_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("remote_uri");
         set => this.WithProperty("remote_uri", value);
     }
 

@@ -49,7 +49,7 @@ public class AwsChimeVoiceConnectorStreaming : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRetention is required")]
     public required TerraformProperty<double> DataRetention
     {
-        get => GetProperty<TerraformProperty<double>>("data_retention");
+        get => GetRequiredProperty<TerraformProperty<double>>("data_retention");
         set => this.WithProperty("data_retention", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsChimeVoiceConnectorStreaming : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     public required TerraformProperty<string> VoiceConnectorId
     {
-        get => GetProperty<TerraformProperty<string>>("voice_connector_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("voice_connector_id");
         set => this.WithProperty("voice_connector_id", value);
     }
 

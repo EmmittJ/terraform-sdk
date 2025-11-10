@@ -87,7 +87,7 @@ public class GoogleGkeHubMembershipBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleGkeHubMembershipBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipBindingId is required")]
     public required TerraformProperty<string> MembershipBindingId
     {
-        get => GetProperty<TerraformProperty<string>>("membership_binding_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("membership_binding_id");
         set => this.WithProperty("membership_binding_id", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleGkeHubMembershipBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
     public required TerraformProperty<string> MembershipId
     {
-        get => GetProperty<TerraformProperty<string>>("membership_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("membership_id");
         set => this.WithProperty("membership_id", value);
     }
 
@@ -127,7 +127,7 @@ public class GoogleGkeHubMembershipBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

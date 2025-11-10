@@ -23,7 +23,7 @@ public class AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalSizeInGb is required")]
     public required TerraformProperty<double> TotalSizeInGb
     {
-        get => GetProperty<TerraformProperty<double>>("total_size_in_gb");
+        get => GetRequiredProperty<TerraformProperty<double>>("total_size_in_gb");
         set => WithProperty("total_size_in_gb", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermOracleExascaleDatabaseStorageVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdditionalFlashCachePercentage is required")]
     public required TerraformProperty<double> AdditionalFlashCachePercentage
     {
-        get => GetProperty<TerraformProperty<double>>("additional_flash_cache_percentage");
+        get => GetRequiredProperty<TerraformProperty<double>>("additional_flash_cache_percentage");
         set => this.WithProperty("additional_flash_cache_percentage", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermOracleExascaleDatabaseStorageVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermOracleExascaleDatabaseStorageVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermOracleExascaleDatabaseStorageVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -152,7 +152,7 @@ public class AzurermOracleExascaleDatabaseStorageVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

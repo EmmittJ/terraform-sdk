@@ -41,7 +41,7 @@ public class AzurermMachineLearningComputeClusterIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermMachineLearningComputeClusterScaleSettingsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     public required TerraformProperty<double> MaxNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("max_node_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_node_count");
         set => WithProperty("max_node_count", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermMachineLearningComputeClusterScaleSettingsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     public required TerraformProperty<double> MinNodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("min_node_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_node_count");
         set => WithProperty("min_node_count", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermMachineLearningComputeClusterScaleSettingsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleDownNodesAfterIdleDuration is required")]
     public required TerraformProperty<string> ScaleDownNodesAfterIdleDuration
     {
-        get => GetProperty<TerraformProperty<string>>("scale_down_nodes_after_idle_duration");
+        get => GetRequiredProperty<TerraformProperty<string>>("scale_down_nodes_after_idle_duration");
         set => WithProperty("scale_down_nodes_after_idle_duration", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermMachineLearningComputeClusterSshBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformProperty<string> AdminUsername
     {
-        get => GetProperty<TerraformProperty<string>>("admin_username");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_username");
         set => WithProperty("admin_username", value);
     }
 
@@ -213,7 +213,7 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -223,7 +223,7 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
     public required TerraformProperty<string> MachineLearningWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("machine_learning_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("machine_learning_workspace_id");
         set => this.WithProperty("machine_learning_workspace_id", value);
     }
 
@@ -233,7 +233,7 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -279,7 +279,7 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmPriority is required")]
     public required TerraformProperty<string> VmPriority
     {
-        get => GetProperty<TerraformProperty<string>>("vm_priority");
+        get => GetRequiredProperty<TerraformProperty<string>>("vm_priority");
         set => this.WithProperty("vm_priority", value);
     }
 
@@ -289,7 +289,7 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     public required TerraformProperty<string> VmSize
     {
-        get => GetProperty<TerraformProperty<string>>("vm_size");
+        get => GetRequiredProperty<TerraformProperty<string>>("vm_size");
         set => this.WithProperty("vm_size", value);
     }
 

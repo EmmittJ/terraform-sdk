@@ -68,7 +68,7 @@ public class AzurermApiManagementEmailTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermApiManagementEmailTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformProperty<string> Body
     {
-        get => GetProperty<TerraformProperty<string>>("body");
+        get => GetRequiredProperty<TerraformProperty<string>>("body");
         set => this.WithProperty("body", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermApiManagementEmailTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermApiManagementEmailTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     public required TerraformProperty<string> Subject
     {
-        get => GetProperty<TerraformProperty<string>>("subject");
+        get => GetRequiredProperty<TerraformProperty<string>>("subject");
         set => this.WithProperty("subject", value);
     }
 
@@ -117,7 +117,7 @@ public class AzurermApiManagementEmailTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateName is required")]
     public required TerraformProperty<string> TemplateName
     {
-        get => GetProperty<TerraformProperty<string>>("template_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("template_name");
         set => this.WithProperty("template_name", value);
     }
 

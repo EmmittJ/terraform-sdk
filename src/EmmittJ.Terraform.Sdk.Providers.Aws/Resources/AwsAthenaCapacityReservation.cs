@@ -61,7 +61,7 @@ public class AwsAthenaCapacityReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsAthenaCapacityReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDpus is required")]
     public required TerraformProperty<double> TargetDpus
     {
-        get => GetProperty<TerraformProperty<double>>("target_dpus");
+        get => GetRequiredProperty<TerraformProperty<double>>("target_dpus");
         set => this.WithProperty("target_dpus", value);
     }
 

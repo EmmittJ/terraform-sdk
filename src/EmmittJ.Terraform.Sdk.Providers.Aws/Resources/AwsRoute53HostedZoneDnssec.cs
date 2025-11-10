@@ -57,7 +57,7 @@ public class AwsRoute53HostedZoneDnssec : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
     public required TerraformProperty<string> HostedZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("hosted_zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("hosted_zone_id");
         set => this.WithProperty("hosted_zone_id", value);
     }
 

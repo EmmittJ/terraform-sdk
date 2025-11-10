@@ -23,7 +23,7 @@ public class AwsCloud9EnvironmentMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformProperty<string> EnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("environment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsCloud9EnvironmentMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public required TerraformProperty<string> Permissions
     {
-        get => GetProperty<TerraformProperty<string>>("permissions");
+        get => GetRequiredProperty<TerraformProperty<string>>("permissions");
         set => this.WithProperty("permissions", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsCloud9EnvironmentMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserArn is required")]
     public required TerraformProperty<string> UserArn
     {
-        get => GetProperty<TerraformProperty<string>>("user_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_arn");
         set => this.WithProperty("user_arn", value);
     }
 

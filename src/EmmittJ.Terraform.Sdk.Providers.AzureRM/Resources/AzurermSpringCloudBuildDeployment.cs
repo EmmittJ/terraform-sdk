@@ -111,7 +111,7 @@ public class AzurermSpringCloudBuildDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuildResultId is required")]
     public required TerraformProperty<string> BuildResultId
     {
-        get => GetProperty<TerraformProperty<string>>("build_result_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("build_result_id");
         set => this.WithProperty("build_result_id", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermSpringCloudBuildDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -158,7 +158,7 @@ public class AzurermSpringCloudBuildDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformProperty<string> SpringCloudAppId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_app_id");
         set => this.WithProperty("spring_cloud_app_id", value);
     }
 

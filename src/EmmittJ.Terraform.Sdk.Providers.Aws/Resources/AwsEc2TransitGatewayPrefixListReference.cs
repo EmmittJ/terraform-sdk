@@ -41,7 +41,7 @@ public class AwsEc2TransitGatewayPrefixListReference : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrefixListId is required")]
     public required TerraformProperty<string> PrefixListId
     {
-        get => GetProperty<TerraformProperty<string>>("prefix_list_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("prefix_list_id");
         set => this.WithProperty("prefix_list_id", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsEc2TransitGatewayPrefixListReference : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayRouteTableId is required")]
     public required TerraformProperty<string> TransitGatewayRouteTableId
     {
-        get => GetProperty<TerraformProperty<string>>("transit_gateway_route_table_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_route_table_id");
         set => this.WithProperty("transit_gateway_route_table_id", value);
     }
 

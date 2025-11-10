@@ -66,7 +66,7 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformProperty<string> ApiManagementId
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_id");
         set => this.WithProperty("api_management_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
     public required TerraformProperty<string> CertificateName
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_name");
         set => this.WithProperty("certificate_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
     public required TerraformProperty<string> GatewayName
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("gateway_name");
         set => this.WithProperty("gateway_name", value);
     }
 

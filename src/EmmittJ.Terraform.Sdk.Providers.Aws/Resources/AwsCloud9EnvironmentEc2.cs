@@ -60,7 +60,7 @@ public class AwsCloud9EnvironmentEc2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageId is required")]
     public required TerraformProperty<string> ImageId
     {
-        get => GetProperty<TerraformProperty<string>>("image_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("image_id");
         set => this.WithProperty("image_id", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsCloud9EnvironmentEc2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsCloud9EnvironmentEc2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

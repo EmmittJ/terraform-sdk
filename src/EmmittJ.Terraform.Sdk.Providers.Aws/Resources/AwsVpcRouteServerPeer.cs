@@ -14,7 +14,7 @@ public class AwsVpcRouteServerPeerBgpOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
     public required TerraformProperty<double> PeerAsn
     {
-        get => GetProperty<TerraformProperty<double>>("peer_asn");
+        get => GetRequiredProperty<TerraformProperty<double>>("peer_asn");
         set => WithProperty("peer_asn", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsVpcRouteServerPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAddress is required")]
     public required TerraformProperty<string> PeerAddress
     {
-        get => GetProperty<TerraformProperty<string>>("peer_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("peer_address");
         set => this.WithProperty("peer_address", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsVpcRouteServerPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteServerEndpointId is required")]
     public required TerraformProperty<string> RouteServerEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("route_server_endpoint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("route_server_endpoint_id");
         set => this.WithProperty("route_server_endpoint_id", value);
     }
 

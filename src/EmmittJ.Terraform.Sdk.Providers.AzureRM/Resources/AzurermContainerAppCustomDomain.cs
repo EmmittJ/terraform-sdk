@@ -76,7 +76,7 @@ public class AzurermContainerAppCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppId is required")]
     public required TerraformProperty<string> ContainerAppId
     {
-        get => GetProperty<TerraformProperty<string>>("container_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_app_id");
         set => this.WithProperty("container_app_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermContainerAppCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

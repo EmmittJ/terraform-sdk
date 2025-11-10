@@ -57,7 +57,7 @@ public class AzurermMaintenanceAssignmentDedicatedHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DedicatedHostId is required")]
     public required TerraformProperty<string> DedicatedHostId
     {
-        get => GetProperty<TerraformProperty<string>>("dedicated_host_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dedicated_host_id");
         set => this.WithProperty("dedicated_host_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermMaintenanceAssignmentDedicatedHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermMaintenanceAssignmentDedicatedHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceConfigurationId is required")]
     public required TerraformProperty<string> MaintenanceConfigurationId
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_configuration_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("maintenance_configuration_id");
         set => this.WithProperty("maintenance_configuration_id", value);
     }
 

@@ -99,7 +99,7 @@ public class AzurermServicebusTopicAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -118,7 +118,7 @@ public class AzurermServicebusTopicAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicId is required")]
     public required TerraformProperty<string> TopicId
     {
-        get => GetProperty<TerraformProperty<string>>("topic_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic_id");
         set => this.WithProperty("topic_id", value);
     }
 

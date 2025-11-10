@@ -111,7 +111,7 @@ public class AzurermSpringCloudBuildPackBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermSpringCloudBuildPackBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudBuilderId is required")]
     public required TerraformProperty<string> SpringCloudBuilderId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_builder_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_builder_id");
         set => this.WithProperty("spring_cloud_builder_id", value);
     }
 

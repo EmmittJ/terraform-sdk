@@ -23,7 +23,7 @@ public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespacePath is required")]
     public required TerraformProperty<string> NamespacePath
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace_path");
         set => WithProperty("namespace_path", value);
     }
 
@@ -33,7 +33,7 @@ public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NfsExport is required")]
     public required TerraformProperty<string> NfsExport
     {
-        get => GetProperty<TerraformProperty<string>>("nfs_export");
+        get => GetRequiredProperty<TerraformProperty<string>>("nfs_export");
         set => WithProperty("nfs_export", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheName is required")]
     public required TerraformProperty<string> CacheName
     {
-        get => GetProperty<TerraformProperty<string>>("cache_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cache_name");
         set => this.WithProperty("cache_name", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetHostName is required")]
     public required TerraformProperty<string> TargetHostName
     {
-        get => GetProperty<TerraformProperty<string>>("target_host_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_host_name");
         set => this.WithProperty("target_host_name", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsageModel is required")]
     public required TerraformProperty<string> UsageModel
     {
-        get => GetProperty<TerraformProperty<string>>("usage_model");
+        get => GetRequiredProperty<TerraformProperty<string>>("usage_model");
         set => this.WithProperty("usage_model", value);
     }
 

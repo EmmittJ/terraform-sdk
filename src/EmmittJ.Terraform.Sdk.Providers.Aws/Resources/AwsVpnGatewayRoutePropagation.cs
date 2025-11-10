@@ -66,7 +66,7 @@ public class AwsVpnGatewayRoutePropagation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
     public required TerraformProperty<string> RouteTableId
     {
-        get => GetProperty<TerraformProperty<string>>("route_table_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("route_table_id");
         set => this.WithProperty("route_table_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsVpnGatewayRoutePropagation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnGatewayId is required")]
     public required TerraformProperty<string> VpnGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("vpn_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpn_gateway_id");
         set => this.WithProperty("vpn_gateway_id", value);
     }
 

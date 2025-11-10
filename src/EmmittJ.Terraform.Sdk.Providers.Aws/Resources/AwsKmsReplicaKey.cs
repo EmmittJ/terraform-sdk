@@ -81,7 +81,7 @@ public class AwsKmsReplicaKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKeyArn is required")]
     public required TerraformProperty<string> PrimaryKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("primary_key_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("primary_key_arn");
         set => this.WithProperty("primary_key_arn", value);
     }
 

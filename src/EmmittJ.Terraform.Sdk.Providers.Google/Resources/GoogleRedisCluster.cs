@@ -16,7 +16,7 @@ public class GoogleRedisClusterAutomatedBackupConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Retention is required")]
     public required TerraformProperty<string> Retention
     {
-        get => GetProperty<TerraformProperty<string>>("retention");
+        get => GetRequiredProperty<TerraformProperty<string>>("retention");
         set => WithProperty("retention", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleRedisClusterManagedBackupSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backup is required")]
     public required TerraformProperty<string> Backup
     {
-        get => GetProperty<TerraformProperty<string>>("backup");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup");
         set => WithProperty("backup", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleRedisClusterPscConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => WithProperty("network", value);
     }
 
@@ -375,7 +375,7 @@ public class GoogleRedisCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCount is required")]
     public required TerraformProperty<double> ShardCount
     {
-        get => GetProperty<TerraformProperty<double>>("shard_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("shard_count");
         set => this.WithProperty("shard_count", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
     public required TerraformProperty<string> CertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_arn");
         set => WithProperty("certificate_arn", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformProperty<string> EndpointType
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_type");
         set => WithProperty("endpoint_type", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityPolicy is required")]
     public required TerraformProperty<string> SecurityPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("security_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_policy");
         set => WithProperty("security_policy", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TruststoreUri is required")]
     public required TerraformProperty<string> TruststoreUri
     {
-        get => GetProperty<TerraformProperty<string>>("truststore_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("truststore_uri");
         set => WithProperty("truststore_uri", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsApigatewayv2DomainName : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 

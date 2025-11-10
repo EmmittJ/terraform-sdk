@@ -199,7 +199,7 @@ public class AwsMqBrokerMaintenanceWindowStartTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformProperty<string> DayOfWeek
     {
-        get => GetProperty<TerraformProperty<string>>("day_of_week");
+        get => GetRequiredProperty<TerraformProperty<string>>("day_of_week");
         set => WithProperty("day_of_week", value);
     }
 
@@ -209,7 +209,7 @@ public class AwsMqBrokerMaintenanceWindowStartTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeOfDay is required")]
     public required TerraformProperty<string> TimeOfDay
     {
-        get => GetProperty<TerraformProperty<string>>("time_of_day");
+        get => GetRequiredProperty<TerraformProperty<string>>("time_of_day");
         set => WithProperty("time_of_day", value);
     }
 
@@ -219,7 +219,7 @@ public class AwsMqBrokerMaintenanceWindowStartTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformProperty<string> TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("time_zone");
         set => WithProperty("time_zone", value);
     }
 
@@ -290,7 +290,7 @@ public class AwsMqBrokerUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => WithProperty("password", value);
     }
 
@@ -309,7 +309,7 @@ public class AwsMqBrokerUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -366,7 +366,7 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BrokerName is required")]
     public required TerraformProperty<string> BrokerName
     {
-        get => GetProperty<TerraformProperty<string>>("broker_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("broker_name");
         set => this.WithProperty("broker_name", value);
     }
 
@@ -403,7 +403,7 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
     public required TerraformProperty<string> EngineType
     {
-        get => GetProperty<TerraformProperty<string>>("engine_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine_type");
         set => this.WithProperty("engine_type", value);
     }
 
@@ -413,7 +413,7 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineVersion is required")]
     public required TerraformProperty<string> EngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("engine_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine_version");
         set => this.WithProperty("engine_version", value);
     }
 
@@ -423,7 +423,7 @@ public class AwsMqBroker : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostInstanceType is required")]
     public required TerraformProperty<string> HostInstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("host_instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_instance_type");
         set => this.WithProperty("host_instance_type", value);
     }
 

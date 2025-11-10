@@ -40,7 +40,7 @@ public class AwsAcmCertificateValidationOptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => WithProperty("domain_name", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsAcmCertificateValidationOptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidationDomain is required")]
     public required TerraformProperty<string> ValidationDomain
     {
-        get => GetProperty<TerraformProperty<string>>("validation_domain");
+        get => GetRequiredProperty<TerraformProperty<string>>("validation_domain");
         set => WithProperty("validation_domain", value);
     }
 

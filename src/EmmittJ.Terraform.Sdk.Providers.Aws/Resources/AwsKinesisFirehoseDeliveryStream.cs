@@ -50,7 +50,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformProperty<string> IndexName
     {
-        get => GetProperty<TerraformProperty<string>>("index_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("index_name");
         set => WithProperty("index_name", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformProperty<string> BucketArn
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket_arn");
         set => WithProperty("bucket_arn", value);
     }
 
@@ -196,7 +196,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -286,7 +286,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => WithProperty("url", value);
     }
 
@@ -331,7 +331,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogArn is required")]
     public required TerraformProperty<string> CatalogArn
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("catalog_arn");
         set => WithProperty("catalog_arn", value);
     }
 
@@ -350,7 +350,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -377,7 +377,7 @@ public class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KinesisStreamArn is required")]
     public required TerraformProperty<string> KinesisStreamArn
     {
-        get => GetProperty<TerraformProperty<string>>("kinesis_stream_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("kinesis_stream_arn");
         set => WithProperty("kinesis_stream_arn", value);
     }
 
@@ -387,7 +387,7 @@ public class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -405,7 +405,7 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MskClusterArn is required")]
     public required TerraformProperty<string> MskClusterArn
     {
-        get => GetProperty<TerraformProperty<string>>("msk_cluster_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("msk_cluster_arn");
         set => WithProperty("msk_cluster_arn", value);
     }
 
@@ -424,7 +424,7 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     public required TerraformProperty<string> TopicName
     {
-        get => GetProperty<TerraformProperty<string>>("topic_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic_name");
         set => WithProperty("topic_name", value);
     }
 
@@ -478,7 +478,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformProperty<string> IndexName
     {
-        get => GetProperty<TerraformProperty<string>>("index_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("index_name");
         set => WithProperty("index_name", value);
     }
 
@@ -506,7 +506,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -560,7 +560,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionEndpoint is required")]
     public required TerraformProperty<string> CollectionEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("collection_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("collection_endpoint");
         set => WithProperty("collection_endpoint", value);
     }
 
@@ -570,7 +570,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformProperty<string> IndexName
     {
-        get => GetProperty<TerraformProperty<string>>("index_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("index_name");
         set => WithProperty("index_name", value);
     }
 
@@ -589,7 +589,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -616,7 +616,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterJdbcurl is required")]
     public required TerraformProperty<string> ClusterJdbcurl
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_jdbcurl");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_jdbcurl");
         set => WithProperty("cluster_jdbcurl", value);
     }
 
@@ -644,7 +644,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataTableName is required")]
     public required TerraformProperty<string> DataTableName
     {
-        get => GetProperty<TerraformProperty<string>>("data_table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_table_name");
         set => WithProperty("data_table_name", value);
     }
 
@@ -672,7 +672,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -743,7 +743,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountUrl is required")]
     public required TerraformProperty<string> AccountUrl
     {
-        get => GetProperty<TerraformProperty<string>>("account_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_url");
         set => WithProperty("account_url", value);
     }
 
@@ -789,7 +789,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetProperty<TerraformProperty<string>>("database");
+        get => GetRequiredProperty<TerraformProperty<string>>("database");
         set => WithProperty("database", value);
     }
 
@@ -835,7 +835,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -854,7 +854,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformProperty<string> Schema
     {
-        get => GetProperty<TerraformProperty<string>>("schema");
+        get => GetRequiredProperty<TerraformProperty<string>>("schema");
         set => WithProperty("schema", value);
     }
 
@@ -864,7 +864,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformProperty<string> Table
     {
-        get => GetProperty<TerraformProperty<string>>("table");
+        get => GetRequiredProperty<TerraformProperty<string>>("table");
         set => WithProperty("table", value);
     }
 
@@ -918,7 +918,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HecEndpoint is required")]
     public required TerraformProperty<string> HecEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("hec_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("hec_endpoint");
         set => WithProperty("hec_endpoint", value);
     }
 
@@ -1025,7 +1025,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetProperty<TerraformProperty<string>>("destination");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
     }
 
@@ -1053,7 +1053,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -81,7 +81,7 @@ public class GoogleApphubServiceProjectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceProjectAttachmentId is required")]
     public required TerraformProperty<string> ServiceProjectAttachmentId
     {
-        get => GetProperty<TerraformProperty<string>>("service_project_attachment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_project_attachment_id");
         set => this.WithProperty("service_project_attachment_id", value);
     }
 

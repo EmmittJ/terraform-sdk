@@ -78,7 +78,7 @@ public class AwsDatasyncLocationNfs : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerHostname is required")]
     public required TerraformProperty<string> ServerHostname
     {
-        get => GetProperty<TerraformProperty<string>>("server_hostname");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_hostname");
         set => this.WithProperty("server_hostname", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsDatasyncLocationNfs : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subdirectory is required")]
     public required TerraformProperty<string> Subdirectory
     {
-        get => GetProperty<TerraformProperty<string>>("subdirectory");
+        get => GetRequiredProperty<TerraformProperty<string>>("subdirectory");
         set => this.WithProperty("subdirectory", value);
     }
 

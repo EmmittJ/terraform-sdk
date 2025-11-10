@@ -48,7 +48,7 @@ public class AwsVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformProperty<string> DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_name");
         set => this.WithProperty("device_name", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformProperty<string> VolumeId
     {
-        get => GetProperty<TerraformProperty<string>>("volume_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("volume_id");
         set => this.WithProperty("volume_id", value);
     }
 

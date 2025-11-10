@@ -57,7 +57,7 @@ public class GoogleComputeProjectCloudArmorTier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudArmorTier is required")]
     public required TerraformProperty<string> CloudArmorTier
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_armor_tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("cloud_armor_tier");
         set => this.WithProperty("cloud_armor_tier", value);
     }
 

@@ -32,7 +32,7 @@ public class AwsDatazoneGlossary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformProperty<string> DomainIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("domain_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_identifier");
         set => this.WithProperty("domain_identifier", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsDatazoneGlossary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsDatazoneGlossary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwningProjectIdentifier is required")]
     public required TerraformProperty<string> OwningProjectIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("owning_project_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("owning_project_identifier");
         set => this.WithProperty("owning_project_identifier", value);
     }
 

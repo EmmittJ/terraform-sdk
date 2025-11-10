@@ -68,7 +68,7 @@ public class AzurermSpringCloudConnectionAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermSpringCloudConnectionSecretStoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformProperty<string> KeyVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_id");
         set => WithProperty("key_vault_id", value);
     }
 
@@ -175,7 +175,7 @@ public class AzurermSpringCloudConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -185,7 +185,7 @@ public class AzurermSpringCloudConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudId is required")]
     public required TerraformProperty<string> SpringCloudId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_id");
         set => this.WithProperty("spring_cloud_id", value);
     }
 
@@ -195,7 +195,7 @@ public class AzurermSpringCloudConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
         set => this.WithProperty("target_resource_id", value);
     }
 

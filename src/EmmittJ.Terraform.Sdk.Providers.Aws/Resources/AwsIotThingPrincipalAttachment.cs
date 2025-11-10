@@ -31,7 +31,7 @@ public class AwsIotThingPrincipalAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal");
         set => this.WithProperty("principal", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsIotThingPrincipalAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thing is required")]
     public required TerraformProperty<string> Thing
     {
-        get => GetProperty<TerraformProperty<string>>("thing");
+        get => GetRequiredProperty<TerraformProperty<string>>("thing");
         set => this.WithProperty("thing", value);
     }
 

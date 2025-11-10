@@ -128,7 +128,7 @@ public class AzurermDynatraceTagRules : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorId is required")]
     public required TerraformProperty<string> MonitorId
     {
-        get => GetProperty<TerraformProperty<string>>("monitor_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("monitor_id");
         set => this.WithProperty("monitor_id", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermDynatraceTagRules : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -24,7 +24,7 @@ public class GoogleOrganizationAccessApprovalSettingsEnrolledServicesBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudProduct is required")]
     public required TerraformProperty<string> CloudProduct
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_product");
+        get => GetRequiredProperty<TerraformProperty<string>>("cloud_product");
         set => WithProperty("cloud_product", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleOrganizationAccessApprovalSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
     public required TerraformProperty<string> OrganizationId
     {
-        get => GetProperty<TerraformProperty<string>>("organization_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("organization_id");
         set => this.WithProperty("organization_id", value);
     }
 

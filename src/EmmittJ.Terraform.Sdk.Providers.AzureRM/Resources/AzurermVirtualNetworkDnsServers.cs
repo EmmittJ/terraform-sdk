@@ -84,7 +84,7 @@ public class AzurermVirtualNetworkDnsServers : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformProperty<string> VirtualNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_id");
         set => this.WithProperty("virtual_network_id", value);
     }
 

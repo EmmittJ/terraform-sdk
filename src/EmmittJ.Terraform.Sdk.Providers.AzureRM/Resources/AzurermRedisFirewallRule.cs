@@ -66,7 +66,7 @@ public class AzurermRedisFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndIp is required")]
     public required TerraformProperty<string> EndIp
     {
-        get => GetProperty<TerraformProperty<string>>("end_ip");
+        get => GetRequiredProperty<TerraformProperty<string>>("end_ip");
         set => this.WithProperty("end_ip", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermRedisFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermRedisFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisCacheName is required")]
     public required TerraformProperty<string> RedisCacheName
     {
-        get => GetProperty<TerraformProperty<string>>("redis_cache_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("redis_cache_name");
         set => this.WithProperty("redis_cache_name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermRedisFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermRedisFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartIp is required")]
     public required TerraformProperty<string> StartIp
     {
-        get => GetProperty<TerraformProperty<string>>("start_ip");
+        get => GetRequiredProperty<TerraformProperty<string>>("start_ip");
         set => this.WithProperty("start_ip", value);
     }
 

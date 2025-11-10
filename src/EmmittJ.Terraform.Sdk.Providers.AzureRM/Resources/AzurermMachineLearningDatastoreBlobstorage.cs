@@ -102,7 +102,7 @@ public class AzurermMachineLearningDatastoreBlobstorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermMachineLearningDatastoreBlobstorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
     public required TerraformProperty<string> StorageContainerId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_container_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_id");
         set => this.WithProperty("storage_container_id", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermMachineLearningDatastoreBlobstorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

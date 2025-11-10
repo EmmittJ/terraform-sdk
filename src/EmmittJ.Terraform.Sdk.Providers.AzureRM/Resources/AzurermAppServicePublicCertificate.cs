@@ -58,7 +58,7 @@ public class AzurermAppServicePublicCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
     public required TerraformProperty<string> AppServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("app_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_service_name");
         set => this.WithProperty("app_service_name", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermAppServicePublicCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Blob is required")]
     public required TerraformProperty<string> Blob
     {
-        get => GetProperty<TerraformProperty<string>>("blob");
+        get => GetRequiredProperty<TerraformProperty<string>>("blob");
         set => this.WithProperty("blob", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermAppServicePublicCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateLocation is required")]
     public required TerraformProperty<string> CertificateLocation
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_location");
         set => this.WithProperty("certificate_location", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermAppServicePublicCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
     public required TerraformProperty<string> CertificateName
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_name");
         set => this.WithProperty("certificate_name", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermAppServicePublicCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

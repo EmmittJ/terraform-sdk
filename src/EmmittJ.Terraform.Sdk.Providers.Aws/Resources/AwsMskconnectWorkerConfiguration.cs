@@ -59,7 +59,7 @@ public class AwsMskconnectWorkerConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsMskconnectWorkerConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropertiesFileContent is required")]
     public required TerraformProperty<string> PropertiesFileContent
     {
-        get => GetProperty<TerraformProperty<string>>("properties_file_content");
+        get => GetRequiredProperty<TerraformProperty<string>>("properties_file_content");
         set => this.WithProperty("properties_file_content", value);
     }
 

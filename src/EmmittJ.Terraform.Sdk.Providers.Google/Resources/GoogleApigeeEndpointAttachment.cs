@@ -51,7 +51,7 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointAttachmentId is required")]
     public required TerraformProperty<string> EndpointAttachmentId
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_attachment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_attachment_id");
         set => this.WithProperty("endpoint_attachment_id", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -81,7 +81,7 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetProperty<TerraformProperty<string>>("org_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAttachment is required")]
     public required TerraformProperty<string> ServiceAttachment
     {
-        get => GetProperty<TerraformProperty<string>>("service_attachment");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_attachment");
         set => this.WithProperty("service_attachment", value);
     }
 

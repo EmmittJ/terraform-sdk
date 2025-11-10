@@ -14,7 +14,7 @@ public class AwsApiGatewayUsagePlanApiStagesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
         set => WithProperty("api_id", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsApiGatewayUsagePlanApiStagesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     public required TerraformProperty<string> Stage
     {
-        get => GetProperty<TerraformProperty<string>>("stage");
+        get => GetRequiredProperty<TerraformProperty<string>>("stage");
         set => WithProperty("stage", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsApiGatewayUsagePlanQuotaSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Limit is required")]
     public required TerraformProperty<double> Limit
     {
-        get => GetProperty<TerraformProperty<double>>("limit");
+        get => GetRequiredProperty<TerraformProperty<double>>("limit");
         set => WithProperty("limit", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsApiGatewayUsagePlanQuotaSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Period is required")]
     public required TerraformProperty<string> Period
     {
-        get => GetProperty<TerraformProperty<string>>("period");
+        get => GetRequiredProperty<TerraformProperty<string>>("period");
         set => WithProperty("period", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsApiGatewayUsagePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -33,7 +33,7 @@ public class AwsIamSamlProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsIamSamlProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamlMetadataDocument is required")]
     public required TerraformProperty<string> SamlMetadataDocument
     {
-        get => GetProperty<TerraformProperty<string>>("saml_metadata_document");
+        get => GetRequiredProperty<TerraformProperty<string>>("saml_metadata_document");
         set => this.WithProperty("saml_metadata_document", value);
     }
 

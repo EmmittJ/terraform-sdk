@@ -32,7 +32,7 @@ public class AwsAccessanalyzerAnalyzer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalyzerName is required")]
     public required TerraformProperty<string> AnalyzerName
     {
-        get => GetProperty<TerraformProperty<string>>("analyzer_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("analyzer_name");
         set => this.WithProperty("analyzer_name", value);
     }
 

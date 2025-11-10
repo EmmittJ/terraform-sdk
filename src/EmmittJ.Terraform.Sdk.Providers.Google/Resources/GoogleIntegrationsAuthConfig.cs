@@ -14,7 +14,7 @@ public class GoogleIntegrationsAuthConfigClientCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptedPrivateKey is required")]
     public required TerraformProperty<string> EncryptedPrivateKey
     {
-        get => GetProperty<TerraformProperty<string>>("encrypted_private_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("encrypted_private_key");
         set => WithProperty("encrypted_private_key", value);
     }
 
@@ -34,7 +34,7 @@ public class GoogleIntegrationsAuthConfigClientCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslCertificate is required")]
     public required TerraformProperty<string> SslCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("ssl_certificate");
+        get => GetRequiredProperty<TerraformProperty<string>>("ssl_certificate");
         set => WithProperty("ssl_certificate", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialType is required")]
     public required TerraformProperty<string> CredentialType
     {
-        get => GetProperty<TerraformProperty<string>>("credential_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("credential_type");
         set => WithProperty("credential_type", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -164,7 +164,7 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

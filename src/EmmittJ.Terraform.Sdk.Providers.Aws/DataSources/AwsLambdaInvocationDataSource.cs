@@ -23,7 +23,7 @@ public class AwsLambdaInvocationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetProperty<TerraformProperty<string>>("function_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsLambdaInvocationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Input is required")]
     public required TerraformProperty<string> Input
     {
-        get => GetProperty<TerraformProperty<string>>("input");
+        get => GetRequiredProperty<TerraformProperty<string>>("input");
         set => this.WithProperty("input", value);
     }
 

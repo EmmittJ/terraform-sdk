@@ -78,7 +78,7 @@ public class AwsCodeconnectionsHostVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => WithProperty("vpc_id", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsCodeconnectionsHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsCodeconnectionsHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderEndpoint is required")]
     public required TerraformProperty<string> ProviderEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("provider_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("provider_endpoint");
         set => this.WithProperty("provider_endpoint", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsCodeconnectionsHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderType is required")]
     public required TerraformProperty<string> ProviderType
     {
-        get => GetProperty<TerraformProperty<string>>("provider_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("provider_type");
         set => this.WithProperty("provider_type", value);
     }
 

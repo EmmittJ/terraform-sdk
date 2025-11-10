@@ -24,7 +24,7 @@ public class GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AagConfigDisabled is required")]
     public required TerraformProperty<bool> AagConfigDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("aag_config_disabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("aag_config_disabled");
         set => WithProperty("aag_config_disabled", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleGkeonpremVmwareAdminClusterAutoRepairConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -235,7 +235,7 @@ public class GoogleGkeonpremVmwareAdminClusterProxyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => WithProperty("url", value);
     }
 
@@ -462,7 +462,7 @@ public class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -472,7 +472,7 @@ public class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

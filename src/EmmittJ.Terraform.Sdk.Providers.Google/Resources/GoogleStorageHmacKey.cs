@@ -79,7 +79,7 @@ public class GoogleStorageHmacKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountEmail is required")]
     public required TerraformProperty<string> ServiceAccountEmail
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_email");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_account_email");
         set => this.WithProperty("service_account_email", value);
     }
 

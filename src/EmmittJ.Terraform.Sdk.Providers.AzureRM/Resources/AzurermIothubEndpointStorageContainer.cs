@@ -93,7 +93,7 @@ public class AzurermIothubEndpointStorageContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
         set => this.WithProperty("container_name", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermIothubEndpointStorageContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformProperty<string> IothubId
     {
-        get => GetProperty<TerraformProperty<string>>("iothub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("iothub_id");
         set => this.WithProperty("iothub_id", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermIothubEndpointStorageContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermIothubEndpointStorageContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

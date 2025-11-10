@@ -83,7 +83,7 @@ public class GoogleDataplexGlossary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlossaryId is required")]
     public required TerraformProperty<string> GlossaryId
     {
-        get => GetProperty<TerraformProperty<string>>("glossary_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("glossary_id");
         set => this.WithProperty("glossary_id", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleDataplexGlossary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

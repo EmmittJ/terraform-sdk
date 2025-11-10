@@ -81,7 +81,7 @@ public class GoogleServiceAccountKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountId is required")]
     public required TerraformProperty<string> ServiceAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_account_id");
         set => this.WithProperty("service_account_id", value);
     }
 

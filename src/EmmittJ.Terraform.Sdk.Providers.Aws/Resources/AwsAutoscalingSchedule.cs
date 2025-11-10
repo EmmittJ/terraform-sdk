@@ -23,7 +23,7 @@ public class AwsAutoscalingSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
     public required TerraformProperty<string> AutoscalingGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("autoscaling_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("autoscaling_group_name");
         set => this.WithProperty("autoscaling_group_name", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsAutoscalingSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduledActionName is required")]
     public required TerraformProperty<string> ScheduledActionName
     {
-        get => GetProperty<TerraformProperty<string>>("scheduled_action_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("scheduled_action_name");
         set => this.WithProperty("scheduled_action_name", value);
     }
 

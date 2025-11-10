@@ -31,7 +31,7 @@ public class AwsGameliftGameServerGroupInstanceDefinitionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
         set => WithProperty("instance_type", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsGameliftGameServerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GameServerGroupName is required")]
     public required TerraformProperty<string> GameServerGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("game_server_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("game_server_group_name");
         set => this.WithProperty("game_server_group_name", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsGameliftGameServerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSize is required")]
     public required TerraformProperty<double> MaxSize
     {
-        get => GetProperty<TerraformProperty<double>>("max_size");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_size");
         set => this.WithProperty("max_size", value);
     }
 
@@ -177,7 +177,7 @@ public class AwsGameliftGameServerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinSize is required")]
     public required TerraformProperty<double> MinSize
     {
-        get => GetProperty<TerraformProperty<double>>("min_size");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_size");
         set => this.WithProperty("min_size", value);
     }
 
@@ -196,7 +196,7 @@ public class AwsGameliftGameServerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

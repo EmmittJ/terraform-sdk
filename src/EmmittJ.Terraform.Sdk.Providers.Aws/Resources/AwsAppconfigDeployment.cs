@@ -26,7 +26,7 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationProfileId is required")]
     public required TerraformProperty<string> ConfigurationProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_profile_id");
         set => this.WithProperty("configuration_profile_id", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationVersion is required")]
     public required TerraformProperty<string> ConfigurationVersion
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_version");
         set => this.WithProperty("configuration_version", value);
     }
 
@@ -56,7 +56,7 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentStrategyId is required")]
     public required TerraformProperty<string> DeploymentStrategyId
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_strategy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("deployment_strategy_id");
         set => this.WithProperty("deployment_strategy_id", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsAppconfigDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformProperty<string> EnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("environment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
     }
 

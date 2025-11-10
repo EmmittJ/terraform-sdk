@@ -23,7 +23,7 @@ public class AwsWorkspaceswebIpAccessSettingsIpRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRange is required")]
     public required TerraformProperty<string> IpRange
     {
-        get => GetProperty<TerraformProperty<string>>("ip_range");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_range");
         set => WithProperty("ip_range", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsWorkspaceswebIpAccessSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 

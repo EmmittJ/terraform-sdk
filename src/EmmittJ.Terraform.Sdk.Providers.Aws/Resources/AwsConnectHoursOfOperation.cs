@@ -14,7 +14,7 @@ public class AwsConnectHoursOfOperationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformProperty<string> Day
     {
-        get => GetProperty<TerraformProperty<string>>("day");
+        get => GetRequiredProperty<TerraformProperty<string>>("day");
         set => WithProperty("day", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsConnectHoursOfOperation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsConnectHoursOfOperation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsConnectHoursOfOperation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformProperty<string> TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("time_zone");
         set => this.WithProperty("time_zone", value);
     }
 

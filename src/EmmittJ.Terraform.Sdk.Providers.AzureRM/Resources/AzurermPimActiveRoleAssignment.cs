@@ -120,7 +120,7 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformProperty<string> RoleDefinitionId
     {
-        get => GetProperty<TerraformProperty<string>>("role_definition_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_definition_id");
         set => this.WithProperty("role_definition_id", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

@@ -59,7 +59,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerEndpoint is required")]
     public required TerraformProperty<string> ServerEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("server_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_endpoint");
         set => WithProperty("server_endpoint", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobContainerUri is required")]
     public required TerraformProperty<string> BlobContainerUri
     {
-        get => GetProperty<TerraformProperty<string>>("blob_container_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("blob_container_uri");
         set => WithProperty("blob_container_uri", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasToken is required")]
     public required TerraformProperty<string> SasToken
     {
-        get => GetProperty<TerraformProperty<string>>("sas_token");
+        get => GetRequiredProperty<TerraformProperty<string>>("sas_token");
         set => WithProperty("sas_token", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegration
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => WithProperty("subnet_id", value);
     }
 
@@ -175,7 +175,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("linked_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
         set => WithProperty("linked_service_name", value);
     }
 
@@ -185,7 +185,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -247,7 +247,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SelfHostedIntegrationRuntimeName is required")]
     public required TerraformProperty<string> SelfHostedIntegrationRuntimeName
     {
-        get => GetProperty<TerraformProperty<string>>("self_hosted_integration_runtime_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("self_hosted_integration_runtime_name");
         set => WithProperty("self_hosted_integration_runtime_name", value);
     }
 
@@ -257,7 +257,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StagingStorageLinkedServiceName is required")]
     public required TerraformProperty<string> StagingStorageLinkedServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("staging_storage_linked_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("staging_storage_linked_service_name");
         set => WithProperty("staging_storage_linked_service_name", value);
     }
 
@@ -381,7 +381,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetProperty<TerraformProperty<string>>("data_factory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
@@ -427,7 +427,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -446,7 +446,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -456,7 +456,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeSize is required")]
     public required TerraformProperty<string> NodeSize
     {
-        get => GetProperty<TerraformProperty<string>>("node_size");
+        get => GetRequiredProperty<TerraformProperty<string>>("node_size");
         set => this.WithProperty("node_size", value);
     }
 

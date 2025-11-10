@@ -84,7 +84,7 @@ public class AzurermSentinelMetadataSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformProperty<string> Kind
     {
-        get => GetProperty<TerraformProperty<string>>("kind");
+        get => GetRequiredProperty<TerraformProperty<string>>("kind");
         set => WithProperty("kind", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("tier");
         set => WithProperty("tier", value);
     }
 
@@ -209,7 +209,7 @@ public class AzurermSentinelMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentId is required")]
     public required TerraformProperty<string> ContentId
     {
-        get => GetProperty<TerraformProperty<string>>("content_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("content_id");
         set => this.WithProperty("content_id", value);
     }
 
@@ -273,7 +273,7 @@ public class AzurermSentinelMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformProperty<string> Kind
     {
-        get => GetProperty<TerraformProperty<string>>("kind");
+        get => GetRequiredProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
     }
 
@@ -292,7 +292,7 @@ public class AzurermSentinelMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -302,7 +302,7 @@ public class AzurermSentinelMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
     public required TerraformProperty<string> ParentId
     {
-        get => GetProperty<TerraformProperty<string>>("parent_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent_id");
         set => this.WithProperty("parent_id", value);
     }
 
@@ -366,7 +366,7 @@ public class AzurermSentinelMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

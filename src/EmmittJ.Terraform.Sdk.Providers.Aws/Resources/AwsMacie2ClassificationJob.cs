@@ -141,7 +141,7 @@ public class AwsMacie2ClassificationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobType is required")]
     public required TerraformProperty<string> JobType
     {
-        get => GetProperty<TerraformProperty<string>>("job_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("job_type");
         set => this.WithProperty("job_type", value);
     }
 

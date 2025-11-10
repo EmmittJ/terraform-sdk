@@ -32,7 +32,7 @@ public class AwsOrganizationsOrganizationalUnitDescendantAccountsDataSource : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
     public required TerraformProperty<string> ParentId
     {
-        get => GetProperty<TerraformProperty<string>>("parent_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent_id");
         set => this.WithProperty("parent_id", value);
     }
 

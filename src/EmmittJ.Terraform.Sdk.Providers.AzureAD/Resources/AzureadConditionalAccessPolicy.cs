@@ -95,7 +95,7 @@ public class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
     public required TerraformProperty<string> Operator
     {
-        get => GetProperty<TerraformProperty<string>>("operator");
+        get => GetRequiredProperty<TerraformProperty<string>>("operator");
         set => WithProperty("operator", value);
     }
 
@@ -256,7 +256,7 @@ public class AzureadConditionalAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -275,7 +275,7 @@ public class AzureadConditionalAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformProperty<string> State
     {
-        get => GetProperty<TerraformProperty<string>>("state");
+        get => GetRequiredProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
     }
 

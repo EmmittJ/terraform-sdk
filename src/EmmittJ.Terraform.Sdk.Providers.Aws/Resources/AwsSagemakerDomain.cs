@@ -14,7 +14,7 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
     public required TerraformProperty<string> ExecutionRole
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("execution_role");
         set => WithProperty("execution_role", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsSagemakerDomainDefaultUserSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
     public required TerraformProperty<string> ExecutionRole
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("execution_role");
         set => WithProperty("execution_role", value);
     }
 
@@ -171,7 +171,7 @@ public class AwsSagemakerDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthMode is required")]
     public required TerraformProperty<string> AuthMode
     {
-        get => GetProperty<TerraformProperty<string>>("auth_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("auth_mode");
         set => this.WithProperty("auth_mode", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsSagemakerDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
@@ -255,7 +255,7 @@ public class AwsSagemakerDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

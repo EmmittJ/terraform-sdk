@@ -14,7 +14,7 @@ public class AwsGlueUserDefinedFunctionResourceUrisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
         set => WithProperty("resource_type", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsGlueUserDefinedFunctionResourceUrisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("uri");
         set => WithProperty("uri", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClassName is required")]
     public required TerraformProperty<string> ClassName
     {
-        get => GetProperty<TerraformProperty<string>>("class_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("class_name");
         set => this.WithProperty("class_name", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerName is required")]
     public required TerraformProperty<string> OwnerName
     {
-        get => GetProperty<TerraformProperty<string>>("owner_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("owner_name");
         set => this.WithProperty("owner_name", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerType is required")]
     public required TerraformProperty<string> OwnerType
     {
-        get => GetProperty<TerraformProperty<string>>("owner_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("owner_type");
         set => this.WithProperty("owner_type", value);
     }
 

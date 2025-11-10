@@ -23,7 +23,7 @@ public class GooglePrivatecaCaPoolIamBindingConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("expression");
         set => WithProperty("expression", value);
     }
 
@@ -33,7 +33,7 @@ public class GooglePrivatecaCaPoolIamBindingConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
+        get => GetRequiredProperty<TerraformProperty<string>>("title");
         set => WithProperty("title", value);
     }
 
@@ -61,7 +61,7 @@ public class GooglePrivatecaCaPoolIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaPool is required")]
     public required TerraformProperty<string> CaPool
     {
-        get => GetProperty<TerraformProperty<string>>("ca_pool");
+        get => GetRequiredProperty<TerraformProperty<string>>("ca_pool");
         set => this.WithProperty("ca_pool", value);
     }
 
@@ -108,7 +108,7 @@ public class GooglePrivatecaCaPoolIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

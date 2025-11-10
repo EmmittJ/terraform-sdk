@@ -137,7 +137,7 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
     public required TerraformProperty<double> ComputeCount
     {
-        get => GetProperty<TerraformProperty<double>>("compute_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("compute_count");
         set => this.WithProperty("compute_count", value);
     }
 
@@ -165,7 +165,7 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -184,7 +184,7 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -204,7 +204,7 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -214,7 +214,7 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
     public required TerraformProperty<string> Shape
     {
-        get => GetProperty<TerraformProperty<string>>("shape");
+        get => GetRequiredProperty<TerraformProperty<string>>("shape");
         set => this.WithProperty("shape", value);
     }
 
@@ -224,7 +224,7 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCount is required")]
     public required TerraformProperty<double> StorageCount
     {
-        get => GetProperty<TerraformProperty<double>>("storage_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("storage_count");
         set => this.WithProperty("storage_count", value);
     }
 

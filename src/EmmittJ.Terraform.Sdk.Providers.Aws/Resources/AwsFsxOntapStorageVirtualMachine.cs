@@ -79,7 +79,7 @@ public class AwsFsxOntapStorageVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformProperty<string> FileSystemId
     {
-        get => GetProperty<TerraformProperty<string>>("file_system_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("file_system_id");
         set => this.WithProperty("file_system_id", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsFsxOntapStorageVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

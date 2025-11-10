@@ -17,7 +17,7 @@ public class GoogleNetworkServicesMulticastDomainConnectionConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionType is required")]
     public required TerraformProperty<string> ConnectionType
     {
-        get => GetProperty<TerraformProperty<string>>("connection_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_type");
         set => WithProperty("connection_type", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminNetwork is required")]
     public required TerraformProperty<string> AdminNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("admin_network");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_network");
         set => this.WithProperty("admin_network", value);
     }
 
@@ -139,7 +139,7 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -163,7 +163,7 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MulticastDomainId is required")]
     public required TerraformProperty<string> MulticastDomainId
     {
-        get => GetProperty<TerraformProperty<string>>("multicast_domain_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("multicast_domain_id");
         set => this.WithProperty("multicast_domain_id", value);
     }
 

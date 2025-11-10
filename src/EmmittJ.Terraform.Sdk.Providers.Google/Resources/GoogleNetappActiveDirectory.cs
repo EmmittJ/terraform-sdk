@@ -98,7 +98,7 @@ public class GoogleNetappActiveDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dns is required")]
     public required TerraformProperty<string> Dns
     {
-        get => GetProperty<TerraformProperty<string>>("dns");
+        get => GetRequiredProperty<TerraformProperty<string>>("dns");
         set => this.WithProperty("dns", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleNetappActiveDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
     }
 
@@ -176,7 +176,7 @@ public class GoogleNetappActiveDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -186,7 +186,7 @@ public class GoogleNetappActiveDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleNetappActiveDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetBiosPrefix is required")]
     public required TerraformProperty<string> NetBiosPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("net_bios_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("net_bios_prefix");
         set => this.WithProperty("net_bios_prefix", value);
     }
 
@@ -228,7 +228,7 @@ public class GoogleNetappActiveDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
@@ -266,7 +266,7 @@ public class GoogleNetappActiveDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

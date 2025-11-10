@@ -31,7 +31,7 @@ public class AwsCodebuildWebhookPullRequestBuildPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequiresCommentApproval is required")]
     public required TerraformProperty<string> RequiresCommentApproval
     {
-        get => GetProperty<TerraformProperty<string>>("requires_comment_approval");
+        get => GetRequiredProperty<TerraformProperty<string>>("requires_comment_approval");
         set => WithProperty("requires_comment_approval", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsCodebuildWebhookScopeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsCodebuildWebhookScopeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => WithProperty("scope", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsCodebuildWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformProperty<string> ProjectName
     {
-        get => GetProperty<TerraformProperty<string>>("project_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_name");
         set => this.WithProperty("project_name", value);
     }
 

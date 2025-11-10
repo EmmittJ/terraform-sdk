@@ -57,7 +57,7 @@ public class GoogleAppEngineFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleAppEngineFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRange is required")]
     public required TerraformProperty<string> SourceRange
     {
-        get => GetProperty<TerraformProperty<string>>("source_range");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_range");
         set => this.WithProperty("source_range", value);
     }
 

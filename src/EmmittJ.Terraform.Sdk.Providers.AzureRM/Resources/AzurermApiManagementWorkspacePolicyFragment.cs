@@ -66,7 +66,7 @@ public class AzurermApiManagementWorkspacePolicyFragment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementWorkspaceId is required")]
     public required TerraformProperty<string> ApiManagementWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_workspace_id");
         set => this.WithProperty("api_management_workspace_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermApiManagementWorkspacePolicyFragment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermApiManagementWorkspacePolicyFragment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "XmlContent is required")]
     public required TerraformProperty<string> XmlContent
     {
-        get => GetProperty<TerraformProperty<string>>("xml_content");
+        get => GetRequiredProperty<TerraformProperty<string>>("xml_content");
         set => this.WithProperty("xml_content", value);
     }
 

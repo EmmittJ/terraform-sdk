@@ -76,7 +76,7 @@ public class AzurermKeyVaultManagedStorageAccountSasTokenDefinition : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedStorageAccountId is required")]
     public required TerraformProperty<string> ManagedStorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_storage_account_id");
         set => this.WithProperty("managed_storage_account_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermKeyVaultManagedStorageAccountSasTokenDefinition : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermKeyVaultManagedStorageAccountSasTokenDefinition : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasTemplateUri is required")]
     public required TerraformProperty<string> SasTemplateUri
     {
-        get => GetProperty<TerraformProperty<string>>("sas_template_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("sas_template_uri");
         set => this.WithProperty("sas_template_uri", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermKeyVaultManagedStorageAccountSasTokenDefinition : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasType is required")]
     public required TerraformProperty<string> SasType
     {
-        get => GetProperty<TerraformProperty<string>>("sas_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("sas_type");
         set => this.WithProperty("sas_type", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermKeyVaultManagedStorageAccountSasTokenDefinition : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidityPeriod is required")]
     public required TerraformProperty<string> ValidityPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("validity_period");
+        get => GetRequiredProperty<TerraformProperty<string>>("validity_period");
         set => this.WithProperty("validity_period", value);
     }
 

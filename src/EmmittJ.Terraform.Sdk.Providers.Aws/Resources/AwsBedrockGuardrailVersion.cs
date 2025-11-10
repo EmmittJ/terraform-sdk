@@ -58,7 +58,7 @@ public class AwsBedrockGuardrailVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuardrailArn is required")]
     public required TerraformProperty<string> GuardrailArn
     {
-        get => GetProperty<TerraformProperty<string>>("guardrail_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("guardrail_arn");
         set => this.WithProperty("guardrail_arn", value);
     }
 

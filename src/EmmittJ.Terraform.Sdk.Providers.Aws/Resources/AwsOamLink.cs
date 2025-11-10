@@ -79,7 +79,7 @@ public class AwsOamLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelTemplate is required")]
     public required TerraformProperty<string> LabelTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("label_template");
+        get => GetRequiredProperty<TerraformProperty<string>>("label_template");
         set => this.WithProperty("label_template", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsOamLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SinkIdentifier is required")]
     public required TerraformProperty<string> SinkIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("sink_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("sink_identifier");
         set => this.WithProperty("sink_identifier", value);
     }
 

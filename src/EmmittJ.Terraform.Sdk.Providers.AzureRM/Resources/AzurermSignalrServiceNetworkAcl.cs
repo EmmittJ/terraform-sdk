@@ -32,7 +32,7 @@ public class AzurermSignalrServiceNetworkAclPrivateEndpointBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermSignalrServiceNetworkAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformProperty<string> DefaultAction
     {
-        get => GetProperty<TerraformProperty<string>>("default_action");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_action");
         set => this.WithProperty("default_action", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermSignalrServiceNetworkAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrServiceId is required")]
     public required TerraformProperty<string> SignalrServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("signalr_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("signalr_service_id");
         set => this.WithProperty("signalr_service_id", value);
     }
 

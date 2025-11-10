@@ -23,7 +23,7 @@ public class AwsRedshiftserverlessUsageLimit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     public required TerraformProperty<double> Amount
     {
-        get => GetProperty<TerraformProperty<double>>("amount");
+        get => GetRequiredProperty<TerraformProperty<double>>("amount");
         set => this.WithProperty("amount", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsRedshiftserverlessUsageLimit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("resource_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsRedshiftserverlessUsageLimit : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsageType is required")]
     public required TerraformProperty<string> UsageType
     {
-        get => GetProperty<TerraformProperty<string>>("usage_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("usage_type");
         set => this.WithProperty("usage_type", value);
     }
 

@@ -23,7 +23,7 @@ public class GoogleComputeResizeRequestRequestedRunDurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformProperty<string> Seconds
     {
-        get => GetProperty<TerraformProperty<string>>("seconds");
+        get => GetRequiredProperty<TerraformProperty<string>>("seconds");
         set => WithProperty("seconds", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleComputeResizeRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceGroupManager is required")]
     public required TerraformProperty<string> InstanceGroupManager
     {
-        get => GetProperty<TerraformProperty<string>>("instance_group_manager");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_group_manager");
         set => this.WithProperty("instance_group_manager", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleComputeResizeRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleComputeResizeRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResizeBy is required")]
     public required TerraformProperty<double> ResizeBy
     {
-        get => GetProperty<TerraformProperty<double>>("resize_by");
+        get => GetRequiredProperty<TerraformProperty<double>>("resize_by");
         set => this.WithProperty("resize_by", value);
     }
 

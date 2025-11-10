@@ -66,7 +66,7 @@ public class AzurermBotChannelAlexa : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformProperty<string> BotName
     {
-        get => GetProperty<TerraformProperty<string>>("bot_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_name");
         set => this.WithProperty("bot_name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermBotChannelAlexa : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermBotChannelAlexa : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermBotChannelAlexa : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkillId is required")]
     public required TerraformProperty<string> SkillId
     {
-        get => GetProperty<TerraformProperty<string>>("skill_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("skill_id");
         set => this.WithProperty("skill_id", value);
     }
 

@@ -75,7 +75,7 @@ public class AzurermCdnFrontdoorSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
     public required TerraformProperty<string> CdnFrontdoorProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("cdn_frontdoor_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cdn_frontdoor_profile_id");
         set => this.WithProperty("cdn_frontdoor_profile_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermCdnFrontdoorSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

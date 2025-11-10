@@ -85,7 +85,7 @@ public class AzureadSynchronizationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformProperty<string> ServicePrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("service_principal_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_principal_id");
         set => this.WithProperty("service_principal_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzureadSynchronizationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
     public required TerraformProperty<string> TemplateId
     {
-        get => GetProperty<TerraformProperty<string>>("template_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("template_id");
         set => this.WithProperty("template_id", value);
     }
 

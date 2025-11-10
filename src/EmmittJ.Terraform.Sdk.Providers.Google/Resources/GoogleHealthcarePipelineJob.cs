@@ -82,7 +82,7 @@ public class GoogleHealthcarePipelineJobReconciliationPipelineJobBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingUriPrefix is required")]
     public required TerraformProperty<string> MatchingUriPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("matching_uri_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("matching_uri_prefix");
         set => WithProperty("matching_uri_prefix", value);
     }
 
@@ -147,7 +147,7 @@ public class GoogleHealthcarePipelineJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformProperty<string> Dataset
     {
-        get => GetProperty<TerraformProperty<string>>("dataset");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset");
         set => this.WithProperty("dataset", value);
     }
 
@@ -197,7 +197,7 @@ public class GoogleHealthcarePipelineJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -207,7 +207,7 @@ public class GoogleHealthcarePipelineJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

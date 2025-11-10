@@ -47,7 +47,7 @@ public class AwsVpclatticeServiceNetworkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNetworkIdentifier is required")]
     public required TerraformProperty<string> ServiceNetworkIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("service_network_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_network_identifier");
         set => this.WithProperty("service_network_identifier", value);
     }
 

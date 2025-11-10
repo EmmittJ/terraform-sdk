@@ -25,7 +25,7 @@ public class AwsRoute53ResolverQueryLogConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformProperty<string> DestinationArn
     {
-        get => GetProperty<TerraformProperty<string>>("destination_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_arn");
         set => this.WithProperty("destination_arn", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsRoute53ResolverQueryLogConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

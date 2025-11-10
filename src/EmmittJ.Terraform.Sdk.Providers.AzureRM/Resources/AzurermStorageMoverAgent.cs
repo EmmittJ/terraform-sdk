@@ -66,7 +66,7 @@ public class AzurermStorageMoverAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcVirtualMachineId is required")]
     public required TerraformProperty<string> ArcVirtualMachineId
     {
-        get => GetProperty<TerraformProperty<string>>("arc_virtual_machine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("arc_virtual_machine_id");
         set => this.WithProperty("arc_virtual_machine_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermStorageMoverAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcVirtualMachineUuid is required")]
     public required TerraformProperty<string> ArcVirtualMachineUuid
     {
-        get => GetProperty<TerraformProperty<string>>("arc_virtual_machine_uuid");
+        get => GetRequiredProperty<TerraformProperty<string>>("arc_virtual_machine_uuid");
         set => this.WithProperty("arc_virtual_machine_uuid", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermStorageMoverAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermStorageMoverAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageMoverId is required")]
     public required TerraformProperty<string> StorageMoverId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_mover_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_mover_id");
         set => this.WithProperty("storage_mover_id", value);
     }
 

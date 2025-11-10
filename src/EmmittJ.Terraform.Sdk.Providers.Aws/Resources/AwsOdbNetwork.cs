@@ -81,7 +81,7 @@ public class AwsOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZoneId is required")]
     public required TerraformProperty<string> AvailabilityZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("availability_zone_id");
         set => this.WithProperty("availability_zone_id", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupSubnetCidr is required")]
     public required TerraformProperty<string> BackupSubnetCidr
     {
-        get => GetProperty<TerraformProperty<string>>("backup_subnet_cidr");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_subnet_cidr");
         set => this.WithProperty("backup_subnet_cidr", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSubnetCidr is required")]
     public required TerraformProperty<string> ClientSubnetCidr
     {
-        get => GetProperty<TerraformProperty<string>>("client_subnet_cidr");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_subnet_cidr");
         set => this.WithProperty("client_subnet_cidr", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Access is required")]
     public required TerraformProperty<string> S3Access
     {
-        get => GetProperty<TerraformProperty<string>>("s3_access");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_access");
         set => this.WithProperty("s3_access", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZeroEtlAccess is required")]
     public required TerraformProperty<string> ZeroEtlAccess
     {
-        get => GetProperty<TerraformProperty<string>>("zero_etl_access");
+        get => GetRequiredProperty<TerraformProperty<string>>("zero_etl_access");
         set => this.WithProperty("zero_etl_access", value);
     }
 

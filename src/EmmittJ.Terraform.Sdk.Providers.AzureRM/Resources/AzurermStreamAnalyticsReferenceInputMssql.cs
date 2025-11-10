@@ -66,7 +66,7 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetProperty<TerraformProperty<string>>("database");
+        get => GetRequiredProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullSnapshotQuery is required")]
     public required TerraformProperty<string> FullSnapshotQuery
     {
-        get => GetProperty<TerraformProperty<string>>("full_snapshot_query");
+        get => GetRequiredProperty<TerraformProperty<string>>("full_snapshot_query");
         set => this.WithProperty("full_snapshot_query", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefreshType is required")]
     public required TerraformProperty<string> RefreshType
     {
-        get => GetProperty<TerraformProperty<string>>("refresh_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("refresh_type");
         set => this.WithProperty("refresh_type", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformProperty<string> Server
     {
-        get => GetProperty<TerraformProperty<string>>("server");
+        get => GetRequiredProperty<TerraformProperty<string>>("server");
         set => this.WithProperty("server", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformProperty<string> StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_name");
         set => this.WithProperty("stream_analytics_job_name", value);
     }
 
@@ -182,7 +182,7 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

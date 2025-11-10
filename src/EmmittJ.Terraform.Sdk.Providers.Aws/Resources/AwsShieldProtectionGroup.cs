@@ -23,7 +23,7 @@ public class AwsShieldProtectionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Aggregation is required")]
     public required TerraformProperty<string> Aggregation
     {
-        get => GetProperty<TerraformProperty<string>>("aggregation");
+        get => GetRequiredProperty<TerraformProperty<string>>("aggregation");
         set => this.WithProperty("aggregation", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsShieldProtectionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformProperty<string> Pattern
     {
-        get => GetProperty<TerraformProperty<string>>("pattern");
+        get => GetRequiredProperty<TerraformProperty<string>>("pattern");
         set => this.WithProperty("pattern", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsShieldProtectionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionGroupId is required")]
     public required TerraformProperty<string> ProtectionGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("protection_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("protection_group_id");
         set => this.WithProperty("protection_group_id", value);
     }
 

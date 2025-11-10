@@ -57,7 +57,7 @@ public class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformProperty<string> Category
     {
-        get => GetProperty<TerraformProperty<string>>("category");
+        get => GetRequiredProperty<TerraformProperty<string>>("category");
         set => this.WithProperty("category", value);
     }
 
@@ -67,7 +67,7 @@ public class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetProperty<TerraformProperty<string>>("query");
+        get => GetRequiredProperty<TerraformProperty<string>>("query");
         set => this.WithProperty("query", value);
     }
 

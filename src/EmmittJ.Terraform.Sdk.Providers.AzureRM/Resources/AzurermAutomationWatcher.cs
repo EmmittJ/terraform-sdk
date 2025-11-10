@@ -67,7 +67,7 @@ public class AzurermAutomationWatcher : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformProperty<string> AutomationAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("automation_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_id");
         set => this.WithProperty("automation_account_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermAutomationWatcher : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionFrequencyInSeconds is required")]
     public required TerraformProperty<double> ExecutionFrequencyInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("execution_frequency_in_seconds");
+        get => GetRequiredProperty<TerraformProperty<double>>("execution_frequency_in_seconds");
         set => this.WithProperty("execution_frequency_in_seconds", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermAutomationWatcher : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermAutomationWatcher : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermAutomationWatcher : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptName is required")]
     public required TerraformProperty<string> ScriptName
     {
-        get => GetProperty<TerraformProperty<string>>("script_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("script_name");
         set => this.WithProperty("script_name", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermAutomationWatcher : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptRunOn is required")]
     public required TerraformProperty<string> ScriptRunOn
     {
-        get => GetProperty<TerraformProperty<string>>("script_run_on");
+        get => GetRequiredProperty<TerraformProperty<string>>("script_run_on");
         set => this.WithProperty("script_run_on", value);
     }
 

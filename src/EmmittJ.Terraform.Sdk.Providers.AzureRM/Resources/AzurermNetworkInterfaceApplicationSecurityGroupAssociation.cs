@@ -57,7 +57,7 @@ public class AzurermNetworkInterfaceApplicationSecurityGroupAssociation : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationSecurityGroupId is required")]
     public required TerraformProperty<string> ApplicationSecurityGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("application_security_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_security_group_id");
         set => this.WithProperty("application_security_group_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermNetworkInterfaceApplicationSecurityGroupAssociation : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
     }
 

@@ -49,7 +49,7 @@ public class AwsIotThingGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingGroupName is required")]
     public required TerraformProperty<string> ThingGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("thing_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("thing_group_name");
         set => this.WithProperty("thing_group_name", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsIotThingGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingName is required")]
     public required TerraformProperty<string> ThingName
     {
-        get => GetProperty<TerraformProperty<string>>("thing_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("thing_name");
         set => this.WithProperty("thing_name", value);
     }
 

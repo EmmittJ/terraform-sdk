@@ -32,7 +32,7 @@ public class GoogleSourcerepoRepositoryIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleSourcerepoRepositoryIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformProperty<string> Repository
     {
-        get => GetProperty<TerraformProperty<string>>("repository");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository");
         set => this.WithProperty("repository", value);
     }
 

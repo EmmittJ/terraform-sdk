@@ -57,7 +57,7 @@ public class AzureadGroupMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupObjectId is required")]
     public required TerraformProperty<string> GroupObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("group_object_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("group_object_id");
         set => this.WithProperty("group_object_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzureadGroupMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberObjectId is required")]
     public required TerraformProperty<string> MemberObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("member_object_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("member_object_id");
         set => this.WithProperty("member_object_id", value);
     }
 

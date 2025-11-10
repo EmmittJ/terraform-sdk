@@ -57,7 +57,7 @@ public class AzurermStorageSyncCloudEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileShareName is required")]
     public required TerraformProperty<string> FileShareName
     {
-        get => GetProperty<TerraformProperty<string>>("file_share_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("file_share_name");
         set => this.WithProperty("file_share_name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermStorageSyncCloudEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermStorageSyncCloudEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermStorageSyncCloudEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSyncGroupId is required")]
     public required TerraformProperty<string> StorageSyncGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_sync_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_sync_group_id");
         set => this.WithProperty("storage_sync_group_id", value);
     }
 

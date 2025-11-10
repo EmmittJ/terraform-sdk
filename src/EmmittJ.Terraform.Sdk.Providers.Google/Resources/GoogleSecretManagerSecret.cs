@@ -86,7 +86,7 @@ public class GoogleSecretManagerSecretTopicsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleSecretManagerSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformProperty<string> SecretId
     {
-        get => GetProperty<TerraformProperty<string>>("secret_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_id");
         set => this.WithProperty("secret_id", value);
     }
 

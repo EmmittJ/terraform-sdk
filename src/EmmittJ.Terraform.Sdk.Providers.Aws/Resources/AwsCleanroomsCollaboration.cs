@@ -14,7 +14,7 @@ public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowClearText is required")]
     public required TerraformProperty<bool> AllowClearText
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_clear_text");
+        get => GetRequiredProperty<TerraformProperty<bool>>("allow_clear_text");
         set => WithProperty("allow_clear_text", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowDuplicates is required")]
     public required TerraformProperty<bool> AllowDuplicates
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_duplicates");
+        get => GetRequiredProperty<TerraformProperty<bool>>("allow_duplicates");
         set => WithProperty("allow_duplicates", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowJoinsOnColumnsWithDifferentNames is required")]
     public required TerraformProperty<bool> AllowJoinsOnColumnsWithDifferentNames
     {
-        get => GetProperty<TerraformProperty<bool>>("allow_joins_on_columns_with_different_names");
+        get => GetRequiredProperty<TerraformProperty<bool>>("allow_joins_on_columns_with_different_names");
         set => WithProperty("allow_joins_on_columns_with_different_names", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreserveNulls is required")]
     public required TerraformProperty<bool> PreserveNulls
     {
-        get => GetProperty<TerraformProperty<bool>>("preserve_nulls");
+        get => GetRequiredProperty<TerraformProperty<bool>>("preserve_nulls");
         set => WithProperty("preserve_nulls", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsCleanroomsCollaborationMemberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformProperty<string> AccountId
     {
-        get => GetProperty<TerraformProperty<string>>("account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_id");
         set => WithProperty("account_id", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsCleanroomsCollaborationMemberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => WithProperty("display_name", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsCleanroomsCollaboration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreatorDisplayName is required")]
     public required TerraformProperty<string> CreatorDisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("creator_display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("creator_display_name");
         set => this.WithProperty("creator_display_name", value);
     }
 
@@ -186,7 +186,7 @@ public class AwsCleanroomsCollaboration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -196,7 +196,7 @@ public class AwsCleanroomsCollaboration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -206,7 +206,7 @@ public class AwsCleanroomsCollaboration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryLogStatus is required")]
     public required TerraformProperty<string> QueryLogStatus
     {
-        get => GetProperty<TerraformProperty<string>>("query_log_status");
+        get => GetRequiredProperty<TerraformProperty<string>>("query_log_status");
         set => this.WithProperty("query_log_status", value);
     }
 

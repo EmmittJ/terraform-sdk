@@ -66,7 +66,7 @@ public class AzurermRecoveryServicesVaultResourceGuardAssociation : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGuardId is required")]
     public required TerraformProperty<string> ResourceGuardId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_guard_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_guard_id");
         set => this.WithProperty("resource_guard_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermRecoveryServicesVaultResourceGuardAssociation : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     public required TerraformProperty<string> VaultId
     {
-        get => GetProperty<TerraformProperty<string>>("vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vault_id");
         set => this.WithProperty("vault_id", value);
     }
 

@@ -22,7 +22,7 @@ public class AwsWorkspaceswebSessionLoggerAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
     public required TerraformProperty<string> PortalArn
     {
-        get => GetProperty<TerraformProperty<string>>("portal_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("portal_arn");
         set => this.WithProperty("portal_arn", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsWorkspaceswebSessionLoggerAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionLoggerArn is required")]
     public required TerraformProperty<string> SessionLoggerArn
     {
-        get => GetProperty<TerraformProperty<string>>("session_logger_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("session_logger_arn");
         set => this.WithProperty("session_logger_arn", value);
     }
 

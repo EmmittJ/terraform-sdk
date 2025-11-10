@@ -84,7 +84,7 @@ public class AzurermSynapseSqlPoolWorkloadGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxResourcePercent is required")]
     public required TerraformProperty<double> MaxResourcePercent
     {
-        get => GetProperty<TerraformProperty<double>>("max_resource_percent");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_resource_percent");
         set => this.WithProperty("max_resource_percent", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermSynapseSqlPoolWorkloadGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinResourcePercent is required")]
     public required TerraformProperty<double> MinResourcePercent
     {
-        get => GetProperty<TerraformProperty<double>>("min_resource_percent");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_resource_percent");
         set => this.WithProperty("min_resource_percent", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermSynapseSqlPoolWorkloadGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermSynapseSqlPoolWorkloadGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlPoolId is required")]
     public required TerraformProperty<string> SqlPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("sql_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("sql_pool_id");
         set => this.WithProperty("sql_pool_id", value);
     }
 

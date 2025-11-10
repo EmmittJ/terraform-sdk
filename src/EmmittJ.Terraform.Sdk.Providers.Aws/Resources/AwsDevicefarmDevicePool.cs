@@ -87,7 +87,7 @@ public class AwsDevicefarmDevicePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsDevicefarmDevicePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectArn is required")]
     public required TerraformProperty<string> ProjectArn
     {
-        get => GetProperty<TerraformProperty<string>>("project_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_arn");
         set => this.WithProperty("project_arn", value);
     }
 

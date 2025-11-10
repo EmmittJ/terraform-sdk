@@ -91,7 +91,7 @@ public class GoogleNetappVolumeSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleNetappVolumeSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleNetappVolumeSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformProperty<string> VolumeName
     {
-        get => GetProperty<TerraformProperty<string>>("volume_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("volume_name");
         set => this.WithProperty("volume_name", value);
     }
 

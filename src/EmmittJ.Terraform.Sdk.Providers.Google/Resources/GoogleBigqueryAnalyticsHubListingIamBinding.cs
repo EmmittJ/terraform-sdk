@@ -23,7 +23,7 @@ public class GoogleBigqueryAnalyticsHubListingIamBindingConditionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("expression");
         set => WithProperty("expression", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleBigqueryAnalyticsHubListingIamBindingConditionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
+        get => GetRequiredProperty<TerraformProperty<string>>("title");
         set => WithProperty("title", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleBigqueryAnalyticsHubListingIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     public required TerraformProperty<string> DataExchangeId
     {
-        get => GetProperty<TerraformProperty<string>>("data_exchange_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_exchange_id");
         set => this.WithProperty("data_exchange_id", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleBigqueryAnalyticsHubListingIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListingId is required")]
     public required TerraformProperty<string> ListingId
     {
-        get => GetProperty<TerraformProperty<string>>("listing_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("listing_id");
         set => this.WithProperty("listing_id", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleBigqueryAnalyticsHubListingIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

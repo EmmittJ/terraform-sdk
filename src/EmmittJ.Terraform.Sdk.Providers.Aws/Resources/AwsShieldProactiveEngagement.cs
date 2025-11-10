@@ -23,7 +23,7 @@ public class AwsShieldProactiveEngagementEmergencyContactBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformProperty<string> EmailAddress
     {
-        get => GetProperty<TerraformProperty<string>>("email_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("email_address");
         set => WithProperty("email_address", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsShieldProactiveEngagement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 

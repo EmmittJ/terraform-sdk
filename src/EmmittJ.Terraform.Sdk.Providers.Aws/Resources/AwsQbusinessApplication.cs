@@ -14,7 +14,7 @@ public class AwsQbusinessApplicationAttachmentsConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentsControlMode is required")]
     public required TerraformProperty<string> AttachmentsControlMode
     {
-        get => GetProperty<TerraformProperty<string>>("attachments_control_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("attachments_control_mode");
         set => WithProperty("attachments_control_mode", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsQbusinessApplicationEncryptionConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_id");
         set => WithProperty("kms_key_id", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsQbusinessApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsQbusinessApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamServiceRoleArn is required")]
     public required TerraformProperty<string> IamServiceRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_service_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("iam_service_role_arn");
         set => this.WithProperty("iam_service_role_arn", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsQbusinessApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityCenterInstanceArn is required")]
     public required TerraformProperty<string> IdentityCenterInstanceArn
     {
-        get => GetProperty<TerraformProperty<string>>("identity_center_instance_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_center_instance_arn");
         set => this.WithProperty("identity_center_instance_arn", value);
     }
 

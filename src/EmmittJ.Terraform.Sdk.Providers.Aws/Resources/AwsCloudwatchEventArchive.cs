@@ -41,7 +41,7 @@ public class AwsCloudwatchEventArchive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventSourceArn is required")]
     public required TerraformProperty<string> EventSourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("event_source_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("event_source_arn");
         set => this.WithProperty("event_source_arn", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsCloudwatchEventArchive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

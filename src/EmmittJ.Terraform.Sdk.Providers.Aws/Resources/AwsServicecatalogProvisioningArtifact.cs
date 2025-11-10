@@ -131,7 +131,7 @@ public class AwsServicecatalogProvisioningArtifact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     public required TerraformProperty<string> ProductId
     {
-        get => GetProperty<TerraformProperty<string>>("product_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("product_id");
         set => this.WithProperty("product_id", value);
     }
 

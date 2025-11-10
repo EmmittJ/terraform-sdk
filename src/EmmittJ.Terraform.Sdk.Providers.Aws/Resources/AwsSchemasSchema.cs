@@ -26,7 +26,7 @@ public class AwsSchemasSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsSchemasSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsSchemasSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryName is required")]
     public required TerraformProperty<string> RegistryName
     {
-        get => GetProperty<TerraformProperty<string>>("registry_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("registry_name");
         set => this.WithProperty("registry_name", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsSchemasSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

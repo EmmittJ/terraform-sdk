@@ -19,7 +19,7 @@ public class GoogleHealthcareFhirStoreNotificationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformProperty<string> PubsubTopic
     {
-        get => GetProperty<TerraformProperty<string>>("pubsub_topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("pubsub_topic");
         set => WithProperty("pubsub_topic", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleHealthcareFhirStoreNotificationConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformProperty<string> PubsubTopic
     {
-        get => GetProperty<TerraformProperty<string>>("pubsub_topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("pubsub_topic");
         set => WithProperty("pubsub_topic", value);
     }
 
@@ -225,7 +225,7 @@ public class GoogleHealthcareFhirStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformProperty<string> Dataset
     {
-        get => GetProperty<TerraformProperty<string>>("dataset");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset");
         set => this.WithProperty("dataset", value);
     }
 
@@ -341,7 +341,7 @@ public class GoogleHealthcareFhirStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -351,7 +351,7 @@ public class GoogleHealthcareFhirStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

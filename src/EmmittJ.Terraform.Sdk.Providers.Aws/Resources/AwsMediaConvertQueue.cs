@@ -14,7 +14,7 @@ public class AwsMediaConvertQueueReservationPlanSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Commitment is required")]
     public required TerraformProperty<string> Commitment
     {
-        get => GetProperty<TerraformProperty<string>>("commitment");
+        get => GetRequiredProperty<TerraformProperty<string>>("commitment");
         set => WithProperty("commitment", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsMediaConvertQueueReservationPlanSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RenewalType is required")]
     public required TerraformProperty<string> RenewalType
     {
-        get => GetProperty<TerraformProperty<string>>("renewal_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("renewal_type");
         set => WithProperty("renewal_type", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsMediaConvertQueueReservationPlanSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservedSlots is required")]
     public required TerraformProperty<double> ReservedSlots
     {
-        get => GetProperty<TerraformProperty<double>>("reserved_slots");
+        get => GetRequiredProperty<TerraformProperty<double>>("reserved_slots");
         set => WithProperty("reserved_slots", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsMediaConvertQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

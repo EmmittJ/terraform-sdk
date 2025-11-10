@@ -24,7 +24,7 @@ public class GoogleGeminiCodeToolsSettingEnabledToolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Handle is required")]
     public required TerraformProperty<string> Handle
     {
-        get => GetProperty<TerraformProperty<string>>("handle");
+        get => GetRequiredProperty<TerraformProperty<string>>("handle");
         set => WithProperty("handle", value);
     }
 
@@ -34,7 +34,7 @@ public class GoogleGeminiCodeToolsSettingEnabledToolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tool is required")]
     public required TerraformProperty<string> Tool
     {
-        get => GetProperty<TerraformProperty<string>>("tool");
+        get => GetRequiredProperty<TerraformProperty<string>>("tool");
         set => WithProperty("tool", value);
     }
 
@@ -110,7 +110,7 @@ public class GoogleGeminiCodeToolsSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeToolsSettingId is required")]
     public required TerraformProperty<string> CodeToolsSettingId
     {
-        get => GetProperty<TerraformProperty<string>>("code_tools_setting_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("code_tools_setting_id");
         set => this.WithProperty("code_tools_setting_id", value);
     }
 

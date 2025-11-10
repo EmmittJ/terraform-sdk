@@ -23,7 +23,7 @@ public class AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformProperty<string> CapacityProvider
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_provider");
+        get => GetRequiredProperty<TerraformProperty<string>>("capacity_provider");
         set => WithProperty("capacity_provider", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsEcsTaskExecutionDataSourcePlacementStrategyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsEcsTaskExecutionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetProperty<TerraformProperty<string>>("cluster");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
     }
 
@@ -321,7 +321,7 @@ public class AwsEcsTaskExecutionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
     public required TerraformProperty<string> TaskDefinition
     {
-        get => GetProperty<TerraformProperty<string>>("task_definition");
+        get => GetRequiredProperty<TerraformProperty<string>>("task_definition");
         set => this.WithProperty("task_definition", value);
     }
 

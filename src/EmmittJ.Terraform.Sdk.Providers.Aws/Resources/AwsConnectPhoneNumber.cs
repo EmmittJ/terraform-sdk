@@ -60,7 +60,7 @@ public class AwsConnectPhoneNumber : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCode is required")]
     public required TerraformProperty<string> CountryCode
     {
-        get => GetProperty<TerraformProperty<string>>("country_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("country_code");
         set => this.WithProperty("country_code", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsConnectPhoneNumber : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformProperty<string> TargetArn
     {
-        get => GetProperty<TerraformProperty<string>>("target_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_arn");
         set => this.WithProperty("target_arn", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsConnectPhoneNumber : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

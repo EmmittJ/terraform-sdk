@@ -77,7 +77,7 @@ public class GoogleNetworkSecurityInterceptEndpointGroupAssociation : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterceptEndpointGroup is required")]
     public required TerraformProperty<string> InterceptEndpointGroup
     {
-        get => GetProperty<TerraformProperty<string>>("intercept_endpoint_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("intercept_endpoint_group");
         set => this.WithProperty("intercept_endpoint_group", value);
     }
 
@@ -110,7 +110,7 @@ public class GoogleNetworkSecurityInterceptEndpointGroupAssociation : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -122,7 +122,7 @@ public class GoogleNetworkSecurityInterceptEndpointGroupAssociation : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 

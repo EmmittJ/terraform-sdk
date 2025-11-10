@@ -33,7 +33,7 @@ public class AwsConfigRetentionConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodInDays is required")]
     public required TerraformProperty<double> RetentionPeriodInDays
     {
-        get => GetProperty<TerraformProperty<double>>("retention_period_in_days");
+        get => GetRequiredProperty<TerraformProperty<double>>("retention_period_in_days");
         set => this.WithProperty("retention_period_in_days", value);
     }
 

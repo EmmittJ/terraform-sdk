@@ -14,7 +14,7 @@ public class GoogleAssuredWorkloadsWorkloadKmsSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextRotationTime is required")]
     public required TerraformProperty<string> NextRotationTime
     {
-        get => GetProperty<TerraformProperty<string>>("next_rotation_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("next_rotation_time");
         set => WithProperty("next_rotation_time", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleAssuredWorkloadsWorkloadKmsSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RotationPeriod is required")]
     public required TerraformProperty<string> RotationPeriod
     {
-        get => GetProperty<TerraformProperty<string>>("rotation_period");
+        get => GetRequiredProperty<TerraformProperty<string>>("rotation_period");
         set => WithProperty("rotation_period", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComplianceRegime is required")]
     public required TerraformProperty<string> ComplianceRegime
     {
-        get => GetProperty<TerraformProperty<string>>("compliance_regime");
+        get => GetRequiredProperty<TerraformProperty<string>>("compliance_regime");
         set => this.WithProperty("compliance_regime", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -252,7 +252,7 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetProperty<TerraformProperty<string>>("organization");
+        get => GetRequiredProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 

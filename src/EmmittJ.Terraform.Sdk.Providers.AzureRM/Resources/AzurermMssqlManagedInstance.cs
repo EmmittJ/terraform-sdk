@@ -23,7 +23,7 @@ public class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginUsername is required")]
     public required TerraformProperty<string> LoginUsername
     {
-        get => GetProperty<TerraformProperty<string>>("login_username");
+        get => GetRequiredProperty<TerraformProperty<string>>("login_username");
         set => WithProperty("login_username", value);
     }
 
@@ -33,7 +33,7 @@ public class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformProperty<string> ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("object_id");
         set => WithProperty("object_id", value);
     }
 
@@ -43,7 +43,7 @@ public class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     public required TerraformProperty<string> PrincipalType
     {
-        get => GetProperty<TerraformProperty<string>>("principal_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_type");
         set => WithProperty("principal_type", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermMssqlManagedInstanceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -233,7 +233,7 @@ public class AzurermMssqlManagedInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
     public required TerraformProperty<string> LicenseType
     {
-        get => GetProperty<TerraformProperty<string>>("license_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("license_type");
         set => this.WithProperty("license_type", value);
     }
 
@@ -243,7 +243,7 @@ public class AzurermMssqlManagedInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -271,7 +271,7 @@ public class AzurermMssqlManagedInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -299,7 +299,7 @@ public class AzurermMssqlManagedInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -318,7 +318,7 @@ public class AzurermMssqlManagedInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetProperty<TerraformProperty<string>>("sku_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 
@@ -337,7 +337,7 @@ public class AzurermMssqlManagedInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSizeInGb is required")]
     public required TerraformProperty<double> StorageSizeInGb
     {
-        get => GetProperty<TerraformProperty<double>>("storage_size_in_gb");
+        get => GetRequiredProperty<TerraformProperty<double>>("storage_size_in_gb");
         set => this.WithProperty("storage_size_in_gb", value);
     }
 
@@ -347,7 +347,7 @@ public class AzurermMssqlManagedInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
@@ -375,7 +375,7 @@ public class AzurermMssqlManagedInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vcores is required")]
     public required TerraformProperty<double> Vcores
     {
-        get => GetProperty<TerraformProperty<double>>("vcores");
+        get => GetRequiredProperty<TerraformProperty<double>>("vcores");
         set => this.WithProperty("vcores", value);
     }
 

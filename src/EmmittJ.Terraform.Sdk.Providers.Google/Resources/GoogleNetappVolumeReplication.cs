@@ -32,7 +32,7 @@ public class GoogleNetappVolumeReplicationDestinationVolumeParametersBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePool is required")]
     public required TerraformProperty<string> StoragePool
     {
-        get => GetProperty<TerraformProperty<string>>("storage_pool");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_pool");
         set => WithProperty("storage_pool", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleNetappVolumeReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -185,7 +185,7 @@ public class GoogleNetappVolumeReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -216,7 +216,7 @@ public class GoogleNetappVolumeReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationSchedule is required")]
     public required TerraformProperty<string> ReplicationSchedule
     {
-        get => GetProperty<TerraformProperty<string>>("replication_schedule");
+        get => GetRequiredProperty<TerraformProperty<string>>("replication_schedule");
         set => this.WithProperty("replication_schedule", value);
     }
 
@@ -226,7 +226,7 @@ public class GoogleNetappVolumeReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformProperty<string> VolumeName
     {
-        get => GetProperty<TerraformProperty<string>>("volume_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("volume_name");
         set => this.WithProperty("volume_name", value);
     }
 

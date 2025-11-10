@@ -32,7 +32,7 @@ public class AwsQuicksightThemePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformProperty<string> Principal
     {
-        get => GetProperty<TerraformProperty<string>>("principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal");
         set => WithProperty("principal", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsQuicksightTheme : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseThemeId is required")]
     public required TerraformProperty<string> BaseThemeId
     {
-        get => GetProperty<TerraformProperty<string>>("base_theme_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("base_theme_id");
         set => this.WithProperty("base_theme_id", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsQuicksightTheme : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsQuicksightTheme : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThemeId is required")]
     public required TerraformProperty<string> ThemeId
     {
-        get => GetProperty<TerraformProperty<string>>("theme_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("theme_id");
         set => this.WithProperty("theme_id", value);
     }
 

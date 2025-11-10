@@ -14,7 +14,7 @@ public class AzurermMonitorMetricAlertActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupId is required")]
     public required TerraformProperty<string> ActionGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("action_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("action_group_id");
         set => WithProperty("action_group_id", value);
     }
 
@@ -41,7 +41,7 @@ public class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentId is required")]
     public required TerraformProperty<string> ComponentId
     {
-        get => GetProperty<TerraformProperty<string>>("component_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("component_id");
         set => WithProperty("component_id", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailedLocationCount is required")]
     public required TerraformProperty<double> FailedLocationCount
     {
-        get => GetProperty<TerraformProperty<double>>("failed_location_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("failed_location_count");
         set => WithProperty("failed_location_count", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebTestId is required")]
     public required TerraformProperty<string> WebTestId
     {
-        get => GetProperty<TerraformProperty<string>>("web_test_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("web_test_id");
         set => WithProperty("web_test_id", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Aggregation is required")]
     public required TerraformProperty<string> Aggregation
     {
-        get => GetProperty<TerraformProperty<string>>("aggregation");
+        get => GetRequiredProperty<TerraformProperty<string>>("aggregation");
         set => WithProperty("aggregation", value);
     }
 
@@ -89,7 +89,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformProperty<string> MetricName
     {
-        get => GetProperty<TerraformProperty<string>>("metric_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("metric_name");
         set => WithProperty("metric_name", value);
     }
 
@@ -99,7 +99,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricNamespace is required")]
     public required TerraformProperty<string> MetricNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("metric_namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("metric_namespace");
         set => WithProperty("metric_namespace", value);
     }
 
@@ -109,7 +109,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
     public required TerraformProperty<string> Operator
     {
-        get => GetProperty<TerraformProperty<string>>("operator");
+        get => GetRequiredProperty<TerraformProperty<string>>("operator");
         set => WithProperty("operator", value);
     }
 
@@ -128,7 +128,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformProperty<double> Threshold
     {
-        get => GetProperty<TerraformProperty<double>>("threshold");
+        get => GetRequiredProperty<TerraformProperty<double>>("threshold");
         set => WithProperty("threshold", value);
     }
 
@@ -146,7 +146,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Aggregation is required")]
     public required TerraformProperty<string> Aggregation
     {
-        get => GetProperty<TerraformProperty<string>>("aggregation");
+        get => GetRequiredProperty<TerraformProperty<string>>("aggregation");
         set => WithProperty("aggregation", value);
     }
 
@@ -156,7 +156,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertSensitivity is required")]
     public required TerraformProperty<string> AlertSensitivity
     {
-        get => GetProperty<TerraformProperty<string>>("alert_sensitivity");
+        get => GetRequiredProperty<TerraformProperty<string>>("alert_sensitivity");
         set => WithProperty("alert_sensitivity", value);
     }
 
@@ -193,7 +193,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformProperty<string> MetricName
     {
-        get => GetProperty<TerraformProperty<string>>("metric_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("metric_name");
         set => WithProperty("metric_name", value);
     }
 
@@ -203,7 +203,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricNamespace is required")]
     public required TerraformProperty<string> MetricNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("metric_namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("metric_namespace");
         set => WithProperty("metric_namespace", value);
     }
 
@@ -213,7 +213,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
     public required TerraformProperty<string> Operator
     {
-        get => GetProperty<TerraformProperty<string>>("operator");
+        get => GetRequiredProperty<TerraformProperty<string>>("operator");
         set => WithProperty("operator", value);
     }
 
@@ -338,7 +338,7 @@ public class AzurermMonitorMetricAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -348,7 +348,7 @@ public class AzurermMonitorMetricAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

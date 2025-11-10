@@ -39,7 +39,7 @@ public class GoogleContainerAwsClusterControlPlaneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamInstanceProfile is required")]
     public required TerraformProperty<string> IamInstanceProfile
     {
-        get => GetProperty<TerraformProperty<string>>("iam_instance_profile");
+        get => GetRequiredProperty<TerraformProperty<string>>("iam_instance_profile");
         set => WithProperty("iam_instance_profile", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleContainerAwsClusterControlPlaneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => WithProperty("version", value);
     }
 
@@ -159,7 +159,7 @@ public class GoogleContainerAwsClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => WithProperty("vpc_id", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleContainerAwsCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRegion is required")]
     public required TerraformProperty<string> AwsRegion
     {
-        get => GetProperty<TerraformProperty<string>>("aws_region");
+        get => GetRequiredProperty<TerraformProperty<string>>("aws_region");
         set => this.WithProperty("aws_region", value);
     }
 
@@ -270,7 +270,7 @@ public class GoogleContainerAwsCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -280,7 +280,7 @@ public class GoogleContainerAwsCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -66,7 +66,7 @@ public class AzureadApplicationPermissionScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminConsentDescription is required")]
     public required TerraformProperty<string> AdminConsentDescription
     {
-        get => GetProperty<TerraformProperty<string>>("admin_consent_description");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_consent_description");
         set => this.WithProperty("admin_consent_description", value);
     }
 
@@ -76,7 +76,7 @@ public class AzureadApplicationPermissionScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminConsentDisplayName is required")]
     public required TerraformProperty<string> AdminConsentDisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("admin_consent_display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_consent_display_name");
         set => this.WithProperty("admin_consent_display_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzureadApplicationPermissionScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AzureadApplicationPermissionScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformProperty<string> ScopeId
     {
-        get => GetProperty<TerraformProperty<string>>("scope_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope_id");
         set => this.WithProperty("scope_id", value);
     }
 
@@ -142,7 +142,7 @@ public class AzureadApplicationPermissionScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);
     }
 

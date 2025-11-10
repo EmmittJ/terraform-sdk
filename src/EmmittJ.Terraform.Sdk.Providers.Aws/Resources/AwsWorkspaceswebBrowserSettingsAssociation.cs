@@ -22,7 +22,7 @@ public class AwsWorkspaceswebBrowserSettingsAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BrowserSettingsArn is required")]
     public required TerraformProperty<string> BrowserSettingsArn
     {
-        get => GetProperty<TerraformProperty<string>>("browser_settings_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("browser_settings_arn");
         set => this.WithProperty("browser_settings_arn", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsWorkspaceswebBrowserSettingsAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
     public required TerraformProperty<string> PortalArn
     {
-        get => GetProperty<TerraformProperty<string>>("portal_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("portal_arn");
         set => this.WithProperty("portal_arn", value);
     }
 

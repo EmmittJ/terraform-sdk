@@ -37,7 +37,7 @@ public class GoogleFolderAccessApprovalSettingsEnrolledServicesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudProduct is required")]
     public required TerraformProperty<string> CloudProduct
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_product");
+        get => GetRequiredProperty<TerraformProperty<string>>("cloud_product");
         set => WithProperty("cloud_product", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleFolderAccessApprovalSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     public required TerraformProperty<string> FolderId
     {
-        get => GetProperty<TerraformProperty<string>>("folder_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("folder_id");
         set => this.WithProperty("folder_id", value);
     }
 

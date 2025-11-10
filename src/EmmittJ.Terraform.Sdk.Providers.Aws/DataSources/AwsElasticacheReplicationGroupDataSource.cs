@@ -58,7 +58,7 @@ public class AwsElasticacheReplicationGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationGroupId is required")]
     public required TerraformProperty<string> ReplicationGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("replication_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("replication_group_id");
         set => this.WithProperty("replication_group_id", value);
     }
 

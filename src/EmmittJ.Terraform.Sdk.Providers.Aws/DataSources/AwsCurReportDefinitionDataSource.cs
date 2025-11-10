@@ -41,7 +41,7 @@ public class AwsCurReportDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportName is required")]
     public required TerraformProperty<string> ReportName
     {
-        get => GetProperty<TerraformProperty<string>>("report_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("report_name");
         set => this.WithProperty("report_name", value);
     }
 

@@ -23,7 +23,7 @@ public class AzurermLogAnalyticsSolutionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformProperty<string> Product
     {
-        get => GetProperty<TerraformProperty<string>>("product");
+        get => GetRequiredProperty<TerraformProperty<string>>("product");
         set => WithProperty("product", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermLogAnalyticsSolutionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => WithProperty("publisher", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermLogAnalyticsSolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermLogAnalyticsSolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermLogAnalyticsSolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SolutionName is required")]
     public required TerraformProperty<string> SolutionName
     {
-        get => GetProperty<TerraformProperty<string>>("solution_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("solution_name");
         set => this.WithProperty("solution_name", value);
     }
 
@@ -161,7 +161,7 @@ public class AzurermLogAnalyticsSolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceName is required")]
     public required TerraformProperty<string> WorkspaceName
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_name");
         set => this.WithProperty("workspace_name", value);
     }
 
@@ -171,7 +171,7 @@ public class AzurermLogAnalyticsSolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceResourceId is required")]
     public required TerraformProperty<string> WorkspaceResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_resource_id");
         set => this.WithProperty("workspace_resource_id", value);
     }
 

@@ -45,7 +45,7 @@ public class AzurermContainerAppEnvironmentCertificateDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformProperty<string> ContainerAppEnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("container_app_environment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_app_environment_id");
         set => this.WithProperty("container_app_environment_id", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermContainerAppEnvironmentCertificateDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

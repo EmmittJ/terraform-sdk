@@ -152,7 +152,7 @@ public class AwsSfnStateMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
     public required TerraformProperty<string> Definition
     {
-        get => GetProperty<TerraformProperty<string>>("definition");
+        get => GetRequiredProperty<TerraformProperty<string>>("definition");
         set => this.WithProperty("definition", value);
     }
 
@@ -207,7 +207,7 @@ public class AwsSfnStateMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

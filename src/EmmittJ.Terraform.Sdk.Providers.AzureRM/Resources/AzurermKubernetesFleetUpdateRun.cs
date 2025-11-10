@@ -31,7 +31,7 @@ public class AzurermKubernetesFleetUpdateRunStageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermKubernetesFleetUpdateRun : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesFleetManagerId is required")]
     public required TerraformProperty<string> KubernetesFleetManagerId
     {
-        get => GetProperty<TerraformProperty<string>>("kubernetes_fleet_manager_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("kubernetes_fleet_manager_id");
         set => this.WithProperty("kubernetes_fleet_manager_id", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermKubernetesFleetUpdateRun : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

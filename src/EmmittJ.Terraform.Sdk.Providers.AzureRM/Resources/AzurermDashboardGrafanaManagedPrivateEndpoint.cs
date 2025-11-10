@@ -66,7 +66,7 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrafanaId is required")]
     public required TerraformProperty<string> GrafanaId
     {
-        get => GetProperty<TerraformProperty<string>>("grafana_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("grafana_id");
         set => this.WithProperty("grafana_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkResourceId is required")]
     public required TerraformProperty<string> PrivateLinkResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("private_link_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("private_link_resource_id");
         set => this.WithProperty("private_link_resource_id", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermGalleryApplicationVersionManageActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Install is required")]
     public required TerraformProperty<string> Install
     {
-        get => GetProperty<TerraformProperty<string>>("install");
+        get => GetRequiredProperty<TerraformProperty<string>>("install");
         set => WithProperty("install", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermGalleryApplicationVersionManageActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Remove is required")]
     public required TerraformProperty<string> Remove
     {
-        get => GetProperty<TerraformProperty<string>>("remove");
+        get => GetRequiredProperty<TerraformProperty<string>>("remove");
         set => WithProperty("remove", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermGalleryApplicationVersionSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MediaLink is required")]
     public required TerraformProperty<string> MediaLink
     {
-        get => GetProperty<TerraformProperty<string>>("media_link");
+        get => GetRequiredProperty<TerraformProperty<string>>("media_link");
         set => WithProperty("media_link", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermGalleryApplicationVersionTargetRegionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermGalleryApplicationVersionTargetRegionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionalReplicaCount is required")]
     public required TerraformProperty<double> RegionalReplicaCount
     {
-        get => GetProperty<TerraformProperty<double>>("regional_replica_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("regional_replica_count");
         set => WithProperty("regional_replica_count", value);
     }
 
@@ -213,7 +213,7 @@ public class AzurermGalleryApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryApplicationId is required")]
     public required TerraformProperty<string> GalleryApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("gallery_application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("gallery_application_id");
         set => this.WithProperty("gallery_application_id", value);
     }
 
@@ -232,7 +232,7 @@ public class AzurermGalleryApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -242,7 +242,7 @@ public class AzurermGalleryApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

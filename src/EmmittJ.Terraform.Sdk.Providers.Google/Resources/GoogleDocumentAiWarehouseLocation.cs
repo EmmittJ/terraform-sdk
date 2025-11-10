@@ -48,7 +48,7 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessControlMode is required")]
     public required TerraformProperty<string> AccessControlMode
     {
-        get => GetProperty<TerraformProperty<string>>("access_control_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_control_mode");
         set => this.WithProperty("access_control_mode", value);
     }
 
@@ -58,7 +58,7 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseType is required")]
     public required TerraformProperty<string> DatabaseType
     {
-        get => GetProperty<TerraformProperty<string>>("database_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_type");
         set => this.WithProperty("database_type", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectNumber is required")]
     public required TerraformProperty<string> ProjectNumber
     {
-        get => GetProperty<TerraformProperty<string>>("project_number");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_number");
         set => this.WithProperty("project_number", value);
     }
 

@@ -50,7 +50,7 @@ public class AwsDocdbClusterSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterIdentifier is required")]
     public required TerraformProperty<string> DbClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("db_cluster_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_cluster_identifier");
         set => this.WithProperty("db_cluster_identifier", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsDocdbClusterSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterSnapshotIdentifier is required")]
     public required TerraformProperty<string> DbClusterSnapshotIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("db_cluster_snapshot_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_cluster_snapshot_identifier");
         set => this.WithProperty("db_cluster_snapshot_identifier", value);
     }
 

@@ -22,7 +22,7 @@ public class AwsPinpointAdmChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsPinpointAdmChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsPinpointAdmChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
         set => this.WithProperty("client_secret", value);
     }
 

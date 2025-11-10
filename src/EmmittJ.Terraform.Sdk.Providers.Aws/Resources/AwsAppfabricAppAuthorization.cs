@@ -22,7 +22,7 @@ public class AwsAppfabricAppAuthorizationTenantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantDisplayName is required")]
     public required TerraformProperty<string> TenantDisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant_display_name");
         set => WithProperty("tenant_display_name", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsAppfabricAppAuthorizationTenantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantIdentifier is required")]
     public required TerraformProperty<string> TenantIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant_identifier");
         set => WithProperty("tenant_identifier", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsAppfabricAppAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "App is required")]
     public required TerraformProperty<string> App
     {
-        get => GetProperty<TerraformProperty<string>>("app");
+        get => GetRequiredProperty<TerraformProperty<string>>("app");
         set => this.WithProperty("app", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsAppfabricAppAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
     public required TerraformProperty<string> AppBundleArn
     {
-        get => GetProperty<TerraformProperty<string>>("app_bundle_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_bundle_arn");
         set => this.WithProperty("app_bundle_arn", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsAppfabricAppAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformProperty<string> AuthType
     {
-        get => GetProperty<TerraformProperty<string>>("auth_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("auth_type");
         set => this.WithProperty("auth_type", value);
     }
 

@@ -59,7 +59,7 @@ public class AwsM2Deployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsM2Deployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationVersion is required")]
     public required TerraformProperty<double> ApplicationVersion
     {
-        get => GetProperty<TerraformProperty<double>>("application_version");
+        get => GetRequiredProperty<TerraformProperty<double>>("application_version");
         set => this.WithProperty("application_version", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsM2Deployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformProperty<string> EnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("environment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsM2Deployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformProperty<bool> Start
     {
-        get => GetProperty<TerraformProperty<bool>>("start");
+        get => GetRequiredProperty<TerraformProperty<bool>>("start");
         set => this.WithProperty("start", value);
     }
 

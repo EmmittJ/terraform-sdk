@@ -32,7 +32,7 @@ public class AzurermStreamAnalyticsStreamInputIothubSerializationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformProperty<string> Endpoint
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint");
         set => this.WithProperty("endpoint", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubConsumerGroupName is required")]
     public required TerraformProperty<string> EventhubConsumerGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_consumer_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_consumer_group_name");
         set => this.WithProperty("eventhub_consumer_group_name", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubNamespace is required")]
     public required TerraformProperty<string> IothubNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("iothub_namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("iothub_namespace");
         set => this.WithProperty("iothub_namespace", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -152,7 +152,7 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedAccessPolicyKey is required")]
     public required TerraformProperty<string> SharedAccessPolicyKey
     {
-        get => GetProperty<TerraformProperty<string>>("shared_access_policy_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("shared_access_policy_key");
         set => this.WithProperty("shared_access_policy_key", value);
     }
 
@@ -172,7 +172,7 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedAccessPolicyName is required")]
     public required TerraformProperty<string> SharedAccessPolicyName
     {
-        get => GetProperty<TerraformProperty<string>>("shared_access_policy_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("shared_access_policy_name");
         set => this.WithProperty("shared_access_policy_name", value);
     }
 
@@ -182,7 +182,7 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformProperty<string> StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_name");
         set => this.WithProperty("stream_analytics_job_name", value);
     }
 

@@ -14,7 +14,7 @@ public class GoogleBeyondcorpAppConnectionApplicationEndpointBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformProperty<string> Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
+        get => GetRequiredProperty<TerraformProperty<string>>("host");
         set => WithProperty("host", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleBeyondcorpAppConnectionApplicationEndpointBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => WithProperty("port", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleBeyondcorpAppConnectionGatewayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppGateway is required")]
     public required TerraformProperty<string> AppGateway
     {
-        get => GetProperty<TerraformProperty<string>>("app_gateway");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_gateway");
         set => WithProperty("app_gateway", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleBeyondcorpAppConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

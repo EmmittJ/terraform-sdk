@@ -48,7 +48,7 @@ public class AwsSagemakerAppImageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppImageConfigName is required")]
     public required TerraformProperty<string> AppImageConfigName
     {
-        get => GetProperty<TerraformProperty<string>>("app_image_config_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_image_config_name");
         set => this.WithProperty("app_image_config_name", value);
     }
 

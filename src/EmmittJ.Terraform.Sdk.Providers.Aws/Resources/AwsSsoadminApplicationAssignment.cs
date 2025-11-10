@@ -23,7 +23,7 @@ public class AwsSsoadminApplicationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationArn is required")]
     public required TerraformProperty<string> ApplicationArn
     {
-        get => GetProperty<TerraformProperty<string>>("application_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_arn");
         set => this.WithProperty("application_arn", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsSsoadminApplicationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsSsoadminApplicationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     public required TerraformProperty<string> PrincipalType
     {
-        get => GetProperty<TerraformProperty<string>>("principal_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_type");
         set => this.WithProperty("principal_type", value);
     }
 

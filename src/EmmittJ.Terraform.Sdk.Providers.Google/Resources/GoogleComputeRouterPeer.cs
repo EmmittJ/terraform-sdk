@@ -24,7 +24,7 @@ public class GoogleComputeRouterPeerAdvertisedIpRangesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Range is required")]
     public required TerraformProperty<string> Range
     {
-        get => GetProperty<TerraformProperty<string>>("range");
+        get => GetRequiredProperty<TerraformProperty<string>>("range");
         set => WithProperty("range", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleComputeRouterPeerBfdBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionInitializationMode is required")]
     public required TerraformProperty<string> SessionInitializationMode
     {
-        get => GetProperty<TerraformProperty<string>>("session_initialization_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("session_initialization_mode");
         set => WithProperty("session_initialization_mode", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleComputeRouterPeerCustomLearnedIpRangesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Range is required")]
     public required TerraformProperty<string> Range
     {
-        get => GetProperty<TerraformProperty<string>>("range");
+        get => GetRequiredProperty<TerraformProperty<string>>("range");
         set => WithProperty("range", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleComputeRouterPeerMd5AuthenticationKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleComputeRouterPeerMd5AuthenticationKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -307,7 +307,7 @@ public class GoogleComputeRouterPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interface is required")]
     public required TerraformProperty<string> Interface
     {
-        get => GetProperty<TerraformProperty<string>>("interface");
+        get => GetRequiredProperty<TerraformProperty<string>>("interface");
         set => this.WithProperty("interface", value);
     }
 
@@ -353,7 +353,7 @@ public class GoogleComputeRouterPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -364,7 +364,7 @@ public class GoogleComputeRouterPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
     public required TerraformProperty<double> PeerAsn
     {
-        get => GetProperty<TerraformProperty<double>>("peer_asn");
+        get => GetRequiredProperty<TerraformProperty<double>>("peer_asn");
         set => this.WithProperty("peer_asn", value);
     }
 
@@ -424,7 +424,7 @@ public class GoogleComputeRouterPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformProperty<string> Router
     {
-        get => GetProperty<TerraformProperty<string>>("router");
+        get => GetRequiredProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);
     }
 

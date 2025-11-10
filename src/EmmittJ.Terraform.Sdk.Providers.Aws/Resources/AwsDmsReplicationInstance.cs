@@ -14,7 +14,7 @@ public class AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyCacheSecretIamArn is required")]
     public required TerraformProperty<string> KeyCacheSecretIamArn
     {
-        get => GetProperty<TerraformProperty<string>>("key_cache_secret_iam_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_cache_secret_iam_arn");
         set => WithProperty("key_cache_secret_iam_arn", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyCacheSecretId is required")]
     public required TerraformProperty<string> KeyCacheSecretId
     {
-        get => GetProperty<TerraformProperty<string>>("key_cache_secret_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_cache_secret_id");
         set => WithProperty("key_cache_secret_id", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Krb5FileContents is required")]
     public required TerraformProperty<string> Krb5FileContents
     {
-        get => GetProperty<TerraformProperty<string>>("krb5_file_contents");
+        get => GetRequiredProperty<TerraformProperty<string>>("krb5_file_contents");
         set => WithProperty("krb5_file_contents", value);
     }
 
@@ -225,7 +225,7 @@ public class AwsDmsReplicationInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInstanceClass is required")]
     public required TerraformProperty<string> ReplicationInstanceClass
     {
-        get => GetProperty<TerraformProperty<string>>("replication_instance_class");
+        get => GetRequiredProperty<TerraformProperty<string>>("replication_instance_class");
         set => this.WithProperty("replication_instance_class", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsDmsReplicationInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInstanceId is required")]
     public required TerraformProperty<string> ReplicationInstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("replication_instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("replication_instance_id");
         set => this.WithProperty("replication_instance_id", value);
     }
 

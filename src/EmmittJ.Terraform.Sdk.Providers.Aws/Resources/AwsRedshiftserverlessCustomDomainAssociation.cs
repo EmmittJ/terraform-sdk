@@ -24,7 +24,7 @@ public class AwsRedshiftserverlessCustomDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDomainCertificateArn is required")]
     public required TerraformProperty<string> CustomDomainCertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("custom_domain_certificate_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("custom_domain_certificate_arn");
         set => this.WithProperty("custom_domain_certificate_arn", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsRedshiftserverlessCustomDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDomainName is required")]
     public required TerraformProperty<string> CustomDomainName
     {
-        get => GetProperty<TerraformProperty<string>>("custom_domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("custom_domain_name");
         set => this.WithProperty("custom_domain_name", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsRedshiftserverlessCustomDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
     public required TerraformProperty<string> WorkgroupName
     {
-        get => GetProperty<TerraformProperty<string>>("workgroup_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("workgroup_name");
         set => this.WithProperty("workgroup_name", value);
     }
 

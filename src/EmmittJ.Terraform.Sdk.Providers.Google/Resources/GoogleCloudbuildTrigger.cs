@@ -32,7 +32,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BitbucketServerConfigResource is required")]
     public required TerraformProperty<string> BitbucketServerConfigResource
     {
-        get => GetProperty<TerraformProperty<string>>("bitbucket_server_config_resource");
+        get => GetRequiredProperty<TerraformProperty<string>>("bitbucket_server_config_resource");
         set => WithProperty("bitbucket_server_config_resource", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectKey is required")]
     public required TerraformProperty<string> ProjectKey
     {
-        get => GetProperty<TerraformProperty<string>>("project_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_key");
         set => WithProperty("project_key", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoSlug is required")]
     public required TerraformProperty<string> RepoSlug
     {
-        get => GetProperty<TerraformProperty<string>>("repo_slug");
+        get => GetRequiredProperty<TerraformProperty<string>>("repo_slug");
         set => WithProperty("repo_slug", value);
     }
 
@@ -144,7 +144,7 @@ public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GitRepositoryLink is required")]
     public required TerraformProperty<string> GitRepositoryLink
     {
-        get => GetProperty<TerraformProperty<string>>("git_repository_link");
+        get => GetRequiredProperty<TerraformProperty<string>>("git_repository_link");
         set => WithProperty("git_repository_link", value);
     }
 
@@ -191,7 +191,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => WithProperty("path", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoType is required")]
     public required TerraformProperty<string> RepoType
     {
-        get => GetProperty<TerraformProperty<string>>("repo_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("repo_type");
         set => WithProperty("repo_type", value);
     }
 
@@ -317,7 +317,7 @@ public class GoogleCloudbuildTriggerPubsubConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic");
         set => WithProperty("topic", value);
     }
 
@@ -372,7 +372,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ref is required")]
     public required TerraformProperty<string> Ref
     {
-        get => GetProperty<TerraformProperty<string>>("ref");
+        get => GetRequiredProperty<TerraformProperty<string>>("ref");
         set => WithProperty("ref", value);
     }
 
@@ -383,7 +383,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoType is required")]
     public required TerraformProperty<string> RepoType
     {
-        get => GetProperty<TerraformProperty<string>>("repo_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("repo_type");
         set => WithProperty("repo_type", value);
     }
 
@@ -533,7 +533,7 @@ public class GoogleCloudbuildTriggerWebhookConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformProperty<string> Secret
     {
-        get => GetProperty<TerraformProperty<string>>("secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret");
         set => WithProperty("secret", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermNetworkWatcherFlowLogRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Days is required")]
     public required TerraformProperty<double> Days
     {
-        get => GetProperty<TerraformProperty<double>>("days");
+        get => GetRequiredProperty<TerraformProperty<double>>("days");
         set => WithProperty("days", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermNetworkWatcherFlowLogRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => WithProperty("workspace_id", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceRegion is required")]
     public required TerraformProperty<string> WorkspaceRegion
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_region");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_region");
         set => WithProperty("workspace_region", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceResourceId is required")]
     public required TerraformProperty<string> WorkspaceResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_resource_id");
         set => WithProperty("workspace_resource_id", value);
     }
 
@@ -152,7 +152,7 @@ public class AzurermNetworkWatcherFlowLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
@@ -180,7 +180,7 @@ public class AzurermNetworkWatcherFlowLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -200,7 +200,7 @@ public class AzurermNetworkWatcherFlowLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherName is required")]
     public required TerraformProperty<string> NetworkWatcherName
     {
-        get => GetProperty<TerraformProperty<string>>("network_watcher_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_watcher_name");
         set => this.WithProperty("network_watcher_name", value);
     }
 
@@ -210,7 +210,7 @@ public class AzurermNetworkWatcherFlowLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -220,7 +220,7 @@ public class AzurermNetworkWatcherFlowLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 

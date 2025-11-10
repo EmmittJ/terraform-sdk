@@ -125,7 +125,7 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EdgeServicesCidr is required")]
     public required TerraformProperty<string> EdgeServicesCidr
     {
-        get => GetProperty<TerraformProperty<string>>("edge_services_cidr");
+        get => GetRequiredProperty<TerraformProperty<string>>("edge_services_cidr");
         set => this.WithProperty("edge_services_cidr", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -177,7 +177,7 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareEngineNetwork is required")]
     public required TerraformProperty<string> VmwareEngineNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("vmware_engine_network");
+        get => GetRequiredProperty<TerraformProperty<string>>("vmware_engine_network");
         set => this.WithProperty("vmware_engine_network", value);
     }
 

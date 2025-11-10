@@ -14,7 +14,7 @@ public class AwsConnectInstanceStorageConfigStorageConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
     public required TerraformProperty<string> StorageType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_type");
         set => WithProperty("storage_type", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsConnectInstanceStorageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsConnectInstanceStorageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
     }
 

@@ -80,7 +80,7 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interconnect is required")]
     public required TerraformProperty<string> Interconnect
     {
-        get => GetProperty<TerraformProperty<string>>("interconnect");
+        get => GetRequiredProperty<TerraformProperty<string>>("interconnect");
         set => this.WithProperty("interconnect", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterconnectAttachmentId is required")]
     public required TerraformProperty<string> InterconnectAttachmentId
     {
-        get => GetProperty<TerraformProperty<string>>("interconnect_attachment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("interconnect_attachment_id");
         set => this.WithProperty("interconnect_attachment_id", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VlanId is required")]
     public required TerraformProperty<double> VlanId
     {
-        get => GetProperty<TerraformProperty<double>>("vlan_id");
+        get => GetRequiredProperty<TerraformProperty<double>>("vlan_id");
         set => this.WithProperty("vlan_id", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

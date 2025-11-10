@@ -27,7 +27,7 @@ public class GoogleArtifactRegistryMavenArtifactDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactId is required")]
     public required TerraformProperty<string> ArtifactId
     {
-        get => GetProperty<TerraformProperty<string>>("artifact_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("artifact_id");
         set => this.WithProperty("artifact_id", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleArtifactRegistryMavenArtifactDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformProperty<string> GroupId
     {
-        get => GetProperty<TerraformProperty<string>>("group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("group_id");
         set => this.WithProperty("group_id", value);
     }
 
@@ -56,7 +56,7 @@ public class GoogleArtifactRegistryMavenArtifactDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -75,7 +75,7 @@ public class GoogleArtifactRegistryMavenArtifactDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformProperty<string> RepositoryId
     {
-        get => GetProperty<TerraformProperty<string>>("repository_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_id");
         set => this.WithProperty("repository_id", value);
     }
 

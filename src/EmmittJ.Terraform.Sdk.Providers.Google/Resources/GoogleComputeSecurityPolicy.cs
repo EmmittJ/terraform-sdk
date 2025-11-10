@@ -57,7 +57,7 @@ public class GoogleComputeSecurityPolicyRecaptchaOptionsConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectSiteKey is required")]
     public required TerraformProperty<string> RedirectSiteKey
     {
-        get => GetProperty<TerraformProperty<string>>("redirect_site_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("redirect_site_key");
         set => WithProperty("redirect_site_key", value);
     }
 
@@ -75,7 +75,7 @@ public class GoogleComputeSecurityPolicyRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => WithProperty("action", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleComputeSecurityPolicyRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -201,7 +201,7 @@ public class GoogleComputeSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

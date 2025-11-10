@@ -32,7 +32,7 @@ public class AzurermRedhatOpenshiftClusterApiServerProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Visibility is required")]
     public required TerraformProperty<string> Visibility
     {
-        get => GetProperty<TerraformProperty<string>>("visibility");
+        get => GetRequiredProperty<TerraformProperty<string>>("visibility");
         set => WithProperty("visibility", value);
     }
 
@@ -50,7 +50,7 @@ public class AzurermRedhatOpenshiftClusterClusterProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain");
         set => WithProperty("domain", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermRedhatOpenshiftClusterClusterProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => WithProperty("version", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermRedhatOpenshiftClusterIngressProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Visibility is required")]
     public required TerraformProperty<string> Visibility
     {
-        get => GetProperty<TerraformProperty<string>>("visibility");
+        get => GetRequiredProperty<TerraformProperty<string>>("visibility");
         set => WithProperty("visibility", value);
     }
 
@@ -168,7 +168,7 @@ public class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => WithProperty("subnet_id", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     public required TerraformProperty<string> VmSize
     {
-        get => GetProperty<TerraformProperty<string>>("vm_size");
+        get => GetRequiredProperty<TerraformProperty<string>>("vm_size");
         set => WithProperty("vm_size", value);
     }
 
@@ -205,7 +205,7 @@ public class AzurermRedhatOpenshiftClusterNetworkProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PodCidr is required")]
     public required TerraformProperty<string> PodCidr
     {
-        get => GetProperty<TerraformProperty<string>>("pod_cidr");
+        get => GetRequiredProperty<TerraformProperty<string>>("pod_cidr");
         set => WithProperty("pod_cidr", value);
     }
 
@@ -224,7 +224,7 @@ public class AzurermRedhatOpenshiftClusterNetworkProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCidr is required")]
     public required TerraformProperty<string> ServiceCidr
     {
-        get => GetProperty<TerraformProperty<string>>("service_cidr");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_cidr");
         set => WithProperty("service_cidr", value);
     }
 
@@ -242,7 +242,7 @@ public class AzurermRedhatOpenshiftClusterServicePrincipalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
         set => WithProperty("client_id", value);
     }
 
@@ -252,7 +252,7 @@ public class AzurermRedhatOpenshiftClusterServicePrincipalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
         set => WithProperty("client_secret", value);
     }
 
@@ -323,7 +323,7 @@ public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
     public required TerraformProperty<double> DiskSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
+        get => GetRequiredProperty<TerraformProperty<double>>("disk_size_gb");
         set => WithProperty("disk_size_gb", value);
     }
 
@@ -342,7 +342,7 @@ public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformProperty<double> NodeCount
     {
-        get => GetProperty<TerraformProperty<double>>("node_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("node_count");
         set => WithProperty("node_count", value);
     }
 
@@ -352,7 +352,7 @@ public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => WithProperty("subnet_id", value);
     }
 
@@ -362,7 +362,7 @@ public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     public required TerraformProperty<string> VmSize
     {
-        get => GetProperty<TerraformProperty<string>>("vm_size");
+        get => GetRequiredProperty<TerraformProperty<string>>("vm_size");
         set => WithProperty("vm_size", value);
     }
 
@@ -399,7 +399,7 @@ public class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -409,7 +409,7 @@ public class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -419,7 +419,7 @@ public class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -23,7 +23,7 @@ public class GoogleGkeHubScopeIamBindingConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("expression");
         set => WithProperty("expression", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleGkeHubScopeIamBindingConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
+        get => GetRequiredProperty<TerraformProperty<string>>("title");
         set => WithProperty("title", value);
     }
 
@@ -89,7 +89,7 @@ public class GoogleGkeHubScopeIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleGkeHubScopeIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformProperty<string> ScopeId
     {
-        get => GetProperty<TerraformProperty<string>>("scope_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope_id");
         set => this.WithProperty("scope_id", value);
     }
 

@@ -58,7 +58,7 @@ public class GoogleTagsTagBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleTagsTagBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagValue is required")]
     public required TerraformProperty<string> TagValue
     {
-        get => GetProperty<TerraformProperty<string>>("tag_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("tag_value");
         set => this.WithProperty("tag_value", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsSesv2ContactListTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultSubscriptionStatus is required")]
     public required TerraformProperty<string> DefaultSubscriptionStatus
     {
-        get => GetProperty<TerraformProperty<string>>("default_subscription_status");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_subscription_status");
         set => WithProperty("default_subscription_status", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsSesv2ContactListTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => WithProperty("display_name", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsSesv2ContactListTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     public required TerraformProperty<string> TopicName
     {
-        get => GetProperty<TerraformProperty<string>>("topic_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic_name");
         set => WithProperty("topic_name", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsSesv2ContactList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactListName is required")]
     public required TerraformProperty<string> ContactListName
     {
-        get => GetProperty<TerraformProperty<string>>("contact_list_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("contact_list_name");
         set => this.WithProperty("contact_list_name", value);
     }
 

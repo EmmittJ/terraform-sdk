@@ -76,7 +76,7 @@ public class AzurermMapsCreator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermMapsCreator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapsAccountId is required")]
     public required TerraformProperty<string> MapsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("maps_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("maps_account_id");
         set => this.WithProperty("maps_account_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermMapsCreator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermMapsCreator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageUnits is required")]
     public required TerraformProperty<double> StorageUnits
     {
-        get => GetProperty<TerraformProperty<double>>("storage_units");
+        get => GetRequiredProperty<TerraformProperty<double>>("storage_units");
         set => this.WithProperty("storage_units", value);
     }
 

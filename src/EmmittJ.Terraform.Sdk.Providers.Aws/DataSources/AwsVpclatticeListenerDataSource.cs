@@ -41,7 +41,7 @@ public class AwsVpclatticeListenerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerIdentifier is required")]
     public required TerraformProperty<string> ListenerIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("listener_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("listener_identifier");
         set => this.WithProperty("listener_identifier", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsVpclatticeListenerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceIdentifier is required")]
     public required TerraformProperty<string> ServiceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("service_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_identifier");
         set => this.WithProperty("service_identifier", value);
     }
 

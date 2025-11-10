@@ -104,7 +104,7 @@ public class AwsRdsClusterSnapshotCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDbClusterSnapshotIdentifier is required")]
     public required TerraformProperty<string> SourceDbClusterSnapshotIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("source_db_cluster_snapshot_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_db_cluster_snapshot_identifier");
         set => this.WithProperty("source_db_cluster_snapshot_identifier", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsRdsClusterSnapshotCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDbClusterSnapshotIdentifier is required")]
     public required TerraformProperty<string> TargetDbClusterSnapshotIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("target_db_cluster_snapshot_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_db_cluster_snapshot_identifier");
         set => this.WithProperty("target_db_cluster_snapshot_identifier", value);
     }
 

@@ -66,7 +66,7 @@ public class AwsApigatewayv2Authorizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsApigatewayv2Authorizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerType is required")]
     public required TerraformProperty<string> AuthorizerType
     {
-        get => GetProperty<TerraformProperty<string>>("authorizer_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("authorizer_type");
         set => this.WithProperty("authorizer_type", value);
     }
 
@@ -149,7 +149,7 @@ public class AwsApigatewayv2Authorizer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

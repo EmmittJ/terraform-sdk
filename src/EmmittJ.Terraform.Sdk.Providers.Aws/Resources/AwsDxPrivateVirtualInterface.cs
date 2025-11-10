@@ -61,7 +61,7 @@ public class AwsDxPrivateVirtualInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
     public required TerraformProperty<string> AddressFamily
     {
-        get => GetProperty<TerraformProperty<string>>("address_family");
+        get => GetRequiredProperty<TerraformProperty<string>>("address_family");
         set => this.WithProperty("address_family", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsDxPrivateVirtualInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpAsn is required")]
     public required TerraformProperty<double> BgpAsn
     {
-        get => GetProperty<TerraformProperty<double>>("bgp_asn");
+        get => GetRequiredProperty<TerraformProperty<double>>("bgp_asn");
         set => this.WithProperty("bgp_asn", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsDxPrivateVirtualInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformProperty<string> ConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("connection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_id");
         set => this.WithProperty("connection_id", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsDxPrivateVirtualInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -191,7 +191,7 @@ public class AwsDxPrivateVirtualInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vlan is required")]
     public required TerraformProperty<double> Vlan
     {
-        get => GetProperty<TerraformProperty<double>>("vlan");
+        get => GetRequiredProperty<TerraformProperty<double>>("vlan");
         set => this.WithProperty("vlan", value);
     }
 

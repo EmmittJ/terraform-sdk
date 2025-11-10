@@ -59,7 +59,7 @@ public class GoogleAlloydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetProperty<TerraformProperty<string>>("cluster");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleAlloydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     public required TerraformProperty<string> UserId
     {
-        get => GetProperty<TerraformProperty<string>>("user_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_id");
         set => this.WithProperty("user_id", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleAlloydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserType is required")]
     public required TerraformProperty<string> UserType
     {
-        get => GetProperty<TerraformProperty<string>>("user_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_type");
         set => this.WithProperty("user_type", value);
     }
 

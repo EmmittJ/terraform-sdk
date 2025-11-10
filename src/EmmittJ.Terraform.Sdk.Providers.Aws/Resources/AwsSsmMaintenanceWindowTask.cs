@@ -14,7 +14,7 @@ public class AwsSsmMaintenanceWindowTaskTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskArn is required")]
     public required TerraformProperty<string> TaskArn
     {
-        get => GetProperty<TerraformProperty<string>>("task_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("task_arn");
         set => this.WithProperty("task_arn", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskType is required")]
     public required TerraformProperty<string> TaskType
     {
-        get => GetProperty<TerraformProperty<string>>("task_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("task_type");
         set => this.WithProperty("task_type", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WindowId is required")]
     public required TerraformProperty<string> WindowId
     {
-        get => GetProperty<TerraformProperty<string>>("window_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("window_id");
         set => this.WithProperty("window_id", value);
     }
 

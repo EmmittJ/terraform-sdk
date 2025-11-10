@@ -33,7 +33,7 @@ public class GoogleBigtableTableIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformProperty<string> InstanceName
     {
-        get => GetProperty<TerraformProperty<string>>("instance_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleBigtableTableIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformProperty<string> Table
     {
-        get => GetProperty<TerraformProperty<string>>("table");
+        get => GetRequiredProperty<TerraformProperty<string>>("table");
         set => this.WithProperty("table", value);
     }
 

@@ -250,7 +250,7 @@ public class AwsAmiCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -269,7 +269,7 @@ public class AwsAmiCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceAmiId is required")]
     public required TerraformProperty<string> SourceAmiId
     {
-        get => GetProperty<TerraformProperty<string>>("source_ami_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_ami_id");
         set => this.WithProperty("source_ami_id", value);
     }
 
@@ -279,7 +279,7 @@ public class AwsAmiCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceAmiRegion is required")]
     public required TerraformProperty<string> SourceAmiRegion
     {
-        get => GetProperty<TerraformProperty<string>>("source_ami_region");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_ami_region");
         set => this.WithProperty("source_ami_region", value);
     }
 

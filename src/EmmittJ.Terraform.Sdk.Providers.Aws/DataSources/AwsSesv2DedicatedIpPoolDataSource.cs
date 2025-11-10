@@ -34,7 +34,7 @@ public class AwsSesv2DedicatedIpPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
     public required TerraformProperty<string> PoolName
     {
-        get => GetProperty<TerraformProperty<string>>("pool_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("pool_name");
         set => this.WithProperty("pool_name", value);
     }
 

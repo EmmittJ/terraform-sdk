@@ -14,7 +14,7 @@ public class GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeBillingOwner is required")]
     public required TerraformProperty<string> ComputeBillingOwner
     {
-        get => GetProperty<TerraformProperty<string>>("compute_billing_owner");
+        get => GetRequiredProperty<TerraformProperty<string>>("compute_billing_owner");
         set => WithProperty("compute_billing_owner", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleBigtableAppProfileSingleClusterRoutingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
         set => WithProperty("cluster_id", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleBigtableAppProfileStandardIsolationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<string> Priority
     {
-        get => GetProperty<TerraformProperty<string>>("priority");
+        get => GetRequiredProperty<TerraformProperty<string>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleBigtableAppProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppProfileId is required")]
     public required TerraformProperty<string> AppProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("app_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_profile_id");
         set => this.WithProperty("app_profile_id", value);
     }
 

@@ -84,7 +84,7 @@ public class AzurermResourcePolicyExemption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExemptionCategory is required")]
     public required TerraformProperty<string> ExemptionCategory
     {
-        get => GetProperty<TerraformProperty<string>>("exemption_category");
+        get => GetRequiredProperty<TerraformProperty<string>>("exemption_category");
         set => this.WithProperty("exemption_category", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermResourcePolicyExemption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermResourcePolicyExemption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyAssignmentId is required")]
     public required TerraformProperty<string> PolicyAssignmentId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_assignment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_assignment_id");
         set => this.WithProperty("policy_assignment_id", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermResourcePolicyExemption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformProperty<string> ResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
     }
 

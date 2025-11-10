@@ -57,7 +57,7 @@ public class AwsAppsyncResolverRuntimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsAppsyncResolverRuntimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
     public required TerraformProperty<string> RuntimeVersion
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("runtime_version");
         set => WithProperty("runtime_version", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsAppsyncResolver : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
@@ -149,7 +149,7 @@ public class AwsAppsyncResolver : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     public required TerraformProperty<string> Field
     {
-        get => GetProperty<TerraformProperty<string>>("field");
+        get => GetRequiredProperty<TerraformProperty<string>>("field");
         set => this.WithProperty("field", value);
     }
 
@@ -213,7 +213,7 @@ public class AwsAppsyncResolver : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

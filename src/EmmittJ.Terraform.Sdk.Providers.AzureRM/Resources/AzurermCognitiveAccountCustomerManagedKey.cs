@@ -66,7 +66,7 @@ public class AzurermCognitiveAccountCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
     public required TerraformProperty<string> CognitiveAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("cognitive_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cognitive_account_id");
         set => this.WithProperty("cognitive_account_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermCognitiveAccountCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
         set => this.WithProperty("key_vault_key_id", value);
     }
 

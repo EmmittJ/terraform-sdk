@@ -67,7 +67,7 @@ public class AzurermMachineLearningComputeInstanceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermMachineLearningComputeInstanceSshBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     public required TerraformProperty<string> PublicKey
     {
-        get => GetProperty<TerraformProperty<string>>("public_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("public_key");
         set => WithProperty("public_key", value);
     }
 
@@ -201,7 +201,7 @@ public class AzurermMachineLearningComputeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
     public required TerraformProperty<string> MachineLearningWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("machine_learning_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("machine_learning_workspace_id");
         set => this.WithProperty("machine_learning_workspace_id", value);
     }
 
@@ -211,7 +211,7 @@ public class AzurermMachineLearningComputeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -248,7 +248,7 @@ public class AzurermMachineLearningComputeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineSize is required")]
     public required TerraformProperty<string> VirtualMachineSize
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_machine_size");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_size");
         set => this.WithProperty("virtual_machine_size", value);
     }
 

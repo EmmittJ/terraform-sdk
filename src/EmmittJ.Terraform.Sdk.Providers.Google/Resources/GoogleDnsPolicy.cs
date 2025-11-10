@@ -32,7 +32,7 @@ public class GoogleDnsPolicyNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformProperty<string> NetworkUrl
     {
-        get => GetProperty<TerraformProperty<string>>("network_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_url");
         set => WithProperty("network_url", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleDnsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

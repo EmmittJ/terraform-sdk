@@ -66,7 +66,7 @@ public class GoogleComputePreviewFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActivationStatus is required")]
     public required TerraformProperty<string> ActivationStatus
     {
-        get => GetProperty<TerraformProperty<string>>("activation_status");
+        get => GetRequiredProperty<TerraformProperty<string>>("activation_status");
         set => this.WithProperty("activation_status", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleComputePreviewFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

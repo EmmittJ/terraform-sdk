@@ -50,7 +50,7 @@ public class AwsSagemakerImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformProperty<string> ImageName
     {
-        get => GetProperty<TerraformProperty<string>>("image_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("image_name");
         set => this.WithProperty("image_name", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsSagemakerImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

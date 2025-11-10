@@ -93,7 +93,7 @@ public class AwsDbInstanceAutomatedBackupsReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDbInstanceArn is required")]
     public required TerraformProperty<string> SourceDbInstanceArn
     {
-        get => GetProperty<TerraformProperty<string>>("source_db_instance_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_db_instance_arn");
         set => this.WithProperty("source_db_instance_arn", value);
     }
 

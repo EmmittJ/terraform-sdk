@@ -57,7 +57,7 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryScopeId is required")]
     public required TerraformProperty<string> DirectoryScopeId
     {
-        get => GetProperty<TerraformProperty<string>>("directory_scope_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("directory_scope_id");
         set => this.WithProperty("directory_scope_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Justification is required")]
     public required TerraformProperty<string> Justification
     {
-        get => GetProperty<TerraformProperty<string>>("justification");
+        get => GetRequiredProperty<TerraformProperty<string>>("justification");
         set => this.WithProperty("justification", value);
     }
 
@@ -86,7 +86,7 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformProperty<string> RoleDefinitionId
     {
-        get => GetProperty<TerraformProperty<string>>("role_definition_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_definition_id");
         set => this.WithProperty("role_definition_id", value);
     }
 

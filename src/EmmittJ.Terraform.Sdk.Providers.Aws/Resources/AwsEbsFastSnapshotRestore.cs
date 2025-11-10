@@ -50,7 +50,7 @@ public class AwsEbsFastSnapshotRestore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZone is required")]
     public required TerraformProperty<string> AvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("availability_zone");
         set => this.WithProperty("availability_zone", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsEbsFastSnapshotRestore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotId is required")]
     public required TerraformProperty<string> SnapshotId
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_id");
         set => this.WithProperty("snapshot_id", value);
     }
 

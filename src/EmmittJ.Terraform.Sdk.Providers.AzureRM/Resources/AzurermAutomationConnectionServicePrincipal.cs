@@ -66,7 +66,7 @@ public class AzurermAutomationConnectionServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermAutomationConnectionServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformProperty<string> AutomationAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("automation_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_name");
         set => this.WithProperty("automation_account_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermAutomationConnectionServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateThumbprint is required")]
     public required TerraformProperty<string> CertificateThumbprint
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_thumbprint");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_thumbprint");
         set => this.WithProperty("certificate_thumbprint", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermAutomationConnectionServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermAutomationConnectionServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermAutomationConnectionServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 
@@ -144,7 +144,7 @@ public class AzurermAutomationConnectionServicePrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

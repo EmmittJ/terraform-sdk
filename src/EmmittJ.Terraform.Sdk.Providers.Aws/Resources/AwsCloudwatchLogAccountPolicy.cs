@@ -31,7 +31,7 @@ public class AwsCloudwatchLogAccountPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformProperty<string> PolicyDocument
     {
-        get => GetProperty<TerraformProperty<string>>("policy_document");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_document");
         set => this.WithProperty("policy_document", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsCloudwatchLogAccountPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyName is required")]
     public required TerraformProperty<string> PolicyName
     {
-        get => GetProperty<TerraformProperty<string>>("policy_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_name");
         set => this.WithProperty("policy_name", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsCloudwatchLogAccountPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
     public required TerraformProperty<string> PolicyType
     {
-        get => GetProperty<TerraformProperty<string>>("policy_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_type");
         set => this.WithProperty("policy_type", value);
     }
 

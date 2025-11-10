@@ -40,7 +40,7 @@ public class AzurermAppConfigurationKeysDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     public required TerraformProperty<string> ConfigurationStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_store_id");
         set => this.WithProperty("configuration_store_id", value);
     }
 

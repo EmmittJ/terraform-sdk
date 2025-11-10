@@ -50,7 +50,7 @@ public class GoogleBigqueryReservationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Assignee is required")]
     public required TerraformProperty<string> Assignee
     {
-        get => GetProperty<TerraformProperty<string>>("assignee");
+        get => GetRequiredProperty<TerraformProperty<string>>("assignee");
         set => this.WithProperty("assignee", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleBigqueryReservationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobType is required")]
     public required TerraformProperty<string> JobType
     {
-        get => GetProperty<TerraformProperty<string>>("job_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("job_type");
         set => this.WithProperty("job_type", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleBigqueryReservationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reservation is required")]
     public required TerraformProperty<string> Reservation
     {
-        get => GetProperty<TerraformProperty<string>>("reservation");
+        get => GetRequiredProperty<TerraformProperty<string>>("reservation");
         set => this.WithProperty("reservation", value);
     }
 

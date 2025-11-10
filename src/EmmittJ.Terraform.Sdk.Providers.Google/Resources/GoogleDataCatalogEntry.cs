@@ -120,7 +120,7 @@ public class GoogleDataCatalogEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroup is required")]
     public required TerraformProperty<string> EntryGroup
     {
-        get => GetProperty<TerraformProperty<string>>("entry_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("entry_group");
         set => this.WithProperty("entry_group", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleDataCatalogEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryId is required")]
     public required TerraformProperty<string> EntryId
     {
-        get => GetProperty<TerraformProperty<string>>("entry_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("entry_id");
         set => this.WithProperty("entry_id", value);
     }
 

@@ -50,7 +50,7 @@ public class GoogleServiceAccountIdTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetAudience is required")]
     public required TerraformProperty<string> TargetAudience
     {
-        get => GetProperty<TerraformProperty<string>>("target_audience");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_audience");
         set => this.WithProperty("target_audience", value);
     }
 

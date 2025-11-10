@@ -141,7 +141,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
     public required TerraformProperty<string> Alias
     {
-        get => GetProperty<TerraformProperty<string>>("alias");
+        get => GetRequiredProperty<TerraformProperty<string>>("alias");
         set => this.WithProperty("alias", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetProperty<TerraformProperty<string>>("environment");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 
@@ -188,7 +188,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keystore is required")]
     public required TerraformProperty<string> Keystore
     {
-        get => GetProperty<TerraformProperty<string>>("keystore");
+        get => GetRequiredProperty<TerraformProperty<string>>("keystore");
         set => this.WithProperty("keystore", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetProperty<TerraformProperty<string>>("org_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigAlg is required")]
     public required TerraformProperty<string> SigAlg
     {
-        get => GetProperty<TerraformProperty<string>>("sig_alg");
+        get => GetRequiredProperty<TerraformProperty<string>>("sig_alg");
         set => this.WithProperty("sig_alg", value);
     }
 

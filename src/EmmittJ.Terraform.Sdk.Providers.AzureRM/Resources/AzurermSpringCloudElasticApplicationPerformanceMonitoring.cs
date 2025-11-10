@@ -94,7 +94,7 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerUrl is required")]
     public required TerraformProperty<string> ServerUrl
     {
-        get => GetProperty<TerraformProperty<string>>("server_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_url");
         set => this.WithProperty("server_url", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformProperty<string> ServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
     }
 

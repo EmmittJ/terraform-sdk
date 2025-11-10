@@ -66,7 +66,7 @@ public class AzurermSpringCloudActiveDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentName is required")]
     public required TerraformProperty<string> DeploymentName
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("deployment_name");
         set => this.WithProperty("deployment_name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermSpringCloudActiveDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformProperty<string> SpringCloudAppId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_app_id");
         set => this.WithProperty("spring_cloud_app_id", value);
     }
 

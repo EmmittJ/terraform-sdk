@@ -130,7 +130,7 @@ public class AwsApiGatewayMethodSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MethodPath is required")]
     public required TerraformProperty<string> MethodPath
     {
-        get => GetProperty<TerraformProperty<string>>("method_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("method_path");
         set => this.WithProperty("method_path", value);
     }
 
@@ -149,7 +149,7 @@ public class AwsApiGatewayMethodSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformProperty<string> RestApiId
     {
-        get => GetProperty<TerraformProperty<string>>("rest_api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
     }
 
@@ -159,7 +159,7 @@ public class AwsApiGatewayMethodSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StageName is required")]
     public required TerraformProperty<string> StageName
     {
-        get => GetProperty<TerraformProperty<string>>("stage_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stage_name");
         set => this.WithProperty("stage_name", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsConnectRoutingProfileMediaConcurrenciesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Channel is required")]
     public required TerraformProperty<string> Channel
     {
-        get => GetProperty<TerraformProperty<string>>("channel");
+        get => GetRequiredProperty<TerraformProperty<string>>("channel");
         set => WithProperty("channel", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsConnectRoutingProfileMediaConcurrenciesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Concurrency is required")]
     public required TerraformProperty<double> Concurrency
     {
-        get => GetProperty<TerraformProperty<double>>("concurrency");
+        get => GetRequiredProperty<TerraformProperty<double>>("concurrency");
         set => WithProperty("concurrency", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsConnectRoutingProfileQueueConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Channel is required")]
     public required TerraformProperty<string> Channel
     {
-        get => GetProperty<TerraformProperty<string>>("channel");
+        get => GetRequiredProperty<TerraformProperty<string>>("channel");
         set => WithProperty("channel", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsConnectRoutingProfileQueueConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delay is required")]
     public required TerraformProperty<double> Delay
     {
-        get => GetProperty<TerraformProperty<double>>("delay");
+        get => GetRequiredProperty<TerraformProperty<double>>("delay");
         set => WithProperty("delay", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsConnectRoutingProfileQueueConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsConnectRoutingProfileQueueConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueId is required")]
     public required TerraformProperty<string> QueueId
     {
-        get => GetProperty<TerraformProperty<string>>("queue_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("queue_id");
         set => WithProperty("queue_id", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsConnectRoutingProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultOutboundQueueId is required")]
     public required TerraformProperty<string> DefaultOutboundQueueId
     {
-        get => GetProperty<TerraformProperty<string>>("default_outbound_queue_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_outbound_queue_id");
         set => this.WithProperty("default_outbound_queue_id", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsConnectRoutingProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -148,7 +148,7 @@ public class AwsConnectRoutingProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsConnectRoutingProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

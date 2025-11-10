@@ -94,7 +94,7 @@ public class GoogleComputeInstanceSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

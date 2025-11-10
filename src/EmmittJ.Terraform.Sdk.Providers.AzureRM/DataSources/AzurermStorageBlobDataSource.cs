@@ -63,7 +63,7 @@ public class AzurermStorageBlobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermStorageBlobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformProperty<string> StorageAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermStorageBlobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     public required TerraformProperty<string> StorageContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_name");
         set => this.WithProperty("storage_container_name", value);
     }
 

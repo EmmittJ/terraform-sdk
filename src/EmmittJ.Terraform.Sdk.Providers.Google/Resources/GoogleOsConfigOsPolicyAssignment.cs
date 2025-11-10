@@ -54,7 +54,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("mode");
         set => WithProperty("mode", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleOsConfigOsPolicyAssignmentRolloutBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinWaitDuration is required")]
     public required TerraformProperty<string> MinWaitDuration
     {
-        get => GetProperty<TerraformProperty<string>>("min_wait_duration");
+        get => GetRequiredProperty<TerraformProperty<string>>("min_wait_duration");
         set => WithProperty("min_wait_duration", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

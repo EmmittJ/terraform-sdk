@@ -15,7 +15,7 @@ public class GoogleFilestoreInstanceFileSharesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGb is required")]
     public required TerraformProperty<double> CapacityGb
     {
-        get => GetProperty<TerraformProperty<double>>("capacity_gb");
+        get => GetRequiredProperty<TerraformProperty<double>>("capacity_gb");
         set => WithProperty("capacity_gb", value);
     }
 
@@ -25,7 +25,7 @@ public class GoogleFilestoreInstanceFileSharesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => WithProperty("network", value);
     }
 
@@ -255,7 +255,7 @@ public class GoogleFilestoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -304,7 +304,7 @@ public class GoogleFilestoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("tier");
         set => this.WithProperty("tier", value);
     }
 

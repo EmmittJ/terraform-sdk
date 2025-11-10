@@ -66,7 +66,7 @@ public class AwsDefaultSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZone is required")]
     public required TerraformProperty<string> AvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("availability_zone");
         set => this.WithProperty("availability_zone", value);
     }
 

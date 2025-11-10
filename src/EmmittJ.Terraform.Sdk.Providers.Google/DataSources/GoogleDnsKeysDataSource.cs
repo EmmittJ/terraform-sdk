@@ -33,7 +33,7 @@ public class GoogleDnsKeysDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedZone is required")]
     public required TerraformProperty<string> ManagedZone
     {
-        get => GetProperty<TerraformProperty<string>>("managed_zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_zone");
         set => this.WithProperty("managed_zone", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsSsmDocumentAttachmentsSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsSsmDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsSsmDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentType is required")]
     public required TerraformProperty<string> DocumentType
     {
-        get => GetProperty<TerraformProperty<string>>("document_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("document_type");
         set => this.WithProperty("document_type", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsSsmDocument : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -81,7 +81,7 @@ public class GoogleAppEngineStandardAppVersionBasicScalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxInstances is required")]
     public required TerraformProperty<double> MaxInstances
     {
-        get => GetProperty<TerraformProperty<double>>("max_instances");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_instances");
         set => WithProperty("max_instances", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleAppEngineStandardAppVersionEntrypointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shell is required")]
     public required TerraformProperty<string> Shell
     {
-        get => GetProperty<TerraformProperty<string>>("shell");
+        get => GetRequiredProperty<TerraformProperty<string>>("shell");
         set => WithProperty("shell", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleAppEngineStandardAppVersionManualScalingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instances is required")]
     public required TerraformProperty<double> Instances
     {
-        get => GetProperty<TerraformProperty<double>>("instances");
+        get => GetRequiredProperty<TerraformProperty<double>>("instances");
         set => WithProperty("instances", value);
     }
 
@@ -270,7 +270,7 @@ public class GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -373,7 +373,7 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     public required TerraformProperty<string> Runtime
     {
-        get => GetProperty<TerraformProperty<string>>("runtime");
+        get => GetRequiredProperty<TerraformProperty<string>>("runtime");
         set => this.WithProperty("runtime", value);
     }
 
@@ -394,7 +394,7 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
+        get => GetRequiredProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
     }
 

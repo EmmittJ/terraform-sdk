@@ -36,7 +36,7 @@ public class AwsLocationMapDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapName is required")]
     public required TerraformProperty<string> MapName
     {
-        get => GetProperty<TerraformProperty<string>>("map_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("map_name");
         set => this.WithProperty("map_name", value);
     }
 

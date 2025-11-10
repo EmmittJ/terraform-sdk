@@ -39,7 +39,7 @@ public class AwsGuarddutyInviteAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     public required TerraformProperty<string> DetectorId
     {
-        get => GetProperty<TerraformProperty<string>>("detector_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("detector_id");
         set => this.WithProperty("detector_id", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsGuarddutyInviteAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterAccountId is required")]
     public required TerraformProperty<string> MasterAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("master_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("master_account_id");
         set => this.WithProperty("master_account_id", value);
     }
 

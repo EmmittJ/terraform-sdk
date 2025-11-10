@@ -22,7 +22,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributesType is required")]
     public required TerraformProperty<string> AttributesType
     {
-        get => GetProperty<TerraformProperty<string>>("attributes_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("attributes_type");
         set => WithProperty("attributes_type", value);
     }
 
@@ -32,7 +32,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
         set => WithProperty("client_id", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformProperty<string> IssuerUri
     {
-        get => GetProperty<TerraformProperty<string>>("issuer_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("issuer_uri");
         set => WithProperty("issuer_uri", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributesType is required")]
     public required TerraformProperty<string> AttributesType
     {
-        get => GetProperty<TerraformProperty<string>>("attributes_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("attributes_type");
         set => WithProperty("attributes_type", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
         set => WithProperty("client_id", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformProperty<string> IssuerUri
     {
-        get => GetProperty<TerraformProperty<string>>("issuer_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("issuer_uri");
         set => WithProperty("issuer_uri", value);
     }
 
@@ -110,7 +110,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
         set => WithProperty("client_id", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformProperty<string> IssuerUri
     {
-        get => GetProperty<TerraformProperty<string>>("issuer_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("issuer_uri");
         set => WithProperty("issuer_uri", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleIamWorkforcePoolProviderSamlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpMetadataXml is required")]
     public required TerraformProperty<string> IdpMetadataXml
     {
-        get => GetProperty<TerraformProperty<string>>("idp_metadata_xml");
+        get => GetRequiredProperty<TerraformProperty<string>>("idp_metadata_xml");
         set => WithProperty("idp_metadata_xml", value);
     }
 
@@ -370,7 +370,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -382,7 +382,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     public required TerraformProperty<string> ProviderId
     {
-        get => GetProperty<TerraformProperty<string>>("provider_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("provider_id");
         set => this.WithProperty("provider_id", value);
     }
 
@@ -413,7 +413,7 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformProperty<string> WorkforcePoolId
     {
-        get => GetProperty<TerraformProperty<string>>("workforce_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workforce_pool_id");
         set => this.WithProperty("workforce_pool_id", value);
     }
 

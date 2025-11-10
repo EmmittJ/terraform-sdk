@@ -133,7 +133,7 @@ public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntitlementId is required")]
     public required TerraformProperty<string> EntitlementId
     {
-        get => GetProperty<TerraformProperty<string>>("entitlement_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("entitlement_id");
         set => this.WithProperty("entitlement_id", value);
     }
 
@@ -152,7 +152,7 @@ public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -164,7 +164,7 @@ public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRequestDuration is required")]
     public required TerraformProperty<string> MaxRequestDuration
     {
-        get => GetProperty<TerraformProperty<string>>("max_request_duration");
+        get => GetRequiredProperty<TerraformProperty<string>>("max_request_duration");
         set => this.WithProperty("max_request_duration", value);
     }
 
@@ -174,7 +174,7 @@ public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 

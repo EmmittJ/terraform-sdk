@@ -25,7 +25,7 @@ public class AwsS3controlBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsS3controlBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutpostId is required")]
     public required TerraformProperty<string> OutpostId
     {
-        get => GetProperty<TerraformProperty<string>>("outpost_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("outpost_id");
         set => this.WithProperty("outpost_id", value);
     }
 

@@ -129,7 +129,7 @@ public class GoogleAccessContextManagerGcpUserAccessBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupKey is required")]
     public required TerraformProperty<string> GroupKey
     {
-        get => GetProperty<TerraformProperty<string>>("group_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("group_key");
         set => this.WithProperty("group_key", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleAccessContextManagerGcpUserAccessBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
     public required TerraformProperty<string> OrganizationId
     {
-        get => GetProperty<TerraformProperty<string>>("organization_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("organization_id");
         set => this.WithProperty("organization_id", value);
     }
 

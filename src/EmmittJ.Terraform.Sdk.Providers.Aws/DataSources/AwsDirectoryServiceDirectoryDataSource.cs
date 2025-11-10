@@ -36,7 +36,7 @@ public class AwsDirectoryServiceDirectoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformProperty<string> DirectoryId
     {
-        get => GetProperty<TerraformProperty<string>>("directory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("directory_id");
         set => this.WithProperty("directory_id", value);
     }
 

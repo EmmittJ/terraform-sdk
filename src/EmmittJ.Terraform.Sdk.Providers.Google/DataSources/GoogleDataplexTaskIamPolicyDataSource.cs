@@ -33,7 +33,7 @@ public class GoogleDataplexTaskIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
     public required TerraformProperty<string> Lake
     {
-        get => GetProperty<TerraformProperty<string>>("lake");
+        get => GetRequiredProperty<TerraformProperty<string>>("lake");
         set => this.WithProperty("lake", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleDataplexTaskIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskId is required")]
     public required TerraformProperty<string> TaskId
     {
-        get => GetProperty<TerraformProperty<string>>("task_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("task_id");
         set => this.WithProperty("task_id", value);
     }
 

@@ -36,7 +36,7 @@ public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformProperty<string> Table
     {
-        get => GetProperty<TerraformProperty<string>>("table");
+        get => GetRequiredProperty<TerraformProperty<string>>("table");
         set => WithProperty("table", value);
     }
 
@@ -84,7 +84,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => WithProperty("bucket", value);
     }
 
@@ -230,7 +230,7 @@ public class GooglePubsubSubscriptionExpirationPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformProperty<string> Ttl
     {
-        get => GetProperty<TerraformProperty<string>>("ttl");
+        get => GetRequiredProperty<TerraformProperty<string>>("ttl");
         set => WithProperty("ttl", value);
     }
 
@@ -299,7 +299,7 @@ public class GooglePubsubSubscriptionPushConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PushEndpoint is required")]
     public required TerraformProperty<string> PushEndpoint
     {
-        get => GetProperty<TerraformProperty<string>>("push_endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("push_endpoint");
         set => WithProperty("push_endpoint", value);
     }
 
@@ -496,7 +496,7 @@ public class GooglePubsubSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -545,7 +545,7 @@ public class GooglePubsubSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic");
         set => this.WithProperty("topic", value);
     }
 

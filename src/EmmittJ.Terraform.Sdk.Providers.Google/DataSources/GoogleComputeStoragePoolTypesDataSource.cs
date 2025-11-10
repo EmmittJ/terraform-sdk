@@ -46,7 +46,7 @@ public class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePoolType is required")]
     public required TerraformProperty<string> StoragePoolType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_pool_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_pool_type");
         set => this.WithProperty("storage_pool_type", value);
     }
 
@@ -56,7 +56,7 @@ public class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

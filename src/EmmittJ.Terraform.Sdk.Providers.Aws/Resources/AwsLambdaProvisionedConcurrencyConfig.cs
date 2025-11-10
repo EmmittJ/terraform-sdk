@@ -48,7 +48,7 @@ public class AwsLambdaProvisionedConcurrencyConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformProperty<string> FunctionName
     {
-        get => GetProperty<TerraformProperty<string>>("function_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsLambdaProvisionedConcurrencyConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisionedConcurrentExecutions is required")]
     public required TerraformProperty<double> ProvisionedConcurrentExecutions
     {
-        get => GetProperty<TerraformProperty<double>>("provisioned_concurrent_executions");
+        get => GetRequiredProperty<TerraformProperty<double>>("provisioned_concurrent_executions");
         set => this.WithProperty("provisioned_concurrent_executions", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsLambdaProvisionedConcurrencyConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Qualifier is required")]
     public required TerraformProperty<string> Qualifier
     {
-        get => GetProperty<TerraformProperty<string>>("qualifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("qualifier");
         set => this.WithProperty("qualifier", value);
     }
 

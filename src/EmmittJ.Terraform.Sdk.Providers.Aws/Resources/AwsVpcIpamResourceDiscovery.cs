@@ -14,7 +14,7 @@ public class AwsVpcIpamResourceDiscoveryOperatingRegionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     public required TerraformProperty<string> RegionName
     {
-        get => GetProperty<TerraformProperty<string>>("region_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("region_name");
         set => WithProperty("region_name", value);
     }
 

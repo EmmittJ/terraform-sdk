@@ -108,7 +108,7 @@ public class AwsGrafanaWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountAccessType is required")]
     public required TerraformProperty<string> AccountAccessType
     {
-        get => GetProperty<TerraformProperty<string>>("account_access_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_access_type");
         set => this.WithProperty("account_access_type", value);
     }
 
@@ -209,7 +209,7 @@ public class AwsGrafanaWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionType is required")]
     public required TerraformProperty<string> PermissionType
     {
-        get => GetProperty<TerraformProperty<string>>("permission_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("permission_type");
         set => this.WithProperty("permission_type", value);
     }
 

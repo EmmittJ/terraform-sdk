@@ -25,7 +25,7 @@ public class AwsApiGatewayDomainNameAccessAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessAssociationSource is required")]
     public required TerraformProperty<string> AccessAssociationSource
     {
-        get => GetProperty<TerraformProperty<string>>("access_association_source");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_association_source");
         set => this.WithProperty("access_association_source", value);
     }
 
@@ -35,7 +35,7 @@ public class AwsApiGatewayDomainNameAccessAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessAssociationSourceType is required")]
     public required TerraformProperty<string> AccessAssociationSourceType
     {
-        get => GetProperty<TerraformProperty<string>>("access_association_source_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_association_source_type");
         set => this.WithProperty("access_association_source_type", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsApiGatewayDomainNameAccessAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainNameArn is required")]
     public required TerraformProperty<string> DomainNameArn
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name_arn");
         set => this.WithProperty("domain_name_arn", value);
     }
 

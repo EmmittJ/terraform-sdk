@@ -85,7 +85,7 @@ public class AzurermNetworkManagerScopeConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermNetworkManagerScopeConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformProperty<string> NetworkManagerId
     {
-        get => GetProperty<TerraformProperty<string>>("network_manager_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_manager_id");
         set => this.WithProperty("network_manager_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermNetworkManagerScopeConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetScopeId is required")]
     public required TerraformProperty<string> TargetScopeId
     {
-        get => GetProperty<TerraformProperty<string>>("target_scope_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_scope_id");
         set => this.WithProperty("target_scope_id", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermNetworkManagerScopeConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

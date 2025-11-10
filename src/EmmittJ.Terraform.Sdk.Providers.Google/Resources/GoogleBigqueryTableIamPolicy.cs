@@ -23,7 +23,7 @@ public class GoogleBigqueryTableIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformProperty<string> DatasetId
     {
-        get => GetProperty<TerraformProperty<string>>("dataset_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleBigqueryTableIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleBigqueryTableIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformProperty<string> TableId
     {
-        get => GetProperty<TerraformProperty<string>>("table_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_id");
         set => this.WithProperty("table_id", value);
     }
 

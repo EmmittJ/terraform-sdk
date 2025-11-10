@@ -26,7 +26,7 @@ public class AwsCloudfrontFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformProperty<string> Code
     {
-        get => GetProperty<TerraformProperty<string>>("code");
+        get => GetRequiredProperty<TerraformProperty<string>>("code");
         set => this.WithProperty("code", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsCloudfrontFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsCloudfrontFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     public required TerraformProperty<string> Runtime
     {
-        get => GetProperty<TerraformProperty<string>>("runtime");
+        get => GetRequiredProperty<TerraformProperty<string>>("runtime");
         set => this.WithProperty("runtime", value);
     }
 

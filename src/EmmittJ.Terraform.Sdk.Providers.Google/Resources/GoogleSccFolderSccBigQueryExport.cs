@@ -62,7 +62,7 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
     public required TerraformProperty<string> BigQueryExportId
     {
-        get => GetProperty<TerraformProperty<string>>("big_query_export_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("big_query_export_id");
         set => this.WithProperty("big_query_export_id", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformProperty<string> Dataset
     {
-        get => GetProperty<TerraformProperty<string>>("dataset");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset");
         set => this.WithProperty("dataset", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
+        get => GetRequiredProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 

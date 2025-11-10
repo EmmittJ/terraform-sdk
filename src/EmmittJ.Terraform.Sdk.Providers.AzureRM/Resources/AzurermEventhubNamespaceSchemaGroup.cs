@@ -66,7 +66,7 @@ public class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
     public required TerraformProperty<string> NamespaceId
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace_id");
         set => this.WithProperty("namespace_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaCompatibility is required")]
     public required TerraformProperty<string> SchemaCompatibility
     {
-        get => GetProperty<TerraformProperty<string>>("schema_compatibility");
+        get => GetRequiredProperty<TerraformProperty<string>>("schema_compatibility");
         set => this.WithProperty("schema_compatibility", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaType is required")]
     public required TerraformProperty<string> SchemaType
     {
-        get => GetProperty<TerraformProperty<string>>("schema_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("schema_type");
         set => this.WithProperty("schema_type", value);
     }
 

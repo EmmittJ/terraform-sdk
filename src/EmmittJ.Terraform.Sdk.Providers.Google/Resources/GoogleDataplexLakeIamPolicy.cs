@@ -32,7 +32,7 @@ public class GoogleDataplexLakeIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
     public required TerraformProperty<string> Lake
     {
-        get => GetProperty<TerraformProperty<string>>("lake");
+        get => GetRequiredProperty<TerraformProperty<string>>("lake");
         set => this.WithProperty("lake", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleDataplexLakeIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

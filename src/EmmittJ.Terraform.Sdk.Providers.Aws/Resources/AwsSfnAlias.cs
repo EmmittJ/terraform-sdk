@@ -14,7 +14,7 @@ public class AwsSfnAliasRoutingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateMachineVersionArn is required")]
     public required TerraformProperty<string> StateMachineVersionArn
     {
-        get => GetProperty<TerraformProperty<string>>("state_machine_version_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("state_machine_version_arn");
         set => WithProperty("state_machine_version_arn", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsSfnAliasRoutingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformProperty<double> Weight
     {
-        get => GetProperty<TerraformProperty<double>>("weight");
+        get => GetRequiredProperty<TerraformProperty<double>>("weight");
         set => WithProperty("weight", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsSfnAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

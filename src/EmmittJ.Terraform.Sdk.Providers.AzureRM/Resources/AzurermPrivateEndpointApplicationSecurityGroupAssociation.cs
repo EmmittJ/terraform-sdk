@@ -57,7 +57,7 @@ public class AzurermPrivateEndpointApplicationSecurityGroupAssociation : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationSecurityGroupId is required")]
     public required TerraformProperty<string> ApplicationSecurityGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("application_security_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_security_group_id");
         set => this.WithProperty("application_security_group_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermPrivateEndpointApplicationSecurityGroupAssociation : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateEndpointId is required")]
     public required TerraformProperty<string> PrivateEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("private_endpoint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("private_endpoint_id");
         set => this.WithProperty("private_endpoint_id", value);
     }
 

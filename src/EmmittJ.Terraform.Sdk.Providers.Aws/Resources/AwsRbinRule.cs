@@ -14,7 +14,7 @@ public class AwsRbinRuleExcludeResourceTagsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTagKey is required")]
     public required TerraformProperty<string> ResourceTagKey
     {
-        get => GetProperty<TerraformProperty<string>>("resource_tag_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_tag_key");
         set => WithProperty("resource_tag_key", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsRbinRuleResourceTagsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTagKey is required")]
     public required TerraformProperty<string> ResourceTagKey
     {
-        get => GetProperty<TerraformProperty<string>>("resource_tag_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_tag_key");
         set => WithProperty("resource_tag_key", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsRbinRuleRetentionPeriodBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodUnit is required")]
     public required TerraformProperty<string> RetentionPeriodUnit
     {
-        get => GetProperty<TerraformProperty<string>>("retention_period_unit");
+        get => GetRequiredProperty<TerraformProperty<string>>("retention_period_unit");
         set => WithProperty("retention_period_unit", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsRbinRuleRetentionPeriodBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodValue is required")]
     public required TerraformProperty<double> RetentionPeriodValue
     {
-        get => GetProperty<TerraformProperty<double>>("retention_period_value");
+        get => GetRequiredProperty<TerraformProperty<double>>("retention_period_value");
         set => WithProperty("retention_period_value", value);
     }
 
@@ -171,7 +171,7 @@ public class AwsRbinRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
     }
 

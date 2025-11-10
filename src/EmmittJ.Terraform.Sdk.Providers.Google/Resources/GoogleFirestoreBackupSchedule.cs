@@ -114,7 +114,7 @@ public class GoogleFirestoreBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Retention is required")]
     public required TerraformProperty<string> Retention
     {
-        get => GetProperty<TerraformProperty<string>>("retention");
+        get => GetRequiredProperty<TerraformProperty<string>>("retention");
         set => this.WithProperty("retention", value);
     }
 

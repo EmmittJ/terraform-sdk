@@ -23,7 +23,7 @@ public class AwsOrganizationsPoliciesForTargetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsOrganizationsPoliciesForTargetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     public required TerraformProperty<string> TargetId
     {
-        get => GetProperty<TerraformProperty<string>>("target_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_id");
         set => this.WithProperty("target_id", value);
     }
 

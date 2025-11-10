@@ -14,7 +14,7 @@ public class AwsImagebuilderContainerRecipeComponentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentArn is required")]
     public required TerraformProperty<string> ComponentArn
     {
-        get => GetProperty<TerraformProperty<string>>("component_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("component_arn");
         set => WithProperty("component_arn", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsImagebuilderContainerRecipeTargetRepositoryBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetProperty<TerraformProperty<string>>("repository_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
         set => WithProperty("repository_name", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsImagebuilderContainerRecipeTargetRepositoryBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
+        get => GetRequiredProperty<TerraformProperty<string>>("service");
         set => WithProperty("service", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerType is required")]
     public required TerraformProperty<string> ContainerType
     {
-        get => GetProperty<TerraformProperty<string>>("container_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_type");
         set => this.WithProperty("container_type", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentImage is required")]
     public required TerraformProperty<string> ParentImage
     {
-        get => GetProperty<TerraformProperty<string>>("parent_image");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent_image");
         set => this.WithProperty("parent_image", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

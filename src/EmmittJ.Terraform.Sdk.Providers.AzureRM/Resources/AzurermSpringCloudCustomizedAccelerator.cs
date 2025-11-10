@@ -68,7 +68,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => WithProperty("url", value);
     }
 
@@ -193,7 +193,7 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -203,7 +203,7 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAcceleratorId is required")]
     public required TerraformProperty<string> SpringCloudAcceleratorId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_accelerator_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_accelerator_id");
         set => this.WithProperty("spring_cloud_accelerator_id", value);
     }
 

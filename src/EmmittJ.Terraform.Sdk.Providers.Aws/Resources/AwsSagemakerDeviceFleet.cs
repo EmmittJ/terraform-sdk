@@ -23,7 +23,7 @@ public class AwsSagemakerDeviceFleetOutputConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3OutputLocation is required")]
     public required TerraformProperty<string> S3OutputLocation
     {
-        get => GetProperty<TerraformProperty<string>>("s3_output_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_output_location");
         set => WithProperty("s3_output_location", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsSagemakerDeviceFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceFleetName is required")]
     public required TerraformProperty<string> DeviceFleetName
     {
-        get => GetProperty<TerraformProperty<string>>("device_fleet_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_fleet_name");
         set => this.WithProperty("device_fleet_name", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsSagemakerDeviceFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

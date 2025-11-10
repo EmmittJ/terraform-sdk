@@ -189,7 +189,7 @@ public class AwsFsxOpenzfsFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentType is required")]
     public required TerraformProperty<string> DeploymentType
     {
-        get => GetProperty<TerraformProperty<string>>("deployment_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("deployment_type");
         set => this.WithProperty("deployment_type", value);
     }
 
@@ -326,7 +326,7 @@ public class AwsFsxOpenzfsFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThroughputCapacity is required")]
     public required TerraformProperty<double> ThroughputCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("throughput_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("throughput_capacity");
         set => this.WithProperty("throughput_capacity", value);
     }
 

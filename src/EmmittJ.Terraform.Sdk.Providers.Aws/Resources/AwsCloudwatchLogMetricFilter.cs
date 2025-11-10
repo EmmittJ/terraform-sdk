@@ -32,7 +32,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
         set => WithProperty("namespace", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsCloudwatchLogMetricFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformProperty<string> LogGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("log_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_group_name");
         set => this.WithProperty("log_group_name", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsCloudwatchLogMetricFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsCloudwatchLogMetricFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformProperty<string> Pattern
     {
-        get => GetProperty<TerraformProperty<string>>("pattern");
+        get => GetRequiredProperty<TerraformProperty<string>>("pattern");
         set => this.WithProperty("pattern", value);
     }
 

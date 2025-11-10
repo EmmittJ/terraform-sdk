@@ -120,7 +120,7 @@ public class AzurermCdnFrontdoorRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorEndpointId is required")]
     public required TerraformProperty<string> CdnFrontdoorEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("cdn_frontdoor_endpoint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cdn_frontdoor_endpoint_id");
         set => this.WithProperty("cdn_frontdoor_endpoint_id", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermCdnFrontdoorRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorOriginGroupId is required")]
     public required TerraformProperty<string> CdnFrontdoorOriginGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("cdn_frontdoor_origin_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cdn_frontdoor_origin_group_id");
         set => this.WithProperty("cdn_frontdoor_origin_group_id", value);
     }
 
@@ -213,7 +213,7 @@ public class AzurermCdnFrontdoorRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

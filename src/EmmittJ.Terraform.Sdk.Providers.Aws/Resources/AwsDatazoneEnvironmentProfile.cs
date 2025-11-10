@@ -61,7 +61,7 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsAccountRegion is required")]
     public required TerraformProperty<string> AwsAccountRegion
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_region");
+        get => GetRequiredProperty<TerraformProperty<string>>("aws_account_region");
         set => this.WithProperty("aws_account_region", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformProperty<string> DomainIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("domain_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_identifier");
         set => this.WithProperty("domain_identifier", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentBlueprintIdentifier is required")]
     public required TerraformProperty<string> EnvironmentBlueprintIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("environment_blueprint_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment_blueprint_identifier");
         set => this.WithProperty("environment_blueprint_identifier", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectIdentifier is required")]
     public required TerraformProperty<string> ProjectIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("project_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_identifier");
         set => this.WithProperty("project_identifier", value);
     }
 

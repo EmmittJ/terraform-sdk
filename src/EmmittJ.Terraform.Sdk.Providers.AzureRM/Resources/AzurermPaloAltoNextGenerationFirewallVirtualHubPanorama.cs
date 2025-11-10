@@ -14,7 +14,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDestinationN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDestinationN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaNetworkProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkVirtualApplianceId is required")]
     public required TerraformProperty<string> NetworkVirtualApplianceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_virtual_appliance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_virtual_appliance_id");
         set => WithProperty("network_virtual_appliance_id", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaNetworkProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformProperty<string> VirtualHubId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_hub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_id");
         set => WithProperty("virtual_hub_id", value);
     }
 
@@ -241,7 +241,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -260,7 +260,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -270,7 +270,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PanoramaBase64Config is required")]
     public required TerraformProperty<string> PanoramaBase64Config
     {
-        get => GetProperty<TerraformProperty<string>>("panorama_base64_config");
+        get => GetRequiredProperty<TerraformProperty<string>>("panorama_base64_config");
         set => this.WithProperty("panorama_base64_config", value);
     }
 
@@ -289,7 +289,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

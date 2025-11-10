@@ -58,7 +58,7 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformProperty<string> AccountName
     {
-        get => GetProperty<TerraformProperty<string>>("account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_name");
         set => this.WithProperty("account_name", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationMethod is required")]
     public required TerraformProperty<string> AuthenticationMethod
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_method");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication_method");
         set => this.WithProperty("authentication_method", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Edition is required")]
     public required TerraformProperty<string> Edition
     {
-        get => GetProperty<TerraformProperty<string>>("edition");
+        get => GetRequiredProperty<TerraformProperty<string>>("edition");
         set => this.WithProperty("edition", value);
     }
 
@@ -205,7 +205,7 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationEmail is required")]
     public required TerraformProperty<string> NotificationEmail
     {
-        get => GetProperty<TerraformProperty<string>>("notification_email");
+        get => GetRequiredProperty<TerraformProperty<string>>("notification_email");
         set => this.WithProperty("notification_email", value);
     }
 

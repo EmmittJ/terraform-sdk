@@ -44,7 +44,7 @@ public class AzurermApiManagementUserDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermApiManagementUserDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermApiManagementUserDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     public required TerraformProperty<string> UserId
     {
-        get => GetProperty<TerraformProperty<string>>("user_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_id");
         set => this.WithProperty("user_id", value);
     }
 

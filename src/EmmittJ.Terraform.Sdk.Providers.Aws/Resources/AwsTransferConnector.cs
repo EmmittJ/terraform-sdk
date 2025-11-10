@@ -14,7 +14,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compression is required")]
     public required TerraformProperty<string> Compression
     {
-        get => GetProperty<TerraformProperty<string>>("compression");
+        get => GetRequiredProperty<TerraformProperty<string>>("compression");
         set => WithProperty("compression", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionAlgorithm is required")]
     public required TerraformProperty<string> EncryptionAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_algorithm");
+        get => GetRequiredProperty<TerraformProperty<string>>("encryption_algorithm");
         set => WithProperty("encryption_algorithm", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalProfileId is required")]
     public required TerraformProperty<string> LocalProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("local_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("local_profile_id");
         set => WithProperty("local_profile_id", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MdnResponse is required")]
     public required TerraformProperty<string> MdnResponse
     {
-        get => GetProperty<TerraformProperty<string>>("mdn_response");
+        get => GetRequiredProperty<TerraformProperty<string>>("mdn_response");
         set => WithProperty("mdn_response", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerProfileId is required")]
     public required TerraformProperty<string> PartnerProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("partner_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("partner_profile_id");
         set => WithProperty("partner_profile_id", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
     public required TerraformProperty<string> SigningAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("signing_algorithm");
+        get => GetRequiredProperty<TerraformProperty<string>>("signing_algorithm");
         set => WithProperty("signing_algorithm", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsTransferConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessRole is required")]
     public required TerraformProperty<string> AccessRole
     {
-        get => GetProperty<TerraformProperty<string>>("access_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_role");
         set => this.WithProperty("access_role", value);
     }
 
@@ -201,7 +201,7 @@ public class AwsTransferConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => this.WithProperty("url", value);
     }
 

@@ -41,7 +41,7 @@ public class GoogleColabRuntimeTemplateIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleColabRuntimeTemplateIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeTemplate is required")]
     public required TerraformProperty<string> RuntimeTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_template");
+        get => GetRequiredProperty<TerraformProperty<string>>("runtime_template");
         set => this.WithProperty("runtime_template", value);
     }
 

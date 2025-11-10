@@ -23,7 +23,7 @@ public class AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("mode");
         set => WithProperty("mode", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermMssqlManagedInstanceFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermMssqlManagedInstanceFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformProperty<string> ManagedInstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_instance_id");
         set => this.WithProperty("managed_instance_id", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermMssqlManagedInstanceFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -135,7 +135,7 @@ public class AzurermMssqlManagedInstanceFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerManagedInstanceId is required")]
     public required TerraformProperty<string> PartnerManagedInstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("partner_managed_instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("partner_managed_instance_id");
         set => this.WithProperty("partner_managed_instance_id", value);
     }
 

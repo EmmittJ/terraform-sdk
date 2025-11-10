@@ -57,7 +57,7 @@ public class GoogleComputeInstanceGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
@@ -67,7 +67,7 @@ public class GoogleComputeInstanceGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceGroup is required")]
     public required TerraformProperty<string> InstanceGroup
     {
-        get => GetProperty<TerraformProperty<string>>("instance_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_group");
         set => this.WithProperty("instance_group", value);
     }
 

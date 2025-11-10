@@ -22,7 +22,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -32,7 +32,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     public required TerraformProperty<string> VaultId
     {
-        get => GetProperty<TerraformProperty<string>>("vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vault_id");
         set => this.WithProperty("vault_id", value);
     }
 

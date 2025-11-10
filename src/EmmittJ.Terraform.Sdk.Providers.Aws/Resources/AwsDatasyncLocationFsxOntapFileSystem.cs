@@ -63,7 +63,7 @@ public class AwsDatasyncLocationFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageVirtualMachineArn is required")]
     public required TerraformProperty<string> StorageVirtualMachineArn
     {
-        get => GetProperty<TerraformProperty<string>>("storage_virtual_machine_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_virtual_machine_arn");
         set => this.WithProperty("storage_virtual_machine_arn", value);
     }
 

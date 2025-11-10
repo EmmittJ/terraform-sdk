@@ -67,7 +67,7 @@ public class AzurermSecurityCenterAutoProvisioning : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoProvision is required")]
     public required TerraformProperty<string> AutoProvision
     {
-        get => GetProperty<TerraformProperty<string>>("auto_provision");
+        get => GetRequiredProperty<TerraformProperty<string>>("auto_provision");
         set => this.WithProperty("auto_provision", value);
     }
 

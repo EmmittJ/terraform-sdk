@@ -23,7 +23,7 @@ public class AzurermExpressRouteCircuitPeeringIpv6Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryPeerAddressPrefix is required")]
     public required TerraformProperty<string> PrimaryPeerAddressPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("primary_peer_address_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("primary_peer_address_prefix");
         set => WithProperty("primary_peer_address_prefix", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermExpressRouteCircuitPeeringIpv6Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecondaryPeerAddressPrefix is required")]
     public required TerraformProperty<string> SecondaryPeerAddressPrefix
     {
-        get => GetProperty<TerraformProperty<string>>("secondary_peer_address_prefix");
+        get => GetRequiredProperty<TerraformProperty<string>>("secondary_peer_address_prefix");
         set => WithProperty("secondary_peer_address_prefix", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermExpressRouteCircuitPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitName is required")]
     public required TerraformProperty<string> ExpressRouteCircuitName
     {
-        get => GetProperty<TerraformProperty<string>>("express_route_circuit_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("express_route_circuit_name");
         set => this.WithProperty("express_route_circuit_name", value);
     }
 
@@ -199,7 +199,7 @@ public class AzurermExpressRouteCircuitPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringType is required")]
     public required TerraformProperty<string> PeeringType
     {
-        get => GetProperty<TerraformProperty<string>>("peering_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("peering_type");
         set => this.WithProperty("peering_type", value);
     }
 
@@ -218,7 +218,7 @@ public class AzurermExpressRouteCircuitPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -255,7 +255,7 @@ public class AzurermExpressRouteCircuitPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VlanId is required")]
     public required TerraformProperty<double> VlanId
     {
-        get => GetProperty<TerraformProperty<double>>("vlan_id");
+        get => GetRequiredProperty<TerraformProperty<double>>("vlan_id");
         set => this.WithProperty("vlan_id", value);
     }
 

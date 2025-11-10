@@ -14,7 +14,7 @@ public class AwsLightsailInstanceAddOnBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotTime is required")]
     public required TerraformProperty<string> SnapshotTime
     {
-        get => GetProperty<TerraformProperty<string>>("snapshot_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("snapshot_time");
         set => WithProperty("snapshot_time", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsLightsailInstanceAddOnBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformProperty<string> Status
     {
-        get => GetProperty<TerraformProperty<string>>("status");
+        get => GetRequiredProperty<TerraformProperty<string>>("status");
         set => WithProperty("status", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsLightsailInstanceAddOnBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsLightsailInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZone is required")]
     public required TerraformProperty<string> AvailabilityZone
     {
-        get => GetProperty<TerraformProperty<string>>("availability_zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("availability_zone");
         set => this.WithProperty("availability_zone", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsLightsailInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlueprintId is required")]
     public required TerraformProperty<string> BlueprintId
     {
-        get => GetProperty<TerraformProperty<string>>("blueprint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("blueprint_id");
         set => this.WithProperty("blueprint_id", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsLightsailInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
     public required TerraformProperty<string> BundleId
     {
-        get => GetProperty<TerraformProperty<string>>("bundle_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("bundle_id");
         set => this.WithProperty("bundle_id", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsLightsailInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

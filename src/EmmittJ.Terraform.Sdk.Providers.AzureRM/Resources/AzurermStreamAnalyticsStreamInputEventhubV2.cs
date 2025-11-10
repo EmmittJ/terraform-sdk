@@ -32,7 +32,7 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2SerializationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformProperty<string> EventhubName
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_name");
         set => this.WithProperty("eventhub_name", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicebusNamespace is required")]
     public required TerraformProperty<string> ServicebusNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("servicebus_namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("servicebus_namespace");
         set => this.WithProperty("servicebus_namespace", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformProperty<string> StreamAnalyticsJobId
     {
-        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_id");
         set => this.WithProperty("stream_analytics_job_id", value);
     }
 

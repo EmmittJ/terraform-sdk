@@ -32,7 +32,7 @@ public class AwsBedrockagentcoreOauth2CredentialProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialProviderVendor is required")]
     public required TerraformProperty<string> CredentialProviderVendor
     {
-        get => GetProperty<TerraformProperty<string>>("credential_provider_vendor");
+        get => GetRequiredProperty<TerraformProperty<string>>("credential_provider_vendor");
         set => this.WithProperty("credential_provider_vendor", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsBedrockagentcoreOauth2CredentialProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

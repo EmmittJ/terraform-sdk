@@ -14,7 +14,7 @@ public class AwsApigatewayv2StageAccessLogSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformProperty<string> DestinationArn
     {
-        get => GetProperty<TerraformProperty<string>>("destination_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_arn");
         set => WithProperty("destination_arn", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsApigatewayv2StageAccessLogSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformProperty<string> Format
     {
-        get => GetProperty<TerraformProperty<string>>("format");
+        get => GetRequiredProperty<TerraformProperty<string>>("format");
         set => WithProperty("format", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsApigatewayv2StageRouteSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteKey is required")]
     public required TerraformProperty<string> RouteKey
     {
-        get => GetProperty<TerraformProperty<string>>("route_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("route_key");
         set => WithProperty("route_key", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsApigatewayv2Stage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
@@ -225,7 +225,7 @@ public class AwsApigatewayv2Stage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

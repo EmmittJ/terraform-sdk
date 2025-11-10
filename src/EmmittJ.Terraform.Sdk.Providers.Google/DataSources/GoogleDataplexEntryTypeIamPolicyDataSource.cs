@@ -24,7 +24,7 @@ public class GoogleDataplexEntryTypeIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryTypeId is required")]
     public required TerraformProperty<string> EntryTypeId
     {
-        get => GetProperty<TerraformProperty<string>>("entry_type_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("entry_type_id");
         set => this.WithProperty("entry_type_id", value);
     }
 

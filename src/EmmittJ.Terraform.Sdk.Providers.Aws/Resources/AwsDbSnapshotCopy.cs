@@ -124,7 +124,7 @@ public class AwsDbSnapshotCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDbSnapshotIdentifier is required")]
     public required TerraformProperty<string> SourceDbSnapshotIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("source_db_snapshot_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_db_snapshot_identifier");
         set => this.WithProperty("source_db_snapshot_identifier", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsDbSnapshotCopy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDbSnapshotIdentifier is required")]
     public required TerraformProperty<string> TargetDbSnapshotIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("target_db_snapshot_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_db_snapshot_identifier");
         set => this.WithProperty("target_db_snapshot_identifier", value);
     }
 

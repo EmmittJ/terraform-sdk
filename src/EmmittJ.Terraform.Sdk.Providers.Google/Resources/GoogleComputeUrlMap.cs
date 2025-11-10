@@ -118,7 +118,7 @@ public class GoogleComputeUrlMapDefaultUrlRedirectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StripQuery is required")]
     public required TerraformProperty<bool> StripQuery
     {
-        get => GetProperty<TerraformProperty<bool>>("strip_query");
+        get => GetRequiredProperty<TerraformProperty<bool>>("strip_query");
         set => WithProperty("strip_query", value);
     }
 
@@ -187,7 +187,7 @@ public class GoogleComputeUrlMapHostRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathMatcher is required")]
     public required TerraformProperty<string> PathMatcher
     {
-        get => GetProperty<TerraformProperty<string>>("path_matcher");
+        get => GetRequiredProperty<TerraformProperty<string>>("path_matcher");
         set => WithProperty("path_matcher", value);
     }
 
@@ -224,7 +224,7 @@ public class GoogleComputeUrlMapPathMatcherBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -277,7 +277,7 @@ public class GoogleComputeUrlMapTestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformProperty<string> Host
     {
-        get => GetProperty<TerraformProperty<string>>("host");
+        get => GetRequiredProperty<TerraformProperty<string>>("host");
         set => WithProperty("host", value);
     }
 
@@ -287,7 +287,7 @@ public class GoogleComputeUrlMapTestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => WithProperty("path", value);
     }
 
@@ -395,7 +395,7 @@ public class GoogleComputeUrlMap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

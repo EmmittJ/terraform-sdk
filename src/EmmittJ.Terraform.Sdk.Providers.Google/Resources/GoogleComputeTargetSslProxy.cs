@@ -60,7 +60,7 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformProperty<string> BackendService
     {
-        get => GetProperty<TerraformProperty<string>>("backend_service");
+        get => GetRequiredProperty<TerraformProperty<string>>("backend_service");
         set => this.WithProperty("backend_service", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

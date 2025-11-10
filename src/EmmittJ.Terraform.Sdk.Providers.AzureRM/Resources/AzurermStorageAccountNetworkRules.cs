@@ -14,7 +14,7 @@ public class AzurermStorageAccountNetworkRulesPrivateLinkAccessBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointResourceId is required")]
     public required TerraformProperty<string> EndpointResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint_resource_id");
         set => WithProperty("endpoint_resource_id", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermStorageAccountNetworkRules : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformProperty<string> DefaultAction
     {
-        get => GetProperty<TerraformProperty<string>>("default_action");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_action");
         set => this.WithProperty("default_action", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermStorageAccountNetworkRules : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 

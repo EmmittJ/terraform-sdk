@@ -14,7 +14,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthProbeName is required")]
     public required TerraformProperty<string> HealthProbeName
     {
-        get => GetProperty<TerraformProperty<string>>("health_probe_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("health_probe_name");
         set => WithProperty("health_probe_name", value);
     }
 
@@ -33,7 +33,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingName is required")]
     public required TerraformProperty<string> LoadBalancingName
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancing_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("load_balancing_name");
         set => WithProperty("load_balancing_name", value);
     }
 
@@ -43,7 +43,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -196,7 +196,7 @@ public class AzurermFrontdoorBackendPoolSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnforceBackendPoolsCertificateNameCheck is required")]
     public required TerraformProperty<bool> EnforceBackendPoolsCertificateNameCheck
     {
-        get => GetProperty<TerraformProperty<bool>>("enforce_backend_pools_certificate_name_check");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enforce_backend_pools_certificate_name_check");
         set => WithProperty("enforce_backend_pools_certificate_name_check", value);
     }
 
@@ -214,7 +214,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetProperty<TerraformProperty<string>>("host_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
         set => WithProperty("host_name", value);
     }
 
@@ -233,7 +233,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -316,7 +316,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -432,7 +432,7 @@ public class AzurermFrontdoor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -442,7 +442,7 @@ public class AzurermFrontdoor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -134,7 +134,7 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlan is required")]
     public required TerraformProperty<string> BackupPlan
     {
-        get => GetProperty<TerraformProperty<string>>("backup_plan");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_plan");
         set => this.WithProperty("backup_plan", value);
     }
 
@@ -144,7 +144,7 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetProperty<TerraformProperty<string>>("cluster");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
     }
 
@@ -187,7 +187,7 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -197,7 +197,7 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

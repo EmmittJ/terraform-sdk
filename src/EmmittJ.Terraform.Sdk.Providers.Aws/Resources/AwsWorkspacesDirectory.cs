@@ -14,7 +14,7 @@ public class AwsWorkspacesDirectoryActiveDirectoryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => WithProperty("domain_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsWorkspacesDirectoryActiveDirectoryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountSecretArn is required")]
     public required TerraformProperty<string> ServiceAccountSecretArn
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_secret_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_account_secret_arn");
         set => WithProperty("service_account_secret_arn", value);
     }
 

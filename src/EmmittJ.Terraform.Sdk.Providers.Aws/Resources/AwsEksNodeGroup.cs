@@ -32,7 +32,7 @@ public class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => WithProperty("version", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsEksNodeGroupScalingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredSize is required")]
     public required TerraformProperty<double> DesiredSize
     {
-        get => GetProperty<TerraformProperty<double>>("desired_size");
+        get => GetRequiredProperty<TerraformProperty<double>>("desired_size");
         set => WithProperty("desired_size", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsEksNodeGroupScalingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSize is required")]
     public required TerraformProperty<double> MaxSize
     {
-        get => GetProperty<TerraformProperty<double>>("max_size");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_size");
         set => WithProperty("max_size", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsEksNodeGroupScalingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinSize is required")]
     public required TerraformProperty<double> MinSize
     {
-        get => GetProperty<TerraformProperty<double>>("min_size");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_size");
         set => WithProperty("min_size", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsEksNodeGroupTaintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Effect is required")]
     public required TerraformProperty<string> Effect
     {
-        get => GetProperty<TerraformProperty<string>>("effect");
+        get => GetRequiredProperty<TerraformProperty<string>>("effect");
         set => WithProperty("effect", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsEksNodeGroupTaintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -259,7 +259,7 @@ public class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 
@@ -332,7 +332,7 @@ public class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeRoleArn is required")]
     public required TerraformProperty<string> NodeRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("node_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("node_role_arn");
         set => this.WithProperty("node_role_arn", value);
     }
 

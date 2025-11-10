@@ -14,7 +14,7 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => WithProperty("resource_group_name", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
         set => WithProperty("subscription_id", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
         set => this.WithProperty("container_name", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareId is required")]
     public required TerraformProperty<string> DataShareId
     {
-        get => GetProperty<TerraformProperty<string>>("data_share_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_share_id");
         set => this.WithProperty("data_share_id", value);
     }
 
@@ -144,7 +144,7 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

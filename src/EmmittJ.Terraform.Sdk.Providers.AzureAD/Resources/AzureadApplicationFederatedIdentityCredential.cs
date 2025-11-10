@@ -67,7 +67,7 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -115,7 +115,7 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformProperty<string> Issuer
     {
-        get => GetProperty<TerraformProperty<string>>("issuer");
+        get => GetRequiredProperty<TerraformProperty<string>>("issuer");
         set => this.WithProperty("issuer", value);
     }
 
@@ -125,7 +125,7 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     public required TerraformProperty<string> Subject
     {
-        get => GetProperty<TerraformProperty<string>>("subject");
+        get => GetRequiredProperty<TerraformProperty<string>>("subject");
         set => this.WithProperty("subject", value);
     }
 

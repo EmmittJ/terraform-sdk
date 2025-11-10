@@ -94,7 +94,7 @@ public class AwsCognitoIdentityPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolName is required")]
     public required TerraformProperty<string> IdentityPoolName
     {
-        get => GetProperty<TerraformProperty<string>>("identity_pool_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_pool_name");
         set => this.WithProperty("identity_pool_name", value);
     }
 

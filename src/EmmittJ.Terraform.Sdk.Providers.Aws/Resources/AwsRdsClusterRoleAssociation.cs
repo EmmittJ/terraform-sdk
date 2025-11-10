@@ -48,7 +48,7 @@ public class AwsRdsClusterRoleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterIdentifier is required")]
     public required TerraformProperty<string> DbClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("db_cluster_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_cluster_identifier");
         set => this.WithProperty("db_cluster_identifier", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsRdsClusterRoleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

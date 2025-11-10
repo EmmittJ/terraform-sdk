@@ -66,7 +66,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedTenant is required")]
     public required TerraformProperty<string> AllowedTenant
     {
-        get => GetProperty<TerraformProperty<string>>("allowed_tenant");
+        get => GetRequiredProperty<TerraformProperty<string>>("allowed_tenant");
         set => this.WithProperty("allowed_tenant", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authority is required")]
     public required TerraformProperty<string> Authority
     {
-        get => GetProperty<TerraformProperty<string>>("authority");
+        get => GetRequiredProperty<TerraformProperty<string>>("authority");
         set => this.WithProperty("authority", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
         set => this.WithProperty("client_secret", value);
     }
 
@@ -152,7 +152,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigninPolicy is required")]
     public required TerraformProperty<string> SigninPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("signin_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("signin_policy");
         set => this.WithProperty("signin_policy", value);
     }
 
@@ -172,7 +172,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigninTenant is required")]
     public required TerraformProperty<string> SigninTenant
     {
-        get => GetProperty<TerraformProperty<string>>("signin_tenant");
+        get => GetRequiredProperty<TerraformProperty<string>>("signin_tenant");
         set => this.WithProperty("signin_tenant", value);
     }
 
@@ -182,7 +182,7 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignupPolicy is required")]
     public required TerraformProperty<string> SignupPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("signup_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("signup_policy");
         set => this.WithProperty("signup_policy", value);
     }
 

@@ -66,7 +66,7 @@ public class AzurermAutomationConnectionCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformProperty<string> AutomationAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("automation_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_name");
         set => this.WithProperty("automation_account_name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermAutomationConnectionCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationCertificateName is required")]
     public required TerraformProperty<string> AutomationCertificateName
     {
-        get => GetProperty<TerraformProperty<string>>("automation_certificate_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("automation_certificate_name");
         set => this.WithProperty("automation_certificate_name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermAutomationConnectionCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermAutomationConnectionCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermAutomationConnectionCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 

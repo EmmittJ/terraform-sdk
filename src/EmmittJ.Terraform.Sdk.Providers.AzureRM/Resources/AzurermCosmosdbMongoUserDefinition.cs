@@ -66,7 +66,7 @@ public class AzurermCosmosdbMongoUserDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosMongoDatabaseId is required")]
     public required TerraformProperty<string> CosmosMongoDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("cosmos_mongo_database_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cosmos_mongo_database_id");
         set => this.WithProperty("cosmos_mongo_database_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermCosmosdbMongoUserDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermCosmosdbMongoUserDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

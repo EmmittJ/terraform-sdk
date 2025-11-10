@@ -75,7 +75,7 @@ public class AwsFmsPolicySecurityServicePolicyDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsFmsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExcludeResourceTags is required")]
     public required TerraformProperty<bool> ExcludeResourceTags
     {
-        get => GetProperty<TerraformProperty<bool>>("exclude_resource_tags");
+        get => GetRequiredProperty<TerraformProperty<bool>>("exclude_resource_tags");
         set => this.WithProperty("exclude_resource_tags", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsFmsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

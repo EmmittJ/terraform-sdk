@@ -66,7 +66,7 @@ public class AzurermMaintenanceAssignmentVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermMaintenanceAssignmentVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceConfigurationId is required")]
     public required TerraformProperty<string> MaintenanceConfigurationId
     {
-        get => GetProperty<TerraformProperty<string>>("maintenance_configuration_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("maintenance_configuration_id");
         set => this.WithProperty("maintenance_configuration_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermMaintenanceAssignmentVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
     }
 

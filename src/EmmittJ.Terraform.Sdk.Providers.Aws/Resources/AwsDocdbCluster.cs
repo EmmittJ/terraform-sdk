@@ -32,7 +32,7 @@ public class AwsDocdbClusterRestoreToPointInTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceClusterIdentifier is required")]
     public required TerraformProperty<string> SourceClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("source_cluster_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_cluster_identifier");
         set => WithProperty("source_cluster_identifier", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsDocdbClusterServerlessV2ScalingConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     public required TerraformProperty<double> MaxCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("max_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_capacity");
         set => WithProperty("max_capacity", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsDocdbClusterServerlessV2ScalingConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformProperty<double> MinCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("min_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_capacity");
         set => WithProperty("min_capacity", value);
     }
 

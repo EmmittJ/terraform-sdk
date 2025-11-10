@@ -113,7 +113,7 @@ public class GoogleLookerInstanceMaintenanceWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformProperty<string> DayOfWeek
     {
-        get => GetProperty<TerraformProperty<string>>("day_of_week");
+        get => GetRequiredProperty<TerraformProperty<string>>("day_of_week");
         set => WithProperty("day_of_week", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleLookerInstanceOauthConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
         set => WithProperty("client_id", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleLookerInstanceOauthConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
         set => WithProperty("client_secret", value);
     }
 
@@ -321,7 +321,7 @@ public class GoogleLookerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

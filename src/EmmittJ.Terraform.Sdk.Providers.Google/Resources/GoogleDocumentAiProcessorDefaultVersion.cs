@@ -57,7 +57,7 @@ public class GoogleDocumentAiProcessorDefaultVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Processor is required")]
     public required TerraformProperty<string> Processor
     {
-        get => GetProperty<TerraformProperty<string>>("processor");
+        get => GetRequiredProperty<TerraformProperty<string>>("processor");
         set => this.WithProperty("processor", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleDocumentAiProcessorDefaultVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

@@ -75,7 +75,7 @@ public class AzurermPortalTenantConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateMarkdownStorageEnforced is required")]
     public required TerraformProperty<bool> PrivateMarkdownStorageEnforced
     {
-        get => GetProperty<TerraformProperty<bool>>("private_markdown_storage_enforced");
+        get => GetRequiredProperty<TerraformProperty<bool>>("private_markdown_storage_enforced");
         set => this.WithProperty("private_markdown_storage_enforced", value);
     }
 

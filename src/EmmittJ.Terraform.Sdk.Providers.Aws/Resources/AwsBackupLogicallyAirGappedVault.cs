@@ -42,7 +42,7 @@ public class AwsBackupLogicallyAirGappedVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRetentionDays is required")]
     public required TerraformProperty<double> MaxRetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("max_retention_days");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_retention_days");
         set => this.WithProperty("max_retention_days", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsBackupLogicallyAirGappedVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinRetentionDays is required")]
     public required TerraformProperty<double> MinRetentionDays
     {
-        get => GetProperty<TerraformProperty<double>>("min_retention_days");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_retention_days");
         set => this.WithProperty("min_retention_days", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsBackupLogicallyAirGappedVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

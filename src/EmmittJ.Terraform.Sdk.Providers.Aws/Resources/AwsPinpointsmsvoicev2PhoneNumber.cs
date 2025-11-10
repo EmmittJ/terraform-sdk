@@ -71,7 +71,7 @@ public class AwsPinpointsmsvoicev2PhoneNumber : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsoCountryCode is required")]
     public required TerraformProperty<string> IsoCountryCode
     {
-        get => GetProperty<TerraformProperty<string>>("iso_country_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("iso_country_code");
         set => this.WithProperty("iso_country_code", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsPinpointsmsvoicev2PhoneNumber : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageType is required")]
     public required TerraformProperty<string> MessageType
     {
-        get => GetProperty<TerraformProperty<string>>("message_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("message_type");
         set => this.WithProperty("message_type", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsPinpointsmsvoicev2PhoneNumber : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberType is required")]
     public required TerraformProperty<string> NumberType
     {
-        get => GetProperty<TerraformProperty<string>>("number_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("number_type");
         set => this.WithProperty("number_type", value);
     }
 

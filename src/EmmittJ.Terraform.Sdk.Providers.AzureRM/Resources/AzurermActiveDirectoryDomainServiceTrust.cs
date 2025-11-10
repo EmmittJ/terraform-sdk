@@ -66,7 +66,7 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainServiceId is required")]
     public required TerraformProperty<string> DomainServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("domain_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_service_id");
         set => this.WithProperty("domain_service_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedDomainFqdn is required")]
     public required TerraformProperty<string> TrustedDomainFqdn
     {
-        get => GetProperty<TerraformProperty<string>>("trusted_domain_fqdn");
+        get => GetRequiredProperty<TerraformProperty<string>>("trusted_domain_fqdn");
         set => this.WithProperty("trusted_domain_fqdn", value);
     }
 

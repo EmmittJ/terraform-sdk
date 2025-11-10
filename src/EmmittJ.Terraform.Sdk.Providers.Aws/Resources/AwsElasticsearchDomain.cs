@@ -14,7 +14,7 @@ public class AwsElasticsearchDomainAdvancedSecurityOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsElasticsearchDomainAutoTuneOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredState is required")]
     public required TerraformProperty<string> DesiredState
     {
-        get => GetProperty<TerraformProperty<string>>("desired_state");
+        get => GetRequiredProperty<TerraformProperty<string>>("desired_state");
         set => WithProperty("desired_state", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     public required TerraformProperty<string> IdentityPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_pool_id");
         set => WithProperty("identity_pool_id", value);
     }
 
@@ -176,7 +176,7 @@ public class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -186,7 +186,7 @@ public class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("user_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
         set => WithProperty("user_pool_id", value);
     }
 
@@ -257,7 +257,7 @@ public class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EbsEnabled is required")]
     public required TerraformProperty<bool> EbsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ebs_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("ebs_enabled");
         set => WithProperty("ebs_enabled", value);
     }
 
@@ -311,7 +311,7 @@ public class AwsElasticsearchDomainEncryptAtRestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -338,7 +338,7 @@ public class AwsElasticsearchDomainLogPublishingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogGroupArn is required")]
     public required TerraformProperty<string> CloudwatchLogGroupArn
     {
-        get => GetProperty<TerraformProperty<string>>("cloudwatch_log_group_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("cloudwatch_log_group_arn");
         set => WithProperty("cloudwatch_log_group_arn", value);
     }
 
@@ -357,7 +357,7 @@ public class AwsElasticsearchDomainLogPublishingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformProperty<string> LogType
     {
-        get => GetProperty<TerraformProperty<string>>("log_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_type");
         set => WithProperty("log_type", value);
     }
 
@@ -375,7 +375,7 @@ public class AwsElasticsearchDomainNodeToNodeEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -393,7 +393,7 @@ public class AwsElasticsearchDomainSnapshotOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomatedSnapshotStartHour is required")]
     public required TerraformProperty<double> AutomatedSnapshotStartHour
     {
-        get => GetProperty<TerraformProperty<double>>("automated_snapshot_start_hour");
+        get => GetRequiredProperty<TerraformProperty<double>>("automated_snapshot_start_hour");
         set => WithProperty("automated_snapshot_start_hour", value);
     }
 
@@ -521,7 +521,7 @@ public class AwsElasticsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 

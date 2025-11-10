@@ -14,7 +14,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsS3controlStorageLensConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
     public required TerraformProperty<string> ConfigId
     {
-        get => GetProperty<TerraformProperty<string>>("config_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("config_id");
         set => this.WithProperty("config_id", value);
     }
 

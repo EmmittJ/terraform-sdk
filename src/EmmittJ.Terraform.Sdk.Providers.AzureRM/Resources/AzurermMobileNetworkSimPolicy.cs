@@ -14,7 +14,7 @@ public class AzurermMobileNetworkSimPolicySliceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultDataNetworkId is required")]
     public required TerraformProperty<string> DefaultDataNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("default_data_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_data_network_id");
         set => WithProperty("default_data_network_id", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermMobileNetworkSimPolicySliceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SliceId is required")]
     public required TerraformProperty<string> SliceId
     {
-        get => GetProperty<TerraformProperty<string>>("slice_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("slice_id");
         set => WithProperty("slice_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Downlink is required")]
     public required TerraformProperty<string> Downlink
     {
-        get => GetProperty<TerraformProperty<string>>("downlink");
+        get => GetRequiredProperty<TerraformProperty<string>>("downlink");
         set => WithProperty("downlink", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uplink is required")]
     public required TerraformProperty<string> Uplink
     {
-        get => GetProperty<TerraformProperty<string>>("uplink");
+        get => GetRequiredProperty<TerraformProperty<string>>("uplink");
         set => WithProperty("uplink", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermMobileNetworkSimPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultSliceId is required")]
     public required TerraformProperty<string> DefaultSliceId
     {
-        get => GetProperty<TerraformProperty<string>>("default_slice_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_slice_id");
         set => this.WithProperty("default_slice_id", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermMobileNetworkSimPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -152,7 +152,7 @@ public class AzurermMobileNetworkSimPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     public required TerraformProperty<string> MobileNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("mobile_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("mobile_network_id");
         set => this.WithProperty("mobile_network_id", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermMobileNetworkSimPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

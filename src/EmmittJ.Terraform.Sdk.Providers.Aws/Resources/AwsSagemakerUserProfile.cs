@@ -32,7 +32,7 @@ public class AwsSagemakerUserProfileUserSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
     public required TerraformProperty<string> ExecutionRole
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("execution_role");
         set => WithProperty("execution_role", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsSagemakerUserProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformProperty<string> DomainId
     {
-        get => GetProperty<TerraformProperty<string>>("domain_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_id");
         set => this.WithProperty("domain_id", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsSagemakerUserProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserProfileName is required")]
     public required TerraformProperty<string> UserProfileName
     {
-        get => GetProperty<TerraformProperty<string>>("user_profile_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_profile_name");
         set => this.WithProperty("user_profile_name", value);
     }
 

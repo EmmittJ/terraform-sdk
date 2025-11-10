@@ -23,7 +23,7 @@ public class AwsOpensearchserverlessSecurityConfigSamlOptionsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metadata is required")]
     public required TerraformProperty<string> Metadata
     {
-        get => GetProperty<TerraformProperty<string>>("metadata");
+        get => GetRequiredProperty<TerraformProperty<string>>("metadata");
         set => WithProperty("metadata", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsOpensearchserverlessSecurityConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsOpensearchserverlessSecurityConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

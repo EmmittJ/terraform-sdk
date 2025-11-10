@@ -14,7 +14,7 @@ public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => WithProperty("location", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkTargetId is required")]
     public required TerraformProperty<string> PrivateLinkTargetId
     {
-        get => GetProperty<TerraformProperty<string>>("private_link_target_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("private_link_target_id");
         set => WithProperty("private_link_target_id", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorOriginGroupId is required")]
     public required TerraformProperty<string> CdnFrontdoorOriginGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("cdn_frontdoor_origin_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cdn_frontdoor_origin_group_id");
         set => this.WithProperty("cdn_frontdoor_origin_group_id", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateNameCheckEnabled is required")]
     public required TerraformProperty<bool> CertificateNameCheckEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("certificate_name_check_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("certificate_name_check_enabled");
         set => this.WithProperty("certificate_name_check_enabled", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetProperty<TerraformProperty<string>>("host_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
         set => this.WithProperty("host_name", value);
     }
 
@@ -179,7 +179,7 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

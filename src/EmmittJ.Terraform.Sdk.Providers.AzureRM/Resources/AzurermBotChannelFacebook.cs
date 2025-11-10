@@ -14,7 +14,7 @@ public class AzurermBotChannelFacebookPageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessToken is required")]
     public required TerraformProperty<string> AccessToken
     {
-        get => GetProperty<TerraformProperty<string>>("access_token");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_token");
         set => WithProperty("access_token", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermBotChannelFacebookPageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermBotChannelFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformProperty<string> BotName
     {
-        get => GetProperty<TerraformProperty<string>>("bot_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_name");
         set => this.WithProperty("bot_name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermBotChannelFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FacebookApplicationId is required")]
     public required TerraformProperty<string> FacebookApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("facebook_application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("facebook_application_id");
         set => this.WithProperty("facebook_application_id", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermBotChannelFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FacebookApplicationSecret is required")]
     public required TerraformProperty<string> FacebookApplicationSecret
     {
-        get => GetProperty<TerraformProperty<string>>("facebook_application_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("facebook_application_secret");
         set => this.WithProperty("facebook_application_secret", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermBotChannelFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -144,7 +144,7 @@ public class AzurermBotChannelFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

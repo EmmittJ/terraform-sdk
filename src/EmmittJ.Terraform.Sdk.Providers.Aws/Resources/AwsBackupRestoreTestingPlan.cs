@@ -14,7 +14,7 @@ public class AwsBackupRestoreTestingPlanRecoveryPointSelectionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformProperty<string> Algorithm
     {
-        get => GetProperty<TerraformProperty<string>>("algorithm");
+        get => GetRequiredProperty<TerraformProperty<string>>("algorithm");
         set => WithProperty("algorithm", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsBackupRestoreTestingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsBackupRestoreTestingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformProperty<string> ScheduleExpression
     {
-        get => GetProperty<TerraformProperty<string>>("schedule_expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("schedule_expression");
         set => this.WithProperty("schedule_expression", value);
     }
 

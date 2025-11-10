@@ -23,7 +23,7 @@ public class AzurermKubernetesClusterAciConnectorLinuxBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetName is required")]
     public required TerraformProperty<string> SubnetName
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_name");
         set => WithProperty("subnet_name", value);
     }
 
@@ -325,7 +325,7 @@ public class AzurermKubernetesClusterConfidentialComputingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SgxQuoteHelperEnabled is required")]
     public required TerraformProperty<bool> SgxQuoteHelperEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("sgx_quote_helper_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("sgx_quote_helper_enabled");
         set => WithProperty("sgx_quote_helper_enabled", value);
     }
 
@@ -442,7 +442,7 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -720,7 +720,7 @@ public class AzurermKubernetesClusterIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -800,7 +800,7 @@ public class AzurermKubernetesClusterKeyManagementServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
         set => WithProperty("key_vault_key_id", value);
     }
 
@@ -897,7 +897,7 @@ public class AzurermKubernetesClusterLinuxProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformProperty<string> AdminUsername
     {
-        get => GetProperty<TerraformProperty<string>>("admin_username");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_username");
         set => WithProperty("admin_username", value);
     }
 
@@ -941,7 +941,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<double> Duration
     {
-        get => GetProperty<TerraformProperty<double>>("duration");
+        get => GetRequiredProperty<TerraformProperty<double>>("duration");
         set => WithProperty("duration", value);
     }
 
@@ -951,7 +951,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetProperty<TerraformProperty<string>>("frequency");
+        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
         set => WithProperty("frequency", value);
     }
 
@@ -961,7 +961,7 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformProperty<double> Interval
     {
-        get => GetProperty<TerraformProperty<double>>("interval");
+        get => GetRequiredProperty<TerraformProperty<double>>("interval");
         set => WithProperty("interval", value);
     }
 
@@ -1033,7 +1033,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformProperty<double> Duration
     {
-        get => GetProperty<TerraformProperty<double>>("duration");
+        get => GetRequiredProperty<TerraformProperty<double>>("duration");
         set => WithProperty("duration", value);
     }
 
@@ -1043,7 +1043,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetProperty<TerraformProperty<string>>("frequency");
+        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
         set => WithProperty("frequency", value);
     }
 
@@ -1053,7 +1053,7 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformProperty<double> Interval
     {
-        get => GetProperty<TerraformProperty<double>>("interval");
+        get => GetRequiredProperty<TerraformProperty<double>>("interval");
         set => WithProperty("interval", value);
     }
 
@@ -1107,7 +1107,7 @@ public class AzurermKubernetesClusterMicrosoftDefenderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => WithProperty("log_analytics_workspace_id", value);
     }
 
@@ -1196,7 +1196,7 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkPlugin is required")]
     public required TerraformProperty<string> NetworkPlugin
     {
-        get => GetProperty<TerraformProperty<string>>("network_plugin");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_plugin");
         set => WithProperty("network_plugin", value);
     }
 
@@ -1277,7 +1277,7 @@ public class AzurermKubernetesClusterOmsAgentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => WithProperty("log_analytics_workspace_id", value);
     }
 
@@ -1331,7 +1331,7 @@ public class AzurermKubernetesClusterServiceMeshProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("mode");
         set => WithProperty("mode", value);
     }
 
@@ -1359,7 +1359,7 @@ public class AzurermKubernetesClusterServicePrincipalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
         set => WithProperty("client_id", value);
     }
 
@@ -1369,7 +1369,7 @@ public class AzurermKubernetesClusterServicePrincipalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
         set => WithProperty("client_secret", value);
     }
 
@@ -1484,7 +1484,7 @@ public class AzurermKubernetesClusterUpgradeOverrideBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForceUpgradeEnabled is required")]
     public required TerraformProperty<bool> ForceUpgradeEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("force_upgrade_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("force_upgrade_enabled");
         set => WithProperty("force_upgrade_enabled", value);
     }
 
@@ -1538,7 +1538,7 @@ public class AzurermKubernetesClusterWindowsProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminPassword is required")]
     public required TerraformProperty<string> AdminPassword
     {
-        get => GetProperty<TerraformProperty<string>>("admin_password");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_password");
         set => WithProperty("admin_password", value);
     }
 
@@ -1548,7 +1548,7 @@ public class AzurermKubernetesClusterWindowsProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformProperty<string> AdminUsername
     {
-        get => GetProperty<TerraformProperty<string>>("admin_username");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_username");
         set => WithProperty("admin_username", value);
     }
 
@@ -1756,7 +1756,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -1766,7 +1766,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -1839,7 +1839,7 @@ public class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -36,7 +36,7 @@ public class AwsWorkspacesImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageId is required")]
     public required TerraformProperty<string> ImageId
     {
-        get => GetProperty<TerraformProperty<string>>("image_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("image_id");
         set => this.WithProperty("image_id", value);
     }
 

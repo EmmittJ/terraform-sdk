@@ -208,7 +208,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbWorkload is required")]
     public required TerraformProperty<string> DbWorkload
     {
-        get => GetProperty<TerraformProperty<string>>("db_workload");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_workload");
         set => WithProperty("db_workload", value);
     }
 
@@ -262,7 +262,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
     public required TerraformProperty<string> LicenseType
     {
-        get => GetProperty<TerraformProperty<string>>("license_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("license_type");
         set => WithProperty("license_type", value);
     }
 
@@ -680,7 +680,7 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     public required TerraformProperty<string> AutonomousDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("autonomous_database_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("autonomous_database_id");
         set => this.WithProperty("autonomous_database_id", value);
     }
 
@@ -701,7 +701,7 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformProperty<string> Database
     {
-        get => GetProperty<TerraformProperty<string>>("database");
+        get => GetRequiredProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
     }
 
@@ -751,7 +751,7 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

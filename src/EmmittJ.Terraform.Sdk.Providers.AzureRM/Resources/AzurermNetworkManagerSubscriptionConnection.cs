@@ -85,7 +85,7 @@ public class AzurermNetworkManagerSubscriptionConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermNetworkManagerSubscriptionConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformProperty<string> NetworkManagerId
     {
-        get => GetProperty<TerraformProperty<string>>("network_manager_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_manager_id");
         set => this.WithProperty("network_manager_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermNetworkManagerSubscriptionConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformProperty<string> SubscriptionId
     {
-        get => GetProperty<TerraformProperty<string>>("subscription_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 

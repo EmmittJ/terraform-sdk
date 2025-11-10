@@ -75,7 +75,7 @@ public class AzurermSynapseWorkspaceAadAdmin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Login is required")]
     public required TerraformProperty<string> Login
     {
-        get => GetProperty<TerraformProperty<string>>("login");
+        get => GetRequiredProperty<TerraformProperty<string>>("login");
         set => this.WithProperty("login", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermSynapseWorkspaceAadAdmin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformProperty<string> ObjectId
     {
-        get => GetProperty<TerraformProperty<string>>("object_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("object_id");
         set => this.WithProperty("object_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermSynapseWorkspaceAadAdmin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermSynapseWorkspaceAadAdmin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformProperty<string> TenantId
     {
-        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

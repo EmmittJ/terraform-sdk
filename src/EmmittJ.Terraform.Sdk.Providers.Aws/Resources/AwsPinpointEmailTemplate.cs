@@ -104,7 +104,7 @@ public class AwsPinpointEmailTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateName is required")]
     public required TerraformProperty<string> TemplateName
     {
-        get => GetProperty<TerraformProperty<string>>("template_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("template_name");
         set => this.WithProperty("template_name", value);
     }
 

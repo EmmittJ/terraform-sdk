@@ -50,7 +50,7 @@ public class GoogleKmsCryptoKeyVersionTemplateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformProperty<string> Algorithm
     {
-        get => GetProperty<TerraformProperty<string>>("algorithm");
+        get => GetRequiredProperty<TerraformProperty<string>>("algorithm");
         set => WithProperty("algorithm", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleKmsCryptoKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     public required TerraformProperty<string> KeyRing
     {
-        get => GetProperty<TerraformProperty<string>>("key_ring");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_ring");
         set => this.WithProperty("key_ring", value);
     }
 
@@ -151,7 +151,7 @@ public class GoogleKmsCryptoKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

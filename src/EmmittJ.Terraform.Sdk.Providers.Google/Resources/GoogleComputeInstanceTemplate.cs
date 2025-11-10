@@ -288,7 +288,7 @@ public class GoogleComputeInstanceTemplateGuestAcceleratorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     public required TerraformProperty<double> Count
     {
-        get => GetProperty<TerraformProperty<double>>("count");
+        get => GetRequiredProperty<TerraformProperty<double>>("count");
         set => WithProperty("count", value);
     }
 
@@ -298,7 +298,7 @@ public class GoogleComputeInstanceTemplateGuestAcceleratorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -423,7 +423,7 @@ public class GoogleComputeInstanceTemplateNetworkPerformanceConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalEgressBandwidthTier is required")]
     public required TerraformProperty<string> TotalEgressBandwidthTier
     {
-        get => GetProperty<TerraformProperty<string>>("total_egress_bandwidth_tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("total_egress_bandwidth_tier");
         set => WithProperty("total_egress_bandwidth_tier", value);
     }
 
@@ -441,7 +441,7 @@ public class GoogleComputeInstanceTemplateReservationAffinityBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -703,7 +703,7 @@ public class GoogleComputeInstanceTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineType is required")]
     public required TerraformProperty<string> MachineType
     {
-        get => GetProperty<TerraformProperty<string>>("machine_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("machine_type");
         set => this.WithProperty("machine_type", value);
     }
 

@@ -117,7 +117,7 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetwork is required")]
     public required TerraformProperty<string> PeerNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("peer_network");
+        get => GetRequiredProperty<TerraformProperty<string>>("peer_network");
         set => this.WithProperty("peer_network", value);
     }
 
@@ -138,7 +138,7 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetworkType is required")]
     public required TerraformProperty<string> PeerNetworkType
     {
-        get => GetProperty<TerraformProperty<string>>("peer_network_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("peer_network_type");
         set => this.WithProperty("peer_network_type", value);
     }
 
@@ -159,7 +159,7 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareEngineNetwork is required")]
     public required TerraformProperty<string> VmwareEngineNetwork
     {
-        get => GetProperty<TerraformProperty<string>>("vmware_engine_network");
+        get => GetRequiredProperty<TerraformProperty<string>>("vmware_engine_network");
         set => this.WithProperty("vmware_engine_network", value);
     }
 

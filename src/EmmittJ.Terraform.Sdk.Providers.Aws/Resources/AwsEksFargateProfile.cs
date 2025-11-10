@@ -23,7 +23,7 @@ public class AwsEksFargateProfileSelectorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
         set => WithProperty("namespace", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsEksFargateProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsEksFargateProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FargateProfileName is required")]
     public required TerraformProperty<string> FargateProfileName
     {
-        get => GetProperty<TerraformProperty<string>>("fargate_profile_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("fargate_profile_name");
         set => this.WithProperty("fargate_profile_name", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsEksFargateProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PodExecutionRoleArn is required")]
     public required TerraformProperty<string> PodExecutionRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("pod_execution_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("pod_execution_role_arn");
         set => this.WithProperty("pod_execution_role_arn", value);
     }
 

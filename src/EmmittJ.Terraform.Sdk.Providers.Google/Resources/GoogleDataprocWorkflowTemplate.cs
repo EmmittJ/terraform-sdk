@@ -49,7 +49,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StepId is required")]
     public required TerraformProperty<string> StepId
     {
-        get => GetProperty<TerraformProperty<string>>("step_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("step_id");
         set => WithProperty("step_id", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleDataprocWorkflowTemplateParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -190,7 +190,7 @@ public class GoogleDataprocWorkflowTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -200,7 +200,7 @@ public class GoogleDataprocWorkflowTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

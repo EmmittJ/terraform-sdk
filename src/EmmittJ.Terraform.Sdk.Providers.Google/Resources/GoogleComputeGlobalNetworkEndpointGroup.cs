@@ -84,7 +84,7 @@ public class GoogleComputeGlobalNetworkEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleComputeGlobalNetworkEndpointGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkEndpointType is required")]
     public required TerraformProperty<string> NetworkEndpointType
     {
-        get => GetProperty<TerraformProperty<string>>("network_endpoint_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_endpoint_type");
         set => this.WithProperty("network_endpoint_type", value);
     }
 

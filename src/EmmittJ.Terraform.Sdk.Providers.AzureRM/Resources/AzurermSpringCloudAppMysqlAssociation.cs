@@ -66,7 +66,7 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MysqlServerId is required")]
     public required TerraformProperty<string> MysqlServerId
     {
-        get => GetProperty<TerraformProperty<string>>("mysql_server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("mysql_server_id");
         set => this.WithProperty("mysql_server_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformProperty<string> SpringCloudAppId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_app_id");
         set => this.WithProperty("spring_cloud_app_id", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

@@ -32,7 +32,7 @@ public class GoogleDnsManagedZoneIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedZone is required")]
     public required TerraformProperty<string> ManagedZone
     {
-        get => GetProperty<TerraformProperty<string>>("managed_zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_zone");
         set => this.WithProperty("managed_zone", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleDnsManagedZoneIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

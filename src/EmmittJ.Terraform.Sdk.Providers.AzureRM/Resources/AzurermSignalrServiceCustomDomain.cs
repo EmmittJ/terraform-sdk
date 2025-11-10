@@ -57,7 +57,7 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrCustomCertificateId is required")]
     public required TerraformProperty<string> SignalrCustomCertificateId
     {
-        get => GetProperty<TerraformProperty<string>>("signalr_custom_certificate_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("signalr_custom_certificate_id");
         set => this.WithProperty("signalr_custom_certificate_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrServiceId is required")]
     public required TerraformProperty<string> SignalrServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("signalr_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("signalr_service_id");
         set => this.WithProperty("signalr_service_id", value);
     }
 

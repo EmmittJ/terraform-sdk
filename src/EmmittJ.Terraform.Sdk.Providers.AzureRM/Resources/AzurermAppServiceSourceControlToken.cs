@@ -76,7 +76,7 @@ public class AzurermAppServiceSourceControlToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformProperty<string> Token
     {
-        get => GetProperty<TerraformProperty<string>>("token");
+        get => GetRequiredProperty<TerraformProperty<string>>("token");
         set => this.WithProperty("token", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermAppServiceSourceControlToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

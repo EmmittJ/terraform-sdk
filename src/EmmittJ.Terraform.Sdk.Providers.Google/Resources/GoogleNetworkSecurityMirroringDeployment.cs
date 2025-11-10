@@ -76,7 +76,7 @@ public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRule is required")]
     public required TerraformProperty<string> ForwardingRule
     {
-        get => GetProperty<TerraformProperty<string>>("forwarding_rule");
+        get => GetRequiredProperty<TerraformProperty<string>>("forwarding_rule");
         set => this.WithProperty("forwarding_rule", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringDeploymentGroup is required")]
     public required TerraformProperty<string> MirroringDeploymentGroup
     {
-        get => GetProperty<TerraformProperty<string>>("mirroring_deployment_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("mirroring_deployment_group");
         set => this.WithProperty("mirroring_deployment_group", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringDeploymentId is required")]
     public required TerraformProperty<string> MirroringDeploymentId
     {
-        get => GetProperty<TerraformProperty<string>>("mirroring_deployment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("mirroring_deployment_id");
         set => this.WithProperty("mirroring_deployment_id", value);
     }
 

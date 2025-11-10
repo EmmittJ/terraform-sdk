@@ -22,7 +22,7 @@ public class AwsApigatewayv2RouteResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsApigatewayv2RouteResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteId is required")]
     public required TerraformProperty<string> RouteId
     {
-        get => GetProperty<TerraformProperty<string>>("route_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("route_id");
         set => this.WithProperty("route_id", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsApigatewayv2RouteResponse : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteResponseKey is required")]
     public required TerraformProperty<string> RouteResponseKey
     {
-        get => GetProperty<TerraformProperty<string>>("route_response_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("route_response_key");
         set => this.WithProperty("route_response_key", value);
     }
 

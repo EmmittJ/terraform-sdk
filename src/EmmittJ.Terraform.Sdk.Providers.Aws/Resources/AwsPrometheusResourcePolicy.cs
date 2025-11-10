@@ -57,7 +57,7 @@ public class AwsPrometheusResourcePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformProperty<string> PolicyDocument
     {
-        get => GetProperty<TerraformProperty<string>>("policy_document");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_document");
         set => this.WithProperty("policy_document", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsPrometheusResourcePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

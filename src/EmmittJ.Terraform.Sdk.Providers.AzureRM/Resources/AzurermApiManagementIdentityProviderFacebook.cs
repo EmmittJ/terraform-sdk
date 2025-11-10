@@ -66,7 +66,7 @@ public class AzurermApiManagementIdentityProviderFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermApiManagementIdentityProviderFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetProperty<TerraformProperty<string>>("app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermApiManagementIdentityProviderFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppSecret is required")]
     public required TerraformProperty<string> AppSecret
     {
-        get => GetProperty<TerraformProperty<string>>("app_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_secret");
         set => this.WithProperty("app_secret", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermApiManagementIdentityProviderFacebook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

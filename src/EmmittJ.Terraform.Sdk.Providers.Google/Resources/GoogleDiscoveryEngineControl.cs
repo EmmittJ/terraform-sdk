@@ -14,7 +14,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     public required TerraformProperty<string> DataStore
     {
-        get => GetProperty<TerraformProperty<string>>("data_store");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_store");
         set => WithProperty("data_store", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => WithProperty("filter", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleDiscoveryEngineControlFilterActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     public required TerraformProperty<string> DataStore
     {
-        get => GetProperty<TerraformProperty<string>>("data_store");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_store");
         set => WithProperty("data_store", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleDiscoveryEngineControlFilterActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformProperty<string> Filter
     {
-        get => GetProperty<TerraformProperty<string>>("filter");
+        get => GetRequiredProperty<TerraformProperty<string>>("filter");
         set => WithProperty("filter", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleDiscoveryEngineControlPromoteActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     public required TerraformProperty<string> DataStore
     {
-        get => GetProperty<TerraformProperty<string>>("data_store");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_store");
         set => WithProperty("data_store", value);
     }
 
@@ -114,7 +114,7 @@ public class GoogleDiscoveryEngineControlRedirectActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUri is required")]
     public required TerraformProperty<string> RedirectUri
     {
-        get => GetProperty<TerraformProperty<string>>("redirect_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("redirect_uri");
         set => WithProperty("redirect_uri", value);
     }
 
@@ -203,7 +203,7 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlId is required")]
     public required TerraformProperty<string> ControlId
     {
-        get => GetProperty<TerraformProperty<string>>("control_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("control_id");
         set => this.WithProperty("control_id", value);
     }
 
@@ -214,7 +214,7 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -224,7 +224,7 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     public required TerraformProperty<string> EngineId
     {
-        get => GetProperty<TerraformProperty<string>>("engine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine_id");
         set => this.WithProperty("engine_id", value);
     }
 
@@ -244,7 +244,7 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -263,7 +263,7 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SolutionType is required")]
     public required TerraformProperty<string> SolutionType
     {
-        get => GetProperty<TerraformProperty<string>>("solution_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("solution_type");
         set => this.WithProperty("solution_type", value);
     }
 

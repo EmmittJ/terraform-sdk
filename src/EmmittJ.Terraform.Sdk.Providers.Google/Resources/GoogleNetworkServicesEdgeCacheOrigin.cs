@@ -14,7 +14,7 @@ public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKeyId is required")]
     public required TerraformProperty<string> AccessKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("access_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_key_id");
         set => WithProperty("access_key_id", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginRegion is required")]
     public required TerraformProperty<string> OriginRegion
     {
-        get => GetProperty<TerraformProperty<string>>("origin_region");
+        get => GetRequiredProperty<TerraformProperty<string>>("origin_region");
         set => WithProperty("origin_region", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretAccessKeyVersion is required")]
     public required TerraformProperty<string> SecretAccessKeyVersion
     {
-        get => GetProperty<TerraformProperty<string>>("secret_access_key_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_access_key_version");
         set => WithProperty("secret_access_key_version", value);
     }
 
@@ -279,7 +279,7 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -294,7 +294,7 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginAddress is required")]
     public required TerraformProperty<string> OriginAddress
     {
-        get => GetProperty<TerraformProperty<string>>("origin_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("origin_address");
         set => this.WithProperty("origin_address", value);
     }
 

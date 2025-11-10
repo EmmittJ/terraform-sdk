@@ -59,7 +59,7 @@ public class GoogleNetworkSecurityTlsInspectionPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaPool is required")]
     public required TerraformProperty<string> CaPool
     {
-        get => GetProperty<TerraformProperty<string>>("ca_pool");
+        get => GetRequiredProperty<TerraformProperty<string>>("ca_pool");
         set => this.WithProperty("ca_pool", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleNetworkSecurityTlsInspectionPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

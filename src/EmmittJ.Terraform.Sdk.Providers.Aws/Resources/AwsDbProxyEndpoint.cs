@@ -61,7 +61,7 @@ public class AwsDbProxyEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyEndpointName is required")]
     public required TerraformProperty<string> DbProxyEndpointName
     {
-        get => GetProperty<TerraformProperty<string>>("db_proxy_endpoint_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_proxy_endpoint_name");
         set => this.WithProperty("db_proxy_endpoint_name", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsDbProxyEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyName is required")]
     public required TerraformProperty<string> DbProxyName
     {
-        get => GetProperty<TerraformProperty<string>>("db_proxy_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_proxy_name");
         set => this.WithProperty("db_proxy_name", value);
     }
 

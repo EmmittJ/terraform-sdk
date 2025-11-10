@@ -66,7 +66,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CounterName is required")]
     public required TerraformProperty<string> CounterName
     {
-        get => GetProperty<TerraformProperty<string>>("counter_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("counter_name");
         set => this.WithProperty("counter_name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformProperty<string> InstanceName
     {
-        get => GetProperty<TerraformProperty<string>>("instance_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntervalSeconds is required")]
     public required TerraformProperty<double> IntervalSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("interval_seconds");
+        get => GetRequiredProperty<TerraformProperty<double>>("interval_seconds");
         set => this.WithProperty("interval_seconds", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectName is required")]
     public required TerraformProperty<string> ObjectName
     {
-        get => GetProperty<TerraformProperty<string>>("object_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("object_name");
         set => this.WithProperty("object_name", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -135,7 +135,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceName is required")]
     public required TerraformProperty<string> WorkspaceName
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_name");
         set => this.WithProperty("workspace_name", value);
     }
 

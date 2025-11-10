@@ -234,7 +234,7 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
@@ -273,7 +273,7 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
@@ -292,7 +292,7 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
+        get => GetRequiredProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityPolicy is required")]
     public required TerraformProperty<string> SecurityPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("security_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_policy");
         set => this.WithProperty("security_policy", value);
     }
 

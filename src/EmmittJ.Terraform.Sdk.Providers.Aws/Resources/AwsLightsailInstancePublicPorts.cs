@@ -32,7 +32,7 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformProperty<double> FromPort
     {
-        get => GetProperty<TerraformProperty<double>>("from_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("from_port");
         set => WithProperty("from_port", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformProperty<double> ToPort
     {
-        get => GetProperty<TerraformProperty<double>>("to_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("to_port");
         set => WithProperty("to_port", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsLightsailInstancePublicPorts : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformProperty<string> InstanceName
     {
-        get => GetProperty<TerraformProperty<string>>("instance_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);
     }
 

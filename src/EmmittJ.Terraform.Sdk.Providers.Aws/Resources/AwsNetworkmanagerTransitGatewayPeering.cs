@@ -55,7 +55,7 @@ public class AwsNetworkmanagerTransitGatewayPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformProperty<string> CoreNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("core_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("core_network_id");
         set => this.WithProperty("core_network_id", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsNetworkmanagerTransitGatewayPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayArn is required")]
     public required TerraformProperty<string> TransitGatewayArn
     {
-        get => GetProperty<TerraformProperty<string>>("transit_gateway_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_arn");
         set => this.WithProperty("transit_gateway_arn", value);
     }
 

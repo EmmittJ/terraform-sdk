@@ -23,7 +23,7 @@ public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformProperty<string> DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_name");
         set => WithProperty("device_name", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsAmiEphemeralBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformProperty<string> DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_name");
         set => WithProperty("device_name", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsAmiEphemeralBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualName is required")]
     public required TerraformProperty<string> VirtualName
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_name");
         set => WithProperty("virtual_name", value);
     }
 
@@ -268,7 +268,7 @@ public class AwsAmi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

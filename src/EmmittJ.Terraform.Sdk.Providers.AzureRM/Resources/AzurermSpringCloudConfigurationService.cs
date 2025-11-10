@@ -41,7 +41,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Label is required")]
     public required TerraformProperty<string> Label
     {
-        get => GetProperty<TerraformProperty<string>>("label");
+        get => GetRequiredProperty<TerraformProperty<string>>("label");
         set => WithProperty("label", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("uri");
         set => WithProperty("uri", value);
     }
 
@@ -204,7 +204,7 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -223,7 +223,7 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformProperty<string> SpringCloudServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
     }
 

@@ -101,7 +101,7 @@ public class AwsBedrockagentAgentActionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupName is required")]
     public required TerraformProperty<string> ActionGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("action_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("action_group_name");
         set => this.WithProperty("action_group_name", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsBedrockagentAgentActionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformProperty<string> AgentId
     {
-        get => GetProperty<TerraformProperty<string>>("agent_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("agent_id");
         set => this.WithProperty("agent_id", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsBedrockagentAgentActionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentVersion is required")]
     public required TerraformProperty<string> AgentVersion
     {
-        get => GetProperty<TerraformProperty<string>>("agent_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("agent_version");
         set => this.WithProperty("agent_version", value);
     }
 

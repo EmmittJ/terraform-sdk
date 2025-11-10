@@ -24,7 +24,7 @@ public class AwsAcmpcaCertificateDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("arn");
         set => this.WithProperty("arn", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsAcmpcaCertificateDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArn is required")]
     public required TerraformProperty<string> CertificateAuthorityArn
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_authority_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_authority_arn");
         set => this.WithProperty("certificate_authority_arn", value);
     }
 

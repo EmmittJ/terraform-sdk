@@ -51,7 +51,7 @@ public class AwsWafv2IpSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddressVersion is required")]
     public required TerraformProperty<string> IpAddressVersion
     {
-        get => GetProperty<TerraformProperty<string>>("ip_address_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_address_version");
         set => this.WithProperty("ip_address_version", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsWafv2IpSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

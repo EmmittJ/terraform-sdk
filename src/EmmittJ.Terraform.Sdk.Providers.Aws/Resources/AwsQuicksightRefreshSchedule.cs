@@ -14,7 +14,7 @@ public class AwsQuicksightRefreshScheduleScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefreshType is required")]
     public required TerraformProperty<string> RefreshType
     {
-        get => GetProperty<TerraformProperty<string>>("refresh_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("refresh_type");
         set => WithProperty("refresh_type", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsQuicksightRefreshSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
     public required TerraformProperty<string> DataSetId
     {
-        get => GetProperty<TerraformProperty<string>>("data_set_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_set_id");
         set => this.WithProperty("data_set_id", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsQuicksightRefreshSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleId is required")]
     public required TerraformProperty<string> ScheduleId
     {
-        get => GetProperty<TerraformProperty<string>>("schedule_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("schedule_id");
         set => this.WithProperty("schedule_id", value);
     }
 

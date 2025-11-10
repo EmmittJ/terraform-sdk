@@ -22,7 +22,7 @@ public class AwsDirectoryServiceConditionalForwarder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformProperty<string> DirectoryId
     {
-        get => GetProperty<TerraformProperty<string>>("directory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("directory_id");
         set => this.WithProperty("directory_id", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsDirectoryServiceConditionalForwarder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteDomainName is required")]
     public required TerraformProperty<string> RemoteDomainName
     {
-        get => GetProperty<TerraformProperty<string>>("remote_domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("remote_domain_name");
         set => this.WithProperty("remote_domain_name", value);
     }
 

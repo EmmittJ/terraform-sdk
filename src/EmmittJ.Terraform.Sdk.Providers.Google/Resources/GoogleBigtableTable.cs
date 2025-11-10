@@ -40,7 +40,7 @@ public class GoogleBigtableTableColumnFamilyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformProperty<string> Family
     {
-        get => GetProperty<TerraformProperty<string>>("family");
+        get => GetRequiredProperty<TerraformProperty<string>>("family");
         set => WithProperty("family", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleBigtableTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformProperty<string> InstanceName
     {
-        get => GetProperty<TerraformProperty<string>>("instance_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);
     }
 
@@ -139,7 +139,7 @@ public class GoogleBigtableTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsGlueScriptDataSourceDagEdgeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
+        get => GetRequiredProperty<TerraformProperty<string>>("source");
         set => WithProperty("source", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsGlueScriptDataSourceDagEdgeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetProperty<TerraformProperty<string>>("target");
+        get => GetRequiredProperty<TerraformProperty<string>>("target");
         set => WithProperty("target", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsGlueScriptDataSourceDagNodeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsGlueScriptDataSourceDagNodeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformProperty<string> NodeType
     {
-        get => GetProperty<TerraformProperty<string>>("node_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("node_type");
         set => WithProperty("node_type", value);
     }
 

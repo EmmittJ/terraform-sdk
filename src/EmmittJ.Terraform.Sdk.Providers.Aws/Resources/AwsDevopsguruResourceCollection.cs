@@ -32,7 +32,7 @@ public class AwsDevopsguruResourceCollectionTagsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBoundaryKey is required")]
     public required TerraformProperty<string> AppBoundaryKey
     {
-        get => GetProperty<TerraformProperty<string>>("app_boundary_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_boundary_key");
         set => WithProperty("app_boundary_key", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsDevopsguruResourceCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

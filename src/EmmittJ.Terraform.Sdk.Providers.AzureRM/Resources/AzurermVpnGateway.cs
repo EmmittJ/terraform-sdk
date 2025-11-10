@@ -14,7 +14,7 @@ public class AzurermVpnGatewayBgpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
     public required TerraformProperty<double> Asn
     {
-        get => GetProperty<TerraformProperty<double>>("asn");
+        get => GetRequiredProperty<TerraformProperty<double>>("asn");
         set => WithProperty("asn", value);
     }
 
@@ -33,7 +33,7 @@ public class AzurermVpnGatewayBgpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerWeight is required")]
     public required TerraformProperty<double> PeerWeight
     {
-        get => GetProperty<TerraformProperty<double>>("peer_weight");
+        get => GetRequiredProperty<TerraformProperty<double>>("peer_weight");
         set => WithProperty("peer_weight", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -180,7 +180,7 @@ public class AzurermVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformProperty<string> VirtualHubId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_hub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_id");
         set => this.WithProperty("virtual_hub_id", value);
     }
 

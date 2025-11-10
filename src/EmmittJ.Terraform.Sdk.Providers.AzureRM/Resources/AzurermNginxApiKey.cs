@@ -67,7 +67,7 @@ public class AzurermNginxApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndDateTime is required")]
     public required TerraformProperty<string> EndDateTime
     {
-        get => GetProperty<TerraformProperty<string>>("end_date_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("end_date_time");
         set => this.WithProperty("end_date_time", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermNginxApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermNginxApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformProperty<string> NginxDeploymentId
     {
-        get => GetProperty<TerraformProperty<string>>("nginx_deployment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("nginx_deployment_id");
         set => this.WithProperty("nginx_deployment_id", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermNginxApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretText is required")]
     public required TerraformProperty<string> SecretText
     {
-        get => GetProperty<TerraformProperty<string>>("secret_text");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_text");
         set => this.WithProperty("secret_text", value);
     }
 

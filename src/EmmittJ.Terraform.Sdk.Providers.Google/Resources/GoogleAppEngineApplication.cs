@@ -14,7 +14,7 @@ public class GoogleAppEngineApplicationFeatureSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SplitHealthChecks is required")]
     public required TerraformProperty<bool> SplitHealthChecks
     {
-        get => GetProperty<TerraformProperty<bool>>("split_health_checks");
+        get => GetRequiredProperty<TerraformProperty<bool>>("split_health_checks");
         set => WithProperty("split_health_checks", value);
     }
 
@@ -41,7 +41,7 @@ public class GoogleAppEngineApplicationIapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauth2ClientId is required")]
     public required TerraformProperty<string> Oauth2ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("oauth2_client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("oauth2_client_id");
         set => WithProperty("oauth2_client_id", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleAppEngineApplicationIapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauth2ClientSecret is required")]
     public required TerraformProperty<string> Oauth2ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("oauth2_client_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("oauth2_client_secret");
         set => WithProperty("oauth2_client_secret", value);
     }
 
@@ -147,7 +147,7 @@ public class GoogleAppEngineApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationId is required")]
     public required TerraformProperty<string> LocationId
     {
-        get => GetProperty<TerraformProperty<string>>("location_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("location_id");
         set => this.WithProperty("location_id", value);
     }
 

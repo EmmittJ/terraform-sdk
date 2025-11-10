@@ -66,7 +66,7 @@ public class GooglePubsubLiteReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -96,7 +96,7 @@ public class GooglePubsubLiteReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThroughputCapacity is required")]
     public required TerraformProperty<double> ThroughputCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("throughput_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("throughput_capacity");
         set => this.WithProperty("throughput_capacity", value);
     }
 

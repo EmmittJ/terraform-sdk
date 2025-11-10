@@ -66,7 +66,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceGuest
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceGuest
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopedResourceId is required")]
     public required TerraformProperty<string> ScopedResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("scoped_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("scoped_resource_id");
         set => this.WithProperty("scoped_resource_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceGuest
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

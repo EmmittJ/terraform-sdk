@@ -62,7 +62,7 @@ public class GoogleSccProjectSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
     public required TerraformProperty<string> BigQueryExportId
     {
-        get => GetProperty<TerraformProperty<string>>("big_query_export_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("big_query_export_id");
         set => this.WithProperty("big_query_export_id", value);
     }
 

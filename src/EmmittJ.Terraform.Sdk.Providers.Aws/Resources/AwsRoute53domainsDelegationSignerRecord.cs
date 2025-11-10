@@ -14,7 +14,7 @@ public class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformProperty<double> Algorithm
     {
-        get => GetProperty<TerraformProperty<double>>("algorithm");
+        get => GetRequiredProperty<TerraformProperty<double>>("algorithm");
         set => WithProperty("algorithm", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Flags is required")]
     public required TerraformProperty<double> Flags
     {
-        get => GetProperty<TerraformProperty<double>>("flags");
+        get => GetRequiredProperty<TerraformProperty<double>>("flags");
         set => WithProperty("flags", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     public required TerraformProperty<string> PublicKey
     {
-        get => GetProperty<TerraformProperty<string>>("public_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("public_key");
         set => WithProperty("public_key", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsRoute53domainsDelegationSignerRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 

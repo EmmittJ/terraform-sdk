@@ -59,7 +59,7 @@ public class AwsImagebuilderLifecyclePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
     public required TerraformProperty<string> ExecutionRole
     {
-        get => GetProperty<TerraformProperty<string>>("execution_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("execution_role");
         set => this.WithProperty("execution_role", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsImagebuilderLifecyclePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsImagebuilderLifecyclePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
     }
 

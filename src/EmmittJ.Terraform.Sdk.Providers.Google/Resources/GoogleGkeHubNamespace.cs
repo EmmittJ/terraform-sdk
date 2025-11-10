@@ -109,7 +109,7 @@ public class GoogleGkeHubNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleGkeHubNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformProperty<string> ScopeId
     {
-        get => GetProperty<TerraformProperty<string>>("scope_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope_id");
         set => this.WithProperty("scope_id", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleGkeHubNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeNamespaceId is required")]
     public required TerraformProperty<string> ScopeNamespaceId
     {
-        get => GetProperty<TerraformProperty<string>>("scope_namespace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope_namespace_id");
         set => this.WithProperty("scope_namespace_id", value);
     }
 

@@ -32,7 +32,7 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldId is required")]
     public required TerraformProperty<string> FieldId
     {
-        get => GetProperty<TerraformProperty<string>>("field_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("field_id");
         set => WithProperty("field_id", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleDataCatalogTagTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagTemplateId is required")]
     public required TerraformProperty<string> TagTemplateId
     {
-        get => GetProperty<TerraformProperty<string>>("tag_template_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("tag_template_id");
         set => this.WithProperty("tag_template_id", value);
     }
 

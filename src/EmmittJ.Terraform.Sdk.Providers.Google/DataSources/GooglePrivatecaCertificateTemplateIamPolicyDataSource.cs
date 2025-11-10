@@ -24,7 +24,7 @@ public class GooglePrivatecaCertificateTemplateIamPolicyDataSource : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateTemplate is required")]
     public required TerraformProperty<string> CertificateTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_template");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_template");
         set => this.WithProperty("certificate_template", value);
     }
 

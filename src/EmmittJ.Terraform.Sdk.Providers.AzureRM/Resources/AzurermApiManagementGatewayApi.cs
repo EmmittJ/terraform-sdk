@@ -57,7 +57,7 @@ public class AzurermApiManagementGatewayApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
@@ -67,7 +67,7 @@ public class AzurermApiManagementGatewayApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayId is required")]
     public required TerraformProperty<string> GatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("gateway_id");
         set => this.WithProperty("gateway_id", value);
     }
 

@@ -60,7 +60,7 @@ public class GoogleFirebaserulesRelease : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleFirebaserulesRelease : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulesetName is required")]
     public required TerraformProperty<string> RulesetName
     {
-        get => GetProperty<TerraformProperty<string>>("ruleset_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("ruleset_name");
         set => this.WithProperty("ruleset_name", value);
     }
 

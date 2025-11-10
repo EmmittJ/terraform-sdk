@@ -66,7 +66,7 @@ public class AzurermApiManagementIdentityProviderTwitter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformProperty<string> ApiKey
     {
-        get => GetProperty<TerraformProperty<string>>("api_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_key");
         set => this.WithProperty("api_key", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermApiManagementIdentityProviderTwitter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermApiManagementIdentityProviderTwitter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiSecretKey is required")]
     public required TerraformProperty<string> ApiSecretKey
     {
-        get => GetProperty<TerraformProperty<string>>("api_secret_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_secret_key");
         set => this.WithProperty("api_secret_key", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermApiManagementIdentityProviderTwitter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -66,7 +66,7 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsName is required")]
     public required TerraformProperty<string> DnsName
     {
-        get => GetProperty<TerraformProperty<string>>("dns_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("dns_name");
         set => this.WithProperty("dns_name", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponsePolicy is required")]
     public required TerraformProperty<string> ResponsePolicy
     {
-        get => GetProperty<TerraformProperty<string>>("response_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("response_policy");
         set => this.WithProperty("response_policy", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformProperty<string> RuleName
     {
-        get => GetProperty<TerraformProperty<string>>("rule_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_name");
         set => this.WithProperty("rule_name", value);
     }
 

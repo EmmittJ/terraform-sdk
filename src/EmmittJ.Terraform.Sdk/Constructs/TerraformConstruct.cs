@@ -57,6 +57,14 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     }
 
     /// <summary>
+    /// Gets a required property value as a specific type.
+    /// Throws if the property is null.
+    /// </summary>
+    /// <exception cref="InvalidOperationException">Thrown when the property value is null.</exception>
+    protected T GetRequiredProperty<T>(string key) where T : class
+        => _properties.GetRequired<T>(key);
+
+    /// <summary>
     /// Checks if a property exists (for derived classes).
     /// </summary>
     protected bool HasProperty(string key)

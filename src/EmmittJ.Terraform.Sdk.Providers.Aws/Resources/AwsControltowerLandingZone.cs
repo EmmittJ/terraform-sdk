@@ -69,7 +69,7 @@ public class AwsControltowerLandingZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManifestJson is required")]
     public required TerraformProperty<string> ManifestJson
     {
-        get => GetProperty<TerraformProperty<string>>("manifest_json");
+        get => GetRequiredProperty<TerraformProperty<string>>("manifest_json");
         set => this.WithProperty("manifest_json", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsControltowerLandingZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

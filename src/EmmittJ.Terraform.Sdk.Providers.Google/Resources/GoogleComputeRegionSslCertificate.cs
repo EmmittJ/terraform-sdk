@@ -54,7 +54,7 @@ public class GoogleComputeRegionSslCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
     public required TerraformProperty<string> Certificate
     {
-        get => GetProperty<TerraformProperty<string>>("certificate");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate");
         set => this.WithProperty("certificate", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleComputeRegionSslCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformProperty<string> PrivateKey
     {
-        get => GetProperty<TerraformProperty<string>>("private_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("private_key");
         set => this.WithProperty("private_key", value);
     }
 

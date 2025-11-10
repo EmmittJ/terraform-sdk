@@ -41,7 +41,7 @@ public class GoogleBeyondcorpSecurityGatewayIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleBeyondcorpSecurityGatewayIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     public required TerraformProperty<string> SecurityGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("security_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_gateway_id");
         set => this.WithProperty("security_gateway_id", value);
     }
 

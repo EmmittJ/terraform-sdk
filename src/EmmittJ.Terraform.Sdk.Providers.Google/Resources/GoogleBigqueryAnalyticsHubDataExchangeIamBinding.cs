@@ -23,7 +23,7 @@ public class GoogleBigqueryAnalyticsHubDataExchangeIamBindingConditionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformProperty<string> Expression
     {
-        get => GetProperty<TerraformProperty<string>>("expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("expression");
         set => WithProperty("expression", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleBigqueryAnalyticsHubDataExchangeIamBindingConditionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
+        get => GetRequiredProperty<TerraformProperty<string>>("title");
         set => WithProperty("title", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleBigqueryAnalyticsHubDataExchangeIamBinding : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     public required TerraformProperty<string> DataExchangeId
     {
-        get => GetProperty<TerraformProperty<string>>("data_exchange_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_exchange_id");
         set => this.WithProperty("data_exchange_id", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleBigqueryAnalyticsHubDataExchangeIamBinding : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

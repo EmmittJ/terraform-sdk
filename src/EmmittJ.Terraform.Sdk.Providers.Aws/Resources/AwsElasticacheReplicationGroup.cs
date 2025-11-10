@@ -14,7 +14,7 @@ public class AwsElasticacheReplicationGroupLogDeliveryConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetProperty<TerraformProperty<string>>("destination");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination");
         set => WithProperty("destination", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsElasticacheReplicationGroupLogDeliveryConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationType is required")]
     public required TerraformProperty<string> DestinationType
     {
-        get => GetProperty<TerraformProperty<string>>("destination_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_type");
         set => WithProperty("destination_type", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsElasticacheReplicationGroupLogDeliveryConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogFormat is required")]
     public required TerraformProperty<string> LogFormat
     {
-        get => GetProperty<TerraformProperty<string>>("log_format");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_format");
         set => WithProperty("log_format", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsElasticacheReplicationGroupLogDeliveryConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformProperty<string> LogType
     {
-        get => GetProperty<TerraformProperty<string>>("log_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_type");
         set => WithProperty("log_type", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsElasticacheReplicationGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -366,7 +366,7 @@ public class AwsElasticacheReplicationGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationGroupId is required")]
     public required TerraformProperty<string> ReplicationGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("replication_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("replication_group_id");
         set => this.WithProperty("replication_group_id", value);
     }
 

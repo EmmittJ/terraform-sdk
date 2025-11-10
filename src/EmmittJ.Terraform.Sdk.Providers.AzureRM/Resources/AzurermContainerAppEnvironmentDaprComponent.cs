@@ -14,7 +14,7 @@ public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentType is required")]
     public required TerraformProperty<string> ComponentType
     {
-        get => GetProperty<TerraformProperty<string>>("component_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("component_type");
         set => this.WithProperty("component_type", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformProperty<string> ContainerAppEnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("container_app_environment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_app_environment_id");
         set => this.WithProperty("container_app_environment_id", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -213,7 +213,7 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

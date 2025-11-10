@@ -14,7 +14,7 @@ public class AwsCeAnomalySubscriptionSubscriberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformProperty<string> Address
     {
-        get => GetProperty<TerraformProperty<string>>("address");
+        get => GetRequiredProperty<TerraformProperty<string>>("address");
         set => WithProperty("address", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsCeAnomalySubscriptionSubscriberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsCeAnomalySubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetProperty<TerraformProperty<string>>("frequency");
+        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
         set => this.WithProperty("frequency", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsCeAnomalySubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

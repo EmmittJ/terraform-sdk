@@ -14,7 +14,7 @@ public class AwsCloudfrontRealtimeLogConfigEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamType is required")]
     public required TerraformProperty<string> StreamType
     {
-        get => GetProperty<TerraformProperty<string>>("stream_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_type");
         set => WithProperty("stream_type", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsCloudfrontRealtimeLogConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsCloudfrontRealtimeLogConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingRate is required")]
     public required TerraformProperty<double> SamplingRate
     {
-        get => GetProperty<TerraformProperty<double>>("sampling_rate");
+        get => GetRequiredProperty<TerraformProperty<double>>("sampling_rate");
         set => this.WithProperty("sampling_rate", value);
     }
 

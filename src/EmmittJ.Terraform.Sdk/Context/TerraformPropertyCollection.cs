@@ -50,6 +50,14 @@ internal sealed class TerraformPropertyCollection
     }
 
     /// <summary>
+    /// Gets a required property value as a specific type.
+    /// Throws if the property is null.
+    /// </summary>
+    /// <exception cref="InvalidOperationException">Thrown when the property value is null.</exception>
+    public T GetRequired<T>(string key) where T : class
+        => Get<T>(key) ?? throw new InvalidOperationException($"Required property '{key}' is null.");
+
+    /// <summary>
     /// Enumerates properties sorted by priority then key.
     /// Returns (key, value) pairs where value can be any object type.
     /// </summary>

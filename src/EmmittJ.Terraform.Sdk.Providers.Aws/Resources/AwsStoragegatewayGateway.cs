@@ -32,7 +32,7 @@ public class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     public required TerraformProperty<double> HourOfDay
     {
-        get => GetProperty<TerraformProperty<double>>("hour_of_day");
+        get => GetRequiredProperty<TerraformProperty<double>>("hour_of_day");
         set => WithProperty("hour_of_day", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => WithProperty("domain_name", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => WithProperty("password", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsStoragegatewayGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
     public required TerraformProperty<string> GatewayName
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("gateway_name");
         set => this.WithProperty("gateway_name", value);
     }
 
@@ -220,7 +220,7 @@ public class AwsStoragegatewayGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayTimezone is required")]
     public required TerraformProperty<string> GatewayTimezone
     {
-        get => GetProperty<TerraformProperty<string>>("gateway_timezone");
+        get => GetRequiredProperty<TerraformProperty<string>>("gateway_timezone");
         set => this.WithProperty("gateway_timezone", value);
     }
 

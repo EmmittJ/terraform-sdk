@@ -24,7 +24,7 @@ public class AwsEcsServiceAlarmsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     public required TerraformProperty<bool> Enable
     {
-        get => GetProperty<TerraformProperty<bool>>("enable");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enable");
         set => WithProperty("enable", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsEcsServiceAlarmsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rollback is required")]
     public required TerraformProperty<bool> Rollback
     {
-        get => GetProperty<TerraformProperty<bool>>("rollback");
+        get => GetRequiredProperty<TerraformProperty<bool>>("rollback");
         set => WithProperty("rollback", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsEcsServiceCapacityProviderStrategyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformProperty<string> CapacityProvider
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_provider");
+        get => GetRequiredProperty<TerraformProperty<string>>("capacity_provider");
         set => WithProperty("capacity_provider", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsEcsServiceDeploymentCircuitBreakerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     public required TerraformProperty<bool> Enable
     {
-        get => GetProperty<TerraformProperty<bool>>("enable");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enable");
         set => WithProperty("enable", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsEcsServiceDeploymentCircuitBreakerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rollback is required")]
     public required TerraformProperty<bool> Rollback
     {
-        get => GetProperty<TerraformProperty<bool>>("rollback");
+        get => GetRequiredProperty<TerraformProperty<bool>>("rollback");
         set => WithProperty("rollback", value);
     }
 
@@ -159,7 +159,7 @@ public class AwsEcsServiceLoadBalancerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
         set => WithProperty("container_name", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsEcsServiceLoadBalancerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerPort is required")]
     public required TerraformProperty<double> ContainerPort
     {
-        get => GetProperty<TerraformProperty<double>>("container_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("container_port");
         set => WithProperty("container_port", value);
     }
 
@@ -250,7 +250,7 @@ public class AwsEcsServiceOrderedPlacementStrategyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -277,7 +277,7 @@ public class AwsEcsServicePlacementConstraintsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -295,7 +295,7 @@ public class AwsEcsServiceServiceConnectConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -349,7 +349,7 @@ public class AwsEcsServiceServiceRegistriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryArn is required")]
     public required TerraformProperty<string> RegistryArn
     {
-        get => GetProperty<TerraformProperty<string>>("registry_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("registry_arn");
         set => WithProperty("registry_arn", value);
     }
 
@@ -402,7 +402,7 @@ public class AwsEcsServiceVolumeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -420,7 +420,7 @@ public class AwsEcsServiceVpcLatticeConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortName is required")]
     public required TerraformProperty<string> PortName
     {
-        get => GetProperty<TerraformProperty<string>>("port_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("port_name");
         set => WithProperty("port_name", value);
     }
 
@@ -430,7 +430,7 @@ public class AwsEcsServiceVpcLatticeConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -440,7 +440,7 @@ public class AwsEcsServiceVpcLatticeConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetGroupArn is required")]
     public required TerraformProperty<string> TargetGroupArn
     {
-        get => GetProperty<TerraformProperty<string>>("target_group_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_group_arn");
         set => WithProperty("target_group_arn", value);
     }
 
@@ -585,7 +585,7 @@ public class AwsEcsService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -31,7 +31,7 @@ public class AwsSagemakerModelPackageGroupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelPackageGroupName is required")]
     public required TerraformProperty<string> ModelPackageGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("model_package_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("model_package_group_name");
         set => this.WithProperty("model_package_group_name", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsSagemakerModelPackageGroupPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourcePolicy is required")]
     public required TerraformProperty<string> ResourcePolicy
     {
-        get => GetProperty<TerraformProperty<string>>("resource_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_policy");
         set => this.WithProperty("resource_policy", value);
     }
 

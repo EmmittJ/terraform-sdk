@@ -22,7 +22,7 @@ public class AwsApigatewayv2Model : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsApigatewayv2Model : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformProperty<string> ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("content_type");
         set => this.WithProperty("content_type", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsApigatewayv2Model : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsApigatewayv2Model : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformProperty<string> Schema
     {
-        get => GetProperty<TerraformProperty<string>>("schema");
+        get => GetRequiredProperty<TerraformProperty<string>>("schema");
         set => this.WithProperty("schema", value);
     }
 

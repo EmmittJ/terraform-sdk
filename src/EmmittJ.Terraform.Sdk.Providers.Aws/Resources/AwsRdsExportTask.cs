@@ -66,7 +66,7 @@ public class AwsRdsExportTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportTaskIdentifier is required")]
     public required TerraformProperty<string> ExportTaskIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("export_task_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("export_task_identifier");
         set => this.WithProperty("export_task_identifier", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsRdsExportTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformProperty<string> IamRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsRdsExportTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformProperty<string> KmsKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_id");
         set => this.WithProperty("kms_key_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsRdsExportTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformProperty<string> S3BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("s3_bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("s3_bucket_name");
         set => this.WithProperty("s3_bucket_name", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsRdsExportTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
     public required TerraformProperty<string> SourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("source_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_arn");
         set => this.WithProperty("source_arn", value);
     }
 

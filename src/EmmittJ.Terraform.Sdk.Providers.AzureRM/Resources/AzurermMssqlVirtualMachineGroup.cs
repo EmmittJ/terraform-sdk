@@ -76,7 +76,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterSubnetType is required")]
     public required TerraformProperty<string> ClusterSubnetType
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_subnet_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_subnet_type");
         set => WithProperty("cluster_subnet_type", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fqdn is required")]
     public required TerraformProperty<string> Fqdn
     {
-        get => GetProperty<TerraformProperty<string>>("fqdn");
+        get => GetRequiredProperty<TerraformProperty<string>>("fqdn");
         set => WithProperty("fqdn", value);
     }
 
@@ -158,7 +158,7 @@ public class AzurermMssqlVirtualMachineGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -168,7 +168,7 @@ public class AzurermMssqlVirtualMachineGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermMssqlVirtualMachineGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermMssqlVirtualMachineGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlImageOffer is required")]
     public required TerraformProperty<string> SqlImageOffer
     {
-        get => GetProperty<TerraformProperty<string>>("sql_image_offer");
+        get => GetRequiredProperty<TerraformProperty<string>>("sql_image_offer");
         set => this.WithProperty("sql_image_offer", value);
     }
 
@@ -198,7 +198,7 @@ public class AzurermMssqlVirtualMachineGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlImageSku is required")]
     public required TerraformProperty<string> SqlImageSku
     {
-        get => GetProperty<TerraformProperty<string>>("sql_image_sku");
+        get => GetRequiredProperty<TerraformProperty<string>>("sql_image_sku");
         set => this.WithProperty("sql_image_sku", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermResourceProviderRegistrationFeatureBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermResourceProviderRegistrationFeatureBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Registered is required")]
     public required TerraformProperty<bool> Registered
     {
-        get => GetProperty<TerraformProperty<bool>>("registered");
+        get => GetRequiredProperty<TerraformProperty<bool>>("registered");
         set => WithProperty("registered", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermResourceProviderRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

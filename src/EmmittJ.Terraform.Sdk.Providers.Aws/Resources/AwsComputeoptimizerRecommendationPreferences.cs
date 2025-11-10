@@ -14,7 +14,7 @@ public class AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferen
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
+        get => GetRequiredProperty<TerraformProperty<string>>("source");
         set => WithProperty("source", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsComputeoptimizerRecommendationPreferencesScopeBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsComputeoptimizerRecommendationPreferencesScopeBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformProperty<string> MetricName
     {
-        get => GetProperty<TerraformProperty<string>>("metric_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("metric_name");
         set => WithProperty("metric_name", value);
     }
 
@@ -159,7 +159,7 @@ public class AwsComputeoptimizerRecommendationPreferences : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
     }
 

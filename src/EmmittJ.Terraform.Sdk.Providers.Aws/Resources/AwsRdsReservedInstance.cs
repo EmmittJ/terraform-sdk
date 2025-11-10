@@ -88,7 +88,7 @@ public class AwsRdsReservedInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferingId is required")]
     public required TerraformProperty<string> OfferingId
     {
-        get => GetProperty<TerraformProperty<string>>("offering_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("offering_id");
         set => this.WithProperty("offering_id", value);
     }
 

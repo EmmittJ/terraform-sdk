@@ -23,7 +23,7 @@ public class AwsCodeartifactRepositoryPermissionsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsCodeartifactRepositoryPermissionsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformProperty<string> PolicyDocument
     {
-        get => GetProperty<TerraformProperty<string>>("policy_document");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_document");
         set => this.WithProperty("policy_document", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsCodeartifactRepositoryPermissionsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformProperty<string> Repository
     {
-        get => GetProperty<TerraformProperty<string>>("repository");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository");
         set => this.WithProperty("repository", value);
     }
 

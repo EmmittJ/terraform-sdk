@@ -67,7 +67,7 @@ public class AzurermApplicationLoadBalancerFrontend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationLoadBalancerId is required")]
     public required TerraformProperty<string> ApplicationLoadBalancerId
     {
-        get => GetProperty<TerraformProperty<string>>("application_load_balancer_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_load_balancer_id");
         set => this.WithProperty("application_load_balancer_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermApplicationLoadBalancerFrontend : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

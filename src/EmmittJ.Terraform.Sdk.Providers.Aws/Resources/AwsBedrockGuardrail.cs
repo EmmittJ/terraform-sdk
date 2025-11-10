@@ -39,7 +39,7 @@ public class AwsBedrockGuardrailCrossRegionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuardrailProfileIdentifier is required")]
     public required TerraformProperty<string> GuardrailProfileIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("guardrail_profile_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("guardrail_profile_identifier");
         set => WithProperty("guardrail_profile_identifier", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsBedrockGuardrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockedInputMessaging is required")]
     public required TerraformProperty<string> BlockedInputMessaging
     {
-        get => GetProperty<TerraformProperty<string>>("blocked_input_messaging");
+        get => GetRequiredProperty<TerraformProperty<string>>("blocked_input_messaging");
         set => this.WithProperty("blocked_input_messaging", value);
     }
 
@@ -149,7 +149,7 @@ public class AwsBedrockGuardrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockedOutputsMessaging is required")]
     public required TerraformProperty<string> BlockedOutputsMessaging
     {
-        get => GetProperty<TerraformProperty<string>>("blocked_outputs_messaging");
+        get => GetRequiredProperty<TerraformProperty<string>>("blocked_outputs_messaging");
         set => this.WithProperty("blocked_outputs_messaging", value);
     }
 
@@ -177,7 +177,7 @@ public class AwsBedrockGuardrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

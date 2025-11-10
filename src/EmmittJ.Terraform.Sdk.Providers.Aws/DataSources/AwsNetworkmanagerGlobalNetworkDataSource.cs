@@ -24,7 +24,7 @@ public class AwsNetworkmanagerGlobalNetworkDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformProperty<string> GlobalNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("global_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("global_network_id");
         set => this.WithProperty("global_network_id", value);
     }
 

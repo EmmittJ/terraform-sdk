@@ -23,7 +23,7 @@ public class AwsIdentitystoreGroupsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
     public required TerraformProperty<string> IdentityStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_store_id");
         set => this.WithProperty("identity_store_id", value);
     }
 

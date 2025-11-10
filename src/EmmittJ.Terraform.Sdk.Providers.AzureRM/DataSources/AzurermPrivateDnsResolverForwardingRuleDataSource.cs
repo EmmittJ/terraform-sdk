@@ -43,7 +43,7 @@ public class AzurermPrivateDnsResolverForwardingRuleDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
     public required TerraformProperty<string> DnsForwardingRulesetId
     {
-        get => GetProperty<TerraformProperty<string>>("dns_forwarding_ruleset_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dns_forwarding_ruleset_id");
         set => this.WithProperty("dns_forwarding_ruleset_id", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermPrivateDnsResolverForwardingRuleDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -37,7 +37,7 @@ public class AwsOrganizationsPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformProperty<string> PolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_id");
         set => this.WithProperty("policy_id", value);
     }
 

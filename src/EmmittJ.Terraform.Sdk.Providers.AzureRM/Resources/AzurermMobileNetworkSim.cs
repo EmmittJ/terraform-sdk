@@ -14,7 +14,7 @@ public class AzurermMobileNetworkSimStaticIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachedDataNetworkId is required")]
     public required TerraformProperty<string> AttachedDataNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("attached_data_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("attached_data_network_id");
         set => WithProperty("attached_data_network_id", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermMobileNetworkSimStaticIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SliceId is required")]
     public required TerraformProperty<string> SliceId
     {
-        get => GetProperty<TerraformProperty<string>>("slice_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("slice_id");
         set => WithProperty("slice_id", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermMobileNetworkSim : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationKey is required")]
     public required TerraformProperty<string> AuthenticationKey
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication_key");
         set => this.WithProperty("authentication_key", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermMobileNetworkSim : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegratedCircuitCardIdentifier is required")]
     public required TerraformProperty<string> IntegratedCircuitCardIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("integrated_circuit_card_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("integrated_circuit_card_identifier");
         set => this.WithProperty("integrated_circuit_card_identifier", value);
     }
 
@@ -144,7 +144,7 @@ public class AzurermMobileNetworkSim : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternationalMobileSubscriberIdentity is required")]
     public required TerraformProperty<string> InternationalMobileSubscriberIdentity
     {
-        get => GetProperty<TerraformProperty<string>>("international_mobile_subscriber_identity");
+        get => GetRequiredProperty<TerraformProperty<string>>("international_mobile_subscriber_identity");
         set => this.WithProperty("international_mobile_subscriber_identity", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermMobileNetworkSim : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkSimGroupId is required")]
     public required TerraformProperty<string> MobileNetworkSimGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("mobile_network_sim_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("mobile_network_sim_group_id");
         set => this.WithProperty("mobile_network_sim_group_id", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermMobileNetworkSim : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermMobileNetworkSim : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorKeyCode is required")]
     public required TerraformProperty<string> OperatorKeyCode
     {
-        get => GetProperty<TerraformProperty<string>>("operator_key_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("operator_key_code");
         set => this.WithProperty("operator_key_code", value);
     }
 

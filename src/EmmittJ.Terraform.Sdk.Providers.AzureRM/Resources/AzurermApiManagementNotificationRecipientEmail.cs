@@ -57,7 +57,7 @@ public class AzurermApiManagementNotificationRecipientEmail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformProperty<string> ApiManagementId
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_id");
         set => this.WithProperty("api_management_id", value);
     }
 
@@ -67,7 +67,7 @@ public class AzurermApiManagementNotificationRecipientEmail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
+        get => GetRequiredProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermApiManagementNotificationRecipientEmail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     public required TerraformProperty<string> NotificationType
     {
-        get => GetProperty<TerraformProperty<string>>("notification_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("notification_type");
         set => this.WithProperty("notification_type", value);
     }
 

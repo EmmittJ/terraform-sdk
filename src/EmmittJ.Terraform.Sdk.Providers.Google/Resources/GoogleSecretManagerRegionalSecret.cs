@@ -14,7 +14,7 @@ public class GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
         set => WithProperty("kms_key_name", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleSecretManagerRegionalSecretTopicsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -214,7 +214,7 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -233,7 +233,7 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformProperty<string> SecretId
     {
-        get => GetProperty<TerraformProperty<string>>("secret_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_id");
         set => this.WithProperty("secret_id", value);
     }
 

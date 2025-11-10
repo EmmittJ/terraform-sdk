@@ -34,7 +34,7 @@ public class AwsVpcEndpointConnectionNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionNotificationArn is required")]
     public required TerraformProperty<string> ConnectionNotificationArn
     {
-        get => GetProperty<TerraformProperty<string>>("connection_notification_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_notification_arn");
         set => this.WithProperty("connection_notification_arn", value);
     }
 

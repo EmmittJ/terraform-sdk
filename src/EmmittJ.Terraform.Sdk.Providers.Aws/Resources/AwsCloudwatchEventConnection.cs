@@ -41,7 +41,7 @@ public class AwsCloudwatchEventConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationType is required")]
     public required TerraformProperty<string> AuthorizationType
     {
-        get => GetProperty<TerraformProperty<string>>("authorization_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("authorization_type");
         set => this.WithProperty("authorization_type", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsCloudwatchEventConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

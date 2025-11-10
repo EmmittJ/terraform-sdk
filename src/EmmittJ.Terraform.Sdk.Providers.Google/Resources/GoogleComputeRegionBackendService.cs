@@ -83,7 +83,7 @@ public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformProperty<string> Group
     {
-        get => GetProperty<TerraformProperty<string>>("group");
+        get => GetRequiredProperty<TerraformProperty<string>>("group");
         set => WithProperty("group", value);
     }
 
@@ -374,7 +374,7 @@ public class GoogleComputeRegionBackendServiceCustomMetricsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DryRun is required")]
     public required TerraformProperty<bool> DryRun
     {
-        get => GetProperty<TerraformProperty<bool>>("dry_run");
+        get => GetRequiredProperty<TerraformProperty<bool>>("dry_run");
         set => WithProperty("dry_run", value);
     }
 
@@ -392,7 +392,7 @@ public class GoogleComputeRegionBackendServiceCustomMetricsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -492,7 +492,7 @@ public class GoogleComputeRegionBackendServiceIapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -953,7 +953,7 @@ public class GoogleComputeRegionBackendService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -66,7 +66,7 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
     public required TerraformProperty<string> CustomLocationId
     {
-        get => GetProperty<TerraformProperty<string>>("custom_location_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("custom_location_id");
         set => this.WithProperty("custom_location_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fqdn is required")]
     public required TerraformProperty<string> Fqdn
     {
-        get => GetProperty<TerraformProperty<string>>("fqdn");
+        get => GetRequiredProperty<TerraformProperty<string>>("fqdn");
         set => this.WithProperty("fqdn", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermSystemCenterVirtualMachineManagerServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

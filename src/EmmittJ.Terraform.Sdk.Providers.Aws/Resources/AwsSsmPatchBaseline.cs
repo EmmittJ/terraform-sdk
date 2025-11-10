@@ -58,7 +58,7 @@ public class AwsSsmPatchBaselineGlobalFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsSsmPatchBaselineSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Configuration is required")]
     public required TerraformProperty<string> Configuration
     {
-        get => GetProperty<TerraformProperty<string>>("configuration");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration");
         set => WithProperty("configuration", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsSsmPatchBaselineSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsSsmPatchBaseline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

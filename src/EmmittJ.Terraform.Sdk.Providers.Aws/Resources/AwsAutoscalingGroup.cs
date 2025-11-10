@@ -66,7 +66,7 @@ public class AwsAutoscalingGroupInitialLifecycleHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LifecycleTransition is required")]
     public required TerraformProperty<string> LifecycleTransition
     {
-        get => GetProperty<TerraformProperty<string>>("lifecycle_transition");
+        get => GetRequiredProperty<TerraformProperty<string>>("lifecycle_transition");
         set => WithProperty("lifecycle_transition", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsAutoscalingGroupInitialLifecycleHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsAutoscalingGroupInstanceMaintenancePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxHealthyPercentage is required")]
     public required TerraformProperty<double> MaxHealthyPercentage
     {
-        get => GetProperty<TerraformProperty<double>>("max_healthy_percentage");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_healthy_percentage");
         set => WithProperty("max_healthy_percentage", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsAutoscalingGroupInstanceMaintenancePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinHealthyPercentage is required")]
     public required TerraformProperty<double> MinHealthyPercentage
     {
-        get => GetProperty<TerraformProperty<double>>("min_healthy_percentage");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_healthy_percentage");
         set => WithProperty("min_healthy_percentage", value);
     }
 
@@ -149,7 +149,7 @@ public class AwsAutoscalingGroupInstanceRefreshBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Strategy is required")]
     public required TerraformProperty<string> Strategy
     {
-        get => GetProperty<TerraformProperty<string>>("strategy");
+        get => GetRequiredProperty<TerraformProperty<string>>("strategy");
         set => WithProperty("strategy", value);
     }
 
@@ -219,7 +219,7 @@ public class AwsAutoscalingGroupTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -229,7 +229,7 @@ public class AwsAutoscalingGroupTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropagateAtLaunch is required")]
     public required TerraformProperty<bool> PropagateAtLaunch
     {
-        get => GetProperty<TerraformProperty<bool>>("propagate_at_launch");
+        get => GetRequiredProperty<TerraformProperty<bool>>("propagate_at_launch");
         set => WithProperty("propagate_at_launch", value);
     }
 
@@ -239,7 +239,7 @@ public class AwsAutoscalingGroupTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -283,7 +283,7 @@ public class AwsAutoscalingGroupTrafficSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformProperty<string> Identifier
     {
-        get => GetProperty<TerraformProperty<string>>("identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("identifier");
         set => WithProperty("identifier", value);
     }
 
@@ -510,7 +510,7 @@ public class AwsAutoscalingGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSize is required")]
     public required TerraformProperty<double> MaxSize
     {
-        get => GetProperty<TerraformProperty<double>>("max_size");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_size");
         set => this.WithProperty("max_size", value);
     }
 
@@ -538,7 +538,7 @@ public class AwsAutoscalingGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinSize is required")]
     public required TerraformProperty<double> MinSize
     {
-        get => GetProperty<TerraformProperty<double>>("min_size");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_size");
         set => this.WithProperty("min_size", value);
     }
 

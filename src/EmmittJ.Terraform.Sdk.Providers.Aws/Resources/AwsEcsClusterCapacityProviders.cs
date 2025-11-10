@@ -23,7 +23,7 @@ public class AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformProperty<string> CapacityProvider
     {
-        get => GetProperty<TerraformProperty<string>>("capacity_provider");
+        get => GetRequiredProperty<TerraformProperty<string>>("capacity_provider");
         set => WithProperty("capacity_provider", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsEcsClusterCapacityProviders : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 

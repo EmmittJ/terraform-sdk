@@ -14,7 +14,7 @@ public class GoogleBeyondcorpSecurityGatewayHubsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
+        get => GetRequiredProperty<TerraformProperty<string>>("region");
         set => WithProperty("region", value);
     }
 
@@ -179,7 +179,7 @@ public class GoogleBeyondcorpSecurityGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     public required TerraformProperty<string> SecurityGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("security_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_gateway_id");
         set => this.WithProperty("security_gateway_id", value);
     }
 

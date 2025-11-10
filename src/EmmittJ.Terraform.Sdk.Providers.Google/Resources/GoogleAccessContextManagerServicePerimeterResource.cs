@@ -59,7 +59,7 @@ public class GoogleAccessContextManagerServicePerimeterResource : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerimeterName is required")]
     public required TerraformProperty<string> PerimeterName
     {
-        get => GetProperty<TerraformProperty<string>>("perimeter_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("perimeter_name");
         set => this.WithProperty("perimeter_name", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleAccessContextManagerServicePerimeterResource : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformProperty<string> Resource
     {
-        get => GetProperty<TerraformProperty<string>>("resource");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource");
         set => this.WithProperty("resource", value);
     }
 

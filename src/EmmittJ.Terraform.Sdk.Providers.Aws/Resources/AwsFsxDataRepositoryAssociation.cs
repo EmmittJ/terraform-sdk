@@ -77,7 +77,7 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRepositoryPath is required")]
     public required TerraformProperty<string> DataRepositoryPath
     {
-        get => GetProperty<TerraformProperty<string>>("data_repository_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_repository_path");
         set => this.WithProperty("data_repository_path", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformProperty<string> FileSystemId
     {
-        get => GetProperty<TerraformProperty<string>>("file_system_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("file_system_id");
         set => this.WithProperty("file_system_id", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemPath is required")]
     public required TerraformProperty<string> FileSystemPath
     {
-        get => GetProperty<TerraformProperty<string>>("file_system_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("file_system_path");
         set => this.WithProperty("file_system_path", value);
     }
 

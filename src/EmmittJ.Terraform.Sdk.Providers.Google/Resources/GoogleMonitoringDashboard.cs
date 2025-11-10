@@ -57,7 +57,7 @@ public class GoogleMonitoringDashboard : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DashboardJson is required")]
     public required TerraformProperty<string> DashboardJson
     {
-        get => GetProperty<TerraformProperty<string>>("dashboard_json");
+        get => GetRequiredProperty<TerraformProperty<string>>("dashboard_json");
         set => this.WithProperty("dashboard_json", value);
     }
 

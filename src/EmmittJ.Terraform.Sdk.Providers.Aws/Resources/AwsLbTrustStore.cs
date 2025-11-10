@@ -50,7 +50,7 @@ public class AwsLbTrustStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaCertificatesBundleS3Bucket is required")]
     public required TerraformProperty<string> CaCertificatesBundleS3Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("ca_certificates_bundle_s3_bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("ca_certificates_bundle_s3_bucket");
         set => this.WithProperty("ca_certificates_bundle_s3_bucket", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsLbTrustStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaCertificatesBundleS3Key is required")]
     public required TerraformProperty<string> CaCertificatesBundleS3Key
     {
-        get => GetProperty<TerraformProperty<string>>("ca_certificates_bundle_s3_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("ca_certificates_bundle_s3_key");
         set => this.WithProperty("ca_certificates_bundle_s3_key", value);
     }
 

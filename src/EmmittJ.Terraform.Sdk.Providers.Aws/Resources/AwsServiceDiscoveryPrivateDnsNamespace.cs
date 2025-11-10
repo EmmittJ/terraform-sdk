@@ -42,7 +42,7 @@ public class AwsServiceDiscoveryPrivateDnsNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsServiceDiscoveryPrivateDnsNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vpc is required")]
     public required TerraformProperty<string> Vpc
     {
-        get => GetProperty<TerraformProperty<string>>("vpc");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc");
         set => this.WithProperty("vpc", value);
     }
 

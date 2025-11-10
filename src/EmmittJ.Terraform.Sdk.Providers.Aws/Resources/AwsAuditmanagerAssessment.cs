@@ -14,7 +14,7 @@ public class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetProperty<TerraformProperty<string>>("destination");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination");
         set => WithProperty("destination", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationType is required")]
     public required TerraformProperty<string> DestinationType
     {
-        get => GetProperty<TerraformProperty<string>>("destination_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_type");
         set => WithProperty("destination_type", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsAuditmanagerAssessmentRolesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsAuditmanagerAssessmentRolesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleType is required")]
     public required TerraformProperty<string> RoleType
     {
-        get => GetProperty<TerraformProperty<string>>("role_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_type");
         set => WithProperty("role_type", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsAuditmanagerAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkId is required")]
     public required TerraformProperty<string> FrameworkId
     {
-        get => GetProperty<TerraformProperty<string>>("framework_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("framework_id");
         set => this.WithProperty("framework_id", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsAuditmanagerAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -49,7 +49,7 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateEndpointId is required")]
     public required TerraformProperty<string> PrivateEndpointId
     {
-        get => GetProperty<TerraformProperty<string>>("private_endpoint_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("private_endpoint_id");
         set => this.WithProperty("private_endpoint_id", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

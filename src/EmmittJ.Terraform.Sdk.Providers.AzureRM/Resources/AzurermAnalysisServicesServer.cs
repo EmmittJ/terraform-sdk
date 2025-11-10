@@ -14,7 +14,7 @@ public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeEnd is required")]
     public required TerraformProperty<string> RangeEnd
     {
-        get => GetProperty<TerraformProperty<string>>("range_end");
+        get => GetRequiredProperty<TerraformProperty<string>>("range_end");
         set => WithProperty("range_end", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeStart is required")]
     public required TerraformProperty<string> RangeStart
     {
-        get => GetProperty<TerraformProperty<string>>("range_start");
+        get => GetRequiredProperty<TerraformProperty<string>>("range_start");
         set => WithProperty("range_start", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermAnalysisServicesServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermAnalysisServicesServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -170,7 +170,7 @@ public class AzurermAnalysisServicesServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -180,7 +180,7 @@ public class AzurermAnalysisServicesServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 

@@ -23,7 +23,7 @@ public class AwsQldbStreamKinesisConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
     public required TerraformProperty<string> StreamArn
     {
-        get => GetProperty<TerraformProperty<string>>("stream_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_arn");
         set => WithProperty("stream_arn", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsQldbStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InclusiveStartTime is required")]
     public required TerraformProperty<string> InclusiveStartTime
     {
-        get => GetProperty<TerraformProperty<string>>("inclusive_start_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("inclusive_start_time");
         set => this.WithProperty("inclusive_start_time", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsQldbStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerName is required")]
     public required TerraformProperty<string> LedgerName
     {
-        get => GetProperty<TerraformProperty<string>>("ledger_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("ledger_name");
         set => this.WithProperty("ledger_name", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsQldbStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsQldbStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
     public required TerraformProperty<string> StreamName
     {
-        get => GetProperty<TerraformProperty<string>>("stream_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_name");
         set => this.WithProperty("stream_name", value);
     }
 

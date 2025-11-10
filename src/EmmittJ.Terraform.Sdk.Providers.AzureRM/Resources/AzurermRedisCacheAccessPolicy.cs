@@ -75,7 +75,7 @@ public class AzurermRedisCacheAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermRedisCacheAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public required TerraformProperty<string> Permissions
     {
-        get => GetProperty<TerraformProperty<string>>("permissions");
+        get => GetRequiredProperty<TerraformProperty<string>>("permissions");
         set => this.WithProperty("permissions", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermRedisCacheAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisCacheId is required")]
     public required TerraformProperty<string> RedisCacheId
     {
-        get => GetProperty<TerraformProperty<string>>("redis_cache_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("redis_cache_id");
         set => this.WithProperty("redis_cache_id", value);
     }
 

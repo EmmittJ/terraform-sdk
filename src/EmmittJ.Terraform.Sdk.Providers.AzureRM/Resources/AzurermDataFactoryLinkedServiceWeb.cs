@@ -84,7 +84,7 @@ public class AzurermDataFactoryLinkedServiceWeb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformProperty<string> AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication_type");
         set => this.WithProperty("authentication_type", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermDataFactoryLinkedServiceWeb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetProperty<TerraformProperty<string>>("data_factory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermDataFactoryLinkedServiceWeb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermDataFactoryLinkedServiceWeb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => this.WithProperty("url", value);
     }
 

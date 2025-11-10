@@ -32,7 +32,7 @@ public class AwsGuarddutyFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsGuarddutyFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     public required TerraformProperty<string> DetectorId
     {
-        get => GetProperty<TerraformProperty<string>>("detector_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("detector_id");
         set => this.WithProperty("detector_id", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsGuarddutyFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsGuarddutyFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rank is required")]
     public required TerraformProperty<double> Rank
     {
-        get => GetProperty<TerraformProperty<double>>("rank");
+        get => GetRequiredProperty<TerraformProperty<double>>("rank");
         set => this.WithProperty("rank", value);
     }
 

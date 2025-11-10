@@ -23,7 +23,7 @@ public class AzurermLbOutboundRuleFrontendIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermLbOutboundRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
     public required TerraformProperty<string> BackendAddressPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("backend_address_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("backend_address_pool_id");
         set => this.WithProperty("backend_address_pool_id", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermLbOutboundRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformProperty<string> LoadbalancerId
     {
-        get => GetProperty<TerraformProperty<string>>("loadbalancer_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("loadbalancer_id");
         set => this.WithProperty("loadbalancer_id", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermLbOutboundRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermLbOutboundRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 

@@ -88,7 +88,7 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
     public required TerraformProperty<string> KeyAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("key_algorithm");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_algorithm");
         set => this.WithProperty("key_algorithm", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lifetime is required")]
     public required TerraformProperty<string> Lifetime
     {
-        get => GetProperty<TerraformProperty<string>>("lifetime");
+        get => GetRequiredProperty<TerraformProperty<string>>("lifetime");
         set => this.WithProperty("lifetime", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RotationWindowPercentage is required")]
     public required TerraformProperty<double> RotationWindowPercentage
     {
-        get => GetProperty<TerraformProperty<double>>("rotation_window_percentage");
+        get => GetRequiredProperty<TerraformProperty<double>>("rotation_window_percentage");
         set => this.WithProperty("rotation_window_percentage", value);
     }
 

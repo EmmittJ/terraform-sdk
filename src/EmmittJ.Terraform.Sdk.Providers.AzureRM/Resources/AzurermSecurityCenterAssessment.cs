@@ -23,7 +23,7 @@ public class AzurermSecurityCenterAssessmentStatusBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformProperty<string> Code
     {
-        get => GetProperty<TerraformProperty<string>>("code");
+        get => GetRequiredProperty<TerraformProperty<string>>("code");
         set => WithProperty("code", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermSecurityCenterAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssessmentPolicyId is required")]
     public required TerraformProperty<string> AssessmentPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("assessment_policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("assessment_policy_id");
         set => this.WithProperty("assessment_policy_id", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermSecurityCenterAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
         set => this.WithProperty("target_resource_id", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermCdnEndpointDeliveryRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermCdnEndpointDeliveryRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetProperty<TerraformProperty<double>>("order");
+        get => GetRequiredProperty<TerraformProperty<double>>("order");
         set => WithProperty("order", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermCdnEndpointGeoFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => WithProperty("action", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermCdnEndpointGeoFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativePath is required")]
     public required TerraformProperty<string> RelativePath
     {
-        get => GetProperty<TerraformProperty<string>>("relative_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("relative_path");
         set => WithProperty("relative_path", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermCdnEndpointOriginBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformProperty<string> HostName
     {
-        get => GetProperty<TerraformProperty<string>>("host_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("host_name");
         set => WithProperty("host_name", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermCdnEndpointOriginBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -233,7 +233,7 @@ public class AzurermCdnEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -243,7 +243,7 @@ public class AzurermCdnEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -289,7 +289,7 @@ public class AzurermCdnEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
     public required TerraformProperty<string> ProfileName
     {
-        get => GetProperty<TerraformProperty<string>>("profile_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("profile_name");
         set => this.WithProperty("profile_name", value);
     }
 
@@ -308,7 +308,7 @@ public class AzurermCdnEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

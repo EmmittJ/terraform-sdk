@@ -58,7 +58,7 @@ public class AzurermAutomationJobSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformProperty<string> AutomationAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("automation_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("automation_account_name");
         set => this.WithProperty("automation_account_name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermAutomationJobSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermAutomationJobSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RunbookName is required")]
     public required TerraformProperty<string> RunbookName
     {
-        get => GetProperty<TerraformProperty<string>>("runbook_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("runbook_name");
         set => this.WithProperty("runbook_name", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermAutomationJobSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleName is required")]
     public required TerraformProperty<string> ScheduleName
     {
-        get => GetProperty<TerraformProperty<string>>("schedule_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("schedule_name");
         set => this.WithProperty("schedule_name", value);
     }
 

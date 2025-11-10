@@ -24,7 +24,7 @@ public class AwsTransferProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "As2Id is required")]
     public required TerraformProperty<string> As2Id
     {
-        get => GetProperty<TerraformProperty<string>>("as2_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("as2_id");
         set => this.WithProperty("as2_id", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsTransferProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileType is required")]
     public required TerraformProperty<string> ProfileType
     {
-        get => GetProperty<TerraformProperty<string>>("profile_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("profile_type");
         set => this.WithProperty("profile_type", value);
     }
 

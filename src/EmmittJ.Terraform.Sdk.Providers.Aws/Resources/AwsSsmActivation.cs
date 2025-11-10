@@ -43,7 +43,7 @@ public class AwsSsmActivation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRole is required")]
     public required TerraformProperty<string> IamRole
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("iam_role");
         set => this.WithProperty("iam_role", value);
     }
 

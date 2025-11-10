@@ -22,7 +22,7 @@ public class AwsLightsailBucketResourceAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
         set => this.WithProperty("bucket_name", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsLightsailBucketResourceAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceName is required")]
     public required TerraformProperty<string> ResourceName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_name");
         set => this.WithProperty("resource_name", value);
     }
 

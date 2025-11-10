@@ -14,7 +14,7 @@ public class AzurermHealthcareFhirServiceAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Audience is required")]
     public required TerraformProperty<string> Audience
     {
-        get => GetProperty<TerraformProperty<string>>("audience");
+        get => GetRequiredProperty<TerraformProperty<string>>("audience");
         set => WithProperty("audience", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermHealthcareFhirServiceAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authority is required")]
     public required TerraformProperty<string> Authority
     {
-        get => GetProperty<TerraformProperty<string>>("authority");
+        get => GetRequiredProperty<TerraformProperty<string>>("authority");
         set => WithProperty("authority", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermHealthcareFhirServiceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -170,7 +170,7 @@ public class AzurermHealthcareFhirServiceOciArtifactBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginServer is required")]
     public required TerraformProperty<string> LoginServer
     {
-        get => GetProperty<TerraformProperty<string>>("login_server");
+        get => GetRequiredProperty<TerraformProperty<string>>("login_server");
         set => WithProperty("login_server", value);
     }
 
@@ -287,7 +287,7 @@ public class AzurermHealthcareFhirService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -297,7 +297,7 @@ public class AzurermHealthcareFhirService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -307,7 +307,7 @@ public class AzurermHealthcareFhirService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -326,7 +326,7 @@ public class AzurermHealthcareFhirService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

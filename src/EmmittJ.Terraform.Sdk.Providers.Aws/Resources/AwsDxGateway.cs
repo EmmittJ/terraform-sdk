@@ -50,7 +50,7 @@ public class AwsDxGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AmazonSideAsn is required")]
     public required TerraformProperty<string> AmazonSideAsn
     {
-        get => GetProperty<TerraformProperty<string>>("amazon_side_asn");
+        get => GetRequiredProperty<TerraformProperty<string>>("amazon_side_asn");
         set => this.WithProperty("amazon_side_asn", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsDxGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

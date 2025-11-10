@@ -14,7 +14,7 @@ public class AwsElasticBeanstalkConfigurationTemplateSettingBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsElasticBeanstalkConfigurationTemplateSettingBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
         set => WithProperty("namespace", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsElasticBeanstalkConfigurationTemplateSettingBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsElasticBeanstalkConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Application is required")]
     public required TerraformProperty<string> Application
     {
-        get => GetProperty<TerraformProperty<string>>("application");
+        get => GetRequiredProperty<TerraformProperty<string>>("application");
         set => this.WithProperty("application", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsElasticBeanstalkConfigurationTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

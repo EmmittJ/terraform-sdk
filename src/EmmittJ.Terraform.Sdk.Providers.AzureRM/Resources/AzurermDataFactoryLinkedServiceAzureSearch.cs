@@ -85,7 +85,7 @@ public class AzurermDataFactoryLinkedServiceAzureSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetProperty<TerraformProperty<string>>("data_factory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermDataFactoryLinkedServiceAzureSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermDataFactoryLinkedServiceAzureSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SearchServiceKey is required")]
     public required TerraformProperty<string> SearchServiceKey
     {
-        get => GetProperty<TerraformProperty<string>>("search_service_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("search_service_key");
         set => this.WithProperty("search_service_key", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermDataFactoryLinkedServiceAzureSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => this.WithProperty("url", value);
     }
 

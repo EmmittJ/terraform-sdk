@@ -14,7 +14,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
     public required TerraformProperty<string> ClusterVersion
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_version");
         set => WithProperty("cluster_version", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePoolId is required")]
     public required TerraformProperty<string> InstancePoolId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_pool_id");
         set => WithProperty("instance_pool_id", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("linked_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
         set => WithProperty("linked_service_name", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformProperty<string> SecretName
     {
-        get => GetProperty<TerraformProperty<string>>("secret_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_name");
         set => WithProperty("secret_name", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
     public required TerraformProperty<string> ClusterVersion
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_version");
         set => WithProperty("cluster_version", value);
     }
 
@@ -152,7 +152,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformProperty<string> NodeType
     {
-        get => GetProperty<TerraformProperty<string>>("node_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("node_type");
         set => WithProperty("node_type", value);
     }
 
@@ -250,7 +250,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdbDomain is required")]
     public required TerraformProperty<string> AdbDomain
     {
-        get => GetProperty<TerraformProperty<string>>("adb_domain");
+        get => GetRequiredProperty<TerraformProperty<string>>("adb_domain");
         set => this.WithProperty("adb_domain", value);
     }
 
@@ -278,7 +278,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetProperty<TerraformProperty<string>>("data_factory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
@@ -333,7 +333,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

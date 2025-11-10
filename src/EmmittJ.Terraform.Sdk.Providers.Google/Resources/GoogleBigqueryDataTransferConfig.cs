@@ -14,7 +14,7 @@ public class GoogleBigqueryDataTransferConfigEmailPreferencesBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableFailureEmail is required")]
     public required TerraformProperty<bool> EnableFailureEmail
     {
-        get => GetProperty<TerraformProperty<bool>>("enable_failure_email");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enable_failure_email");
         set => WithProperty("enable_failure_email", value);
     }
 
@@ -32,7 +32,7 @@ public class GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformProperty<string> KmsKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_name");
         set => WithProperty("kms_key_name", value);
     }
 
@@ -189,7 +189,7 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     public required TerraformProperty<string> DataSourceId
     {
-        get => GetProperty<TerraformProperty<string>>("data_source_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_source_id");
         set => this.WithProperty("data_source_id", value);
     }
 
@@ -217,7 +217,7 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 

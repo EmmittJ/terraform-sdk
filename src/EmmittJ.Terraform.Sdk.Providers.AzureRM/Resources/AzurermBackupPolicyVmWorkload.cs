@@ -14,7 +14,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
     public required TerraformProperty<string> PolicyType
     {
-        get => GetProperty<TerraformProperty<string>>("policy_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_type");
         set => WithProperty("policy_type", value);
     }
 
@@ -41,7 +41,7 @@ public class AzurermBackupPolicyVmWorkloadSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformProperty<string> TimeZone
     {
-        get => GetProperty<TerraformProperty<string>>("time_zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("time_zone");
         set => WithProperty("time_zone", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformProperty<string> RecoveryVaultName
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_vault_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_name");
         set => this.WithProperty("recovery_vault_name", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadType is required")]
     public required TerraformProperty<string> WorkloadType
     {
-        get => GetProperty<TerraformProperty<string>>("workload_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("workload_type");
         set => this.WithProperty("workload_type", value);
     }
 

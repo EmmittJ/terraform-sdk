@@ -32,7 +32,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformProperty<double> RuleNumber
     {
-        get => GetProperty<TerraformProperty<double>>("rule_number");
+        get => GetRequiredProperty<TerraformProperty<double>>("rule_number");
         set => WithProperty("rule_number", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequireAttachmentAcceptance is required")]
     public required TerraformProperty<bool> RequireAttachmentAcceptance
     {
-        get => GetProperty<TerraformProperty<bool>>("require_attachment_acceptance");
+        get => GetRequiredProperty<TerraformProperty<bool>>("require_attachment_acceptance");
         set => WithProperty("require_attachment_acceptance", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => WithProperty("action", value);
     }
 
@@ -187,7 +187,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Segment is required")]
     public required TerraformProperty<string> Segment
     {
-        get => GetProperty<TerraformProperty<string>>("segment");
+        get => GetRequiredProperty<TerraformProperty<string>>("segment");
         set => WithProperty("segment", value);
     }
 
@@ -268,7 +268,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 

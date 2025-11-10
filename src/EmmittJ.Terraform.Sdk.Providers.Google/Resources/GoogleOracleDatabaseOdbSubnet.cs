@@ -62,7 +62,7 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrRange is required")]
     public required TerraformProperty<string> CidrRange
     {
-        get => GetProperty<TerraformProperty<string>>("cidr_range");
+        get => GetRequiredProperty<TerraformProperty<string>>("cidr_range");
         set => this.WithProperty("cidr_range", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbSubnetId is required")]
     public required TerraformProperty<string> OdbSubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("odb_subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("odb_subnet_id");
         set => this.WithProperty("odb_subnet_id", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Odbnetwork is required")]
     public required TerraformProperty<string> Odbnetwork
     {
-        get => GetProperty<TerraformProperty<string>>("odbnetwork");
+        get => GetRequiredProperty<TerraformProperty<string>>("odbnetwork");
         set => this.WithProperty("odbnetwork", value);
     }
 
@@ -147,7 +147,7 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Purpose is required")]
     public required TerraformProperty<string> Purpose
     {
-        get => GetProperty<TerraformProperty<string>>("purpose");
+        get => GetRequiredProperty<TerraformProperty<string>>("purpose");
         set => this.WithProperty("purpose", value);
     }
 

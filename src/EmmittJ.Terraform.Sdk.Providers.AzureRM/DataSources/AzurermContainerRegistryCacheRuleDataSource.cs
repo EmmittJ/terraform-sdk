@@ -42,7 +42,7 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     public required TerraformProperty<string> ContainerRegistryId
     {
-        get => GetProperty<TerraformProperty<string>>("container_registry_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_id");
         set => this.WithProperty("container_registry_id", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

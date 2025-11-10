@@ -113,7 +113,7 @@ public class AwsDocdbEventSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsTopicArn is required")]
     public required TerraformProperty<string> SnsTopicArn
     {
-        get => GetProperty<TerraformProperty<string>>("sns_topic_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("sns_topic_arn");
         set => this.WithProperty("sns_topic_arn", value);
     }
 

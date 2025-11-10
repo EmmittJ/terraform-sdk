@@ -76,7 +76,7 @@ public class AzurermDataFactoryDatasetParquetAzureBlobStorageLocationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     public required TerraformProperty<string> Container
     {
-        get => GetProperty<TerraformProperty<string>>("container");
+        get => GetRequiredProperty<TerraformProperty<string>>("container");
         set => WithProperty("container", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermDataFactoryDatasetParquetHttpServerLocationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
     public required TerraformProperty<string> Filename
     {
-        get => GetProperty<TerraformProperty<string>>("filename");
+        get => GetRequiredProperty<TerraformProperty<string>>("filename");
         set => WithProperty("filename", value);
     }
 
@@ -176,7 +176,7 @@ public class AzurermDataFactoryDatasetParquetHttpServerLocationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeUrl is required")]
     public required TerraformProperty<string> RelativeUrl
     {
-        get => GetProperty<TerraformProperty<string>>("relative_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("relative_url");
         set => WithProperty("relative_url", value);
     }
 
@@ -203,7 +203,7 @@ public class AzurermDataFactoryDatasetParquetSchemaColumnBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -319,7 +319,7 @@ public class AzurermDataFactoryDatasetParquet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetProperty<TerraformProperty<string>>("data_factory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
@@ -356,7 +356,7 @@ public class AzurermDataFactoryDatasetParquet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("linked_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
         set => this.WithProperty("linked_service_name", value);
     }
 
@@ -366,7 +366,7 @@ public class AzurermDataFactoryDatasetParquet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

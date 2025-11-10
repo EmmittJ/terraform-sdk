@@ -75,7 +75,7 @@ public class AzurermSpringCloudAppRedisAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermSpringCloudAppRedisAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisAccessKey is required")]
     public required TerraformProperty<string> RedisAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("redis_access_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("redis_access_key");
         set => this.WithProperty("redis_access_key", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermSpringCloudAppRedisAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisCacheId is required")]
     public required TerraformProperty<string> RedisCacheId
     {
-        get => GetProperty<TerraformProperty<string>>("redis_cache_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("redis_cache_id");
         set => this.WithProperty("redis_cache_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermSpringCloudAppRedisAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformProperty<string> SpringCloudAppId
     {
-        get => GetProperty<TerraformProperty<string>>("spring_cloud_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("spring_cloud_app_id");
         set => this.WithProperty("spring_cloud_app_id", value);
     }
 

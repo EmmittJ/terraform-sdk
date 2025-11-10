@@ -75,7 +75,7 @@ public class AwsVpcPeeringConnectionOptions : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcPeeringConnectionId is required")]
     public required TerraformProperty<string> VpcPeeringConnectionId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_peering_connection_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_peering_connection_id");
         set => this.WithProperty("vpc_peering_connection_id", value);
     }
 

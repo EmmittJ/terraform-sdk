@@ -77,7 +77,7 @@ public class GoogleEventarcEnrollment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CelMatch is required")]
     public required TerraformProperty<string> CelMatch
     {
-        get => GetProperty<TerraformProperty<string>>("cel_match");
+        get => GetRequiredProperty<TerraformProperty<string>>("cel_match");
         set => this.WithProperty("cel_match", value);
     }
 
@@ -89,7 +89,7 @@ public class GoogleEventarcEnrollment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformProperty<string> Destination
     {
-        get => GetProperty<TerraformProperty<string>>("destination");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleEventarcEnrollment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrollmentId is required")]
     public required TerraformProperty<string> EnrollmentId
     {
-        get => GetProperty<TerraformProperty<string>>("enrollment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("enrollment_id");
         set => this.WithProperty("enrollment_id", value);
     }
 
@@ -140,7 +140,7 @@ public class GoogleEventarcEnrollment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleEventarcEnrollment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageBus is required")]
     public required TerraformProperty<string> MessageBus
     {
-        get => GetProperty<TerraformProperty<string>>("message_bus");
+        get => GetRequiredProperty<TerraformProperty<string>>("message_bus");
         set => this.WithProperty("message_bus", value);
     }
 

@@ -58,7 +58,7 @@ public class AwsSecurityGroupRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformProperty<double> FromPort
     {
-        get => GetProperty<TerraformProperty<double>>("from_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("from_port");
         set => this.WithProperty("from_port", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsSecurityGroupRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsSecurityGroupRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
     public required TerraformProperty<string> SecurityGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("security_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_group_id");
         set => this.WithProperty("security_group_id", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsSecurityGroupRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformProperty<double> ToPort
     {
-        get => GetProperty<TerraformProperty<double>>("to_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("to_port");
         set => this.WithProperty("to_port", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsSecurityGroupRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

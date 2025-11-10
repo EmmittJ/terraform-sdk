@@ -23,7 +23,7 @@ public class AzurermMssqlJobStepOutputTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MssqlDatabaseId is required")]
     public required TerraformProperty<string> MssqlDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("mssql_database_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("mssql_database_id");
         set => WithProperty("mssql_database_id", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermMssqlJobStepOutputTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
         set => WithProperty("table_name", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermMssqlJobStep : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
     public required TerraformProperty<string> JobId
     {
-        get => GetProperty<TerraformProperty<string>>("job_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("job_id");
         set => this.WithProperty("job_id", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermMssqlJobStep : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobStepIndex is required")]
     public required TerraformProperty<double> JobStepIndex
     {
-        get => GetProperty<TerraformProperty<double>>("job_step_index");
+        get => GetRequiredProperty<TerraformProperty<double>>("job_step_index");
         set => this.WithProperty("job_step_index", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermMssqlJobStep : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobTargetGroupId is required")]
     public required TerraformProperty<string> JobTargetGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("job_target_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("job_target_group_id");
         set => this.WithProperty("job_target_group_id", value);
     }
 
@@ -179,7 +179,7 @@ public class AzurermMssqlJobStep : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -207,7 +207,7 @@ public class AzurermMssqlJobStep : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlScript is required")]
     public required TerraformProperty<string> SqlScript
     {
-        get => GetProperty<TerraformProperty<string>>("sql_script");
+        get => GetRequiredProperty<TerraformProperty<string>>("sql_script");
         set => this.WithProperty("sql_script", value);
     }
 

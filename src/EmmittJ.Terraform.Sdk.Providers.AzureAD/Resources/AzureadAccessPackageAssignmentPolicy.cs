@@ -234,7 +234,7 @@ public class AzureadAccessPackageAssignmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPackageId is required")]
     public required TerraformProperty<string> AccessPackageId
     {
-        get => GetProperty<TerraformProperty<string>>("access_package_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_package_id");
         set => this.WithProperty("access_package_id", value);
     }
 
@@ -244,7 +244,7 @@ public class AzureadAccessPackageAssignmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -254,7 +254,7 @@ public class AzureadAccessPackageAssignmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 

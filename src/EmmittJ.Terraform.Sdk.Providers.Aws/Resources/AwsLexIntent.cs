@@ -31,7 +31,7 @@ public class AwsLexIntentConfirmationPromptBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAttempts is required")]
     public required TerraformProperty<double> MaxAttempts
     {
-        get => GetProperty<TerraformProperty<double>>("max_attempts");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_attempts");
         set => WithProperty("max_attempts", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsLexIntentDialogCodeHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageVersion is required")]
     public required TerraformProperty<string> MessageVersion
     {
-        get => GetProperty<TerraformProperty<string>>("message_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("message_version");
         set => WithProperty("message_version", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsLexIntentDialogCodeHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformProperty<string> Uri
     {
-        get => GetProperty<TerraformProperty<string>>("uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("uri");
         set => WithProperty("uri", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsLexIntentFulfillmentActivityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsLexIntentSlotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsLexIntentSlotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotConstraint is required")]
     public required TerraformProperty<string> SlotConstraint
     {
-        get => GetProperty<TerraformProperty<string>>("slot_constraint");
+        get => GetRequiredProperty<TerraformProperty<string>>("slot_constraint");
         set => WithProperty("slot_constraint", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsLexIntentSlotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotType is required")]
     public required TerraformProperty<string> SlotType
     {
-        get => GetProperty<TerraformProperty<string>>("slot_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("slot_type");
         set => WithProperty("slot_type", value);
     }
 
@@ -288,7 +288,7 @@ public class AwsLexIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

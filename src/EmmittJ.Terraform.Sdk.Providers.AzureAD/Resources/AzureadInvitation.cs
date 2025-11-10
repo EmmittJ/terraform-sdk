@@ -104,7 +104,7 @@ public class AzureadInvitation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUrl is required")]
     public required TerraformProperty<string> RedirectUrl
     {
-        get => GetProperty<TerraformProperty<string>>("redirect_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("redirect_url");
         set => this.WithProperty("redirect_url", value);
     }
 
@@ -123,7 +123,7 @@ public class AzureadInvitation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserEmailAddress is required")]
     public required TerraformProperty<string> UserEmailAddress
     {
-        get => GetProperty<TerraformProperty<string>>("user_email_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_email_address");
         set => this.WithProperty("user_email_address", value);
     }
 

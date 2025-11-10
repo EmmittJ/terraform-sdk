@@ -24,7 +24,7 @@ public class GoogleIapWebCloudRunServiceIamPolicyDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudRunServiceName is required")]
     public required TerraformProperty<string> CloudRunServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_run_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cloud_run_service_name");
         set => this.WithProperty("cloud_run_service_name", value);
     }
 

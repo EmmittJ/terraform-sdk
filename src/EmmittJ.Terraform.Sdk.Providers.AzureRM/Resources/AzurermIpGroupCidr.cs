@@ -57,7 +57,7 @@ public class AzurermIpGroupCidr : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
     public required TerraformProperty<string> Cidr
     {
-        get => GetProperty<TerraformProperty<string>>("cidr");
+        get => GetRequiredProperty<TerraformProperty<string>>("cidr");
         set => this.WithProperty("cidr", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermIpGroupCidr : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpGroupId is required")]
     public required TerraformProperty<string> IpGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("ip_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_group_id");
         set => this.WithProperty("ip_group_id", value);
     }
 

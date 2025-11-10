@@ -107,7 +107,7 @@ public class GoogleAlloydbClusterInitialUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => WithProperty("password", value);
     }
 
@@ -197,7 +197,7 @@ public class GoogleAlloydbClusterRestoreBackupSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupName is required")]
     public required TerraformProperty<string> BackupName
     {
-        get => GetProperty<TerraformProperty<string>>("backup_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("backup_name");
         set => WithProperty("backup_name", value);
     }
 
@@ -215,7 +215,7 @@ public class GoogleAlloydbClusterRestoreContinuousBackupSourceBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformProperty<string> Cluster
     {
-        get => GetProperty<TerraformProperty<string>>("cluster");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster");
         set => WithProperty("cluster", value);
     }
 
@@ -225,7 +225,7 @@ public class GoogleAlloydbClusterRestoreContinuousBackupSourceBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PointInTime is required")]
     public required TerraformProperty<string> PointInTime
     {
-        get => GetProperty<TerraformProperty<string>>("point_in_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("point_in_time");
         set => WithProperty("point_in_time", value);
     }
 
@@ -244,7 +244,7 @@ public class GoogleAlloydbClusterSecondaryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryClusterName is required")]
     public required TerraformProperty<string> PrimaryClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("primary_cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("primary_cluster_name");
         set => WithProperty("primary_cluster_name", value);
     }
 
@@ -332,7 +332,7 @@ public class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformProperty<string> ClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
     }
 
@@ -424,7 +424,7 @@ public class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

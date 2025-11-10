@@ -23,7 +23,7 @@ public class AwsRedshiftHsmConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsRedshiftHsmConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmConfigurationIdentifier is required")]
     public required TerraformProperty<string> HsmConfigurationIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("hsm_configuration_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("hsm_configuration_identifier");
         set => this.WithProperty("hsm_configuration_identifier", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsRedshiftHsmConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmIpAddress is required")]
     public required TerraformProperty<string> HsmIpAddress
     {
-        get => GetProperty<TerraformProperty<string>>("hsm_ip_address");
+        get => GetRequiredProperty<TerraformProperty<string>>("hsm_ip_address");
         set => this.WithProperty("hsm_ip_address", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsRedshiftHsmConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmPartitionName is required")]
     public required TerraformProperty<string> HsmPartitionName
     {
-        get => GetProperty<TerraformProperty<string>>("hsm_partition_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("hsm_partition_name");
         set => this.WithProperty("hsm_partition_name", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsRedshiftHsmConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmPartitionPassword is required")]
     public required TerraformProperty<string> HsmPartitionPassword
     {
-        get => GetProperty<TerraformProperty<string>>("hsm_partition_password");
+        get => GetRequiredProperty<TerraformProperty<string>>("hsm_partition_password");
         set => this.WithProperty("hsm_partition_password", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsRedshiftHsmConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmServerPublicCertificate is required")]
     public required TerraformProperty<string> HsmServerPublicCertificate
     {
-        get => GetProperty<TerraformProperty<string>>("hsm_server_public_certificate");
+        get => GetRequiredProperty<TerraformProperty<string>>("hsm_server_public_certificate");
         set => this.WithProperty("hsm_server_public_certificate", value);
     }
 

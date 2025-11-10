@@ -32,7 +32,7 @@ public class AwsRoute53ResolverFirewallRulesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallRuleGroupId is required")]
     public required TerraformProperty<string> FirewallRuleGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("firewall_rule_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("firewall_rule_group_id");
         set => this.WithProperty("firewall_rule_group_id", value);
     }
 

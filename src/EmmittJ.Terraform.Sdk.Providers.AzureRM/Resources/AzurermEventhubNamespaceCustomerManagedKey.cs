@@ -66,7 +66,7 @@ public class AzurermEventhubNamespaceCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceId is required")]
     public required TerraformProperty<string> EventhubNamespaceId
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_namespace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_namespace_id");
         set => this.WithProperty("eventhub_namespace_id", value);
     }
 

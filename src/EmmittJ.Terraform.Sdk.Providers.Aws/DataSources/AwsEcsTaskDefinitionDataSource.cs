@@ -60,7 +60,7 @@ public class AwsEcsTaskDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
     public required TerraformProperty<string> TaskDefinition
     {
-        get => GetProperty<TerraformProperty<string>>("task_definition");
+        get => GetRequiredProperty<TerraformProperty<string>>("task_definition");
         set => this.WithProperty("task_definition", value);
     }
 

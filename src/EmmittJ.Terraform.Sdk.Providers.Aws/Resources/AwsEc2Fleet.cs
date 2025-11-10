@@ -190,7 +190,7 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultTargetCapacityType is required")]
     public required TerraformProperty<string> DefaultTargetCapacityType
     {
-        get => GetProperty<TerraformProperty<string>>("default_target_capacity_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_target_capacity_type");
         set => WithProperty("default_target_capacity_type", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalTargetCapacity is required")]
     public required TerraformProperty<double> TotalTargetCapacity
     {
-        get => GetProperty<TerraformProperty<double>>("total_target_capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("total_target_capacity");
         set => WithProperty("total_target_capacity", value);
     }
 

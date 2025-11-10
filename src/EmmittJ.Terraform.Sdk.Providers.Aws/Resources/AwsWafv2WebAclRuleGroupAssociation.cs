@@ -14,7 +14,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsWafv2WebAclRuleGroupAssociationManagedRuleGroupBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VendorName is required")]
     public required TerraformProperty<string> VendorName
     {
-        get => GetProperty<TerraformProperty<string>>("vendor_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("vendor_name");
         set => WithProperty("vendor_name", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsWafv2WebAclRuleGroupAssociationRuleGroupReferenceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("arn");
         set => WithProperty("arn", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformProperty<string> RuleName
     {
-        get => GetProperty<TerraformProperty<string>>("rule_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_name");
         set => this.WithProperty("rule_name", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebAclArn is required")]
     public required TerraformProperty<string> WebAclArn
     {
-        get => GetProperty<TerraformProperty<string>>("web_acl_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("web_acl_arn");
         set => this.WithProperty("web_acl_arn", value);
     }
 

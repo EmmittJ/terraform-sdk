@@ -112,7 +112,7 @@ public class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficCollectorId is required")]
     public required TerraformProperty<string> TrafficCollectorId
     {
-        get => GetProperty<TerraformProperty<string>>("traffic_collector_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("traffic_collector_id");
         set => this.WithProperty("traffic_collector_id", value);
     }
 

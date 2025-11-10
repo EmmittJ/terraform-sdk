@@ -50,7 +50,7 @@ public class AwsSchemasDiscoverer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
     public required TerraformProperty<string> SourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("source_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_arn");
         set => this.WithProperty("source_arn", value);
     }
 

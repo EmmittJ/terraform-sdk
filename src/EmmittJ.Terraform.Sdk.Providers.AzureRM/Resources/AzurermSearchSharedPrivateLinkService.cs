@@ -76,7 +76,7 @@ public class AzurermSearchSharedPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermSearchSharedPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SearchServiceId is required")]
     public required TerraformProperty<string> SearchServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("search_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("search_service_id");
         set => this.WithProperty("search_service_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermSearchSharedPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubresourceName is required")]
     public required TerraformProperty<string> SubresourceName
     {
-        get => GetProperty<TerraformProperty<string>>("subresource_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("subresource_name");
         set => this.WithProperty("subresource_name", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermSearchSharedPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformProperty<string> TargetResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_id");
         set => this.WithProperty("target_resource_id", value);
     }
 

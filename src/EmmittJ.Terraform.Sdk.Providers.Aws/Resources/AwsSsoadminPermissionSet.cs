@@ -59,7 +59,7 @@ public class AwsSsoadminPermissionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformProperty<string> InstanceArn
     {
-        get => GetProperty<TerraformProperty<string>>("instance_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_arn");
         set => this.WithProperty("instance_arn", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsSsoadminPermissionSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -23,7 +23,7 @@ public class GoogleIapWebForwardingRuleServiceIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRuleServiceName is required")]
     public required TerraformProperty<string> ForwardingRuleServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("forwarding_rule_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("forwarding_rule_service_name");
         set => this.WithProperty("forwarding_rule_service_name", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleIapWebForwardingRuleServiceIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

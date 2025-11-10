@@ -49,7 +49,7 @@ public class GoogleComputeNetworkFirewallPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentTarget is required")]
     public required TerraformProperty<string> AttachmentTarget
     {
-        get => GetProperty<TerraformProperty<string>>("attachment_target");
+        get => GetRequiredProperty<TerraformProperty<string>>("attachment_target");
         set => this.WithProperty("attachment_target", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleComputeNetworkFirewallPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicy is required")]
     public required TerraformProperty<string> FirewallPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("firewall_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("firewall_policy");
         set => this.WithProperty("firewall_policy", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleComputeNetworkFirewallPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

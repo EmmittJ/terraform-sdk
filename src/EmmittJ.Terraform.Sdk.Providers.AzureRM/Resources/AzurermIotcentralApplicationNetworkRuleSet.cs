@@ -14,7 +14,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
     public required TerraformProperty<string> IpMask
     {
-        get => GetProperty<TerraformProperty<string>>("ip_mask");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_mask");
         set => WithProperty("ip_mask", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermIotcentralApplicationNetworkRuleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IotcentralApplicationId is required")]
     public required TerraformProperty<string> IotcentralApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("iotcentral_application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("iotcentral_application_id");
         set => this.WithProperty("iotcentral_application_id", value);
     }
 

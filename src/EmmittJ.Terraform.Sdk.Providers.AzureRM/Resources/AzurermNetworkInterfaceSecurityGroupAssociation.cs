@@ -66,7 +66,7 @@ public class AzurermNetworkInterfaceSecurityGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermNetworkInterfaceSecurityGroupAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSecurityGroupId is required")]
     public required TerraformProperty<string> NetworkSecurityGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("network_security_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_security_group_id");
         set => this.WithProperty("network_security_group_id", value);
     }
 

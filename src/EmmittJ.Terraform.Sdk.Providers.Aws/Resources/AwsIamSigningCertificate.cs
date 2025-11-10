@@ -23,7 +23,7 @@ public class AwsIamSigningCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBody is required")]
     public required TerraformProperty<string> CertificateBody
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_body");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_body");
         set => this.WithProperty("certificate_body", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsIamSigningCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformProperty<string> UserName
     {
-        get => GetProperty<TerraformProperty<string>>("user_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("linked_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
         set => WithProperty("linked_service_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformProperty<string> SecretName
     {
-        get => GetProperty<TerraformProperty<string>>("secret_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_name");
         set => WithProperty("secret_name", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformProperty<string> LinkedServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("linked_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("linked_service_name");
         set => WithProperty("linked_service_name", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformProperty<string> SecretName
     {
-        get => GetProperty<TerraformProperty<string>>("secret_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_name");
         set => WithProperty("secret_name", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermDataFactoryLinkedServiceSqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformProperty<string> DataFactoryId
     {
-        get => GetProperty<TerraformProperty<string>>("data_factory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermDataFactoryLinkedServiceSqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

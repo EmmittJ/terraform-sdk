@@ -104,7 +104,7 @@ public class AwsOpensearchVpcEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainArn is required")]
     public required TerraformProperty<string> DomainArn
     {
-        get => GetProperty<TerraformProperty<string>>("domain_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_arn");
         set => this.WithProperty("domain_arn", value);
     }
 

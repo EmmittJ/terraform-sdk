@@ -135,7 +135,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockchainNodeId is required")]
     public required TerraformProperty<string> BlockchainNodeId
     {
-        get => GetProperty<TerraformProperty<string>>("blockchain_node_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("blockchain_node_id");
         set => this.WithProperty("blockchain_node_id", value);
     }
 
@@ -176,7 +176,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

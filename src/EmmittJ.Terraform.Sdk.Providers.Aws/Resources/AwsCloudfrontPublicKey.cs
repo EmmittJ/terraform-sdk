@@ -33,7 +33,7 @@ public class AwsCloudfrontPublicKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncodedKey is required")]
     public required TerraformProperty<string> EncodedKey
     {
-        get => GetProperty<TerraformProperty<string>>("encoded_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("encoded_key");
         set => this.WithProperty("encoded_key", value);
     }
 

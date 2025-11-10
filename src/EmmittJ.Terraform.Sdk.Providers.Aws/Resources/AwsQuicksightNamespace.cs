@@ -71,7 +71,7 @@ public class AwsQuicksightNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
         set => this.WithProperty("namespace", value);
     }
 

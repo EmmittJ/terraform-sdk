@@ -66,7 +66,7 @@ public class AwsVpclatticeAuthPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformProperty<string> Policy
     {
-        get => GetProperty<TerraformProperty<string>>("policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsVpclatticeAuthPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceIdentifier is required")]
     public required TerraformProperty<string> ResourceIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("resource_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_identifier");
         set => this.WithProperty("resource_identifier", value);
     }
 

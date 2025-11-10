@@ -41,7 +41,7 @@ public class AzurermAiFoundryProjectIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermAiFoundryProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AiServicesHubId is required")]
     public required TerraformProperty<string> AiServicesHubId
     {
-        get => GetProperty<TerraformProperty<string>>("ai_services_hub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("ai_services_hub_id");
         set => this.WithProperty("ai_services_hub_id", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermAiFoundryProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermAiFoundryProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

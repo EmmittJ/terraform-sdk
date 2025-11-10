@@ -14,7 +14,7 @@ public class AwsBedrockagentcoreCodeInterpreterNetworkConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkMode is required")]
     public required TerraformProperty<string> NetworkMode
     {
-        get => GetProperty<TerraformProperty<string>>("network_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_mode");
         set => WithProperty("network_mode", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsBedrockagentcoreCodeInterpreter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

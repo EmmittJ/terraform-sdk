@@ -66,7 +66,7 @@ public class AzurermNetworkInterfaceNatRuleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfigurationName is required")]
     public required TerraformProperty<string> IpConfigurationName
     {
-        get => GetProperty<TerraformProperty<string>>("ip_configuration_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_configuration_name");
         set => this.WithProperty("ip_configuration_name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermNetworkInterfaceNatRuleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatRuleId is required")]
     public required TerraformProperty<string> NatRuleId
     {
-        get => GetProperty<TerraformProperty<string>>("nat_rule_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("nat_rule_id");
         set => this.WithProperty("nat_rule_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermNetworkInterfaceNatRuleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
     }
 

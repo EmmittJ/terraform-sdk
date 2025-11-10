@@ -15,7 +15,7 @@ public class GoogleGeminiRepositoryGroupRepositoriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchPattern is required")]
     public required TerraformProperty<string> BranchPattern
     {
-        get => GetProperty<TerraformProperty<string>>("branch_pattern");
+        get => GetRequiredProperty<TerraformProperty<string>>("branch_pattern");
         set => WithProperty("branch_pattern", value);
     }
 
@@ -26,7 +26,7 @@ public class GoogleGeminiRepositoryGroupRepositoriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformProperty<string> Resource
     {
-        get => GetProperty<TerraformProperty<string>>("resource");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource");
         set => WithProperty("resource", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleGeminiRepositoryGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeRepositoryIndex is required")]
     public required TerraformProperty<string> CodeRepositoryIndex
     {
-        get => GetProperty<TerraformProperty<string>>("code_repository_index");
+        get => GetRequiredProperty<TerraformProperty<string>>("code_repository_index");
         set => this.WithProperty("code_repository_index", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleGeminiRepositoryGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleGeminiRepositoryGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryGroupId is required")]
     public required TerraformProperty<string> RepositoryGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("repository_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_group_id");
         set => this.WithProperty("repository_group_id", value);
     }
 

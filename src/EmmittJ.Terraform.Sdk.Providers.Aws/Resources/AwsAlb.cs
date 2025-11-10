@@ -14,7 +14,7 @@ public class AwsAlbAccessLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => WithProperty("bucket", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsAlbConnectionLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => WithProperty("bucket", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsAlbIpamPoolsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ipv4IpamPoolId is required")]
     public required TerraformProperty<string> Ipv4IpamPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("ipv4_ipam_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("ipv4_ipam_pool_id");
         set => WithProperty("ipv4_ipam_pool_id", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsAlbMinimumLoadBalancerCapacityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityUnits is required")]
     public required TerraformProperty<double> CapacityUnits
     {
-        get => GetProperty<TerraformProperty<double>>("capacity_units");
+        get => GetRequiredProperty<TerraformProperty<double>>("capacity_units");
         set => WithProperty("capacity_units", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsAlbSubnetMappingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => WithProperty("subnet_id", value);
     }
 

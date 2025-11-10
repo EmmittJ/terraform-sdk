@@ -148,7 +148,7 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -158,7 +158,7 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkDataNetworkName is required")]
     public required TerraformProperty<string> MobileNetworkDataNetworkName
     {
-        get => GetProperty<TerraformProperty<string>>("mobile_network_data_network_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("mobile_network_data_network_name");
         set => this.WithProperty("mobile_network_data_network_name", value);
     }
 
@@ -168,7 +168,7 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkPacketCoreDataPlaneId is required")]
     public required TerraformProperty<string> MobileNetworkPacketCoreDataPlaneId
     {
-        get => GetProperty<TerraformProperty<string>>("mobile_network_packet_core_data_plane_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("mobile_network_packet_core_data_plane_id");
         set => this.WithProperty("mobile_network_packet_core_data_plane_id", value);
     }
 

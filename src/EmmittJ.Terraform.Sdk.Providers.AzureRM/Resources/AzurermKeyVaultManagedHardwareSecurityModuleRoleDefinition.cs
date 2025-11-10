@@ -130,7 +130,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
     public required TerraformProperty<string> ManagedHsmId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_hsm_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_hsm_id");
         set => this.WithProperty("managed_hsm_id", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

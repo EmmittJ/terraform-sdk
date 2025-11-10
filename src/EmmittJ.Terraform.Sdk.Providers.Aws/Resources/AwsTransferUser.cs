@@ -14,7 +14,7 @@ public class AwsTransferUserHomeDirectoryMappingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entry is required")]
     public required TerraformProperty<string> Entry
     {
-        get => GetProperty<TerraformProperty<string>>("entry");
+        get => GetRequiredProperty<TerraformProperty<string>>("entry");
         set => WithProperty("entry", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsTransferUserHomeDirectoryMappingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetProperty<TerraformProperty<string>>("target");
+        get => GetRequiredProperty<TerraformProperty<string>>("target");
         set => WithProperty("target", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsTransferUserPosixProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
     public required TerraformProperty<double> Gid
     {
-        get => GetProperty<TerraformProperty<double>>("gid");
+        get => GetRequiredProperty<TerraformProperty<double>>("gid");
         set => WithProperty("gid", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsTransferUserPosixProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
     public required TerraformProperty<double> Uid
     {
-        get => GetProperty<TerraformProperty<double>>("uid");
+        get => GetRequiredProperty<TerraformProperty<double>>("uid");
         set => WithProperty("uid", value);
     }
 
@@ -151,7 +151,7 @@ public class AwsTransferUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsTransferUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformProperty<string> ServerId
     {
-        get => GetProperty<TerraformProperty<string>>("server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsTransferUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformProperty<string> UserName
     {
-        get => GetProperty<TerraformProperty<string>>("user_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 

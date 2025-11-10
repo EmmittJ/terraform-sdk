@@ -14,7 +14,7 @@ public class GoogleIamPolicyDataSourceAuditConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
+        get => GetRequiredProperty<TerraformProperty<string>>("service");
         set => WithProperty("service", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleIamPolicyDataSourceBindingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => WithProperty("role", value);
     }
 

@@ -22,7 +22,7 @@ public class AwsElbAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Elb is required")]
     public required TerraformProperty<string> Elb
     {
-        get => GetProperty<TerraformProperty<string>>("elb");
+        get => GetRequiredProperty<TerraformProperty<string>>("elb");
         set => this.WithProperty("elb", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsElbAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformProperty<string> Instance
     {
-        get => GetProperty<TerraformProperty<string>>("instance");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 

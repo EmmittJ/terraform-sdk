@@ -51,7 +51,7 @@ public class GoogleIapBrand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationTitle is required")]
     public required TerraformProperty<string> ApplicationTitle
     {
-        get => GetProperty<TerraformProperty<string>>("application_title");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_title");
         set => this.WithProperty("application_title", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleIapBrand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportEmail is required")]
     public required TerraformProperty<string> SupportEmail
     {
-        get => GetProperty<TerraformProperty<string>>("support_email");
+        get => GetRequiredProperty<TerraformProperty<string>>("support_email");
         set => this.WithProperty("support_email", value);
     }
 

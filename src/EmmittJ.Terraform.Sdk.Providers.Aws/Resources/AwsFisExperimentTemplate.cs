@@ -14,7 +14,7 @@ public class AwsFisExperimentTemplateActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionId is required")]
     public required TerraformProperty<string> ActionId
     {
-        get => GetProperty<TerraformProperty<string>>("action_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("action_id");
         set => WithProperty("action_id", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsFisExperimentTemplateActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -112,7 +112,7 @@ public class AwsFisExperimentTemplateLogConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogSchemaVersion is required")]
     public required TerraformProperty<double> LogSchemaVersion
     {
-        get => GetProperty<TerraformProperty<double>>("log_schema_version");
+        get => GetRequiredProperty<TerraformProperty<double>>("log_schema_version");
         set => WithProperty("log_schema_version", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsFisExperimentTemplateStopConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
+        get => GetRequiredProperty<TerraformProperty<string>>("source");
         set => WithProperty("source", value);
     }
 
@@ -157,7 +157,7 @@ public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     public required TerraformProperty<string> ResourceType
     {
-        get => GetProperty<TerraformProperty<string>>("resource_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_type");
         set => WithProperty("resource_type", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SelectionMode is required")]
     public required TerraformProperty<string> SelectionMode
     {
-        get => GetProperty<TerraformProperty<string>>("selection_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("selection_mode");
         set => WithProperty("selection_mode", value);
     }
 
@@ -257,7 +257,7 @@ public class AwsFisExperimentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -285,7 +285,7 @@ public class AwsFisExperimentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

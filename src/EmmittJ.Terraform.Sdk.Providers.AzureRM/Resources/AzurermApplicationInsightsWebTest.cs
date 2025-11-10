@@ -67,7 +67,7 @@ public class AzurermApplicationInsightsWebTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     public required TerraformProperty<string> ApplicationInsightsId
     {
-        get => GetProperty<TerraformProperty<string>>("application_insights_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_insights_id");
         set => this.WithProperty("application_insights_id", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermApplicationInsightsWebTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Configuration is required")]
     public required TerraformProperty<string> Configuration
     {
-        get => GetProperty<TerraformProperty<string>>("configuration");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration");
         set => this.WithProperty("configuration", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermApplicationInsightsWebTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformProperty<string> Kind
     {
-        get => GetProperty<TerraformProperty<string>>("kind");
+        get => GetRequiredProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermApplicationInsightsWebTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermApplicationInsightsWebTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermApplicationInsightsWebTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

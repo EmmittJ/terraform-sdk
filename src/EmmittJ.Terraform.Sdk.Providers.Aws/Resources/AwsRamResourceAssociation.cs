@@ -40,7 +40,7 @@ public class AwsRamResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformProperty<string> ResourceArn
     {
-        get => GetProperty<TerraformProperty<string>>("resource_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsRamResourceAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceShareArn is required")]
     public required TerraformProperty<string> ResourceShareArn
     {
-        get => GetProperty<TerraformProperty<string>>("resource_share_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_share_arn");
         set => this.WithProperty("resource_share_arn", value);
     }
 

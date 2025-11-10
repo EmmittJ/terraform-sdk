@@ -75,7 +75,7 @@ public class AzurermPrivateDnsResolverOutboundEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermPrivateDnsResolverOutboundEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermPrivateDnsResolverOutboundEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsResolverId is required")]
     public required TerraformProperty<string> PrivateDnsResolverId
     {
-        get => GetProperty<TerraformProperty<string>>("private_dns_resolver_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("private_dns_resolver_id");
         set => this.WithProperty("private_dns_resolver_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermPrivateDnsResolverOutboundEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

@@ -61,7 +61,7 @@ public class AwsVpcRouteServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AmazonSideAsn is required")]
     public required TerraformProperty<double> AmazonSideAsn
     {
-        get => GetProperty<TerraformProperty<double>>("amazon_side_asn");
+        get => GetRequiredProperty<TerraformProperty<double>>("amazon_side_asn");
         set => this.WithProperty("amazon_side_asn", value);
     }
 

@@ -42,7 +42,7 @@ public class GooglePubsubSchemaIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformProperty<string> Schema
     {
-        get => GetProperty<TerraformProperty<string>>("schema");
+        get => GetRequiredProperty<TerraformProperty<string>>("schema");
         set => this.WithProperty("schema", value);
     }
 

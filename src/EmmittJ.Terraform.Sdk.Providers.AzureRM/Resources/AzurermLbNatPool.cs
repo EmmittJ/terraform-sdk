@@ -67,7 +67,7 @@ public class AzurermLbNatPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
     public required TerraformProperty<double> BackendPort
     {
-        get => GetProperty<TerraformProperty<double>>("backend_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("backend_port");
         set => this.WithProperty("backend_port", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermLbNatPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendIpConfigurationName is required")]
     public required TerraformProperty<string> FrontendIpConfigurationName
     {
-        get => GetProperty<TerraformProperty<string>>("frontend_ip_configuration_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("frontend_ip_configuration_name");
         set => this.WithProperty("frontend_ip_configuration_name", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermLbNatPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPortEnd is required")]
     public required TerraformProperty<double> FrontendPortEnd
     {
-        get => GetProperty<TerraformProperty<double>>("frontend_port_end");
+        get => GetRequiredProperty<TerraformProperty<double>>("frontend_port_end");
         set => this.WithProperty("frontend_port_end", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermLbNatPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPortStart is required")]
     public required TerraformProperty<double> FrontendPortStart
     {
-        get => GetProperty<TerraformProperty<double>>("frontend_port_start");
+        get => GetRequiredProperty<TerraformProperty<double>>("frontend_port_start");
         set => this.WithProperty("frontend_port_start", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermLbNatPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformProperty<string> LoadbalancerId
     {
-        get => GetProperty<TerraformProperty<string>>("loadbalancer_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("loadbalancer_id");
         set => this.WithProperty("loadbalancer_id", value);
     }
 
@@ -144,7 +144,7 @@ public class AzurermLbNatPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermLbNatPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermLbNatPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

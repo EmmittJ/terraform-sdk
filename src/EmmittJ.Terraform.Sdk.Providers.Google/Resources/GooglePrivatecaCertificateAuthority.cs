@@ -148,7 +148,7 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityId is required")]
     public required TerraformProperty<string> CertificateAuthorityId
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_authority_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_authority_id");
         set => this.WithProperty("certificate_authority_id", value);
     }
 
@@ -240,7 +240,7 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -259,7 +259,7 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pool is required")]
     public required TerraformProperty<string> Pool
     {
-        get => GetProperty<TerraformProperty<string>>("pool");
+        get => GetRequiredProperty<TerraformProperty<string>>("pool");
         set => this.WithProperty("pool", value);
     }
 

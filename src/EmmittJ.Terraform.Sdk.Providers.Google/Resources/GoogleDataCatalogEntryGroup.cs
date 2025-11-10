@@ -78,7 +78,7 @@ public class GoogleDataCatalogEntryGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroupId is required")]
     public required TerraformProperty<string> EntryGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("entry_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("entry_group_id");
         set => this.WithProperty("entry_group_id", value);
     }
 

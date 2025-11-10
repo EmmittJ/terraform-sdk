@@ -57,7 +57,7 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Charset is required")]
     public required TerraformProperty<string> Charset
     {
-        get => GetProperty<TerraformProperty<string>>("charset");
+        get => GetRequiredProperty<TerraformProperty<string>>("charset");
         set => this.WithProperty("charset", value);
     }
 
@@ -67,7 +67,7 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collation is required")]
     public required TerraformProperty<string> Collation
     {
-        get => GetProperty<TerraformProperty<string>>("collation");
+        get => GetRequiredProperty<TerraformProperty<string>>("collation");
         set => this.WithProperty("collation", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformProperty<string> ServerName
     {
-        get => GetProperty<TerraformProperty<string>>("server_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_name");
         set => this.WithProperty("server_name", value);
     }
 

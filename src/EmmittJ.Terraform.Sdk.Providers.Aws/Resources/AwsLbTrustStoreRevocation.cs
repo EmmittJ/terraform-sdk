@@ -58,7 +58,7 @@ public class AwsLbTrustStoreRevocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RevocationsS3Bucket is required")]
     public required TerraformProperty<string> RevocationsS3Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("revocations_s3_bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("revocations_s3_bucket");
         set => this.WithProperty("revocations_s3_bucket", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsLbTrustStoreRevocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RevocationsS3Key is required")]
     public required TerraformProperty<string> RevocationsS3Key
     {
-        get => GetProperty<TerraformProperty<string>>("revocations_s3_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("revocations_s3_key");
         set => this.WithProperty("revocations_s3_key", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsLbTrustStoreRevocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustStoreArn is required")]
     public required TerraformProperty<string> TrustStoreArn
     {
-        get => GetProperty<TerraformProperty<string>>("trust_store_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("trust_store_arn");
         set => this.WithProperty("trust_store_arn", value);
     }
 

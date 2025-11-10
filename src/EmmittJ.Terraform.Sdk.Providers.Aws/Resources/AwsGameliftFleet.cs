@@ -31,7 +31,7 @@ public class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformProperty<double> FromPort
     {
-        get => GetProperty<TerraformProperty<double>>("from_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("from_port");
         set => WithProperty("from_port", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRange is required")]
     public required TerraformProperty<string> IpRange
     {
-        get => GetProperty<TerraformProperty<string>>("ip_range");
+        get => GetRequiredProperty<TerraformProperty<string>>("ip_range");
         set => WithProperty("ip_range", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformProperty<double> ToPort
     {
-        get => GetProperty<TerraformProperty<double>>("to_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("to_port");
         set => WithProperty("to_port", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsGameliftFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ec2InstanceType is required")]
     public required TerraformProperty<string> Ec2InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("ec2_instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("ec2_instance_type");
         set => this.WithProperty("ec2_instance_type", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsGameliftFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

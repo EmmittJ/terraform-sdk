@@ -22,7 +22,7 @@ public class GoogleStorageBatchOperationsJobDeleteObjectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermanentObjectDeletionEnabled is required")]
     public required TerraformProperty<bool> PermanentObjectDeletionEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("permanent_object_deletion_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("permanent_object_deletion_enabled");
         set => WithProperty("permanent_object_deletion_enabled", value);
     }
 
@@ -137,7 +137,7 @@ public class GoogleStorageBatchOperationsJobRewriteObjectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformProperty<string> KmsKey
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key");
         set => WithProperty("kms_key", value);
     }
 

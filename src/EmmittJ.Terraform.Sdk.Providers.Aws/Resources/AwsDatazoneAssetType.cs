@@ -14,7 +14,7 @@ public class AwsDatazoneAssetTypeFormsInputBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformProperty<string> MapBlockKey
     {
-        get => GetProperty<TerraformProperty<string>>("map_block_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("map_block_key");
         set => WithProperty("map_block_key", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsDatazoneAssetTypeFormsInputBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeIdentifier is required")]
     public required TerraformProperty<string> TypeIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("type_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("type_identifier");
         set => WithProperty("type_identifier", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsDatazoneAssetTypeFormsInputBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeRevision is required")]
     public required TerraformProperty<string> TypeRevision
     {
-        get => GetProperty<TerraformProperty<string>>("type_revision");
+        get => GetRequiredProperty<TerraformProperty<string>>("type_revision");
         set => WithProperty("type_revision", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsDatazoneAssetType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformProperty<string> DomainIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("domain_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_identifier");
         set => this.WithProperty("domain_identifier", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsDatazoneAssetType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -118,7 +118,7 @@ public class AwsDatazoneAssetType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwningProjectIdentifier is required")]
     public required TerraformProperty<string> OwningProjectIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("owning_project_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("owning_project_identifier");
         set => this.WithProperty("owning_project_identifier", value);
     }
 

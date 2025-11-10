@@ -77,7 +77,7 @@ public class AwsDatazoneGlossaryTerm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlossaryIdentifier is required")]
     public required TerraformProperty<string> GlossaryIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("glossary_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("glossary_identifier");
         set => this.WithProperty("glossary_identifier", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsDatazoneGlossaryTerm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

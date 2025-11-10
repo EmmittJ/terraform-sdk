@@ -72,7 +72,7 @@ public class AwsImagebuilderComponent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsImagebuilderComponent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Platform is required")]
     public required TerraformProperty<string> Platform
     {
-        get => GetProperty<TerraformProperty<string>>("platform");
+        get => GetRequiredProperty<TerraformProperty<string>>("platform");
         set => this.WithProperty("platform", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsImagebuilderComponent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

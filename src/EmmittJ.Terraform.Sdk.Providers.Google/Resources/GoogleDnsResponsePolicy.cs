@@ -16,7 +16,7 @@ public class GoogleDnsResponsePolicyGkeClustersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GkeClusterName is required")]
     public required TerraformProperty<string> GkeClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("gke_cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("gke_cluster_name");
         set => WithProperty("gke_cluster_name", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleDnsResponsePolicyNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformProperty<string> NetworkUrl
     {
-        get => GetProperty<TerraformProperty<string>>("network_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_url");
         set => WithProperty("network_url", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleDnsResponsePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponsePolicyName is required")]
     public required TerraformProperty<string> ResponsePolicyName
     {
-        get => GetProperty<TerraformProperty<string>>("response_policy_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("response_policy_name");
         set => this.WithProperty("response_policy_name", value);
     }
 

@@ -14,7 +14,7 @@ public class AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationType is required")]
     public required TerraformProperty<string> ConfigurationType
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_type");
         set => WithProperty("configuration_type", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsSecurityhubOrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnable is required")]
     public required TerraformProperty<bool> AutoEnable
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_enable");
+        get => GetRequiredProperty<TerraformProperty<bool>>("auto_enable");
         set => this.WithProperty("auto_enable", value);
     }
 

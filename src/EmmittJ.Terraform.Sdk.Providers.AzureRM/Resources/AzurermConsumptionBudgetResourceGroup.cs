@@ -58,7 +58,7 @@ public class AzurermConsumptionBudgetResourceGroupNotificationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
     public required TerraformProperty<string> Operator
     {
-        get => GetProperty<TerraformProperty<string>>("operator");
+        get => GetRequiredProperty<TerraformProperty<string>>("operator");
         set => WithProperty("operator", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermConsumptionBudgetResourceGroupNotificationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformProperty<double> Threshold
     {
-        get => GetProperty<TerraformProperty<double>>("threshold");
+        get => GetRequiredProperty<TerraformProperty<double>>("threshold");
         set => WithProperty("threshold", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermConsumptionBudgetResourceGroupTimePeriodBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDate is required")]
     public required TerraformProperty<string> StartDate
     {
-        get => GetProperty<TerraformProperty<string>>("start_date");
+        get => GetRequiredProperty<TerraformProperty<string>>("start_date");
         set => WithProperty("start_date", value);
     }
 
@@ -175,7 +175,7 @@ public class AzurermConsumptionBudgetResourceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     public required TerraformProperty<double> Amount
     {
-        get => GetProperty<TerraformProperty<double>>("amount");
+        get => GetRequiredProperty<TerraformProperty<double>>("amount");
         set => this.WithProperty("amount", value);
     }
 
@@ -203,7 +203,7 @@ public class AzurermConsumptionBudgetResourceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -213,7 +213,7 @@ public class AzurermConsumptionBudgetResourceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     public required TerraformProperty<string> ResourceGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_id");
         set => this.WithProperty("resource_group_id", value);
     }
 

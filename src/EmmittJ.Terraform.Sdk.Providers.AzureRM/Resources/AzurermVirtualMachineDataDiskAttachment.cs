@@ -66,7 +66,7 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
     public required TerraformProperty<string> Caching
     {
-        get => GetProperty<TerraformProperty<string>>("caching");
+        get => GetRequiredProperty<TerraformProperty<string>>("caching");
         set => this.WithProperty("caching", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
     public required TerraformProperty<double> Lun
     {
-        get => GetProperty<TerraformProperty<double>>("lun");
+        get => GetRequiredProperty<TerraformProperty<double>>("lun");
         set => this.WithProperty("lun", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedDiskId is required")]
     public required TerraformProperty<string> ManagedDiskId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_disk_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_disk_id");
         set => this.WithProperty("managed_disk_id", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
     }
 

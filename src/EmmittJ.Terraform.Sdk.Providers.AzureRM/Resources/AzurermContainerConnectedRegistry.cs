@@ -14,7 +14,7 @@ public class AzurermContainerConnectedRegistryNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => WithProperty("action", value);
     }
 
@@ -33,7 +33,7 @@ public class AzurermContainerConnectedRegistryNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     public required TerraformProperty<string> ContainerRegistryId
     {
-        get => GetProperty<TerraformProperty<string>>("container_registry_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_registry_id");
         set => this.WithProperty("container_registry_id", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -204,7 +204,7 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SyncTokenId is required")]
     public required TerraformProperty<string> SyncTokenId
     {
-        get => GetProperty<TerraformProperty<string>>("sync_token_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("sync_token_id");
         set => this.WithProperty("sync_token_id", value);
     }
 

@@ -23,7 +23,7 @@ public class GoogleCloudfunctions2FunctionIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudFunction is required")]
     public required TerraformProperty<string> CloudFunction
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_function");
+        get => GetRequiredProperty<TerraformProperty<string>>("cloud_function");
         set => this.WithProperty("cloud_function", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleCloudfunctions2FunctionIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

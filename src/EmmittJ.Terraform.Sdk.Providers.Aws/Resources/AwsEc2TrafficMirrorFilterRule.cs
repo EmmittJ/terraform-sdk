@@ -85,7 +85,7 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
     public required TerraformProperty<string> DestinationCidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("destination_cidr_block");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_cidr_block");
         set => this.WithProperty("destination_cidr_block", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleAction is required")]
     public required TerraformProperty<string> RuleAction
     {
-        get => GetProperty<TerraformProperty<string>>("rule_action");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_action");
         set => this.WithProperty("rule_action", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformProperty<double> RuleNumber
     {
-        get => GetProperty<TerraformProperty<double>>("rule_number");
+        get => GetRequiredProperty<TerraformProperty<double>>("rule_number");
         set => this.WithProperty("rule_number", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceCidrBlock is required")]
     public required TerraformProperty<string> SourceCidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("source_cidr_block");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_cidr_block");
         set => this.WithProperty("source_cidr_block", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficDirection is required")]
     public required TerraformProperty<string> TrafficDirection
     {
-        get => GetProperty<TerraformProperty<string>>("traffic_direction");
+        get => GetRequiredProperty<TerraformProperty<string>>("traffic_direction");
         set => this.WithProperty("traffic_direction", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficMirrorFilterId is required")]
     public required TerraformProperty<string> TrafficMirrorFilterId
     {
-        get => GetProperty<TerraformProperty<string>>("traffic_mirror_filter_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("traffic_mirror_filter_id");
         set => this.WithProperty("traffic_mirror_filter_id", value);
     }
 

@@ -41,7 +41,7 @@ public class GoogleStorageInsightsDatasetConfigDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetConfigId is required")]
     public required TerraformProperty<string> DatasetConfigId
     {
-        get => GetProperty<TerraformProperty<string>>("dataset_config_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dataset_config_id");
         set => this.WithProperty("dataset_config_id", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleStorageInsightsDatasetConfigDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

@@ -32,7 +32,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCount is required")]
     public required TerraformProperty<double> CpuCoreCount
     {
-        get => GetProperty<TerraformProperty<double>>("cpu_core_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("cpu_core_count");
         set => WithProperty("cpu_core_count", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
     public required TerraformProperty<string> LicenseType
     {
-        get => GetProperty<TerraformProperty<string>>("license_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("license_type");
         set => WithProperty("license_type", value);
     }
 
@@ -396,7 +396,7 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
     public required TerraformProperty<string> CloudVmClusterId
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_vm_cluster_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cloud_vm_cluster_id");
         set => this.WithProperty("cloud_vm_cluster_id", value);
     }
 
@@ -426,7 +426,7 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExadataInfrastructure is required")]
     public required TerraformProperty<string> ExadataInfrastructure
     {
-        get => GetProperty<TerraformProperty<string>>("exadata_infrastructure");
+        get => GetRequiredProperty<TerraformProperty<string>>("exadata_infrastructure");
         set => this.WithProperty("exadata_infrastructure", value);
     }
 
@@ -457,7 +457,7 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

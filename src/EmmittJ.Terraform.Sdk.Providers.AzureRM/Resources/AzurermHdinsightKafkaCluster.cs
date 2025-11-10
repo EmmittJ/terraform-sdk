@@ -14,7 +14,7 @@ public class AzurermHdinsightKafkaClusterComponentVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kafka is required")]
     public required TerraformProperty<string> Kafka
     {
-        get => GetProperty<TerraformProperty<string>>("kafka");
+        get => GetRequiredProperty<TerraformProperty<string>>("kafka");
         set => WithProperty("kafka", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermHdinsightKafkaClusterExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => WithProperty("log_analytics_workspace_id", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermHdinsightKafkaClusterExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
     public required TerraformProperty<string> PrimaryKey
     {
-        get => GetProperty<TerraformProperty<string>>("primary_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("primary_key");
         set => WithProperty("primary_key", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermHdinsightKafkaClusterGatewayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformProperty<string> Password
     {
-        get => GetProperty<TerraformProperty<string>>("password");
+        get => GetRequiredProperty<TerraformProperty<string>>("password");
         set => WithProperty("password", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermHdinsightKafkaClusterGatewayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformProperty<string> Username
     {
-        get => GetProperty<TerraformProperty<string>>("username");
+        get => GetRequiredProperty<TerraformProperty<string>>("username");
         set => WithProperty("username", value);
     }
 
@@ -166,7 +166,7 @@ public class AzurermHdinsightKafkaClusterMonitorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => WithProperty("log_analytics_workspace_id", value);
     }
 
@@ -176,7 +176,7 @@ public class AzurermHdinsightKafkaClusterMonitorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
     public required TerraformProperty<string> PrimaryKey
     {
-        get => GetProperty<TerraformProperty<string>>("primary_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("primary_key");
         set => WithProperty("primary_key", value);
     }
 
@@ -220,7 +220,7 @@ public class AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformProperty<string> GroupId
     {
-        get => GetProperty<TerraformProperty<string>>("group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("group_id");
         set => WithProperty("group_id", value);
     }
 
@@ -230,7 +230,7 @@ public class AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -248,7 +248,7 @@ public class AzurermHdinsightKafkaClusterRestProxyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
     public required TerraformProperty<string> SecurityGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("security_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_group_id");
         set => WithProperty("security_group_id", value);
     }
 
@@ -258,7 +258,7 @@ public class AzurermHdinsightKafkaClusterRestProxyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupName is required")]
     public required TerraformProperty<string> SecurityGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("security_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_group_name");
         set => WithProperty("security_group_name", value);
     }
 
@@ -284,7 +284,7 @@ public class AzurermHdinsightKafkaClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AaddsResourceId is required")]
     public required TerraformProperty<string> AaddsResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("aadds_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("aadds_resource_id");
         set => WithProperty("aadds_resource_id", value);
     }
 
@@ -303,7 +303,7 @@ public class AzurermHdinsightKafkaClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => WithProperty("domain_name", value);
     }
 
@@ -313,7 +313,7 @@ public class AzurermHdinsightKafkaClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUserPassword is required")]
     public required TerraformProperty<string> DomainUserPassword
     {
-        get => GetProperty<TerraformProperty<string>>("domain_user_password");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_user_password");
         set => WithProperty("domain_user_password", value);
     }
 
@@ -323,7 +323,7 @@ public class AzurermHdinsightKafkaClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUsername is required")]
     public required TerraformProperty<string> DomainUsername
     {
-        get => GetProperty<TerraformProperty<string>>("domain_username");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_username");
         set => WithProperty("domain_username", value);
     }
 
@@ -343,7 +343,7 @@ public class AzurermHdinsightKafkaClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MsiResourceId is required")]
     public required TerraformProperty<string> MsiResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("msi_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("msi_resource_id");
         set => WithProperty("msi_resource_id", value);
     }
 
@@ -361,7 +361,7 @@ public class AzurermHdinsightKafkaClusterStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
     public required TerraformProperty<bool> IsDefault
     {
-        get => GetProperty<TerraformProperty<bool>>("is_default");
+        get => GetRequiredProperty<TerraformProperty<bool>>("is_default");
         set => WithProperty("is_default", value);
     }
 
@@ -371,7 +371,7 @@ public class AzurermHdinsightKafkaClusterStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     public required TerraformProperty<string> StorageAccountKey
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_key");
         set => WithProperty("storage_account_key", value);
     }
 
@@ -381,7 +381,7 @@ public class AzurermHdinsightKafkaClusterStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
     public required TerraformProperty<string> StorageContainerId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_container_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_id");
         set => WithProperty("storage_container_id", value);
     }
 
@@ -408,7 +408,7 @@ public class AzurermHdinsightKafkaClusterStorageAccountGen2Block : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilesystemId is required")]
     public required TerraformProperty<string> FilesystemId
     {
-        get => GetProperty<TerraformProperty<string>>("filesystem_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("filesystem_id");
         set => WithProperty("filesystem_id", value);
     }
 
@@ -418,7 +418,7 @@ public class AzurermHdinsightKafkaClusterStorageAccountGen2Block : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
     public required TerraformProperty<bool> IsDefault
     {
-        get => GetProperty<TerraformProperty<bool>>("is_default");
+        get => GetRequiredProperty<TerraformProperty<bool>>("is_default");
         set => WithProperty("is_default", value);
     }
 
@@ -428,7 +428,7 @@ public class AzurermHdinsightKafkaClusterStorageAccountGen2Block : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityResourceId is required")]
     public required TerraformProperty<string> ManagedIdentityResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_identity_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_identity_resource_id");
         set => WithProperty("managed_identity_resource_id", value);
     }
 
@@ -438,7 +438,7 @@ public class AzurermHdinsightKafkaClusterStorageAccountGen2Block : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageResourceId is required")]
     public required TerraformProperty<string> StorageResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_resource_id");
         set => WithProperty("storage_resource_id", value);
     }
 
@@ -512,7 +512,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
     public required TerraformProperty<string> ClusterVersion
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_version");
         set => this.WithProperty("cluster_version", value);
     }
 
@@ -540,7 +540,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -550,7 +550,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -560,7 +560,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -579,7 +579,7 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("tier");
         set => this.WithProperty("tier", value);
     }
 

@@ -68,7 +68,7 @@ public class AzurermDataShareDatasetKustoDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoDatabaseId is required")]
     public required TerraformProperty<string> KustoDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("kusto_database_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("kusto_database_id");
         set => this.WithProperty("kusto_database_id", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermDataShareDatasetKustoDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermDataShareDatasetKustoDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareId is required")]
     public required TerraformProperty<string> ShareId
     {
-        get => GetProperty<TerraformProperty<string>>("share_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("share_id");
         set => this.WithProperty("share_id", value);
     }
 

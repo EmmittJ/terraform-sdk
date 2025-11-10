@@ -14,7 +14,7 @@ public class AzurermVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretUrl is required")]
     public required TerraformProperty<string> SecretUrl
     {
-        get => GetProperty<TerraformProperty<string>>("secret_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("secret_url");
         set => WithProperty("secret_url", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformProperty<string> SourceVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("source_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_vault_id");
         set => WithProperty("source_vault_id", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermVirtualMachineScaleSetExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -168,7 +168,7 @@ public class AzurermVirtualMachineScaleSetExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => this.WithProperty("publisher", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermVirtualMachineScaleSetExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
@@ -197,7 +197,7 @@ public class AzurermVirtualMachineScaleSetExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeHandlerVersion is required")]
     public required TerraformProperty<string> TypeHandlerVersion
     {
-        get => GetProperty<TerraformProperty<string>>("type_handler_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("type_handler_version");
         set => this.WithProperty("type_handler_version", value);
     }
 
@@ -207,7 +207,7 @@ public class AzurermVirtualMachineScaleSetExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineScaleSetId is required")]
     public required TerraformProperty<string> VirtualMachineScaleSetId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_machine_scale_set_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_scale_set_id");
         set => this.WithProperty("virtual_machine_scale_set_id", value);
     }
 

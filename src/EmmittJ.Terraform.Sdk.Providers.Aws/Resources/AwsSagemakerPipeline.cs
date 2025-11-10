@@ -14,7 +14,7 @@ public class AwsSagemakerPipelineParallelismConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxParallelExecutionSteps is required")]
     public required TerraformProperty<double> MaxParallelExecutionSteps
     {
-        get => GetProperty<TerraformProperty<double>>("max_parallel_execution_steps");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_parallel_execution_steps");
         set => WithProperty("max_parallel_execution_steps", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => WithProperty("bucket", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectKey is required")]
     public required TerraformProperty<string> ObjectKey
     {
-        get => GetProperty<TerraformProperty<string>>("object_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("object_key");
         set => WithProperty("object_key", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsSagemakerPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineDisplayName is required")]
     public required TerraformProperty<string> PipelineDisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("pipeline_display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("pipeline_display_name");
         set => this.WithProperty("pipeline_display_name", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsSagemakerPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineName is required")]
     public required TerraformProperty<string> PipelineName
     {
-        get => GetProperty<TerraformProperty<string>>("pipeline_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("pipeline_name");
         set => this.WithProperty("pipeline_name", value);
     }
 

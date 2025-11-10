@@ -66,7 +66,7 @@ public class AzurermSynapseWorkspaceKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformProperty<bool> Active
     {
-        get => GetProperty<TerraformProperty<bool>>("active");
+        get => GetRequiredProperty<TerraformProperty<bool>>("active");
         set => this.WithProperty("active", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSynapseWorkspaceKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerManagedKeyName is required")]
     public required TerraformProperty<string> CustomerManagedKeyName
     {
-        get => GetProperty<TerraformProperty<string>>("customer_managed_key_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("customer_managed_key_name");
         set => this.WithProperty("customer_managed_key_name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermSynapseWorkspaceKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
     }
 

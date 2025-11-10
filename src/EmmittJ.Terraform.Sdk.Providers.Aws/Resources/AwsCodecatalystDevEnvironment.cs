@@ -40,7 +40,7 @@ public class AwsCodecatalystDevEnvironmentPersistentStorageBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformProperty<double> Size
     {
-        get => GetProperty<TerraformProperty<double>>("size");
+        get => GetRequiredProperty<TerraformProperty<double>>("size");
         set => WithProperty("size", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsCodecatalystDevEnvironmentRepositoriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformProperty<string> RepositoryName
     {
-        get => GetProperty<TerraformProperty<string>>("repository_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("repository_name");
         set => WithProperty("repository_name", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformProperty<string> InstanceType
     {
-        get => GetProperty<TerraformProperty<string>>("instance_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformProperty<string> ProjectName
     {
-        get => GetProperty<TerraformProperty<string>>("project_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("project_name");
         set => this.WithProperty("project_name", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
     public required TerraformProperty<string> SpaceName
     {
-        get => GetProperty<TerraformProperty<string>>("space_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("space_name");
         set => this.WithProperty("space_name", value);
     }
 

@@ -98,7 +98,7 @@ public class AwsDaxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsDaxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformProperty<string> IamRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsDaxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformProperty<string> NodeType
     {
-        get => GetProperty<TerraformProperty<string>>("node_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("node_type");
         set => this.WithProperty("node_type", value);
     }
 
@@ -182,7 +182,7 @@ public class AwsDaxCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFactor is required")]
     public required TerraformProperty<double> ReplicationFactor
     {
-        get => GetProperty<TerraformProperty<double>>("replication_factor");
+        get => GetRequiredProperty<TerraformProperty<double>>("replication_factor");
         set => this.WithProperty("replication_factor", value);
     }
 

@@ -51,7 +51,7 @@ public class AwsDefaultRouteTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRouteTableId is required")]
     public required TerraformProperty<string> DefaultRouteTableId
     {
-        get => GetProperty<TerraformProperty<string>>("default_route_table_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_route_table_id");
         set => this.WithProperty("default_route_table_id", value);
     }
 

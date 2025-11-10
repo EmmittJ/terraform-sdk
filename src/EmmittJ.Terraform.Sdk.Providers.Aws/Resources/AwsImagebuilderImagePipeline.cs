@@ -66,7 +66,7 @@ public class AwsImagebuilderImagePipelineScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformProperty<string> ScheduleExpression
     {
-        get => GetProperty<TerraformProperty<string>>("schedule_expression");
+        get => GetRequiredProperty<TerraformProperty<string>>("schedule_expression");
         set => WithProperty("schedule_expression", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsImagebuilderImagePipelineWorkflowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkflowArn is required")]
     public required TerraformProperty<string> WorkflowArn
     {
-        get => GetProperty<TerraformProperty<string>>("workflow_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("workflow_arn");
         set => WithProperty("workflow_arn", value);
     }
 
@@ -207,7 +207,7 @@ public class AwsImagebuilderImagePipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureConfigurationArn is required")]
     public required TerraformProperty<string> InfrastructureConfigurationArn
     {
-        get => GetProperty<TerraformProperty<string>>("infrastructure_configuration_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("infrastructure_configuration_arn");
         set => this.WithProperty("infrastructure_configuration_arn", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsImagebuilderImagePipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

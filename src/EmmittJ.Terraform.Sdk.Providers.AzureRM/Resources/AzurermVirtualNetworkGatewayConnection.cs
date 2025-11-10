@@ -14,7 +14,7 @@ public class AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Primary is required")]
     public required TerraformProperty<string> Primary
     {
-        get => GetProperty<TerraformProperty<string>>("primary");
+        get => GetRequiredProperty<TerraformProperty<string>>("primary");
         set => WithProperty("primary", value);
     }
 
@@ -41,7 +41,7 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DhGroup is required")]
     public required TerraformProperty<string> DhGroup
     {
-        get => GetProperty<TerraformProperty<string>>("dh_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("dh_group");
         set => WithProperty("dh_group", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IkeEncryption is required")]
     public required TerraformProperty<string> IkeEncryption
     {
-        get => GetProperty<TerraformProperty<string>>("ike_encryption");
+        get => GetRequiredProperty<TerraformProperty<string>>("ike_encryption");
         set => WithProperty("ike_encryption", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IkeIntegrity is required")]
     public required TerraformProperty<string> IkeIntegrity
     {
-        get => GetProperty<TerraformProperty<string>>("ike_integrity");
+        get => GetRequiredProperty<TerraformProperty<string>>("ike_integrity");
         set => WithProperty("ike_integrity", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpsecEncryption is required")]
     public required TerraformProperty<string> IpsecEncryption
     {
-        get => GetProperty<TerraformProperty<string>>("ipsec_encryption");
+        get => GetRequiredProperty<TerraformProperty<string>>("ipsec_encryption");
         set => WithProperty("ipsec_encryption", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpsecIntegrity is required")]
     public required TerraformProperty<string> IpsecIntegrity
     {
-        get => GetProperty<TerraformProperty<string>>("ipsec_integrity");
+        get => GetRequiredProperty<TerraformProperty<string>>("ipsec_integrity");
         set => WithProperty("ipsec_integrity", value);
     }
 
@@ -91,7 +91,7 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfsGroup is required")]
     public required TerraformProperty<string> PfsGroup
     {
-        get => GetProperty<TerraformProperty<string>>("pfs_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("pfs_group");
         set => WithProperty("pfs_group", value);
     }
 
@@ -316,7 +316,7 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -326,7 +326,7 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -354,7 +354,7 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -391,7 +391,7 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
@@ -410,7 +410,7 @@ public class AzurermVirtualNetworkGatewayConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkGatewayId is required")]
     public required TerraformProperty<string> VirtualNetworkGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_gateway_id");
         set => this.WithProperty("virtual_network_gateway_id", value);
     }
 

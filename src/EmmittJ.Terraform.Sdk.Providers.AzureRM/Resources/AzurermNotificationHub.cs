@@ -14,7 +14,7 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationMode is required")]
     public required TerraformProperty<string> ApplicationMode
     {
-        get => GetProperty<TerraformProperty<string>>("application_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_mode");
         set => WithProperty("application_mode", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
     public required TerraformProperty<string> BundleId
     {
-        get => GetProperty<TerraformProperty<string>>("bundle_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("bundle_id");
         set => WithProperty("bundle_id", value);
     }
 
@@ -34,7 +34,7 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformProperty<string> KeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_id");
         set => WithProperty("key_id", value);
     }
 
@@ -44,7 +44,7 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TeamId is required")]
     public required TerraformProperty<string> TeamId
     {
-        get => GetProperty<TerraformProperty<string>>("team_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("team_id");
         set => WithProperty("team_id", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformProperty<string> Token
     {
-        get => GetProperty<TerraformProperty<string>>("token");
+        get => GetRequiredProperty<TerraformProperty<string>>("token");
         set => WithProperty("token", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermNotificationHubBrowserCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     public required TerraformProperty<string> Subject
     {
-        get => GetProperty<TerraformProperty<string>>("subject");
+        get => GetRequiredProperty<TerraformProperty<string>>("subject");
         set => WithProperty("subject", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermNotificationHubBrowserCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VapidPrivateKey is required")]
     public required TerraformProperty<string> VapidPrivateKey
     {
-        get => GetProperty<TerraformProperty<string>>("vapid_private_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("vapid_private_key");
         set => WithProperty("vapid_private_key", value);
     }
 
@@ -92,7 +92,7 @@ public class AzurermNotificationHubBrowserCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VapidPublicKey is required")]
     public required TerraformProperty<string> VapidPublicKey
     {
-        get => GetProperty<TerraformProperty<string>>("vapid_public_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("vapid_public_key");
         set => WithProperty("vapid_public_key", value);
     }
 
@@ -110,7 +110,7 @@ public class AzurermNotificationHubGcmCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformProperty<string> ApiKey
     {
-        get => GetProperty<TerraformProperty<string>>("api_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_key");
         set => WithProperty("api_key", value);
     }
 
@@ -190,7 +190,7 @@ public class AzurermNotificationHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -200,7 +200,7 @@ public class AzurermNotificationHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -210,7 +210,7 @@ public class AzurermNotificationHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformProperty<string> NamespaceName
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace_name");
         set => this.WithProperty("namespace_name", value);
     }
 
@@ -220,7 +220,7 @@ public class AzurermNotificationHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

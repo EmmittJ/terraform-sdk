@@ -23,7 +23,7 @@ public class AwsEc2SubnetCidrReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrBlock is required")]
     public required TerraformProperty<string> CidrBlock
     {
-        get => GetProperty<TerraformProperty<string>>("cidr_block");
+        get => GetRequiredProperty<TerraformProperty<string>>("cidr_block");
         set => this.WithProperty("cidr_block", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsEc2SubnetCidrReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservationType is required")]
     public required TerraformProperty<string> ReservationType
     {
-        get => GetProperty<TerraformProperty<string>>("reservation_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("reservation_type");
         set => this.WithProperty("reservation_type", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsEc2SubnetCidrReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

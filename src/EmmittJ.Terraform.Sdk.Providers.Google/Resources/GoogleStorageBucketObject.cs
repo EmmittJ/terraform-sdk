@@ -23,7 +23,7 @@ public class GoogleStorageBucketObjectCustomerEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionKey is required")]
     public required TerraformProperty<string> EncryptionKey
     {
-        get => GetProperty<TerraformProperty<string>>("encryption_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("encryption_key");
         set => WithProperty("encryption_key", value);
     }
 
@@ -41,7 +41,7 @@ public class GoogleStorageBucketObjectRetentionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("mode");
         set => WithProperty("mode", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleStorageBucketObjectRetentionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetainUntilTime is required")]
     public required TerraformProperty<string> RetainUntilTime
     {
-        get => GetProperty<TerraformProperty<string>>("retain_until_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("retain_until_time");
         set => WithProperty("retain_until_time", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleStorageBucketObject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -247,7 +247,7 @@ public class GoogleStorageBucketObject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

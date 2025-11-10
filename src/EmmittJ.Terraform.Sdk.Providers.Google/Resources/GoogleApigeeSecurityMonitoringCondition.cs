@@ -71,7 +71,7 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionId is required")]
     public required TerraformProperty<string> ConditionId
     {
-        get => GetProperty<TerraformProperty<string>>("condition_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("condition_id");
         set => this.WithProperty("condition_id", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetProperty<TerraformProperty<string>>("org_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Profile is required")]
     public required TerraformProperty<string> Profile
     {
-        get => GetProperty<TerraformProperty<string>>("profile");
+        get => GetRequiredProperty<TerraformProperty<string>>("profile");
         set => this.WithProperty("profile", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

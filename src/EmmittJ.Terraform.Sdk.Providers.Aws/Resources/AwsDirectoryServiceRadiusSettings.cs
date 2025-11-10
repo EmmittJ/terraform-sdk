@@ -48,7 +48,7 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationProtocol is required")]
     public required TerraformProperty<string> AuthenticationProtocol
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication_protocol");
         set => this.WithProperty("authentication_protocol", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformProperty<string> DirectoryId
     {
-        get => GetProperty<TerraformProperty<string>>("directory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("directory_id");
         set => this.WithProperty("directory_id", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayLabel is required")]
     public required TerraformProperty<string> DisplayLabel
     {
-        get => GetProperty<TerraformProperty<string>>("display_label");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_label");
         set => this.WithProperty("display_label", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusPort is required")]
     public required TerraformProperty<double> RadiusPort
     {
-        get => GetProperty<TerraformProperty<double>>("radius_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("radius_port");
         set => this.WithProperty("radius_port", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusRetries is required")]
     public required TerraformProperty<double> RadiusRetries
     {
-        get => GetProperty<TerraformProperty<double>>("radius_retries");
+        get => GetRequiredProperty<TerraformProperty<double>>("radius_retries");
         set => this.WithProperty("radius_retries", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusTimeout is required")]
     public required TerraformProperty<double> RadiusTimeout
     {
-        get => GetProperty<TerraformProperty<double>>("radius_timeout");
+        get => GetRequiredProperty<TerraformProperty<double>>("radius_timeout");
         set => this.WithProperty("radius_timeout", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedSecret is required")]
     public required TerraformProperty<string> SharedSecret
     {
-        get => GetProperty<TerraformProperty<string>>("shared_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("shared_secret");
         set => this.WithProperty("shared_secret", value);
     }
 

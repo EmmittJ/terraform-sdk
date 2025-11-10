@@ -94,7 +94,7 @@ public class AzurermMonitorScheduledQueryRulesAlertTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
     public required TerraformProperty<string> Operator
     {
-        get => GetProperty<TerraformProperty<string>>("operator");
+        get => GetRequiredProperty<TerraformProperty<string>>("operator");
         set => WithProperty("operator", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermMonitorScheduledQueryRulesAlertTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformProperty<double> Threshold
     {
-        get => GetProperty<TerraformProperty<double>>("threshold");
+        get => GetRequiredProperty<TerraformProperty<double>>("threshold");
         set => WithProperty("threshold", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     public required TerraformProperty<string> DataSourceId
     {
-        get => GetProperty<TerraformProperty<string>>("data_source_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_source_id");
         set => this.WithProperty("data_source_id", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<double> Frequency
     {
-        get => GetProperty<TerraformProperty<double>>("frequency");
+        get => GetRequiredProperty<TerraformProperty<double>>("frequency");
         set => this.WithProperty("frequency", value);
     }
 
@@ -196,7 +196,7 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -206,7 +206,7 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -216,7 +216,7 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformProperty<string> Query
     {
-        get => GetProperty<TerraformProperty<string>>("query");
+        get => GetRequiredProperty<TerraformProperty<string>>("query");
         set => this.WithProperty("query", value);
     }
 
@@ -235,7 +235,7 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -272,7 +272,7 @@ public class AzurermMonitorScheduledQueryRulesAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeWindow is required")]
     public required TerraformProperty<double> TimeWindow
     {
-        get => GetProperty<TerraformProperty<double>>("time_window");
+        get => GetRequiredProperty<TerraformProperty<double>>("time_window");
         set => this.WithProperty("time_window", value);
     }
 

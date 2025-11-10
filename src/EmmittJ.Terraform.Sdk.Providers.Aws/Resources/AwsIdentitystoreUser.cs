@@ -129,7 +129,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FamilyName is required")]
     public required TerraformProperty<string> FamilyName
     {
-        get => GetProperty<TerraformProperty<string>>("family_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("family_name");
         set => WithProperty("family_name", value);
     }
 
@@ -148,7 +148,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GivenName is required")]
     public required TerraformProperty<string> GivenName
     {
-        get => GetProperty<TerraformProperty<string>>("given_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("given_name");
         set => WithProperty("given_name", value);
     }
 
@@ -239,7 +239,7 @@ public class AwsIdentitystoreUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -258,7 +258,7 @@ public class AwsIdentitystoreUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
     public required TerraformProperty<string> IdentityStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("identity_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_store_id");
         set => this.WithProperty("identity_store_id", value);
     }
 
@@ -331,7 +331,7 @@ public class AwsIdentitystoreUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformProperty<string> UserName
     {
-        get => GetProperty<TerraformProperty<string>>("user_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 

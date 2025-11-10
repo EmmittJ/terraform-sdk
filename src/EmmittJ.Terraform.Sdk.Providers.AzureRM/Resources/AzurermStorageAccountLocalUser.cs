@@ -14,7 +14,7 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceName is required")]
     public required TerraformProperty<string> ResourceName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_name");
         set => WithProperty("resource_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformProperty<string> Service
     {
-        get => GetProperty<TerraformProperty<string>>("service");
+        get => GetRequiredProperty<TerraformProperty<string>>("service");
         set => WithProperty("service", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 

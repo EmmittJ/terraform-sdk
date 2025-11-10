@@ -33,7 +33,7 @@ public class AwsAuditmanagerFrameworkShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationAccount is required")]
     public required TerraformProperty<string> DestinationAccount
     {
-        get => GetProperty<TerraformProperty<string>>("destination_account");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_account");
         set => this.WithProperty("destination_account", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsAuditmanagerFrameworkShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRegion is required")]
     public required TerraformProperty<string> DestinationRegion
     {
-        get => GetProperty<TerraformProperty<string>>("destination_region");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_region");
         set => this.WithProperty("destination_region", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsAuditmanagerFrameworkShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkId is required")]
     public required TerraformProperty<string> FrameworkId
     {
-        get => GetProperty<TerraformProperty<string>>("framework_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("framework_id");
         set => this.WithProperty("framework_id", value);
     }
 

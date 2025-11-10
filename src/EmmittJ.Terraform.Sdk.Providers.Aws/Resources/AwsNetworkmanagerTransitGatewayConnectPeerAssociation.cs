@@ -48,7 +48,7 @@ public class AwsNetworkmanagerTransitGatewayConnectPeerAssociation : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
     public required TerraformProperty<string> DeviceId
     {
-        get => GetProperty<TerraformProperty<string>>("device_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_id");
         set => this.WithProperty("device_id", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsNetworkmanagerTransitGatewayConnectPeerAssociation : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformProperty<string> GlobalNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("global_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("global_network_id");
         set => this.WithProperty("global_network_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsNetworkmanagerTransitGatewayConnectPeerAssociation : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayConnectPeerArn is required")]
     public required TerraformProperty<string> TransitGatewayConnectPeerArn
     {
-        get => GetProperty<TerraformProperty<string>>("transit_gateway_connect_peer_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_connect_peer_arn");
         set => this.WithProperty("transit_gateway_connect_peer_arn", value);
     }
 

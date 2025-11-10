@@ -23,7 +23,7 @@ public class AwsCloudwatchDashboard : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DashboardBody is required")]
     public required TerraformProperty<string> DashboardBody
     {
-        get => GetProperty<TerraformProperty<string>>("dashboard_body");
+        get => GetRequiredProperty<TerraformProperty<string>>("dashboard_body");
         set => this.WithProperty("dashboard_body", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsCloudwatchDashboard : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DashboardName is required")]
     public required TerraformProperty<string> DashboardName
     {
-        get => GetProperty<TerraformProperty<string>>("dashboard_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("dashboard_name");
         set => this.WithProperty("dashboard_name", value);
     }
 

@@ -61,7 +61,7 @@ public class AwsRedshiftDataShareConsumerAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareArn is required")]
     public required TerraformProperty<string> DataShareArn
     {
-        get => GetProperty<TerraformProperty<string>>("data_share_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_share_arn");
         set => this.WithProperty("data_share_arn", value);
     }
 

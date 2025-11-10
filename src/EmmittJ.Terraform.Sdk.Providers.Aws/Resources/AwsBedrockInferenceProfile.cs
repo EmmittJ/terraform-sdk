@@ -14,7 +14,7 @@ public class AwsBedrockInferenceProfileModelSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyFrom is required")]
     public required TerraformProperty<string> CopyFrom
     {
-        get => GetProperty<TerraformProperty<string>>("copy_from");
+        get => GetRequiredProperty<TerraformProperty<string>>("copy_from");
         set => WithProperty("copy_from", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsBedrockInferenceProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

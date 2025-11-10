@@ -31,7 +31,7 @@ public class AwsSesv2EmailIdentityMailFromAttributes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailIdentity is required")]
     public required TerraformProperty<string> EmailIdentity
     {
-        get => GetProperty<TerraformProperty<string>>("email_identity");
+        get => GetRequiredProperty<TerraformProperty<string>>("email_identity");
         set => this.WithProperty("email_identity", value);
     }
 

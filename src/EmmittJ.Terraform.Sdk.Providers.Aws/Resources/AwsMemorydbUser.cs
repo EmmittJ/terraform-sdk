@@ -32,7 +32,7 @@ public class AwsMemorydbUserAuthenticationModeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsMemorydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessString is required")]
     public required TerraformProperty<string> AccessString
     {
-        get => GetProperty<TerraformProperty<string>>("access_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_string");
         set => this.WithProperty("access_string", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsMemorydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformProperty<string> UserName
     {
-        get => GetProperty<TerraformProperty<string>>("user_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 

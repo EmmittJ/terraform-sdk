@@ -75,7 +75,7 @@ public class AzurermVirtualHubIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermVirtualHubIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
     public required TerraformProperty<string> PublicIpAddressId
     {
-        get => GetProperty<TerraformProperty<string>>("public_ip_address_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("public_ip_address_id");
         set => this.WithProperty("public_ip_address_id", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermVirtualHubIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermVirtualHubIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformProperty<string> VirtualHubId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_hub_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_hub_id");
         set => this.WithProperty("virtual_hub_id", value);
     }
 

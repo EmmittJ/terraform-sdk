@@ -75,7 +75,7 @@ public class AzurermEventhubNamespaceDisasterRecoveryConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermEventhubNamespaceDisasterRecoveryConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformProperty<string> NamespaceName
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace_name");
         set => this.WithProperty("namespace_name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermEventhubNamespaceDisasterRecoveryConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerNamespaceId is required")]
     public required TerraformProperty<string> PartnerNamespaceId
     {
-        get => GetProperty<TerraformProperty<string>>("partner_namespace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("partner_namespace_id");
         set => this.WithProperty("partner_namespace_id", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermEventhubNamespaceDisasterRecoveryConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

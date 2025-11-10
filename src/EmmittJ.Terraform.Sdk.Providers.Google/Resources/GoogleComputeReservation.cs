@@ -74,7 +74,7 @@ public class GoogleComputeReservationSpecificReservationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     public required TerraformProperty<double> Count
     {
-        get => GetProperty<TerraformProperty<double>>("count");
+        get => GetRequiredProperty<TerraformProperty<double>>("count");
         set => WithProperty("count", value);
     }
 
@@ -193,7 +193,7 @@ public class GoogleComputeReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -223,7 +223,7 @@ public class GoogleComputeReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformProperty<string> Zone
     {
-        get => GetProperty<TerraformProperty<string>>("zone");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

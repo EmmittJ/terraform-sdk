@@ -33,7 +33,7 @@ public class AwsFinspaceKxDataviewSegmentConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformProperty<string> VolumeName
     {
-        get => GetProperty<TerraformProperty<string>>("volume_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("volume_name");
         set => WithProperty("volume_name", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsFinspaceKxDataview : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoUpdate is required")]
     public required TerraformProperty<bool> AutoUpdate
     {
-        get => GetProperty<TerraformProperty<bool>>("auto_update");
+        get => GetRequiredProperty<TerraformProperty<bool>>("auto_update");
         set => this.WithProperty("auto_update", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsFinspaceKxDataview : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzMode is required")]
     public required TerraformProperty<string> AzMode
     {
-        get => GetProperty<TerraformProperty<string>>("az_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("az_mode");
         set => this.WithProperty("az_mode", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsFinspaceKxDataview : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsFinspaceKxDataview : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformProperty<string> EnvironmentId
     {
-        get => GetProperty<TerraformProperty<string>>("environment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsFinspaceKxDataview : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

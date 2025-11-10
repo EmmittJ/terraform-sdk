@@ -41,7 +41,7 @@ public class AwsCloudwatchQueryDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsCloudwatchQueryDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryString is required")]
     public required TerraformProperty<string> QueryString
     {
-        get => GetProperty<TerraformProperty<string>>("query_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("query_string");
         set => this.WithProperty("query_string", value);
     }
 

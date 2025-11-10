@@ -58,7 +58,7 @@ public class GoogleIdentityPlatformDefaultSupportedIdpConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformProperty<string> ClientId
     {
-        get => GetProperty<TerraformProperty<string>>("client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleIdentityPlatformDefaultSupportedIdpConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformProperty<string> ClientSecret
     {
-        get => GetProperty<TerraformProperty<string>>("client_secret");
+        get => GetRequiredProperty<TerraformProperty<string>>("client_secret");
         set => this.WithProperty("client_secret", value);
     }
 
@@ -116,7 +116,7 @@ public class GoogleIdentityPlatformDefaultSupportedIdpConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpId is required")]
     public required TerraformProperty<string> IdpId
     {
-        get => GetProperty<TerraformProperty<string>>("idp_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("idp_id");
         set => this.WithProperty("idp_id", value);
     }
 

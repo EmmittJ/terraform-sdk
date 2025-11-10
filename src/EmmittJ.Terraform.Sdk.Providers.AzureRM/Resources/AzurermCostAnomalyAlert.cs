@@ -66,7 +66,7 @@ public class AzurermCostAnomalyAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermCostAnomalyAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailSubject is required")]
     public required TerraformProperty<string> EmailSubject
     {
-        get => GetProperty<TerraformProperty<string>>("email_subject");
+        get => GetRequiredProperty<TerraformProperty<string>>("email_subject");
         set => this.WithProperty("email_subject", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermCostAnomalyAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

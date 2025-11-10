@@ -45,7 +45,7 @@ public class AzurermDevCenterProjectEnvironmentTypeDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
     public required TerraformProperty<string> DevCenterProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("dev_center_project_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dev_center_project_id");
         set => this.WithProperty("dev_center_project_id", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermDevCenterProjectEnvironmentTypeDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

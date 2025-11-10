@@ -14,7 +14,7 @@ public class AzurermVirtualMachineAdditionalCapabilitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UltraSsdEnabled is required")]
     public required TerraformProperty<bool> UltraSsdEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("ultra_ssd_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("ultra_ssd_enabled");
         set => WithProperty("ultra_ssd_enabled", value);
     }
 
@@ -32,7 +32,7 @@ public class AzurermVirtualMachineBootDiagnosticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermVirtualMachineBootDiagnosticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageUri is required")]
     public required TerraformProperty<string> StorageUri
     {
-        get => GetProperty<TerraformProperty<string>>("storage_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_uri");
         set => WithProperty("storage_uri", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermVirtualMachineIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermVirtualMachineOsProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformProperty<string> AdminUsername
     {
-        get => GetProperty<TerraformProperty<string>>("admin_username");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_username");
         set => WithProperty("admin_username", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermVirtualMachineOsProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputerName is required")]
     public required TerraformProperty<string> ComputerName
     {
-        get => GetProperty<TerraformProperty<string>>("computer_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("computer_name");
         set => WithProperty("computer_name", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermVirtualMachineOsProfileLinuxConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisablePasswordAuthentication is required")]
     public required TerraformProperty<bool> DisablePasswordAuthentication
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_password_authentication");
+        get => GetRequiredProperty<TerraformProperty<bool>>("disable_password_authentication");
         set => WithProperty("disable_password_authentication", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermVirtualMachineOsProfileSecretsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformProperty<string> SourceVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("source_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_vault_id");
         set => WithProperty("source_vault_id", value);
     }
 
@@ -222,7 +222,7 @@ public class AzurermVirtualMachinePlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -232,7 +232,7 @@ public class AzurermVirtualMachinePlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformProperty<string> Product
     {
-        get => GetProperty<TerraformProperty<string>>("product");
+        get => GetRequiredProperty<TerraformProperty<string>>("product");
         set => WithProperty("product", value);
     }
 
@@ -242,7 +242,7 @@ public class AzurermVirtualMachinePlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => WithProperty("publisher", value);
     }
 
@@ -269,7 +269,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
     public required TerraformProperty<string> CreateOption
     {
-        get => GetProperty<TerraformProperty<string>>("create_option");
+        get => GetRequiredProperty<TerraformProperty<string>>("create_option");
         set => WithProperty("create_option", value);
     }
 
@@ -288,7 +288,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
     public required TerraformProperty<double> Lun
     {
-        get => GetProperty<TerraformProperty<double>>("lun");
+        get => GetRequiredProperty<TerraformProperty<double>>("lun");
         set => WithProperty("lun", value);
     }
 
@@ -316,7 +316,7 @@ public class AzurermVirtualMachineStorageDataDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -414,7 +414,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
     public required TerraformProperty<string> CreateOption
     {
-        get => GetProperty<TerraformProperty<string>>("create_option");
+        get => GetRequiredProperty<TerraformProperty<string>>("create_option");
         set => WithProperty("create_option", value);
     }
 
@@ -460,7 +460,7 @@ public class AzurermVirtualMachineStorageOsDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -603,7 +603,7 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -613,7 +613,7 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -651,7 +651,7 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -670,7 +670,7 @@ public class AzurermVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     public required TerraformProperty<string> VmSize
     {
-        get => GetProperty<TerraformProperty<string>>("vm_size");
+        get => GetRequiredProperty<TerraformProperty<string>>("vm_size");
         set => this.WithProperty("vm_size", value);
     }
 

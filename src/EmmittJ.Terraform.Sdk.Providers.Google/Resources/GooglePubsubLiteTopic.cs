@@ -14,7 +14,7 @@ public class GooglePubsubLiteTopicPartitionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     public required TerraformProperty<double> Count
     {
-        get => GetProperty<TerraformProperty<double>>("count");
+        get => GetRequiredProperty<TerraformProperty<double>>("count");
         set => WithProperty("count", value);
     }
 
@@ -51,7 +51,7 @@ public class GooglePubsubLiteTopicRetentionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerPartitionBytes is required")]
     public required TerraformProperty<string> PerPartitionBytes
     {
-        get => GetProperty<TerraformProperty<string>>("per_partition_bytes");
+        get => GetRequiredProperty<TerraformProperty<string>>("per_partition_bytes");
         set => WithProperty("per_partition_bytes", value);
     }
 
@@ -134,7 +134,7 @@ public class GooglePubsubLiteTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

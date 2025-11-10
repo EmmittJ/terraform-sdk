@@ -59,7 +59,7 @@ public class AwsSagemakerHumanTaskUi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanTaskUiName is required")]
     public required TerraformProperty<string> HumanTaskUiName
     {
-        get => GetProperty<TerraformProperty<string>>("human_task_ui_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("human_task_ui_name");
         set => this.WithProperty("human_task_ui_name", value);
     }
 

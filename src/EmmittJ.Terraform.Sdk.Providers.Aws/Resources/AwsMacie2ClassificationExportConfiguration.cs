@@ -14,7 +14,7 @@ public class AwsMacie2ClassificationExportConfigurationS3DestinationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
         set => WithProperty("bucket_name", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsMacie2ClassificationExportConfigurationS3DestinationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformProperty<string> KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_arn");
         set => WithProperty("kms_key_arn", value);
     }
 

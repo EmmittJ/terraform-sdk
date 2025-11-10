@@ -48,7 +48,7 @@ public class AwsLocationTrackerAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerArn is required")]
     public required TerraformProperty<string> ConsumerArn
     {
-        get => GetProperty<TerraformProperty<string>>("consumer_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("consumer_arn");
         set => this.WithProperty("consumer_arn", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsLocationTrackerAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrackerName is required")]
     public required TerraformProperty<string> TrackerName
     {
-        get => GetProperty<TerraformProperty<string>>("tracker_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("tracker_name");
         set => this.WithProperty("tracker_name", value);
     }
 

@@ -118,7 +118,7 @@ public class AwsNeptunegraphGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisionedMemory is required")]
     public required TerraformProperty<double> ProvisionedMemory
     {
-        get => GetProperty<TerraformProperty<double>>("provisioned_memory");
+        get => GetRequiredProperty<TerraformProperty<double>>("provisioned_memory");
         set => this.WithProperty("provisioned_memory", value);
     }
 

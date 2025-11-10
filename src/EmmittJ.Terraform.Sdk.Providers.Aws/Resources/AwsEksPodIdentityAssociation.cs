@@ -27,7 +27,7 @@ public class AwsEksPodIdentityAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformProperty<string> ClusterName
     {
-        get => GetProperty<TerraformProperty<string>>("cluster_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsEksPodIdentityAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     public required TerraformProperty<string> Namespace
     {
-        get => GetProperty<TerraformProperty<string>>("namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace");
         set => this.WithProperty("namespace", value);
     }
 
@@ -65,7 +65,7 @@ public class AwsEksPodIdentityAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsEksPodIdentityAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformProperty<string> ServiceAccount
     {
-        get => GetProperty<TerraformProperty<string>>("service_account");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_account");
         set => this.WithProperty("service_account", value);
     }
 

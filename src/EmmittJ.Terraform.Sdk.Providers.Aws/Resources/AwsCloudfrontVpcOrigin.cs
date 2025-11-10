@@ -49,7 +49,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformProperty<string> Arn
     {
-        get => GetProperty<TerraformProperty<string>>("arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("arn");
         set => WithProperty("arn", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpPort is required")]
     public required TerraformProperty<double> HttpPort
     {
-        get => GetProperty<TerraformProperty<double>>("http_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("http_port");
         set => WithProperty("http_port", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpsPort is required")]
     public required TerraformProperty<double> HttpsPort
     {
-        get => GetProperty<TerraformProperty<double>>("https_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("https_port");
         set => WithProperty("https_port", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginProtocolPolicy is required")]
     public required TerraformProperty<string> OriginProtocolPolicy
     {
-        get => GetProperty<TerraformProperty<string>>("origin_protocol_policy");
+        get => GetRequiredProperty<TerraformProperty<string>>("origin_protocol_policy");
         set => WithProperty("origin_protocol_policy", value);
     }
 

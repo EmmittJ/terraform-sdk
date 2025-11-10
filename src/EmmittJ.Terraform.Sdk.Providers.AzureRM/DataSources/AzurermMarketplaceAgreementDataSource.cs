@@ -51,7 +51,7 @@ public class AzurermMarketplaceAgreementDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformProperty<string> Offer
     {
-        get => GetProperty<TerraformProperty<string>>("offer");
+        get => GetRequiredProperty<TerraformProperty<string>>("offer");
         set => this.WithProperty("offer", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermMarketplaceAgreementDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformProperty<string> Plan
     {
-        get => GetProperty<TerraformProperty<string>>("plan");
+        get => GetRequiredProperty<TerraformProperty<string>>("plan");
         set => this.WithProperty("plan", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermMarketplaceAgreementDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => this.WithProperty("publisher", value);
     }
 

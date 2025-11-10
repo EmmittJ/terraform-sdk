@@ -59,7 +59,7 @@ public class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstanceName is required")]
     public required TerraformProperty<string> SourceInstanceName
     {
-        get => GetProperty<TerraformProperty<string>>("source_instance_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_instance_name");
         set => WithProperty("source_instance_name", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Datasource is required")]
     public required TerraformProperty<string> Datasource
     {
-        get => GetProperty<TerraformProperty<string>>("datasource");
+        get => GetRequiredProperty<TerraformProperty<string>>("datasource");
         set => WithProperty("datasource", value);
     }
 
@@ -282,7 +282,7 @@ public class GoogleSqlDatabaseInstanceRestoreBackupContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRunId is required")]
     public required TerraformProperty<double> BackupRunId
     {
-        get => GetProperty<TerraformProperty<double>>("backup_run_id");
+        get => GetRequiredProperty<TerraformProperty<double>>("backup_run_id");
         set => WithProperty("backup_run_id", value);
     }
 
@@ -462,7 +462,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformProperty<string> Tier
     {
-        get => GetProperty<TerraformProperty<string>>("tier");
+        get => GetRequiredProperty<TerraformProperty<string>>("tier");
         set => WithProperty("tier", value);
     }
 
@@ -572,7 +572,7 @@ public class GoogleSqlDatabaseInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseVersion is required")]
     public required TerraformProperty<string> DatabaseVersion
     {
-        get => GetProperty<TerraformProperty<string>>("database_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_version");
         set => this.WithProperty("database_version", value);
     }
 

@@ -59,7 +59,7 @@ public class AwsDirectoryServiceRegionVpcSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => WithProperty("vpc_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsDirectoryServiceRegion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformProperty<string> DirectoryId
     {
-        get => GetProperty<TerraformProperty<string>>("directory_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("directory_id");
         set => this.WithProperty("directory_id", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsDirectoryServiceRegion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     public required TerraformProperty<string> RegionName
     {
-        get => GetProperty<TerraformProperty<string>>("region_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("region_name");
         set => this.WithProperty("region_name", value);
     }
 

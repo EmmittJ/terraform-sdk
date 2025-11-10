@@ -14,7 +14,7 @@ public class AwsLightsailDistributionCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Behavior is required")]
     public required TerraformProperty<string> Behavior
     {
-        get => GetProperty<TerraformProperty<string>>("behavior");
+        get => GetRequiredProperty<TerraformProperty<string>>("behavior");
         set => WithProperty("behavior", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsLightsailDistributionCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformProperty<string> Path
     {
-        get => GetProperty<TerraformProperty<string>>("path");
+        get => GetRequiredProperty<TerraformProperty<string>>("path");
         set => WithProperty("path", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsLightsailDistributionDefaultCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Behavior is required")]
     public required TerraformProperty<string> Behavior
     {
-        get => GetProperty<TerraformProperty<string>>("behavior");
+        get => GetRequiredProperty<TerraformProperty<string>>("behavior");
         set => WithProperty("behavior", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsLightsailDistributionOriginBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsLightsailDistributionOriginBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     public required TerraformProperty<string> RegionName
     {
-        get => GetProperty<TerraformProperty<string>>("region_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("region_name");
         set => WithProperty("region_name", value);
     }
 
@@ -212,7 +212,7 @@ public class AwsLightsailDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
     public required TerraformProperty<string> BundleId
     {
-        get => GetProperty<TerraformProperty<string>>("bundle_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("bundle_id");
         set => this.WithProperty("bundle_id", value);
     }
 
@@ -258,7 +258,7 @@ public class AwsLightsailDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -66,7 +66,7 @@ public class AzurermApiManagementGlobalSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformProperty<string> ApiManagementName
     {
-        get => GetProperty<TerraformProperty<string>>("api_management_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermApiManagementGlobalSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermApiManagementGlobalSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaId is required")]
     public required TerraformProperty<string> SchemaId
     {
-        get => GetProperty<TerraformProperty<string>>("schema_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("schema_id");
         set => this.WithProperty("schema_id", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermApiManagementGlobalSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermApiManagementGlobalSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);
     }
 

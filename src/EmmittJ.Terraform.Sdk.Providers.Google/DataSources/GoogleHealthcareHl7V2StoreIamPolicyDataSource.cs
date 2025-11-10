@@ -24,7 +24,7 @@ public class GoogleHealthcareHl7V2StoreIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hl7V2StoreId is required")]
     public required TerraformProperty<string> Hl7V2StoreId
     {
-        get => GetProperty<TerraformProperty<string>>("hl7_v2_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("hl7_v2_store_id");
         set => this.WithProperty("hl7_v2_store_id", value);
     }
 

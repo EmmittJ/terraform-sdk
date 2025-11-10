@@ -22,7 +22,7 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformProperty<string> Action
     {
-        get => GetProperty<TerraformProperty<string>>("action");
+        get => GetRequiredProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallDomainListId is required")]
     public required TerraformProperty<string> FirewallDomainListId
     {
-        get => GetProperty<TerraformProperty<string>>("firewall_domain_list_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("firewall_domain_list_id");
         set => this.WithProperty("firewall_domain_list_id", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallRuleGroupId is required")]
     public required TerraformProperty<string> FirewallRuleGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("firewall_rule_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("firewall_rule_group_id");
         set => this.WithProperty("firewall_rule_group_id", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 

@@ -59,7 +59,7 @@ public class AwsKmsGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteePrincipal is required")]
     public required TerraformProperty<string> GranteePrincipal
     {
-        get => GetProperty<TerraformProperty<string>>("grantee_principal");
+        get => GetRequiredProperty<TerraformProperty<string>>("grantee_principal");
         set => this.WithProperty("grantee_principal", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsKmsGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformProperty<string> KeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_id");
         set => this.WithProperty("key_id", value);
     }
 

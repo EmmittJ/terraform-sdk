@@ -27,7 +27,7 @@ public class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecondsToLive is required")]
     public required TerraformProperty<double> SecondsToLive
     {
-        get => GetProperty<TerraformProperty<double>>("seconds_to_live");
+        get => GetRequiredProperty<TerraformProperty<double>>("seconds_to_live");
         set => this.WithProperty("seconds_to_live", value);
     }
 
@@ -56,7 +56,7 @@ public class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountId is required")]
     public required TerraformProperty<string> ServiceAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("service_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_account_id");
         set => this.WithProperty("service_account_id", value);
     }
 
@@ -66,7 +66,7 @@ public class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformProperty<string> WorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

@@ -141,7 +141,7 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformProperty<string> Organization
     {
-        get => GetProperty<TerraformProperty<string>>("organization");
+        get => GetRequiredProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 
@@ -193,7 +193,7 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcFlowLogsConfigId is required")]
     public required TerraformProperty<string> VpcFlowLogsConfigId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_flow_logs_config_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_flow_logs_config_id");
         set => this.WithProperty("vpc_flow_logs_config_id", value);
     }
 

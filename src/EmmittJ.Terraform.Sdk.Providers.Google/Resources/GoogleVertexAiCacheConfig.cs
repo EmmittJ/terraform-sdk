@@ -58,7 +58,7 @@ public class GoogleVertexAiCacheConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisableCache is required")]
     public required TerraformProperty<bool> DisableCache
     {
-        get => GetProperty<TerraformProperty<bool>>("disable_cache");
+        get => GetRequiredProperty<TerraformProperty<bool>>("disable_cache");
         set => this.WithProperty("disable_cache", value);
     }
 

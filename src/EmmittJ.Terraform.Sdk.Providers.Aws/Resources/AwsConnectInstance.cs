@@ -106,7 +106,7 @@ public class AwsConnectInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityManagementType is required")]
     public required TerraformProperty<string> IdentityManagementType
     {
-        get => GetProperty<TerraformProperty<string>>("identity_management_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("identity_management_type");
         set => this.WithProperty("identity_management_type", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsConnectInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InboundCallsEnabled is required")]
     public required TerraformProperty<bool> InboundCallsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("inbound_calls_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("inbound_calls_enabled");
         set => this.WithProperty("inbound_calls_enabled", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsConnectInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutboundCallsEnabled is required")]
     public required TerraformProperty<bool> OutboundCallsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("outbound_calls_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("outbound_calls_enabled");
         set => this.WithProperty("outbound_calls_enabled", value);
     }
 

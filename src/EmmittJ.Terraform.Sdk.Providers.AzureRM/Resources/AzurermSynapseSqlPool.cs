@@ -14,7 +14,7 @@ public class AzurermSynapseSqlPoolRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PointInTime is required")]
     public required TerraformProperty<string> PointInTime
     {
-        get => GetProperty<TerraformProperty<string>>("point_in_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("point_in_time");
         set => WithProperty("point_in_time", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermSynapseSqlPoolRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatabaseId is required")]
     public required TerraformProperty<string> SourceDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("source_database_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_database_id");
         set => WithProperty("source_database_id", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermSynapseSqlPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermSynapseSqlPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformProperty<string> SkuName
     {
-        get => GetProperty<TerraformProperty<string>>("sku_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermSynapseSqlPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
     public required TerraformProperty<string> StorageAccountType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_type");
         set => this.WithProperty("storage_account_type", value);
     }
 
@@ -179,7 +179,7 @@ public class AzurermSynapseSqlPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformProperty<string> SynapseWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
     }
 

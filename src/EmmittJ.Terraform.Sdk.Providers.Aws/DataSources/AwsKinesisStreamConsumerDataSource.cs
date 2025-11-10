@@ -60,7 +60,7 @@ public class AwsKinesisStreamConsumerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
     public required TerraformProperty<string> StreamArn
     {
-        get => GetProperty<TerraformProperty<string>>("stream_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_arn");
         set => this.WithProperty("stream_arn", value);
     }
 

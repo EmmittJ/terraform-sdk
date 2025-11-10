@@ -48,7 +48,7 @@ public class AwsLexv2modelsIntentDialogCodeHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsLexv2modelsIntentInputContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsLexv2modelsIntentKendraConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KendraIndex is required")]
     public required TerraformProperty<string> KendraIndex
     {
-        get => GetProperty<TerraformProperty<string>>("kendra_index");
+        get => GetRequiredProperty<TerraformProperty<string>>("kendra_index");
         set => WithProperty("kendra_index", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsLexv2modelsIntentOutputContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsLexv2modelsIntentOutputContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeToLiveInSeconds is required")]
     public required TerraformProperty<double> TimeToLiveInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("time_to_live_in_seconds");
+        get => GetRequiredProperty<TerraformProperty<double>>("time_to_live_in_seconds");
         set => WithProperty("time_to_live_in_seconds", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsLexv2modelsIntentOutputContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TurnsToLive is required")]
     public required TerraformProperty<double> TurnsToLive
     {
-        get => GetProperty<TerraformProperty<double>>("turns_to_live");
+        get => GetRequiredProperty<TerraformProperty<double>>("turns_to_live");
         set => WithProperty("turns_to_live", value);
     }
 
@@ -193,7 +193,7 @@ public class AwsLexv2modelsIntentSampleUtteranceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Utterance is required")]
     public required TerraformProperty<string> Utterance
     {
-        get => GetProperty<TerraformProperty<string>>("utterance");
+        get => GetRequiredProperty<TerraformProperty<string>>("utterance");
         set => WithProperty("utterance", value);
     }
 
@@ -211,7 +211,7 @@ public class AwsLexv2modelsIntentSlotPriorityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -221,7 +221,7 @@ public class AwsLexv2modelsIntentSlotPriorityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotId is required")]
     public required TerraformProperty<string> SlotId
     {
-        get => GetProperty<TerraformProperty<string>>("slot_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("slot_id");
         set => WithProperty("slot_id", value);
     }
 
@@ -286,7 +286,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
     public required TerraformProperty<string> BotId
     {
-        get => GetProperty<TerraformProperty<string>>("bot_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_id");
         set => this.WithProperty("bot_id", value);
     }
 
@@ -296,7 +296,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
     public required TerraformProperty<string> BotVersion
     {
-        get => GetProperty<TerraformProperty<string>>("bot_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_version");
         set => this.WithProperty("bot_version", value);
     }
 
@@ -315,7 +315,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
     public required TerraformProperty<string> LocaleId
     {
-        get => GetProperty<TerraformProperty<string>>("locale_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("locale_id");
         set => this.WithProperty("locale_id", value);
     }
 
@@ -325,7 +325,7 @@ public class AwsLexv2modelsIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

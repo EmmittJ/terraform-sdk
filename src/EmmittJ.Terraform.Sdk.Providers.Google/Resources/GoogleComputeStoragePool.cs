@@ -114,7 +114,7 @@ public class GoogleComputeStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleComputeStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolProvisionedCapacityGb is required")]
     public required TerraformProperty<string> PoolProvisionedCapacityGb
     {
-        get => GetProperty<TerraformProperty<string>>("pool_provisioned_capacity_gb");
+        get => GetRequiredProperty<TerraformProperty<string>>("pool_provisioned_capacity_gb");
         set => this.WithProperty("pool_provisioned_capacity_gb", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleComputeStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolProvisionedThroughput is required")]
     public required TerraformProperty<string> PoolProvisionedThroughput
     {
-        get => GetProperty<TerraformProperty<string>>("pool_provisioned_throughput");
+        get => GetRequiredProperty<TerraformProperty<string>>("pool_provisioned_throughput");
         set => this.WithProperty("pool_provisioned_throughput", value);
     }
 
@@ -178,7 +178,7 @@ public class GoogleComputeStoragePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePoolType is required")]
     public required TerraformProperty<string> StoragePoolType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_pool_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_pool_type");
         set => this.WithProperty("storage_pool_type", value);
     }
 

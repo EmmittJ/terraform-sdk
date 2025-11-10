@@ -75,7 +75,7 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
     public required TerraformProperty<string> CreateOption
     {
-        get => GetProperty<TerraformProperty<string>>("create_option");
+        get => GetRequiredProperty<TerraformProperty<string>>("create_option");
         set => this.WithProperty("create_option", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
     public required TerraformProperty<double> DiskSizeGb
     {
-        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
+        get => GetRequiredProperty<TerraformProperty<double>>("disk_size_gb");
         set => this.WithProperty("disk_size_gb", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
     public required TerraformProperty<double> Lun
     {
-        get => GetProperty<TerraformProperty<double>>("lun");
+        get => GetRequiredProperty<TerraformProperty<double>>("lun");
         set => this.WithProperty("lun", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
     public required TerraformProperty<string> SourceResourceId
     {
-        get => GetProperty<TerraformProperty<string>>("source_resource_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_resource_id");
         set => this.WithProperty("source_resource_id", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformProperty<string> VirtualMachineId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
     }
 

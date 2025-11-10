@@ -66,7 +66,7 @@ public class AzurermNatGatewayPublicIpPrefixAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatGatewayId is required")]
     public required TerraformProperty<string> NatGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("nat_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("nat_gateway_id");
         set => this.WithProperty("nat_gateway_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermNatGatewayPublicIpPrefixAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpPrefixId is required")]
     public required TerraformProperty<string> PublicIpPrefixId
     {
-        get => GetProperty<TerraformProperty<string>>("public_ip_prefix_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("public_ip_prefix_id");
         set => this.WithProperty("public_ip_prefix_id", value);
     }
 

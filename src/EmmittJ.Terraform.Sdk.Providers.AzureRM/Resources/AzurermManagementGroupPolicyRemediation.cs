@@ -93,7 +93,7 @@ public class AzurermManagementGroupPolicyRemediation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformProperty<string> ManagementGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("management_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("management_group_id");
         set => this.WithProperty("management_group_id", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermManagementGroupPolicyRemediation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermManagementGroupPolicyRemediation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyAssignmentId is required")]
     public required TerraformProperty<string> PolicyAssignmentId
     {
-        get => GetProperty<TerraformProperty<string>>("policy_assignment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_assignment_id");
         set => this.WithProperty("policy_assignment_id", value);
     }
 

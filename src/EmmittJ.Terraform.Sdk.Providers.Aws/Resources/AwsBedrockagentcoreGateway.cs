@@ -78,7 +78,7 @@ public class AwsBedrockagentcoreGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerType is required")]
     public required TerraformProperty<string> AuthorizerType
     {
-        get => GetProperty<TerraformProperty<string>>("authorizer_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("authorizer_type");
         set => this.WithProperty("authorizer_type", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsBedrockagentcoreGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsBedrockagentcoreGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolType is required")]
     public required TerraformProperty<string> ProtocolType
     {
-        get => GetProperty<TerraformProperty<string>>("protocol_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol_type");
         set => this.WithProperty("protocol_type", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsBedrockagentcoreGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 

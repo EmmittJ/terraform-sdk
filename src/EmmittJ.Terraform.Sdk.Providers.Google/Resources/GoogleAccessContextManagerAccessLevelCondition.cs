@@ -114,7 +114,7 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessLevel is required")]
     public required TerraformProperty<string> AccessLevel
     {
-        get => GetProperty<TerraformProperty<string>>("access_level");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_level");
         set => this.WithProperty("access_level", value);
     }
 

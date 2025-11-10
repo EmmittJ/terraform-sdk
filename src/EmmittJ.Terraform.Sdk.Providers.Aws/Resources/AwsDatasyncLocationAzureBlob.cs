@@ -14,7 +14,7 @@ public class AwsDatasyncLocationAzureBlobSasConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformProperty<string> Token
     {
-        get => GetProperty<TerraformProperty<string>>("token");
+        get => GetRequiredProperty<TerraformProperty<string>>("token");
         set => WithProperty("token", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsDatasyncLocationAzureBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformProperty<string> AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication_type");
         set => this.WithProperty("authentication_type", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsDatasyncLocationAzureBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerUrl is required")]
     public required TerraformProperty<string> ContainerUrl
     {
-        get => GetProperty<TerraformProperty<string>>("container_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_url");
         set => this.WithProperty("container_url", value);
     }
 

@@ -24,7 +24,7 @@ public class AwsEmrStudio : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthMode is required")]
     public required TerraformProperty<string> AuthMode
     {
-        get => GetProperty<TerraformProperty<string>>("auth_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("auth_mode");
         set => this.WithProperty("auth_mode", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsEmrStudio : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultS3Location is required")]
     public required TerraformProperty<string> DefaultS3Location
     {
-        get => GetProperty<TerraformProperty<string>>("default_s3_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_s3_location");
         set => this.WithProperty("default_s3_location", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsEmrStudio : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineSecurityGroupId is required")]
     public required TerraformProperty<string> EngineSecurityGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("engine_security_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("engine_security_group_id");
         set => this.WithProperty("engine_security_group_id", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsEmrStudio : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -118,7 +118,7 @@ public class AwsEmrStudio : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     public required TerraformProperty<string> ServiceRole
     {
-        get => GetProperty<TerraformProperty<string>>("service_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_role");
         set => this.WithProperty("service_role", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsEmrStudio : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformProperty<string> VpcId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsEmrStudio : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceSecurityGroupId is required")]
     public required TerraformProperty<string> WorkspaceSecurityGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("workspace_security_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workspace_security_group_id");
         set => this.WithProperty("workspace_security_group_id", value);
     }
 

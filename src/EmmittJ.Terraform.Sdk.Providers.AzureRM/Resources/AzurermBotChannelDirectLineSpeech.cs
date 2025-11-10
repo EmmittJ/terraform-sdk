@@ -66,7 +66,7 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformProperty<string> BotName
     {
-        get => GetProperty<TerraformProperty<string>>("bot_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bot_name");
         set => this.WithProperty("bot_name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveServiceAccessKey is required")]
     public required TerraformProperty<string> CognitiveServiceAccessKey
     {
-        get => GetProperty<TerraformProperty<string>>("cognitive_service_access_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("cognitive_service_access_key");
         set => this.WithProperty("cognitive_service_access_key", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveServiceLocation is required")]
     public required TerraformProperty<string> CognitiveServiceLocation
     {
-        get => GetProperty<TerraformProperty<string>>("cognitive_service_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("cognitive_service_location");
         set => this.WithProperty("cognitive_service_location", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

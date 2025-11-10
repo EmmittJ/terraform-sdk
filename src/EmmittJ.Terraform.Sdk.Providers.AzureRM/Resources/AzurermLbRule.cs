@@ -76,7 +76,7 @@ public class AzurermLbRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
     public required TerraformProperty<double> BackendPort
     {
-        get => GetProperty<TerraformProperty<double>>("backend_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("backend_port");
         set => this.WithProperty("backend_port", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermLbRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendIpConfigurationName is required")]
     public required TerraformProperty<string> FrontendIpConfigurationName
     {
-        get => GetProperty<TerraformProperty<string>>("frontend_ip_configuration_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("frontend_ip_configuration_name");
         set => this.WithProperty("frontend_ip_configuration_name", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermLbRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPort is required")]
     public required TerraformProperty<double> FrontendPort
     {
-        get => GetProperty<TerraformProperty<double>>("frontend_port");
+        get => GetRequiredProperty<TerraformProperty<double>>("frontend_port");
         set => this.WithProperty("frontend_port", value);
     }
 
@@ -171,7 +171,7 @@ public class AzurermLbRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformProperty<string> LoadbalancerId
     {
-        get => GetProperty<TerraformProperty<string>>("loadbalancer_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("loadbalancer_id");
         set => this.WithProperty("loadbalancer_id", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermLbRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -200,7 +200,7 @@ public class AzurermLbRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 

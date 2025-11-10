@@ -22,7 +22,7 @@ public class AwsRedshiftAuthenticationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationProfileContent is required")]
     public required TerraformProperty<string> AuthenticationProfileContent
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_profile_content");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication_profile_content");
         set => this.WithProperty("authentication_profile_content", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsRedshiftAuthenticationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationProfileName is required")]
     public required TerraformProperty<string> AuthenticationProfileName
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_profile_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication_profile_name");
         set => this.WithProperty("authentication_profile_name", value);
     }
 

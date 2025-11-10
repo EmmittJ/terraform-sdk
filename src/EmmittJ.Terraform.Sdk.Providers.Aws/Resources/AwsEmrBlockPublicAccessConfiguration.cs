@@ -14,7 +14,7 @@ public class AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRul
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRange is required")]
     public required TerraformProperty<double> MaxRange
     {
-        get => GetProperty<TerraformProperty<double>>("max_range");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_range");
         set => WithProperty("max_range", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRul
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinRange is required")]
     public required TerraformProperty<double> MinRange
     {
-        get => GetProperty<TerraformProperty<double>>("min_range");
+        get => GetRequiredProperty<TerraformProperty<double>>("min_range");
         set => WithProperty("min_range", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsEmrBlockPublicAccessConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockPublicSecurityGroupRules is required")]
     public required TerraformProperty<bool> BlockPublicSecurityGroupRules
     {
-        get => GetProperty<TerraformProperty<bool>>("block_public_security_group_rules");
+        get => GetRequiredProperty<TerraformProperty<bool>>("block_public_security_group_rules");
         set => this.WithProperty("block_public_security_group_rules", value);
     }
 

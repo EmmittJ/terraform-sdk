@@ -24,7 +24,7 @@ public class AwsGlacierVaultNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsTopic is required")]
     public required TerraformProperty<string> SnsTopic
     {
-        get => GetProperty<TerraformProperty<string>>("sns_topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("sns_topic");
         set => WithProperty("sns_topic", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsGlacierVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

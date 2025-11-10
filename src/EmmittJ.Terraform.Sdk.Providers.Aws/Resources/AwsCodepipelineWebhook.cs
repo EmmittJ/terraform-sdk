@@ -40,7 +40,7 @@ public class AwsCodepipelineWebhookFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JsonPath is required")]
     public required TerraformProperty<string> JsonPath
     {
-        get => GetProperty<TerraformProperty<string>>("json_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("json_path");
         set => WithProperty("json_path", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsCodepipelineWebhookFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchEquals is required")]
     public required TerraformProperty<string> MatchEquals
     {
-        get => GetProperty<TerraformProperty<string>>("match_equals");
+        get => GetRequiredProperty<TerraformProperty<string>>("match_equals");
         set => WithProperty("match_equals", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsCodepipelineWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     public required TerraformProperty<string> Authentication
     {
-        get => GetProperty<TerraformProperty<string>>("authentication");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication");
         set => this.WithProperty("authentication", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsCodepipelineWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsCodepipelineWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetAction is required")]
     public required TerraformProperty<string> TargetAction
     {
-        get => GetProperty<TerraformProperty<string>>("target_action");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_action");
         set => this.WithProperty("target_action", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsCodepipelineWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPipeline is required")]
     public required TerraformProperty<string> TargetPipeline
     {
-        get => GetProperty<TerraformProperty<string>>("target_pipeline");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_pipeline");
         set => this.WithProperty("target_pipeline", value);
     }
 

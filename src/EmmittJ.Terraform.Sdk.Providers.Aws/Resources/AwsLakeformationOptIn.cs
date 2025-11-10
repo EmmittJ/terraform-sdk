@@ -31,7 +31,7 @@ public class AwsLakeformationOptInPrincipalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataLakePrincipalIdentifier is required")]
     public required TerraformProperty<string> DataLakePrincipalIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("data_lake_principal_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_lake_principal_identifier");
         set => WithProperty("data_lake_principal_identifier", value);
     }
 

@@ -70,7 +70,7 @@ public class AwsRdsShardGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterIdentifier is required")]
     public required TerraformProperty<string> DbClusterIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("db_cluster_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_cluster_identifier");
         set => this.WithProperty("db_cluster_identifier", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsRdsShardGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbShardGroupIdentifier is required")]
     public required TerraformProperty<string> DbShardGroupIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("db_shard_group_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("db_shard_group_identifier");
         set => this.WithProperty("db_shard_group_identifier", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsRdsShardGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAcu is required")]
     public required TerraformProperty<double> MaxAcu
     {
-        get => GetProperty<TerraformProperty<double>>("max_acu");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_acu");
         set => this.WithProperty("max_acu", value);
     }
 

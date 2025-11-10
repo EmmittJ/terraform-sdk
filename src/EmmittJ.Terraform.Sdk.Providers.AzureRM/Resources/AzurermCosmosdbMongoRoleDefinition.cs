@@ -84,7 +84,7 @@ public class AzurermCosmosdbMongoRoleDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosMongoDatabaseId is required")]
     public required TerraformProperty<string> CosmosMongoDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("cosmos_mongo_database_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cosmos_mongo_database_id");
         set => this.WithProperty("cosmos_mongo_database_id", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermCosmosdbMongoRoleDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     public required TerraformProperty<string> RoleName
     {
-        get => GetProperty<TerraformProperty<string>>("role_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_name");
         set => this.WithProperty("role_name", value);
     }
 

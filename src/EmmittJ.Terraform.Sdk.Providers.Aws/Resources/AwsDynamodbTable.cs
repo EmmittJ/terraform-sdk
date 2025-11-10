@@ -14,7 +14,7 @@ public class AwsDynamodbTableAttributeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsDynamodbTableAttributeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKey is required")]
     public required TerraformProperty<string> HashKey
     {
-        get => GetProperty<TerraformProperty<string>>("hash_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("hash_key");
         set => WithProperty("hash_key", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectionType is required")]
     public required TerraformProperty<string> ProjectionType
     {
-        get => GetProperty<TerraformProperty<string>>("projection_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("projection_type");
         set => WithProperty("projection_type", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsDynamodbTableImportTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputFormat is required")]
     public required TerraformProperty<string> InputFormat
     {
-        get => GetProperty<TerraformProperty<string>>("input_format");
+        get => GetRequiredProperty<TerraformProperty<string>>("input_format");
         set => WithProperty("input_format", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectionType is required")]
     public required TerraformProperty<string> ProjectionType
     {
-        get => GetProperty<TerraformProperty<string>>("projection_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("projection_type");
         set => WithProperty("projection_type", value);
     }
 
@@ -172,7 +172,7 @@ public class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeKey is required")]
     public required TerraformProperty<string> RangeKey
     {
-        get => GetProperty<TerraformProperty<string>>("range_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("range_key");
         set => WithProperty("range_key", value);
     }
 
@@ -216,7 +216,7 @@ public class AwsDynamodbTablePointInTimeRecoveryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -297,7 +297,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     public required TerraformProperty<string> RegionName
     {
-        get => GetProperty<TerraformProperty<string>>("region_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("region_name");
         set => WithProperty("region_name", value);
     }
 
@@ -333,7 +333,7 @@ public class AwsDynamodbTableServerSideEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -495,7 +495,7 @@ public class AwsDynamodbTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

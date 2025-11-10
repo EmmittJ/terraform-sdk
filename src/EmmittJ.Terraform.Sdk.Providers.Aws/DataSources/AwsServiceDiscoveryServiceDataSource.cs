@@ -36,7 +36,7 @@ public class AwsServiceDiscoveryServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsServiceDiscoveryServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
     public required TerraformProperty<string> NamespaceId
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace_id");
         set => this.WithProperty("namespace_id", value);
     }
 

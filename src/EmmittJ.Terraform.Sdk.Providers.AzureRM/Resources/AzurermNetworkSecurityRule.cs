@@ -66,7 +66,7 @@ public class AzurermNetworkSecurityRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
     public required TerraformProperty<string> Access
     {
-        get => GetProperty<TerraformProperty<string>>("access");
+        get => GetRequiredProperty<TerraformProperty<string>>("access");
         set => this.WithProperty("access", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermNetworkSecurityRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformProperty<string> Direction
     {
-        get => GetProperty<TerraformProperty<string>>("direction");
+        get => GetRequiredProperty<TerraformProperty<string>>("direction");
         set => this.WithProperty("direction", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermNetworkSecurityRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermNetworkSecurityRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSecurityGroupName is required")]
     public required TerraformProperty<string> NetworkSecurityGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("network_security_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_security_group_name");
         set => this.WithProperty("network_security_group_name", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermNetworkSecurityRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
@@ -179,7 +179,7 @@ public class AzurermNetworkSecurityRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
@@ -189,7 +189,7 @@ public class AzurermNetworkSecurityRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

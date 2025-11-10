@@ -14,7 +14,7 @@ public class GoogleColabRuntimeNotebookRuntimeTemplateRefBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotebookRuntimeTemplate is required")]
     public required TerraformProperty<string> NotebookRuntimeTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("notebook_runtime_template");
+        get => GetRequiredProperty<TerraformProperty<string>>("notebook_runtime_template");
         set => WithProperty("notebook_runtime_template", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleColabRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleColabRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleColabRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeUser is required")]
     public required TerraformProperty<string> RuntimeUser
     {
-        get => GetProperty<TerraformProperty<string>>("runtime_user");
+        get => GetRequiredProperty<TerraformProperty<string>>("runtime_user");
         set => this.WithProperty("runtime_user", value);
     }
 

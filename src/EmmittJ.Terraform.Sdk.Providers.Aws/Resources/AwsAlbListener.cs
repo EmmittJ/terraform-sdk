@@ -32,7 +32,7 @@ public class AwsAlbListenerDefaultActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsAlbListenerMutualAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformProperty<string> Mode
     {
-        get => GetProperty<TerraformProperty<string>>("mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("mode");
         set => WithProperty("mode", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsAlbListener : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerArn is required")]
     public required TerraformProperty<string> LoadBalancerArn
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancer_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("load_balancer_arn");
         set => this.WithProperty("load_balancer_arn", value);
     }
 

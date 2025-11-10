@@ -32,7 +32,7 @@ public class GoogleSecureSourceManagerInstancePrivateConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsPrivate is required")]
     public required TerraformProperty<bool> IsPrivate
     {
-        get => GetProperty<TerraformProperty<bool>>("is_private");
+        get => GetRequiredProperty<TerraformProperty<bool>>("is_private");
         set => WithProperty("is_private", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformProperty<string> InstanceId
     {
-        get => GetProperty<TerraformProperty<string>>("instance_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -186,7 +186,7 @@ public class GoogleSecureSourceManagerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

@@ -23,7 +23,7 @@ public class AwsAppsyncDatasourceDynamodbConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
         set => WithProperty("table_name", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsAppsyncDatasourceElasticsearchConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformProperty<string> Endpoint
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint");
         set => WithProperty("endpoint", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsAppsyncDatasourceEventBridgeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventBusArn is required")]
     public required TerraformProperty<string> EventBusArn
     {
-        get => GetProperty<TerraformProperty<string>>("event_bus_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("event_bus_arn");
         set => WithProperty("event_bus_arn", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsAppsyncDatasourceHttpConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformProperty<string> Endpoint
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint");
         set => WithProperty("endpoint", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsAppsyncDatasourceLambdaConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
     public required TerraformProperty<string> FunctionArn
     {
-        get => GetProperty<TerraformProperty<string>>("function_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("function_arn");
         set => WithProperty("function_arn", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsAppsyncDatasourceOpensearchserviceConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformProperty<string> Endpoint
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint");
         set => WithProperty("endpoint", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsAppsyncDatasource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformProperty<string> ApiId
     {
-        get => GetProperty<TerraformProperty<string>>("api_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
@@ -222,7 +222,7 @@ public class AwsAppsyncDatasource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -250,7 +250,7 @@ public class AwsAppsyncDatasource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

@@ -14,7 +14,7 @@ public class GoogleFolderOrganizationPolicyBooleanPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enforced is required")]
     public required TerraformProperty<bool> Enforced
     {
-        get => GetProperty<TerraformProperty<bool>>("enforced");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enforced");
         set => WithProperty("enforced", value);
     }
 
@@ -58,7 +58,7 @@ public class GoogleFolderOrganizationPolicyRestorePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Default is required")]
     public required TerraformProperty<bool> Default
     {
-        get => GetProperty<TerraformProperty<bool>>("default");
+        get => GetRequiredProperty<TerraformProperty<bool>>("default");
         set => WithProperty("default", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleFolderOrganizationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
     public required TerraformProperty<string> Constraint
     {
-        get => GetProperty<TerraformProperty<string>>("constraint");
+        get => GetRequiredProperty<TerraformProperty<string>>("constraint");
         set => this.WithProperty("constraint", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleFolderOrganizationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformProperty<string> Folder
     {
-        get => GetProperty<TerraformProperty<string>>("folder");
+        get => GetRequiredProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 

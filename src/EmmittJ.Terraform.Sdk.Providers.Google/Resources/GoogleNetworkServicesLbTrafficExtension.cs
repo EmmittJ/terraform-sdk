@@ -17,7 +17,7 @@ public class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleNetworkServicesLbTrafficExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingScheme is required")]
     public required TerraformProperty<string> LoadBalancingScheme
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancing_scheme");
+        get => GetRequiredProperty<TerraformProperty<string>>("load_balancing_scheme");
         set => this.WithProperty("load_balancing_scheme", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleNetworkServicesLbTrafficExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -144,7 +144,7 @@ public class GoogleNetworkServicesLbTrafficExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

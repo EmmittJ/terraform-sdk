@@ -94,7 +94,7 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
     public required TerraformProperty<string> Backend
     {
-        get => GetProperty<TerraformProperty<string>>("backend");
+        get => GetRequiredProperty<TerraformProperty<string>>("backend");
         set => this.WithProperty("backend", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuildId is required")]
     public required TerraformProperty<string> BuildId
     {
-        get => GetProperty<TerraformProperty<string>>("build_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("build_id");
         set => this.WithProperty("build_id", value);
     }
 
@@ -145,7 +145,7 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

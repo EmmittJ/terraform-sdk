@@ -24,7 +24,7 @@ public class AwsAuditmanagerOrganizationAdminAccountRegistration : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminAccountId is required")]
     public required TerraformProperty<string> AdminAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("admin_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_account_id");
         set => this.WithProperty("admin_account_id", value);
     }
 

@@ -23,7 +23,7 @@ public class AwsAppconfigConfigurationProfileValidatorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsAppconfigConfigurationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsAppconfigConfigurationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationUri is required")]
     public required TerraformProperty<string> LocationUri
     {
-        get => GetProperty<TerraformProperty<string>>("location_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("location_uri");
         set => this.WithProperty("location_uri", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsAppconfigConfigurationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

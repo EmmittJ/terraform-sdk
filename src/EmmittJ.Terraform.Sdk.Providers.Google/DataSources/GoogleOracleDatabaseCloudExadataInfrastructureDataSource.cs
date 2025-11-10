@@ -35,7 +35,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformProperty<string> CloudExadataInfrastructureId
     {
-        get => GetProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
         set => this.WithProperty("cloud_exadata_infrastructure_id", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

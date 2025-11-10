@@ -40,7 +40,7 @@ public class GoogleComputeInstanceGroupManagerAutoHealingPoliciesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthCheck is required")]
     public required TerraformProperty<string> HealthCheck
     {
-        get => GetProperty<TerraformProperty<string>>("health_check");
+        get => GetRequiredProperty<TerraformProperty<string>>("health_check");
         set => WithProperty("health_check", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleComputeInstanceGroupManagerAutoHealingPoliciesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialDelaySec is required")]
     public required TerraformProperty<double> InitialDelaySec
     {
-        get => GetProperty<TerraformProperty<double>>("initial_delay_sec");
+        get => GetRequiredProperty<TerraformProperty<double>>("initial_delay_sec");
         set => WithProperty("initial_delay_sec", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleComputeInstanceGroupManagerNamedPortBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleComputeInstanceGroupManagerNamedPortBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => WithProperty("port", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleComputeInstanceGroupManagerStatefulDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformProperty<string> DeviceName
     {
-        get => GetProperty<TerraformProperty<string>>("device_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("device_name");
         set => WithProperty("device_name", value);
     }
 
@@ -315,7 +315,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimalAction is required")]
     public required TerraformProperty<string> MinimalAction
     {
-        get => GetProperty<TerraformProperty<string>>("minimal_action");
+        get => GetRequiredProperty<TerraformProperty<string>>("minimal_action");
         set => WithProperty("minimal_action", value);
     }
 
@@ -343,7 +343,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -361,7 +361,7 @@ public class GoogleComputeInstanceGroupManagerVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceTemplate is required")]
     public required TerraformProperty<string> InstanceTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("instance_template");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_template");
         set => WithProperty("instance_template", value);
     }
 
@@ -404,7 +404,7 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseInstanceName is required")]
     public required TerraformProperty<string> BaseInstanceName
     {
-        get => GetProperty<TerraformProperty<string>>("base_instance_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("base_instance_name");
         set => this.WithProperty("base_instance_name", value);
     }
 
@@ -441,7 +441,7 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

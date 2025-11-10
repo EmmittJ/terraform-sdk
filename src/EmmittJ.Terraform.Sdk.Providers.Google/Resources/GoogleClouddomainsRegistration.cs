@@ -15,7 +15,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Privacy is required")]
     public required TerraformProperty<string> Privacy
     {
-        get => GetProperty<TerraformProperty<string>>("privacy");
+        get => GetRequiredProperty<TerraformProperty<string>>("privacy");
         set => WithProperty("privacy", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleClouddomainsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
@@ -214,7 +214,7 @@ public class GoogleClouddomainsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

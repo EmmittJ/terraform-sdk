@@ -66,7 +66,7 @@ public class AzurermStackHciExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcSettingId is required")]
     public required TerraformProperty<string> ArcSettingId
     {
-        get => GetProperty<TerraformProperty<string>>("arc_setting_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("arc_setting_id");
         set => this.WithProperty("arc_setting_id", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermStackHciExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermStackHciExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => this.WithProperty("publisher", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermStackHciExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

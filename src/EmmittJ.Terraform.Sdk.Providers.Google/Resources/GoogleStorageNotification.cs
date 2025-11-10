@@ -25,7 +25,7 @@ public class GoogleStorageNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformProperty<string> Bucket
     {
-        get => GetProperty<TerraformProperty<string>>("bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleStorageNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PayloadFormat is required")]
     public required TerraformProperty<string> PayloadFormat
     {
-        get => GetProperty<TerraformProperty<string>>("payload_format");
+        get => GetRequiredProperty<TerraformProperty<string>>("payload_format");
         set => this.WithProperty("payload_format", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleStorageNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic");
         set => this.WithProperty("topic", value);
     }
 

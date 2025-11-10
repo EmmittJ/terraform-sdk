@@ -79,7 +79,7 @@ public class GoogleTagsTagValue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleTagsTagValue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
     public required TerraformProperty<string> ShortName
     {
-        get => GetProperty<TerraformProperty<string>>("short_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("short_name");
         set => this.WithProperty("short_name", value);
     }
 

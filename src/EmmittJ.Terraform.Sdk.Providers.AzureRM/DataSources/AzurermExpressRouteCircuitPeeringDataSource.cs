@@ -50,7 +50,7 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitName is required")]
     public required TerraformProperty<string> ExpressRouteCircuitName
     {
-        get => GetProperty<TerraformProperty<string>>("express_route_circuit_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("express_route_circuit_name");
         set => this.WithProperty("express_route_circuit_name", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringType is required")]
     public required TerraformProperty<string> PeeringType
     {
-        get => GetProperty<TerraformProperty<string>>("peering_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("peering_type");
         set => this.WithProperty("peering_type", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

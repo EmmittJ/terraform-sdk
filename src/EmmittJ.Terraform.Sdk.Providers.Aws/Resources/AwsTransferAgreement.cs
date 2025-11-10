@@ -25,7 +25,7 @@ public class AwsTransferAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessRole is required")]
     public required TerraformProperty<string> AccessRole
     {
-        get => GetProperty<TerraformProperty<string>>("access_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_role");
         set => this.WithProperty("access_role", value);
     }
 
@@ -35,7 +35,7 @@ public class AwsTransferAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseDirectory is required")]
     public required TerraformProperty<string> BaseDirectory
     {
-        get => GetProperty<TerraformProperty<string>>("base_directory");
+        get => GetRequiredProperty<TerraformProperty<string>>("base_directory");
         set => this.WithProperty("base_directory", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsTransferAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalProfileId is required")]
     public required TerraformProperty<string> LocalProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("local_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("local_profile_id");
         set => this.WithProperty("local_profile_id", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsTransferAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerProfileId is required")]
     public required TerraformProperty<string> PartnerProfileId
     {
-        get => GetProperty<TerraformProperty<string>>("partner_profile_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("partner_profile_id");
         set => this.WithProperty("partner_profile_id", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsTransferAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformProperty<string> ServerId
     {
-        get => GetProperty<TerraformProperty<string>>("server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
     }
 

@@ -27,7 +27,7 @@ public class AwsAmplifyBranch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformProperty<string> AppId
     {
-        get => GetProperty<TerraformProperty<string>>("app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
@@ -55,7 +55,7 @@ public class AwsAmplifyBranch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformProperty<string> BranchName
     {
-        get => GetProperty<TerraformProperty<string>>("branch_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("branch_name");
         set => this.WithProperty("branch_name", value);
     }
 

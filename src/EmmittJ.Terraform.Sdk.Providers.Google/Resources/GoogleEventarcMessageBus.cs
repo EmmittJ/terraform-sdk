@@ -139,7 +139,7 @@ public class GoogleEventarcMessageBus : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -150,7 +150,7 @@ public class GoogleEventarcMessageBus : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageBusId is required")]
     public required TerraformProperty<string> MessageBusId
     {
-        get => GetProperty<TerraformProperty<string>>("message_bus_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("message_bus_id");
         set => this.WithProperty("message_bus_id", value);
     }
 

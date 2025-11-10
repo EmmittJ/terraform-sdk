@@ -31,7 +31,7 @@ public class AwsCloudfrontMonitoringSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DistributionId is required")]
     public required TerraformProperty<string> DistributionId
     {
-        get => GetProperty<TerraformProperty<string>>("distribution_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("distribution_id");
         set => this.WithProperty("distribution_id", value);
     }
 

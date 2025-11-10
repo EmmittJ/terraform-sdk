@@ -57,7 +57,7 @@ public class AzureadApplicationIdentifierUri : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzureadApplicationIdentifierUri : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentifierUri is required")]
     public required TerraformProperty<string> IdentifierUri
     {
-        get => GetProperty<TerraformProperty<string>>("identifier_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("identifier_uri");
         set => this.WithProperty("identifier_uri", value);
     }
 

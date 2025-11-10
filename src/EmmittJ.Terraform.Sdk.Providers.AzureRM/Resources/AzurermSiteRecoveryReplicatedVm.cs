@@ -93,7 +93,7 @@ public class AzurermSiteRecoveryReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermSiteRecoveryReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryReplicationPolicyId is required")]
     public required TerraformProperty<string> RecoveryReplicationPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_replication_policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("recovery_replication_policy_id");
         set => this.WithProperty("recovery_replication_policy_id", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermSiteRecoveryReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformProperty<string> RecoveryVaultName
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_vault_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_name");
         set => this.WithProperty("recovery_vault_name", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermSiteRecoveryReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermSiteRecoveryReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRecoveryFabricName is required")]
     public required TerraformProperty<string> SourceRecoveryFabricName
     {
-        get => GetProperty<TerraformProperty<string>>("source_recovery_fabric_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_recovery_fabric_name");
         set => this.WithProperty("source_recovery_fabric_name", value);
     }
 
@@ -152,7 +152,7 @@ public class AzurermSiteRecoveryReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRecoveryProtectionContainerName is required")]
     public required TerraformProperty<string> SourceRecoveryProtectionContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("source_recovery_protection_container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_recovery_protection_container_name");
         set => this.WithProperty("source_recovery_protection_container_name", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermSiteRecoveryReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVmId is required")]
     public required TerraformProperty<string> SourceVmId
     {
-        get => GetProperty<TerraformProperty<string>>("source_vm_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_vm_id");
         set => this.WithProperty("source_vm_id", value);
     }
 
@@ -226,7 +226,7 @@ public class AzurermSiteRecoveryReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRecoveryFabricId is required")]
     public required TerraformProperty<string> TargetRecoveryFabricId
     {
-        get => GetProperty<TerraformProperty<string>>("target_recovery_fabric_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_recovery_fabric_id");
         set => this.WithProperty("target_recovery_fabric_id", value);
     }
 
@@ -236,7 +236,7 @@ public class AzurermSiteRecoveryReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRecoveryProtectionContainerId is required")]
     public required TerraformProperty<string> TargetRecoveryProtectionContainerId
     {
-        get => GetProperty<TerraformProperty<string>>("target_recovery_protection_container_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_recovery_protection_container_id");
         set => this.WithProperty("target_recovery_protection_container_id", value);
     }
 
@@ -246,7 +246,7 @@ public class AzurermSiteRecoveryReplicatedVm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceGroupId is required")]
     public required TerraformProperty<string> TargetResourceGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("target_resource_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_resource_group_id");
         set => this.WithProperty("target_resource_group_id", value);
     }
 

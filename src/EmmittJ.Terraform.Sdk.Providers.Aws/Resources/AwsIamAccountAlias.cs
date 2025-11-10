@@ -22,7 +22,7 @@ public class AwsIamAccountAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountAlias is required")]
     public required TerraformProperty<string> AccountAlias
     {
-        get => GetProperty<TerraformProperty<string>>("account_alias");
+        get => GetRequiredProperty<TerraformProperty<string>>("account_alias");
         set => this.WithProperty("account_alias", value);
     }
 

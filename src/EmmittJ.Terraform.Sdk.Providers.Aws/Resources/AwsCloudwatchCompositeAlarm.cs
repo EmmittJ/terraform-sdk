@@ -14,7 +14,7 @@ public class AwsCloudwatchCompositeAlarmActionsSuppressorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alarm is required")]
     public required TerraformProperty<string> Alarm
     {
-        get => GetProperty<TerraformProperty<string>>("alarm");
+        get => GetRequiredProperty<TerraformProperty<string>>("alarm");
         set => WithProperty("alarm", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsCloudwatchCompositeAlarmActionsSuppressorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionPeriod is required")]
     public required TerraformProperty<double> ExtensionPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("extension_period");
+        get => GetRequiredProperty<TerraformProperty<double>>("extension_period");
         set => WithProperty("extension_period", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsCloudwatchCompositeAlarmActionsSuppressorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WaitPeriod is required")]
     public required TerraformProperty<double> WaitPeriod
     {
-        get => GetProperty<TerraformProperty<double>>("wait_period");
+        get => GetRequiredProperty<TerraformProperty<double>>("wait_period");
         set => WithProperty("wait_period", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsCloudwatchCompositeAlarm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
     public required TerraformProperty<string> AlarmName
     {
-        get => GetProperty<TerraformProperty<string>>("alarm_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("alarm_name");
         set => this.WithProperty("alarm_name", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsCloudwatchCompositeAlarm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmRule is required")]
     public required TerraformProperty<string> AlarmRule
     {
-        get => GetProperty<TerraformProperty<string>>("alarm_rule");
+        get => GetRequiredProperty<TerraformProperty<string>>("alarm_rule");
         set => this.WithProperty("alarm_rule", value);
     }
 

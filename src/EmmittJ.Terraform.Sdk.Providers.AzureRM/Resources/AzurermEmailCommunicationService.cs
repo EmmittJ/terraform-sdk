@@ -66,7 +66,7 @@ public class AzurermEmailCommunicationService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataLocation is required")]
     public required TerraformProperty<string> DataLocation
     {
-        get => GetProperty<TerraformProperty<string>>("data_location");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_location");
         set => this.WithProperty("data_location", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermEmailCommunicationService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermEmailCommunicationService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

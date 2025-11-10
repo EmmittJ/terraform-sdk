@@ -49,7 +49,7 @@ public class AzurermManagementGroupTemplateDeploymentDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformProperty<string> ManagementGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("management_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("management_group_id");
         set => this.WithProperty("management_group_id", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermManagementGroupTemplateDeploymentDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

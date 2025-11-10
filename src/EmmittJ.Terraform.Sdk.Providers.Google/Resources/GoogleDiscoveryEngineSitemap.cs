@@ -51,7 +51,7 @@ public class GoogleDiscoveryEngineSitemap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     public required TerraformProperty<string> DataStoreId
     {
-        get => GetProperty<TerraformProperty<string>>("data_store_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_store_id");
         set => this.WithProperty("data_store_id", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleDiscoveryEngineSitemap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 

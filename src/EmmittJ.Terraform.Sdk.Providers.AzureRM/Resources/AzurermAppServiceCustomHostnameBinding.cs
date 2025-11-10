@@ -58,7 +58,7 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
     public required TerraformProperty<string> AppServiceName
     {
-        get => GetProperty<TerraformProperty<string>>("app_service_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("app_service_name");
         set => this.WithProperty("app_service_name", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetProperty<TerraformProperty<string>>("hostname");
+        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
         set => this.WithProperty("hostname", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

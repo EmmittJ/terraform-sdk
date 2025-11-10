@@ -40,7 +40,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformProperty<string> CoreNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("core_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("core_network_id");
         set => this.WithProperty("core_network_id", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformProperty<string> PolicyDocument
     {
-        get => GetProperty<TerraformProperty<string>>("policy_document");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_document");
         set => this.WithProperty("policy_document", value);
     }
 

@@ -49,7 +49,7 @@ public class AwsNetworkInterfacePermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsAccountId is required")]
     public required TerraformProperty<string> AwsAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("aws_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("aws_account_id");
         set => this.WithProperty("aws_account_id", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsNetworkInterfacePermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformProperty<string> NetworkInterfaceId
     {
-        get => GetProperty<TerraformProperty<string>>("network_interface_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsNetworkInterfacePermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformProperty<string> Permission
     {
-        get => GetProperty<TerraformProperty<string>>("permission");
+        get => GetRequiredProperty<TerraformProperty<string>>("permission");
         set => this.WithProperty("permission", value);
     }
 

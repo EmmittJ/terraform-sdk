@@ -14,7 +14,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -202,7 +202,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestack :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -221,7 +221,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestack :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -231,7 +231,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestack :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
     public required TerraformProperty<string> RulestackId
     {
-        get => GetProperty<TerraformProperty<string>>("rulestack_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("rulestack_id");
         set => this.WithProperty("rulestack_id", value);
     }
 

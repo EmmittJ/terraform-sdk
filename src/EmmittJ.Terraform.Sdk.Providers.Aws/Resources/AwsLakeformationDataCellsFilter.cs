@@ -23,7 +23,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => WithProperty("database_name", value);
     }
 
@@ -33,7 +33,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableCatalogId is required")]
     public required TerraformProperty<string> TableCatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("table_catalog_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_catalog_id");
         set => WithProperty("table_catalog_id", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
         set => WithProperty("table_name", value);
     }
 

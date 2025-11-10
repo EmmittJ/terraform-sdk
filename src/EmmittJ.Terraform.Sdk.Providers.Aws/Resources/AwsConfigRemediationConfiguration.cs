@@ -22,7 +22,7 @@ public class AwsConfigRemediationConfigurationParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsConfigRemediationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigRuleName is required")]
     public required TerraformProperty<string> ConfigRuleName
     {
-        get => GetProperty<TerraformProperty<string>>("config_rule_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("config_rule_name");
         set => this.WithProperty("config_rule_name", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsConfigRemediationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     public required TerraformProperty<string> TargetId
     {
-        get => GetProperty<TerraformProperty<string>>("target_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_id");
         set => this.WithProperty("target_id", value);
     }
 
@@ -151,7 +151,7 @@ public class AwsConfigRemediationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetType is required")]
     public required TerraformProperty<string> TargetType
     {
-        get => GetProperty<TerraformProperty<string>>("target_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_type");
         set => this.WithProperty("target_type", value);
     }
 

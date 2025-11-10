@@ -23,7 +23,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdfInputBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -41,7 +41,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdfOutputBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdf : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdf : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdf : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Script is required")]
     public required TerraformProperty<string> Script
     {
-        get => GetProperty<TerraformProperty<string>>("script");
+        get => GetRequiredProperty<TerraformProperty<string>>("script");
         set => this.WithProperty("script", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdf : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformProperty<string> StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_name");
         set => this.WithProperty("stream_analytics_job_name", value);
     }
 

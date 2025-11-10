@@ -66,7 +66,7 @@ public class AzureadApplicationApiAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiClientId is required")]
     public required TerraformProperty<string> ApiClientId
     {
-        get => GetProperty<TerraformProperty<string>>("api_client_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_client_id");
         set => this.WithProperty("api_client_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzureadApplicationApiAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 

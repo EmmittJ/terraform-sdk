@@ -29,7 +29,7 @@ public class AwsCeCostCategoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CostCategoryArn is required")]
     public required TerraformProperty<string> CostCategoryArn
     {
-        get => GetProperty<TerraformProperty<string>>("cost_category_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("cost_category_arn");
         set => this.WithProperty("cost_category_arn", value);
     }
 

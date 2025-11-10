@@ -44,7 +44,7 @@ public class AzurermElasticSanVolumeGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticSanId is required")]
     public required TerraformProperty<string> ElasticSanId
     {
-        get => GetProperty<TerraformProperty<string>>("elastic_san_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("elastic_san_id");
         set => this.WithProperty("elastic_san_id", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermElasticSanVolumeGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

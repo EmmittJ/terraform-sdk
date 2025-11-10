@@ -66,7 +66,7 @@ public class AwsNetworkmanagerSiteToSiteVpnAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformProperty<string> CoreNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("core_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("core_network_id");
         set => this.WithProperty("core_network_id", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsNetworkmanagerSiteToSiteVpnAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnConnectionArn is required")]
     public required TerraformProperty<string> VpnConnectionArn
     {
-        get => GetProperty<TerraformProperty<string>>("vpn_connection_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpn_connection_arn");
         set => this.WithProperty("vpn_connection_arn", value);
     }
 

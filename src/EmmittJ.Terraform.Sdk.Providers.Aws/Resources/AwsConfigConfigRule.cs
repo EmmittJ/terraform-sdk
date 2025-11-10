@@ -75,7 +75,7 @@ public class AwsConfigConfigRuleSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
     public required TerraformProperty<string> Owner
     {
-        get => GetProperty<TerraformProperty<string>>("owner");
+        get => GetRequiredProperty<TerraformProperty<string>>("owner");
         set => WithProperty("owner", value);
     }
 
@@ -149,7 +149,7 @@ public class AwsConfigConfigRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

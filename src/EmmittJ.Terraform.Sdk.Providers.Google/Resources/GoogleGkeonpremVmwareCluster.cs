@@ -16,7 +16,7 @@ public class GoogleGkeonpremVmwareClusterAntiAffinityGroupsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AagConfigDisabled is required")]
     public required TerraformProperty<bool> AagConfigDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("aag_config_disabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("aag_config_disabled");
         set => WithProperty("aag_config_disabled", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleGkeonpremVmwareClusterAutoRepairConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -191,7 +191,7 @@ public class GoogleGkeonpremVmwareClusterStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VsphereCsiDisabled is required")]
     public required TerraformProperty<bool> VsphereCsiDisabled
     {
-        get => GetProperty<TerraformProperty<bool>>("vsphere_csi_disabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("vsphere_csi_disabled");
         set => WithProperty("vsphere_csi_disabled", value);
     }
 
@@ -366,7 +366,7 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminClusterMembership is required")]
     public required TerraformProperty<string> AdminClusterMembership
     {
-        get => GetProperty<TerraformProperty<string>>("admin_cluster_membership");
+        get => GetRequiredProperty<TerraformProperty<string>>("admin_cluster_membership");
         set => this.WithProperty("admin_cluster_membership", value);
     }
 
@@ -441,7 +441,7 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -451,7 +451,7 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -461,7 +461,7 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnPremVersion is required")]
     public required TerraformProperty<string> OnPremVersion
     {
-        get => GetProperty<TerraformProperty<string>>("on_prem_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("on_prem_version");
         set => this.WithProperty("on_prem_version", value);
     }
 

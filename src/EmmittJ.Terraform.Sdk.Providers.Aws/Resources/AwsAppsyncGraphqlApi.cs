@@ -14,7 +14,7 @@ public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformProperty<string> AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication_type");
         set => WithProperty("authentication_type", value);
     }
 
@@ -32,7 +32,7 @@ public class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceLevelMetricsBehavior is required")]
     public required TerraformProperty<string> DataSourceLevelMetricsBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("data_source_level_metrics_behavior");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_source_level_metrics_behavior");
         set => WithProperty("data_source_level_metrics_behavior", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperationLevelMetricsConfig is required")]
     public required TerraformProperty<string> OperationLevelMetricsConfig
     {
-        get => GetProperty<TerraformProperty<string>>("operation_level_metrics_config");
+        get => GetRequiredProperty<TerraformProperty<string>>("operation_level_metrics_config");
         set => WithProperty("operation_level_metrics_config", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResolverLevelMetricsBehavior is required")]
     public required TerraformProperty<string> ResolverLevelMetricsBehavior
     {
-        get => GetProperty<TerraformProperty<string>>("resolver_level_metrics_behavior");
+        get => GetRequiredProperty<TerraformProperty<string>>("resolver_level_metrics_behavior");
         set => WithProperty("resolver_level_metrics_behavior", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerUri is required")]
     public required TerraformProperty<string> AuthorizerUri
     {
-        get => GetProperty<TerraformProperty<string>>("authorizer_uri");
+        get => GetRequiredProperty<TerraformProperty<string>>("authorizer_uri");
         set => WithProperty("authorizer_uri", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsAppsyncGraphqlApiLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogsRoleArn is required")]
     public required TerraformProperty<string> CloudwatchLogsRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("cloudwatch_logs_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("cloudwatch_logs_role_arn");
         set => WithProperty("cloudwatch_logs_role_arn", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsAppsyncGraphqlApiLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldLogLevel is required")]
     public required TerraformProperty<string> FieldLogLevel
     {
-        get => GetProperty<TerraformProperty<string>>("field_log_level");
+        get => GetRequiredProperty<TerraformProperty<string>>("field_log_level");
         set => WithProperty("field_log_level", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsAppsyncGraphqlApiOpenidConnectConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformProperty<string> Issuer
     {
-        get => GetProperty<TerraformProperty<string>>("issuer");
+        get => GetRequiredProperty<TerraformProperty<string>>("issuer");
         set => WithProperty("issuer", value);
     }
 
@@ -206,7 +206,7 @@ public class AwsAppsyncGraphqlApiUserPoolConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformProperty<string> DefaultAction
     {
-        get => GetProperty<TerraformProperty<string>>("default_action");
+        get => GetRequiredProperty<TerraformProperty<string>>("default_action");
         set => WithProperty("default_action", value);
     }
 
@@ -216,7 +216,7 @@ public class AwsAppsyncGraphqlApiUserPoolConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformProperty<string> UserPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("user_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("user_pool_id");
         set => WithProperty("user_pool_id", value);
     }
 
@@ -254,7 +254,7 @@ public class AwsAppsyncGraphqlApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformProperty<string> AuthenticationType
     {
-        get => GetProperty<TerraformProperty<string>>("authentication_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("authentication_type");
         set => this.WithProperty("authentication_type", value);
     }
 
@@ -291,7 +291,7 @@ public class AwsAppsyncGraphqlApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

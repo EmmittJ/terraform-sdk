@@ -40,7 +40,7 @@ public class AwsCeCostCategorySplitChargeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
     public required TerraformProperty<string> Method
     {
-        get => GetProperty<TerraformProperty<string>>("method");
+        get => GetRequiredProperty<TerraformProperty<string>>("method");
         set => WithProperty("method", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsCeCostCategorySplitChargeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformProperty<string> Source
     {
-        get => GetProperty<TerraformProperty<string>>("source");
+        get => GetRequiredProperty<TerraformProperty<string>>("source");
         set => WithProperty("source", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsCeCostCategory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsCeCostCategory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleVersion is required")]
     public required TerraformProperty<string> RuleVersion
     {
-        get => GetProperty<TerraformProperty<string>>("rule_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_version");
         set => this.WithProperty("rule_version", value);
     }
 

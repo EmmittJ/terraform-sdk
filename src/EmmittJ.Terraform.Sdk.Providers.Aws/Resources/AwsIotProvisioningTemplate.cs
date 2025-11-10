@@ -23,7 +23,7 @@ public class AwsIotProvisioningTemplatePreProvisioningHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformProperty<string> TargetArn
     {
-        get => GetProperty<TerraformProperty<string>>("target_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_arn");
         set => WithProperty("target_arn", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsIotProvisioningTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsIotProvisioningTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisioningRoleArn is required")]
     public required TerraformProperty<string> ProvisioningRoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("provisioning_role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("provisioning_role_arn");
         set => this.WithProperty("provisioning_role_arn", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsIotProvisioningTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateBody is required")]
     public required TerraformProperty<string> TemplateBody
     {
-        get => GetProperty<TerraformProperty<string>>("template_body");
+        get => GetRequiredProperty<TerraformProperty<string>>("template_body");
         set => this.WithProperty("template_body", value);
     }
 

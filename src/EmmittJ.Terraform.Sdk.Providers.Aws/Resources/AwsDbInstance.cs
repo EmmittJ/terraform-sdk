@@ -84,7 +84,7 @@ public class AwsDbInstanceS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
         set => WithProperty("bucket_name", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsDbInstanceS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionRole is required")]
     public required TerraformProperty<string> IngestionRole
     {
-        get => GetProperty<TerraformProperty<string>>("ingestion_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("ingestion_role");
         set => WithProperty("ingestion_role", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsDbInstanceS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEngine is required")]
     public required TerraformProperty<string> SourceEngine
     {
-        get => GetProperty<TerraformProperty<string>>("source_engine");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_engine");
         set => WithProperty("source_engine", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsDbInstanceS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEngineVersion is required")]
     public required TerraformProperty<string> SourceEngineVersion
     {
-        get => GetProperty<TerraformProperty<string>>("source_engine_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_engine_version");
         set => WithProperty("source_engine_version", value);
     }
 
@@ -502,7 +502,7 @@ public class AwsDbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceClass is required")]
     public required TerraformProperty<string> InstanceClass
     {
-        get => GetProperty<TerraformProperty<string>>("instance_class");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_class");
         set => this.WithProperty("instance_class", value);
     }
 

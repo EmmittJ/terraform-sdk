@@ -60,7 +60,7 @@ public class AwsVpcBlockPublicAccessOptions : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternetGatewayBlockMode is required")]
     public required TerraformProperty<string> InternetGatewayBlockMode
     {
-        get => GetProperty<TerraformProperty<string>>("internet_gateway_block_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("internet_gateway_block_mode");
         set => this.WithProperty("internet_gateway_block_mode", value);
     }
 

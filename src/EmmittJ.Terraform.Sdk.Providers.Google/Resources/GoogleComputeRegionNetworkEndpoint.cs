@@ -80,7 +80,7 @@ public class GoogleComputeRegionNetworkEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleComputeRegionNetworkEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionNetworkEndpointGroup is required")]
     public required TerraformProperty<string> RegionNetworkEndpointGroup
     {
-        get => GetProperty<TerraformProperty<string>>("region_network_endpoint_group");
+        get => GetRequiredProperty<TerraformProperty<string>>("region_network_endpoint_group");
         set => this.WithProperty("region_network_endpoint_group", value);
     }
 

@@ -42,7 +42,7 @@ public class GoogleIapWebBackendServiceIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebBackendService is required")]
     public required TerraformProperty<string> WebBackendService
     {
-        get => GetProperty<TerraformProperty<string>>("web_backend_service");
+        get => GetRequiredProperty<TerraformProperty<string>>("web_backend_service");
         set => this.WithProperty("web_backend_service", value);
     }
 

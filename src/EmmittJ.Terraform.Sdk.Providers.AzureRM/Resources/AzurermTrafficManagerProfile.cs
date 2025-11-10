@@ -14,7 +14,7 @@ public class AzurermTrafficManagerProfileDnsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeName is required")]
     public required TerraformProperty<string> RelativeName
     {
-        get => GetProperty<TerraformProperty<string>>("relative_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("relative_name");
         set => WithProperty("relative_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermTrafficManagerProfileDnsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformProperty<double> Ttl
     {
-        get => GetProperty<TerraformProperty<double>>("ttl");
+        get => GetRequiredProperty<TerraformProperty<double>>("ttl");
         set => WithProperty("ttl", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformProperty<double> Port
     {
-        get => GetProperty<TerraformProperty<double>>("port");
+        get => GetRequiredProperty<TerraformProperty<double>>("port");
         set => WithProperty("port", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformProperty<string> Protocol
     {
-        get => GetProperty<TerraformProperty<string>>("protocol");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol");
         set => WithProperty("protocol", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -206,7 +206,7 @@ public class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -225,7 +225,7 @@ public class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficRoutingMethod is required")]
     public required TerraformProperty<string> TrafficRoutingMethod
     {
-        get => GetProperty<TerraformProperty<string>>("traffic_routing_method");
+        get => GetRequiredProperty<TerraformProperty<string>>("traffic_routing_method");
         set => this.WithProperty("traffic_routing_method", value);
     }
 

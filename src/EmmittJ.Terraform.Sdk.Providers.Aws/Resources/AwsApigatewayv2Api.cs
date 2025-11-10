@@ -160,7 +160,7 @@ public class AwsApigatewayv2Api : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsApigatewayv2Api : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolType is required")]
     public required TerraformProperty<string> ProtocolType
     {
-        get => GetProperty<TerraformProperty<string>>("protocol_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("protocol_type");
         set => this.WithProperty("protocol_type", value);
     }
 

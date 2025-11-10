@@ -32,7 +32,7 @@ public class AzurermStreamAnalyticsStreamInputBlobSerializationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DateFormat is required")]
     public required TerraformProperty<string> DateFormat
     {
-        get => GetProperty<TerraformProperty<string>>("date_format");
+        get => GetRequiredProperty<TerraformProperty<string>>("date_format");
         set => this.WithProperty("date_format", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathPattern is required")]
     public required TerraformProperty<string> PathPattern
     {
-        get => GetProperty<TerraformProperty<string>>("path_pattern");
+        get => GetRequiredProperty<TerraformProperty<string>>("path_pattern");
         set => this.WithProperty("path_pattern", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -161,7 +161,7 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     public required TerraformProperty<string> StorageAccountKey
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_key");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_key");
         set => this.WithProperty("storage_account_key", value);
     }
 
@@ -171,7 +171,7 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformProperty<string> StorageAccountName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     public required TerraformProperty<string> StorageContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("storage_container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_container_name");
         set => this.WithProperty("storage_container_name", value);
     }
 
@@ -191,7 +191,7 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformProperty<string> StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_analytics_job_name");
         set => this.WithProperty("stream_analytics_job_name", value);
     }
 
@@ -201,7 +201,7 @@ public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeFormat is required")]
     public required TerraformProperty<string> TimeFormat
     {
-        get => GetProperty<TerraformProperty<string>>("time_format");
+        get => GetRequiredProperty<TerraformProperty<string>>("time_format");
         set => this.WithProperty("time_format", value);
     }
 

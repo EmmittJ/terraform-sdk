@@ -14,7 +14,7 @@ public class AwsPrometheusWorkspaceLoggingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupArn is required")]
     public required TerraformProperty<string> LogGroupArn
     {
-        get => GetProperty<TerraformProperty<string>>("log_group_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_group_arn");
         set => WithProperty("log_group_arn", value);
     }
 

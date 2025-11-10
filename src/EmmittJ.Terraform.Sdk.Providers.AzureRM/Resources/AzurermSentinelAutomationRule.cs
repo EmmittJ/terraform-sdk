@@ -41,7 +41,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetProperty<TerraformProperty<double>>("order");
+        get => GetRequiredProperty<TerraformProperty<double>>("order");
         set => WithProperty("order", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetProperty<TerraformProperty<double>>("order");
+        get => GetRequiredProperty<TerraformProperty<double>>("order");
         set => WithProperty("order", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformProperty<string> Title
     {
-        get => GetProperty<TerraformProperty<string>>("title");
+        get => GetRequiredProperty<TerraformProperty<string>>("title");
         set => WithProperty("title", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermSentinelAutomationRuleActionPlaybookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformProperty<string> LogicAppId
     {
-        get => GetProperty<TerraformProperty<string>>("logic_app_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("logic_app_id");
         set => WithProperty("logic_app_id", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermSentinelAutomationRuleActionPlaybookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetProperty<TerraformProperty<double>>("order");
+        get => GetRequiredProperty<TerraformProperty<double>>("order");
         set => WithProperty("order", value);
     }
 
@@ -221,7 +221,7 @@ public class AzurermSentinelAutomationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -258,7 +258,7 @@ public class AzurermSentinelAutomationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermSentinelAutomationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -278,7 +278,7 @@ public class AzurermSentinelAutomationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformProperty<double> Order
     {
-        get => GetProperty<TerraformProperty<double>>("order");
+        get => GetRequiredProperty<TerraformProperty<double>>("order");
         set => this.WithProperty("order", value);
     }
 

@@ -31,7 +31,7 @@ public class AwsNetworkAclAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkAclId is required")]
     public required TerraformProperty<string> NetworkAclId
     {
-        get => GetProperty<TerraformProperty<string>>("network_acl_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("network_acl_id");
         set => this.WithProperty("network_acl_id", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsNetworkAclAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

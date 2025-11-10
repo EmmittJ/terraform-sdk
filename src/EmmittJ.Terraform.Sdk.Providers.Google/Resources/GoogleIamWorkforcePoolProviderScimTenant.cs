@@ -87,7 +87,7 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     public required TerraformProperty<string> ProviderId
     {
-        get => GetProperty<TerraformProperty<string>>("provider_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("provider_id");
         set => this.WithProperty("provider_id", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScimTenantId is required")]
     public required TerraformProperty<string> ScimTenantId
     {
-        get => GetProperty<TerraformProperty<string>>("scim_tenant_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("scim_tenant_id");
         set => this.WithProperty("scim_tenant_id", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformProperty<string> WorkforcePoolId
     {
-        get => GetProperty<TerraformProperty<string>>("workforce_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("workforce_pool_id");
         set => this.WithProperty("workforce_pool_id", value);
     }
 

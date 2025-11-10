@@ -40,7 +40,7 @@ public class AwsIamPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsIamPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     public required TerraformProperty<string> PolicyArn
     {
-        get => GetProperty<TerraformProperty<string>>("policy_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_arn");
         set => this.WithProperty("policy_arn", value);
     }
 

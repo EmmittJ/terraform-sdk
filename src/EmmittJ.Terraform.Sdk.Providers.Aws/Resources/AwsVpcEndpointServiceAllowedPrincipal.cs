@@ -31,7 +31,7 @@ public class AwsVpcEndpointServiceAllowedPrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
     public required TerraformProperty<string> PrincipalArn
     {
-        get => GetProperty<TerraformProperty<string>>("principal_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_arn");
         set => this.WithProperty("principal_arn", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsVpcEndpointServiceAllowedPrincipal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointServiceId is required")]
     public required TerraformProperty<string> VpcEndpointServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("vpc_endpoint_service_id");
         set => this.WithProperty("vpc_endpoint_service_id", value);
     }
 

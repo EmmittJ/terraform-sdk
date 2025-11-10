@@ -23,7 +23,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
     public required TerraformProperty<double> Cpu
     {
-        get => GetProperty<TerraformProperty<double>>("cpu");
+        get => GetRequiredProperty<TerraformProperty<double>>("cpu");
         set => WithProperty("cpu", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformProperty<string> Image
     {
-        get => GetProperty<TerraformProperty<string>>("image");
+        get => GetRequiredProperty<TerraformProperty<string>>("image");
         set => WithProperty("image", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Memory is required")]
     public required TerraformProperty<double> Memory
     {
-        get => GetProperty<TerraformProperty<double>>("memory");
+        get => GetRequiredProperty<TerraformProperty<double>>("memory");
         set => WithProperty("memory", value);
     }
 
@@ -80,7 +80,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermContainerGroupIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -205,7 +205,7 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformProperty<string> Server
     {
-        get => GetProperty<TerraformProperty<string>>("server");
+        get => GetRequiredProperty<TerraformProperty<string>>("server");
         set => WithProperty("server", value);
     }
 
@@ -259,7 +259,7 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformProperty<string> Image
     {
-        get => GetProperty<TerraformProperty<string>>("image");
+        get => GetRequiredProperty<TerraformProperty<string>>("image");
         set => WithProperty("image", value);
     }
 
@@ -269,7 +269,7 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -414,7 +414,7 @@ public class AzurermContainerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -424,7 +424,7 @@ public class AzurermContainerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -444,7 +444,7 @@ public class AzurermContainerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformProperty<string> OsType
     {
-        get => GetProperty<TerraformProperty<string>>("os_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("os_type");
         set => this.WithProperty("os_type", value);
     }
 
@@ -463,7 +463,7 @@ public class AzurermContainerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

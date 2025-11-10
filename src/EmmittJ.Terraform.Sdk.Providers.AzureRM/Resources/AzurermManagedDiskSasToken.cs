@@ -58,7 +58,7 @@ public class AzurermManagedDiskSasToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessLevel is required")]
     public required TerraformProperty<string> AccessLevel
     {
-        get => GetProperty<TerraformProperty<string>>("access_level");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_level");
         set => this.WithProperty("access_level", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermManagedDiskSasToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DurationInSeconds is required")]
     public required TerraformProperty<double> DurationInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("duration_in_seconds");
+        get => GetRequiredProperty<TerraformProperty<double>>("duration_in_seconds");
         set => this.WithProperty("duration_in_seconds", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermManagedDiskSasToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedDiskId is required")]
     public required TerraformProperty<string> ManagedDiskId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_disk_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_disk_id");
         set => this.WithProperty("managed_disk_id", value);
     }
 

@@ -66,7 +66,7 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformProperty<string> PrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("principal_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     public required TerraformProperty<string> RoleName
     {
-        get => GetProperty<TerraformProperty<string>>("role_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_name");
         set => this.WithProperty("role_name", value);
     }
 

@@ -58,7 +58,7 @@ public class AwsRedshiftScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRole is required")]
     public required TerraformProperty<string> IamRole
     {
-        get => GetProperty<TerraformProperty<string>>("iam_role");
+        get => GetRequiredProperty<TerraformProperty<string>>("iam_role");
         set => this.WithProperty("iam_role", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsRedshiftScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsRedshiftScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformProperty<string> Schedule
     {
-        get => GetProperty<TerraformProperty<string>>("schedule");
+        get => GetRequiredProperty<TerraformProperty<string>>("schedule");
         set => this.WithProperty("schedule", value);
     }
 

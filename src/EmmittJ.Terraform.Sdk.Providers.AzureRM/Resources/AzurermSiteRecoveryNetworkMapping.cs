@@ -66,7 +66,7 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformProperty<string> RecoveryVaultName
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_vault_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_name");
         set => this.WithProperty("recovery_vault_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceNetworkId is required")]
     public required TerraformProperty<string> SourceNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("source_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_network_id");
         set => this.WithProperty("source_network_id", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRecoveryFabricName is required")]
     public required TerraformProperty<string> SourceRecoveryFabricName
     {
-        get => GetProperty<TerraformProperty<string>>("source_recovery_fabric_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("source_recovery_fabric_name");
         set => this.WithProperty("source_recovery_fabric_name", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkId is required")]
     public required TerraformProperty<string> TargetNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("target_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_network_id");
         set => this.WithProperty("target_network_id", value);
     }
 
@@ -126,7 +126,7 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRecoveryFabricName is required")]
     public required TerraformProperty<string> TargetRecoveryFabricName
     {
-        get => GetProperty<TerraformProperty<string>>("target_recovery_fabric_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_recovery_fabric_name");
         set => this.WithProperty("target_recovery_fabric_name", value);
     }
 

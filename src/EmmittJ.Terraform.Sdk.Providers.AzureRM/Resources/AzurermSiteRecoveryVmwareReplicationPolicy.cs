@@ -66,7 +66,7 @@ public class AzurermSiteRecoveryVmwareReplicationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationConsistentSnapshotFrequencyInMinutes is required")]
     public required TerraformProperty<double> ApplicationConsistentSnapshotFrequencyInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("application_consistent_snapshot_frequency_in_minutes");
+        get => GetRequiredProperty<TerraformProperty<double>>("application_consistent_snapshot_frequency_in_minutes");
         set => this.WithProperty("application_consistent_snapshot_frequency_in_minutes", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermSiteRecoveryVmwareReplicationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermSiteRecoveryVmwareReplicationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryPointRetentionInMinutes is required")]
     public required TerraformProperty<double> RecoveryPointRetentionInMinutes
     {
-        get => GetProperty<TerraformProperty<double>>("recovery_point_retention_in_minutes");
+        get => GetRequiredProperty<TerraformProperty<double>>("recovery_point_retention_in_minutes");
         set => this.WithProperty("recovery_point_retention_in_minutes", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermSiteRecoveryVmwareReplicationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformProperty<string> RecoveryVaultId
     {
-        get => GetProperty<TerraformProperty<string>>("recovery_vault_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("recovery_vault_id");
         set => this.WithProperty("recovery_vault_id", value);
     }
 

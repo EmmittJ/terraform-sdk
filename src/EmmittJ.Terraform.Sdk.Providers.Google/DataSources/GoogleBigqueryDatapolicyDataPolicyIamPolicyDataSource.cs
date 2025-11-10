@@ -24,7 +24,7 @@ public class GoogleBigqueryDatapolicyDataPolicyIamPolicyDataSource : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyId is required")]
     public required TerraformProperty<string> DataPolicyId
     {
-        get => GetProperty<TerraformProperty<string>>("data_policy_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_policy_id");
         set => this.WithProperty("data_policy_id", value);
     }
 

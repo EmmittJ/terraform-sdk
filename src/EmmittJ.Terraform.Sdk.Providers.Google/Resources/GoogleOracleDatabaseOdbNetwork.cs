@@ -104,7 +104,7 @@ public class GoogleOracleDatabaseOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleOracleDatabaseOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformProperty<string> Network
     {
-        get => GetProperty<TerraformProperty<string>>("network");
+        get => GetRequiredProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleOracleDatabaseOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     public required TerraformProperty<string> OdbNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("odb_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("odb_network_id");
         set => this.WithProperty("odb_network_id", value);
     }
 

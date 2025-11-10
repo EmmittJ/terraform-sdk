@@ -14,7 +14,7 @@ public class AwsBudgetsBudgetAutoAdjustDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoAdjustType is required")]
     public required TerraformProperty<string> AutoAdjustType
     {
-        get => GetProperty<TerraformProperty<string>>("auto_adjust_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("auto_adjust_type");
         set => WithProperty("auto_adjust_type", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsBudgetsBudgetCostFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -176,7 +176,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComparisonOperator is required")]
     public required TerraformProperty<string> ComparisonOperator
     {
-        get => GetProperty<TerraformProperty<string>>("comparison_operator");
+        get => GetRequiredProperty<TerraformProperty<string>>("comparison_operator");
         set => WithProperty("comparison_operator", value);
     }
 
@@ -186,7 +186,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     public required TerraformProperty<string> NotificationType
     {
-        get => GetProperty<TerraformProperty<string>>("notification_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("notification_type");
         set => WithProperty("notification_type", value);
     }
 
@@ -214,7 +214,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformProperty<double> Threshold
     {
-        get => GetProperty<TerraformProperty<double>>("threshold");
+        get => GetRequiredProperty<TerraformProperty<double>>("threshold");
         set => WithProperty("threshold", value);
     }
 
@@ -224,7 +224,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThresholdType is required")]
     public required TerraformProperty<string> ThresholdType
     {
-        get => GetProperty<TerraformProperty<string>>("threshold_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("threshold_type");
         set => WithProperty("threshold_type", value);
     }
 
@@ -242,7 +242,7 @@ public class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     public required TerraformProperty<string> Amount
     {
-        get => GetProperty<TerraformProperty<string>>("amount");
+        get => GetRequiredProperty<TerraformProperty<string>>("amount");
         set => WithProperty("amount", value);
     }
 
@@ -252,7 +252,7 @@ public class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformProperty<string> StartTime
     {
-        get => GetProperty<TerraformProperty<string>>("start_time");
+        get => GetRequiredProperty<TerraformProperty<string>>("start_time");
         set => WithProperty("start_time", value);
     }
 
@@ -262,7 +262,7 @@ public class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformProperty<string> Unit
     {
-        get => GetProperty<TerraformProperty<string>>("unit");
+        get => GetRequiredProperty<TerraformProperty<string>>("unit");
         set => WithProperty("unit", value);
     }
 
@@ -308,7 +308,7 @@ public class AwsBudgetsBudget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BudgetType is required")]
     public required TerraformProperty<string> BudgetType
     {
-        get => GetProperty<TerraformProperty<string>>("budget_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("budget_type");
         set => this.WithProperty("budget_type", value);
     }
 
@@ -399,7 +399,7 @@ public class AwsBudgetsBudget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeUnit is required")]
     public required TerraformProperty<string> TimeUnit
     {
-        get => GetProperty<TerraformProperty<string>>("time_unit");
+        get => GetRequiredProperty<TerraformProperty<string>>("time_unit");
         set => this.WithProperty("time_unit", value);
     }
 

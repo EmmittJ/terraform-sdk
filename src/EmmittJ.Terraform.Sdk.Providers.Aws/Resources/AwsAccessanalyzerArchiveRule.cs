@@ -23,7 +23,7 @@ public class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     public required TerraformProperty<string> Criteria
     {
-        get => GetProperty<TerraformProperty<string>>("criteria");
+        get => GetRequiredProperty<TerraformProperty<string>>("criteria");
         set => WithProperty("criteria", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalyzerName is required")]
     public required TerraformProperty<string> AnalyzerName
     {
-        get => GetProperty<TerraformProperty<string>>("analyzer_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("analyzer_name");
         set => this.WithProperty("analyzer_name", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformProperty<string> RuleName
     {
-        get => GetProperty<TerraformProperty<string>>("rule_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("rule_name");
         set => this.WithProperty("rule_name", value);
     }
 

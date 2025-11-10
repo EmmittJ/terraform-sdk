@@ -67,7 +67,7 @@ public class AzurermDnsSoaRecordDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermDnsSoaRecordDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
     public required TerraformProperty<string> ZoneName
     {
-        get => GetProperty<TerraformProperty<string>>("zone_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone_name");
         set => this.WithProperty("zone_name", value);
     }
 

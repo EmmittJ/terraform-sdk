@@ -14,7 +14,7 @@ public class AwsAcmpcaCertificateValidityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsAcmpcaCertificateValidityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsAcmpcaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArn is required")]
     public required TerraformProperty<string> CertificateAuthorityArn
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_authority_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_authority_arn");
         set => this.WithProperty("certificate_authority_arn", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsAcmpcaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateSigningRequest is required")]
     public required TerraformProperty<string> CertificateSigningRequest
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_signing_request");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_signing_request");
         set => this.WithProperty("certificate_signing_request", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsAcmpcaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
     public required TerraformProperty<string> SigningAlgorithm
     {
-        get => GetProperty<TerraformProperty<string>>("signing_algorithm");
+        get => GetRequiredProperty<TerraformProperty<string>>("signing_algorithm");
         set => this.WithProperty("signing_algorithm", value);
     }
 

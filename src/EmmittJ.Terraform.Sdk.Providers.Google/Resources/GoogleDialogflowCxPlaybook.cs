@@ -107,7 +107,7 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Goal is required")]
     public required TerraformProperty<string> Goal
     {
-        get => GetProperty<TerraformProperty<string>>("goal");
+        get => GetRequiredProperty<TerraformProperty<string>>("goal");
         set => this.WithProperty("goal", value);
     }
 

@@ -51,7 +51,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextSchema is required")]
     public required TerraformProperty<string> TextSchema
     {
-        get => GetProperty<TerraformProperty<string>>("text_schema");
+        get => GetRequiredProperty<TerraformProperty<string>>("text_schema");
         set => WithProperty("text_schema", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleDialogflowCxTool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleDialogflowCxTool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 

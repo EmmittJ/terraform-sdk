@@ -31,7 +31,7 @@ public class AwsS3controlAccessGrantGranteeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteeIdentifier is required")]
     public required TerraformProperty<string> GranteeIdentifier
     {
-        get => GetProperty<TerraformProperty<string>>("grantee_identifier");
+        get => GetRequiredProperty<TerraformProperty<string>>("grantee_identifier");
         set => WithProperty("grantee_identifier", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsS3controlAccessGrantGranteeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteeType is required")]
     public required TerraformProperty<string> GranteeType
     {
-        get => GetProperty<TerraformProperty<string>>("grantee_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("grantee_type");
         set => WithProperty("grantee_type", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsS3controlAccessGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessGrantsLocationId is required")]
     public required TerraformProperty<string> AccessGrantsLocationId
     {
-        get => GetProperty<TerraformProperty<string>>("access_grants_location_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_grants_location_id");
         set => this.WithProperty("access_grants_location_id", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsS3controlAccessGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformProperty<string> Permission
     {
-        get => GetProperty<TerraformProperty<string>>("permission");
+        get => GetRequiredProperty<TerraformProperty<string>>("permission");
         set => this.WithProperty("permission", value);
     }
 

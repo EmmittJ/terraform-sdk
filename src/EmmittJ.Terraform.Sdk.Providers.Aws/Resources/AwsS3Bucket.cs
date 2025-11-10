@@ -88,7 +88,7 @@ public class AwsS3BucketGrantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsS3BucketLifecycleRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsS3BucketLoggingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetBucket is required")]
     public required TerraformProperty<string> TargetBucket
     {
-        get => GetProperty<TerraformProperty<string>>("target_bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_bucket");
         set => WithProperty("target_bucket", value);
     }
 
@@ -214,7 +214,7 @@ public class AwsS3BucketReplicationConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformProperty<string> Role
     {
-        get => GetProperty<TerraformProperty<string>>("role");
+        get => GetRequiredProperty<TerraformProperty<string>>("role");
         set => WithProperty("role", value);
     }
 

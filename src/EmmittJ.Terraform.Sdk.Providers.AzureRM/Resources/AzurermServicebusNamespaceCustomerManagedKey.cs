@@ -84,7 +84,7 @@ public class AzurermServicebusNamespaceCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformProperty<string> KeyVaultKeyId
     {
-        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("key_vault_key_id");
         set => this.WithProperty("key_vault_key_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermServicebusNamespaceCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
     public required TerraformProperty<string> NamespaceId
     {
-        get => GetProperty<TerraformProperty<string>>("namespace_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("namespace_id");
         set => this.WithProperty("namespace_id", value);
     }
 

@@ -14,7 +14,7 @@ public class AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     public required TerraformProperty<string> AddressSpace
     {
-        get => GetProperty<TerraformProperty<string>>("address_space");
+        get => GetRequiredProperty<TerraformProperty<string>>("address_space");
         set => WithProperty("address_space", value);
     }
 
@@ -41,7 +41,7 @@ public class AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     public required TerraformProperty<string> AddressSpace
     {
-        get => GetProperty<TerraformProperty<string>>("address_space");
+        get => GetRequiredProperty<TerraformProperty<string>>("address_space");
         set => WithProperty("address_space", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -158,7 +158,7 @@ public class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkGatewayId is required")]
     public required TerraformProperty<string> VirtualNetworkGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("virtual_network_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("virtual_network_gateway_id");
         set => this.WithProperty("virtual_network_gateway_id", value);
     }
 

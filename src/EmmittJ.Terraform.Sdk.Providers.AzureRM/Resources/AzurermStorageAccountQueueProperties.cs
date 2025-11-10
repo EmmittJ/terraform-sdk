@@ -54,7 +54,7 @@ public class AzurermStorageAccountQueuePropertiesCorsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAgeInSeconds is required")]
     public required TerraformProperty<double> MaxAgeInSeconds
     {
-        get => GetProperty<TerraformProperty<double>>("max_age_in_seconds");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_age_in_seconds");
         set => WithProperty("max_age_in_seconds", value);
     }
 
@@ -90,7 +90,7 @@ public class AzurermStorageAccountQueuePropertiesHourMetricsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => WithProperty("version", value);
     }
 
@@ -108,7 +108,7 @@ public class AzurermStorageAccountQueuePropertiesLoggingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delete is required")]
     public required TerraformProperty<bool> Delete
     {
-        get => GetProperty<TerraformProperty<bool>>("delete");
+        get => GetRequiredProperty<TerraformProperty<bool>>("delete");
         set => WithProperty("delete", value);
     }
 
@@ -118,7 +118,7 @@ public class AzurermStorageAccountQueuePropertiesLoggingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Read is required")]
     public required TerraformProperty<bool> Read
     {
-        get => GetProperty<TerraformProperty<bool>>("read");
+        get => GetRequiredProperty<TerraformProperty<bool>>("read");
         set => WithProperty("read", value);
     }
 
@@ -137,7 +137,7 @@ public class AzurermStorageAccountQueuePropertiesLoggingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => WithProperty("version", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermStorageAccountQueuePropertiesLoggingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Write is required")]
     public required TerraformProperty<bool> Write
     {
-        get => GetProperty<TerraformProperty<bool>>("write");
+        get => GetRequiredProperty<TerraformProperty<bool>>("write");
         set => WithProperty("write", value);
     }
 
@@ -183,7 +183,7 @@ public class AzurermStorageAccountQueuePropertiesMinuteMetricsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => WithProperty("version", value);
     }
 
@@ -263,7 +263,7 @@ public class AzurermStorageAccountQueueProperties : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformProperty<string> StorageAccountId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 

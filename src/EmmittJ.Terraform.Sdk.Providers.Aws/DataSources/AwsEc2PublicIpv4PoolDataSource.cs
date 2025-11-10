@@ -36,7 +36,7 @@ public class AwsEc2PublicIpv4PoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolId is required")]
     public required TerraformProperty<string> PoolId
     {
-        get => GetProperty<TerraformProperty<string>>("pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("pool_id");
         set => this.WithProperty("pool_id", value);
     }
 

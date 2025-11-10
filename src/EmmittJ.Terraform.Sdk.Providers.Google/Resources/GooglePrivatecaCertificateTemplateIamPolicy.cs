@@ -23,7 +23,7 @@ public class GooglePrivatecaCertificateTemplateIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateTemplate is required")]
     public required TerraformProperty<string> CertificateTemplate
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_template");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_template");
         set => this.WithProperty("certificate_template", value);
     }
 
@@ -51,7 +51,7 @@ public class GooglePrivatecaCertificateTemplateIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

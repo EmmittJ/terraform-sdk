@@ -121,7 +121,7 @@ public class AwsPrometheusScraper : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScrapeConfiguration is required")]
     public required TerraformProperty<string> ScrapeConfiguration
     {
-        get => GetProperty<TerraformProperty<string>>("scrape_configuration");
+        get => GetRequiredProperty<TerraformProperty<string>>("scrape_configuration");
         set => this.WithProperty("scrape_configuration", value);
     }
 

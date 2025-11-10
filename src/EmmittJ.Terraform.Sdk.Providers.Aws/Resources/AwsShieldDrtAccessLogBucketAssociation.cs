@@ -49,7 +49,7 @@ public class AwsShieldDrtAccessLogBucketAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogBucket is required")]
     public required TerraformProperty<string> LogBucket
     {
-        get => GetProperty<TerraformProperty<string>>("log_bucket");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_bucket");
         set => this.WithProperty("log_bucket", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsShieldDrtAccessLogBucketAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArnAssociationId is required")]
     public required TerraformProperty<string> RoleArnAssociationId
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn_association_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn_association_id");
         set => this.WithProperty("role_arn_association_id", value);
     }
 

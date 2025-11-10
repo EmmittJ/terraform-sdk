@@ -14,7 +14,7 @@ public class AwsTransferAccessHomeDirectoryMappingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entry is required")]
     public required TerraformProperty<string> Entry
     {
-        get => GetProperty<TerraformProperty<string>>("entry");
+        get => GetRequiredProperty<TerraformProperty<string>>("entry");
         set => WithProperty("entry", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsTransferAccessHomeDirectoryMappingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformProperty<string> Target
     {
-        get => GetProperty<TerraformProperty<string>>("target");
+        get => GetRequiredProperty<TerraformProperty<string>>("target");
         set => WithProperty("target", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsTransferAccessPosixProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
     public required TerraformProperty<double> Gid
     {
-        get => GetProperty<TerraformProperty<double>>("gid");
+        get => GetRequiredProperty<TerraformProperty<double>>("gid");
         set => WithProperty("gid", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsTransferAccessPosixProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
     public required TerraformProperty<double> Uid
     {
-        get => GetProperty<TerraformProperty<double>>("uid");
+        get => GetRequiredProperty<TerraformProperty<double>>("uid");
         set => WithProperty("uid", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsTransferAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
     public required TerraformProperty<string> ExternalId
     {
-        get => GetProperty<TerraformProperty<string>>("external_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("external_id");
         set => this.WithProperty("external_id", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsTransferAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformProperty<string> ServerId
     {
-        get => GetProperty<TerraformProperty<string>>("server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
     }
 

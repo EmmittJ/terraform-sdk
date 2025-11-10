@@ -84,7 +84,7 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddressSender is required")]
     public required TerraformProperty<string> EmailAddressSender
     {
-        get => GetProperty<TerraformProperty<string>>("email_address_sender");
+        get => GetRequiredProperty<TerraformProperty<string>>("email_address_sender");
         set => this.WithProperty("email_address_sender", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailSubject is required")]
     public required TerraformProperty<string> EmailSubject
     {
-        get => GetProperty<TerraformProperty<string>>("email_subject");
+        get => GetRequiredProperty<TerraformProperty<string>>("email_subject");
         set => this.WithProperty("email_subject", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndDate is required")]
     public required TerraformProperty<string> EndDate
     {
-        get => GetProperty<TerraformProperty<string>>("end_date");
+        get => GetRequiredProperty<TerraformProperty<string>>("end_date");
         set => this.WithProperty("end_date", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformProperty<string> Frequency
     {
-        get => GetProperty<TerraformProperty<string>>("frequency");
+        get => GetRequiredProperty<TerraformProperty<string>>("frequency");
         set => this.WithProperty("frequency", value);
     }
 
@@ -171,7 +171,7 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDate is required")]
     public required TerraformProperty<string> StartDate
     {
-        get => GetProperty<TerraformProperty<string>>("start_date");
+        get => GetRequiredProperty<TerraformProperty<string>>("start_date");
         set => this.WithProperty("start_date", value);
     }
 
@@ -191,7 +191,7 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ViewId is required")]
     public required TerraformProperty<string> ViewId
     {
-        get => GetProperty<TerraformProperty<string>>("view_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("view_id");
         set => this.WithProperty("view_id", value);
     }
 

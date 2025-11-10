@@ -23,7 +23,7 @@ public class GoogleMonitoringMetricDescriptorLabelsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -158,7 +158,7 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricKind is required")]
     public required TerraformProperty<string> MetricKind
     {
-        get => GetProperty<TerraformProperty<string>>("metric_kind");
+        get => GetRequiredProperty<TerraformProperty<string>>("metric_kind");
         set => this.WithProperty("metric_kind", value);
     }
 
@@ -177,7 +177,7 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
@@ -215,7 +215,7 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     public required TerraformProperty<string> ValueType
     {
-        get => GetProperty<TerraformProperty<string>>("value_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("value_type");
         set => this.WithProperty("value_type", value);
     }
 

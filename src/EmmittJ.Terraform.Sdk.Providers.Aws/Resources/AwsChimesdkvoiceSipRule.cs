@@ -14,7 +14,7 @@ public class AwsChimesdkvoiceSipRuleTargetApplicationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRegion is required")]
     public required TerraformProperty<string> AwsRegion
     {
-        get => GetProperty<TerraformProperty<string>>("aws_region");
+        get => GetRequiredProperty<TerraformProperty<string>>("aws_region");
         set => WithProperty("aws_region", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsChimesdkvoiceSipRuleTargetApplicationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsChimesdkvoiceSipRuleTargetApplicationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SipMediaApplicationId is required")]
     public required TerraformProperty<string> SipMediaApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("sip_media_application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("sip_media_application_id");
         set => WithProperty("sip_media_application_id", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsChimesdkvoiceSipRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsChimesdkvoiceSipRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerType is required")]
     public required TerraformProperty<string> TriggerType
     {
-        get => GetProperty<TerraformProperty<string>>("trigger_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("trigger_type");
         set => this.WithProperty("trigger_type", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsChimesdkvoiceSipRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerValue is required")]
     public required TerraformProperty<string> TriggerValue
     {
-        get => GetProperty<TerraformProperty<string>>("trigger_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("trigger_value");
         set => this.WithProperty("trigger_value", value);
     }
 

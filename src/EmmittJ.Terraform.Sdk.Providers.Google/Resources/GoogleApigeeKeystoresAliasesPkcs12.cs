@@ -50,7 +50,7 @@ public class GoogleApigeeKeystoresAliasesPkcs12 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
     public required TerraformProperty<string> Alias
     {
-        get => GetProperty<TerraformProperty<string>>("alias");
+        get => GetRequiredProperty<TerraformProperty<string>>("alias");
         set => this.WithProperty("alias", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleApigeeKeystoresAliasesPkcs12 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformProperty<string> Environment
     {
-        get => GetProperty<TerraformProperty<string>>("environment");
+        get => GetRequiredProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleApigeeKeystoresAliasesPkcs12 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "File is required")]
     public required TerraformProperty<string> File
     {
-        get => GetProperty<TerraformProperty<string>>("file");
+        get => GetRequiredProperty<TerraformProperty<string>>("file");
         set => this.WithProperty("file", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleApigeeKeystoresAliasesPkcs12 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filehash is required")]
     public required TerraformProperty<string> Filehash
     {
-        get => GetProperty<TerraformProperty<string>>("filehash");
+        get => GetRequiredProperty<TerraformProperty<string>>("filehash");
         set => this.WithProperty("filehash", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleApigeeKeystoresAliasesPkcs12 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keystore is required")]
     public required TerraformProperty<string> Keystore
     {
-        get => GetProperty<TerraformProperty<string>>("keystore");
+        get => GetRequiredProperty<TerraformProperty<string>>("keystore");
         set => this.WithProperty("keystore", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleApigeeKeystoresAliasesPkcs12 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetProperty<TerraformProperty<string>>("org_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 

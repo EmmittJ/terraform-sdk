@@ -23,7 +23,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformProperty<string> AuthType
     {
-        get => GetProperty<TerraformProperty<string>>("auth_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("auth_type");
         set => WithProperty("auth_type", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleIntegrationConnectorsConnectionConfigVariableBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleIntegrationConnectorsConnectionDestinationConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -121,7 +121,7 @@ public class GoogleIntegrationConnectorsConnectionLockConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locked is required")]
     public required TerraformProperty<bool> Locked
     {
-        get => GetProperty<TerraformProperty<bool>>("locked");
+        get => GetRequiredProperty<TerraformProperty<bool>>("locked");
         set => WithProperty("locked", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleIntegrationConnectorsConnectionLogConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -228,7 +228,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -310,7 +310,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorVersion is required")]
     public required TerraformProperty<string> ConnectorVersion
     {
-        get => GetProperty<TerraformProperty<string>>("connector_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("connector_version");
         set => this.WithProperty("connector_version", value);
     }
 
@@ -360,7 +360,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -370,7 +370,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

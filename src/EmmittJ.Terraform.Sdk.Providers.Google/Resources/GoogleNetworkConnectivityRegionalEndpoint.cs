@@ -62,7 +62,7 @@ public class GoogleNetworkConnectivityRegionalEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessType is required")]
     public required TerraformProperty<string> AccessType
     {
-        get => GetProperty<TerraformProperty<string>>("access_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("access_type");
         set => this.WithProperty("access_type", value);
     }
 
@@ -114,7 +114,7 @@ public class GoogleNetworkConnectivityRegionalEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleNetworkConnectivityRegionalEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -161,7 +161,7 @@ public class GoogleNetworkConnectivityRegionalEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetGoogleApi is required")]
     public required TerraformProperty<string> TargetGoogleApi
     {
-        get => GetProperty<TerraformProperty<string>>("target_google_api");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_google_api");
         set => this.WithProperty("target_google_api", value);
     }
 

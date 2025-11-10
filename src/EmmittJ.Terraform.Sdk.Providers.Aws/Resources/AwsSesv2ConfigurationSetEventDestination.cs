@@ -50,7 +50,7 @@ public class AwsSesv2ConfigurationSetEventDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
     public required TerraformProperty<string> ConfigurationSetName
     {
-        get => GetProperty<TerraformProperty<string>>("configuration_set_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("configuration_set_name");
         set => this.WithProperty("configuration_set_name", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsSesv2ConfigurationSetEventDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventDestinationName is required")]
     public required TerraformProperty<string> EventDestinationName
     {
-        get => GetProperty<TerraformProperty<string>>("event_destination_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("event_destination_name");
         set => this.WithProperty("event_destination_name", value);
     }
 

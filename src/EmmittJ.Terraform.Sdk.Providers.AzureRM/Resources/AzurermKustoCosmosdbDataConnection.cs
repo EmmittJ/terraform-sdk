@@ -57,7 +57,7 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbContainerId is required")]
     public required TerraformProperty<string> CosmosdbContainerId
     {
-        get => GetProperty<TerraformProperty<string>>("cosmosdb_container_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("cosmosdb_container_id");
         set => this.WithProperty("cosmosdb_container_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoDatabaseId is required")]
     public required TerraformProperty<string> KustoDatabaseId
     {
-        get => GetProperty<TerraformProperty<string>>("kusto_database_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("kusto_database_id");
         set => this.WithProperty("kusto_database_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityId is required")]
     public required TerraformProperty<string> ManagedIdentityId
     {
-        get => GetProperty<TerraformProperty<string>>("managed_identity_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("managed_identity_id");
         set => this.WithProperty("managed_identity_id", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
     }
 

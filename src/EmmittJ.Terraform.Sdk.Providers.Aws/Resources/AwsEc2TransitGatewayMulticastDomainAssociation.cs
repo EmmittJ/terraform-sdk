@@ -66,7 +66,7 @@ public class AwsEc2TransitGatewayMulticastDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformProperty<string> SubnetId
     {
-        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsEc2TransitGatewayMulticastDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayAttachmentId is required")]
     public required TerraformProperty<string> TransitGatewayAttachmentId
     {
-        get => GetProperty<TerraformProperty<string>>("transit_gateway_attachment_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_attachment_id");
         set => this.WithProperty("transit_gateway_attachment_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsEc2TransitGatewayMulticastDomainAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayMulticastDomainId is required")]
     public required TerraformProperty<string> TransitGatewayMulticastDomainId
     {
-        get => GetProperty<TerraformProperty<string>>("transit_gateway_multicast_domain_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("transit_gateway_multicast_domain_id");
         set => this.WithProperty("transit_gateway_multicast_domain_id", value);
     }
 

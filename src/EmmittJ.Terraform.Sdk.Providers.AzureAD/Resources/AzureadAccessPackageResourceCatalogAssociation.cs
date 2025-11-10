@@ -57,7 +57,7 @@ public class AzureadAccessPackageResourceCatalogAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformProperty<string> CatalogId
     {
-        get => GetProperty<TerraformProperty<string>>("catalog_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("catalog_id");
         set => this.WithProperty("catalog_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzureadAccessPackageResourceCatalogAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceOriginId is required")]
     public required TerraformProperty<string> ResourceOriginId
     {
-        get => GetProperty<TerraformProperty<string>>("resource_origin_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_origin_id");
         set => this.WithProperty("resource_origin_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AzureadAccessPackageResourceCatalogAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceOriginSystem is required")]
     public required TerraformProperty<string> ResourceOriginSystem
     {
-        get => GetProperty<TerraformProperty<string>>("resource_origin_system");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_origin_system");
         set => this.WithProperty("resource_origin_system", value);
     }
 

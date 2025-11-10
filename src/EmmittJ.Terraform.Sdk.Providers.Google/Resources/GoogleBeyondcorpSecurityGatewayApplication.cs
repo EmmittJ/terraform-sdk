@@ -14,7 +14,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformProperty<string> Hostname
     {
-        get => GetProperty<TerraformProperty<string>>("hostname");
+        get => GetRequiredProperty<TerraformProperty<string>>("hostname");
         set => WithProperty("hostname", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleBeyondcorpSecurityGatewayApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformProperty<string> ApplicationId
     {
-        get => GetProperty<TerraformProperty<string>>("application_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleBeyondcorpSecurityGatewayApplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     public required TerraformProperty<string> SecurityGatewayId
     {
-        get => GetProperty<TerraformProperty<string>>("security_gateway_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("security_gateway_id");
         set => this.WithProperty("security_gateway_id", value);
     }
 

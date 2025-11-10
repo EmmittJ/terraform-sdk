@@ -66,7 +66,7 @@ public class AzurermApiManagementApiOperationTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiOperationId is required")]
     public required TerraformProperty<string> ApiOperationId
     {
-        get => GetProperty<TerraformProperty<string>>("api_operation_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("api_operation_id");
         set => this.WithProperty("api_operation_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermApiManagementApiOperationTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermApiManagementApiOperationTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -41,7 +41,7 @@ public class AwsProxyProtocolPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancer is required")]
     public required TerraformProperty<string> LoadBalancer
     {
-        get => GetProperty<TerraformProperty<string>>("load_balancer");
+        get => GetRequiredProperty<TerraformProperty<string>>("load_balancer");
         set => this.WithProperty("load_balancer", value);
     }
 

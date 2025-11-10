@@ -14,7 +14,7 @@ public class AwsPricingProductDataSourceFiltersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     public required TerraformProperty<string> Field
     {
-        get => GetProperty<TerraformProperty<string>>("field");
+        get => GetRequiredProperty<TerraformProperty<string>>("field");
         set => WithProperty("field", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsPricingProductDataSourceFiltersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<string> Value
     {
-        get => GetProperty<TerraformProperty<string>>("value");
+        get => GetRequiredProperty<TerraformProperty<string>>("value");
         set => WithProperty("value", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsPricingProductDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
     public required TerraformProperty<string> ServiceCode
     {
-        get => GetProperty<TerraformProperty<string>>("service_code");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_code");
         set => this.WithProperty("service_code", value);
     }
 

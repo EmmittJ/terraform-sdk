@@ -75,7 +75,7 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaSizeInKib is required")]
     public required TerraformProperty<double> QuotaSizeInKib
     {
-        get => GetProperty<TerraformProperty<double>>("quota_size_in_kib");
+        get => GetRequiredProperty<TerraformProperty<double>>("quota_size_in_kib");
         set => this.WithProperty("quota_size_in_kib", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaType is required")]
     public required TerraformProperty<string> QuotaType
     {
-        get => GetProperty<TerraformProperty<string>>("quota_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("quota_type");
         set => this.WithProperty("quota_type", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformProperty<string> VolumeId
     {
-        get => GetProperty<TerraformProperty<string>>("volume_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("volume_id");
         set => this.WithProperty("volume_id", value);
     }
 

@@ -58,7 +58,7 @@ public class GoogleEssentialContactsContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformProperty<string> Email
     {
-        get => GetProperty<TerraformProperty<string>>("email");
+        get => GetRequiredProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleEssentialContactsContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageTag is required")]
     public required TerraformProperty<string> LanguageTag
     {
-        get => GetProperty<TerraformProperty<string>>("language_tag");
+        get => GetRequiredProperty<TerraformProperty<string>>("language_tag");
         set => this.WithProperty("language_tag", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleEssentialContactsContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformProperty<string> Parent
     {
-        get => GetProperty<TerraformProperty<string>>("parent");
+        get => GetRequiredProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 

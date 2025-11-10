@@ -322,7 +322,7 @@ public class AwsCognitoUserPoolSchemaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributeDataType is required")]
     public required TerraformProperty<string> AttributeDataType
     {
-        get => GetProperty<TerraformProperty<string>>("attribute_data_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("attribute_data_type");
         set => WithProperty("attribute_data_type", value);
     }
 
@@ -350,7 +350,7 @@ public class AwsCognitoUserPoolSchemaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -394,7 +394,7 @@ public class AwsCognitoUserPoolSmsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
     public required TerraformProperty<string> ExternalId
     {
-        get => GetProperty<TerraformProperty<string>>("external_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("external_id");
         set => WithProperty("external_id", value);
     }
 
@@ -404,7 +404,7 @@ public class AwsCognitoUserPoolSmsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsCallerArn is required")]
     public required TerraformProperty<string> SnsCallerArn
     {
-        get => GetProperty<TerraformProperty<string>>("sns_caller_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("sns_caller_arn");
         set => WithProperty("sns_caller_arn", value);
     }
 
@@ -431,7 +431,7 @@ public class AwsCognitoUserPoolSoftwareTokenMfaConfigurationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -467,7 +467,7 @@ public class AwsCognitoUserPoolUserPoolAddOnsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdvancedSecurityMode is required")]
     public required TerraformProperty<string> AdvancedSecurityMode
     {
-        get => GetProperty<TerraformProperty<string>>("advanced_security_mode");
+        get => GetRequiredProperty<TerraformProperty<string>>("advanced_security_mode");
         set => WithProperty("advanced_security_mode", value);
     }
 
@@ -669,7 +669,7 @@ public class AwsCognitoUserPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

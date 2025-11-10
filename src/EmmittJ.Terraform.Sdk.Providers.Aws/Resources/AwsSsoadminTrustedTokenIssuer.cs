@@ -42,7 +42,7 @@ public class AwsSsoadminTrustedTokenIssuer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformProperty<string> InstanceArn
     {
-        get => GetProperty<TerraformProperty<string>>("instance_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_arn");
         set => this.WithProperty("instance_arn", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsSsoadminTrustedTokenIssuer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsSsoadminTrustedTokenIssuer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedTokenIssuerType is required")]
     public required TerraformProperty<string> TrustedTokenIssuerType
     {
-        get => GetProperty<TerraformProperty<string>>("trusted_token_issuer_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("trusted_token_issuer_type");
         set => this.WithProperty("trusted_token_issuer_type", value);
     }
 

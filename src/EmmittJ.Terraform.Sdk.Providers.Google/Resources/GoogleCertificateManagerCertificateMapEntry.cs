@@ -118,7 +118,7 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Map is required")]
     public required TerraformProperty<string> Map
     {
-        get => GetProperty<TerraformProperty<string>>("map");
+        get => GetRequiredProperty<TerraformProperty<string>>("map");
         set => this.WithProperty("map", value);
     }
 
@@ -139,7 +139,7 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

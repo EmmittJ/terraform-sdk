@@ -32,7 +32,7 @@ public class AwsAlbListenerRuleActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsAlbListenerRuleTransformBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsAlbListenerRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArn is required")]
     public required TerraformProperty<string> ListenerArn
     {
-        get => GetProperty<TerraformProperty<string>>("listener_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("listener_arn");
         set => this.WithProperty("listener_arn", value);
     }
 

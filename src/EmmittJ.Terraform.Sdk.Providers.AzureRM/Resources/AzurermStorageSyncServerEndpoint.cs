@@ -102,7 +102,7 @@ public class AzurermStorageSyncServerEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermStorageSyncServerEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegisteredServerId is required")]
     public required TerraformProperty<string> RegisteredServerId
     {
-        get => GetProperty<TerraformProperty<string>>("registered_server_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("registered_server_id");
         set => this.WithProperty("registered_server_id", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermStorageSyncServerEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerLocalPath is required")]
     public required TerraformProperty<string> ServerLocalPath
     {
-        get => GetProperty<TerraformProperty<string>>("server_local_path");
+        get => GetRequiredProperty<TerraformProperty<string>>("server_local_path");
         set => this.WithProperty("server_local_path", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermStorageSyncServerEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSyncGroupId is required")]
     public required TerraformProperty<string> StorageSyncGroupId
     {
-        get => GetProperty<TerraformProperty<string>>("storage_sync_group_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_sync_group_id");
         set => this.WithProperty("storage_sync_group_id", value);
     }
 

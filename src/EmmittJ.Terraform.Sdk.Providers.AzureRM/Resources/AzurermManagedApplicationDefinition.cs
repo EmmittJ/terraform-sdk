@@ -14,7 +14,7 @@ public class AzurermManagedApplicationDefinitionAuthorizationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformProperty<string> RoleDefinitionId
     {
-        get => GetProperty<TerraformProperty<string>>("role_definition_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_definition_id");
         set => WithProperty("role_definition_id", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermManagedApplicationDefinitionAuthorizationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformProperty<string> ServicePrincipalId
     {
-        get => GetProperty<TerraformProperty<string>>("service_principal_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("service_principal_id");
         set => WithProperty("service_principal_id", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LockLevel is required")]
     public required TerraformProperty<string> LockLevel
     {
-        get => GetProperty<TerraformProperty<string>>("lock_level");
+        get => GetRequiredProperty<TerraformProperty<string>>("lock_level");
         set => this.WithProperty("lock_level", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -70,7 +70,7 @@ public class AzureadApplicationFromTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformProperty<string> DisplayName
     {
-        get => GetProperty<TerraformProperty<string>>("display_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -89,7 +89,7 @@ public class AzureadApplicationFromTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
     public required TerraformProperty<string> TemplateId
     {
-        get => GetProperty<TerraformProperty<string>>("template_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("template_id");
         set => this.WithProperty("template_id", value);
     }
 

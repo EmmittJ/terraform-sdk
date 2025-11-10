@@ -14,7 +14,7 @@ public class AwsChimesdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformProperty<string> KmsKeyArn
     {
-        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("kms_key_arn");
         set => WithProperty("kms_key_arn", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsChimesdkvoiceVoiceProfileDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

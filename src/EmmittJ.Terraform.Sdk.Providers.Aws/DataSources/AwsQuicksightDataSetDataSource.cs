@@ -43,7 +43,7 @@ public class AwsQuicksightDataSetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
     public required TerraformProperty<string> DataSetId
     {
-        get => GetProperty<TerraformProperty<string>>("data_set_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("data_set_id");
         set => this.WithProperty("data_set_id", value);
     }
 

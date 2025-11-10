@@ -69,7 +69,7 @@ public class AzurermEmailCommunicationServiceDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainManagement is required")]
     public required TerraformProperty<string> DomainManagement
     {
-        get => GetProperty<TerraformProperty<string>>("domain_management");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_management");
         set => this.WithProperty("domain_management", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermEmailCommunicationServiceDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailServiceId is required")]
     public required TerraformProperty<string> EmailServiceId
     {
-        get => GetProperty<TerraformProperty<string>>("email_service_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("email_service_id");
         set => this.WithProperty("email_service_id", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermEmailCommunicationServiceDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

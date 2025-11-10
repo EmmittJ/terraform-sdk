@@ -23,7 +23,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Quantity is required")]
     public required TerraformProperty<double> Quantity
     {
-        get => GetProperty<TerraformProperty<double>>("quantity");
+        get => GetRequiredProperty<TerraformProperty<double>>("quantity");
         set => WithProperty("quantity", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsCloudfrontContinuousDeploymentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 

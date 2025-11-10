@@ -14,7 +14,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetastoreType is required")]
     public required TerraformProperty<string> MetastoreType
     {
-        get => GetProperty<TerraformProperty<string>>("metastore_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("metastore_type");
         set => WithProperty("metastore_type", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -34,7 +34,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rank is required")]
     public required TerraformProperty<string> Rank
     {
-        get => GetProperty<TerraformProperty<string>>("rank");
+        get => GetRequiredProperty<TerraformProperty<string>>("rank");
         set => WithProperty("rank", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FederationId is required")]
     public required TerraformProperty<string> FederationId
     {
-        get => GetProperty<TerraformProperty<string>>("federation_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("federation_id");
         set => this.WithProperty("federation_id", value);
     }
 
@@ -178,7 +178,7 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

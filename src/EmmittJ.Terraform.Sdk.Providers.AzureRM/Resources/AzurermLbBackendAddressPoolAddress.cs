@@ -76,7 +76,7 @@ public class AzurermLbBackendAddressPoolAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
     public required TerraformProperty<string> BackendAddressPoolId
     {
-        get => GetProperty<TerraformProperty<string>>("backend_address_pool_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("backend_address_pool_id");
         set => this.WithProperty("backend_address_pool_id", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermLbBackendAddressPoolAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -41,7 +41,7 @@ public class AwsRoute53recoveryreadinessCell : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CellName is required")]
     public required TerraformProperty<string> CellName
     {
-        get => GetProperty<TerraformProperty<string>>("cell_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("cell_name");
         set => this.WithProperty("cell_name", value);
     }
 

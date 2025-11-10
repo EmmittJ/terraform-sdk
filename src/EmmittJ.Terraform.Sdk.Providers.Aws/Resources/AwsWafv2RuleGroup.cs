@@ -14,7 +14,7 @@ public class AwsWafv2RuleGroupCustomResponseBodyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformProperty<string> Content
     {
-        get => GetProperty<TerraformProperty<string>>("content");
+        get => GetRequiredProperty<TerraformProperty<string>>("content");
         set => WithProperty("content", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsWafv2RuleGroupCustomResponseBodyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformProperty<string> ContentType
     {
-        get => GetProperty<TerraformProperty<string>>("content_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("content_type");
         set => WithProperty("content_type", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsWafv2RuleGroupCustomResponseBodyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsWafv2RuleGroupRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsWafv2RuleGroupRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformProperty<double> Priority
     {
-        get => GetProperty<TerraformProperty<double>>("priority");
+        get => GetRequiredProperty<TerraformProperty<double>>("priority");
         set => WithProperty("priority", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsWafv2RuleGroupVisibilityConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchMetricsEnabled is required")]
     public required TerraformProperty<bool> CloudwatchMetricsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("cloudwatch_metrics_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("cloudwatch_metrics_enabled");
         set => WithProperty("cloudwatch_metrics_enabled", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsWafv2RuleGroupVisibilityConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformProperty<string> MetricName
     {
-        get => GetProperty<TerraformProperty<string>>("metric_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("metric_name");
         set => WithProperty("metric_name", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsWafv2RuleGroupVisibilityConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SampledRequestsEnabled is required")]
     public required TerraformProperty<bool> SampledRequestsEnabled
     {
-        get => GetProperty<TerraformProperty<bool>>("sampled_requests_enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("sampled_requests_enabled");
         set => WithProperty("sampled_requests_enabled", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsWafv2RuleGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     public required TerraformProperty<double> Capacity
     {
-        get => GetProperty<TerraformProperty<double>>("capacity");
+        get => GetRequiredProperty<TerraformProperty<double>>("capacity");
         set => this.WithProperty("capacity", value);
     }
 
@@ -193,7 +193,7 @@ public class AwsWafv2RuleGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformProperty<string> Scope
     {
-        get => GetProperty<TerraformProperty<string>>("scope");
+        get => GetRequiredProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

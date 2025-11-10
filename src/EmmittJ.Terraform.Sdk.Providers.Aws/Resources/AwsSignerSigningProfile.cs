@@ -14,7 +14,7 @@ public class AwsSignerSigningProfileSignatureValidityPeriodBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsSignerSigningProfileSignatureValidityPeriodBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformProperty<double> Value
     {
-        get => GetProperty<TerraformProperty<double>>("value");
+        get => GetRequiredProperty<TerraformProperty<double>>("value");
         set => WithProperty("value", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsSignerSigningProfileSigningMaterialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
     public required TerraformProperty<string> CertificateArn
     {
-        get => GetProperty<TerraformProperty<string>>("certificate_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("certificate_arn");
         set => WithProperty("certificate_arn", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsSignerSigningProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformId is required")]
     public required TerraformProperty<string> PlatformId
     {
-        get => GetProperty<TerraformProperty<string>>("platform_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("platform_id");
         set => this.WithProperty("platform_id", value);
     }
 

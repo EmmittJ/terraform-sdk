@@ -14,7 +14,7 @@ public class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
     public required TerraformProperty<string> AlarmName
     {
-        get => GetProperty<TerraformProperty<string>>("alarm_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("alarm_name");
         set => WithProperty("alarm_name", value);
     }
 
@@ -24,7 +24,7 @@ public class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -34,7 +34,7 @@ public class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateReason is required")]
     public required TerraformProperty<string> StateReason
     {
-        get => GetProperty<TerraformProperty<string>>("state_reason");
+        get => GetRequiredProperty<TerraformProperty<string>>("state_reason");
         set => WithProperty("state_reason", value);
     }
 
@@ -44,7 +44,7 @@ public class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateValue is required")]
     public required TerraformProperty<string> StateValue
     {
-        get => GetProperty<TerraformProperty<string>>("state_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("state_value");
         set => WithProperty("state_value", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsIotTopicRuleCloudwatchLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformProperty<string> LogGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("log_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("log_group_name");
         set => WithProperty("log_group_name", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsIotTopicRuleCloudwatchLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformProperty<string> MetricName
     {
-        get => GetProperty<TerraformProperty<string>>("metric_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("metric_name");
         set => WithProperty("metric_name", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricNamespace is required")]
     public required TerraformProperty<string> MetricNamespace
     {
-        get => GetProperty<TerraformProperty<string>>("metric_namespace");
+        get => GetRequiredProperty<TerraformProperty<string>>("metric_namespace");
         set => WithProperty("metric_namespace", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricUnit is required")]
     public required TerraformProperty<string> MetricUnit
     {
-        get => GetProperty<TerraformProperty<string>>("metric_unit");
+        get => GetRequiredProperty<TerraformProperty<string>>("metric_unit");
         set => WithProperty("metric_unit", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricValue is required")]
     public required TerraformProperty<string> MetricValue
     {
-        get => GetProperty<TerraformProperty<string>>("metric_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("metric_value");
         set => WithProperty("metric_value", value);
     }
 
@@ -148,7 +148,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKeyField is required")]
     public required TerraformProperty<string> HashKeyField
     {
-        get => GetProperty<TerraformProperty<string>>("hash_key_field");
+        get => GetRequiredProperty<TerraformProperty<string>>("hash_key_field");
         set => WithProperty("hash_key_field", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKeyValue is required")]
     public required TerraformProperty<string> HashKeyValue
     {
-        get => GetProperty<TerraformProperty<string>>("hash_key_value");
+        get => GetRequiredProperty<TerraformProperty<string>>("hash_key_value");
         set => WithProperty("hash_key_value", value);
     }
 
@@ -240,7 +240,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -250,7 +250,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
         set => WithProperty("table_name", value);
     }
 
@@ -268,7 +268,7 @@ public class AwsIotTopicRuleDynamodbv2Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -286,7 +286,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformProperty<string> Endpoint
     {
-        get => GetProperty<TerraformProperty<string>>("endpoint");
+        get => GetRequiredProperty<TerraformProperty<string>>("endpoint");
         set => WithProperty("endpoint", value);
     }
 
@@ -296,7 +296,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredProperty<TerraformProperty<string>>("id");
         set => WithProperty("id", value);
     }
 
@@ -306,7 +306,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Index is required")]
     public required TerraformProperty<string> Index
     {
-        get => GetProperty<TerraformProperty<string>>("index");
+        get => GetRequiredProperty<TerraformProperty<string>>("index");
         set => WithProperty("index", value);
     }
 
@@ -316,7 +316,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -326,7 +326,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -361,7 +361,7 @@ public class AwsIotTopicRuleFirehoseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryStreamName is required")]
     public required TerraformProperty<string> DeliveryStreamName
     {
-        get => GetProperty<TerraformProperty<string>>("delivery_stream_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("delivery_stream_name");
         set => WithProperty("delivery_stream_name", value);
     }
 
@@ -371,7 +371,7 @@ public class AwsIotTopicRuleFirehoseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -407,7 +407,7 @@ public class AwsIotTopicRuleHttpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformProperty<string> Url
     {
-        get => GetProperty<TerraformProperty<string>>("url");
+        get => GetRequiredProperty<TerraformProperty<string>>("url");
         set => WithProperty("url", value);
     }
 
@@ -434,7 +434,7 @@ public class AwsIotTopicRuleIotAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelName is required")]
     public required TerraformProperty<string> ChannelName
     {
-        get => GetProperty<TerraformProperty<string>>("channel_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("channel_name");
         set => WithProperty("channel_name", value);
     }
 
@@ -444,7 +444,7 @@ public class AwsIotTopicRuleIotAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -471,7 +471,7 @@ public class AwsIotTopicRuleIotEventsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputName is required")]
     public required TerraformProperty<string> InputName
     {
-        get => GetProperty<TerraformProperty<string>>("input_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("input_name");
         set => WithProperty("input_name", value);
     }
 
@@ -490,7 +490,7 @@ public class AwsIotTopicRuleIotEventsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -518,7 +518,7 @@ public class AwsIotTopicRuleKafkaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformProperty<string> DestinationArn
     {
-        get => GetProperty<TerraformProperty<string>>("destination_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("destination_arn");
         set => WithProperty("destination_arn", value);
     }
 
@@ -546,7 +546,7 @@ public class AwsIotTopicRuleKafkaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic");
         set => WithProperty("topic", value);
     }
 
@@ -573,7 +573,7 @@ public class AwsIotTopicRuleKinesisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -583,7 +583,7 @@ public class AwsIotTopicRuleKinesisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
     public required TerraformProperty<string> StreamName
     {
-        get => GetProperty<TerraformProperty<string>>("stream_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("stream_name");
         set => WithProperty("stream_name", value);
     }
 
@@ -601,7 +601,7 @@ public class AwsIotTopicRuleLambdaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
     public required TerraformProperty<string> FunctionArn
     {
-        get => GetProperty<TerraformProperty<string>>("function_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("function_arn");
         set => WithProperty("function_arn", value);
     }
 
@@ -628,7 +628,7 @@ public class AwsIotTopicRuleRepublishBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -638,7 +638,7 @@ public class AwsIotTopicRuleRepublishBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformProperty<string> Topic
     {
-        get => GetProperty<TerraformProperty<string>>("topic");
+        get => GetRequiredProperty<TerraformProperty<string>>("topic");
         set => WithProperty("topic", value);
     }
 
@@ -656,7 +656,7 @@ public class AwsIotTopicRuleS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformProperty<string> BucketName
     {
-        get => GetProperty<TerraformProperty<string>>("bucket_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("bucket_name");
         set => WithProperty("bucket_name", value);
     }
 
@@ -675,7 +675,7 @@ public class AwsIotTopicRuleS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformProperty<string> Key
     {
-        get => GetProperty<TerraformProperty<string>>("key");
+        get => GetRequiredProperty<TerraformProperty<string>>("key");
         set => WithProperty("key", value);
     }
 
@@ -685,7 +685,7 @@ public class AwsIotTopicRuleS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -712,7 +712,7 @@ public class AwsIotTopicRuleSnsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -722,7 +722,7 @@ public class AwsIotTopicRuleSnsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformProperty<string> TargetArn
     {
-        get => GetProperty<TerraformProperty<string>>("target_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_arn");
         set => WithProperty("target_arn", value);
     }
 
@@ -740,7 +740,7 @@ public class AwsIotTopicRuleSqsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueUrl is required")]
     public required TerraformProperty<string> QueueUrl
     {
-        get => GetProperty<TerraformProperty<string>>("queue_url");
+        get => GetRequiredProperty<TerraformProperty<string>>("queue_url");
         set => WithProperty("queue_url", value);
     }
 
@@ -750,7 +750,7 @@ public class AwsIotTopicRuleSqsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -760,7 +760,7 @@ public class AwsIotTopicRuleSqsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UseBase64 is required")]
     public required TerraformProperty<bool> UseBase64
     {
-        get => GetProperty<TerraformProperty<bool>>("use_base64");
+        get => GetRequiredProperty<TerraformProperty<bool>>("use_base64");
         set => WithProperty("use_base64", value);
     }
 
@@ -787,7 +787,7 @@ public class AwsIotTopicRuleStepFunctionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -797,7 +797,7 @@ public class AwsIotTopicRuleStepFunctionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateMachineName is required")]
     public required TerraformProperty<string> StateMachineName
     {
-        get => GetProperty<TerraformProperty<string>>("state_machine_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("state_machine_name");
         set => WithProperty("state_machine_name", value);
     }
 
@@ -815,7 +815,7 @@ public class AwsIotTopicRuleTimestreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformProperty<string> DatabaseName
     {
-        get => GetProperty<TerraformProperty<string>>("database_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("database_name");
         set => WithProperty("database_name", value);
     }
 
@@ -825,7 +825,7 @@ public class AwsIotTopicRuleTimestreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformProperty<string> RoleArn
     {
-        get => GetProperty<TerraformProperty<string>>("role_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("role_arn");
         set => WithProperty("role_arn", value);
     }
 
@@ -835,7 +835,7 @@ public class AwsIotTopicRuleTimestreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformProperty<string> TableName
     {
-        get => GetProperty<TerraformProperty<string>>("table_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("table_name");
         set => WithProperty("table_name", value);
     }
 
@@ -872,7 +872,7 @@ public class AwsIotTopicRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
@@ -891,7 +891,7 @@ public class AwsIotTopicRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -910,7 +910,7 @@ public class AwsIotTopicRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sql is required")]
     public required TerraformProperty<string> Sql
     {
-        get => GetProperty<TerraformProperty<string>>("sql");
+        get => GetRequiredProperty<TerraformProperty<string>>("sql");
         set => this.WithProperty("sql", value);
     }
 
@@ -920,7 +920,7 @@ public class AwsIotTopicRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVersion is required")]
     public required TerraformProperty<string> SqlVersion
     {
-        get => GetProperty<TerraformProperty<string>>("sql_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("sql_version");
         set => this.WithProperty("sql_version", value);
     }
 

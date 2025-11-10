@@ -75,7 +75,7 @@ public class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformProperty<string> InstanceArn
     {
-        get => GetProperty<TerraformProperty<string>>("instance_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("instance_arn");
         set => this.WithProperty("instance_arn", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionSetArn is required")]
     public required TerraformProperty<string> PermissionSetArn
     {
-        get => GetProperty<TerraformProperty<string>>("permission_set_arn");
+        get => GetRequiredProperty<TerraformProperty<string>>("permission_set_arn");
         set => this.WithProperty("permission_set_arn", value);
     }
 

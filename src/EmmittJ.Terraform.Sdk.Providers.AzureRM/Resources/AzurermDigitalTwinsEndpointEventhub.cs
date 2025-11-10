@@ -75,7 +75,7 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     public required TerraformProperty<string> DigitalTwinsId
     {
-        get => GetProperty<TerraformProperty<string>>("digital_twins_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("digital_twins_id");
         set => this.WithProperty("digital_twins_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubPrimaryConnectionString is required")]
     public required TerraformProperty<string> EventhubPrimaryConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_primary_connection_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_primary_connection_string");
         set => this.WithProperty("eventhub_primary_connection_string", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubSecondaryConnectionString is required")]
     public required TerraformProperty<string> EventhubSecondaryConnectionString
     {
-        get => GetProperty<TerraformProperty<string>>("eventhub_secondary_connection_string");
+        get => GetRequiredProperty<TerraformProperty<string>>("eventhub_secondary_connection_string");
         set => this.WithProperty("eventhub_secondary_connection_string", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -23,7 +23,7 @@ public class GoogleDataplexAspectTypeIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AspectTypeId is required")]
     public required TerraformProperty<string> AspectTypeId
     {
-        get => GetProperty<TerraformProperty<string>>("aspect_type_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("aspect_type_id");
         set => this.WithProperty("aspect_type_id", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleDataplexAspectTypeIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformProperty<string> PolicyData
     {
-        get => GetProperty<TerraformProperty<string>>("policy_data");
+        get => GetRequiredProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 

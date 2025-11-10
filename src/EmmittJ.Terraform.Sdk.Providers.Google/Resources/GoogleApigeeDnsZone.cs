@@ -14,7 +14,7 @@ public class GoogleApigeeDnsZonePeeringConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkId is required")]
     public required TerraformProperty<string> TargetNetworkId
     {
-        get => GetProperty<TerraformProperty<string>>("target_network_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_network_id");
         set => WithProperty("target_network_id", value);
     }
 
@@ -24,7 +24,7 @@ public class GoogleApigeeDnsZonePeeringConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetProjectId is required")]
     public required TerraformProperty<string> TargetProjectId
     {
-        get => GetProperty<TerraformProperty<string>>("target_project_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("target_project_id");
         set => WithProperty("target_project_id", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleApigeeDnsZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformProperty<string> Description
     {
-        get => GetProperty<TerraformProperty<string>>("description");
+        get => GetRequiredProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleApigeeDnsZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsZoneId is required")]
     public required TerraformProperty<string> DnsZoneId
     {
-        get => GetProperty<TerraformProperty<string>>("dns_zone_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("dns_zone_id");
         set => this.WithProperty("dns_zone_id", value);
     }
 
@@ -98,7 +98,7 @@ public class GoogleApigeeDnsZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformProperty<string> Domain
     {
-        get => GetProperty<TerraformProperty<string>>("domain");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleApigeeDnsZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformProperty<string> OrgId
     {
-        get => GetProperty<TerraformProperty<string>>("org_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 

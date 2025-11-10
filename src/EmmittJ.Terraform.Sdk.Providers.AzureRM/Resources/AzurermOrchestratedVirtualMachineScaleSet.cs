@@ -40,7 +40,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -84,7 +84,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
     public required TerraformProperty<string> Caching
     {
-        get => GetProperty<TerraformProperty<string>>("caching");
+        get => GetRequiredProperty<TerraformProperty<string>>("caching");
         set => WithProperty("caching", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
     public required TerraformProperty<string> StorageAccountType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_type");
         set => WithProperty("storage_account_type", value);
     }
 
@@ -211,7 +211,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -230,7 +230,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => WithProperty("publisher", value);
     }
 
@@ -249,7 +249,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -259,7 +259,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeHandlerVersion is required")]
     public required TerraformProperty<string> TypeHandlerVersion
     {
-        get => GetProperty<TerraformProperty<string>>("type_handler_version");
+        get => GetRequiredProperty<TerraformProperty<string>>("type_handler_version");
         set => WithProperty("type_handler_version", value);
     }
 
@@ -287,7 +287,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetIdentityBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -350,7 +350,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -386,7 +386,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
     public required TerraformProperty<string> Caching
     {
-        get => GetProperty<TerraformProperty<string>>("caching");
+        get => GetRequiredProperty<TerraformProperty<string>>("caching");
         set => WithProperty("caching", value);
     }
 
@@ -414,7 +414,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
     public required TerraformProperty<string> StorageAccountType
     {
-        get => GetProperty<TerraformProperty<string>>("storage_account_type");
+        get => GetRequiredProperty<TerraformProperty<string>>("storage_account_type");
         set => WithProperty("storage_account_type", value);
     }
 
@@ -458,7 +458,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -468,7 +468,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformProperty<string> Product
     {
-        get => GetProperty<TerraformProperty<string>>("product");
+        get => GetRequiredProperty<TerraformProperty<string>>("product");
         set => WithProperty("product", value);
     }
 
@@ -478,7 +478,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => WithProperty("publisher", value);
     }
 
@@ -531,7 +531,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxBatchInstancePercent is required")]
     public required TerraformProperty<double> MaxBatchInstancePercent
     {
-        get => GetProperty<TerraformProperty<double>>("max_batch_instance_percent");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_batch_instance_percent");
         set => WithProperty("max_batch_instance_percent", value);
     }
 
@@ -541,7 +541,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnhealthyInstancePercent is required")]
     public required TerraformProperty<double> MaxUnhealthyInstancePercent
     {
-        get => GetProperty<TerraformProperty<double>>("max_unhealthy_instance_percent");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_unhealthy_instance_percent");
         set => WithProperty("max_unhealthy_instance_percent", value);
     }
 
@@ -551,7 +551,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnhealthyUpgradedInstancePercent is required")]
     public required TerraformProperty<double> MaxUnhealthyUpgradedInstancePercent
     {
-        get => GetProperty<TerraformProperty<double>>("max_unhealthy_upgraded_instance_percent");
+        get => GetRequiredProperty<TerraformProperty<double>>("max_unhealthy_upgraded_instance_percent");
         set => WithProperty("max_unhealthy_upgraded_instance_percent", value);
     }
 
@@ -570,7 +570,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PauseTimeBetweenBatches is required")]
     public required TerraformProperty<string> PauseTimeBetweenBatches
     {
-        get => GetProperty<TerraformProperty<string>>("pause_time_between_batches");
+        get => GetRequiredProperty<TerraformProperty<string>>("pause_time_between_batches");
         set => WithProperty("pause_time_between_batches", value);
     }
 
@@ -597,7 +597,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationStrategy is required")]
     public required TerraformProperty<string> AllocationStrategy
     {
-        get => GetProperty<TerraformProperty<string>>("allocation_strategy");
+        get => GetRequiredProperty<TerraformProperty<string>>("allocation_strategy");
         set => WithProperty("allocation_strategy", value);
     }
 
@@ -625,7 +625,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformProperty<string> Offer
     {
-        get => GetProperty<TerraformProperty<string>>("offer");
+        get => GetRequiredProperty<TerraformProperty<string>>("offer");
         set => WithProperty("offer", value);
     }
 
@@ -635,7 +635,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformProperty<string> Publisher
     {
-        get => GetProperty<TerraformProperty<string>>("publisher");
+        get => GetRequiredProperty<TerraformProperty<string>>("publisher");
         set => WithProperty("publisher", value);
     }
 
@@ -645,7 +645,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformProperty<string> Sku
     {
-        get => GetProperty<TerraformProperty<string>>("sku");
+        get => GetRequiredProperty<TerraformProperty<string>>("sku");
         set => WithProperty("sku", value);
     }
 
@@ -655,7 +655,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformProperty<string> Version
     {
-        get => GetProperty<TerraformProperty<string>>("version");
+        get => GetRequiredProperty<TerraformProperty<string>>("version");
         set => WithProperty("version", value);
     }
 
@@ -673,7 +673,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformProperty<bool> Enabled
     {
-        get => GetProperty<TerraformProperty<bool>>("enabled");
+        get => GetRequiredProperty<TerraformProperty<bool>>("enabled");
         set => WithProperty("enabled", value);
     }
 
@@ -826,7 +826,7 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformProperty<string> Location
     {
-        get => GetProperty<TerraformProperty<string>>("location");
+        get => GetRequiredProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -845,7 +845,7 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -864,7 +864,7 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformFaultDomainCount is required")]
     public required TerraformProperty<double> PlatformFaultDomainCount
     {
-        get => GetProperty<TerraformProperty<double>>("platform_fault_domain_count");
+        get => GetRequiredProperty<TerraformProperty<double>>("platform_fault_domain_count");
         set => this.WithProperty("platform_fault_domain_count", value);
     }
 
@@ -892,7 +892,7 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -31,7 +31,7 @@ public class AwsOpensearchOutboundConnectionLocalDomainInfoBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => WithProperty("domain_name", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsOpensearchOutboundConnectionLocalDomainInfoBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerId is required")]
     public required TerraformProperty<string> OwnerId
     {
-        get => GetProperty<TerraformProperty<string>>("owner_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("owner_id");
         set => WithProperty("owner_id", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsOpensearchOutboundConnectionLocalDomainInfoBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
+        get => GetRequiredProperty<TerraformProperty<string>>("region");
         set => WithProperty("region", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformProperty<string> DomainName
     {
-        get => GetProperty<TerraformProperty<string>>("domain_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("domain_name");
         set => WithProperty("domain_name", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerId is required")]
     public required TerraformProperty<string> OwnerId
     {
-        get => GetProperty<TerraformProperty<string>>("owner_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("owner_id");
         set => WithProperty("owner_id", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformProperty<string> Region
     {
-        get => GetProperty<TerraformProperty<string>>("region");
+        get => GetRequiredProperty<TerraformProperty<string>>("region");
         set => WithProperty("region", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsOpensearchOutboundConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionAlias is required")]
     public required TerraformProperty<string> ConnectionAlias
     {
-        get => GetProperty<TerraformProperty<string>>("connection_alias");
+        get => GetRequiredProperty<TerraformProperty<string>>("connection_alias");
         set => this.WithProperty("connection_alias", value);
     }
 

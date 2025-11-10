@@ -14,7 +14,7 @@ public class AwsEcsTaskDefinitionEphemeralStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGib is required")]
     public required TerraformProperty<double> SizeInGib
     {
-        get => GetProperty<TerraformProperty<double>>("size_in_gib");
+        get => GetRequiredProperty<TerraformProperty<double>>("size_in_gib");
         set => WithProperty("size_in_gib", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsEcsTaskDefinitionPlacementConstraintsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformProperty<string> Type
     {
-        get => GetProperty<TerraformProperty<string>>("type");
+        get => GetRequiredProperty<TerraformProperty<string>>("type");
         set => WithProperty("type", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsEcsTaskDefinitionProxyConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformProperty<string> ContainerName
     {
-        get => GetProperty<TerraformProperty<string>>("container_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_name");
         set => WithProperty("container_name", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsEcsTaskDefinitionVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformProperty<string> Name
     {
-        get => GetProperty<TerraformProperty<string>>("name");
+        get => GetRequiredProperty<TerraformProperty<string>>("name");
         set => WithProperty("name", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsEcsTaskDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerDefinitions is required")]
     public required TerraformProperty<string> ContainerDefinitions
     {
-        get => GetProperty<TerraformProperty<string>>("container_definitions");
+        get => GetRequiredProperty<TerraformProperty<string>>("container_definitions");
         set => this.WithProperty("container_definitions", value);
     }
 
@@ -206,7 +206,7 @@ public class AwsEcsTaskDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformProperty<string> Family
     {
-        get => GetProperty<TerraformProperty<string>>("family");
+        get => GetRequiredProperty<TerraformProperty<string>>("family");
         set => this.WithProperty("family", value);
     }
 

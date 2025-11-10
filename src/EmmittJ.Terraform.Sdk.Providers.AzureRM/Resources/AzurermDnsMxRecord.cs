@@ -14,7 +14,7 @@ public class AzurermDnsMxRecordRecordBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exchange is required")]
     public required TerraformProperty<string> Exchange
     {
-        get => GetProperty<TerraformProperty<string>>("exchange");
+        get => GetRequiredProperty<TerraformProperty<string>>("exchange");
         set => WithProperty("exchange", value);
     }
 
@@ -24,7 +24,7 @@ public class AzurermDnsMxRecordRecordBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Preference is required")]
     public required TerraformProperty<string> Preference
     {
-        get => GetProperty<TerraformProperty<string>>("preference");
+        get => GetRequiredProperty<TerraformProperty<string>>("preference");
         set => WithProperty("preference", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermDnsMxRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformProperty<string> ResourceGroupName
     {
-        get => GetProperty<TerraformProperty<string>>("resource_group_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermDnsMxRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformProperty<double> Ttl
     {
-        get => GetProperty<TerraformProperty<double>>("ttl");
+        get => GetRequiredProperty<TerraformProperty<double>>("ttl");
         set => this.WithProperty("ttl", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermDnsMxRecord : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
     public required TerraformProperty<string> ZoneName
     {
-        get => GetProperty<TerraformProperty<string>>("zone_name");
+        get => GetRequiredProperty<TerraformProperty<string>>("zone_name");
         set => this.WithProperty("zone_name", value);
     }
 

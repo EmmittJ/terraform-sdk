@@ -42,7 +42,7 @@ public class AwsKendraQuerySuggestionsBlockListDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexId is required")]
     public required TerraformProperty<string> IndexId
     {
-        get => GetProperty<TerraformProperty<string>>("index_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("index_id");
         set => this.WithProperty("index_id", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsKendraQuerySuggestionsBlockListDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuerySuggestionsBlockListId is required")]
     public required TerraformProperty<string> QuerySuggestionsBlockListId
     {
-        get => GetProperty<TerraformProperty<string>>("query_suggestions_block_list_id");
+        get => GetRequiredProperty<TerraformProperty<string>>("query_suggestions_block_list_id");
         set => this.WithProperty("query_suggestions_block_list_id", value);
     }
 
