@@ -38,20 +38,19 @@ var api = builder.AddProject<Projects.TerraformPlayground_ApiService>("api")
         // Create Azure Container App for the API
         var containerApp = new AzurermContainerApp($"{resource.Name}")
         {
+            // Reference the Container App Environment ID using a data source or variable
+            // This would typically come from the shared infrastructure output
+            // For now, using a placeholder that shows the pattern
+            ContainerAppEnvironmentId = TerraformExpression.Identifier("azurerm_container_app_environment.container-env.id"),
             Name = $"aspire-{resource.Name}",
             ResourceGroupName = "aspire-playground-rg",
             RevisionMode = "Single",
-            Tags = new Dictionary<string, string>
+            Tags = new()
             {
                 ["Environment"] = "Development",
                 ["ManagedBy"] = "Aspire"
             }
         };
-
-        // Reference the Container App Environment ID using a data source or variable
-        // This would typically come from the shared infrastructure output
-        // For now, using a placeholder that shows the pattern
-        containerApp.ContainerAppEnvironmentId = TerraformExpression.Identifier("azurerm_container_app_environment.container-env.id");
 
         // Note: For a complete implementation, you would need to configure:
         // - Template with container configuration (image, CPU, memory)
@@ -99,7 +98,7 @@ azure.PublishAsTerraform((stack, _) =>
     {
         Name = "aspire-playground-rg",
         Location = "eastus",
-        Tags = new Dictionary<string, string>
+        Tags = new()
         {
             ["Environment"] = "Development",
             ["ManagedBy"] = "Aspire"
@@ -142,7 +141,7 @@ cache.PublishAsTerraform((stack, resource) =>
         Family = "C",
         SkuName = "Basic",
         MinimumTlsVersion = "1.2",
-        Tags = new Dictionary<string, string>
+        Tags = new()
         {
             ["Environment"] = "Development",
             ["ManagedBy"] = "Aspire"
@@ -187,7 +186,7 @@ db.PublishAsTerraform((stack, resource) =>
         SkuName = "B_Standard_B1ms",
         StorageMb = 32768,
         Version = "16",
-        Tags = new Dictionary<string, string>
+        Tags = new()
         {
             ["Environment"] = "Development",
             ["ManagedBy"] = "Aspire"
