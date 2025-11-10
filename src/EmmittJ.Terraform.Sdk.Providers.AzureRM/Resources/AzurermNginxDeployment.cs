@@ -144,6 +144,7 @@ public class AzurermNginxDeploymentIdentityBlock : TerraformBlock
 /// Block type for logging_storage_account in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AzurermNginxDeploymentLoggingStorageAccountBlock : TerraformBlock
 {
     /// <summary>
@@ -423,6 +424,7 @@ public class AzurermNginxDeployment : TerraformResource
     /// Block for logging_storage_account.
     /// Nesting mode: list
     /// </summary>
+    [Obsolete("This block is deprecated.")]
     public List<AzurermNginxDeploymentLoggingStorageAccountBlock>? LoggingStorageAccount
     {
         get => GetProperty<List<AzurermNginxDeploymentLoggingStorageAccountBlock>>("logging_storage_account");

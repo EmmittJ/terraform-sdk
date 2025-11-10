@@ -83,6 +83,7 @@ public static class TemplateHelpers
             block.BlockPropertyType,
             block.MinItems,
             block.MaxItems,
+            block.IsDeprecated,
             ValidationAttributes = validationAttributes,
             HasValidation = validationAttributes.Count > 0,
             Properties = block.Properties.Select(PreparePropertyForTemplate).ToList()

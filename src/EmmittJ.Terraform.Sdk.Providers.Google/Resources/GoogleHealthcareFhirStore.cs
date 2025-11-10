@@ -6,6 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for notification_config in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class GoogleHealthcareFhirStoreNotificationConfigBlock : TerraformBlock
 {
     /// <summary>
@@ -360,6 +361,7 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<GoogleHealthcareFhirStoreNotificationConfigBlock>? NotificationConfig
     {
         get => GetProperty<List<GoogleHealthcareFhirStoreNotificationConfigBlock>>("notification_config");

@@ -50,6 +50,7 @@ public class AzureadServicePrincipalFeatureTagsBlock : TerraformBlock
 /// Block type for features in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AzureadServicePrincipalFeaturesBlock : TerraformBlock
 {
     /// <summary>
@@ -312,6 +313,7 @@ public class AzureadServicePrincipal : TerraformResource
     /// Block for features.
     /// Nesting mode: list
     /// </summary>
+    [Obsolete("This block is deprecated.")]
     public List<AzureadServicePrincipalFeaturesBlock>? Features
     {
         get => GetProperty<List<AzureadServicePrincipalFeaturesBlock>>("features");

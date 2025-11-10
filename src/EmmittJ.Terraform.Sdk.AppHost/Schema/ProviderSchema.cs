@@ -2,6 +2,10 @@ using System.Text.Json.Serialization;
 
 namespace EmmittJ.Terraform.Sdk.AppHost.Schema;
 
+/// <summary>
+/// Root schema representation as defined in the Terraform provider schema specification.
+/// See: https://developer.hashicorp.com/terraform/cli/commands/providers/schema
+/// </summary>
 public class ProviderSchemaRoot
 {
     [JsonPropertyName("format_version")]
@@ -11,6 +15,10 @@ public class ProviderSchemaRoot
     public Dictionary<string, ProviderSchema> ProviderSchemas { get; set; } = new();
 }
 
+/// <summary>
+/// Provider schema containing resource schemas, data source schemas, and function definitions.
+/// See: https://developer.hashicorp.com/terraform/cli/commands/providers/schema#providers-schema-representation
+/// </summary>
 public class ProviderSchema
 {
     [JsonPropertyName("provider")]
@@ -29,6 +37,10 @@ public class ProviderSchema
     public Dictionary<string, FunctionSchema> Functions { get; set; } = new();
 }
 
+/// <summary>
+/// Schema representation pairing a provider or resource schema with its version.
+/// See: https://developer.hashicorp.com/terraform/cli/commands/providers/schema#schema-representation
+/// </summary>
 public class ResourceSchema
 {
     [JsonPropertyName("version")]
@@ -38,6 +50,10 @@ public class ResourceSchema
     public SchemaBlock Block { get; set; } = new();
 }
 
+/// <summary>
+/// Block representation containing attributes and nested block types.
+/// See: https://developer.hashicorp.com/terraform/cli/commands/providers/schema#block-representation
+/// </summary>
 public class SchemaBlock
 {
     [JsonPropertyName("attributes")]
@@ -56,6 +72,10 @@ public class SchemaBlock
     public bool Deprecated { get; set; }
 }
 
+/// <summary>
+/// Attribute definition within a block.
+/// See: https://developer.hashicorp.com/terraform/cli/commands/providers/schema#block-representation
+/// </summary>
 public class SchemaAttribute
 {
     [JsonPropertyName("type")]
@@ -83,6 +103,10 @@ public class SchemaAttribute
     public bool Deprecated { get; set; }
 }
 
+/// <summary>
+/// Nested block type definition with nesting mode (single, list, set, map).
+/// See: https://developer.hashicorp.com/terraform/cli/commands/providers/schema#block-representation
+/// </summary>
 public class SchemaBlockType
 {
     [JsonPropertyName("nesting_mode")]
@@ -98,6 +122,10 @@ public class SchemaBlockType
     public int? MaxItems { get; set; }
 }
 
+/// <summary>
+/// Function definition including parameters, return type, and documentation.
+/// See: https://developer.hashicorp.com/terraform/cli/commands/providers/schema#function-representation
+/// </summary>
 public class FunctionSchema
 {
     [JsonPropertyName("summary")]
@@ -119,6 +147,10 @@ public class FunctionSchema
     public ParameterSchema? VariadicParameter { get; set; }
 }
 
+/// <summary>
+/// Parameter definition for function signatures.
+/// See: https://developer.hashicorp.com/terraform/cli/commands/providers/schema#parameter-representation
+/// </summary>
 public class ParameterSchema
 {
     [JsonPropertyName("name")]

@@ -6,6 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for datasources in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AwsGuarddutyOrganizationConfigurationDatasourcesBlock : TerraformBlock
 {
 }
@@ -68,6 +69,7 @@ public class AwsGuarddutyOrganizationConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Datasources block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<AwsGuarddutyOrganizationConfigurationDatasourcesBlock>? Datasources
     {
         get => GetProperty<List<AwsGuarddutyOrganizationConfigurationDatasourcesBlock>>("datasources");

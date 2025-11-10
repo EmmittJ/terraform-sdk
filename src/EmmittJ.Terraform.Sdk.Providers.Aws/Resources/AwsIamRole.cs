@@ -6,6 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for inline_policy in .
 /// Nesting mode: set
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AwsIamRoleInlinePolicyBlock : TerraformBlock
 {
     /// <summary>
@@ -159,6 +160,7 @@ public class AwsIamRole : TerraformResource
     /// Block for inline_policy.
     /// Nesting mode: set
     /// </summary>
+    [Obsolete("This block is deprecated.")]
     public HashSet<AwsIamRoleInlinePolicyBlock>? InlinePolicy
     {
         get => GetProperty<HashSet<AwsIamRoleInlinePolicyBlock>>("inline_policy");

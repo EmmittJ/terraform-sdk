@@ -6,6 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for hub_profile in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AzurermKubernetesFleetManagerHubProfileBlock : TerraformBlock
 {
     /// <summary>
@@ -150,6 +151,7 @@ public class AzurermKubernetesFleetManager : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HubProfile block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<AzurermKubernetesFleetManagerHubProfileBlock>? HubProfile
     {
         get => GetProperty<List<AzurermKubernetesFleetManagerHubProfileBlock>>("hub_profile");

@@ -49,6 +49,7 @@ public class BlockTypeModel
     public List<PropertyModel> Properties { get; set; } = new();
     public int? MinItems { get; set; }
     public int? MaxItems { get; set; }
+    public bool IsDeprecated { get; set; }
 
     /// <summary>
     /// Gets the C# property type based on the nesting mode.

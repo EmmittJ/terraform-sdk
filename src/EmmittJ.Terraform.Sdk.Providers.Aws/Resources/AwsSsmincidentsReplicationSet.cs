@@ -6,6 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for region in .
 /// Nesting mode: set
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AwsSsmincidentsReplicationSetRegionBlock : TerraformBlock
 {
     /// <summary>
@@ -177,6 +178,7 @@ public class AwsSsmincidentsReplicationSet : TerraformResource
     /// Block for region.
     /// Nesting mode: set
     /// </summary>
+    [Obsolete("This block is deprecated.")]
     public HashSet<AwsSsmincidentsReplicationSetRegionBlock>? Region
     {
         get => GetProperty<HashSet<AwsSsmincidentsReplicationSetRegionBlock>>("region");

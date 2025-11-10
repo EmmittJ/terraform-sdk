@@ -50,6 +50,7 @@ public class AzurermMonitorDiagnosticSettingEnabledMetricBlock : TerraformBlock
 /// Block type for metric in .
 /// Nesting mode: set
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AzurermMonitorDiagnosticSettingMetricBlock : TerraformBlock
 {
     /// <summary>
@@ -238,6 +239,7 @@ public class AzurermMonitorDiagnosticSetting : TerraformResource
     /// Block for metric.
     /// Nesting mode: set
     /// </summary>
+    [Obsolete("This block is deprecated.")]
     public HashSet<AzurermMonitorDiagnosticSettingMetricBlock>? Metric
     {
         get => GetProperty<HashSet<AzurermMonitorDiagnosticSettingMetricBlock>>("metric");

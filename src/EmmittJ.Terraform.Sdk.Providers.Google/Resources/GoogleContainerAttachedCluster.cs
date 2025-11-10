@@ -139,6 +139,7 @@ public class GoogleContainerAttachedClusterProxyConfigBlock : TerraformBlock
 /// Block type for security_posture_config in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class GoogleContainerAttachedClusterSecurityPostureConfigBlock : TerraformBlock
 {
     /// <summary>
@@ -394,6 +395,7 @@ public class GoogleContainerAttachedCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityPostureConfig block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<GoogleContainerAttachedClusterSecurityPostureConfigBlock>? SecurityPostureConfig
     {
         get => GetProperty<List<GoogleContainerAttachedClusterSecurityPostureConfigBlock>>("security_posture_config");

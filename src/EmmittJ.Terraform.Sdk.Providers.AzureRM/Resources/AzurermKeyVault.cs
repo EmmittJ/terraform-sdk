@@ -6,6 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for contact in .
 /// Nesting mode: set
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AzurermKeyVaultContactBlock : TerraformBlock
 {
     /// <summary>
@@ -298,6 +299,7 @@ public class AzurermKeyVault : TerraformResource
     /// Block for contact.
     /// Nesting mode: set
     /// </summary>
+    [Obsolete("This block is deprecated.")]
     public HashSet<AzurermKeyVaultContactBlock>? Contact
     {
         get => GetProperty<HashSet<AzurermKeyVaultContactBlock>>("contact");

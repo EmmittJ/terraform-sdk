@@ -7,6 +7,9 @@ namespace {{Namespace}};
 /// Block type for {{TerraformName}} in {{../ClassName}}.
 /// Nesting mode: {{NestingMode}}
 /// </summary>
+{{#IsDeprecated}}
+[Obsolete("This block is deprecated.")]
+{{/IsDeprecated}}
 public class {{ClassName}} : TerraformBlock
 {
 {{#Properties}}
@@ -98,6 +101,9 @@ public class {{ClassName}} : {{BaseClassName}}
 {{#ValidationAttributes}}
     {{{.}}}
 {{/ValidationAttributes}}
+{{#IsDeprecated}}
+    [Obsolete("This block is deprecated.")]
+{{/IsDeprecated}}
     public {{{BlockPropertyType}}}? {{Name}}
     {
         get => GetProperty<{{{BlockPropertyType}}}>("{{TerraformName}}");

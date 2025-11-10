@@ -79,6 +79,7 @@ public class AzurermKustoClusterLanguageExtensionBlock : TerraformBlock
 /// Block type for language_extensions in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AzurermKustoClusterLanguageExtensionsBlock : TerraformBlock
 {
     /// <summary>
@@ -206,6 +207,7 @@ public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
 /// Block type for virtual_network_configuration in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBlock
 {
     /// <summary>
@@ -438,6 +440,7 @@ public class AzurermKustoCluster : TerraformResource
     /// Block for language_extensions.
     /// Nesting mode: list
     /// </summary>
+    [Obsolete("This block is deprecated.")]
     public List<AzurermKustoClusterLanguageExtensionsBlock>? LanguageExtensions
     {
         get => GetProperty<List<AzurermKustoClusterLanguageExtensionsBlock>>("language_extensions");
@@ -482,6 +485,7 @@ public class AzurermKustoCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualNetworkConfiguration block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<AzurermKustoClusterVirtualNetworkConfigurationBlock>? VirtualNetworkConfiguration
     {
         get => GetProperty<List<AzurermKustoClusterVirtualNetworkConfigurationBlock>>("virtual_network_configuration");

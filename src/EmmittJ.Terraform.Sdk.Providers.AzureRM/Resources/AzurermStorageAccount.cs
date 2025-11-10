@@ -277,6 +277,7 @@ public class AzurermStorageAccountNetworkRulesBlock : TerraformBlock
 /// Block type for queue_properties in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AzurermStorageAccountQueuePropertiesBlock : TerraformBlock
 {
 }
@@ -355,6 +356,7 @@ public class AzurermStorageAccountSharePropertiesBlock : TerraformBlock
 /// Block type for static_website in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AzurermStorageAccountStaticWebsiteBlock : TerraformBlock
 {
     /// <summary>
@@ -847,6 +849,7 @@ public class AzurermStorageAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueueProperties block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<AzurermStorageAccountQueuePropertiesBlock>? QueueProperties
     {
         get => GetProperty<List<AzurermStorageAccountQueuePropertiesBlock>>("queue_properties");
@@ -891,6 +894,7 @@ public class AzurermStorageAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StaticWebsite block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<AzurermStorageAccountStaticWebsiteBlock>? StaticWebsite
     {
         get => GetProperty<List<AzurermStorageAccountStaticWebsiteBlock>>("static_website");

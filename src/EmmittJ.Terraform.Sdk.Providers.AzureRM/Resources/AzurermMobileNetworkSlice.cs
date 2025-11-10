@@ -6,6 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for single_network_slice_selection_assistance_information in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock : TerraformBlock
 {
     /// <summary>
@@ -170,6 +171,7 @@ public class AzurermMobileNetworkSlice : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SingleNetworkSliceSelectionAssistanceInformation block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock>? SingleNetworkSliceSelectionAssistanceInformation
     {
         get => GetProperty<List<AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock>>("single_network_slice_selection_assistance_information");

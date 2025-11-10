@@ -350,6 +350,7 @@ public class AwsSpotInstanceRequestMetadataOptionsBlock : TerraformBlock
 /// Block type for network_interface in .
 /// Nesting mode: set
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AwsSpotInstanceRequestNetworkInterfaceBlock : TerraformBlock
 {
     /// <summary>
@@ -1093,6 +1094,7 @@ public class AwsSpotInstanceRequest : TerraformResource
     /// Block for network_interface.
     /// Nesting mode: set
     /// </summary>
+    [Obsolete("This block is deprecated.")]
     public HashSet<AwsSpotInstanceRequestNetworkInterfaceBlock>? NetworkInterface
     {
         get => GetProperty<HashSet<AwsSpotInstanceRequestNetworkInterfaceBlock>>("network_interface");

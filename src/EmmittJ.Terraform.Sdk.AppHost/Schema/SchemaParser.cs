@@ -188,7 +188,8 @@ public class SchemaParser
             ClassName = $"{parentClassName}{ToPascalCase(name)}Block",
             NestingMode = blockType.NestingMode,
             MinItems = blockType.MinItems,
-            MaxItems = blockType.MaxItems
+            MaxItems = blockType.MaxItems,
+            IsDeprecated = blockType.Block.Deprecated
         };
 
         // Parse block attributes

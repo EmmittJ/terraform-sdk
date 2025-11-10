@@ -284,6 +284,7 @@ public class GoogleContainerClusterEnableK8sBetaApisBlock : TerraformBlock
 /// Block type for enterprise_config in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class GoogleContainerClusterEnterpriseConfigBlock : TerraformBlock
 {
     /// <summary>
@@ -1851,6 +1852,7 @@ public class GoogleContainerCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnterpriseConfig block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<GoogleContainerClusterEnterpriseConfigBlock>? EnterpriseConfig
     {
         get => GetProperty<List<GoogleContainerClusterEnterpriseConfigBlock>>("enterprise_config");

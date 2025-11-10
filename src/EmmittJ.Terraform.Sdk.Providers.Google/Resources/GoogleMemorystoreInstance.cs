@@ -94,6 +94,7 @@ public class GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock : Terrafo
 /// Block type for desired_psc_auto_connections in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock : TerraformBlock
 {
     /// <summary>
@@ -514,6 +515,7 @@ public class GoogleMemorystoreInstance : TerraformResource
     /// Block for desired_psc_auto_connections.
     /// Nesting mode: list
     /// </summary>
+    [Obsolete("This block is deprecated.")]
     public List<GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock>? DesiredPscAutoConnections
     {
         get => GetProperty<List<GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock>>("desired_psc_auto_connections");

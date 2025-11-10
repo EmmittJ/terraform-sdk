@@ -6,6 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cors_rule in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AwsS3BucketCorsRuleBlock : TerraformBlock
 {
     /// <summary>
@@ -61,6 +62,7 @@ public class AwsS3BucketCorsRuleBlock : TerraformBlock
 /// Block type for grant in .
 /// Nesting mode: set
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AwsS3BucketGrantBlock : TerraformBlock
 {
     /// <summary>
@@ -107,6 +109,7 @@ public class AwsS3BucketGrantBlock : TerraformBlock
 /// Block type for lifecycle_rule in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AwsS3BucketLifecycleRuleBlock : TerraformBlock
 {
     /// <summary>
@@ -161,6 +164,7 @@ public class AwsS3BucketLifecycleRuleBlock : TerraformBlock
 /// Block type for logging in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AwsS3BucketLoggingBlock : TerraformBlock
 {
     /// <summary>
@@ -188,6 +192,7 @@ public class AwsS3BucketLoggingBlock : TerraformBlock
 /// Block type for object_lock_configuration in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AwsS3BucketObjectLockConfigurationBlock : TerraformBlock
 {
     /// <summary>
@@ -206,6 +211,7 @@ public class AwsS3BucketObjectLockConfigurationBlock : TerraformBlock
 /// Block type for replication_configuration in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AwsS3BucketReplicationConfigurationBlock : TerraformBlock
 {
     /// <summary>
@@ -224,6 +230,7 @@ public class AwsS3BucketReplicationConfigurationBlock : TerraformBlock
 /// Block type for server_side_encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AwsS3BucketServerSideEncryptionConfigurationBlock : TerraformBlock
 {
 }
@@ -276,6 +283,7 @@ public class AwsS3BucketTimeoutsBlock : TerraformBlock
 /// Block type for versioning in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AwsS3BucketVersioningBlock : TerraformBlock
 {
     /// <summary>
@@ -302,6 +310,7 @@ public class AwsS3BucketVersioningBlock : TerraformBlock
 /// Block type for website in .
 /// Nesting mode: list
 /// </summary>
+[Obsolete("This block is deprecated.")]
 public class AwsS3BucketWebsiteBlock : TerraformBlock
 {
     /// <summary>
@@ -480,6 +489,7 @@ public class AwsS3Bucket : TerraformResource
     /// Block for cors_rule.
     /// Nesting mode: list
     /// </summary>
+    [Obsolete("This block is deprecated.")]
     public List<AwsS3BucketCorsRuleBlock>? CorsRule
     {
         get => GetProperty<List<AwsS3BucketCorsRuleBlock>>("cors_rule");
@@ -490,6 +500,7 @@ public class AwsS3Bucket : TerraformResource
     /// Block for grant.
     /// Nesting mode: set
     /// </summary>
+    [Obsolete("This block is deprecated.")]
     public HashSet<AwsS3BucketGrantBlock>? Grant
     {
         get => GetProperty<HashSet<AwsS3BucketGrantBlock>>("grant");
@@ -500,6 +511,7 @@ public class AwsS3Bucket : TerraformResource
     /// Block for lifecycle_rule.
     /// Nesting mode: list
     /// </summary>
+    [Obsolete("This block is deprecated.")]
     public List<AwsS3BucketLifecycleRuleBlock>? LifecycleRule
     {
         get => GetProperty<List<AwsS3BucketLifecycleRuleBlock>>("lifecycle_rule");
@@ -511,6 +523,7 @@ public class AwsS3Bucket : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<AwsS3BucketLoggingBlock>? Logging
     {
         get => GetProperty<List<AwsS3BucketLoggingBlock>>("logging");
@@ -522,6 +535,7 @@ public class AwsS3Bucket : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ObjectLockConfiguration block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<AwsS3BucketObjectLockConfigurationBlock>? ObjectLockConfiguration
     {
         get => GetProperty<List<AwsS3BucketObjectLockConfigurationBlock>>("object_lock_configuration");
@@ -533,6 +547,7 @@ public class AwsS3Bucket : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationConfiguration block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<AwsS3BucketReplicationConfigurationBlock>? ReplicationConfiguration
     {
         get => GetProperty<List<AwsS3BucketReplicationConfigurationBlock>>("replication_configuration");
@@ -544,6 +559,7 @@ public class AwsS3Bucket : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryptionConfiguration block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<AwsS3BucketServerSideEncryptionConfigurationBlock>? ServerSideEncryptionConfiguration
     {
         get => GetProperty<List<AwsS3BucketServerSideEncryptionConfigurationBlock>>("server_side_encryption_configuration");
@@ -565,6 +581,7 @@ public class AwsS3Bucket : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Versioning block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<AwsS3BucketVersioningBlock>? Versioning
     {
         get => GetProperty<List<AwsS3BucketVersioningBlock>>("versioning");
@@ -576,6 +593,7 @@ public class AwsS3Bucket : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Website block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
     public List<AwsS3BucketWebsiteBlock>? Website
     {
         get => GetProperty<List<AwsS3BucketWebsiteBlock>>("website");
