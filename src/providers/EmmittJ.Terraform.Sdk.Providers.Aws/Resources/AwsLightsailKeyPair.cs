@@ -14,11 +14,11 @@ public class AwsLightsailKeyPair : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("encrypted_fingerprint");
-        this.DeclareOutput("encrypted_private_key");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("private_key");
+        this.WithOutput("arn");
+        this.WithOutput("encrypted_fingerprint");
+        this.WithOutput("encrypted_private_key");
+        this.WithOutput("fingerprint");
+        this.WithOutput("private_key");
     }
 
     /// <summary>

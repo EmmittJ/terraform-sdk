@@ -40,7 +40,7 @@ public class AwsOpensearchPackageAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("reference_path");
+        this.WithOutput("reference_path");
     }
 
     /// <summary>

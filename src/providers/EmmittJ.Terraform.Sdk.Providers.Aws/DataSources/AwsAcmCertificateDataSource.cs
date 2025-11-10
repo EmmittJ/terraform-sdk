@@ -14,10 +14,10 @@ public class AwsAcmCertificateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("certificate");
-        this.DeclareOutput("certificate_chain");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("certificate");
+        this.WithOutput("certificate_chain");
+        this.WithOutput("status");
     }
 
     /// <summary>

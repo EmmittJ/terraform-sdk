@@ -31,10 +31,10 @@ public class AzurermAttestationProviderDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attestation_uri");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("trust_model");
+        this.WithOutput("attestation_uri");
+        this.WithOutput("location");
+        this.WithOutput("tags");
+        this.WithOutput("trust_model");
     }
 
     /// <summary>

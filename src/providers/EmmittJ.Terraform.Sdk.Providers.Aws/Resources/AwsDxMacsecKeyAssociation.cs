@@ -14,8 +14,8 @@ public class AwsDxMacsecKeyAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("start_on");
-        this.DeclareOutput("state");
+        this.WithOutput("start_on");
+        this.WithOutput("state");
     }
 
     /// <summary>

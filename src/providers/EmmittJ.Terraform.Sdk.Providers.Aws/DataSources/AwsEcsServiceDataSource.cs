@@ -14,13 +14,13 @@ public class AwsEcsServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zone_rebalancing");
-        this.DeclareOutput("desired_count");
-        this.DeclareOutput("launch_type");
-        this.DeclareOutput("load_balancer");
-        this.DeclareOutput("scheduling_strategy");
-        this.DeclareOutput("task_definition");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zone_rebalancing");
+        this.WithOutput("desired_count");
+        this.WithOutput("launch_type");
+        this.WithOutput("load_balancer");
+        this.WithOutput("scheduling_strategy");
+        this.WithOutput("task_definition");
     }
 
     /// <summary>

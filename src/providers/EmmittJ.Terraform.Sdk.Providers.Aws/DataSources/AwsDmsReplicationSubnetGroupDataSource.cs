@@ -14,11 +14,11 @@ public class AwsDmsReplicationSubnetGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("replication_subnet_group_arn");
-        this.DeclareOutput("replication_subnet_group_description");
-        this.DeclareOutput("subnet_group_status");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("replication_subnet_group_arn");
+        this.WithOutput("replication_subnet_group_description");
+        this.WithOutput("subnet_group_status");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

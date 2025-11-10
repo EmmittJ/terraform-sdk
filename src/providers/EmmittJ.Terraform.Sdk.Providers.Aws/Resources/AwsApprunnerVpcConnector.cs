@@ -14,9 +14,9 @@ public class AwsApprunnerVpcConnector : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("vpc_connector_revision");
+        this.WithOutput("arn");
+        this.WithOutput("status");
+        this.WithOutput("vpc_connector_revision");
     }
 
     /// <summary>

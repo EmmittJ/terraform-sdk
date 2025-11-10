@@ -14,7 +14,7 @@ public class AwsVpcEndpointAssociationsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("associations");
+        this.WithOutput("associations");
     }
 
     /// <summary>

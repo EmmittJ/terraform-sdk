@@ -87,10 +87,10 @@ public class AwsQuicksightFolder : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("folder_path");
-        this.DeclareOutput("last_updated_time");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
+        this.WithOutput("folder_path");
+        this.WithOutput("last_updated_time");
     }
 
     /// <summary>

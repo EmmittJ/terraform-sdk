@@ -14,13 +14,13 @@ public class AwsSsmincidentsResponsePlanDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("action");
-        this.DeclareOutput("chat_channel");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("engagements");
-        this.DeclareOutput("incident_template");
-        this.DeclareOutput("integration");
-        this.DeclareOutput("name");
+        this.WithOutput("action");
+        this.WithOutput("chat_channel");
+        this.WithOutput("display_name");
+        this.WithOutput("engagements");
+        this.WithOutput("incident_template");
+        this.WithOutput("integration");
+        this.WithOutput("name");
     }
 
     /// <summary>

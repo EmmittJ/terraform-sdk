@@ -40,7 +40,7 @@ public class AwsLexv2modelsBotVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
+        this.WithOutput("id");
     }
 
     /// <summary>

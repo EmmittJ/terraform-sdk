@@ -14,10 +14,10 @@ public class AwsQldbLedgerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("kms_key");
-        this.DeclareOutput("permissions_mode");
+        this.WithOutput("arn");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("kms_key");
+        this.WithOutput("permissions_mode");
     }
 
     /// <summary>

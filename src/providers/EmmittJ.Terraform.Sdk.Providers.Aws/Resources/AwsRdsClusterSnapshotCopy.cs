@@ -31,17 +31,17 @@ public class AwsRdsClusterSnapshotCopy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocated_storage");
-        this.DeclareOutput("db_cluster_snapshot_arn");
-        this.DeclareOutput("engine");
-        this.DeclareOutput("engine_version");
-        this.DeclareOutput("id");
-        this.DeclareOutput("license_model");
-        this.DeclareOutput("snapshot_type");
-        this.DeclareOutput("storage_encrypted");
-        this.DeclareOutput("storage_type");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("allocated_storage");
+        this.WithOutput("db_cluster_snapshot_arn");
+        this.WithOutput("engine");
+        this.WithOutput("engine_version");
+        this.WithOutput("id");
+        this.WithOutput("license_model");
+        this.WithOutput("snapshot_type");
+        this.WithOutput("storage_encrypted");
+        this.WithOutput("storage_type");
+        this.WithOutput("tags_all");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

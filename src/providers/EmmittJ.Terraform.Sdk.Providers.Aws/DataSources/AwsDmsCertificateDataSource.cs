@@ -14,15 +14,15 @@ public class AwsDmsCertificateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_arn");
-        this.DeclareOutput("certificate_creation_date");
-        this.DeclareOutput("certificate_owner");
-        this.DeclareOutput("certificate_pem");
-        this.DeclareOutput("certificate_wallet");
-        this.DeclareOutput("key_length");
-        this.DeclareOutput("signing_algorithm");
-        this.DeclareOutput("valid_from_date");
-        this.DeclareOutput("valid_to_date");
+        this.WithOutput("certificate_arn");
+        this.WithOutput("certificate_creation_date");
+        this.WithOutput("certificate_owner");
+        this.WithOutput("certificate_pem");
+        this.WithOutput("certificate_wallet");
+        this.WithOutput("key_length");
+        this.WithOutput("signing_algorithm");
+        this.WithOutput("valid_from_date");
+        this.WithOutput("valid_to_date");
     }
 
     /// <summary>

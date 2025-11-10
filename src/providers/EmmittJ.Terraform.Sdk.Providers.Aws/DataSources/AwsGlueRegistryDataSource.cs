@@ -14,8 +14,8 @@ public class AwsGlueRegistryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
+        this.WithOutput("arn");
+        this.WithOutput("description");
     }
 
     /// <summary>

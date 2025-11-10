@@ -108,8 +108,8 @@ public class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicy : Ter
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_policy_id");
-        this.DeclareOutput("etag");
+        this.WithOutput("access_policy_id");
+        this.WithOutput("etag");
     }
 
     /// <summary>

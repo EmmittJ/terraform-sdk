@@ -129,7 +129,7 @@ public class GoogleStorageInsightsReportConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
+        this.WithOutput("name");
     }
 
     /// <summary>

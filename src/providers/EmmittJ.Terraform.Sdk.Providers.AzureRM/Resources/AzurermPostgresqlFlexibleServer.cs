@@ -246,7 +246,7 @@ public class AzurermPostgresqlFlexibleServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fqdn");
+        this.WithOutput("fqdn");
     }
 
     /// <summary>
@@ -333,9 +333,9 @@ public class AzurermPostgresqlFlexibleServer : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    public TerraformProperty<string> Id
     {
-        get => GetProperty<TerraformProperty<string>>("id");
+        get => GetRequiredOutput<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

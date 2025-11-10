@@ -14,7 +14,7 @@ public class AwsOrganizationsOrganizationalUnitsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("children");
+        this.WithOutput("children");
     }
 
     /// <summary>

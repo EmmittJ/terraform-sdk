@@ -58,9 +58,9 @@ public class GoogleDataLossPreventionDeidentifyTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("update_time");
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public class GoogleDataLossPreventionDeidentifyTemplate : TerraformResource
 
     /// <summary>
     /// The parent of the template in any of the following formats:
-    /// 
+    ///
     /// * &#39;projects/{{project}}&#39;
     /// * &#39;projects/{{project}}/locations/{{location}}&#39;
     /// * &#39;organizations/{{organization_id}}&#39;

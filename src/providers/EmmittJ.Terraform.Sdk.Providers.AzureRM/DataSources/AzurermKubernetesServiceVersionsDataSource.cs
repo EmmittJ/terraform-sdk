@@ -31,9 +31,9 @@ public class AzurermKubernetesServiceVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_version");
-        this.DeclareOutput("latest_version");
-        this.DeclareOutput("versions");
+        this.WithOutput("default_version");
+        this.WithOutput("latest_version");
+        this.WithOutput("versions");
     }
 
     /// <summary>

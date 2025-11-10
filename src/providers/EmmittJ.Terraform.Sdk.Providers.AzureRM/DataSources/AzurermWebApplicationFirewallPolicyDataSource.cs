@@ -31,7 +31,7 @@ public class AzurermWebApplicationFirewallPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
+        this.WithOutput("location");
     }
 
     /// <summary>

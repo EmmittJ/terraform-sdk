@@ -14,8 +14,8 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("version_number");
+        this.WithOutput("arn");
+        this.WithOutput("version_number");
     }
 
     /// <summary>

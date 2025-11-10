@@ -194,9 +194,9 @@ public class AwsAmplifyApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("default_domain");
-        this.DeclareOutput("production_branch");
+        this.WithOutput("arn");
+        this.WithOutput("default_domain");
+        this.WithOutput("production_branch");
     }
 
     /// <summary>

@@ -58,8 +58,8 @@ public class GoogleApikeysKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("key_string");
-        this.DeclareOutput("uid");
+        this.WithOutput("key_string");
+        this.WithOutput("uid");
     }
 
     /// <summary>

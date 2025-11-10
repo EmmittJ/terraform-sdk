@@ -14,7 +14,7 @@ public class GoogleTagsTagValuesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("values");
+        this.WithOutput("values");
     }
 
     /// <summary>

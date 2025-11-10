@@ -49,10 +49,10 @@ public class GoogleCloudIdsEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("endpoint_forwarding_rule");
-        this.DeclareOutput("endpoint_ip");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("endpoint_forwarding_rule");
+        this.WithOutput("endpoint_ip");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

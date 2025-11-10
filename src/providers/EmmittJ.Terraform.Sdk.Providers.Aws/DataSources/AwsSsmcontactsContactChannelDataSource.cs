@@ -14,11 +14,11 @@ public class AwsSsmcontactsContactChannelDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("activation_status");
-        this.DeclareOutput("contact_id");
-        this.DeclareOutput("delivery_address");
-        this.DeclareOutput("name");
-        this.DeclareOutput("type");
+        this.WithOutput("activation_status");
+        this.WithOutput("contact_id");
+        this.WithOutput("delivery_address");
+        this.WithOutput("name");
+        this.WithOutput("type");
     }
 
     /// <summary>

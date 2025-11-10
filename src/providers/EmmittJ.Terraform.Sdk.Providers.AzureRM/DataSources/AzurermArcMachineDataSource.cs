@@ -31,33 +31,33 @@ public class AzurermArcMachineDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("active_directory_fqdn");
-        this.DeclareOutput("agent");
-        this.DeclareOutput("agent_version");
-        this.DeclareOutput("client_public_key");
-        this.DeclareOutput("cloud_metadata");
-        this.DeclareOutput("detected_properties");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("dns_fqdn");
-        this.DeclareOutput("domain_name");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("last_status_change_time");
-        this.DeclareOutput("location");
-        this.DeclareOutput("location_data");
-        this.DeclareOutput("machine_fqdn");
-        this.DeclareOutput("mssql_discovered");
-        this.DeclareOutput("os_name");
-        this.DeclareOutput("os_profile");
-        this.DeclareOutput("os_sku");
-        this.DeclareOutput("os_type");
-        this.DeclareOutput("os_version");
-        this.DeclareOutput("parent_cluster_resource_id");
-        this.DeclareOutput("private_link_scope_resource_id");
-        this.DeclareOutput("service_status");
-        this.DeclareOutput("status");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("vm_id");
-        this.DeclareOutput("vm_uuid");
+        this.WithOutput("active_directory_fqdn");
+        this.WithOutput("agent");
+        this.WithOutput("agent_version");
+        this.WithOutput("client_public_key");
+        this.WithOutput("cloud_metadata");
+        this.WithOutput("detected_properties");
+        this.WithOutput("display_name");
+        this.WithOutput("dns_fqdn");
+        this.WithOutput("domain_name");
+        this.WithOutput("identity");
+        this.WithOutput("last_status_change_time");
+        this.WithOutput("location");
+        this.WithOutput("location_data");
+        this.WithOutput("machine_fqdn");
+        this.WithOutput("mssql_discovered");
+        this.WithOutput("os_name");
+        this.WithOutput("os_profile");
+        this.WithOutput("os_sku");
+        this.WithOutput("os_type");
+        this.WithOutput("os_version");
+        this.WithOutput("parent_cluster_resource_id");
+        this.WithOutput("private_link_scope_resource_id");
+        this.WithOutput("service_status");
+        this.WithOutput("status");
+        this.WithOutput("tags");
+        this.WithOutput("vm_id");
+        this.WithOutput("vm_uuid");
     }
 
     /// <summary>

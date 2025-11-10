@@ -49,9 +49,9 @@ public class AwsRedshiftEventSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("customer_aws_id");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("customer_aws_id");
+        this.WithOutput("status");
     }
 
     /// <summary>

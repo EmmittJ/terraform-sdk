@@ -40,9 +40,9 @@ public class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("basepaths");
-        this.DeclareOutput("deploy_start_time");
-        this.DeclareOutput("state");
+        this.WithOutput("basepaths");
+        this.WithOutput("deploy_start_time");
+        this.WithOutput("state");
     }
 
     /// <summary>

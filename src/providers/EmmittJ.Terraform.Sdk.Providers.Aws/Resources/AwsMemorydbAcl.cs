@@ -14,8 +14,8 @@ public class AwsMemorydbAcl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("minimum_engine_version");
+        this.WithOutput("arn");
+        this.WithOutput("minimum_engine_version");
     }
 
     /// <summary>

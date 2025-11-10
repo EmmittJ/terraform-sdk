@@ -14,9 +14,9 @@ public class AwsRoute53DelegationSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("caller_reference");
-        this.DeclareOutput("name_servers");
+        this.WithOutputrn");
+        this.WithOutputaller_reference");
+        this.WithOutputame_servers");
     }
 
     /// <summary>

@@ -14,12 +14,12 @@ public class GoogleBeyondcorpAppConnectorDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("principal_info");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("display_name");
+        this.WithOutput("effective_labels");
+        this.WithOutput("labels");
+        this.WithOutput("principal_info");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

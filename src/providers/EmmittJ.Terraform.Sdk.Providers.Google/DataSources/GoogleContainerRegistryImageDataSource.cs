@@ -15,7 +15,7 @@ public class GoogleContainerRegistryImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("image_url");
+        this.WithOutput("image_url");
     }
 
     /// <summary>

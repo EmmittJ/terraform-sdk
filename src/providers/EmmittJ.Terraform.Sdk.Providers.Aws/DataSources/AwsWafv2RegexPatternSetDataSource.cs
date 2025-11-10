@@ -14,9 +14,9 @@ public class AwsWafv2RegexPatternSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("regular_expression");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("regular_expression");
     }
 
     /// <summary>

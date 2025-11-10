@@ -14,11 +14,11 @@ public class AwsCloudtrailOrganizationDelegatedAdminAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("email");
-        this.DeclareOutput("id");
-        this.DeclareOutput("name");
-        this.DeclareOutput("service_principal");
+        this.WithOutput("arn");
+        this.WithOutput("email");
+        this.WithOutput("id");
+        this.WithOutput("name");
+        this.WithOutput("service_principal");
     }
 
     /// <summary>

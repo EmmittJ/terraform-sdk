@@ -256,13 +256,13 @@ public class GoogleLookerInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("egress_public_ip");
-        this.DeclareOutput("ingress_private_ip");
-        this.DeclareOutput("ingress_public_ip");
-        this.DeclareOutput("looker_uri");
-        this.DeclareOutput("looker_version");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("egress_public_ip");
+        this.WithOutput("ingress_private_ip");
+        this.WithOutput("ingress_public_ip");
+        this.WithOutput("looker_uri");
+        this.WithOutput("looker_version");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

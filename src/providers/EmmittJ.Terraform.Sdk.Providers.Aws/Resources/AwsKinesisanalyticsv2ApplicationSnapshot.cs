@@ -40,8 +40,8 @@ public class AwsKinesisanalyticsv2ApplicationSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_version_id");
-        this.DeclareOutput("snapshot_creation_timestamp");
+        this.WithOutput("application_version_id");
+        this.WithOutput("snapshot_creation_timestamp");
     }
 
     /// <summary>

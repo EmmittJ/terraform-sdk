@@ -14,22 +14,22 @@ public class AwsBedrockCustomModelDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("base_model_arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("hyperparameters");
-        this.DeclareOutput("id");
-        this.DeclareOutput("job_arn");
-        this.DeclareOutput("job_name");
-        this.DeclareOutput("job_tags");
-        this.DeclareOutput("model_arn");
-        this.DeclareOutput("model_kms_key_arn");
-        this.DeclareOutput("model_name");
-        this.DeclareOutput("model_tags");
-        this.DeclareOutput("output_data_config");
-        this.DeclareOutput("training_data_config");
-        this.DeclareOutput("training_metrics");
-        this.DeclareOutput("validation_data_config");
-        this.DeclareOutput("validation_metrics");
+        this.WithOutput("base_model_arn");
+        this.WithOutput("creation_time");
+        this.WithOutput("hyperparameters");
+        this.WithOutput("id");
+        this.WithOutput("job_arn");
+        this.WithOutput("job_name");
+        this.WithOutput("job_tags");
+        this.WithOutput("model_arn");
+        this.WithOutput("model_kms_key_arn");
+        this.WithOutput("model_name");
+        this.WithOutput("model_tags");
+        this.WithOutput("output_data_config");
+        this.WithOutput("training_data_config");
+        this.WithOutput("training_metrics");
+        this.WithOutput("validation_data_config");
+        this.WithOutput("validation_metrics");
     }
 
     /// <summary>

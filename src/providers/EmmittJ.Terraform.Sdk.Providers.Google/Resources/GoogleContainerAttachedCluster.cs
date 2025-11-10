@@ -12,7 +12,7 @@ public class GoogleContainerAttachedClusterAuthorizationBlock : TerraformBlock
     /// Groups that can perform operations as a cluster admin. A managed
     /// ClusterRoleBinding will be created to grant the &#39;cluster-admin&#39; ClusterRole
     /// to the groups. Up to ten admin groups can be provided.
-    /// 
+    ///
     /// For more info on RBAC, see
     /// https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles
     /// </summary>
@@ -26,7 +26,7 @@ public class GoogleContainerAttachedClusterAuthorizationBlock : TerraformBlock
     /// Users that can perform operations as a cluster admin. A managed
     /// ClusterRoleBinding will be created to grant the &#39;cluster-admin&#39; ClusterRole
     /// to the users. Up to ten admin users can be provided.
-    /// 
+    ///
     /// For more info on RBAC, see
     /// https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles
     /// </summary>
@@ -202,16 +202,16 @@ public class GoogleContainerAttachedCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cluster_region");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("errors");
-        this.DeclareOutput("kubernetes_version");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("state");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("workload_identity_config");
+        this.WithOutput("cluster_region");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("errors");
+        this.WithOutput("kubernetes_version");
+        this.WithOutput("reconciling");
+        this.WithOutput("state");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("workload_identity_config");
     }
 
     /// <summary>
@@ -221,8 +221,8 @@ public class GoogleContainerAttachedCluster : TerraformResource
     /// and name (required), separated by a slash (/). Prefix must be a DNS subdomain.
     /// Name must be 63 characters or less, begin and end with alphanumerics,
     /// with dashes (-), underscores (_), dots (.), and alphanumerics between.
-    /// 
-    /// 
+    ///
+    ///
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
@@ -414,7 +414,7 @@ public class GoogleContainerAttachedCluster : TerraformResource
 
     /// <summary>
     /// Output only. The region where this cluster runs.
-    /// 
+    ///
     /// For EKS clusters, this is an AWS region. For AKS clusters,
     /// this is an Azure region.
     /// </summary>

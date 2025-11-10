@@ -14,12 +14,12 @@ public class GoogleMonitoringNotificationChannelDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("force_delete");
-        this.DeclareOutput("name");
-        this.DeclareOutput("sensitive_labels");
-        this.DeclareOutput("verification_status");
+        this.WithOutput("description");
+        this.WithOutput("enabled");
+        this.WithOutput("force_delete");
+        this.WithOutput("name");
+        this.WithOutput("sensitive_labels");
+        this.WithOutput("verification_status");
     }
 
     /// <summary>

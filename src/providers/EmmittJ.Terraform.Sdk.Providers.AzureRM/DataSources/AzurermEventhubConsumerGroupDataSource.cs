@@ -31,7 +31,7 @@ public class AzurermEventhubConsumerGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("user_metadata");
+        this.WithOutput("user_metadata");
     }
 
     /// <summary>

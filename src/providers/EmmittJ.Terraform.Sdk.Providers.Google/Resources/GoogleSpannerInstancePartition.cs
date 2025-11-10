@@ -49,7 +49,7 @@ public class GoogleSpannerInstancePartition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("state");
+        this.WithOutput("state");
     }
 
     /// <summary>

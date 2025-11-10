@@ -14,7 +14,7 @@ public class AwsEksAddonVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("version");
+        this.WithOutput("version");
     }
 
     /// <summary>

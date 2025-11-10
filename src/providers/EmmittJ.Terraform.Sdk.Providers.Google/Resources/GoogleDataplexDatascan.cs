@@ -167,15 +167,15 @@ public class GoogleDataplexDatascan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("execution_status");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("type");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("execution_status");
+        this.WithOutput("name");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("type");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

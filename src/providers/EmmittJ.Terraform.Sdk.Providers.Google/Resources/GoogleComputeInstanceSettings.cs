@@ -67,7 +67,7 @@ public class GoogleComputeInstanceSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fingerprint");
+        this.WithOutput("fingerprint");
     }
 
     /// <summary>

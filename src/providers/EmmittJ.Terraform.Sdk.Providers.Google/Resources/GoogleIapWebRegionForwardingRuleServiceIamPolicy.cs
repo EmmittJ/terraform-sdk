@@ -14,7 +14,7 @@ public class GoogleIapWebRegionForwardingRuleServiceIamPolicy : TerraformResourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

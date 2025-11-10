@@ -22,9 +22,9 @@ public class AwsVerifiedpermissionsPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("id");
-        this.DeclareOutput("policy_id");
+        this.WithOutput("created_date");
+        this.WithOutput("id");
+        this.WithOutput("policy_id");
     }
 
     /// <summary>

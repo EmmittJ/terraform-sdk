@@ -31,12 +31,12 @@ public class AzurermStorageContainerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("container_access_type");
-        this.DeclareOutput("default_encryption_scope");
-        this.DeclareOutput("encryption_scope_override_enabled");
-        this.DeclareOutput("has_immutability_policy");
-        this.DeclareOutput("has_legal_hold");
-        this.DeclareOutput("resource_manager_id");
+        this.WithOutput("container_access_type");
+        this.WithOutput("default_encryption_scope");
+        this.WithOutput("encryption_scope_override_enabled");
+        this.WithOutput("has_immutability_policy");
+        this.WithOutput("has_legal_hold");
+        this.WithOutput("resource_manager_id");
     }
 
     /// <summary>

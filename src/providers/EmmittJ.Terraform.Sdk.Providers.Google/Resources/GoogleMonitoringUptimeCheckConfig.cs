@@ -255,8 +255,8 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("uptime_check_id");
+        this.WithOutput("name");
+        this.WithOutput("uptime_check_id");
     }
 
     /// <summary>

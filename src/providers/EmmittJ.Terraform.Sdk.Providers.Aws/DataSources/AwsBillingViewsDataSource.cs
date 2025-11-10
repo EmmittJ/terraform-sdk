@@ -14,7 +14,7 @@ public class AwsBillingViewsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("billing_view");
+        this.WithOutput("billing_view");
     }
 
     /// <summary>

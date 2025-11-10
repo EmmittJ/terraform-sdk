@@ -58,7 +58,7 @@ public class AzurermDataFactoryLinkedServiceAzureSearch : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("encrypted_credential");
+        this.WithOutput("encrypted_credential");
     }
 
     /// <summary>

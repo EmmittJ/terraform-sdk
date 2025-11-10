@@ -14,10 +14,10 @@ public class AwsTransferHostKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("host_key_fingerprint");
-        this.DeclareOutput("host_key_id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("host_key_fingerprint");
+        this.WithOutput("host_key_id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

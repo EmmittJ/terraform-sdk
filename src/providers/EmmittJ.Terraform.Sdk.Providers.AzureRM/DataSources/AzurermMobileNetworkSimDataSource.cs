@@ -31,14 +31,14 @@ public class AzurermMobileNetworkSimDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("device_type");
-        this.DeclareOutput("integrated_circuit_card_identifier");
-        this.DeclareOutput("international_mobile_subscriber_identity");
-        this.DeclareOutput("sim_policy_id");
-        this.DeclareOutput("sim_state");
-        this.DeclareOutput("static_ip_configuration");
-        this.DeclareOutput("vendor_key_fingerprint");
-        this.DeclareOutput("vendor_name");
+        this.WithOutput("device_type");
+        this.WithOutput("integrated_circuit_card_identifier");
+        this.WithOutput("international_mobile_subscriber_identity");
+        this.WithOutput("sim_policy_id");
+        this.WithOutput("sim_state");
+        this.WithOutput("static_ip_configuration");
+        this.WithOutput("vendor_key_fingerprint");
+        this.WithOutput("vendor_name");
     }
 
     /// <summary>

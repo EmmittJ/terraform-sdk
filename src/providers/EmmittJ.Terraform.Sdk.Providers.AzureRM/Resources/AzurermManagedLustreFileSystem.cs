@@ -226,7 +226,7 @@ public class AzurermManagedLustreFileSystem : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("mgs_address");
+        this.WithOutput("mgs_address");
     }
 
     /// <summary>

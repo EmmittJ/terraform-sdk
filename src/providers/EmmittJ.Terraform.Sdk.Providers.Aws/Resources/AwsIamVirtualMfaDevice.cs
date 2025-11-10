@@ -14,11 +14,11 @@ public class AwsIamVirtualMfaDevice : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("base_32_string_seed");
-        this.DeclareOutput("enable_date");
-        this.DeclareOutput("qr_code_png");
-        this.DeclareOutput("user_name");
+        this.WithOutput("arn");
+        this.WithOutput("base_32_string_seed");
+        this.WithOutput("enable_date");
+        this.WithOutput("qr_code_png");
+        this.WithOutput("user_name");
     }
 
     /// <summary>

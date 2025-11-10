@@ -33,7 +33,7 @@ public class AwsEcrRegistryScanningConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("registry_id");
+        this.WithOutput("registry_id");
     }
 
     /// <summary>

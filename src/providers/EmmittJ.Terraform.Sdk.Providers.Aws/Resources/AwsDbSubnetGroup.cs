@@ -14,9 +14,9 @@ public class AwsDbSubnetGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("supported_network_types");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("arn");
+        this.WithOutput("supported_network_types");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

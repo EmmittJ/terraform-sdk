@@ -31,17 +31,17 @@ public class AzurermMonitorDataCollectionRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("data_collection_endpoint_id");
-        this.DeclareOutput("data_flow");
-        this.DeclareOutput("data_sources");
-        this.DeclareOutput("description");
-        this.DeclareOutput("destinations");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("immutable_id");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("location");
-        this.DeclareOutput("stream_declaration");
-        this.DeclareOutput("tags");
+        this.WithOutput("data_collection_endpoint_id");
+        this.WithOutput("data_flow");
+        this.WithOutput("data_sources");
+        this.WithOutput("description");
+        this.WithOutput("destinations");
+        this.WithOutput("identity");
+        this.WithOutput("immutable_id");
+        this.WithOutput("kind");
+        this.WithOutput("location");
+        this.WithOutput("stream_declaration");
+        this.WithOutput("tags");
     }
 
     /// <summary>

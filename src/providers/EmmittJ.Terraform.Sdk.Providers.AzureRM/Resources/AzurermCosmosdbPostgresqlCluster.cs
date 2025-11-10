@@ -94,8 +94,8 @@ public class AzurermCosmosdbPostgresqlCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("earliest_restore_time");
-        this.DeclareOutput("servers");
+        this.WithOutput("earliest_restore_time");
+        this.WithOutput("servers");
     }
 
     /// <summary>

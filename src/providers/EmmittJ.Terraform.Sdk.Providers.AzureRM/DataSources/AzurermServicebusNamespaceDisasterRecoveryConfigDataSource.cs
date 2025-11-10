@@ -31,11 +31,11 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource : Terraf
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_primary_key");
-        this.DeclareOutput("default_secondary_key");
-        this.DeclareOutput("partner_namespace_id");
-        this.DeclareOutput("primary_connection_string_alias");
-        this.DeclareOutput("secondary_connection_string_alias");
+        this.WithOutput("default_primary_key");
+        this.WithOutput("default_secondary_key");
+        this.WithOutput("partner_namespace_id");
+        this.WithOutput("primary_connection_string_alias");
+        this.WithOutput("secondary_connection_string_alias");
     }
 
     /// <summary>

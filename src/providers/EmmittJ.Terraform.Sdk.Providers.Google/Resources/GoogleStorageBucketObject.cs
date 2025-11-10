@@ -105,13 +105,13 @@ public class GoogleStorageBucketObject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("crc32c");
-        this.DeclareOutput("generation");
-        this.DeclareOutput("md5hash");
-        this.DeclareOutput("md5hexhash");
-        this.DeclareOutput("media_link");
-        this.DeclareOutput("output_name");
-        this.DeclareOutput("self_link");
+        this.WithOutput("crc32c");
+        this.WithOutput("generation");
+        this.WithOutput("md5hash");
+        this.WithOutput("md5hexhash");
+        this.WithOutput("media_link");
+        this.WithOutput("output_name");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

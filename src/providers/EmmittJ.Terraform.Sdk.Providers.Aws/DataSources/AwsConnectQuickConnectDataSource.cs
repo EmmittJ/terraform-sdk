@@ -14,9 +14,9 @@ public class AwsConnectQuickConnectDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("quick_connect_config");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("quick_connect_config");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class AwsLambdaFunctionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("function_arns");
-        this.DeclareOutput("function_names");
+        this.WithOutput("function_arns");
+        this.WithOutput("function_names");
     }
 
     /// <summary>

@@ -14,11 +14,11 @@ public class AwsEc2CapacityBlockOfferingDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("capacity_block_offering_id");
-        this.DeclareOutput("currency_code");
-        this.DeclareOutput("tenancy");
-        this.DeclareOutput("upfront_fee");
+        this.WithOutput("availability_zone");
+        this.WithOutput("capacity_block_offering_id");
+        this.WithOutput("currency_code");
+        this.WithOutput("tenancy");
+        this.WithOutput("upfront_fee");
     }
 
     /// <summary>

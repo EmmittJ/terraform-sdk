@@ -14,18 +14,18 @@ public class AwsLightsailDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("ca_certificate_identifier");
-        this.DeclareOutput("cpu_count");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("disk_size");
-        this.DeclareOutput("engine");
-        this.DeclareOutput("engine_version");
-        this.DeclareOutput("master_endpoint_address");
-        this.DeclareOutput("master_endpoint_port");
-        this.DeclareOutput("ram_size");
-        this.DeclareOutput("secondary_availability_zone");
-        this.DeclareOutput("support_code");
+        this.WithOutput("arn");
+        this.WithOutput("ca_certificate_identifier");
+        this.WithOutput("cpu_count");
+        this.WithOutput("created_at");
+        this.WithOutput("disk_size");
+        this.WithOutput("engine");
+        this.WithOutput("engine_version");
+        this.WithOutput("master_endpoint_address");
+        this.WithOutput("master_endpoint_port");
+        this.WithOutput("ram_size");
+        this.WithOutput("secondary_availability_zone");
+        this.WithOutput("support_code");
     }
 
     /// <summary>

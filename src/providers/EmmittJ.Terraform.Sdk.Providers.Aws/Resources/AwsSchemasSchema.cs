@@ -14,10 +14,10 @@ public class AwsSchemasSchema : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("last_modified");
-        this.DeclareOutput("version");
-        this.DeclareOutput("version_created_date");
+        this.WithOutput("arn");
+        this.WithOutput("last_modified");
+        this.WithOutput("version");
+        this.WithOutput("version_created_date");
     }
 
     /// <summary>

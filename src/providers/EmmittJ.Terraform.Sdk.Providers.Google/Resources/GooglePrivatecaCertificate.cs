@@ -58,15 +58,15 @@ public class GooglePrivatecaCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_description");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("issuer_certificate_authority");
-        this.DeclareOutput("pem_certificate");
-        this.DeclareOutput("pem_certificate_chain");
-        this.DeclareOutput("revocation_details");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("certificate_description");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("issuer_certificate_authority");
+        this.WithOutput("pem_certificate");
+        this.WithOutput("pem_certificate_chain");
+        this.WithOutput("revocation_details");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

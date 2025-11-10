@@ -318,9 +318,9 @@ public class AzurermExpressRoutePort : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ethertype");
-        this.DeclareOutput("guid");
-        this.DeclareOutput("mtu");
+        this.WithOutput("ethertype");
+        this.WithOutput("guid");
+        this.WithOutput("mtu");
     }
 
     /// <summary>

@@ -14,18 +14,18 @@ public class AwsEfsMountTargetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("availability_zone_id");
-        this.DeclareOutput("availability_zone_name");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("file_system_arn");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("ip_address_type");
-        this.DeclareOutput("ipv6_address");
-        this.DeclareOutput("mount_target_dns_name");
-        this.DeclareOutput("network_interface_id");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("security_groups");
-        this.DeclareOutput("subnet_id");
+        this.WithOutput("availability_zone_id");
+        this.WithOutput("availability_zone_name");
+        this.WithOutput("dns_name");
+        this.WithOutput("file_system_arn");
+        this.WithOutput("ip_address");
+        this.WithOutput("ip_address_type");
+        this.WithOutput("ipv6_address");
+        this.WithOutput("mount_target_dns_name");
+        this.WithOutput("network_interface_id");
+        this.WithOutput("owner_id");
+        this.WithOutput("security_groups");
+        this.WithOutput("subnet_id");
     }
 
     /// <summary>

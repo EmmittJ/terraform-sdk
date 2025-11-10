@@ -58,7 +58,7 @@ public class AzurermDnsPtrRecord : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fqdn");
+        this.WithOutput("fqdn");
     }
 
     /// <summary>

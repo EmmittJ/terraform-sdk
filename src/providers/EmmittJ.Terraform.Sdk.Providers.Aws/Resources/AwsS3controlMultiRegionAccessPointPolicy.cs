@@ -69,8 +69,8 @@ public class AwsS3controlMultiRegionAccessPointPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("established");
-        this.DeclareOutput("proposed");
+        this.WithOutput("established");
+        this.WithOutput("proposed");
     }
 
     /// <summary>

@@ -265,8 +265,8 @@ public class AwsQuicksightDataSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("output_columns");
+        this.WithOutput("arn");
+        this.WithOutput("output_columns");
     }
 
     /// <summary>

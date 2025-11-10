@@ -175,11 +175,11 @@ public class GoogleFilestoreInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("effective_replication");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("effective_replication");
+        this.WithOutput("etag");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

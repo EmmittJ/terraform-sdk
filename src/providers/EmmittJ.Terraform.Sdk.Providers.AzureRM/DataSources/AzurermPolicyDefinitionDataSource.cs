@@ -31,14 +31,14 @@ public class AzurermPolicyDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("metadata");
-        this.DeclareOutput("mode");
-        this.DeclareOutput("parameters");
-        this.DeclareOutput("policy_rule");
-        this.DeclareOutput("policy_type");
-        this.DeclareOutput("role_definition_ids");
-        this.DeclareOutput("type");
+        this.WithOutput("description");
+        this.WithOutput("metadata");
+        this.WithOutput("mode");
+        this.WithOutput("parameters");
+        this.WithOutput("policy_rule");
+        this.WithOutput("policy_type");
+        this.WithOutput("role_definition_ids");
+        this.WithOutput("type");
     }
 
     /// <summary>

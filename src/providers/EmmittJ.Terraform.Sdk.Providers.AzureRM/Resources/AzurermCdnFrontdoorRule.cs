@@ -75,7 +75,7 @@ public class AzurermCdnFrontdoorRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cdn_frontdoor_rule_set_name");
+        this.WithOutput("cdn_frontdoor_rule_set_name");
     }
 
     /// <summary>

@@ -31,12 +31,12 @@ public class AzurermContainerGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("location");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("tags");
+        this.WithOutput("fqdn");
+        this.WithOutput("identity");
+        this.WithOutput("ip_address");
+        this.WithOutput("location");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("tags");
     }
 
     /// <summary>

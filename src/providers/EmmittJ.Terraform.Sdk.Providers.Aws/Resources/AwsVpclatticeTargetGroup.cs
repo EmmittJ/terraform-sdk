@@ -112,8 +112,8 @@ public class AwsVpclatticeTargetGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("status");
     }
 
     /// <summary>

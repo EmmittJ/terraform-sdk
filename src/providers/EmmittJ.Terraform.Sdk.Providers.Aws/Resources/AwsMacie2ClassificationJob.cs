@@ -84,10 +84,10 @@ public class AwsMacie2ClassificationJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("job_arn");
-        this.DeclareOutput("job_id");
-        this.DeclareOutput("user_paused_details");
+        this.WithOutputreated_at");
+        this.WithOutputob_arn");
+        this.WithOutputob_id");
+        this.WithOutputser_paused_details");
     }
 
     /// <summary>

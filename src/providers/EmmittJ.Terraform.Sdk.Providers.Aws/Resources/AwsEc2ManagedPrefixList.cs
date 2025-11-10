@@ -41,9 +41,9 @@ public class AwsEc2ManagedPrefixList : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("owner_id");
+        this.WithOutput("version");
     }
 
     /// <summary>

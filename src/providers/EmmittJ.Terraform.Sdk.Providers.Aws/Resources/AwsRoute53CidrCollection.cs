@@ -14,9 +14,9 @@ public class AwsRoute53CidrCollection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("version");
+        this.WithOutputrn");
+        this.WithOutputd");
+        this.WithOutputersion");
     }
 
     /// <summary>

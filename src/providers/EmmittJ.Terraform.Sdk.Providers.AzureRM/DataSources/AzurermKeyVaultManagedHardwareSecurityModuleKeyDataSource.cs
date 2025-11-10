@@ -31,15 +31,15 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSource : Terrafo
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("curve");
-        this.DeclareOutput("expiration_date");
-        this.DeclareOutput("key_opts");
-        this.DeclareOutput("key_size");
-        this.DeclareOutput("key_type");
-        this.DeclareOutput("not_before_date");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("version");
-        this.DeclareOutput("versioned_id");
+        this.WithOutput("curve");
+        this.WithOutput("expiration_date");
+        this.WithOutput("key_opts");
+        this.WithOutput("key_size");
+        this.WithOutput("key_type");
+        this.WithOutput("not_before_date");
+        this.WithOutput("tags");
+        this.WithOutput("version");
+        this.WithOutput("versioned_id");
     }
 
     /// <summary>

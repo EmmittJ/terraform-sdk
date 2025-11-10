@@ -14,13 +14,13 @@ public class AwsRedshiftserverlessSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("accounts_with_provisioned_restore_access");
-        this.DeclareOutput("accounts_with_restore_access");
-        this.DeclareOutput("admin_username");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("namespace_arn");
-        this.DeclareOutput("owner_account");
+        this.WithOutput("accounts_with_provisioned_restore_access");
+        this.WithOutput("accounts_with_restore_access");
+        this.WithOutput("admin_username");
+        this.WithOutput("arn");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("namespace_arn");
+        this.WithOutput("owner_account");
     }
 
     /// <summary>

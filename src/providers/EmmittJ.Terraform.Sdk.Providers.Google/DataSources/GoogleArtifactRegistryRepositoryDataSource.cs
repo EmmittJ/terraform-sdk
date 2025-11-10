@@ -14,24 +14,24 @@ public class GoogleArtifactRegistryRepositoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cleanup_policies");
-        this.DeclareOutput("cleanup_policy_dry_run");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("docker_config");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("format");
-        this.DeclareOutput("kms_key_name");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("maven_config");
-        this.DeclareOutput("mode");
-        this.DeclareOutput("name");
-        this.DeclareOutput("registry_uri");
-        this.DeclareOutput("remote_repository_config");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("virtual_repository_config");
-        this.DeclareOutput("vulnerability_scanning_config");
+        this.WithOutput("cleanup_policies");
+        this.WithOutput("cleanup_policy_dry_run");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("docker_config");
+        this.WithOutput("effective_labels");
+        this.WithOutput("format");
+        this.WithOutput("kms_key_name");
+        this.WithOutput("labels");
+        this.WithOutput("maven_config");
+        this.WithOutput("mode");
+        this.WithOutput("name");
+        this.WithOutput("registry_uri");
+        this.WithOutput("remote_repository_config");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
+        this.WithOutput("virtual_repository_config");
+        this.WithOutput("vulnerability_scanning_config");
     }
 
     /// <summary>

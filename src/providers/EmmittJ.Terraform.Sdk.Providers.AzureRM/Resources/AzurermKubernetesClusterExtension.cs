@@ -115,8 +115,8 @@ public class AzurermKubernetesClusterExtension : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("aks_assigned_identity");
-        this.DeclareOutput("current_version");
+        this.WithOutput("aks_assigned_identity");
+        this.WithOutput("current_version");
     }
 
     /// <summary>

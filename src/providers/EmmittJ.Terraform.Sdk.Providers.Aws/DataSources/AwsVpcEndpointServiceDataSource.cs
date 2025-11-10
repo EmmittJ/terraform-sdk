@@ -59,19 +59,19 @@ public class AwsVpcEndpointServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("acceptance_required");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zones");
-        this.DeclareOutput("base_endpoint_dns_names");
-        this.DeclareOutput("manages_vpc_endpoints");
-        this.DeclareOutput("owner");
-        this.DeclareOutput("private_dns_name");
-        this.DeclareOutput("private_dns_names");
-        this.DeclareOutput("region");
-        this.DeclareOutput("service_id");
-        this.DeclareOutput("service_region");
-        this.DeclareOutput("supported_ip_address_types");
-        this.DeclareOutput("vpc_endpoint_policy_supported");
+        this.WithOutput("acceptance_required");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zones");
+        this.WithOutput("base_endpoint_dns_names");
+        this.WithOutput("manages_vpc_endpoints");
+        this.WithOutput("owner");
+        this.WithOutput("private_dns_name");
+        this.WithOutput("private_dns_names");
+        this.WithOutput("region");
+        this.WithOutput("service_id");
+        this.WithOutput("service_region");
+        this.WithOutput("supported_ip_address_types");
+        this.WithOutput("vpc_endpoint_policy_supported");
     }
 
     /// <summary>

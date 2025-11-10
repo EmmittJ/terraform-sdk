@@ -85,9 +85,9 @@ public class AwsCloudtrail : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("home_region");
-        this.DeclareOutput("sns_topic_arn");
+        this.WithOutput("arn");
+        this.WithOutput("home_region");
+        this.WithOutput("sns_topic_arn");
     }
 
     /// <summary>

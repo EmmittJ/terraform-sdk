@@ -14,8 +14,8 @@ public class AwsSecurityhubStandardsControlAssociationsDataSource : TerraformDat
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("standards_control_associations");
+        this.WithOutput("id");
+        this.WithOutput("standards_control_associations");
     }
 
     /// <summary>

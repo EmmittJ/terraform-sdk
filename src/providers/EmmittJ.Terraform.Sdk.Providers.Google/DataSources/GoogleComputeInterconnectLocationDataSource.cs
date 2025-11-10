@@ -14,16 +14,16 @@ public class GoogleComputeInterconnectLocationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("city");
-        this.DeclareOutput("continent");
-        this.DeclareOutput("description");
-        this.DeclareOutput("facility_provider");
-        this.DeclareOutput("facility_provider_facility_id");
-        this.DeclareOutput("peeringdb_facility_id");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("status");
+        this.WithOutput("address");
+        this.WithOutput("availability_zone");
+        this.WithOutput("city");
+        this.WithOutput("continent");
+        this.WithOutput("description");
+        this.WithOutput("facility_provider");
+        this.WithOutput("facility_provider_facility_id");
+        this.WithOutput("peeringdb_facility_id");
+        this.WithOutput("self_link");
+        this.WithOutput("status");
     }
 
     /// <summary>

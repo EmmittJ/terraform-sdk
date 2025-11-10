@@ -14,10 +14,10 @@ public class AwsVpcIpamOrganizationAdminAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("email");
-        this.DeclareOutput("name");
-        this.DeclareOutput("service_principal");
+        this.WithOutput("arn");
+        this.WithOutput("email");
+        this.WithOutput("name");
+        this.WithOutput("service_principal");
     }
 
     /// <summary>

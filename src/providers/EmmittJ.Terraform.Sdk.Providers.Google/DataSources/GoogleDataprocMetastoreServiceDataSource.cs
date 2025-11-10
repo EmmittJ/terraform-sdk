@@ -14,32 +14,32 @@ public class GoogleDataprocMetastoreServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("artifact_gcs_uri");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("database_type");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("encryption_config");
-        this.DeclareOutput("endpoint_uri");
-        this.DeclareOutput("hive_metastore_config");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("maintenance_window");
-        this.DeclareOutput("metadata_integration");
-        this.DeclareOutput("name");
-        this.DeclareOutput("network");
-        this.DeclareOutput("network_config");
-        this.DeclareOutput("port");
-        this.DeclareOutput("release_channel");
-        this.DeclareOutput("scaling_config");
-        this.DeclareOutput("scheduled_backup");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_message");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("telemetry_config");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("tier");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("artifact_gcs_uri");
+        this.WithOutput("create_time");
+        this.WithOutput("database_type");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("effective_labels");
+        this.WithOutput("encryption_config");
+        this.WithOutput("endpoint_uri");
+        this.WithOutput("hive_metastore_config");
+        this.WithOutput("labels");
+        this.WithOutput("maintenance_window");
+        this.WithOutput("metadata_integration");
+        this.WithOutput("name");
+        this.WithOutput("network");
+        this.WithOutput("network_config");
+        this.WithOutput("port");
+        this.WithOutput("release_channel");
+        this.WithOutput("scaling_config");
+        this.WithOutput("scheduled_backup");
+        this.WithOutput("state");
+        this.WithOutput("state_message");
+        this.WithOutput("tags");
+        this.WithOutput("telemetry_config");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("tier");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>
@@ -126,7 +126,7 @@ public class GoogleDataprocMetastoreServiceDataSource : TerraformDataSource
 
     /// <summary>
     /// User-defined labels for the metastore service.
-    /// 
+    ///
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
@@ -151,7 +151,7 @@ public class GoogleDataprocMetastoreServiceDataSource : TerraformDataSource
 
     /// <summary>
     /// The relative resource name of the VPC network on which the instance can be accessed. It is specified in the following form:
-    /// 
+    ///
     /// &amp;quot;projects/{projectNumber}/global/networks/{network_id}&amp;quot;.
     /// </summary>
     public TerraformExpression Network => this["network"];

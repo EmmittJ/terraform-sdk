@@ -31,13 +31,13 @@ public class AzurermSpringCloudAppDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("https_only");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("is_public");
-        this.DeclareOutput("persistent_disk");
-        this.DeclareOutput("tls_enabled");
-        this.DeclareOutput("url");
+        this.WithOutput("fqdn");
+        this.WithOutput("https_only");
+        this.WithOutput("identity");
+        this.WithOutput("is_public");
+        this.WithOutput("persistent_disk");
+        this.WithOutput("tls_enabled");
+        this.WithOutput("url");
     }
 
     /// <summary>

@@ -14,15 +14,15 @@ public class AwsGlueDevEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("failure_reason");
-        this.DeclareOutput("private_address");
-        this.DeclareOutput("public_address");
-        this.DeclareOutput("status");
-        this.DeclareOutput("vpc_id");
-        this.DeclareOutput("yarn_endpoint_address");
-        this.DeclareOutput("zeppelin_remote_spark_interpreter_port");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zone");
+        this.WithOutput("failure_reason");
+        this.WithOutput("private_address");
+        this.WithOutput("public_address");
+        this.WithOutput("status");
+        this.WithOutput("vpc_id");
+        this.WithOutput("yarn_endpoint_address");
+        this.WithOutput("zeppelin_remote_spark_interpreter_port");
     }
 
     /// <summary>

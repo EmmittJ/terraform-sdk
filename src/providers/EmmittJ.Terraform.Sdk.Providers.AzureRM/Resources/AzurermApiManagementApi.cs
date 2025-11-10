@@ -230,8 +230,8 @@ public class AzurermApiManagementApi : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("is_current");
-        this.DeclareOutput("is_online");
+        this.WithOutput("is_current");
+        this.WithOutput("is_online");
     }
 
     /// <summary>

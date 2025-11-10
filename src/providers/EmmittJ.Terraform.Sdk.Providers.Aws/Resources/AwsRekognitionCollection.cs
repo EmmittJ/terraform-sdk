@@ -31,10 +31,10 @@ public class AwsRekognitionCollection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("face_model_version");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("face_model_version");
+        this.WithOutput("id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

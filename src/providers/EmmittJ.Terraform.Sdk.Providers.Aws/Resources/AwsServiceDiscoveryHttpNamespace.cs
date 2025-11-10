@@ -14,8 +14,8 @@ public class AwsServiceDiscoveryHttpNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("http_name");
+        this.WithOutput("arn");
+        this.WithOutput("http_name");
     }
 
     /// <summary>

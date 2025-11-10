@@ -49,12 +49,12 @@ public class AwsDatazoneFormType : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("created_by");
-        this.DeclareOutput("imports");
-        this.DeclareOutput("origin_domain_id");
-        this.DeclareOutput("origin_project_id");
-        this.DeclareOutput("revision");
+        this.WithOutput("created_at");
+        this.WithOutput("created_by");
+        this.WithOutput("imports");
+        this.WithOutput("origin_domain_id");
+        this.WithOutput("origin_project_id");
+        this.WithOutput("revision");
     }
 
     /// <summary>

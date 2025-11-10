@@ -14,8 +14,8 @@ public class AwsBatchSchedulingPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fair_share_policy");
-        this.DeclareOutput("name");
+        this.WithOutput("fair_share_policy");
+        this.WithOutput("name");
     }
 
     /// <summary>

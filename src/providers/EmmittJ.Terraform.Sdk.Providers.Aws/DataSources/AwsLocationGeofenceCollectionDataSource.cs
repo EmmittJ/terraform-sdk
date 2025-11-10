@@ -14,10 +14,10 @@ public class AwsLocationGeofenceCollectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("collection_arn");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("update_time");
+        this.WithOutput("collection_arn");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

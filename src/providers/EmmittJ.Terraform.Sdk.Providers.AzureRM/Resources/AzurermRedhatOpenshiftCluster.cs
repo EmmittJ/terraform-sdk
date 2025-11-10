@@ -381,7 +381,7 @@ public class AzurermRedhatOpenshiftCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("console_url");
+        this.WithOutputonsole_url");
     }
 
     /// <summary>

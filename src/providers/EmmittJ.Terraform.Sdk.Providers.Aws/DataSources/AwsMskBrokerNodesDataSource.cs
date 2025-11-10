@@ -14,7 +14,7 @@ public class AwsMskBrokerNodesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("node_info_list");
+        this.WithOutput("node_info_list");
     }
 
     /// <summary>

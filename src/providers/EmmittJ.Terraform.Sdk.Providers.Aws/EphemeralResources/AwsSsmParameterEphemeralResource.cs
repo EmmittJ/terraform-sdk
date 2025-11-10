@@ -15,10 +15,10 @@ public class AwsSsmParameterEphemeralResource : TerraformEphemeralResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("type");
-        this.DeclareOutput("value");
-        this.DeclareOutput("version");
+        this.WithOutput("name");
+        this.WithOutput("type");
+        this.WithOutput("value");
+        this.WithOutput("version");
     }
 
     /// <summary>

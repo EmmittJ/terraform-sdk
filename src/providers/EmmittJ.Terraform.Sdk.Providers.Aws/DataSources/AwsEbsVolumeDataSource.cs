@@ -59,20 +59,20 @@ public class AwsEbsVolumeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("encrypted");
-        this.DeclareOutput("iops");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("multi_attach_enabled");
-        this.DeclareOutput("outpost_arn");
-        this.DeclareOutput("size");
-        this.DeclareOutput("snapshot_id");
-        this.DeclareOutput("throughput");
-        this.DeclareOutput("volume_id");
-        this.DeclareOutput("volume_initialization_rate");
-        this.DeclareOutput("volume_type");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zone");
+        this.WithOutput("create_time");
+        this.WithOutput("encrypted");
+        this.WithOutput("iops");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("multi_attach_enabled");
+        this.WithOutput("outpost_arn");
+        this.WithOutput("size");
+        this.WithOutput("snapshot_id");
+        this.WithOutput("throughput");
+        this.WithOutput("volume_id");
+        this.WithOutput("volume_initialization_rate");
+        this.WithOutput("volume_type");
     }
 
     /// <summary>

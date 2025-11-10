@@ -14,7 +14,7 @@ public class AwsEmrSecurityConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_date");
+        this.WithOutput("creation_date");
     }
 
     /// <summary>

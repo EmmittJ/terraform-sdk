@@ -58,9 +58,9 @@ public class AzurermRouteServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("routing_state");
-        this.DeclareOutput("virtual_router_asn");
-        this.DeclareOutput("virtual_router_ips");
+        this.WithOutput("routing_state");
+        this.WithOutput("virtual_router_asn");
+        this.WithOutput("virtual_router_ips");
     }
 
     /// <summary>

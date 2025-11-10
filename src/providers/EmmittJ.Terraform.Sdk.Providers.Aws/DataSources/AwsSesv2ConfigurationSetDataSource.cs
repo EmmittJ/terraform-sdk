@@ -14,13 +14,13 @@ public class AwsSesv2ConfigurationSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("delivery_options");
-        this.DeclareOutput("reputation_options");
-        this.DeclareOutput("sending_options");
-        this.DeclareOutput("suppression_options");
-        this.DeclareOutput("tracking_options");
-        this.DeclareOutput("vdm_options");
+        this.WithOutput("arn");
+        this.WithOutput("delivery_options");
+        this.WithOutput("reputation_options");
+        this.WithOutput("sending_options");
+        this.WithOutput("suppression_options");
+        this.WithOutput("tracking_options");
+        this.WithOutput("vdm_options");
     }
 
     /// <summary>

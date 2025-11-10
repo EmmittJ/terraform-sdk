@@ -230,9 +230,9 @@ public class AwsEksNodeGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("resources");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("resources");
+        this.WithOutput("status");
     }
 
     /// <summary>

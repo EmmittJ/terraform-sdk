@@ -14,10 +14,10 @@ public class AwsVerifiedaccessInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("last_updated_time");
-        this.DeclareOutput("name_servers");
-        this.DeclareOutput("verified_access_trust_providers");
+        this.WithOutput("creation_time");
+        this.WithOutput("last_updated_time");
+        this.WithOutput("name_servers");
+        this.WithOutput("verified_access_trust_providers");
     }
 
     /// <summary>

@@ -40,15 +40,15 @@ public class AwsEc2InstanceConnectEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("fips_dns_name");
-        this.DeclareOutput("id");
-        this.DeclareOutput("network_interface_ids");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zone");
+        this.WithOutput("dns_name");
+        this.WithOutput("fips_dns_name");
+        this.WithOutput("id");
+        this.WithOutput("network_interface_ids");
+        this.WithOutput("owner_id");
+        this.WithOutput("tags_all");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsCloudwatchEventBusesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("event_buses");
+        this.WithOutput("event_buses");
     }
 
     /// <summary>

@@ -31,14 +31,14 @@ public class AzurermAutomationRunbookDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("content");
-        this.DeclareOutput("description");
-        this.DeclareOutput("location");
-        this.DeclareOutput("log_activity_trace_level");
-        this.DeclareOutput("log_progress");
-        this.DeclareOutput("log_verbose");
-        this.DeclareOutput("runbook_type");
-        this.DeclareOutput("tags");
+        this.WithOutput("content");
+        this.WithOutput("description");
+        this.WithOutput("location");
+        this.WithOutput("log_activity_trace_level");
+        this.WithOutput("log_progress");
+        this.WithOutput("log_verbose");
+        this.WithOutput("runbook_type");
+        this.WithOutput("tags");
     }
 
     /// <summary>

@@ -128,11 +128,11 @@ public class GoogleDnsManagedZone : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("managed_zone_id");
-        this.DeclareOutput("name_servers");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("creation_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("managed_zone_id");
+        this.WithOutput("name_servers");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

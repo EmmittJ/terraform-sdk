@@ -14,8 +14,8 @@ public class AwsNetworkInterfaceAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attachment_id");
-        this.DeclareOutput("status");
+        this.WithOutput("attachment_id");
+        this.WithOutput("status");
     }
 
     /// <summary>

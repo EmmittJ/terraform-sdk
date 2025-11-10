@@ -31,9 +31,9 @@ public class AzurermAutomationVariableIntDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("encrypted");
-        this.DeclareOutput("value");
+        this.WithOutput("description");
+        this.WithOutput("encrypted");
+        this.WithOutput("value");
     }
 
     /// <summary>

@@ -104,13 +104,13 @@ public class AzurermPurviewAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("atlas_kafka_endpoint_primary_connection_string");
-        this.DeclareOutput("atlas_kafka_endpoint_secondary_connection_string");
-        this.DeclareOutput("aws_external_id");
-        this.DeclareOutput("catalog_endpoint");
-        this.DeclareOutput("guardian_endpoint");
-        this.DeclareOutput("managed_resources");
-        this.DeclareOutput("scan_endpoint");
+        this.WithOutput("atlas_kafka_endpoint_primary_connection_string");
+        this.WithOutput("atlas_kafka_endpoint_secondary_connection_string");
+        this.WithOutput("aws_external_id");
+        this.WithOutput("catalog_endpoint");
+        this.WithOutput("guardian_endpoint");
+        this.WithOutput("managed_resources");
+        this.WithOutput("scan_endpoint");
     }
 
     /// <summary>

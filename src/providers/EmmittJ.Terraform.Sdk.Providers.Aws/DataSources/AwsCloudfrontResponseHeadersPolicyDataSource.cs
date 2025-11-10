@@ -14,14 +14,14 @@ public class AwsCloudfrontResponseHeadersPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("comment");
-        this.DeclareOutput("cors_config");
-        this.DeclareOutput("custom_headers_config");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("remove_headers_config");
-        this.DeclareOutput("security_headers_config");
-        this.DeclareOutput("server_timing_headers_config");
+        this.WithOutput("arn");
+        this.WithOutput("comment");
+        this.WithOutput("cors_config");
+        this.WithOutput("custom_headers_config");
+        this.WithOutput("etag");
+        this.WithOutput("remove_headers_config");
+        this.WithOutput("security_headers_config");
+        this.WithOutput("server_timing_headers_config");
     }
 
     /// <summary>

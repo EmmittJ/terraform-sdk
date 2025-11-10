@@ -59,8 +59,8 @@ public class AwsEc2InstanceTypeOfferingDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("instance_type");
-        this.DeclareOutput("location");
+        this.WithOutput("instance_type");
+        this.WithOutput("location");
     }
 
     /// <summary>

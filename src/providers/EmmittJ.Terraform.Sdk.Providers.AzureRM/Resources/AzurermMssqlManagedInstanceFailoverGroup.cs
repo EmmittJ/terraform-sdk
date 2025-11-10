@@ -86,8 +86,8 @@ public class AzurermMssqlManagedInstanceFailoverGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("partner_region");
-        this.DeclareOutput("role");
+        this.WithOutput("partner_region");
+        this.WithOutput("role");
     }
 
     /// <summary>

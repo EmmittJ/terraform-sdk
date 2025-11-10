@@ -58,7 +58,7 @@ public class AzurermEventgridPartnerRegistration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("partner_registration_id");
+        this.WithOutput("partner_registration_id");
     }
 
     /// <summary>

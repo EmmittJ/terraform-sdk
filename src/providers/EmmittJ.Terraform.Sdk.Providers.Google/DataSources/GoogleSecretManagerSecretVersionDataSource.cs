@@ -14,11 +14,11 @@ public class GoogleSecretManagerSecretVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("destroy_time");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("name");
-        this.DeclareOutput("secret_data");
+        this.WithOutput("create_time");
+        this.WithOutput("destroy_time");
+        this.WithOutput("enabled");
+        this.WithOutput("name");
+        this.WithOutput("secret_data");
     }
 
     /// <summary>

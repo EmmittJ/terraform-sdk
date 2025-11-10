@@ -14,7 +14,7 @@ public class AwsRoute53ResolverFirewallConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("owner_id");
+        this.WithOutput("owner_id");
     }
 
     /// <summary>

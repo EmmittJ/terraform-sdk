@@ -14,10 +14,10 @@ public class AwsEcrImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("image_pushed_at");
-        this.DeclareOutput("image_size_in_bytes");
-        this.DeclareOutput("image_tags");
-        this.DeclareOutput("image_uri");
+        this.WithOutput("image_pushed_at");
+        this.WithOutput("image_size_in_bytes");
+        this.WithOutput("image_tags");
+        this.WithOutput("image_uri");
     }
 
     /// <summary>

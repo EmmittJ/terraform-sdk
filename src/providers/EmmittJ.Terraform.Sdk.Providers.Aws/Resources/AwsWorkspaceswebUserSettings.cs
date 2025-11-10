@@ -66,9 +66,9 @@ public class AwsWorkspaceswebUserSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("associated_portal_arns");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("user_settings_arn");
+        this.WithOutput("associated_portal_arns");
+        this.WithOutput("tags_all");
+        this.WithOutput("user_settings_arn");
     }
 
     /// <summary>

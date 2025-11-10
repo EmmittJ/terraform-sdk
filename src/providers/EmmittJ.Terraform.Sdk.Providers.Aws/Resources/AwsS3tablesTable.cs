@@ -22,16 +22,16 @@ public class AwsS3tablesTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("created_by");
-        this.DeclareOutput("metadata_location");
-        this.DeclareOutput("modified_at");
-        this.DeclareOutput("modified_by");
-        this.DeclareOutput("owner_account_id");
-        this.DeclareOutput("type");
-        this.DeclareOutput("version_token");
-        this.DeclareOutput("warehouse_location");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("created_by");
+        this.WithOutput("metadata_location");
+        this.WithOutput("modified_at");
+        this.WithOutput("modified_by");
+        this.WithOutput("owner_account_id");
+        this.WithOutput("type");
+        this.WithOutput("version_token");
+        this.WithOutput("warehouse_location");
     }
 
     /// <summary>

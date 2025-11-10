@@ -58,8 +58,8 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address_space_prefixes");
-        this.DeclareOutput("virtual_network_id");
+        this.WithOutput("address_space_prefixes");
+        this.WithOutput("virtual_network_id");
     }
 
     /// <summary>

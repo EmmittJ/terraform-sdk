@@ -31,7 +31,7 @@ public class AzurermImagesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("images");
+        this.WithOutput("images");
     }
 
     /// <summary>

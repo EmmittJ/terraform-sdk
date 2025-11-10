@@ -128,9 +128,9 @@ public class GoogleComputeNodeGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("size");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("self_link");
+        this.WithOutput("size");
     }
 
     /// <summary>

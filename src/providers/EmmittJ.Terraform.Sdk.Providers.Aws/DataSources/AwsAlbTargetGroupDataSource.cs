@@ -31,23 +31,23 @@ public class AwsAlbTargetGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn_suffix");
-        this.DeclareOutput("connection_termination");
-        this.DeclareOutput("deregistration_delay");
-        this.DeclareOutput("health_check");
-        this.DeclareOutput("lambda_multi_value_headers_enabled");
-        this.DeclareOutput("load_balancer_arns");
-        this.DeclareOutput("load_balancing_algorithm_type");
-        this.DeclareOutput("load_balancing_cross_zone_enabled");
-        this.DeclareOutput("port");
-        this.DeclareOutput("preserve_client_ip");
-        this.DeclareOutput("protocol");
-        this.DeclareOutput("protocol_version");
-        this.DeclareOutput("proxy_protocol_v2");
-        this.DeclareOutput("slow_start");
-        this.DeclareOutput("stickiness");
-        this.DeclareOutput("target_type");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("arn_suffix");
+        this.WithOutput("connection_termination");
+        this.WithOutput("deregistration_delay");
+        this.WithOutput("health_check");
+        this.WithOutput("lambda_multi_value_headers_enabled");
+        this.WithOutput("load_balancer_arns");
+        this.WithOutput("load_balancing_algorithm_type");
+        this.WithOutput("load_balancing_cross_zone_enabled");
+        this.WithOutput("port");
+        this.WithOutput("preserve_client_ip");
+        this.WithOutput("protocol");
+        this.WithOutput("protocol_version");
+        this.WithOutput("proxy_protocol_v2");
+        this.WithOutput("slow_start");
+        this.WithOutput("stickiness");
+        this.WithOutput("target_type");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

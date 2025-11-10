@@ -49,7 +49,7 @@ public class GoogleSqlDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("self_link");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

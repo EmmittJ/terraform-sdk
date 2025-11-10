@@ -31,11 +31,11 @@ public class AzurermEventgridTopicDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("location");
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("secondary_access_key");
-        this.DeclareOutput("tags");
+        this.WithOutput("endpoint");
+        this.WithOutput("location");
+        this.WithOutput("primary_access_key");
+        this.WithOutput("secondary_access_key");
+        this.WithOutput("tags");
     }
 
     /// <summary>

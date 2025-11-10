@@ -59,21 +59,21 @@ public class AwsSubnetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("assign_ipv6_address_on_creation");
-        this.DeclareOutput("available_ip_address_count");
-        this.DeclareOutput("customer_owned_ipv4_pool");
-        this.DeclareOutput("enable_dns64");
-        this.DeclareOutput("enable_lni_at_device_index");
-        this.DeclareOutput("enable_resource_name_dns_a_record_on_launch");
-        this.DeclareOutput("enable_resource_name_dns_aaaa_record_on_launch");
-        this.DeclareOutput("ipv6_cidr_block_association_id");
-        this.DeclareOutput("ipv6_native");
-        this.DeclareOutput("map_customer_owned_ip_on_launch");
-        this.DeclareOutput("map_public_ip_on_launch");
-        this.DeclareOutput("outpost_arn");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("private_dns_hostname_type_on_launch");
+        this.WithOutput("arn");
+        this.WithOutput("assign_ipv6_address_on_creation");
+        this.WithOutput("available_ip_address_count");
+        this.WithOutput("customer_owned_ipv4_pool");
+        this.WithOutput("enable_dns64");
+        this.WithOutput("enable_lni_at_device_index");
+        this.WithOutput("enable_resource_name_dns_a_record_on_launch");
+        this.WithOutput("enable_resource_name_dns_aaaa_record_on_launch");
+        this.WithOutput("ipv6_cidr_block_association_id");
+        this.WithOutput("ipv6_native");
+        this.WithOutput("map_customer_owned_ip_on_launch");
+        this.WithOutput("map_public_ip_on_launch");
+        this.WithOutput("outpost_arn");
+        this.WithOutput("owner_id");
+        this.WithOutput("private_dns_hostname_type_on_launch");
     }
 
     /// <summary>

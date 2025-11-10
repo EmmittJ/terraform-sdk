@@ -14,8 +14,8 @@ public class AwsOrganizationsOrganizationalUnit : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("accounts");
-        this.DeclareOutput("arn");
+        this.WithOutput("accounts");
+        this.WithOutput("arn");
     }
 
     /// <summary>

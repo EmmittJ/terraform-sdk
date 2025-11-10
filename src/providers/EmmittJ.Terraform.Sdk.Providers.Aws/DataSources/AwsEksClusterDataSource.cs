@@ -14,27 +14,27 @@ public class AwsEksClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_config");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("certificate_authority");
-        this.DeclareOutput("cluster_id");
-        this.DeclareOutput("compute_config");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("enabled_cluster_log_types");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("kubernetes_network_config");
-        this.DeclareOutput("outpost_config");
-        this.DeclareOutput("platform_version");
-        this.DeclareOutput("remote_network_config");
-        this.DeclareOutput("role_arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("storage_config");
-        this.DeclareOutput("upgrade_policy");
-        this.DeclareOutput("version");
-        this.DeclareOutput("vpc_config");
-        this.DeclareOutput("zonal_shift_config");
+        this.WithOutput("access_config");
+        this.WithOutput("arn");
+        this.WithOutput("certificate_authority");
+        this.WithOutput("cluster_id");
+        this.WithOutput("compute_config");
+        this.WithOutput("created_at");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("enabled_cluster_log_types");
+        this.WithOutput("endpoint");
+        this.WithOutput("identity");
+        this.WithOutput("kubernetes_network_config");
+        this.WithOutput("outpost_config");
+        this.WithOutput("platform_version");
+        this.WithOutput("remote_network_config");
+        this.WithOutput("role_arn");
+        this.WithOutput("status");
+        this.WithOutput("storage_config");
+        this.WithOutput("upgrade_policy");
+        this.WithOutput("version");
+        this.WithOutput("vpc_config");
+        this.WithOutput("zonal_shift_config");
     }
 
     /// <summary>

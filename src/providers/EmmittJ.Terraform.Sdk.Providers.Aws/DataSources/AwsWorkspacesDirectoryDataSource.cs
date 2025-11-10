@@ -14,26 +14,26 @@ public class AwsWorkspacesDirectoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("active_directory_config");
-        this.DeclareOutput("alias");
-        this.DeclareOutput("certificate_based_auth_properties");
-        this.DeclareOutput("customer_user_name");
-        this.DeclareOutput("directory_name");
-        this.DeclareOutput("directory_type");
-        this.DeclareOutput("dns_ip_addresses");
-        this.DeclareOutput("iam_role_id");
-        this.DeclareOutput("ip_group_ids");
-        this.DeclareOutput("registration_code");
-        this.DeclareOutput("saml_properties");
-        this.DeclareOutput("self_service_permissions");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("user_identity_type");
-        this.DeclareOutput("workspace_access_properties");
-        this.DeclareOutput("workspace_creation_properties");
-        this.DeclareOutput("workspace_directory_description");
-        this.DeclareOutput("workspace_directory_name");
-        this.DeclareOutput("workspace_security_group_id");
-        this.DeclareOutput("workspace_type");
+        this.WithOutput("active_directory_config");
+        this.WithOutput("alias");
+        this.WithOutput("certificate_based_auth_properties");
+        this.WithOutput("customer_user_name");
+        this.WithOutput("directory_name");
+        this.WithOutput("directory_type");
+        this.WithOutput("dns_ip_addresses");
+        this.WithOutput("iam_role_id");
+        this.WithOutput("ip_group_ids");
+        this.WithOutput("registration_code");
+        this.WithOutput("saml_properties");
+        this.WithOutput("self_service_permissions");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("user_identity_type");
+        this.WithOutput("workspace_access_properties");
+        this.WithOutput("workspace_creation_properties");
+        this.WithOutput("workspace_directory_description");
+        this.WithOutput("workspace_directory_name");
+        this.WithOutput("workspace_security_group_id");
+        this.WithOutput("workspace_type");
     }
 
     /// <summary>

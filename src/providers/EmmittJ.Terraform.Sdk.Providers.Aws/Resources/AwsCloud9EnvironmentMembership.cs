@@ -14,7 +14,7 @@ public class AwsCloud9EnvironmentMembership : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("user_id");
+        this.WithOutput("user_id");
     }
 
     /// <summary>

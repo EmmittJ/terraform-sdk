@@ -14,7 +14,7 @@ public class GoogleComposerImageVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("image_versions");
+        this.WithOutput("image_versions");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsApiGatewayResource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("path");
+        this.WithOutput("path");
     }
 
     /// <summary>

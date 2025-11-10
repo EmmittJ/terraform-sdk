@@ -94,8 +94,8 @@ public class AwsFmsPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("policy_update_token");
+        this.WithOutput("arn");
+        this.WithOutput("policy_update_token");
     }
 
     /// <summary>

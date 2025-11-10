@@ -14,11 +14,11 @@ public class AwsS3controlAccessGrantsInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_grants_instance_arn");
-        this.DeclareOutput("access_grants_instance_id");
-        this.DeclareOutput("id");
-        this.DeclareOutput("identity_center_application_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("access_grants_instance_arn");
+        this.WithOutput("access_grants_instance_id");
+        this.WithOutput("id");
+        this.WithOutput("identity_center_application_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

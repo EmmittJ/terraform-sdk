@@ -58,9 +58,9 @@ public class AzurermApiManagementCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("expiration");
-        this.DeclareOutput("subject");
-        this.DeclareOutput("thumbprint");
+        this.WithOutput("expiration");
+        this.WithOutput("subject");
+        this.WithOutput("thumbprint");
     }
 
     /// <summary>

@@ -31,10 +31,10 @@ public class AzurermRecoveryServicesVaultDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
     }
 
     /// <summary>

@@ -40,9 +40,9 @@ public class GoogleContainerAzureClient : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("uid");
+        this.WithOutput("certificate");
+        this.WithOutput("create_time");
+        this.WithOutput("uid");
     }
 
     /// <summary>

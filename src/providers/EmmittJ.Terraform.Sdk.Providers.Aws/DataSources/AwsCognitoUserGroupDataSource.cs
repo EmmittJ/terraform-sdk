@@ -14,10 +14,10 @@ public class AwsCognitoUserGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("id");
-        this.DeclareOutput("precedence");
-        this.DeclareOutput("role_arn");
+        this.WithOutput("description");
+        this.WithOutput("id");
+        this.WithOutput("precedence");
+        this.WithOutput("role_arn");
     }
 
     /// <summary>

@@ -130,12 +130,12 @@ public class AwsImagebuilderImagePipeline : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("date_created");
-        this.DeclareOutput("date_last_run");
-        this.DeclareOutput("date_next_run");
-        this.DeclareOutput("date_updated");
-        this.DeclareOutput("platform");
+        this.WithOutput("arn");
+        this.WithOutput("date_created");
+        this.WithOutput("date_last_run");
+        this.WithOutput("date_next_run");
+        this.WithOutput("date_updated");
+        this.WithOutput("platform");
     }
 
     /// <summary>

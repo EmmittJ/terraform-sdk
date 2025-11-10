@@ -31,17 +31,17 @@ public class AzurermFirewallDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dns_servers");
-        this.DeclareOutput("firewall_policy_id");
-        this.DeclareOutput("ip_configuration");
-        this.DeclareOutput("location");
-        this.DeclareOutput("management_ip_configuration");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("sku_tier");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("threat_intel_mode");
-        this.DeclareOutput("virtual_hub");
-        this.DeclareOutput("zones");
+        this.WithOutput("dns_servers");
+        this.WithOutput("firewall_policy_id");
+        this.WithOutput("ip_configuration");
+        this.WithOutput("location");
+        this.WithOutput("management_ip_configuration");
+        this.WithOutput("sku_name");
+        this.WithOutput("sku_tier");
+        this.WithOutput("tags");
+        this.WithOutput("threat_intel_mode");
+        this.WithOutput("virtual_hub");
+        this.WithOutput("zones");
     }
 
     /// <summary>

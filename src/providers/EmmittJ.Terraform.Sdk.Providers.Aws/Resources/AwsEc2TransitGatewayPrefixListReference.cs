@@ -14,7 +14,7 @@ public class AwsEc2TransitGatewayPrefixListReference : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("prefix_list_owner_id");
+        this.WithOutput("prefix_list_owner_id");
     }
 
     /// <summary>

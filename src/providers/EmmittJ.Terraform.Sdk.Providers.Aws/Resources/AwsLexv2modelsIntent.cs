@@ -274,10 +274,10 @@ public class AwsLexv2modelsIntent : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_date_time");
-        this.DeclareOutput("id");
-        this.DeclareOutput("intent_id");
-        this.DeclareOutput("last_updated_date_time");
+        this.WithOutput("creation_date_time");
+        this.WithOutput("id");
+        this.WithOutput("intent_id");
+        this.WithOutput("last_updated_date_time");
     }
 
     /// <summary>

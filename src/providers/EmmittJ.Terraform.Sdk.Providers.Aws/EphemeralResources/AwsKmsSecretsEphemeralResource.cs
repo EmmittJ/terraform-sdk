@@ -79,7 +79,7 @@ public class AwsKmsSecretsEphemeralResource : TerraformEphemeralResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("plaintext");
+        this.WithOutput("plaintext");
     }
 
     /// <summary>

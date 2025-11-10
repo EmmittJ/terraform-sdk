@@ -70,8 +70,8 @@ public class GoogleSiteVerificationWebResource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("owners");
-        this.DeclareOutput("web_resource_id");
+        this.WithOutput("owners");
+        this.WithOutput("web_resource_id");
     }
 
     /// <summary>

@@ -42,20 +42,20 @@ public class AwsVpnConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("category");
-        this.DeclareOutput("core_network_arn");
-        this.DeclareOutput("core_network_attachment_arn");
-        this.DeclareOutput("customer_gateway_configuration");
-        this.DeclareOutput("customer_gateway_id");
-        this.DeclareOutput("gateway_association_state");
-        this.DeclareOutput("pre_shared_key_arn");
-        this.DeclareOutput("routes");
-        this.DeclareOutput("state");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("transit_gateway_id");
-        this.DeclareOutput("type");
-        this.DeclareOutput("vgw_telemetries");
-        this.DeclareOutput("vpn_gateway_id");
+        this.WithOutput("category");
+        this.WithOutput("core_network_arn");
+        this.WithOutput("core_network_attachment_arn");
+        this.WithOutput("customer_gateway_configuration");
+        this.WithOutput("customer_gateway_id");
+        this.WithOutput("gateway_association_state");
+        this.WithOutput("pre_shared_key_arn");
+        this.WithOutput("routes");
+        this.WithOutput("state");
+        this.WithOutput("tags");
+        this.WithOutput("transit_gateway_id");
+        this.WithOutput("type");
+        this.WithOutput("vgw_telemetries");
+        this.WithOutput("vpn_gateway_id");
     }
 
     /// <summary>

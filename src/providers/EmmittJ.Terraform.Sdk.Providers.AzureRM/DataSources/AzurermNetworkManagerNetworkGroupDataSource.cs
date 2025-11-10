@@ -31,7 +31,7 @@ public class AzurermNetworkManagerNetworkGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
+        this.WithOutput("description");
     }
 
     /// <summary>

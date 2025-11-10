@@ -75,17 +75,17 @@ public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("elastic_cloud_deployment_id");
-        this.DeclareOutput("elastic_cloud_email_address");
-        this.DeclareOutput("elastic_cloud_sso_default_url");
-        this.DeclareOutput("elastic_cloud_user_id");
-        this.DeclareOutput("elasticsearch_service_url");
-        this.DeclareOutput("kibana_service_url");
-        this.DeclareOutput("kibana_sso_uri");
-        this.DeclareOutput("location");
-        this.DeclareOutput("monitoring_enabled");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("tags");
+        this.WithOutput("elastic_cloud_deployment_id");
+        this.WithOutput("elastic_cloud_email_address");
+        this.WithOutput("elastic_cloud_sso_default_url");
+        this.WithOutput("elastic_cloud_user_id");
+        this.WithOutput("elasticsearch_service_url");
+        this.WithOutput("kibana_service_url");
+        this.WithOutput("kibana_sso_uri");
+        this.WithOutput("location");
+        this.WithOutput("monitoring_enabled");
+        this.WithOutput("sku_name");
+        this.WithOutput("tags");
     }
 
     /// <summary>

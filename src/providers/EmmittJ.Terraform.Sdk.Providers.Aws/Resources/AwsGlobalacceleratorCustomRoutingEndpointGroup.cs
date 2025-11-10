@@ -96,7 +96,7 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutputrn");
     }
 
     /// <summary>

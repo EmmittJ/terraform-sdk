@@ -14,9 +14,9 @@ public class AwsCloudfrontOriginAccessIdentitiesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("iam_arns");
-        this.DeclareOutput("ids");
-        this.DeclareOutput("s3_canonical_user_ids");
+        this.WithOutput("iam_arns");
+        this.WithOutput("ids");
+        this.WithOutput("s3_canonical_user_ids");
     }
 
     /// <summary>

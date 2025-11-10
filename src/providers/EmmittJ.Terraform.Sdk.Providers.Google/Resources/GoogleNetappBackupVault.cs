@@ -104,13 +104,13 @@ public class GoogleNetappBackupVault : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("destination_backup_vault");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("source_backup_vault");
-        this.DeclareOutput("source_region");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("create_time");
+        this.WithOutput("destination_backup_vault");
+        this.WithOutput("effective_labels");
+        this.WithOutput("source_backup_vault");
+        this.WithOutput("source_region");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

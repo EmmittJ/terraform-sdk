@@ -58,7 +58,7 @@ public class AzurermDataboxEdgeDevice : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("device_properties");
+        this.WithOutput("device_properties");
     }
 
     /// <summary>

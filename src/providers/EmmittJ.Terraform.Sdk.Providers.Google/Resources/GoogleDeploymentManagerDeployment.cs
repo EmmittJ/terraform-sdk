@@ -84,9 +84,9 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("deployment_id");
-        this.DeclareOutput("manifest");
-        this.DeclareOutput("self_link");
+        this.WithOutput("deployment_id");
+        this.WithOutput("manifest");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

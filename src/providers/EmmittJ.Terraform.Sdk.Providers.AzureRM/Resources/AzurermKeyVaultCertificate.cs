@@ -94,16 +94,16 @@ public class AzurermKeyVaultCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_attribute");
-        this.DeclareOutput("certificate_data");
-        this.DeclareOutput("certificate_data_base64");
-        this.DeclareOutput("resource_manager_id");
-        this.DeclareOutput("resource_manager_versionless_id");
-        this.DeclareOutput("secret_id");
-        this.DeclareOutput("thumbprint");
-        this.DeclareOutput("version");
-        this.DeclareOutput("versionless_id");
-        this.DeclareOutput("versionless_secret_id");
+        this.WithOutput("certificate_attribute");
+        this.WithOutput("certificate_data");
+        this.WithOutput("certificate_data_base64");
+        this.WithOutput("resource_manager_id");
+        this.WithOutput("resource_manager_versionless_id");
+        this.WithOutput("secret_id");
+        this.WithOutput("thumbprint");
+        this.WithOutput("version");
+        this.WithOutput("versionless_id");
+        this.WithOutput("versionless_secret_id");
     }
 
     /// <summary>

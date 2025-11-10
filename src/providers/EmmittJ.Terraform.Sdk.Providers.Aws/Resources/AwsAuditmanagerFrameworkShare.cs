@@ -14,8 +14,8 @@ public class AwsAuditmanagerFrameworkShare : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("status");
+        this.WithOutputd");
+        this.WithOutputtatus");
     }
 
     /// <summary>

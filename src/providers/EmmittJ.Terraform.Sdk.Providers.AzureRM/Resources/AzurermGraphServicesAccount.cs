@@ -58,7 +58,7 @@ public class AzurermGraphServicesAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("billing_plan_id");
+        this.WithOutput("billing_plan_id");
     }
 
     /// <summary>

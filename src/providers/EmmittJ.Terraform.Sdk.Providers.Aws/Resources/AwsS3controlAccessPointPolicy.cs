@@ -14,7 +14,7 @@ public class AwsS3controlAccessPointPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("has_public_access_policy");
+        this.WithOutput("has_public_access_policy");
     }
 
     /// <summary>

@@ -31,9 +31,9 @@ public class AzurermPrivateDnsResolverOutboundEndpointDataSource : TerraformData
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("subnet_id");
-        this.DeclareOutput("tags");
+        this.WithOutput("location");
+        this.WithOutput("subnet_id");
+        this.WithOutput("tags");
     }
 
     /// <summary>

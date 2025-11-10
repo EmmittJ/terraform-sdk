@@ -31,11 +31,11 @@ public class AzurermAvailabilitySetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("managed");
-        this.DeclareOutput("platform_fault_domain_count");
-        this.DeclareOutput("platform_update_domain_count");
-        this.DeclareOutput("tags");
+        this.WithOutput("location");
+        this.WithOutput("managed");
+        this.WithOutput("platform_fault_domain_count");
+        this.WithOutput("platform_update_domain_count");
+        this.WithOutput("tags");
     }
 
     /// <summary>

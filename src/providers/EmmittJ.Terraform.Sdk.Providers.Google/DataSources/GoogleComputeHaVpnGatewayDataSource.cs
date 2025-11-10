@@ -14,16 +14,16 @@ public class GoogleComputeHaVpnGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("gateway_ip_version");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("network");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("stack_type");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("vpn_interfaces");
+        this.WithOutput("description");
+        this.WithOutput("effective_labels");
+        this.WithOutput("gateway_ip_version");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("labels");
+        this.WithOutput("network");
+        this.WithOutput("self_link");
+        this.WithOutput("stack_type");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("vpn_interfaces");
     }
 
     /// <summary>

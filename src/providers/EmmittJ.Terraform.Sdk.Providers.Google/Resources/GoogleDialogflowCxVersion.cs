@@ -49,10 +49,10 @@ public class GoogleDialogflowCxVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("nlu_settings");
-        this.DeclareOutput("state");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("nlu_settings");
+        this.WithOutput("state");
     }
 
     /// <summary>

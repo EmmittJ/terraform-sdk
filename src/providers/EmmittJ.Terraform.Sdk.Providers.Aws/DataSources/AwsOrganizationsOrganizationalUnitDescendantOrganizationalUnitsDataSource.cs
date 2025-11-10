@@ -14,7 +14,7 @@ public class AwsOrganizationsOrganizationalUnitDescendantOrganizationalUnitsData
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("children");
+        this.WithOutput("children");
     }
 
     /// <summary>

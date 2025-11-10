@@ -49,10 +49,10 @@ public class AwsEc2TransitGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("association_default_route_table_id");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("propagation_default_route_table_id");
+        this.WithOutput("arn");
+        this.WithOutput("association_default_route_table_id");
+        this.WithOutput("owner_id");
+        this.WithOutput("propagation_default_route_table_id");
     }
 
     /// <summary>

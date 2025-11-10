@@ -176,7 +176,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama : Terra
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("panorama");
+        this.WithOutput("panorama");
     }
 
     /// <summary>

@@ -87,10 +87,10 @@ public class AzurermElasticSanVolume : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("target_iqn");
-        this.DeclareOutput("target_portal_hostname");
-        this.DeclareOutput("target_portal_port");
-        this.DeclareOutput("volume_id");
+        this.WithOutput("target_iqn");
+        this.WithOutput("target_portal_hostname");
+        this.WithOutput("target_portal_port");
+        this.WithOutput("volume_id");
     }
 
     /// <summary>

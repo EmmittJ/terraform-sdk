@@ -389,13 +389,13 @@ public class GoogleComputeInstanceGroupManager : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("instance_group");
-        this.DeclareOutput("instance_group_manager_id");
-        this.DeclareOutput("operation");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("status");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("fingerprint");
+        this.WithOutput("instance_group");
+        this.WithOutput("instance_group_manager_id");
+        this.WithOutput("operation");
+        this.WithOutput("self_link");
+        this.WithOutput("status");
     }
 
     /// <summary>

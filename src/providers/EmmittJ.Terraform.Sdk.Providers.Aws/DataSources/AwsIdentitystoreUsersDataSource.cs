@@ -14,7 +14,7 @@ public class AwsIdentitystoreUsersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("users");
+        this.WithOutput("users");
     }
 
     /// <summary>

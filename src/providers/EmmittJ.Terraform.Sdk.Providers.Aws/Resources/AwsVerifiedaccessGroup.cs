@@ -41,12 +41,12 @@ public class AwsVerifiedaccessGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("deletion_time");
-        this.DeclareOutput("last_updated_time");
-        this.DeclareOutput("owner");
-        this.DeclareOutput("verifiedaccess_group_arn");
-        this.DeclareOutput("verifiedaccess_group_id");
+        this.WithOutput("creation_time");
+        this.WithOutput("deletion_time");
+        this.WithOutput("last_updated_time");
+        this.WithOutput("owner");
+        this.WithOutput("verifiedaccess_group_arn");
+        this.WithOutput("verifiedaccess_group_id");
     }
 
     /// <summary>

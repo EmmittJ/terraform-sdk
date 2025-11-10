@@ -31,9 +31,9 @@ public class AzurermPrivateEndpointConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("network_interface");
-        this.DeclareOutput("private_service_connection");
+        this.WithOutput("location");
+        this.WithOutput("network_interface");
+        this.WithOutput("private_service_connection");
     }
 
     /// <summary>

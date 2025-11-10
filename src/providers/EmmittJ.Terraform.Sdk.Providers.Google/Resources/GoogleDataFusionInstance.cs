@@ -164,17 +164,17 @@ public class GoogleDataFusionInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api_endpoint");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("gcs_bucket");
-        this.DeclareOutput("p4_service_account");
-        this.DeclareOutput("service_endpoint");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_message");
-        this.DeclareOutput("tenant_project_id");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("api_endpoint");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("gcs_bucket");
+        this.WithOutput("p4_service_account");
+        this.WithOutput("service_endpoint");
+        this.WithOutput("state");
+        this.WithOutput("state_message");
+        this.WithOutput("tenant_project_id");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsRegionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
+        this.WithOutput("description");
     }
 
     /// <summary>

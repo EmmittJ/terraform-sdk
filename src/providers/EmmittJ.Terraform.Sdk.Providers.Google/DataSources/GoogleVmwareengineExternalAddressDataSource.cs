@@ -14,13 +14,13 @@ public class GoogleVmwareengineExternalAddressDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("external_ip");
-        this.DeclareOutput("internal_ip");
-        this.DeclareOutput("state");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("external_ip");
+        this.WithOutput("internal_ip");
+        this.WithOutput("state");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

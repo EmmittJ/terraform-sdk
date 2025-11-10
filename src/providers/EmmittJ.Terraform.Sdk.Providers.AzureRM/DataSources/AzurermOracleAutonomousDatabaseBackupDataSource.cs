@@ -31,23 +31,23 @@ public class AzurermOracleAutonomousDatabaseBackupDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("automatic");
-        this.DeclareOutput("autonomous_database_backup_ocid");
-        this.DeclareOutput("autonomous_database_ocid");
-        this.DeclareOutput("database_backup_size_in_tbs");
-        this.DeclareOutput("database_version");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("id");
-        this.DeclareOutput("lifecycle_details");
-        this.DeclareOutput("lifecycle_state");
-        this.DeclareOutput("location");
-        this.DeclareOutput("provisioning_state");
-        this.DeclareOutput("restorable");
-        this.DeclareOutput("retention_period_in_days");
-        this.DeclareOutput("time_available_til");
-        this.DeclareOutput("time_ended");
-        this.DeclareOutput("time_started");
-        this.DeclareOutput("type");
+        this.WithOutput("automatic");
+        this.WithOutput("autonomous_database_backup_ocid");
+        this.WithOutput("autonomous_database_ocid");
+        this.WithOutput("database_backup_size_in_tbs");
+        this.WithOutput("database_version");
+        this.WithOutput("display_name");
+        this.WithOutput("id");
+        this.WithOutput("lifecycle_details");
+        this.WithOutput("lifecycle_state");
+        this.WithOutput("location");
+        this.WithOutput("provisioning_state");
+        this.WithOutput("restorable");
+        this.WithOutput("retention_period_in_days");
+        this.WithOutput("time_available_til");
+        this.WithOutput("time_ended");
+        this.WithOutput("time_started");
+        this.WithOutput("type");
     }
 
     /// <summary>

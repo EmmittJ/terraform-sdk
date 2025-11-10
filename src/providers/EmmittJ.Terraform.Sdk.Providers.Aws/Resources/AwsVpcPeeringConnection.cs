@@ -84,7 +84,7 @@ public class AwsVpcPeeringConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("accept_status");
+        this.WithOutput("accept_status");
     }
 
     /// <summary>

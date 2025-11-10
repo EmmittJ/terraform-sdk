@@ -14,10 +14,10 @@ public class AwsIotCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("ca_certificate_id");
-        this.DeclareOutput("private_key");
-        this.DeclareOutput("public_key");
+        this.WithOutput("arn");
+        this.WithOutput("ca_certificate_id");
+        this.WithOutput("private_key");
+        this.WithOutput("public_key");
     }
 
     /// <summary>

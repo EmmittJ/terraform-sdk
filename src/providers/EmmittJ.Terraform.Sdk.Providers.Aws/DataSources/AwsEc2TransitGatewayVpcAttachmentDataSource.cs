@@ -59,15 +59,15 @@ public class AwsEc2TransitGatewayVpcAttachmentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("appliance_mode_support");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("dns_support");
-        this.DeclareOutput("ipv6_support");
-        this.DeclareOutput("security_group_referencing_support");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("transit_gateway_id");
-        this.DeclareOutput("vpc_id");
-        this.DeclareOutput("vpc_owner_id");
+        this.WithOutput("appliance_mode_support");
+        this.WithOutput("arn");
+        this.WithOutput("dns_support");
+        this.WithOutput("ipv6_support");
+        this.WithOutput("security_group_referencing_support");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("transit_gateway_id");
+        this.WithOutput("vpc_id");
+        this.WithOutput("vpc_owner_id");
     }
 
     /// <summary>

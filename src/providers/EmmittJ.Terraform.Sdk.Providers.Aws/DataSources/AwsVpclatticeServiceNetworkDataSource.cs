@@ -14,13 +14,13 @@ public class AwsVpclatticeServiceNetworkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("auth_type");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("last_updated_at");
-        this.DeclareOutput("name");
-        this.DeclareOutput("number_of_associated_services");
-        this.DeclareOutput("number_of_associated_vpcs");
+        this.WithOutput("arn");
+        this.WithOutput("auth_type");
+        this.WithOutput("created_at");
+        this.WithOutput("last_updated_at");
+        this.WithOutput("name");
+        this.WithOutput("number_of_associated_services");
+        this.WithOutput("number_of_associated_vpcs");
     }
 
     /// <summary>

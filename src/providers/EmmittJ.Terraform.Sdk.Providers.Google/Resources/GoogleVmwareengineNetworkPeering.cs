@@ -49,12 +49,12 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_details");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("vmware_engine_network_canonical");
+        this.WithOutput("create_time");
+        this.WithOutput("state");
+        this.WithOutput("state_details");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("vmware_engine_network_canonical");
     }
 
     /// <summary>

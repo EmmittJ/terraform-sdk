@@ -163,14 +163,14 @@ public class AzurermSentinelThreatIntelligenceIndicator : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_on");
-        this.DeclareOutput("defanged");
-        this.DeclareOutput("external_id");
-        this.DeclareOutput("external_last_updated_time_utc");
-        this.DeclareOutput("guid");
-        this.DeclareOutput("indicator_type");
-        this.DeclareOutput("last_updated_time_utc");
-        this.DeclareOutput("parsed_pattern");
+        this.WithOutputreated_on");
+        this.WithOutputefanged");
+        this.WithOutputxternal_id");
+        this.WithOutputxternal_last_updated_time_utc");
+        this.WithOutputuid");
+        this.WithOutputndicator_type");
+        this.WithOutputast_updated_time_utc");
+        this.WithOutputarsed_pattern");
     }
 
     /// <summary>

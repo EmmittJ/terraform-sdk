@@ -14,14 +14,14 @@ public class AwsBatchComputeEnvironmentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("ecs_cluster_arn");
-        this.DeclareOutput("service_role");
-        this.DeclareOutput("state");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
-        this.DeclareOutput("type");
-        this.DeclareOutput("update_policy");
+        this.WithOutputrn");
+        this.WithOutputcs_cluster_arn");
+        this.WithOutputervice_role");
+        this.WithOutputtate");
+        this.WithOutputtatus");
+        this.WithOutputtatus_reason");
+        this.WithOutputype");
+        this.WithOutputpdate_policy");
     }
 
     /// <summary>

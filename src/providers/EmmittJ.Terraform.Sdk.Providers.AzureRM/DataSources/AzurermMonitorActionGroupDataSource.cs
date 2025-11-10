@@ -31,19 +31,19 @@ public class AzurermMonitorActionGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arm_role_receiver");
-        this.DeclareOutput("automation_runbook_receiver");
-        this.DeclareOutput("azure_app_push_receiver");
-        this.DeclareOutput("azure_function_receiver");
-        this.DeclareOutput("email_receiver");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("event_hub_receiver");
-        this.DeclareOutput("itsm_receiver");
-        this.DeclareOutput("logic_app_receiver");
-        this.DeclareOutput("short_name");
-        this.DeclareOutput("sms_receiver");
-        this.DeclareOutput("voice_receiver");
-        this.DeclareOutput("webhook_receiver");
+        this.WithOutput("arm_role_receiver");
+        this.WithOutput("automation_runbook_receiver");
+        this.WithOutput("azure_app_push_receiver");
+        this.WithOutput("azure_function_receiver");
+        this.WithOutput("email_receiver");
+        this.WithOutput("enabled");
+        this.WithOutput("event_hub_receiver");
+        this.WithOutput("itsm_receiver");
+        this.WithOutput("logic_app_receiver");
+        this.WithOutput("short_name");
+        this.WithOutput("sms_receiver");
+        this.WithOutput("voice_receiver");
+        this.WithOutput("webhook_receiver");
     }
 
     /// <summary>

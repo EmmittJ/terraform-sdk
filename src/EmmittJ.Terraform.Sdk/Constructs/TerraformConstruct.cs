@@ -31,19 +31,19 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     }
 
     /// <summary>
-    /// Internal setter for property accessors and extension methods.
+    /// Setter for property accessors and extension methods.
     /// Supports any value type: TerraformProperty, collections, blocks, literals.
     /// Supports null to remove properties.
     /// </summary>
-    internal void WithPropertyInternal(string key, object? value)
+    public void SetProperty(string key, object? value)
         => _properties.Set(key, value);
 
     /// <summary>
-    /// Internal setter for property accessors with priority support.
+    /// Setter for property accessors with priority support.
     /// Supports any value type: TerraformProperty, collections, blocks, literals.
     /// Supports null to remove properties.
     /// </summary>
-    internal void WithPropertyInternal(string key, object? value, int? priority)
+    public void SetProperty(string key, object? value, int? priority)
     {
         _properties.Set(key, value, priority);
     }
@@ -51,7 +51,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     /// <summary>
     /// Gets a property value (for derived classes).
     /// </summary>
-    protected T? GetProperty<T>(string key) where T : class
+    public T? GetProperty<T>(string key) where T : class
     {
         return _properties.Get<T>(key);
     }
@@ -61,15 +61,15 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     /// Throws if the property is null.
     /// </summary>
     /// <exception cref="InvalidOperationException">Thrown when the property value is null.</exception>
-    protected T GetRequiredProperty<T>(string key) where T : class
+    public T GetRequiredProperty<T>(string key) where T : class
         => _properties.GetRequired<T>(key);
 
     /// <summary>
     /// Checks if a property exists (for derived classes).
     /// </summary>
-    protected bool HasProperty(string key)
+    public bool HasProperty(string key)
     {
-        return _properties.Get<object>(key) != null;
+        return _properties.Get<object>(key) is not null;
     }
 
     /// <summary>

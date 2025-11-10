@@ -58,8 +58,8 @@ public class AzurermStorageQueue : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_manager_id");
-        this.DeclareOutput("url");
+        this.WithOutputesource_manager_id");
+        this.WithOutputrl");
     }
 
     /// <summary>

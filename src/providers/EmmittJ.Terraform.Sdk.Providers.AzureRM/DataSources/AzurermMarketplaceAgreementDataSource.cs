@@ -31,9 +31,9 @@ public class AzurermMarketplaceAgreementDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("accepted");
-        this.DeclareOutput("license_text_link");
-        this.DeclareOutput("privacy_policy_link");
+        this.WithOutput("accepted");
+        this.WithOutput("license_text_link");
+        this.WithOutput("privacy_policy_link");
     }
 
     /// <summary>

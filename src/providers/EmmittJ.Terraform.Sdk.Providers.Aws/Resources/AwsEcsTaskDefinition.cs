@@ -158,9 +158,9 @@ public class AwsEcsTaskDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("arn_without_revision");
-        this.DeclareOutput("revision");
+        this.WithOutput("arn");
+        this.WithOutput("arn_without_revision");
+        this.WithOutput("revision");
     }
 
     /// <summary>

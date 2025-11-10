@@ -14,12 +14,12 @@ public class AwsGlobalacceleratorCustomRoutingAcceleratorDataSource : TerraformD
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attributes");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("hosted_zone_id");
-        this.DeclareOutput("ip_address_type");
-        this.DeclareOutput("ip_sets");
+        this.WithOutputttributes");
+        this.WithOutputns_name");
+        this.WithOutputnabled");
+        this.WithOutputosted_zone_id");
+        this.WithOutputp_address_type");
+        this.WithOutputp_sets");
     }
 
     /// <summary>

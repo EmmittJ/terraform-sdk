@@ -14,10 +14,10 @@ public class AwsDevicefarmUpload : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("category");
-        this.DeclareOutput("metadata");
-        this.DeclareOutput("url");
+        this.WithOutput("arn");
+        this.WithOutput("category");
+        this.WithOutput("metadata");
+        this.WithOutput("url");
     }
 
     /// <summary>

@@ -60,11 +60,11 @@ public class GoogleComputeManagedSslCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_id");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("expire_time");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("subject_alternative_names");
+        this.WithOutput("certificate_id");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("expire_time");
+        this.WithOutput("self_link");
+        this.WithOutput("subject_alternative_names");
     }
 
     /// <summary>

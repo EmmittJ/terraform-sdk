@@ -31,9 +31,9 @@ public class AzurermCdnFrontdoorEndpointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("host_name");
-        this.DeclareOutput("tags");
+        this.WithOutput("enabled");
+        this.WithOutput("host_name");
+        this.WithOutput("tags");
     }
 
     /// <summary>

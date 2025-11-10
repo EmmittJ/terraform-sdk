@@ -61,9 +61,9 @@ public class AwsSesv2ContactList : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_timestamp");
-        this.DeclareOutput("last_updated_timestamp");
+        this.WithOutput("arn");
+        this.WithOutput("created_timestamp");
+        this.WithOutput("last_updated_timestamp");
     }
 
     /// <summary>

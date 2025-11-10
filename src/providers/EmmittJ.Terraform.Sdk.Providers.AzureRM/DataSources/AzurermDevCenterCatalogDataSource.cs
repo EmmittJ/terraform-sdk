@@ -31,8 +31,8 @@ public class AzurermDevCenterCatalogDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("catalog_adogit");
-        this.DeclareOutput("catalog_github");
+        this.WithOutput("catalog_adogit");
+        this.WithOutput("catalog_github");
     }
 
     /// <summary>

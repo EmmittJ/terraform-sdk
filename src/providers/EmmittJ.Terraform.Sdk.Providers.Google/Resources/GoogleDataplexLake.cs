@@ -67,15 +67,15 @@ public class GoogleDataplexLake : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("asset_status");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("metastore_status");
-        this.DeclareOutput("service_account");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("asset_status");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("metastore_status");
+        this.WithOutput("service_account");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

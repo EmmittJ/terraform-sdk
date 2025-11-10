@@ -31,13 +31,13 @@ public class AzurermVirtualDesktopApplicationGroupDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("friendly_name");
-        this.DeclareOutput("host_pool_id");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("type");
-        this.DeclareOutput("workspace_id");
+        this.WithOutput("description");
+        this.WithOutput("friendly_name");
+        this.WithOutput("host_pool_id");
+        this.WithOutput("location");
+        this.WithOutput("tags");
+        this.WithOutput("type");
+        this.WithOutput("workspace_id");
     }
 
     /// <summary>

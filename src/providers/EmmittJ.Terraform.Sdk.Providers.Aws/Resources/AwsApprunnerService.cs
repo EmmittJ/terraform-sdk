@@ -191,10 +191,10 @@ public class AwsApprunnerService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("service_id");
-        this.DeclareOutput("service_url");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("service_id");
+        this.WithOutput("service_url");
+        this.WithOutput("status");
     }
 
     /// <summary>

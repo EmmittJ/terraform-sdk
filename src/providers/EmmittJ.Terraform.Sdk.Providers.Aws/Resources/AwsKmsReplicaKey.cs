@@ -14,11 +14,11 @@ public class AwsKmsReplicaKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("key_id");
-        this.DeclareOutput("key_rotation_enabled");
-        this.DeclareOutput("key_spec");
-        this.DeclareOutput("key_usage");
+        this.WithOutput("arn");
+        this.WithOutput("key_id");
+        this.WithOutput("key_rotation_enabled");
+        this.WithOutput("key_spec");
+        this.WithOutput("key_usage");
     }
 
     /// <summary>

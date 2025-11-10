@@ -106,13 +106,13 @@ public class AwsFinspaceKxEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zones");
-        this.DeclareOutput("created_timestamp");
-        this.DeclareOutput("id");
-        this.DeclareOutput("infrastructure_account_id");
-        this.DeclareOutput("last_modified_timestamp");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zones");
+        this.WithOutput("created_timestamp");
+        this.WithOutput("id");
+        this.WithOutput("infrastructure_account_id");
+        this.WithOutput("last_modified_timestamp");
+        this.WithOutput("status");
     }
 
     /// <summary>

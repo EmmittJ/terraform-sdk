@@ -31,9 +31,9 @@ public class AwsIamServerCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("expiration");
-        this.DeclareOutput("upload_date");
+        this.WithOutput("arn");
+        this.WithOutput("expiration");
+        this.WithOutput("upload_date");
     }
 
     /// <summary>

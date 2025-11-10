@@ -14,33 +14,33 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("activation_policy");
-        this.DeclareOutput("annotations");
-        this.DeclareOutput("availability_type");
-        this.DeclareOutput("client_connection_config");
-        this.DeclareOutput("cluster");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("database_flags");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("gce_zone");
-        this.DeclareOutput("instance_type");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("machine_config");
-        this.DeclareOutput("name");
-        this.DeclareOutput("network_config");
-        this.DeclareOutput("outbound_public_ip_addresses");
-        this.DeclareOutput("psc_instance_config");
-        this.DeclareOutput("public_ip_address");
-        this.DeclareOutput("query_insights_config");
-        this.DeclareOutput("read_pool_config");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("activation_policy");
+        this.WithOutput("annotations");
+        this.WithOutput("availability_type");
+        this.WithOutput("client_connection_config");
+        this.WithOutput("cluster");
+        this.WithOutput("create_time");
+        this.WithOutput("database_flags");
+        this.WithOutput("display_name");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("effective_labels");
+        this.WithOutput("gce_zone");
+        this.WithOutput("instance_type");
+        this.WithOutput("ip_address");
+        this.WithOutput("labels");
+        this.WithOutput("machine_config");
+        this.WithOutput("name");
+        this.WithOutput("network_config");
+        this.WithOutput("outbound_public_ip_addresses");
+        this.WithOutput("psc_instance_config");
+        this.WithOutput("public_ip_address");
+        this.WithOutput("query_insights_config");
+        this.WithOutput("read_pool_config");
+        this.WithOutput("reconciling");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

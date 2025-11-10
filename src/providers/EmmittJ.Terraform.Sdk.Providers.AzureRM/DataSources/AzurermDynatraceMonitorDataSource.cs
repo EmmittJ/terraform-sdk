@@ -31,14 +31,14 @@ public class AzurermDynatraceMonitorDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("environment_properties");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("marketplace_subscription");
-        this.DeclareOutput("monitoring_enabled");
-        this.DeclareOutput("plan");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("user");
+        this.WithOutput("environment_properties");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("marketplace_subscription");
+        this.WithOutput("monitoring_enabled");
+        this.WithOutput("plan");
+        this.WithOutput("tags");
+        this.WithOutput("user");
     }
 
     /// <summary>

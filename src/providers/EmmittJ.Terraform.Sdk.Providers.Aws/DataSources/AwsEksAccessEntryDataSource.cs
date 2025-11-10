@@ -14,12 +14,12 @@ public class AwsEksAccessEntryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_entry_arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("kubernetes_groups");
-        this.DeclareOutput("modified_at");
-        this.DeclareOutput("type");
-        this.DeclareOutput("user_name");
+        this.WithOutput("access_entry_arn");
+        this.WithOutput("created_at");
+        this.WithOutput("kubernetes_groups");
+        this.WithOutput("modified_at");
+        this.WithOutput("type");
+        this.WithOutput("user_name");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsLakeformationResource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("last_modified");
+        this.WithOutput("last_modified");
     }
 
     /// <summary>

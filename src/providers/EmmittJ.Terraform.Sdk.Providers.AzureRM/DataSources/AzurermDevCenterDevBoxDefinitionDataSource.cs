@@ -31,11 +31,11 @@ public class AzurermDevCenterDevBoxDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("hibernate_support_enabled");
-        this.DeclareOutput("image_reference_id");
-        this.DeclareOutput("location");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("tags");
+        this.WithOutput("hibernate_support_enabled");
+        this.WithOutput("image_reference_id");
+        this.WithOutput("location");
+        this.WithOutput("sku_name");
+        this.WithOutput("tags");
     }
 
     /// <summary>

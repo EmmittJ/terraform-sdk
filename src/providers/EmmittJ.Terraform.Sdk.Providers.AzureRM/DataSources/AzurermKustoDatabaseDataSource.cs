@@ -31,10 +31,10 @@ public class AzurermKustoDatabaseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("hot_cache_period");
-        this.DeclareOutput("location");
-        this.DeclareOutput("size");
-        this.DeclareOutput("soft_delete_period");
+        this.WithOutput("hot_cache_period");
+        this.WithOutput("location");
+        this.WithOutput("size");
+        this.WithOutput("soft_delete_period");
     }
 
     /// <summary>

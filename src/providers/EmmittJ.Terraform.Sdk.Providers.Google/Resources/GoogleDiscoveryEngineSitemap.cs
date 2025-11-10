@@ -40,9 +40,9 @@ public class GoogleDiscoveryEngineSitemap : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("sitemap_id");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("sitemap_id");
     }
 
     /// <summary>

@@ -43,7 +43,7 @@ public class AwsEc2TransitGatewayRouteTableRoutesDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("routes");
+        this.WithOutputoutes");
     }
 
     /// <summary>

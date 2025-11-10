@@ -67,10 +67,10 @@ public class AwsFsxOntapStorageVirtualMachine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("endpoints");
-        this.DeclareOutput("subtype");
-        this.DeclareOutput("uuid");
+        this.WithOutput("arn");
+        this.WithOutput("endpoints");
+        this.WithOutput("subtype");
+        this.WithOutput("uuid");
     }
 
     /// <summary>

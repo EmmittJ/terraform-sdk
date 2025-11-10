@@ -49,7 +49,7 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("region");
+        this.WithOutput("region");
     }
 
     /// <summary>

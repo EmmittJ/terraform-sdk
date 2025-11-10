@@ -14,7 +14,7 @@ public class GoogleComputeForwardingRulesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("rules");
+        this.WithOutput("rules");
     }
 
     /// <summary>

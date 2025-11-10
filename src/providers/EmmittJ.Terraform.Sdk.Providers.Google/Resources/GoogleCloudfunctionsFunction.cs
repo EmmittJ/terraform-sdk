@@ -223,10 +223,10 @@ public class GoogleCloudfunctionsFunction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("status");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("version_id");
+        this.WithOutput("effective_labels");
+        this.WithOutput("status");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("version_id");
     }
 
     /// <summary>

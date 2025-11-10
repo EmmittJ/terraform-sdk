@@ -31,10 +31,10 @@ public class AzurermBatchCertificateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("format");
-        this.DeclareOutput("public_data");
-        this.DeclareOutput("thumbprint");
-        this.DeclareOutput("thumbprint_algorithm");
+        this.WithOutput("format");
+        this.WithOutput("public_data");
+        this.WithOutput("thumbprint");
+        this.WithOutput("thumbprint_algorithm");
     }
 
     /// <summary>

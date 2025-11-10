@@ -583,18 +583,18 @@ public class AwsSpotInstanceRequest : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("instance_state");
-        this.DeclareOutput("outpost_arn");
-        this.DeclareOutput("password_data");
-        this.DeclareOutput("primary_network_interface");
-        this.DeclareOutput("primary_network_interface_id");
-        this.DeclareOutput("private_dns");
-        this.DeclareOutput("public_dns");
-        this.DeclareOutput("public_ip");
-        this.DeclareOutput("spot_bid_status");
-        this.DeclareOutput("spot_instance_id");
-        this.DeclareOutput("spot_request_state");
+        this.WithOutput("arn");
+        this.WithOutput("instance_state");
+        this.WithOutput("outpost_arn");
+        this.WithOutput("password_data");
+        this.WithOutput("primary_network_interface");
+        this.WithOutput("primary_network_interface_id");
+        this.WithOutput("private_dns");
+        this.WithOutput("public_dns");
+        this.WithOutput("public_ip");
+        this.WithOutput("spot_bid_status");
+        this.WithOutput("spot_instance_id");
+        this.WithOutput("spot_request_state");
     }
 
     /// <summary>

@@ -32,17 +32,17 @@ public class AzurermAppServicePlanDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_service_environment_id");
-        this.DeclareOutput("is_xenon");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("location");
-        this.DeclareOutput("maximum_elastic_worker_count");
-        this.DeclareOutput("maximum_number_of_workers");
-        this.DeclareOutput("per_site_scaling");
-        this.DeclareOutput("reserved");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("zone_redundant");
+        this.WithOutput("app_service_environment_id");
+        this.WithOutput("is_xenon");
+        this.WithOutput("kind");
+        this.WithOutput("location");
+        this.WithOutput("maximum_elastic_worker_count");
+        this.WithOutput("maximum_number_of_workers");
+        this.WithOutput("per_site_scaling");
+        this.WithOutput("reserved");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
+        this.WithOutput("zone_redundant");
     }
 
     /// <summary>

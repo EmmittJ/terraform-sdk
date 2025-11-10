@@ -41,10 +41,10 @@ public class AwsAuditmanagerFramework : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("framework_type");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("framework_type");
+        this.WithOutput("id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

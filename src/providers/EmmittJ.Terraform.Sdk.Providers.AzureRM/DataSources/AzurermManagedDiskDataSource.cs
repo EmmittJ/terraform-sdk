@@ -31,23 +31,23 @@ public class AzurermManagedDiskDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_option");
-        this.DeclareOutput("disk_access_id");
-        this.DeclareOutput("disk_encryption_set_id");
-        this.DeclareOutput("disk_iops_read_write");
-        this.DeclareOutput("disk_mbps_read_write");
-        this.DeclareOutput("disk_size_gb");
-        this.DeclareOutput("encryption_settings");
-        this.DeclareOutput("image_reference_id");
-        this.DeclareOutput("location");
-        this.DeclareOutput("network_access_policy");
-        this.DeclareOutput("os_type");
-        this.DeclareOutput("source_resource_id");
-        this.DeclareOutput("source_uri");
-        this.DeclareOutput("storage_account_id");
-        this.DeclareOutput("storage_account_type");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("zones");
+        this.WithOutput("create_option");
+        this.WithOutput("disk_access_id");
+        this.WithOutput("disk_encryption_set_id");
+        this.WithOutput("disk_iops_read_write");
+        this.WithOutput("disk_mbps_read_write");
+        this.WithOutput("disk_size_gb");
+        this.WithOutput("encryption_settings");
+        this.WithOutput("image_reference_id");
+        this.WithOutput("location");
+        this.WithOutput("network_access_policy");
+        this.WithOutput("os_type");
+        this.WithOutput("source_resource_id");
+        this.WithOutput("source_uri");
+        this.WithOutput("storage_account_id");
+        this.WithOutput("storage_account_type");
+        this.WithOutput("tags");
+        this.WithOutput("zones");
     }
 
     /// <summary>

@@ -94,9 +94,9 @@ public class AwsEcrpublicRepository : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("registry_id");
-        this.DeclareOutput("repository_uri");
+        this.WithOutput("arn");
+        this.WithOutput("registry_id");
+        this.WithOutput("repository_uri");
     }
 
     /// <summary>

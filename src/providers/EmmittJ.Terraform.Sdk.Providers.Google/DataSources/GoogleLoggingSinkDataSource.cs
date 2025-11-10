@@ -14,14 +14,14 @@ public class GoogleLoggingSinkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("bigquery_options");
-        this.DeclareOutput("description");
-        this.DeclareOutput("destination");
-        this.DeclareOutput("disabled");
-        this.DeclareOutput("exclusions");
-        this.DeclareOutput("filter");
-        this.DeclareOutput("name");
-        this.DeclareOutput("writer_identity");
+        this.WithOutput("bigquery_options");
+        this.WithOutput("description");
+        this.WithOutput("destination");
+        this.WithOutput("disabled");
+        this.WithOutput("exclusions");
+        this.WithOutput("filter");
+        this.WithOutput("name");
+        this.WithOutput("writer_identity");
     }
 
     /// <summary>

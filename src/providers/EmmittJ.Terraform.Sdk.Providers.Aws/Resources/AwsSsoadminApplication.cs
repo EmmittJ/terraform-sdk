@@ -31,11 +31,11 @@ public class AwsSsoadminApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_account");
-        this.DeclareOutput("application_arn");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("application_account");
+        this.WithOutput("application_arn");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

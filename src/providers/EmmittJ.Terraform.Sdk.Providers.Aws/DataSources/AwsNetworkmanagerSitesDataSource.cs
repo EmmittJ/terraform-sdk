@@ -14,7 +14,7 @@ public class AwsNetworkmanagerSitesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ids");
+        this.WithOutput("ids");
     }
 
     /// <summary>

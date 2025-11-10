@@ -49,8 +49,8 @@ public class GoogleApigeeNatAddress : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("state");
+        this.WithOutput("ip_address");
+        this.WithOutput("state");
     }
 
     /// <summary>

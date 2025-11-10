@@ -31,11 +31,11 @@ public class AwsServicecatalogPortfolioDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("name");
-        this.DeclareOutput("provider_name");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
+        this.WithOutput("description");
+        this.WithOutput("name");
+        this.WithOutput("provider_name");
     }
 
     /// <summary>

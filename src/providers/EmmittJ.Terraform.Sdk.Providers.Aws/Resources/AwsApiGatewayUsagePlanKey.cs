@@ -14,8 +14,8 @@ public class AwsApiGatewayUsagePlanKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("value");
+        this.WithOutput("name");
+        this.WithOutput("value");
     }
 
     /// <summary>

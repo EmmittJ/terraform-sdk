@@ -58,8 +58,8 @@ public class AzurermNetworkFunctionAzureTrafficCollector : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("collector_policy_ids");
-        this.DeclareOutput("virtual_hub_id");
+        this.WithOutput("collector_policy_ids");
+        this.WithOutput("virtual_hub_id");
     }
 
     /// <summary>

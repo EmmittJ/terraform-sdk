@@ -71,22 +71,22 @@ public class GoogleComputeInterconnect : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("available_features");
-        this.DeclareOutput("circuit_infos");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("expected_outages");
-        this.DeclareOutput("google_ip_address");
-        this.DeclareOutput("google_reference_id");
-        this.DeclareOutput("interconnect_attachments");
-        this.DeclareOutput("interconnect_groups");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("operational_status");
-        this.DeclareOutput("peer_ip_address");
-        this.DeclareOutput("provisioned_link_count");
-        this.DeclareOutput("satisfies_pzs");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("available_features");
+        this.WithOutput("circuit_infos");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("effective_labels");
+        this.WithOutput("expected_outages");
+        this.WithOutput("google_ip_address");
+        this.WithOutput("google_reference_id");
+        this.WithOutput("interconnect_attachments");
+        this.WithOutput("interconnect_groups");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("operational_status");
+        this.WithOutput("peer_ip_address");
+        this.WithOutput("provisioned_link_count");
+        this.WithOutput("satisfies_pzs");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

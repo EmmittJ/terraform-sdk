@@ -204,10 +204,10 @@ public class AwsEcsTaskSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("stability_status");
-        this.DeclareOutput("status");
-        this.DeclareOutput("task_set_id");
+        this.WithOutput("arn");
+        this.WithOutput("stability_status");
+        this.WithOutput("status");
+        this.WithOutput("task_set_id");
     }
 
     /// <summary>

@@ -14,11 +14,11 @@ public class GoogleServiceAccountKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("private_key");
-        this.DeclareOutput("public_key");
-        this.DeclareOutput("valid_after");
-        this.DeclareOutput("valid_before");
+        this.WithOutput("name");
+        this.WithOutput("private_key");
+        this.WithOutput("public_key");
+        this.WithOutput("valid_after");
+        this.WithOutput("valid_before");
     }
 
     /// <summary>

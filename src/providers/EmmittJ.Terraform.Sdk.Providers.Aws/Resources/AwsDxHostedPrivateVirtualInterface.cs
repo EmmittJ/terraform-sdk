@@ -40,10 +40,10 @@ public class AwsDxHostedPrivateVirtualInterface : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("amazon_side_asn");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("aws_device");
-        this.DeclareOutput("jumbo_frame_capable");
+        this.WithOutput("amazon_side_asn");
+        this.WithOutput("arn");
+        this.WithOutput("aws_device");
+        this.WithOutput("jumbo_frame_capable");
     }
 
     /// <summary>

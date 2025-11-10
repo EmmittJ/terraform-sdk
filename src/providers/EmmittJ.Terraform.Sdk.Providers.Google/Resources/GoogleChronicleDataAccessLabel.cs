@@ -49,12 +49,12 @@ public class GoogleChronicleDataAccessLabel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("author");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("last_editor");
-        this.DeclareOutput("name");
-        this.DeclareOutput("update_time");
+        this.WithOutput("author");
+        this.WithOutput("create_time");
+        this.WithOutput("display_name");
+        this.WithOutput("last_editor");
+        this.WithOutput("name");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

@@ -88,7 +88,7 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("display_name");
+        this.WithOutput("display_name");
     }
 
     /// <summary>

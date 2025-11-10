@@ -255,9 +255,9 @@ public class AzurermMysqlFlexibleServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("public_network_access_enabled");
-        this.DeclareOutput("replica_capacity");
+        this.WithOutput("fqdn");
+        this.WithOutput("public_network_access_enabled");
+        this.WithOutput("replica_capacity");
     }
 
     /// <summary>

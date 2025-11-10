@@ -507,11 +507,11 @@ public class GoogleBigqueryJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("job_type");
-        this.DeclareOutput("status");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("user_email");
+        this.WithOutput("effective_labels");
+        this.WithOutput("job_type");
+        this.WithOutput("status");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("user_email");
     }
 
     /// <summary>

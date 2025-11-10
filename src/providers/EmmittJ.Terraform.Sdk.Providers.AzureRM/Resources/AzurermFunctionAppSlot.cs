@@ -421,11 +421,11 @@ public class AzurermFunctionAppSlot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_hostname");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("outbound_ip_addresses");
-        this.DeclareOutput("possible_outbound_ip_addresses");
-        this.DeclareOutput("site_credential");
+        this.WithOutput("default_hostname");
+        this.WithOutput("kind");
+        this.WithOutput("outbound_ip_addresses");
+        this.WithOutput("possible_outbound_ip_addresses");
+        this.WithOutput("site_credential");
     }
 
     /// <summary>

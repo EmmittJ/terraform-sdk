@@ -49,17 +49,17 @@ public class AwsDocdbClusterInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("db_subnet_group_name");
-        this.DeclareOutput("dbi_resource_id");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("engine_version");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("port");
-        this.DeclareOutput("preferred_backup_window");
-        this.DeclareOutput("publicly_accessible");
-        this.DeclareOutput("storage_encrypted");
-        this.DeclareOutput("writer");
+        this.WithOutput("arn");
+        this.WithOutput("db_subnet_group_name");
+        this.WithOutput("dbi_resource_id");
+        this.WithOutput("endpoint");
+        this.WithOutput("engine_version");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("port");
+        this.WithOutput("preferred_backup_window");
+        this.WithOutput("publicly_accessible");
+        this.WithOutput("storage_encrypted");
+        this.WithOutput("writer");
     }
 
     /// <summary>

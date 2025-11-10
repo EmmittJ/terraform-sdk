@@ -14,11 +14,11 @@ public class AwsEcrPullThroughCacheRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("credential_arn");
-        this.DeclareOutput("custom_role_arn");
-        this.DeclareOutput("registry_id");
-        this.DeclareOutput("upstream_registry_url");
-        this.DeclareOutput("upstream_repository_prefix");
+        this.WithOutput("credential_arn");
+        this.WithOutput("custom_role_arn");
+        this.WithOutput("registry_id");
+        this.WithOutput("upstream_registry_url");
+        this.WithOutput("upstream_repository_prefix");
     }
 
     /// <summary>

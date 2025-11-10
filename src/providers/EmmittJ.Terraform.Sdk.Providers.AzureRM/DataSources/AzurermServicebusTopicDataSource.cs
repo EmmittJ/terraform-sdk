@@ -31,19 +31,19 @@ public class AzurermServicebusTopicDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("auto_delete_on_idle");
-        this.DeclareOutput("batched_operations_enabled");
-        this.DeclareOutput("default_message_ttl");
-        this.DeclareOutput("duplicate_detection_history_time_window");
-        this.DeclareOutput("enable_batched_operations");
-        this.DeclareOutput("enable_express");
-        this.DeclareOutput("enable_partitioning");
-        this.DeclareOutput("express_enabled");
-        this.DeclareOutput("max_size_in_megabytes");
-        this.DeclareOutput("partitioning_enabled");
-        this.DeclareOutput("requires_duplicate_detection");
-        this.DeclareOutput("status");
-        this.DeclareOutput("support_ordering");
+        this.WithOutput("auto_delete_on_idle");
+        this.WithOutput("batched_operations_enabled");
+        this.WithOutput("default_message_ttl");
+        this.WithOutput("duplicate_detection_history_time_window");
+        this.WithOutput("enable_batched_operations");
+        this.WithOutput("enable_express");
+        this.WithOutput("enable_partitioning");
+        this.WithOutput("express_enabled");
+        this.WithOutput("max_size_in_megabytes");
+        this.WithOutput("partitioning_enabled");
+        this.WithOutput("requires_duplicate_detection");
+        this.WithOutput("status");
+        this.WithOutput("support_ordering");
     }
 
     /// <summary>

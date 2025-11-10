@@ -14,8 +14,8 @@ public class AwsSsmParameter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("has_value_wo");
-        this.DeclareOutput("version");
+        this.WithOutput("has_value_wo");
+        this.WithOutput("version");
     }
 
     /// <summary>

@@ -14,11 +14,11 @@ public class GoogleOrganizationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("directory_customer_id");
-        this.DeclareOutput("lifecycle_state");
-        this.DeclareOutput("name");
-        this.DeclareOutput("org_id");
+        this.WithOutput("create_time");
+        this.WithOutput("directory_customer_id");
+        this.WithOutput("lifecycle_state");
+        this.WithOutput("name");
+        this.WithOutput("org_id");
     }
 
     /// <summary>

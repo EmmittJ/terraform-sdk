@@ -31,10 +31,10 @@ public class AzurermCosmosdbSqlRoleDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("assignable_scopes");
-        this.DeclareOutput("name");
-        this.DeclareOutput("permissions");
-        this.DeclareOutput("type");
+        this.WithOutput("assignable_scopes");
+        this.WithOutput("name");
+        this.WithOutput("permissions");
+        this.WithOutput("type");
     }
 
     /// <summary>

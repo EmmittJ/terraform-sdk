@@ -14,13 +14,13 @@ public class AwsSsmcontactsRotationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("contact_ids");
-        this.DeclareOutput("id");
-        this.DeclareOutput("name");
-        this.DeclareOutput("recurrence");
-        this.DeclareOutput("start_time");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("time_zone_id");
+        this.WithOutput("contact_ids");
+        this.WithOutput("id");
+        this.WithOutput("name");
+        this.WithOutput("recurrence");
+        this.WithOutput("start_time");
+        this.WithOutput("tags");
+        this.WithOutput("time_zone_id");
     }
 
     /// <summary>

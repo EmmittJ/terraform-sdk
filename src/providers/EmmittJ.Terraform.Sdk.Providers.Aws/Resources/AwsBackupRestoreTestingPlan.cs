@@ -70,8 +70,8 @@ public class AwsBackupRestoreTestingPlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

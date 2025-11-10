@@ -14,8 +14,8 @@ public class AwsAcmpcaCertificateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate");
-        this.DeclareOutput("certificate_chain");
+        this.WithOutput("certificate");
+        this.WithOutput("certificate_chain");
     }
 
     /// <summary>

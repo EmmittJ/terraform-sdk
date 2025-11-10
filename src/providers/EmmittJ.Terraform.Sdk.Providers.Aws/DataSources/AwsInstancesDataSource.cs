@@ -59,10 +59,10 @@ public class AwsInstancesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ids");
-        this.DeclareOutput("ipv6_addresses");
-        this.DeclareOutput("private_ips");
-        this.DeclareOutput("public_ips");
+        this.WithOutput("ids");
+        this.WithOutput("ipv6_addresses");
+        this.WithOutput("private_ips");
+        this.WithOutput("public_ips");
     }
 
     /// <summary>

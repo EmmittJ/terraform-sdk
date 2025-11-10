@@ -14,7 +14,7 @@ public class GoogleContainerAttachedInstallManifestDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("manifest");
+        this.WithOutput("manifest");
     }
 
     /// <summary>

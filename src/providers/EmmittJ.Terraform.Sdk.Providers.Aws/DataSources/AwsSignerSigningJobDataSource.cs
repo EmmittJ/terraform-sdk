@@ -14,21 +14,21 @@ public class AwsSignerSigningJobDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("completed_at");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("job_invoker");
-        this.DeclareOutput("job_owner");
-        this.DeclareOutput("platform_display_name");
-        this.DeclareOutput("platform_id");
-        this.DeclareOutput("profile_name");
-        this.DeclareOutput("profile_version");
-        this.DeclareOutput("requested_by");
-        this.DeclareOutput("revocation_record");
-        this.DeclareOutput("signature_expires_at");
-        this.DeclareOutput("signed_object");
-        this.DeclareOutput("source");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
+        this.WithOutput("completed_at");
+        this.WithOutput("created_at");
+        this.WithOutput("job_invoker");
+        this.WithOutput("job_owner");
+        this.WithOutput("platform_display_name");
+        this.WithOutput("platform_id");
+        this.WithOutput("profile_name");
+        this.WithOutput("profile_version");
+        this.WithOutput("requested_by");
+        this.WithOutput("revocation_record");
+        this.WithOutput("signature_expires_at");
+        this.WithOutput("signed_object");
+        this.WithOutput("source");
+        this.WithOutput("status");
+        this.WithOutput("status_reason");
     }
 
     /// <summary>

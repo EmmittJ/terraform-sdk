@@ -189,9 +189,9 @@ public class AzurermIothubDps : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("device_provisioning_host_name");
-        this.DeclareOutput("id_scope");
-        this.DeclareOutput("service_operations_host_name");
+        this.WithOutput("device_provisioning_host_name");
+        this.WithOutput("id_scope");
+        this.WithOutput("service_operations_host_name");
     }
 
     /// <summary>

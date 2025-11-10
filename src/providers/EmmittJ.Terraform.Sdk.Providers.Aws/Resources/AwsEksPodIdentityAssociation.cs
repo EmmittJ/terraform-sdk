@@ -14,11 +14,11 @@ public class AwsEksPodIdentityAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("association_arn");
-        this.DeclareOutput("association_id");
-        this.DeclareOutput("external_id");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("association_arn");
+        this.WithOutput("association_id");
+        this.WithOutput("external_id");
+        this.WithOutput("id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

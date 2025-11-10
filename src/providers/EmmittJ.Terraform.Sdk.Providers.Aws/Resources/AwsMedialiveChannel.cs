@@ -243,8 +243,8 @@ public class AwsMedialiveChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("channel_id");
+        this.WithOutput("arn");
+        this.WithOutput("channel_id");
     }
 
     /// <summary>

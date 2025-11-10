@@ -31,11 +31,11 @@ public class AzurermApiManagementApiVersionSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("version_header_name");
-        this.DeclareOutput("version_query_name");
-        this.DeclareOutput("versioning_scheme");
+        this.WithOutput("description");
+        this.WithOutput("display_name");
+        this.WithOutput("version_header_name");
+        this.WithOutput("version_query_name");
+        this.WithOutput("versioning_scheme");
     }
 
     /// <summary>

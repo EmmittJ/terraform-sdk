@@ -31,7 +31,7 @@ public class AzurermResourcesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resources");
+        this.WithOutput("resources");
     }
 
     /// <summary>

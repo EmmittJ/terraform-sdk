@@ -40,10 +40,10 @@ public class AwsConnectInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("service_role");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
+        this.WithOutput("service_role");
+        this.WithOutput("status");
     }
 
     /// <summary>

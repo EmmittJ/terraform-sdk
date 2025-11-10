@@ -31,11 +31,11 @@ public class AzurermDataShareDatasetBlobStorageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("container_name");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("file_path");
-        this.DeclareOutput("folder_path");
-        this.DeclareOutput("storage_account");
+        this.WithOutput("container_name");
+        this.WithOutput("display_name");
+        this.WithOutput("file_path");
+        this.WithOutput("folder_path");
+        this.WithOutput("storage_account");
     }
 
     /// <summary>

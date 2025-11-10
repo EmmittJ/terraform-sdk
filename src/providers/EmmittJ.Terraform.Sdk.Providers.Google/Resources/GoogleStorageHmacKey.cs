@@ -49,10 +49,10 @@ public class GoogleStorageHmacKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_id");
-        this.DeclareOutput("secret");
-        this.DeclareOutput("time_created");
-        this.DeclareOutput("updated");
+        this.WithOutput("access_id");
+        this.WithOutput("secret");
+        this.WithOutput("time_created");
+        this.WithOutput("updated");
     }
 
     /// <summary>

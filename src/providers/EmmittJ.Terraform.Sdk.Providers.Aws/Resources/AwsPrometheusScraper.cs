@@ -91,10 +91,10 @@ public class AwsPrometheusScraper : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("role_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("role_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

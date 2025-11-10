@@ -51,8 +51,8 @@ public class AwsS3controlObjectLambdaAccessPoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("alias");
-        this.DeclareOutput("arn");
+        this.WithOutput("alias");
+        this.WithOutput("arn");
     }
 
     /// <summary>

@@ -105,7 +105,7 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_policy_id");
+        this.WithOutput("access_policy_id");
     }
 
     /// <summary>

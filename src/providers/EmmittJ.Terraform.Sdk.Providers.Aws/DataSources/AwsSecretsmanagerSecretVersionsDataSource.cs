@@ -14,9 +14,9 @@ public class AwsSecretsmanagerSecretVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("name");
-        this.DeclareOutput("versions");
+        this.WithOutput("arn");
+        this.WithOutput("name");
+        this.WithOutput("versions");
     }
 
     /// <summary>

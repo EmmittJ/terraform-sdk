@@ -14,11 +14,11 @@ public class AwsServicecatalogappregistryApplicationDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_tag");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("name");
-        this.DeclareOutput("tags");
+        this.WithOutput("application_tag");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("name");
+        this.WithOutput("tags");
     }
 
     /// <summary>

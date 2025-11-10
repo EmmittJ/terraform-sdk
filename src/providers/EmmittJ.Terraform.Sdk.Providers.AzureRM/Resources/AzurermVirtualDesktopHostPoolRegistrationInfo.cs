@@ -58,7 +58,7 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfo : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("token");
+        this.WithOutputoken");
     }
 
     /// <summary>

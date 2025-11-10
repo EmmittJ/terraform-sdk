@@ -14,8 +14,8 @@ public class GoogleStorageProjectServiceAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("email_address");
-        this.DeclareOutput("member");
+        this.WithOutput("email_address");
+        this.WithOutput("member");
     }
 
     /// <summary>

@@ -59,21 +59,21 @@ public class AwsVpcIpamPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address_family");
-        this.DeclareOutput("allocation_default_netmask_length");
-        this.DeclareOutput("allocation_max_netmask_length");
-        this.DeclareOutput("allocation_min_netmask_length");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("auto_import");
-        this.DeclareOutput("aws_service");
-        this.DeclareOutput("description");
-        this.DeclareOutput("ipam_scope_id");
-        this.DeclareOutput("ipam_scope_type");
-        this.DeclareOutput("locale");
-        this.DeclareOutput("pool_depth");
-        this.DeclareOutput("publicly_advertisable");
-        this.DeclareOutput("source_ipam_pool_id");
-        this.DeclareOutput("state");
+        this.WithOutput("address_family");
+        this.WithOutput("allocation_default_netmask_length");
+        this.WithOutput("allocation_max_netmask_length");
+        this.WithOutput("allocation_min_netmask_length");
+        this.WithOutput("arn");
+        this.WithOutput("auto_import");
+        this.WithOutput("aws_service");
+        this.WithOutput("description");
+        this.WithOutput("ipam_scope_id");
+        this.WithOutput("ipam_scope_type");
+        this.WithOutput("locale");
+        this.WithOutput("pool_depth");
+        this.WithOutput("publicly_advertisable");
+        this.WithOutput("source_ipam_pool_id");
+        this.WithOutput("state");
     }
 
     /// <summary>

@@ -31,10 +31,10 @@ public class AzurermDatabaseMigrationProjectDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("source_platform");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("target_platform");
+        this.WithOutput("location");
+        this.WithOutput("source_platform");
+        this.WithOutput("tags");
+        this.WithOutput("target_platform");
     }
 
     /// <summary>

@@ -14,10 +14,10 @@ public class AwsIpRangesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cidr_blocks");
-        this.DeclareOutput("create_date");
-        this.DeclareOutput("ipv6_cidr_blocks");
-        this.DeclareOutput("sync_token");
+        this.WithOutput("cidr_blocks");
+        this.WithOutput("create_date");
+        this.WithOutput("ipv6_cidr_blocks");
+        this.WithOutput("sync_token");
     }
 
     /// <summary>

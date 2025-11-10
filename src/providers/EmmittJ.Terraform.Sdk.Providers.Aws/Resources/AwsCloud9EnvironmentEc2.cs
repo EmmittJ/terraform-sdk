@@ -14,8 +14,8 @@ public class AwsCloud9EnvironmentEc2 : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("type");
+        this.WithOutput("arn");
+        this.WithOutput("type");
     }
 
     /// <summary>

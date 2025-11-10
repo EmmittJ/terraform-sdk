@@ -50,7 +50,7 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : TerraformD
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("json");
+        this.WithOutput("json");
     }
 
     /// <summary>

@@ -40,9 +40,9 @@ public class AwsMemorydbSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cluster_configuration");
-        this.DeclareOutput("source");
+        this.WithOutput("arn");
+        this.WithOutput("cluster_configuration");
+        this.WithOutput("source");
     }
 
     /// <summary>

@@ -52,7 +52,7 @@ public class GoogleCloudRunV2JobIamBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

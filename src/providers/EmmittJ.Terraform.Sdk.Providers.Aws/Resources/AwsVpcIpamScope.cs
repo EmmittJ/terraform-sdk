@@ -49,11 +49,11 @@ public class AwsVpcIpamScope : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("ipam_arn");
-        this.DeclareOutput("ipam_scope_type");
-        this.DeclareOutput("is_default");
-        this.DeclareOutput("pool_count");
+        this.WithOutput("arn");
+        this.WithOutput("ipam_arn");
+        this.WithOutput("ipam_scope_type");
+        this.WithOutput("is_default");
+        this.WithOutput("pool_count");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsGrafanaWorkspaceApiKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("key");
+        this.WithOutput("key");
     }
 
     /// <summary>

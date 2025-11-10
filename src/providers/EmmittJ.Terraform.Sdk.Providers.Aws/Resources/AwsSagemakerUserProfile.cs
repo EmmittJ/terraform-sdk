@@ -69,8 +69,8 @@ public class AwsSagemakerUserProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("home_efs_file_system_uid");
+        this.WithOutput("arn");
+        this.WithOutput("home_efs_file_system_uid");
     }
 
     /// <summary>

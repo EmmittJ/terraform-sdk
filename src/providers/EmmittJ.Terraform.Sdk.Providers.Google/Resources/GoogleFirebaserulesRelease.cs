@@ -40,9 +40,9 @@ public class GoogleFirebaserulesRelease : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("disabled");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("disabled");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

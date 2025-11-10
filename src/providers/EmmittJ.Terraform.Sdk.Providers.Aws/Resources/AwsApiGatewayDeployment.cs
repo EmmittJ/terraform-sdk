@@ -14,7 +14,7 @@ public class AwsApiGatewayDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_date");
+        this.WithOutput("created_date");
     }
 
     /// <summary>

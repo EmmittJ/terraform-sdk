@@ -58,9 +58,9 @@ public class AzurermUserAssignedIdentity : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("client_id");
-        this.DeclareOutput("principal_id");
-        this.DeclareOutput("tenant_id");
+        this.WithOutputlient_id");
+        this.WithOutputrincipal_id");
+        this.WithOutputenant_id");
     }
 
     /// <summary>

@@ -159,10 +159,10 @@ public class AwsWafv2WebAcl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_integration_url");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("capacity");
-        this.DeclareOutput("lock_token");
+        this.WithOutput("application_integration_url");
+        this.WithOutput("arn");
+        this.WithOutput("capacity");
+        this.WithOutput("lock_token");
     }
 
     /// <summary>

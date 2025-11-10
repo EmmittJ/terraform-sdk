@@ -14,9 +14,9 @@ public class AwsWorkspaceswebUserAccessLoggingSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("associated_portal_arns");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("user_access_logging_settings_arn");
+        this.WithOutput("associated_portal_arns");
+        this.WithOutput("tags_all");
+        this.WithOutput("user_access_logging_settings_arn");
     }
 
     /// <summary>

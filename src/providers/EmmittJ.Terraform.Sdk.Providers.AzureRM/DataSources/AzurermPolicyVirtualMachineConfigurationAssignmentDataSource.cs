@@ -31,12 +31,12 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentDataSource : Terr
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("assignment_hash");
-        this.DeclareOutput("compliance_status");
-        this.DeclareOutput("content_hash");
-        this.DeclareOutput("content_uri");
-        this.DeclareOutput("last_compliance_status_checked");
-        this.DeclareOutput("latest_report_id");
+        this.WithOutput("assignment_hash");
+        this.WithOutput("compliance_status");
+        this.WithOutput("content_hash");
+        this.WithOutput("content_uri");
+        this.WithOutput("last_compliance_status_checked");
+        this.WithOutput("latest_report_id");
     }
 
     /// <summary>

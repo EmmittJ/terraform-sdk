@@ -14,8 +14,8 @@ public class AwsPinpointSmsChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("promotional_messages_per_second");
-        this.DeclareOutput("transactional_messages_per_second");
+        this.WithOutput("promotional_messages_per_second");
+        this.WithOutput("transactional_messages_per_second");
     }
 
     /// <summary>

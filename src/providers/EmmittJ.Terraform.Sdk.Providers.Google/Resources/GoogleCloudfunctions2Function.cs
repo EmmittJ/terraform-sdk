@@ -355,12 +355,12 @@ public class GoogleCloudfunctions2Function : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("environment");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("url");
+        this.WithOutput("effective_labels");
+        this.WithOutput("environment");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
+        this.WithOutput("url");
     }
 
     /// <summary>

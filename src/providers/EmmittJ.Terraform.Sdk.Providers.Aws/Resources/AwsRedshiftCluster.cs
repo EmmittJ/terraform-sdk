@@ -49,14 +49,14 @@ public class AwsRedshiftCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cluster_namespace_arn");
-        this.DeclareOutput("cluster_nodes");
-        this.DeclareOutput("cluster_public_key");
-        this.DeclareOutput("cluster_revision_number");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("master_password_secret_arn");
+        this.WithOutput("arn");
+        this.WithOutput("cluster_namespace_arn");
+        this.WithOutput("cluster_nodes");
+        this.WithOutput("cluster_public_key");
+        this.WithOutput("cluster_revision_number");
+        this.WithOutput("dns_name");
+        this.WithOutput("endpoint");
+        this.WithOutput("master_password_secret_arn");
     }
 
     /// <summary>

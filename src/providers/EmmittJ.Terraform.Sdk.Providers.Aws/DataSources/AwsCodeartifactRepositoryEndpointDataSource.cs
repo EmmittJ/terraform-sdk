@@ -14,7 +14,7 @@ public class AwsCodeartifactRepositoryEndpointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("repository_endpoint");
+        this.WithOutput("repository_endpoint");
     }
 
     /// <summary>

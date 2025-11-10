@@ -95,9 +95,9 @@ public class AzurermMobileNetworkSim : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("sim_state");
-        this.DeclareOutput("vendor_key_fingerprint");
-        this.DeclareOutput("vendor_name");
+        this.WithOutput("sim_state");
+        this.WithOutput("vendor_key_fingerprint");
+        this.WithOutput("vendor_name");
     }
 
     /// <summary>

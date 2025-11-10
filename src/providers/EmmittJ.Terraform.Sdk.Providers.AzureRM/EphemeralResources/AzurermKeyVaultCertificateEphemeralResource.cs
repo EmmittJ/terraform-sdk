@@ -15,12 +15,12 @@ public class AzurermKeyVaultCertificateEphemeralResource : TerraformEphemeralRes
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_count");
-        this.DeclareOutput("expiration_date");
-        this.DeclareOutput("hex");
-        this.DeclareOutput("key");
-        this.DeclareOutput("not_before_date");
-        this.DeclareOutput("pem");
+        this.WithOutput("certificate_count");
+        this.WithOutput("expiration_date");
+        this.WithOutput("hex");
+        this.WithOutput("key");
+        this.WithOutput("not_before_date");
+        this.WithOutput("pem");
     }
 
     /// <summary>

@@ -14,16 +14,16 @@ public class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : Terrafor
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("entitlement_id");
-        this.DeclareOutput("gcp_oracle_zone");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("properties");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("create_time");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("display_name");
+        this.WithOutput("effective_labels");
+        this.WithOutput("entitlement_id");
+        this.WithOutput("gcp_oracle_zone");
+        this.WithOutput("labels");
+        this.WithOutput("name");
+        this.WithOutput("properties");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

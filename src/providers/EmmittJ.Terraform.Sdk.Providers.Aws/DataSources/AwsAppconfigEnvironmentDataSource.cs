@@ -14,11 +14,11 @@ public class AwsAppconfigEnvironmentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("monitor");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("monitor");
+        this.WithOutput("name");
+        this.WithOutput("state");
     }
 
     /// <summary>

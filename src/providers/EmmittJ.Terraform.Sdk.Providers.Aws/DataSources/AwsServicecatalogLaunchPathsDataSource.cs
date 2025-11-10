@@ -31,7 +31,7 @@ public class AwsServicecatalogLaunchPathsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("summaries");
+        this.WithOutput("summaries");
     }
 
     /// <summary>

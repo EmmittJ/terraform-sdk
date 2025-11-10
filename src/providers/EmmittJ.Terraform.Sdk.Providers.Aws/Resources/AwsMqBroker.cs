@@ -328,9 +328,9 @@ public class AwsMqBroker : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("instances");
-        this.DeclareOutput("pending_data_replication_mode");
+        this.WithOutput("arn");
+        this.WithOutput("instances");
+        this.WithOutput("pending_data_replication_mode");
     }
 
     /// <summary>

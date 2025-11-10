@@ -14,11 +14,11 @@ public class AwsDefaultSecurityGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("name");
-        this.DeclareOutput("name_prefix");
-        this.DeclareOutput("owner_id");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("name");
+        this.WithOutput("name_prefix");
+        this.WithOutput("owner_id");
     }
 
     /// <summary>

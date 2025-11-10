@@ -14,10 +14,10 @@ public class AwsLambdaAliasDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("function_version");
-        this.DeclareOutput("invoke_arn");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("function_version");
+        this.WithOutput("invoke_arn");
     }
 
     /// <summary>

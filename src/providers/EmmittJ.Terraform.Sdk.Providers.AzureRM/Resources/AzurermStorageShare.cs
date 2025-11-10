@@ -76,8 +76,8 @@ public class AzurermStorageShare : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_manager_id");
-        this.DeclareOutput("url");
+        this.WithOutput("resource_manager_id");
+        this.WithOutput("url");
     }
 
     /// <summary>

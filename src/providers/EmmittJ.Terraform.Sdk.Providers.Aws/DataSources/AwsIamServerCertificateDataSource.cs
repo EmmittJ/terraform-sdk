@@ -14,12 +14,12 @@ public class AwsIamServerCertificateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("certificate_body");
-        this.DeclareOutput("certificate_chain");
-        this.DeclareOutput("expiration_date");
-        this.DeclareOutput("path");
-        this.DeclareOutput("upload_date");
+        this.WithOutput("arn");
+        this.WithOutput("certificate_body");
+        this.WithOutput("certificate_chain");
+        this.WithOutput("expiration_date");
+        this.WithOutput("path");
+        this.WithOutput("upload_date");
     }
 
     /// <summary>

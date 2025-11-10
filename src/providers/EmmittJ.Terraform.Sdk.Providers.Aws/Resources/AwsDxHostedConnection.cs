@@ -14,17 +14,17 @@ public class AwsDxHostedConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("aws_device");
-        this.DeclareOutput("connection_region");
-        this.DeclareOutput("has_logical_redundancy");
-        this.DeclareOutput("jumbo_frame_capable");
-        this.DeclareOutput("lag_id");
-        this.DeclareOutput("loa_issue_time");
-        this.DeclareOutput("location");
-        this.DeclareOutput("partner_name");
-        this.DeclareOutput("provider_name");
-        this.DeclareOutput("region");
-        this.DeclareOutput("state");
+        this.WithOutput("aws_device");
+        this.WithOutput("connection_region");
+        this.WithOutput("has_logical_redundancy");
+        this.WithOutput("jumbo_frame_capable");
+        this.WithOutput("lag_id");
+        this.WithOutput("loa_issue_time");
+        this.WithOutput("location");
+        this.WithOutput("partner_name");
+        this.WithOutput("provider_name");
+        this.WithOutput("region");
+        this.WithOutput("state");
     }
 
     /// <summary>

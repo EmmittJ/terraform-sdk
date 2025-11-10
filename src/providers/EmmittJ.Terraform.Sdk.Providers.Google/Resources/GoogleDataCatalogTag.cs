@@ -134,8 +134,8 @@ public class GoogleDataCatalogTag : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("template_displayname");
+        this.WithOutput("name");
+        this.WithOutput("template_displayname");
     }
 
     /// <summary>

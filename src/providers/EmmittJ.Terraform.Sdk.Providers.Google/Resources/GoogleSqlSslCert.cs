@@ -40,13 +40,13 @@ public class GoogleSqlSslCert : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cert");
-        this.DeclareOutput("cert_serial_number");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("expiration_time");
-        this.DeclareOutput("private_key");
-        this.DeclareOutput("server_ca_cert");
-        this.DeclareOutput("sha1_fingerprint");
+        this.WithOutput("cert");
+        this.WithOutput("cert_serial_number");
+        this.WithOutput("create_time");
+        this.WithOutput("expiration_time");
+        this.WithOutput("private_key");
+        this.WithOutput("server_ca_cert");
+        this.WithOutput("sha1_fingerprint");
     }
 
     /// <summary>

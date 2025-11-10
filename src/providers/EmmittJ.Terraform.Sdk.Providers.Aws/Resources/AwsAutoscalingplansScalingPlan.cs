@@ -144,7 +144,7 @@ public class AwsAutoscalingplansScalingPlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("scaling_plan_version");
+        this.WithOutput("scaling_plan_version");
     }
 
     /// <summary>

@@ -445,7 +445,7 @@ References are semantic, not just strings:
 
 ```csharp
 var vpc = new TerraformResource("aws_vpc", "main");
-vpc.DeclareOutput("id");
+vpc.WithOutput("id");
 
 var subnet = new TerraformResource("aws_subnet", "main");
 subnet.SetFromReference("vpc_id", vpc["id"]);
@@ -490,7 +490,7 @@ var config = new TerraformStack();
 
 var vpc = new TerraformResource("aws_vpc", "main");
 vpc.Set<string>("cidr_block", "10.0.0.0/16");
-vpc.DeclareOutput("id");
+vpc.WithOutput("id");
 
 var subnet = new TerraformResource("aws_subnet", "main");
 subnet.SetFromReference("vpc_id", vpc["id"]); // Validates output exists!

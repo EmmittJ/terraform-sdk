@@ -14,7 +14,7 @@ public class AwsOutpostsSitesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ids");
+        this.WithOutputds");
     }
 
     /// <summary>

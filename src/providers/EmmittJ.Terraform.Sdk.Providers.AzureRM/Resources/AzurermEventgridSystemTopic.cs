@@ -104,8 +104,8 @@ public class AzurermEventgridSystemTopic : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("metric_arm_resource_id");
-        this.DeclareOutput("metric_resource_id");
+        this.WithOutput("metric_arm_resource_id");
+        this.WithOutput("metric_resource_id");
     }
 
     /// <summary>

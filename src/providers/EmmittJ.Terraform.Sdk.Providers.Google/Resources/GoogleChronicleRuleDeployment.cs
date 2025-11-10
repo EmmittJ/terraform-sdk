@@ -49,12 +49,12 @@ public class GoogleChronicleRuleDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("archive_time");
-        this.DeclareOutput("consumer_rules");
-        this.DeclareOutput("execution_state");
-        this.DeclareOutput("last_alert_status_change_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("producer_rules");
+        this.WithOutput("archive_time");
+        this.WithOutput("consumer_rules");
+        this.WithOutput("execution_state");
+        this.WithOutput("last_alert_status_change_time");
+        this.WithOutput("name");
+        this.WithOutput("producer_rules");
     }
 
     /// <summary>

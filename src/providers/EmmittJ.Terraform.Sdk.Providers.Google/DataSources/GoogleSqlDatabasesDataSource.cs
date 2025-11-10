@@ -14,7 +14,7 @@ public class GoogleSqlDatabasesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("databases");
+        this.WithOutput("databases");
     }
 
     /// <summary>

@@ -58,7 +58,7 @@ public class AzurermStorageBlob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("url");
+        this.WithOutputrl");
     }
 
     /// <summary>

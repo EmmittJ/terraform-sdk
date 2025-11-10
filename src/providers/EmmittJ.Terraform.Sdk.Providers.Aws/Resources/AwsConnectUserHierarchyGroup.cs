@@ -14,10 +14,10 @@ public class AwsConnectUserHierarchyGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("hierarchy_group_id");
-        this.DeclareOutput("hierarchy_path");
-        this.DeclareOutput("level_id");
+        this.WithOutput("arn");
+        this.WithOutput("hierarchy_group_id");
+        this.WithOutput("hierarchy_path");
+        this.WithOutput("level_id");
     }
 
     /// <summary>

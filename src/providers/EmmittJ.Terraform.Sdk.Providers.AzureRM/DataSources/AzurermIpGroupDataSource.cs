@@ -31,9 +31,9 @@ public class AzurermIpGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cidrs");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("cidrs");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

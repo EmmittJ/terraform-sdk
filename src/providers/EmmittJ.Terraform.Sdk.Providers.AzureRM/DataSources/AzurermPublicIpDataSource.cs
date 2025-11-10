@@ -31,20 +31,20 @@ public class AzurermPublicIpDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocation_method");
-        this.DeclareOutput("ddos_protection_mode");
-        this.DeclareOutput("ddos_protection_plan_id");
-        this.DeclareOutput("domain_name_label");
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("idle_timeout_in_minutes");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("ip_tags");
-        this.DeclareOutput("ip_version");
-        this.DeclareOutput("location");
-        this.DeclareOutput("reverse_fqdn");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("zones");
+        this.WithOutput("allocation_method");
+        this.WithOutput("ddos_protection_mode");
+        this.WithOutput("ddos_protection_plan_id");
+        this.WithOutput("domain_name_label");
+        this.WithOutput("fqdn");
+        this.WithOutput("idle_timeout_in_minutes");
+        this.WithOutput("ip_address");
+        this.WithOutput("ip_tags");
+        this.WithOutput("ip_version");
+        this.WithOutput("location");
+        this.WithOutput("reverse_fqdn");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
+        this.WithOutput("zones");
     }
 
     /// <summary>

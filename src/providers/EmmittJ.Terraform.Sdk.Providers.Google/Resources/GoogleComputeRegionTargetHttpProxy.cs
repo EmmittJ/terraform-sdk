@@ -49,9 +49,9 @@ public class GoogleComputeRegionTargetHttpProxy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("proxy_id");
-        this.DeclareOutput("self_link");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("proxy_id");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

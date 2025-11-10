@@ -31,11 +31,11 @@ public class AzurermApiManagementUserDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("email");
-        this.DeclareOutput("first_name");
-        this.DeclareOutput("last_name");
-        this.DeclareOutput("note");
-        this.DeclareOutput("state");
+        this.WithOutput("email");
+        this.WithOutput("first_name");
+        this.WithOutput("last_name");
+        this.WithOutput("note");
+        this.WithOutput("state");
     }
 
     /// <summary>

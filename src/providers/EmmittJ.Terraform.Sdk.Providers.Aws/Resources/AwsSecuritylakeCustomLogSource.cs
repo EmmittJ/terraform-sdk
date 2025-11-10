@@ -22,9 +22,9 @@ public class AwsSecuritylakeCustomLogSource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attributes");
-        this.DeclareOutput("id");
-        this.DeclareOutput("provider_details");
+        this.WithOutput("attributes");
+        this.WithOutput("id");
+        this.WithOutput("provider_details");
     }
 
     /// <summary>

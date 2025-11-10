@@ -52,9 +52,9 @@ public class AwsIamPrincipalPolicySimulationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("all_allowed");
-        this.DeclareOutput("id");
-        this.DeclareOutput("results");
+        this.WithOutput("all_allowed");
+        this.WithOutput("id");
+        this.WithOutput("results");
     }
 
     /// <summary>

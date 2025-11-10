@@ -14,25 +14,25 @@ public class AwsOdbDbServerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("autonomous_virtual_machine_ids");
-        this.DeclareOutput("autonomous_vm_cluster_ids");
-        this.DeclareOutput("compute_model");
-        this.DeclareOutput("cpu_core_count");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("db_node_storage_size_in_gbs");
-        this.DeclareOutput("db_server_patching_details");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("exadata_infrastructure_id");
-        this.DeclareOutput("max_cpu_count");
-        this.DeclareOutput("max_db_node_storage_in_gbs");
-        this.DeclareOutput("max_memory_in_gbs");
-        this.DeclareOutput("memory_size_in_gbs");
-        this.DeclareOutput("oci_resource_anchor_name");
-        this.DeclareOutput("ocid");
-        this.DeclareOutput("shape");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
-        this.DeclareOutput("vm_cluster_ids");
+        this.WithOutput("autonomous_virtual_machine_ids");
+        this.WithOutput("autonomous_vm_cluster_ids");
+        this.WithOutput("compute_model");
+        this.WithOutput("cpu_core_count");
+        this.WithOutput("created_at");
+        this.WithOutput("db_node_storage_size_in_gbs");
+        this.WithOutput("db_server_patching_details");
+        this.WithOutput("display_name");
+        this.WithOutput("exadata_infrastructure_id");
+        this.WithOutput("max_cpu_count");
+        this.WithOutput("max_db_node_storage_in_gbs");
+        this.WithOutput("max_memory_in_gbs");
+        this.WithOutput("memory_size_in_gbs");
+        this.WithOutput("oci_resource_anchor_name");
+        this.WithOutput("ocid");
+        this.WithOutput("shape");
+        this.WithOutput("status");
+        this.WithOutput("status_reason");
+        this.WithOutput("vm_cluster_ids");
     }
 
     /// <summary>

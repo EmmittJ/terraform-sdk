@@ -14,17 +14,17 @@ public class GoogleVpcAccessConnectorDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connected_projects");
-        this.DeclareOutput("ip_cidr_range");
-        this.DeclareOutput("machine_type");
-        this.DeclareOutput("max_instances");
-        this.DeclareOutput("max_throughput");
-        this.DeclareOutput("min_instances");
-        this.DeclareOutput("min_throughput");
-        this.DeclareOutput("network");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("state");
-        this.DeclareOutput("subnet");
+        this.WithOutput("connected_projects");
+        this.WithOutput("ip_cidr_range");
+        this.WithOutput("machine_type");
+        this.WithOutput("max_instances");
+        this.WithOutput("max_throughput");
+        this.WithOutput("min_instances");
+        this.WithOutput("min_throughput");
+        this.WithOutput("network");
+        this.WithOutput("self_link");
+        this.WithOutput("state");
+        this.WithOutput("subnet");
     }
 
     /// <summary>

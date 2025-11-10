@@ -114,9 +114,9 @@ public class AwsBudgetsBudgetAction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("action_id");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("status");
+        this.WithOutput("action_id");
+        this.WithOutput("arn");
+        this.WithOutput("status");
     }
 
     /// <summary>

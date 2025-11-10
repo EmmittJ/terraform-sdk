@@ -14,8 +14,8 @@ public class AwsConnectContactFlowModule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("contact_flow_module_id");
+        this.WithOutput("arn");
+        this.WithOutput("contact_flow_module_id");
     }
 
     /// <summary>

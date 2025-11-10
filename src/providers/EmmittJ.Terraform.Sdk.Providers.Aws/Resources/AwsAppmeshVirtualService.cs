@@ -23,10 +23,10 @@ public class AwsAppmeshVirtualService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("last_updated_date");
-        this.DeclareOutput("resource_owner");
+        this.WithOutput("arn");
+        this.WithOutput("created_date");
+        this.WithOutput("last_updated_date");
+        this.WithOutput("resource_owner");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsSesDomainDkim : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dkim_tokens");
+        this.WithOutput("dkim_tokens");
     }
 
     /// <summary>

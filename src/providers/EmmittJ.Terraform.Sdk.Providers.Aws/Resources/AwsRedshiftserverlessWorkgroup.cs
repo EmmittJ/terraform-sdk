@@ -105,9 +105,9 @@ public class AwsRedshiftserverlessWorkgroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("workgroup_id");
+        this.WithOutput("arn");
+        this.WithOutput("endpoint");
+        this.WithOutput("workgroup_id");
     }
 
     /// <summary>

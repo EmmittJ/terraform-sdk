@@ -49,11 +49,11 @@ public class AwsCodeconnectionsConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("connection_status");
-        this.DeclareOutput("id");
-        this.DeclareOutput("owner_account_id");
-        this.DeclareOutput("tags_all");
+        this.WithOutputrn");
+        this.WithOutputonnection_status");
+        this.WithOutputd");
+        this.WithOutputwner_account_id");
+        this.WithOutputags_all");
     }
 
     /// <summary>

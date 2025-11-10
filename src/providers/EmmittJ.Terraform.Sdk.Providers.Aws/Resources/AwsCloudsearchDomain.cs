@@ -211,10 +211,10 @@ public class AwsCloudsearchDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("document_service_endpoint");
-        this.DeclareOutput("domain_id");
-        this.DeclareOutput("search_service_endpoint");
+        this.WithOutput("arn");
+        this.WithOutput("document_service_endpoint");
+        this.WithOutput("domain_id");
+        this.WithOutput("search_service_endpoint");
     }
 
     /// <summary>

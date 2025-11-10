@@ -155,12 +155,12 @@ public class AwsFsxLustreFileSystem : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("mount_name");
-        this.DeclareOutput("network_interface_ids");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("arn");
+        this.WithOutput("dns_name");
+        this.WithOutput("mount_name");
+        this.WithOutput("network_interface_ids");
+        this.WithOutput("owner_id");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class GoogleArtifactRegistryNpmPackagesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("npm_packages");
+        this.WithOutput("npm_packages");
     }
 
     /// <summary>

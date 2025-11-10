@@ -49,10 +49,10 @@ public class GoogleIamOauthClient : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("client_id");
-        this.DeclareOutput("expire_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
+        this.WithOutput("client_id");
+        this.WithOutput("expire_time");
+        this.WithOutput("name");
+        this.WithOutput("state");
     }
 
     /// <summary>

@@ -92,10 +92,10 @@ public class GoogleCloudIdentityGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("additional_group_keys");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("update_time");
+        this.WithOutput("additional_group_keys");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

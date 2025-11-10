@@ -115,10 +115,10 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("index_sync_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("private_endpoints");
+        this.WithOutput("create_time");
+        this.WithOutput("index_sync_time");
+        this.WithOutput("name");
+        this.WithOutput("private_endpoints");
     }
 
     /// <summary>

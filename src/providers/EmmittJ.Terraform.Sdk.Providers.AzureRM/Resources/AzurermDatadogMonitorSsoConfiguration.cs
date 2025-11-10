@@ -58,7 +58,7 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("login_url");
+        this.WithOutput("login_url");
     }
 
     /// <summary>

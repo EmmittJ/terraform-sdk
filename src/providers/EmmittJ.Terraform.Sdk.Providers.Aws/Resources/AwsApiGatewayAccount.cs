@@ -14,10 +14,10 @@ public class AwsApiGatewayAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api_key_version");
-        this.DeclareOutput("features");
-        this.DeclareOutput("id");
-        this.DeclareOutput("throttle_settings");
+        this.WithOutput("api_key_version");
+        this.WithOutput("features");
+        this.WithOutput("id");
+        this.WithOutput("throttle_settings");
     }
 
     /// <summary>

@@ -14,9 +14,9 @@ public class AwsConnectUserHierarchyGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("hierarchy_path");
-        this.DeclareOutput("level_id");
+        this.WithOutput("arn");
+        this.WithOutput("hierarchy_path");
+        this.WithOutput("level_id");
     }
 
     /// <summary>

@@ -131,12 +131,12 @@ public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("warnings");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("kind");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
+        this.WithOutput("warnings");
     }
 
     /// <summary>

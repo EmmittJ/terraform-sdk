@@ -58,7 +58,7 @@ public class AzurermLbNatPool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("frontend_ip_configuration_id");
+        this.WithOutput("frontend_ip_configuration_id");
     }
 
     /// <summary>

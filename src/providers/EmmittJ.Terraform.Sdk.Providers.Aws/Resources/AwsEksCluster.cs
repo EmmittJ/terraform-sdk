@@ -314,14 +314,14 @@ public class AwsEksCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("certificate_authority");
-        this.DeclareOutput("cluster_id");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("platform_version");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("certificate_authority");
+        this.WithOutput("cluster_id");
+        this.WithOutput("created_at");
+        this.WithOutput("endpoint");
+        this.WithOutput("identity");
+        this.WithOutput("platform_version");
+        this.WithOutput("status");
     }
 
     /// <summary>

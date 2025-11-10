@@ -96,7 +96,7 @@ public class AzurermVpnGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ip_configuration");
+        this.WithOutputp_configuration");
     }
 
     /// <summary>

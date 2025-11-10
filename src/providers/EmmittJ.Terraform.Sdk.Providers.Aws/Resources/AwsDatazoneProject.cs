@@ -40,12 +40,12 @@ public class AwsDatazoneProject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("created_by");
-        this.DeclareOutput("failure_reasons");
-        this.DeclareOutput("id");
-        this.DeclareOutput("last_updated_at");
-        this.DeclareOutput("project_status");
+        this.WithOutput("created_at");
+        this.WithOutput("created_by");
+        this.WithOutput("failure_reasons");
+        this.WithOutput("id");
+        this.WithOutput("last_updated_at");
+        this.WithOutput("project_status");
     }
 
     /// <summary>

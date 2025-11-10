@@ -42,8 +42,8 @@ public class AwsDbInstancesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("instance_arns");
-        this.DeclareOutput("instance_identifiers");
+        this.WithOutput("instance_arns");
+        this.WithOutput("instance_identifiers");
     }
 
     /// <summary>

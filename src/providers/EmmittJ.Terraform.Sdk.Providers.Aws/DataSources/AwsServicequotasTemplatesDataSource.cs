@@ -14,8 +14,8 @@ public class AwsServicequotasTemplatesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("templates");
+        this.WithOutput("id");
+        this.WithOutput("templates");
     }
 
     /// <summary>

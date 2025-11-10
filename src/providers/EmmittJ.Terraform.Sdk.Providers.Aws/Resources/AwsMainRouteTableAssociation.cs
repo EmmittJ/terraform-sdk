@@ -49,7 +49,7 @@ public class AwsMainRouteTableAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("original_route_table_id");
+        this.WithOutputriginal_route_table_id");
     }
 
     /// <summary>

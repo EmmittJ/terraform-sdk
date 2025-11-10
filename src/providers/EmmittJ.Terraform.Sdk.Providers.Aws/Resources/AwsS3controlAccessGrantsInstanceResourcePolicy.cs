@@ -14,7 +14,7 @@ public class AwsS3controlAccessGrantsInstanceResourcePolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
+        this.WithOutput("id");
     }
 
     /// <summary>

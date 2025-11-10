@@ -31,23 +31,23 @@ public class AzurermAppServiceEnvironmentV3DataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allow_new_private_endpoint_connections");
-        this.DeclareOutput("cluster_setting");
-        this.DeclareOutput("dedicated_host_count");
-        this.DeclareOutput("dns_suffix");
-        this.DeclareOutput("external_inbound_ip_addresses");
-        this.DeclareOutput("inbound_network_dependencies");
-        this.DeclareOutput("internal_inbound_ip_addresses");
-        this.DeclareOutput("internal_load_balancing_mode");
-        this.DeclareOutput("ip_ssl_address_count");
-        this.DeclareOutput("linux_outbound_ip_addresses");
-        this.DeclareOutput("location");
-        this.DeclareOutput("pricing_tier");
-        this.DeclareOutput("remote_debugging_enabled");
-        this.DeclareOutput("subnet_id");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("windows_outbound_ip_addresses");
-        this.DeclareOutput("zone_redundant");
+        this.WithOutput("allow_new_private_endpoint_connections");
+        this.WithOutput("cluster_setting");
+        this.WithOutput("dedicated_host_count");
+        this.WithOutput("dns_suffix");
+        this.WithOutput("external_inbound_ip_addresses");
+        this.WithOutput("inbound_network_dependencies");
+        this.WithOutput("internal_inbound_ip_addresses");
+        this.WithOutput("internal_load_balancing_mode");
+        this.WithOutput("ip_ssl_address_count");
+        this.WithOutput("linux_outbound_ip_addresses");
+        this.WithOutput("location");
+        this.WithOutput("pricing_tier");
+        this.WithOutput("remote_debugging_enabled");
+        this.WithOutput("subnet_id");
+        this.WithOutput("tags");
+        this.WithOutput("windows_outbound_ip_addresses");
+        this.WithOutput("zone_redundant");
     }
 
     /// <summary>

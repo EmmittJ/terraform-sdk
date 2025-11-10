@@ -125,9 +125,9 @@ public class AwsLexv2modelsBot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

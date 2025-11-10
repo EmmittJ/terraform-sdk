@@ -58,8 +58,8 @@ public class AwsServicecatalogConstraint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("owner");
-        this.DeclareOutput("status");
+        this.WithOutput("owner");
+        this.WithOutput("status");
     }
 
     /// <summary>

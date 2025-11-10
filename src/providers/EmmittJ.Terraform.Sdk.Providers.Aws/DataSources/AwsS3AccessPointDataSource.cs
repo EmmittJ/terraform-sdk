@@ -14,17 +14,17 @@ public class AwsS3AccessPointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("alias");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("bucket");
-        this.DeclareOutput("bucket_account_id");
-        this.DeclareOutput("data_source_id");
-        this.DeclareOutput("data_source_type");
-        this.DeclareOutput("endpoints");
-        this.DeclareOutput("network_origin");
-        this.DeclareOutput("public_access_block_configuration");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("vpc_configuration");
+        this.WithOutput("alias");
+        this.WithOutput("arn");
+        this.WithOutput("bucket");
+        this.WithOutput("bucket_account_id");
+        this.WithOutput("data_source_id");
+        this.WithOutput("data_source_type");
+        this.WithOutput("endpoints");
+        this.WithOutput("network_origin");
+        this.WithOutput("public_access_block_configuration");
+        this.WithOutput("tags");
+        this.WithOutput("vpc_configuration");
     }
 
     /// <summary>

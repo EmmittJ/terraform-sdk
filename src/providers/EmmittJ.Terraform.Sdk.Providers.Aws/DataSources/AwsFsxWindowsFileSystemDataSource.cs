@@ -14,30 +14,30 @@ public class AwsFsxWindowsFileSystemDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("active_directory_id");
-        this.DeclareOutput("aliases");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("audit_log_configuration");
-        this.DeclareOutput("automatic_backup_retention_days");
-        this.DeclareOutput("backup_id");
-        this.DeclareOutput("copy_tags_to_backups");
-        this.DeclareOutput("daily_automatic_backup_start_time");
-        this.DeclareOutput("deployment_type");
-        this.DeclareOutput("disk_iops_configuration");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("network_interface_ids");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("preferred_file_server_ip");
-        this.DeclareOutput("preferred_subnet_id");
-        this.DeclareOutput("security_group_ids");
-        this.DeclareOutput("skip_final_backup");
-        this.DeclareOutput("storage_capacity");
-        this.DeclareOutput("storage_type");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("throughput_capacity");
-        this.DeclareOutput("vpc_id");
-        this.DeclareOutput("weekly_maintenance_start_time");
+        this.WithOutput("active_directory_id");
+        this.WithOutput("aliases");
+        this.WithOutput("arn");
+        this.WithOutput("audit_log_configuration");
+        this.WithOutput("automatic_backup_retention_days");
+        this.WithOutput("backup_id");
+        this.WithOutput("copy_tags_to_backups");
+        this.WithOutput("daily_automatic_backup_start_time");
+        this.WithOutput("deployment_type");
+        this.WithOutput("disk_iops_configuration");
+        this.WithOutput("dns_name");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("network_interface_ids");
+        this.WithOutput("owner_id");
+        this.WithOutput("preferred_file_server_ip");
+        this.WithOutput("preferred_subnet_id");
+        this.WithOutput("security_group_ids");
+        this.WithOutput("skip_final_backup");
+        this.WithOutput("storage_capacity");
+        this.WithOutput("storage_type");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("throughput_capacity");
+        this.WithOutput("vpc_id");
+        this.WithOutput("weekly_maintenance_start_time");
     }
 
     /// <summary>

@@ -14,12 +14,12 @@ public class GoogleProjectOrganizationPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("boolean_policy");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("list_policy");
-        this.DeclareOutput("restore_policy");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("version");
+        this.WithOutput("boolean_policy");
+        this.WithOutput("etag");
+        this.WithOutput("list_policy");
+        this.WithOutput("restore_policy");
+        this.WithOutput("update_time");
+        this.WithOutput("version");
     }
 
     /// <summary>
@@ -62,7 +62,7 @@ public class GoogleProjectOrganizationPolicyDataSource : TerraformDataSource
     public TerraformExpression Etag => this["etag"];
 
     /// <summary>
-    /// A policy that can define specific values that are allowed or denied for the given constraint. It can also be used to allow or deny all values. 
+    /// A policy that can define specific values that are allowed or denied for the given constraint. It can also be used to allow or deny all values.
     /// </summary>
     public TerraformExpression ListPolicy => this["list_policy"];
 

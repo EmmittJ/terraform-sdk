@@ -49,10 +49,10 @@ public class AwsVpcIpamPool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("ipam_scope_type");
-        this.DeclareOutput("pool_depth");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("ipam_scope_type");
+        this.WithOutput("pool_depth");
+        this.WithOutput("state");
     }
 
     /// <summary>

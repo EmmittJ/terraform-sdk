@@ -31,9 +31,9 @@ public class AzurermSentinelAlertRuleTemplateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("nrt_template");
-        this.DeclareOutput("scheduled_template");
-        this.DeclareOutput("security_incident_template");
+        this.WithOutput("nrt_template");
+        this.WithOutput("scheduled_template");
+        this.WithOutput("security_incident_template");
     }
 
     /// <summary>

@@ -41,26 +41,26 @@ public class AwsDynamodbTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("attribute");
-        this.DeclareOutput("billing_mode");
-        this.DeclareOutput("deletion_protection_enabled");
-        this.DeclareOutput("global_secondary_index");
-        this.DeclareOutput("hash_key");
-        this.DeclareOutput("local_secondary_index");
-        this.DeclareOutput("on_demand_throughput");
-        this.DeclareOutput("point_in_time_recovery");
-        this.DeclareOutput("range_key");
-        this.DeclareOutput("read_capacity");
-        this.DeclareOutput("replica");
-        this.DeclareOutput("stream_arn");
-        this.DeclareOutput("stream_enabled");
-        this.DeclareOutput("stream_label");
-        this.DeclareOutput("stream_view_type");
-        this.DeclareOutput("table_class");
-        this.DeclareOutput("ttl");
-        this.DeclareOutput("warm_throughput");
-        this.DeclareOutput("write_capacity");
+        this.WithOutput("arn");
+        this.WithOutput("attribute");
+        this.WithOutput("billing_mode");
+        this.WithOutput("deletion_protection_enabled");
+        this.WithOutput("global_secondary_index");
+        this.WithOutput("hash_key");
+        this.WithOutput("local_secondary_index");
+        this.WithOutput("on_demand_throughput");
+        this.WithOutput("point_in_time_recovery");
+        this.WithOutput("range_key");
+        this.WithOutput("read_capacity");
+        this.WithOutput("replica");
+        this.WithOutput("stream_arn");
+        this.WithOutput("stream_enabled");
+        this.WithOutput("stream_label");
+        this.WithOutput("stream_view_type");
+        this.WithOutput("table_class");
+        this.WithOutput("ttl");
+        this.WithOutput("warm_throughput");
+        this.WithOutput("write_capacity");
     }
 
     /// <summary>

@@ -23,13 +23,13 @@ public class AwsS3Object : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("checksum_crc32");
-        this.DeclareOutput("checksum_crc32c");
-        this.DeclareOutput("checksum_crc64nvme");
-        this.DeclareOutput("checksum_sha1");
-        this.DeclareOutput("checksum_sha256");
-        this.DeclareOutput("version_id");
+        this.WithOutput("arn");
+        this.WithOutput("checksum_crc32");
+        this.WithOutput("checksum_crc32c");
+        this.WithOutput("checksum_crc64nvme");
+        this.WithOutput("checksum_sha1");
+        this.WithOutput("checksum_sha256");
+        this.WithOutput("version_id");
     }
 
     /// <summary>

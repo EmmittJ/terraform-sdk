@@ -79,8 +79,8 @@ public class AwsSsmAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("association_id");
+        this.WithOutput("arn");
+        this.WithOutput("association_id");
     }
 
     /// <summary>

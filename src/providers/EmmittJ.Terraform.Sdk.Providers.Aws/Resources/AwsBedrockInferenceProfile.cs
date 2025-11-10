@@ -67,14 +67,14 @@ public class AwsBedrockInferenceProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("id");
-        this.DeclareOutput("models");
-        this.DeclareOutput("status");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("type");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("id");
+        this.WithOutput("models");
+        this.WithOutput("status");
+        this.WithOutput("tags_all");
+        this.WithOutput("type");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

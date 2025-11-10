@@ -104,7 +104,7 @@ public class AzurermLogAnalyticsCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cluster_id");
+        this.WithOutput("cluster_id");
     }
 
     /// <summary>

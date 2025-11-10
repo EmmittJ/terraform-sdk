@@ -42,16 +42,16 @@ public class AwsFsxOntapStorageVirtualMachineDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("active_directory_configuration");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("endpoints");
-        this.DeclareOutput("file_system_id");
-        this.DeclareOutput("lifecycle_status");
-        this.DeclareOutput("lifecycle_transition_reason");
-        this.DeclareOutput("name");
-        this.DeclareOutput("subtype");
-        this.DeclareOutput("uuid");
+        this.WithOutput("active_directory_configuration");
+        this.WithOutput("arn");
+        this.WithOutput("creation_time");
+        this.WithOutput("endpoints");
+        this.WithOutput("file_system_id");
+        this.WithOutput("lifecycle_status");
+        this.WithOutput("lifecycle_transition_reason");
+        this.WithOutput("name");
+        this.WithOutput("subtype");
+        this.WithOutput("uuid");
     }
 
     /// <summary>

@@ -67,7 +67,7 @@ public class AwsVpcIpamPoolCidr : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ipam_pool_cidr_id");
+        this.WithOutput("ipam_pool_cidr_id");
     }
 
     /// <summary>

@@ -49,11 +49,11 @@ public class GoogleBeyondcorpAppGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocated_connections");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uri");
+        this.WithOutput("allocated_connections");
+        this.WithOutput("effective_labels");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uri");
     }
 
     /// <summary>

@@ -23,9 +23,9 @@ public class AwsDatasyncLocationFsxOpenzfsFileSystem : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("uri");
+        this.WithOutput("arn");
+        this.WithOutput("creation_time");
+        this.WithOutput("uri");
     }
 
     /// <summary>

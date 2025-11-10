@@ -31,7 +31,7 @@ public class AwsSecurityGroupRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("security_group_rule_id");
+        this.WithOutput("security_group_rule_id");
     }
 
     /// <summary>

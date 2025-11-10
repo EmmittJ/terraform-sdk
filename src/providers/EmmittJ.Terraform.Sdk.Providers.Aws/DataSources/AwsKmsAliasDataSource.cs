@@ -14,9 +14,9 @@ public class AwsKmsAliasDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("target_key_arn");
-        this.DeclareOutput("target_key_id");
+        this.WithOutput("arn");
+        this.WithOutput("target_key_arn");
+        this.WithOutput("target_key_id");
     }
 
     /// <summary>

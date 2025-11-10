@@ -14,21 +14,21 @@ public class GoogleComputeImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("archive_size_bytes");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("description");
-        this.DeclareOutput("disk_size_gb");
-        this.DeclareOutput("image_encryption_key_sha256");
-        this.DeclareOutput("image_id");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("licenses");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("source_disk");
-        this.DeclareOutput("source_disk_encryption_key_sha256");
-        this.DeclareOutput("source_disk_id");
-        this.DeclareOutput("source_image_id");
-        this.DeclareOutput("status");
+        this.WithOutput("archive_size_bytes");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("description");
+        this.WithOutput("disk_size_gb");
+        this.WithOutput("image_encryption_key_sha256");
+        this.WithOutput("image_id");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("labels");
+        this.WithOutput("licenses");
+        this.WithOutput("self_link");
+        this.WithOutput("source_disk");
+        this.WithOutput("source_disk_encryption_key_sha256");
+        this.WithOutput("source_disk_id");
+        this.WithOutput("source_image_id");
+        this.WithOutput("status");
     }
 
     /// <summary>

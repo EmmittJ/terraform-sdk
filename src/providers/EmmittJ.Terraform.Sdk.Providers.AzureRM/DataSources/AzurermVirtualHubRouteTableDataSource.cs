@@ -31,9 +31,9 @@ public class AzurermVirtualHubRouteTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("labels");
-        this.DeclareOutput("route");
-        this.DeclareOutput("virtual_hub_id");
+        this.WithOutput("labels");
+        this.WithOutput("route");
+        this.WithOutput("virtual_hub_id");
     }
 
     /// <summary>

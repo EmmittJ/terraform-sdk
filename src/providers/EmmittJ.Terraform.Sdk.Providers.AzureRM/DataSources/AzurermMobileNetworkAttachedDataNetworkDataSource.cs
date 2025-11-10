@@ -31,16 +31,16 @@ public class AzurermMobileNetworkAttachedDataNetworkDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dns_addresses");
-        this.DeclareOutput("location");
-        this.DeclareOutput("network_address_port_translation");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("user_equipment_address_pool_prefixes");
-        this.DeclareOutput("user_equipment_static_address_pool_prefixes");
-        this.DeclareOutput("user_plane_access_ipv4_address");
-        this.DeclareOutput("user_plane_access_ipv4_gateway");
-        this.DeclareOutput("user_plane_access_ipv4_subnet");
-        this.DeclareOutput("user_plane_access_name");
+        this.WithOutput("dns_addresses");
+        this.WithOutput("location");
+        this.WithOutput("network_address_port_translation");
+        this.WithOutput("tags");
+        this.WithOutput("user_equipment_address_pool_prefixes");
+        this.WithOutput("user_equipment_static_address_pool_prefixes");
+        this.WithOutput("user_plane_access_ipv4_address");
+        this.WithOutput("user_plane_access_ipv4_gateway");
+        this.WithOutput("user_plane_access_ipv4_subnet");
+        this.WithOutput("user_plane_access_name");
     }
 
     /// <summary>

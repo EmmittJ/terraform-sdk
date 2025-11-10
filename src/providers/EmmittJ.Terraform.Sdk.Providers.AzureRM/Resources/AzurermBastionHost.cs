@@ -97,7 +97,7 @@ public class AzurermBastionHost : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dns_name");
+        this.WithOutput("dns_name");
     }
 
     /// <summary>

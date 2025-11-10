@@ -32,10 +32,10 @@ public class AzurermSpatialAnchorsAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_domain");
-        this.DeclareOutput("account_id");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("account_domain");
+        this.WithOutput("account_id");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

@@ -42,8 +42,8 @@ public class AwsVpcSecurityGroupRulesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("ids");
+        this.WithOutput("id");
+        this.WithOutput("ids");
     }
 
     /// <summary>

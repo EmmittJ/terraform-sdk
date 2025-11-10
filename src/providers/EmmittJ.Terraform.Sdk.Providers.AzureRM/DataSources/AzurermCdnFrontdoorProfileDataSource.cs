@@ -31,12 +31,12 @@ public class AzurermCdnFrontdoorProfileDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("identity");
-        this.DeclareOutput("log_scrubbing_rule");
-        this.DeclareOutput("resource_guid");
-        this.DeclareOutput("response_timeout_seconds");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("tags");
+        this.WithOutput("identity");
+        this.WithOutput("log_scrubbing_rule");
+        this.WithOutput("resource_guid");
+        this.WithOutput("response_timeout_seconds");
+        this.WithOutput("sku_name");
+        this.WithOutput("tags");
     }
 
     /// <summary>

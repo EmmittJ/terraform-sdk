@@ -14,9 +14,9 @@ public class GoogleSqlBackupRunDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("start_time");
-        this.DeclareOutput("status");
+        this.WithOutput("location");
+        this.WithOutput("start_time");
+        this.WithOutput("status");
     }
 
     /// <summary>

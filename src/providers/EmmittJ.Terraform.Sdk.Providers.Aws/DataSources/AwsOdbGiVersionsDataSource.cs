@@ -14,7 +14,7 @@ public class AwsOdbGiVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("gi_versions");
+        this.WithOutput("gi_versions");
     }
 
     /// <summary>

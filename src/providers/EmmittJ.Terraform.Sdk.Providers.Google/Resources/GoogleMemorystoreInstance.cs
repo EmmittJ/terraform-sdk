@@ -286,24 +286,24 @@ public class GoogleMemorystoreInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("available_maintenance_versions");
-        this.DeclareOutput("backup_collection");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("discovery_endpoints");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("effective_maintenance_version");
-        this.DeclareOutput("endpoints");
-        this.DeclareOutput("maintenance_schedule");
-        this.DeclareOutput("managed_server_ca");
-        this.DeclareOutput("name");
-        this.DeclareOutput("node_config");
-        this.DeclareOutput("psc_attachment_details");
-        this.DeclareOutput("psc_auto_connections");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_info");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("available_maintenance_versions");
+        this.WithOutput("backup_collection");
+        this.WithOutput("create_time");
+        this.WithOutput("discovery_endpoints");
+        this.WithOutput("effective_labels");
+        this.WithOutput("effective_maintenance_version");
+        this.WithOutput("endpoints");
+        this.WithOutput("maintenance_schedule");
+        this.WithOutput("managed_server_ca");
+        this.WithOutput("name");
+        this.WithOutput("node_config");
+        this.WithOutput("psc_attachment_details");
+        this.WithOutput("psc_auto_connections");
+        this.WithOutput("state");
+        this.WithOutput("state_info");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

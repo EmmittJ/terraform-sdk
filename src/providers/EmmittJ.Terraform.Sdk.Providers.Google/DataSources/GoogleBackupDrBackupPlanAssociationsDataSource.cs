@@ -14,7 +14,7 @@ public class GoogleBackupDrBackupPlanAssociationsDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("associations");
+        this.WithOutput("associations");
     }
 
     /// <summary>

@@ -58,10 +58,10 @@ public class AwsKendraExperience : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("endpoints");
-        this.DeclareOutput("experience_id");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("endpoints");
+        this.WithOutput("experience_id");
+        this.WithOutput("status");
     }
 
     /// <summary>

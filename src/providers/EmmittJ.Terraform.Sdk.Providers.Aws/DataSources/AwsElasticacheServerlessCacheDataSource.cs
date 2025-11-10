@@ -14,22 +14,22 @@ public class AwsElasticacheServerlessCacheDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cache_usage_limits");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("daily_snapshot_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("engine");
-        this.DeclareOutput("full_engine_version");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("major_engine_version");
-        this.DeclareOutput("reader_endpoint");
-        this.DeclareOutput("security_group_ids");
-        this.DeclareOutput("snapshot_retention_limit");
-        this.DeclareOutput("status");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("user_group_id");
+        this.WithOutput("arn");
+        this.WithOutput("cache_usage_limits");
+        this.WithOutput("create_time");
+        this.WithOutput("daily_snapshot_time");
+        this.WithOutput("description");
+        this.WithOutput("endpoint");
+        this.WithOutput("engine");
+        this.WithOutput("full_engine_version");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("major_engine_version");
+        this.WithOutput("reader_endpoint");
+        this.WithOutput("security_group_ids");
+        this.WithOutput("snapshot_retention_limit");
+        this.WithOutput("status");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("user_group_id");
     }
 
     /// <summary>

@@ -49,7 +49,7 @@ public class AzurermApplicationInsightsApiKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api_key");
+        this.WithOutput("api_key");
     }
 
     /// <summary>

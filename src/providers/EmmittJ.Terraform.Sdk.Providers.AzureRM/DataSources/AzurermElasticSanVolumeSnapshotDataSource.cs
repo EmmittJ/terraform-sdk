@@ -31,9 +31,9 @@ public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("source_id");
-        this.DeclareOutput("source_volume_size_in_gib");
-        this.DeclareOutput("volume_name");
+        this.WithOutput("source_id");
+        this.WithOutput("source_volume_size_in_gib");
+        this.WithOutput("volume_name");
     }
 
     /// <summary>

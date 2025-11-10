@@ -14,7 +14,7 @@ public class AwsApigatewayv2Deployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("auto_deployed");
+        this.WithOutput("auto_deployed");
     }
 
     /// <summary>

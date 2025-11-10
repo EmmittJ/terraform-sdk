@@ -14,7 +14,7 @@ public class GoogleCloudIdentityGroupTransitiveMembershipsDataSource : Terraform
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("memberships");
+        this.WithOutput("memberships");
     }
 
     /// <summary>

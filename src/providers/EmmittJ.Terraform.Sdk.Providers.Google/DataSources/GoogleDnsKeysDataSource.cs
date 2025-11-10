@@ -14,8 +14,8 @@ public class GoogleDnsKeysDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("key_signing_keys");
-        this.DeclareOutput("zone_signing_keys");
+        this.WithOutput("key_signing_keys");
+        this.WithOutput("zone_signing_keys");
     }
 
     /// <summary>

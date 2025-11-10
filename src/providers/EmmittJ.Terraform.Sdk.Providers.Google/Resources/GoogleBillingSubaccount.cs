@@ -14,9 +14,9 @@ public class GoogleBillingSubaccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("billing_account_id");
-        this.DeclareOutput("name");
-        this.DeclareOutput("open");
+        this.WithOutput("billing_account_id");
+        this.WithOutput("name");
+        this.WithOutput("open");
     }
 
     /// <summary>

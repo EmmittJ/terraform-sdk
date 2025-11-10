@@ -14,10 +14,10 @@ public class AwsSsmParametersByPathDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arns");
-        this.DeclareOutput("names");
-        this.DeclareOutput("types");
-        this.DeclareOutput("values");
+        this.WithOutput("arns");
+        this.WithOutput("names");
+        this.WithOutput("types");
+        this.WithOutput("values");
     }
 
     /// <summary>

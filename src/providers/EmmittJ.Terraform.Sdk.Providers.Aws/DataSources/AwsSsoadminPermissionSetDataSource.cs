@@ -14,10 +14,10 @@ public class AwsSsoadminPermissionSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("description");
-        this.DeclareOutput("relay_state");
-        this.DeclareOutput("session_duration");
+        this.WithOutput("created_date");
+        this.WithOutput("description");
+        this.WithOutput("relay_state");
+        this.WithOutput("session_duration");
     }
 
     /// <summary>

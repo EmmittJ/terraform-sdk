@@ -269,9 +269,9 @@ public class AzurermNginxDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dataplane_api_endpoint");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("nginx_version");
+        this.WithOutput("dataplane_api_endpoint");
+        this.WithOutput("ip_address");
+        this.WithOutput("nginx_version");
     }
 
     /// <summary>

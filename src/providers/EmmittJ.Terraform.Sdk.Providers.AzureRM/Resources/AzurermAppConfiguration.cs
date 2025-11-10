@@ -176,11 +176,11 @@ public class AzurermAppConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("primary_read_key");
-        this.DeclareOutput("primary_write_key");
-        this.DeclareOutput("secondary_read_key");
-        this.DeclareOutput("secondary_write_key");
+        this.WithOutput("endpoint");
+        this.WithOutput("primary_read_key");
+        this.WithOutput("primary_write_key");
+        this.WithOutput("secondary_read_key");
+        this.WithOutput("secondary_write_key");
     }
 
     /// <summary>

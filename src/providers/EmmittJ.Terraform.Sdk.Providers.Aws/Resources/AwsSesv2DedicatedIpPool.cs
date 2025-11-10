@@ -14,7 +14,7 @@ public class AwsSesv2DedicatedIpPool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutput("arn");
     }
 
     /// <summary>

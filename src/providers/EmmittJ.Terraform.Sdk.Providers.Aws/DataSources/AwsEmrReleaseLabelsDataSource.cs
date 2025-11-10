@@ -41,7 +41,7 @@ public class AwsEmrReleaseLabelsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("release_labels");
+        this.WithOutput("release_labels");
     }
 
     /// <summary>

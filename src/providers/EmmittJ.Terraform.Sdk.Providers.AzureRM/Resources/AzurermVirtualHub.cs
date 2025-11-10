@@ -86,9 +86,9 @@ public class AzurermVirtualHub : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_route_table_id");
-        this.DeclareOutput("virtual_router_asn");
-        this.DeclareOutput("virtual_router_ips");
+        this.WithOutputefault_route_table_id");
+        this.WithOutputirtual_router_asn");
+        this.WithOutputirtual_router_ips");
     }
 
     /// <summary>

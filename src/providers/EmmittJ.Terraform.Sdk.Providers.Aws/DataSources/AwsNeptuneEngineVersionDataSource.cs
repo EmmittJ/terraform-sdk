@@ -14,19 +14,19 @@ public class AwsNeptuneEngineVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_character_set");
-        this.DeclareOutput("engine_description");
-        this.DeclareOutput("exportable_log_types");
-        this.DeclareOutput("supported_character_sets");
-        this.DeclareOutput("supported_timezones");
-        this.DeclareOutput("supports_global_databases");
-        this.DeclareOutput("supports_log_exports_to_cloudwatch");
-        this.DeclareOutput("supports_read_replica");
-        this.DeclareOutput("valid_major_targets");
-        this.DeclareOutput("valid_minor_targets");
-        this.DeclareOutput("valid_upgrade_targets");
-        this.DeclareOutput("version_actual");
-        this.DeclareOutput("version_description");
+        this.WithOutput("default_character_set");
+        this.WithOutput("engine_description");
+        this.WithOutput("exportable_log_types");
+        this.WithOutput("supported_character_sets");
+        this.WithOutput("supported_timezones");
+        this.WithOutput("supports_global_databases");
+        this.WithOutput("supports_log_exports_to_cloudwatch");
+        this.WithOutput("supports_read_replica");
+        this.WithOutput("valid_major_targets");
+        this.WithOutput("valid_minor_targets");
+        this.WithOutput("valid_upgrade_targets");
+        this.WithOutput("version_actual");
+        this.WithOutput("version_description");
     }
 
     /// <summary>

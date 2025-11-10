@@ -31,7 +31,7 @@ public class AwsServicecatalogProvisioningArtifactsDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("provisioning_artifact_details");
+        this.WithOutput("provisioning_artifact_details");
     }
 
     /// <summary>

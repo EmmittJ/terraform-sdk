@@ -138,11 +138,11 @@ public class GoogleApihubPlugin : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("ownership_type");
-        this.DeclareOutput("state");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("ownership_type");
+        this.WithOutput("state");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

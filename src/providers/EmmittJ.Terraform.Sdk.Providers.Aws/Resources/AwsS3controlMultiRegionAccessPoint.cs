@@ -59,10 +59,10 @@ public class AwsS3controlMultiRegionAccessPoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("alias");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("domain_name");
-        this.DeclareOutput("status");
+        this.WithOutput("alias");
+        this.WithOutput("arn");
+        this.WithOutput("domain_name");
+        this.WithOutput("status");
     }
 
     /// <summary>

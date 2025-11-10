@@ -95,9 +95,9 @@ public class AzurermStackHciCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cloud_id");
-        this.DeclareOutput("resource_provider_object_id");
-        this.DeclareOutput("service_endpoint");
+        this.WithOutputloud_id");
+        this.WithOutputesource_provider_object_id");
+        this.WithOutputervice_endpoint");
     }
 
     /// <summary>

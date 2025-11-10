@@ -49,9 +49,9 @@ public class AwsVpclatticeServiceNetworkVpcAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_by");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("created_by");
+        this.WithOutput("status");
     }
 
     /// <summary>

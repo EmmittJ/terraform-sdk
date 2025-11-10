@@ -118,8 +118,8 @@ public class GoogleApigeeApiProduct : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("last_modified_at");
+        this.WithOutput("created_at");
+        this.WithOutput("last_modified_at");
     }
 
     /// <summary>

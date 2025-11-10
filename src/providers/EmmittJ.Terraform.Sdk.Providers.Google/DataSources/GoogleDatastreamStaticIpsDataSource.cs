@@ -14,7 +14,7 @@ public class GoogleDatastreamStaticIpsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("static_ips");
+        this.WithOutput("static_ips");
     }
 
     /// <summary>

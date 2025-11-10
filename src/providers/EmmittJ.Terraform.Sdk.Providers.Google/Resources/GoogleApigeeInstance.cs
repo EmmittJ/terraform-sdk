@@ -80,9 +80,9 @@ public class GoogleApigeeInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("host");
-        this.DeclareOutput("port");
-        this.DeclareOutput("service_attachment");
+        this.WithOutput("host");
+        this.WithOutput("port");
+        this.WithOutput("service_attachment");
     }
 
     /// <summary>

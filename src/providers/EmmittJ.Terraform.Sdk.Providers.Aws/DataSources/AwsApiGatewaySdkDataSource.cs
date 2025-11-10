@@ -14,9 +14,9 @@ public class AwsApiGatewaySdkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("body");
-        this.DeclareOutput("content_disposition");
-        this.DeclareOutput("content_type");
+        this.WithOutput("body");
+        this.WithOutput("content_disposition");
+        this.WithOutput("content_type");
     }
 
     /// <summary>

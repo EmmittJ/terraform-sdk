@@ -115,7 +115,7 @@ public class LifecycleTests
         var resource = new TerraformResource("aws_instance", "web");
         resource.WithProperty("ami", "ami-12345678");
         resource.WithProperty("instance_type", "t2.micro");
-        resource.DeclareOutput("ami");
+        resource.WithOutput("ami");
 
         resource.Lifecycle = new TerraformLifecycleConfig
         {
@@ -140,7 +140,7 @@ public class LifecycleTests
         var resource = new TerraformResource("aws_instance", "web");
         resource.WithProperty("ami", "ami-12345678");
         resource.WithProperty("instance_type", "t2.micro");
-        resource.DeclareOutput("public_ip");
+        resource.WithOutput("public_ip");
 
         resource.Lifecycle = new TerraformLifecycleConfig
         {

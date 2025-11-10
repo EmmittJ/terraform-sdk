@@ -31,10 +31,10 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("quota_size_in_kib");
-        this.DeclareOutput("quota_target");
-        this.DeclareOutput("quota_type");
+        this.WithOutput("location");
+        this.WithOutput("quota_size_in_kib");
+        this.WithOutput("quota_target");
+        this.WithOutput("quota_type");
     }
 
     /// <summary>

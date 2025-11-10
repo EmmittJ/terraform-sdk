@@ -75,8 +75,8 @@ public class AwsFsxS3AccessPointAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("s3_access_point_alias");
-        this.DeclareOutput("s3_access_point_arn");
+        this.WithOutput("s3_access_point_alias");
+        this.WithOutput("s3_access_point_arn");
     }
 
     /// <summary>

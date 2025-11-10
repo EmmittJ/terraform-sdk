@@ -40,8 +40,8 @@ public class AwsGrafanaLicenseAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("free_trial_expiration");
-        this.DeclareOutput("license_expiration");
+        this.WithOutput("free_trial_expiration");
+        this.WithOutput("license_expiration");
     }
 
     /// <summary>

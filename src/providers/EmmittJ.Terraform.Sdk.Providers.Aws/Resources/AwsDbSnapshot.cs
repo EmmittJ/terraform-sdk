@@ -31,23 +31,23 @@ public class AwsDbSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocated_storage");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("db_snapshot_arn");
-        this.DeclareOutput("encrypted");
-        this.DeclareOutput("engine");
-        this.DeclareOutput("engine_version");
-        this.DeclareOutput("iops");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("license_model");
-        this.DeclareOutput("option_group_name");
-        this.DeclareOutput("port");
-        this.DeclareOutput("snapshot_type");
-        this.DeclareOutput("source_db_snapshot_identifier");
-        this.DeclareOutput("source_region");
-        this.DeclareOutput("status");
-        this.DeclareOutput("storage_type");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("allocated_storage");
+        this.WithOutput("availability_zone");
+        this.WithOutput("db_snapshot_arn");
+        this.WithOutput("encrypted");
+        this.WithOutput("engine");
+        this.WithOutput("engine_version");
+        this.WithOutput("iops");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("license_model");
+        this.WithOutput("option_group_name");
+        this.WithOutput("port");
+        this.WithOutput("snapshot_type");
+        this.WithOutput("source_db_snapshot_identifier");
+        this.WithOutput("source_region");
+        this.WithOutput("status");
+        this.WithOutput("storage_type");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

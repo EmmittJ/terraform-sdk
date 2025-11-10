@@ -14,8 +14,8 @@ public class AwsCognitoUserPoolClientsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("client_ids");
-        this.DeclareOutput("client_names");
+        this.WithOutput("client_ids");
+        this.WithOutput("client_names");
     }
 
     /// <summary>

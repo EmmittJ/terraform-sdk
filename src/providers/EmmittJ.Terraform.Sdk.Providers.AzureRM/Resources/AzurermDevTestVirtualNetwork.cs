@@ -94,7 +94,7 @@ public class AzurermDevTestVirtualNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("unique_identifier");
+        this.WithOutputnique_identifier");
     }
 
     /// <summary>

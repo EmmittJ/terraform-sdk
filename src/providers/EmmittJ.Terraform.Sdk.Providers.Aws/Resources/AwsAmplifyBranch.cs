@@ -14,11 +14,11 @@ public class AwsAmplifyBranch : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("associated_resources");
-        this.DeclareOutput("custom_domains");
-        this.DeclareOutput("destination_branch");
-        this.DeclareOutput("source_branch");
+        this.WithOutput("arn");
+        this.WithOutput("associated_resources");
+        this.WithOutput("custom_domains");
+        this.WithOutput("destination_branch");
+        this.WithOutput("source_branch");
     }
 
     /// <summary>

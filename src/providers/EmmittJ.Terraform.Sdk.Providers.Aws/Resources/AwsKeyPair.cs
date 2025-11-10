@@ -14,10 +14,10 @@ public class AwsKeyPair : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("key_pair_id");
-        this.DeclareOutput("key_type");
+        this.WithOutput("arn");
+        this.WithOutput("fingerprint");
+        this.WithOutput("key_pair_id");
+        this.WithOutput("key_type");
     }
 
     /// <summary>

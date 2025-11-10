@@ -58,7 +58,7 @@ public class AzureadSynchronizationJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("schedule");
+        this.WithOutput("schedule");
     }
 
     /// <summary>

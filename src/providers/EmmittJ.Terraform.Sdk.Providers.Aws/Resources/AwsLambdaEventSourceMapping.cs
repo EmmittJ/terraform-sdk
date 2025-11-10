@@ -208,13 +208,13 @@ public class AwsLambdaEventSourceMapping : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("function_arn");
-        this.DeclareOutput("last_modified");
-        this.DeclareOutput("last_processing_result");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_transition_reason");
-        this.DeclareOutput("uuid");
+        this.WithOutput("arn");
+        this.WithOutput("function_arn");
+        this.WithOutput("last_modified");
+        this.WithOutput("last_processing_result");
+        this.WithOutput("state");
+        this.WithOutput("state_transition_reason");
+        this.WithOutput("uuid");
     }
 
     /// <summary>

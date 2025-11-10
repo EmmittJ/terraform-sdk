@@ -94,10 +94,10 @@ public class AwsEfsReplicationConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("original_source_file_system_arn");
-        this.DeclareOutput("source_file_system_arn");
-        this.DeclareOutput("source_file_system_region");
+        this.WithOutput("creation_time");
+        this.WithOutput("original_source_file_system_arn");
+        this.WithOutput("source_file_system_arn");
+        this.WithOutput("source_file_system_region");
     }
 
     /// <summary>

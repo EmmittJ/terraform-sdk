@@ -14,8 +14,8 @@ public class AwsIvsStreamKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("value");
+        this.WithOutput("arn");
+        this.WithOutput("value");
     }
 
     /// <summary>

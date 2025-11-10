@@ -43,9 +43,9 @@ public class AwsAcmpcaCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("certificate");
-        this.DeclareOutput("certificate_chain");
+        this.WithOutput("arn");
+        this.WithOutput("certificate");
+        this.WithOutput("certificate_chain");
     }
 
     /// <summary>

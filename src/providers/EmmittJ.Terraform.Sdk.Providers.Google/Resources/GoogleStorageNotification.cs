@@ -14,9 +14,9 @@ public class GoogleStorageNotification : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("notification_id");
-        this.DeclareOutput("self_link");
+        this.WithOutput("id");
+        this.WithOutput("notification_id");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

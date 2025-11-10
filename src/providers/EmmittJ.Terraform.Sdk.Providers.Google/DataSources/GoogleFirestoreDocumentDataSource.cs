@@ -14,11 +14,11 @@ public class GoogleFirestoreDocumentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("fields");
-        this.DeclareOutput("name");
-        this.DeclareOutput("path");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("fields");
+        this.WithOutput("name");
+        this.WithOutput("path");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

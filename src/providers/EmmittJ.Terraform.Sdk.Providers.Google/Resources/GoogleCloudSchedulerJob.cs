@@ -260,7 +260,7 @@ public class GoogleCloudSchedulerJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("state");
+        this.WithOutput("state");
     }
 
     /// <summary>

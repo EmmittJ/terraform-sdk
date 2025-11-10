@@ -86,10 +86,10 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("ipv4_addresses");
-        this.DeclareOutput("ipv6_addresses");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("effective_labels");
+        this.WithOutput("ipv4_addresses");
+        this.WithOutput("ipv6_addresses");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

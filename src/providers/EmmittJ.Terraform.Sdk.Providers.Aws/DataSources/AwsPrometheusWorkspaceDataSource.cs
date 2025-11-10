@@ -14,12 +14,12 @@ public class AwsPrometheusWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("alias");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("kms_key_arn");
-        this.DeclareOutput("prometheus_endpoint");
-        this.DeclareOutput("status");
+        this.WithOutput("alias");
+        this.WithOutput("arn");
+        this.WithOutput("created_date");
+        this.WithOutput("kms_key_arn");
+        this.WithOutput("prometheus_endpoint");
+        this.WithOutput("status");
     }
 
     /// <summary>

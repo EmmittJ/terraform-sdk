@@ -42,15 +42,15 @@ public class AwsEc2TransitGatewayAttachmentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("association_state");
-        this.DeclareOutput("association_transit_gateway_route_table_id");
-        this.DeclareOutput("resource_id");
-        this.DeclareOutput("resource_owner_id");
-        this.DeclareOutput("resource_type");
-        this.DeclareOutput("state");
-        this.DeclareOutput("transit_gateway_id");
-        this.DeclareOutput("transit_gateway_owner_id");
+        this.WithOutput("arn");
+        this.WithOutput("association_state");
+        this.WithOutput("association_transit_gateway_route_table_id");
+        this.WithOutput("resource_id");
+        this.WithOutput("resource_owner_id");
+        this.WithOutput("resource_type");
+        this.WithOutput("state");
+        this.WithOutput("transit_gateway_id");
+        this.WithOutput("transit_gateway_owner_id");
     }
 
     /// <summary>

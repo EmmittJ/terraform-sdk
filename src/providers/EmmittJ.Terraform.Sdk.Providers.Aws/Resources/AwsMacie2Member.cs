@@ -40,12 +40,12 @@ public class AwsMacie2Member : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("administrator_account_id");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("invited_at");
-        this.DeclareOutput("master_account_id");
-        this.DeclareOutput("relationship_status");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("administrator_account_id");
+        this.WithOutput("arn");
+        this.WithOutput("invited_at");
+        this.WithOutput("master_account_id");
+        this.WithOutput("relationship_status");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

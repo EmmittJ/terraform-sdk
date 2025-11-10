@@ -14,7 +14,7 @@ public class GoogleContainerAttachedVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("valid_versions");
+        this.WithOutput("valid_versions");
     }
 
     /// <summary>

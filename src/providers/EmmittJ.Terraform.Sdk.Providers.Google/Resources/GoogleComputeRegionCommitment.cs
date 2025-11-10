@@ -116,13 +116,13 @@ public class GoogleComputeRegionCommitment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("commitment_id");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("end_timestamp");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("start_timestamp");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_message");
+        this.WithOutput("commitment_id");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("end_timestamp");
+        this.WithOutput("self_link");
+        this.WithOutput("start_timestamp");
+        this.WithOutput("status");
+        this.WithOutput("status_message");
     }
 
     /// <summary>

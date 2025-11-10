@@ -14,13 +14,13 @@ public class GoogleComputeNetworkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("gateway_ipv4");
-        this.DeclareOutput("internal_ipv6_range");
-        this.DeclareOutput("network_id");
-        this.DeclareOutput("numeric_id");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("subnetworks_self_links");
+        this.WithOutput("description");
+        this.WithOutput("gateway_ipv4");
+        this.WithOutput("internal_ipv6_range");
+        this.WithOutput("network_id");
+        this.WithOutput("numeric_id");
+        this.WithOutput("self_link");
+        this.WithOutput("subnetworks_self_links");
     }
 
     /// <summary>

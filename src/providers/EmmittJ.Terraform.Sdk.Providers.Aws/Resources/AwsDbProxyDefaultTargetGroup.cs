@@ -94,8 +94,8 @@ public class AwsDbProxyDefaultTargetGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("name");
+        this.WithOutput("arn");
+        this.WithOutput("name");
     }
 
     /// <summary>

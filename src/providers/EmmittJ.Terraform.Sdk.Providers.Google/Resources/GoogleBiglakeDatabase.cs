@@ -78,10 +78,10 @@ public class GoogleBiglakeDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("delete_time");
-        this.DeclareOutput("expire_time");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("delete_time");
+        this.WithOutput("expire_time");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

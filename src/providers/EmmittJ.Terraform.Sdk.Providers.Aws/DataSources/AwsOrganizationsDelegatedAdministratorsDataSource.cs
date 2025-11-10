@@ -14,7 +14,7 @@ public class AwsOrganizationsDelegatedAdministratorsDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("delegated_administrators");
+        this.WithOutput("delegated_administrators");
     }
 
     /// <summary>

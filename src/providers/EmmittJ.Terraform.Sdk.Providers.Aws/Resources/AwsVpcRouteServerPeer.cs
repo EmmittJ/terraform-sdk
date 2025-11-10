@@ -67,14 +67,14 @@ public class AwsVpcRouteServerPeer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("endpoint_eni_address");
-        this.DeclareOutput("endpoint_eni_id");
-        this.DeclareOutput("route_server_id");
-        this.DeclareOutput("route_server_peer_id");
-        this.DeclareOutput("subnet_id");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("arn");
+        this.WithOutput("endpoint_eni_address");
+        this.WithOutput("endpoint_eni_id");
+        this.WithOutput("route_server_id");
+        this.WithOutput("route_server_peer_id");
+        this.WithOutput("subnet_id");
+        this.WithOutput("tags_all");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

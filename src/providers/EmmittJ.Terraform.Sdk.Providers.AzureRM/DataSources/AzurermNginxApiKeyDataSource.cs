@@ -31,8 +31,8 @@ public class AzurermNginxApiKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("end_date_time");
-        this.DeclareOutput("hint");
+        this.WithOutput("end_date_time");
+        this.WithOutput("hint");
     }
 
     /// <summary>

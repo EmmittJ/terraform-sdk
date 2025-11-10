@@ -59,11 +59,11 @@ public class AzurermAppServiceHybridConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("namespace_name");
-        this.DeclareOutput("relay_name");
-        this.DeclareOutput("send_key_value");
-        this.DeclareOutput("service_bus_namespace");
-        this.DeclareOutput("service_bus_suffix");
+        this.WithOutput("namespace_name");
+        this.WithOutput("relay_name");
+        this.WithOutput("send_key_value");
+        this.WithOutput("service_bus_namespace");
+        this.WithOutput("service_bus_suffix");
     }
 
     /// <summary>

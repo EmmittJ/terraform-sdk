@@ -14,7 +14,7 @@ public class GoogleCloudIdentityGroupMembershipsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("memberships");
+        this.WithOutput("memberships");
     }
 
     /// <summary>

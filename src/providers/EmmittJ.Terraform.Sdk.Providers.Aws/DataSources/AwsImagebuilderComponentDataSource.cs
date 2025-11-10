@@ -14,18 +14,18 @@ public class AwsImagebuilderComponentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("change_description");
-        this.DeclareOutput("data");
-        this.DeclareOutput("date_created");
-        this.DeclareOutput("description");
-        this.DeclareOutput("encrypted");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("name");
-        this.DeclareOutput("owner");
-        this.DeclareOutput("platform");
-        this.DeclareOutput("supported_os_versions");
-        this.DeclareOutput("type");
-        this.DeclareOutput("version");
+        this.WithOutput("change_description");
+        this.WithOutput("data");
+        this.WithOutput("date_created");
+        this.WithOutput("description");
+        this.WithOutput("encrypted");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("name");
+        this.WithOutput("owner");
+        this.WithOutput("platform");
+        this.WithOutput("supported_os_versions");
+        this.WithOutput("type");
+        this.WithOutput("version");
     }
 
     /// <summary>

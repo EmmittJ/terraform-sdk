@@ -298,9 +298,9 @@ public class AzurermSpringCloudService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("outbound_public_ip_addresses");
-        this.DeclareOutput("required_network_traffic_rules");
-        this.DeclareOutput("service_registry_id");
+        this.WithOutpututbound_public_ip_addresses");
+        this.WithOutputequired_network_traffic_rules");
+        this.WithOutputervice_registry_id");
     }
 
     /// <summary>

@@ -52,7 +52,7 @@ public class GoogleSourcerepoRepositoryIamBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

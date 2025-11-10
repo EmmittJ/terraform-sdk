@@ -14,16 +14,16 @@ public class GoogleComputeGlobalAddressDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address");
-        this.DeclareOutput("address_type");
-        this.DeclareOutput("network");
-        this.DeclareOutput("network_tier");
-        this.DeclareOutput("prefix_length");
-        this.DeclareOutput("purpose");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("status");
-        this.DeclareOutput("subnetwork");
-        this.DeclareOutput("users");
+        this.WithOutput("address");
+        this.WithOutput("address_type");
+        this.WithOutput("network");
+        this.WithOutput("network_tier");
+        this.WithOutput("prefix_length");
+        this.WithOutput("purpose");
+        this.WithOutput("self_link");
+        this.WithOutput("status");
+        this.WithOutput("subnetwork");
+        this.WithOutput("users");
     }
 
     /// <summary>

@@ -58,8 +58,8 @@ public class AzurermIpGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("firewall_ids");
-        this.DeclareOutput("firewall_policy_ids");
+        this.WithOutput("firewall_ids");
+        this.WithOutput("firewall_policy_ids");
     }
 
     /// <summary>

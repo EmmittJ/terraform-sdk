@@ -23,20 +23,20 @@ public class AwsIdentitystoreUserDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("addresses");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("emails");
-        this.DeclareOutput("external_ids");
-        this.DeclareOutput("locale");
-        this.DeclareOutput("name");
-        this.DeclareOutput("nickname");
-        this.DeclareOutput("phone_numbers");
-        this.DeclareOutput("preferred_language");
-        this.DeclareOutput("profile_url");
-        this.DeclareOutput("timezone");
-        this.DeclareOutput("title");
-        this.DeclareOutput("user_name");
-        this.DeclareOutput("user_type");
+        this.WithOutput("addresses");
+        this.WithOutput("display_name");
+        this.WithOutput("emails");
+        this.WithOutput("external_ids");
+        this.WithOutput("locale");
+        this.WithOutput("name");
+        this.WithOutput("nickname");
+        this.WithOutput("phone_numbers");
+        this.WithOutput("preferred_language");
+        this.WithOutput("profile_url");
+        this.WithOutput("timezone");
+        this.WithOutput("title");
+        this.WithOutput("user_name");
+        this.WithOutput("user_type");
     }
 
     /// <summary>

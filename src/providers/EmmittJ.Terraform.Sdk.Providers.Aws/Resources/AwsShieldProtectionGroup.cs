@@ -14,7 +14,7 @@ public class AwsShieldProtectionGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("protection_group_arn");
+        this.WithOutput("protection_group_arn");
     }
 
     /// <summary>

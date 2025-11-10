@@ -31,14 +31,14 @@ public class AzurermMaintenanceConfigurationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("in_guest_user_patch_mode");
-        this.DeclareOutput("install_patches");
-        this.DeclareOutput("location");
-        this.DeclareOutput("properties");
-        this.DeclareOutput("scope");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("visibility");
-        this.DeclareOutput("window");
+        this.WithOutput("in_guest_user_patch_mode");
+        this.WithOutput("install_patches");
+        this.WithOutput("location");
+        this.WithOutput("properties");
+        this.WithOutput("scope");
+        this.WithOutput("tags");
+        this.WithOutput("visibility");
+        this.WithOutput("window");
     }
 
     /// <summary>

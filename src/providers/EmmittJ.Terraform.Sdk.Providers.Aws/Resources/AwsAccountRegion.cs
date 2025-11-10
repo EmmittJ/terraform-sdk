@@ -40,7 +40,7 @@ public class AwsAccountRegion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("opt_status");
+        this.WithOutput("opt_status");
     }
 
     /// <summary>

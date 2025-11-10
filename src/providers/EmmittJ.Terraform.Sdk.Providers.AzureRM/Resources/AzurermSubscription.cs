@@ -58,7 +58,7 @@ public class AzurermSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("tenant_id");
+        this.WithOutputenant_id");
     }
 
     /// <summary>

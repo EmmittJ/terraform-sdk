@@ -14,7 +14,7 @@ public class AwsElasticBeanstalkSolutionStackDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
+        this.WithOutput("name");
     }
 
     /// <summary>

@@ -14,13 +14,13 @@ public class AwsS3BucketDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("bucket_domain_name");
-        this.DeclareOutput("bucket_region");
-        this.DeclareOutput("bucket_regional_domain_name");
-        this.DeclareOutput("hosted_zone_id");
-        this.DeclareOutput("website_domain");
-        this.DeclareOutput("website_endpoint");
+        this.WithOutput("arn");
+        this.WithOutput("bucket_domain_name");
+        this.WithOutput("bucket_region");
+        this.WithOutput("bucket_regional_domain_name");
+        this.WithOutput("hosted_zone_id");
+        this.WithOutput("website_domain");
+        this.WithOutput("website_endpoint");
     }
 
     /// <summary>

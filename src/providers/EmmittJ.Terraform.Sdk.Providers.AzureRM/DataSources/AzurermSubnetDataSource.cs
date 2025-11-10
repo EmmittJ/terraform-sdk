@@ -31,14 +31,14 @@ public class AzurermSubnetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address_prefix");
-        this.DeclareOutput("address_prefixes");
-        this.DeclareOutput("default_outbound_access_enabled");
-        this.DeclareOutput("network_security_group_id");
-        this.DeclareOutput("private_endpoint_network_policies");
-        this.DeclareOutput("private_link_service_network_policies_enabled");
-        this.DeclareOutput("route_table_id");
-        this.DeclareOutput("service_endpoints");
+        this.WithOutput("address_prefix");
+        this.WithOutput("address_prefixes");
+        this.WithOutput("default_outbound_access_enabled");
+        this.WithOutput("network_security_group_id");
+        this.WithOutput("private_endpoint_network_policies");
+        this.WithOutput("private_link_service_network_policies_enabled");
+        this.WithOutput("route_table_id");
+        this.WithOutput("service_endpoints");
     }
 
     /// <summary>

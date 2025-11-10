@@ -14,8 +14,8 @@ public class GoogleContainerAwsVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("supported_regions");
-        this.DeclareOutput("valid_versions");
+        this.WithOutput("supported_regions");
+        this.WithOutput("valid_versions");
     }
 
     /// <summary>

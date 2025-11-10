@@ -14,7 +14,7 @@ public class AwsBedrockagentcoreWorkloadIdentity : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("workload_identity_arn");
+        this.WithOutput("workload_identity_arn");
     }
 
     /// <summary>

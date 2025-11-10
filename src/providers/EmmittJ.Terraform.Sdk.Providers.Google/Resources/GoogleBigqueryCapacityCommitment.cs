@@ -49,10 +49,10 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("commitment_end_time");
-        this.DeclareOutput("commitment_start_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
+        this.WithOutput("commitment_end_time");
+        this.WithOutput("commitment_start_time");
+        this.WithOutput("name");
+        this.WithOutput("state");
     }
 
     /// <summary>

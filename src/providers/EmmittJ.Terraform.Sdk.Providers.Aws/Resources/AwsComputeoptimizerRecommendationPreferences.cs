@@ -114,7 +114,7 @@ public class AwsComputeoptimizerRecommendationPreferences : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
+        this.WithOutputd");
     }
 
     /// <summary>

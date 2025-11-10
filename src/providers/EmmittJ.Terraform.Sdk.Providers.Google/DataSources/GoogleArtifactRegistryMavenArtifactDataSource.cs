@@ -14,11 +14,11 @@ public class GoogleArtifactRegistryMavenArtifactDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("pom_uri");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("version");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("pom_uri");
+        this.WithOutput("update_time");
+        this.WithOutput("version");
     }
 
     /// <summary>

@@ -1394,15 +1394,15 @@ public class GoogleContainerCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("master_version");
-        this.DeclareOutput("operation");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("services_ipv4_cidr");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("tpu_ipv4_cidr_block");
+        this.WithOutput("effective_labels");
+        this.WithOutput("endpoint");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("master_version");
+        this.WithOutput("operation");
+        this.WithOutput("self_link");
+        this.WithOutput("services_ipv4_cidr");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("tpu_ipv4_cidr_block");
     }
 
     /// <summary>

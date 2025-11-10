@@ -66,10 +66,10 @@ public class AwsDatazoneDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("portal_url");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("portal_url");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

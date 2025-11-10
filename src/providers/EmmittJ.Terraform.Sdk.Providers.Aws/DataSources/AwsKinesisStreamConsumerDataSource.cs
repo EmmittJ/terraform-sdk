@@ -14,8 +14,8 @@ public class AwsKinesisStreamConsumerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("status");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("status");
     }
 
     /// <summary>

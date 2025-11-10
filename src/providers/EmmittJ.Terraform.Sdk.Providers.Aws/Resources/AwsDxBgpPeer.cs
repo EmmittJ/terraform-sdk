@@ -40,9 +40,9 @@ public class AwsDxBgpPeer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("aws_device");
-        this.DeclareOutput("bgp_peer_id");
-        this.DeclareOutput("bgp_status");
+        this.WithOutput("aws_device");
+        this.WithOutput("bgp_peer_id");
+        this.WithOutput("bgp_status");
     }
 
     /// <summary>

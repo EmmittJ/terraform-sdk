@@ -31,11 +31,11 @@ public class AzurermNetappAccountEncryptionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cross_tenant_key_vault_resource_id");
-        this.DeclareOutput("encryption_key");
-        this.DeclareOutput("federated_client_id");
-        this.DeclareOutput("system_assigned_identity_principal_id");
-        this.DeclareOutput("user_assigned_identity_id");
+        this.WithOutput("cross_tenant_key_vault_resource_id");
+        this.WithOutput("encryption_key");
+        this.WithOutput("federated_client_id");
+        this.WithOutput("system_assigned_identity_principal_id");
+        this.WithOutput("user_assigned_identity_id");
     }
 
     /// <summary>

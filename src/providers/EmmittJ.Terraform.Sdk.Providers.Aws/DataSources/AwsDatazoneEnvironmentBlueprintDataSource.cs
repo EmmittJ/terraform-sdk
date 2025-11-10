@@ -14,9 +14,9 @@ public class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("blueprint_provider");
-        this.DeclareOutput("description");
-        this.DeclareOutput("id");
+        this.WithOutput("blueprint_provider");
+        this.WithOutput("description");
+        this.WithOutput("id");
     }
 
     /// <summary>

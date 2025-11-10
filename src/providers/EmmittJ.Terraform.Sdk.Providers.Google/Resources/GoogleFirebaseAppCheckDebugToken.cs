@@ -49,7 +49,7 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("debug_token_id");
+        this.WithOutput("debug_token_id");
     }
 
     /// <summary>

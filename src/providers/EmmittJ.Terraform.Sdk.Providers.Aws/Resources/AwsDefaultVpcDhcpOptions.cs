@@ -14,13 +14,13 @@ public class AwsDefaultVpcDhcpOptions : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("domain_name");
-        this.DeclareOutput("domain_name_servers");
-        this.DeclareOutput("ipv6_address_preferred_lease_time");
-        this.DeclareOutput("netbios_name_servers");
-        this.DeclareOutput("netbios_node_type");
-        this.DeclareOutput("ntp_servers");
+        this.WithOutput("arn");
+        this.WithOutput("domain_name");
+        this.WithOutput("domain_name_servers");
+        this.WithOutput("ipv6_address_preferred_lease_time");
+        this.WithOutput("netbios_name_servers");
+        this.WithOutput("netbios_node_type");
+        this.WithOutput("ntp_servers");
     }
 
     /// <summary>

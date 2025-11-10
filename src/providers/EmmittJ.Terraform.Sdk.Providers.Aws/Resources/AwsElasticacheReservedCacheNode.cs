@@ -49,17 +49,17 @@ public class AwsElasticacheReservedCacheNode : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cache_node_type");
-        this.DeclareOutput("duration");
-        this.DeclareOutput("fixed_price");
-        this.DeclareOutput("offering_type");
-        this.DeclareOutput("product_description");
-        this.DeclareOutput("recurring_charges");
-        this.DeclareOutput("start_time");
-        this.DeclareOutput("state");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("usage_price");
+        this.WithOutput("arn");
+        this.WithOutput("cache_node_type");
+        this.WithOutput("duration");
+        this.WithOutput("fixed_price");
+        this.WithOutput("offering_type");
+        this.WithOutput("product_description");
+        this.WithOutput("recurring_charges");
+        this.WithOutput("start_time");
+        this.WithOutput("state");
+        this.WithOutput("tags_all");
+        this.WithOutput("usage_price");
     }
 
     /// <summary>

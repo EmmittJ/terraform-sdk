@@ -31,14 +31,14 @@ public class AzurermFunctionAppHostKeysDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("blobs_extension_key");
-        this.DeclareOutput("default_function_key");
-        this.DeclareOutput("durabletask_extension_key");
-        this.DeclareOutput("event_grid_extension_config_key");
-        this.DeclareOutput("event_grid_extension_key");
-        this.DeclareOutput("primary_key");
-        this.DeclareOutput("signalr_extension_key");
-        this.DeclareOutput("webpubsub_extension_key");
+        this.WithOutput("blobs_extension_key");
+        this.WithOutput("default_function_key");
+        this.WithOutput("durabletask_extension_key");
+        this.WithOutput("event_grid_extension_config_key");
+        this.WithOutput("event_grid_extension_key");
+        this.WithOutput("primary_key");
+        this.WithOutput("signalr_extension_key");
+        this.WithOutput("webpubsub_extension_key");
     }
 
     /// <summary>

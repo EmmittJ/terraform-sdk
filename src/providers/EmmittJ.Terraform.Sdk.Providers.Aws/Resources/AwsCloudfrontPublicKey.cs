@@ -14,8 +14,8 @@ public class AwsCloudfrontPublicKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("caller_reference");
-        this.DeclareOutput("etag");
+        this.WithOutputaller_reference");
+        this.WithOutputtag");
     }
 
     /// <summary>

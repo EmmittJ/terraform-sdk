@@ -31,13 +31,13 @@ public class AzurermVirtualMachineDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("power_state");
-        this.DeclareOutput("private_ip_address");
-        this.DeclareOutput("private_ip_addresses");
-        this.DeclareOutput("public_ip_address");
-        this.DeclareOutput("public_ip_addresses");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("power_state");
+        this.WithOutput("private_ip_address");
+        this.WithOutput("private_ip_addresses");
+        this.WithOutput("public_ip_address");
+        this.WithOutput("public_ip_addresses");
     }
 
     /// <summary>

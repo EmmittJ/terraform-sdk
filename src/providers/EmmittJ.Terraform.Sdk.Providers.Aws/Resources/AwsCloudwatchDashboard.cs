@@ -14,7 +14,7 @@ public class AwsCloudwatchDashboard : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dashboard_arn");
+        this.WithOutput("dashboard_arn");
     }
 
     /// <summary>

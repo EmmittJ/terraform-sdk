@@ -14,7 +14,7 @@ public class AwsBackupVaultNotifications : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("backup_vault_arn");
+        this.WithOutput("backup_vault_arn");
     }
 
     /// <summary>

@@ -58,9 +58,9 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certs_info");
-        this.DeclareOutput("id");
-        this.DeclareOutput("type");
+        this.WithOutput("certs_info");
+        this.WithOutput("id");
+        this.WithOutput("type");
     }
 
     /// <summary>

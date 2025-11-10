@@ -14,15 +14,15 @@ public class AwsDxConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("aws_device");
-        this.DeclareOutput("bandwidth");
-        this.DeclareOutput("location");
-        this.DeclareOutput("owner_account_id");
-        this.DeclareOutput("partner_name");
-        this.DeclareOutput("provider_name");
-        this.DeclareOutput("state");
-        this.DeclareOutput("vlan_id");
+        this.WithOutput("arn");
+        this.WithOutput("aws_device");
+        this.WithOutput("bandwidth");
+        this.WithOutput("location");
+        this.WithOutput("owner_account_id");
+        this.WithOutput("partner_name");
+        this.WithOutput("provider_name");
+        this.WithOutput("state");
+        this.WithOutput("vlan_id");
     }
 
     /// <summary>

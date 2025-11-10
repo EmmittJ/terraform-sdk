@@ -14,12 +14,12 @@ public class GoogleSecretManagerRegionalSecretVersionDataSource : TerraformDataS
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("customer_managed_encryption");
-        this.DeclareOutput("destroy_time");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("name");
-        this.DeclareOutput("secret_data");
+        this.WithOutput("create_time");
+        this.WithOutput("customer_managed_encryption");
+        this.WithOutput("destroy_time");
+        this.WithOutput("enabled");
+        this.WithOutput("name");
+        this.WithOutput("secret_data");
     }
 
     /// <summary>

@@ -97,9 +97,9 @@ public class GoogleDialogflowCxTestCase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("last_test_result");
-        this.DeclareOutput("name");
+        this.WithOutput("creation_time");
+        this.WithOutput("last_test_result");
+        this.WithOutput("name");
     }
 
     /// <summary>

@@ -76,11 +76,11 @@ public class GoogleKmsCryptoKeyVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("algorithm");
-        this.DeclareOutput("attestation");
-        this.DeclareOutput("generate_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("protection_level");
+        this.WithOutput("algorithm");
+        this.WithOutput("attestation");
+        this.WithOutput("generate_time");
+        this.WithOutput("name");
+        this.WithOutput("protection_level");
     }
 
     /// <summary>

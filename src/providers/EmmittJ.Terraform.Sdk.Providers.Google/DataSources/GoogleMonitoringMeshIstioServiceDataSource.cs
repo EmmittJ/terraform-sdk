@@ -14,11 +14,11 @@ public class GoogleMonitoringMeshIstioServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("name");
-        this.DeclareOutput("service_id");
-        this.DeclareOutput("telemetry");
-        this.DeclareOutput("user_labels");
+        this.WithOutput("display_name");
+        this.WithOutput("name");
+        this.WithOutput("service_id");
+        this.WithOutput("telemetry");
+        this.WithOutput("user_labels");
     }
 
     /// <summary>

@@ -58,20 +58,20 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("build_logs_uri");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("environment");
-        this.DeclareOutput("error");
-        this.DeclareOutput("error_source");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("image");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("build_logs_uri");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("effective_labels");
+        this.WithOutput("environment");
+        this.WithOutput("error");
+        this.WithOutput("error_source");
+        this.WithOutput("etag");
+        this.WithOutput("image");
+        this.WithOutput("name");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

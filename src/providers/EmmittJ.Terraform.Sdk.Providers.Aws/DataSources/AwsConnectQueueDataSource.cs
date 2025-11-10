@@ -14,12 +14,12 @@ public class AwsConnectQueueDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("hours_of_operation_id");
-        this.DeclareOutput("max_contacts");
-        this.DeclareOutput("outbound_caller_config");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("hours_of_operation_id");
+        this.WithOutput("max_contacts");
+        this.WithOutput("outbound_caller_config");
+        this.WithOutput("status");
     }
 
     /// <summary>

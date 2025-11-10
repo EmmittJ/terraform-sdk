@@ -14,9 +14,9 @@ public class AwsRoute53ResolverDnssecConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("validation_status");
+        this.WithOutput("arn");
+        this.WithOutput("owner_id");
+        this.WithOutput("validation_status");
     }
 
     /// <summary>

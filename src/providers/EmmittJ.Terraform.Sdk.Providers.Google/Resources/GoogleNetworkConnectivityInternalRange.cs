@@ -111,9 +111,9 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("users");
+        this.WithOutput("effective_labels");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("users");
     }
 
     /// <summary>

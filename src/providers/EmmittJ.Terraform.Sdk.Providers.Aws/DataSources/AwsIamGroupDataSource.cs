@@ -14,10 +14,10 @@ public class AwsIamGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("group_id");
-        this.DeclareOutput("path");
-        this.DeclareOutput("users");
+        this.WithOutput("arn");
+        this.WithOutput("group_id");
+        this.WithOutput("path");
+        this.WithOutput("users");
     }
 
     /// <summary>

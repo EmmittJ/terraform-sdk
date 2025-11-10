@@ -23,11 +23,11 @@ public class AwsAppmeshMesh : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("last_updated_date");
-        this.DeclareOutput("mesh_owner");
-        this.DeclareOutput("resource_owner");
+        this.WithOutput("arn");
+        this.WithOutput("created_date");
+        this.WithOutput("last_updated_date");
+        this.WithOutput("mesh_owner");
+        this.WithOutput("resource_owner");
     }
 
     /// <summary>

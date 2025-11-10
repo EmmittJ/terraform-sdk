@@ -40,14 +40,14 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("failure_reason");
-        this.DeclareOutput("generated_uri_pattern");
-        this.DeclareOutput("indexing_status");
-        this.DeclareOutput("name");
-        this.DeclareOutput("root_domain_uri");
-        this.DeclareOutput("site_verification_info");
-        this.DeclareOutput("target_site_id");
-        this.DeclareOutput("update_time");
+        this.WithOutput("failure_reason");
+        this.WithOutput("generated_uri_pattern");
+        this.WithOutput("indexing_status");
+        this.WithOutput("name");
+        this.WithOutput("root_domain_uri");
+        this.WithOutput("site_verification_info");
+        this.WithOutput("target_site_id");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

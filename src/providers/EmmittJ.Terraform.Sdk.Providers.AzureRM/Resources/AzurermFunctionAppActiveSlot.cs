@@ -58,7 +58,7 @@ public class AzurermFunctionAppActiveSlot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("last_successful_swap");
+        this.WithOutput("last_successful_swap");
     }
 
     /// <summary>

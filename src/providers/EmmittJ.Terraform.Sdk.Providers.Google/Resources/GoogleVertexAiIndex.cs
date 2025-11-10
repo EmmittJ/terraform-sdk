@@ -100,15 +100,15 @@ public class GoogleVertexAiIndex : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("deployed_indexes");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("index_stats");
-        this.DeclareOutput("metadata_schema_uri");
-        this.DeclareOutput("name");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("deployed_indexes");
+        this.WithOutput("effective_labels");
+        this.WithOutput("etag");
+        this.WithOutput("index_stats");
+        this.WithOutput("metadata_schema_uri");
+        this.WithOutput("name");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

@@ -58,7 +58,7 @@ public class AzurermAutomationDscNodeconfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("configuration_name");
+        this.WithOutput("configuration_name");
     }
 
     /// <summary>

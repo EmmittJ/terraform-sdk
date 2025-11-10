@@ -14,10 +14,10 @@ public class AwsMskconnectWorkerConfigurationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("latest_revision");
-        this.DeclareOutput("properties_file_content");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("latest_revision");
+        this.WithOutput("properties_file_content");
     }
 
     /// <summary>

@@ -14,9 +14,9 @@ public class AwsAuditmanagerAssessmentReport : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("author");
-        this.DeclareOutput("id");
-        this.DeclareOutput("status");
+        this.WithOutput("author");
+        this.WithOutput("id");
+        this.WithOutput("status");
     }
 
     /// <summary>

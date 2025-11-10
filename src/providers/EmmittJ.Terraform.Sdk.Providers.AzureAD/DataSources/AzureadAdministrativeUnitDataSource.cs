@@ -58,9 +58,9 @@ public class AzureadAdministrativeUnitDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("members");
-        this.DeclareOutput("visibility");
+        this.WithOutput("description");
+        this.WithOutput("members");
+        this.WithOutput("visibility");
     }
 
     /// <summary>

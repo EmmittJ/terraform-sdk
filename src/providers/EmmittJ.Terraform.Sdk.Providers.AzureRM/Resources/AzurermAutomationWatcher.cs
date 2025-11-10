@@ -58,7 +58,7 @@ public class AzurermAutomationWatcher : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("status");
+        this.WithOutput("status");
     }
 
     /// <summary>

@@ -31,7 +31,7 @@ public class AzurermSiteRecoveryFabricDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
+        this.WithOutput("location");
     }
 
     /// <summary>

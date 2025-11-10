@@ -540,7 +540,7 @@ public class AzurermServiceFabricCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cluster_endpoint");
+        this.WithOutputluster_endpoint");
     }
 
     /// <summary>

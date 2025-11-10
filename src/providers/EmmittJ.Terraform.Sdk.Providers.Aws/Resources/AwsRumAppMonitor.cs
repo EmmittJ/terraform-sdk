@@ -121,9 +121,9 @@ public class AwsRumAppMonitor : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_monitor_id");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cw_log_group");
+        this.WithOutput("app_monitor_id");
+        this.WithOutput("arn");
+        this.WithOutput("cw_log_group");
     }
 
     /// <summary>

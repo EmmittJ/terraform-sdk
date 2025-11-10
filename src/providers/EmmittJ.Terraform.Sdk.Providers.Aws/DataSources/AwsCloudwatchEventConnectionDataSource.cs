@@ -14,10 +14,10 @@ public class AwsCloudwatchEventConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("authorization_type");
-        this.DeclareOutput("kms_key_identifier");
-        this.DeclareOutput("secret_arn");
+        this.WithOutput("arn");
+        this.WithOutput("authorization_type");
+        this.WithOutput("kms_key_identifier");
+        this.WithOutput("secret_arn");
     }
 
     /// <summary>

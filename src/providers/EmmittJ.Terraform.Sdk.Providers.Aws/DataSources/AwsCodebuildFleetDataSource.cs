@@ -14,20 +14,20 @@ public class AwsCodebuildFleetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("base_capacity");
-        this.DeclareOutput("compute_configuration");
-        this.DeclareOutput("compute_type");
-        this.DeclareOutput("created");
-        this.DeclareOutput("environment_type");
-        this.DeclareOutput("fleet_service_role");
-        this.DeclareOutput("id");
-        this.DeclareOutput("image_id");
-        this.DeclareOutput("last_modified");
-        this.DeclareOutput("overflow_behavior");
-        this.DeclareOutput("scaling_configuration");
-        this.DeclareOutput("status");
-        this.DeclareOutput("vpc_config");
+        this.WithOutput("arn");
+        this.WithOutput("base_capacity");
+        this.WithOutput("compute_configuration");
+        this.WithOutput("compute_type");
+        this.WithOutput("created");
+        this.WithOutput("environment_type");
+        this.WithOutput("fleet_service_role");
+        this.WithOutput("id");
+        this.WithOutput("image_id");
+        this.WithOutput("last_modified");
+        this.WithOutput("overflow_behavior");
+        this.WithOutput("scaling_configuration");
+        this.WithOutput("status");
+        this.WithOutput("vpc_config");
     }
 
     /// <summary>

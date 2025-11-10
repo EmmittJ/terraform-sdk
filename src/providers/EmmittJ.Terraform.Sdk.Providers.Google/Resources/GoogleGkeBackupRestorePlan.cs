@@ -120,11 +120,11 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_reason");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
+        this.WithOutput("effective_labels");
+        this.WithOutput("state");
+        this.WithOutput("state_reason");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
     }
 
     /// <summary>

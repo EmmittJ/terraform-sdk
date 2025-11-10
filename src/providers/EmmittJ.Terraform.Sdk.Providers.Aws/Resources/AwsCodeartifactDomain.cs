@@ -14,12 +14,12 @@ public class AwsCodeartifactDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("asset_size_bytes");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("owner");
-        this.DeclareOutput("repository_count");
-        this.DeclareOutput("s3_bucket_arn");
+        this.WithOutput("arn");
+        this.WithOutput("asset_size_bytes");
+        this.WithOutput("created_time");
+        this.WithOutput("owner");
+        this.WithOutput("repository_count");
+        this.WithOutput("s3_bucket_arn");
     }
 
     /// <summary>

@@ -32,8 +32,8 @@ public class AwsVerifiedpermissionsSchema : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("namespaces");
+        this.WithOutput("id");
+        this.WithOutput("namespaces");
     }
 
     /// <summary>

@@ -14,33 +14,33 @@ public class AwsOdbDbNodeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("additional_details");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("backup_ip_id");
-        this.DeclareOutput("backup_vnic2_id");
-        this.DeclareOutput("backup_vnic_id");
-        this.DeclareOutput("cpu_core_count");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("db_server_id");
-        this.DeclareOutput("db_storage_size_in_gbs");
-        this.DeclareOutput("db_system_id");
-        this.DeclareOutput("fault_domain");
-        this.DeclareOutput("floating_ip_address");
-        this.DeclareOutput("host_ip_id");
-        this.DeclareOutput("hostname");
-        this.DeclareOutput("maintenance_type");
-        this.DeclareOutput("memory_size_in_gbs");
-        this.DeclareOutput("oci_resource_anchor_name");
-        this.DeclareOutput("ocid");
-        this.DeclareOutput("private_ip_address");
-        this.DeclareOutput("software_storage_size_in_gbs");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
-        this.DeclareOutput("time_maintenance_window_end");
-        this.DeclareOutput("time_maintenance_window_start");
-        this.DeclareOutput("total_cpu_core_count");
-        this.DeclareOutput("vnic2_id");
-        this.DeclareOutput("vnic_id");
+        this.WithOutput("additional_details");
+        this.WithOutput("arn");
+        this.WithOutput("backup_ip_id");
+        this.WithOutput("backup_vnic2_id");
+        this.WithOutput("backup_vnic_id");
+        this.WithOutput("cpu_core_count");
+        this.WithOutput("created_at");
+        this.WithOutput("db_server_id");
+        this.WithOutput("db_storage_size_in_gbs");
+        this.WithOutput("db_system_id");
+        this.WithOutput("fault_domain");
+        this.WithOutput("floating_ip_address");
+        this.WithOutput("host_ip_id");
+        this.WithOutput("hostname");
+        this.WithOutput("maintenance_type");
+        this.WithOutput("memory_size_in_gbs");
+        this.WithOutput("oci_resource_anchor_name");
+        this.WithOutput("ocid");
+        this.WithOutput("private_ip_address");
+        this.WithOutput("software_storage_size_in_gbs");
+        this.WithOutput("status");
+        this.WithOutput("status_reason");
+        this.WithOutput("time_maintenance_window_end");
+        this.WithOutput("time_maintenance_window_start");
+        this.WithOutput("total_cpu_core_count");
+        this.WithOutput("vnic2_id");
+        this.WithOutput("vnic_id");
     }
 
     /// <summary>

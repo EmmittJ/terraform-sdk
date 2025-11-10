@@ -49,15 +49,15 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("desired_posture_id");
-        this.DeclareOutput("desired_posture_revision_id");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("failure_message");
-        this.DeclareOutput("name");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("state");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("desired_posture_id");
+        this.WithOutput("desired_posture_revision_id");
+        this.WithOutput("etag");
+        this.WithOutput("failure_message");
+        this.WithOutput("name");
+        this.WithOutput("reconciling");
+        this.WithOutput("state");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

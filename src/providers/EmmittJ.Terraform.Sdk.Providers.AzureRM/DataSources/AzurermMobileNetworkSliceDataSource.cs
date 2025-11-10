@@ -31,10 +31,10 @@ public class AzurermMobileNetworkSliceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("location");
-        this.DeclareOutput("single_network_slice_selection_assistance_information");
-        this.DeclareOutput("tags");
+        this.WithOutput("description");
+        this.WithOutput("location");
+        this.WithOutput("single_network_slice_selection_assistance_information");
+        this.WithOutput("tags");
     }
 
     /// <summary>

@@ -31,8 +31,8 @@ public class AzurermTemplateSpecVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("tags");
-        this.DeclareOutput("template_body");
+        this.WithOutput("tags");
+        this.WithOutput("template_body");
     }
 
     /// <summary>

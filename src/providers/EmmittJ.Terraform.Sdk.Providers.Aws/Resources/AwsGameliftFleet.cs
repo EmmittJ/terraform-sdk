@@ -158,11 +158,11 @@ public class AwsGameliftFleet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("build_arn");
-        this.DeclareOutput("log_paths");
-        this.DeclareOutput("operating_system");
-        this.DeclareOutput("script_arn");
+        this.WithOutput("arn");
+        this.WithOutput("build_arn");
+        this.WithOutput("log_paths");
+        this.WithOutput("operating_system");
+        this.WithOutput("script_arn");
     }
 
     /// <summary>

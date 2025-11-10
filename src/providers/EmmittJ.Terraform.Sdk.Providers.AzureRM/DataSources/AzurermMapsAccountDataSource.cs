@@ -31,10 +31,10 @@ public class AzurermMapsAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("secondary_access_key");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("x_ms_client_id");
+        this.WithOutput("primary_access_key");
+        this.WithOutput("secondary_access_key");
+        this.WithOutput("sku_name");
+        this.WithOutput("x_ms_client_id");
     }
 
     /// <summary>

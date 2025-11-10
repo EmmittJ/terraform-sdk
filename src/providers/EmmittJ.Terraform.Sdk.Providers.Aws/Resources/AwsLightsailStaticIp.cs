@@ -14,9 +14,9 @@ public class AwsLightsailStaticIp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("support_code");
+        this.WithOutput("arn");
+        this.WithOutput("ip_address");
+        this.WithOutput("support_code");
     }
 
     /// <summary>

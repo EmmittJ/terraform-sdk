@@ -14,14 +14,14 @@ public class AwsAppconfigConfigurationProfileDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("kms_key_identifier");
-        this.DeclareOutput("location_uri");
-        this.DeclareOutput("name");
-        this.DeclareOutput("retrieval_role_arn");
-        this.DeclareOutput("type");
-        this.DeclareOutput("validator");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("kms_key_identifier");
+        this.WithOutput("location_uri");
+        this.WithOutput("name");
+        this.WithOutput("retrieval_role_arn");
+        this.WithOutput("type");
+        this.WithOutput("validator");
     }
 
     /// <summary>

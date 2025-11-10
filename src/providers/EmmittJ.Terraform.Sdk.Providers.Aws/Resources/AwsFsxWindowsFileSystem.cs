@@ -177,13 +177,13 @@ public class AwsFsxWindowsFileSystem : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("network_interface_ids");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("preferred_file_server_ip");
-        this.DeclareOutput("remote_administration_endpoint");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("arn");
+        this.WithOutput("dns_name");
+        this.WithOutput("network_interface_ids");
+        this.WithOutput("owner_id");
+        this.WithOutput("preferred_file_server_ip");
+        this.WithOutput("remote_administration_endpoint");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

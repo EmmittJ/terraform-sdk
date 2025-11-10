@@ -114,9 +114,9 @@ public class AwsBackupReportPlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("deployment_status");
+        this.WithOutput("arn");
+        this.WithOutput("creation_time");
+        this.WithOutput("deployment_status");
     }
 
     /// <summary>

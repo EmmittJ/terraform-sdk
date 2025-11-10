@@ -49,15 +49,15 @@ public class GoogleNetappBackup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("backup_region");
-        this.DeclareOutput("backup_type");
-        this.DeclareOutput("chain_storage_bytes");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("volume_region");
-        this.DeclareOutput("volume_usage_bytes");
+        this.WithOutput("backup_region");
+        this.WithOutput("backup_type");
+        this.WithOutput("chain_storage_bytes");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("volume_region");
+        this.WithOutput("volume_usage_bytes");
     }
 
     /// <summary>

@@ -31,8 +31,8 @@ public class AzurermCosmosdbSqlDatabaseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("autoscale_settings");
-        this.DeclareOutput("throughput");
+        this.WithOutput("autoscale_settings");
+        this.WithOutput("throughput");
     }
 
     /// <summary>

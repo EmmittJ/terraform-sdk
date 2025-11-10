@@ -14,9 +14,9 @@ public class AwsElasticBeanstalkApplicationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("appversion_lifecycle");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
+        this.WithOutput("appversion_lifecycle");
+        this.WithOutput("arn");
+        this.WithOutput("description");
     }
 
     /// <summary>

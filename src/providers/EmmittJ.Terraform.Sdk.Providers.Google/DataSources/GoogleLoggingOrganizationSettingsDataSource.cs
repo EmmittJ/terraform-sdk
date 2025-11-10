@@ -14,12 +14,12 @@ public class GoogleLoggingOrganizationSettingsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("disable_default_sink");
-        this.DeclareOutput("kms_key_name");
-        this.DeclareOutput("kms_service_account_id");
-        this.DeclareOutput("logging_service_account_id");
-        this.DeclareOutput("name");
-        this.DeclareOutput("storage_location");
+        this.WithOutput("disable_default_sink");
+        this.WithOutput("kms_key_name");
+        this.WithOutput("kms_service_account_id");
+        this.WithOutput("logging_service_account_id");
+        this.WithOutput("name");
+        this.WithOutput("storage_location");
     }
 
     /// <summary>

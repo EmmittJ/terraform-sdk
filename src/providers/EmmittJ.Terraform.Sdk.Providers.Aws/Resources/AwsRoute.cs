@@ -49,10 +49,10 @@ public class AwsRoute : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("instance_id");
-        this.DeclareOutput("instance_owner_id");
-        this.DeclareOutput("origin");
-        this.DeclareOutput("state");
+        this.WithOutput("instance_id");
+        this.WithOutput("instance_owner_id");
+        this.WithOutput("origin");
+        this.WithOutput("state");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class AwsSecurityhubMember : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("master_id");
-        this.DeclareOutput("member_status");
+        this.WithOutput("master_id");
+        this.WithOutput("member_status");
     }
 
     /// <summary>

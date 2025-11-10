@@ -14,10 +14,10 @@ public class AwsEc2TransitGatewayPeeringAttachmentAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("peer_account_id");
-        this.DeclareOutput("peer_region");
-        this.DeclareOutput("peer_transit_gateway_id");
-        this.DeclareOutput("transit_gateway_id");
+        this.WithOutput("peer_account_id");
+        this.WithOutput("peer_region");
+        this.WithOutput("peer_transit_gateway_id");
+        this.WithOutput("transit_gateway_id");
     }
 
     /// <summary>

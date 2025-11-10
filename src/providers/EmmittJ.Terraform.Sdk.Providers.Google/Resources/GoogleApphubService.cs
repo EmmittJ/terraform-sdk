@@ -58,13 +58,13 @@ public class GoogleApphubService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("service_properties");
-        this.DeclareOutput("service_reference");
-        this.DeclareOutput("state");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("service_properties");
+        this.WithOutput("service_reference");
+        this.WithOutput("state");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

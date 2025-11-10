@@ -630,14 +630,14 @@ public class GoogleComputeInstanceTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("metadata_fingerprint");
-        this.DeclareOutput("numeric_id");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("self_link_unique");
-        this.DeclareOutput("tags_fingerprint");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("effective_labels");
+        this.WithOutput("metadata_fingerprint");
+        this.WithOutput("numeric_id");
+        this.WithOutput("self_link");
+        this.WithOutput("self_link_unique");
+        this.WithOutput("tags_fingerprint");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

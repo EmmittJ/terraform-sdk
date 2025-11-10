@@ -49,9 +49,9 @@ public class AwsWorkspaceswebDataProtectionSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("associated_portal_arns");
-        this.DeclareOutput("data_protection_settings_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("associated_portal_arns");
+        this.WithOutput("data_protection_settings_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

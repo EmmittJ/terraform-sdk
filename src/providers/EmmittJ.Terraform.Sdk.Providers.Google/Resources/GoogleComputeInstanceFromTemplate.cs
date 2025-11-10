@@ -760,16 +760,16 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cpu_platform");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("current_status");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("instance_id");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("metadata_fingerprint");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("tags_fingerprint");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("cpu_platform");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("current_status");
+        this.WithOutput("effective_labels");
+        this.WithOutput("instance_id");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("metadata_fingerprint");
+        this.WithOutput("self_link");
+        this.WithOutput("tags_fingerprint");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

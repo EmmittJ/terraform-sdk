@@ -67,9 +67,9 @@ public class AwsStoragegatewaySmbFileShare : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("fileshare_id");
-        this.DeclareOutput("path");
+        this.WithOutput("arn");
+        this.WithOutput("fileshare_id");
+        this.WithOutput("path");
     }
 
     /// <summary>

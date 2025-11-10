@@ -49,21 +49,21 @@ public class AwsOdbNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("id");
-        this.DeclareOutput("managed_services");
-        this.DeclareOutput("oci_dns_forwarding_configs");
-        this.DeclareOutput("oci_network_anchor_id");
-        this.DeclareOutput("oci_network_anchor_url");
-        this.DeclareOutput("oci_resource_anchor_name");
-        this.DeclareOutput("oci_vcn_id");
-        this.DeclareOutput("oci_vcn_url");
-        this.DeclareOutput("peered_cidrs");
-        this.DeclareOutput("percent_progress");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("id");
+        this.WithOutput("managed_services");
+        this.WithOutput("oci_dns_forwarding_configs");
+        this.WithOutput("oci_network_anchor_id");
+        this.WithOutput("oci_network_anchor_url");
+        this.WithOutput("oci_resource_anchor_name");
+        this.WithOutput("oci_vcn_id");
+        this.WithOutput("oci_vcn_url");
+        this.WithOutput("peered_cidrs");
+        this.WithOutput("percent_progress");
+        this.WithOutput("status");
+        this.WithOutput("status_reason");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

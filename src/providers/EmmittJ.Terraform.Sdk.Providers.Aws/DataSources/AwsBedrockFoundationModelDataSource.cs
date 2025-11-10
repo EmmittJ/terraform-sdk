@@ -14,15 +14,15 @@ public class AwsBedrockFoundationModelDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("customizations_supported");
-        this.DeclareOutput("id");
-        this.DeclareOutput("inference_types_supported");
-        this.DeclareOutput("input_modalities");
-        this.DeclareOutput("model_arn");
-        this.DeclareOutput("model_name");
-        this.DeclareOutput("output_modalities");
-        this.DeclareOutput("provider_name");
-        this.DeclareOutput("response_streaming_supported");
+        this.WithOutput("customizations_supported");
+        this.WithOutput("id");
+        this.WithOutput("inference_types_supported");
+        this.WithOutput("input_modalities");
+        this.WithOutput("model_arn");
+        this.WithOutput("model_name");
+        this.WithOutput("output_modalities");
+        this.WithOutput("provider_name");
+        this.WithOutput("response_streaming_supported");
     }
 
     /// <summary>

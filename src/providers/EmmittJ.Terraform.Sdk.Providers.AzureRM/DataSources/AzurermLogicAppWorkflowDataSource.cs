@@ -31,18 +31,18 @@ public class AzurermLogicAppWorkflowDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_endpoint");
-        this.DeclareOutput("connector_endpoint_ip_addresses");
-        this.DeclareOutput("connector_outbound_ip_addresses");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("logic_app_integration_account_id");
-        this.DeclareOutput("parameters");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("workflow_endpoint_ip_addresses");
-        this.DeclareOutput("workflow_outbound_ip_addresses");
-        this.DeclareOutput("workflow_schema");
-        this.DeclareOutput("workflow_version");
+        this.WithOutput("access_endpoint");
+        this.WithOutput("connector_endpoint_ip_addresses");
+        this.WithOutput("connector_outbound_ip_addresses");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("logic_app_integration_account_id");
+        this.WithOutput("parameters");
+        this.WithOutput("tags");
+        this.WithOutput("workflow_endpoint_ip_addresses");
+        this.WithOutput("workflow_outbound_ip_addresses");
+        this.WithOutput("workflow_schema");
+        this.WithOutput("workflow_version");
     }
 
     /// <summary>

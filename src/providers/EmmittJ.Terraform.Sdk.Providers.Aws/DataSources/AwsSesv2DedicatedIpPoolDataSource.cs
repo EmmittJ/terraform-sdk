@@ -14,9 +14,9 @@ public class AwsSesv2DedicatedIpPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("dedicated_ips");
-        this.DeclareOutput("scaling_mode");
+        this.WithOutput("arn");
+        this.WithOutput("dedicated_ips");
+        this.WithOutput("scaling_mode");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class GoogleOrganizationIamCustomRole : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("deleted");
-        this.DeclareOutput("name");
+        this.WithOutput("deleted");
+        this.WithOutput("name");
     }
 
     /// <summary>

@@ -190,8 +190,8 @@ public class AwsCodepipelineCustomActionType : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("owner");
+        this.WithOutput("arn");
+        this.WithOutput("owner");
     }
 
     /// <summary>

@@ -14,9 +14,9 @@ public class AwsIamUserSshKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("public_key");
-        this.DeclareOutput("status");
+        this.WithOutput("fingerprint");
+        this.WithOutput("public_key");
+        this.WithOutput("status");
     }
 
     /// <summary>

@@ -14,12 +14,12 @@ public class GoogleServiceAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("disabled");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("email");
-        this.DeclareOutput("member");
-        this.DeclareOutput("name");
-        this.DeclareOutput("unique_id");
+        this.WithOutput("disabled");
+        this.WithOutput("display_name");
+        this.WithOutput("email");
+        this.WithOutput("member");
+        this.WithOutput("name");
+        this.WithOutput("unique_id");
     }
 
     /// <summary>

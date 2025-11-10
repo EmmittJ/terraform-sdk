@@ -14,8 +14,8 @@ public class GoogleVmwareengineNsxCredentialsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("password");
-        this.DeclareOutput("username");
+        this.WithOutput("password");
+        this.WithOutput("username");
     }
 
     /// <summary>

@@ -42,8 +42,8 @@ public class AwsImagebuilderDistributionConfigurationsDataSource : TerraformData
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arns");
-        this.DeclareOutput("names");
+        this.WithOutput("arns");
+        this.WithOutput("names");
     }
 
     /// <summary>

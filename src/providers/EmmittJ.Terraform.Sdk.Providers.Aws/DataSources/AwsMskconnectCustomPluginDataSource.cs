@@ -14,10 +14,10 @@ public class AwsMskconnectCustomPluginDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("latest_revision");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("latest_revision");
+        this.WithOutput("state");
     }
 
     /// <summary>

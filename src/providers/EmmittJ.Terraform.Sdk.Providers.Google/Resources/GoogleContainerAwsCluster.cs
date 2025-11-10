@@ -213,15 +213,15 @@ public class GoogleContainerAwsCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("state");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("workload_identity_config");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("endpoint");
+        this.WithOutput("etag");
+        this.WithOutput("reconciling");
+        this.WithOutput("state");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("workload_identity_config");
     }
 
     /// <summary>

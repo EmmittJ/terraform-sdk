@@ -67,7 +67,7 @@ public class AzurermSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("trusted_launch_enabled");
+        this.WithOutputrusted_launch_enabled");
     }
 
     /// <summary>

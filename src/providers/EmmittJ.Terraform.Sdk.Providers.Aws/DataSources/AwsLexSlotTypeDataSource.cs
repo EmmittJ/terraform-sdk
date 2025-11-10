@@ -14,12 +14,12 @@ public class AwsLexSlotTypeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("checksum");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("description");
-        this.DeclareOutput("enumeration_value");
-        this.DeclareOutput("last_updated_date");
-        this.DeclareOutput("value_selection_strategy");
+        this.WithOutput("checksum");
+        this.WithOutput("created_date");
+        this.WithOutput("description");
+        this.WithOutput("enumeration_value");
+        this.WithOutput("last_updated_date");
+        this.WithOutput("value_selection_strategy");
     }
 
     /// <summary>

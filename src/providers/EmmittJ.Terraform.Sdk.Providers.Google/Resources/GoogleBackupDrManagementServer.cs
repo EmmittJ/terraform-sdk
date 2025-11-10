@@ -67,8 +67,8 @@ public class GoogleBackupDrManagementServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("management_uri");
-        this.DeclareOutput("oauth2_client_id");
+        this.WithOutput("management_uri");
+        this.WithOutput("oauth2_client_id");
     }
 
     /// <summary>

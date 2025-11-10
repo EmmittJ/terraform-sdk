@@ -14,15 +14,15 @@ public class AwsDxConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("aws_device");
-        this.DeclareOutput("has_logical_redundancy");
-        this.DeclareOutput("jumbo_frame_capable");
-        this.DeclareOutput("macsec_capable");
-        this.DeclareOutput("owner_account_id");
-        this.DeclareOutput("partner_name");
-        this.DeclareOutput("port_encryption_status");
-        this.DeclareOutput("vlan_id");
+        this.WithOutput("arn");
+        this.WithOutput("aws_device");
+        this.WithOutput("has_logical_redundancy");
+        this.WithOutput("jumbo_frame_capable");
+        this.WithOutput("macsec_capable");
+        this.WithOutput("owner_account_id");
+        this.WithOutput("partner_name");
+        this.WithOutput("port_encryption_status");
+        this.WithOutput("vlan_id");
     }
 
     /// <summary>

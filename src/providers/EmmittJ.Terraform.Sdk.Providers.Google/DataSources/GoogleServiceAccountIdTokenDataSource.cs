@@ -14,7 +14,7 @@ public class GoogleServiceAccountIdTokenDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id_token");
+        this.WithOutput("id_token");
     }
 
     /// <summary>

@@ -58,10 +58,10 @@ public class AzurermMonitorDataCollectionEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("configuration_access_endpoint");
-        this.DeclareOutput("immutable_id");
-        this.DeclareOutput("logs_ingestion_endpoint");
-        this.DeclareOutput("metrics_ingestion_endpoint");
+        this.WithOutput("configuration_access_endpoint");
+        this.WithOutput("immutable_id");
+        this.WithOutput("logs_ingestion_endpoint");
+        this.WithOutput("metrics_ingestion_endpoint");
     }
 
     /// <summary>

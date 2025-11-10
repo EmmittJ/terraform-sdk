@@ -49,7 +49,7 @@ public class AwsCloudcontrolapiResource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("properties");
+        this.WithOutput("properties");
     }
 
     /// <summary>

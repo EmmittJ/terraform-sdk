@@ -105,9 +105,9 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("expire_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
+        this.WithOutput("expire_time");
+        this.WithOutput("name");
+        this.WithOutput("state");
     }
 
     /// <summary>

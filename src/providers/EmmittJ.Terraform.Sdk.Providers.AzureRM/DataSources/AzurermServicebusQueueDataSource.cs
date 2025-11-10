@@ -31,24 +31,24 @@ public class AzurermServicebusQueueDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("auto_delete_on_idle");
-        this.DeclareOutput("batched_operations_enabled");
-        this.DeclareOutput("dead_lettering_on_message_expiration");
-        this.DeclareOutput("default_message_ttl");
-        this.DeclareOutput("duplicate_detection_history_time_window");
-        this.DeclareOutput("enable_batched_operations");
-        this.DeclareOutput("enable_express");
-        this.DeclareOutput("enable_partitioning");
-        this.DeclareOutput("express_enabled");
-        this.DeclareOutput("forward_dead_lettered_messages_to");
-        this.DeclareOutput("forward_to");
-        this.DeclareOutput("lock_duration");
-        this.DeclareOutput("max_delivery_count");
-        this.DeclareOutput("max_size_in_megabytes");
-        this.DeclareOutput("partitioning_enabled");
-        this.DeclareOutput("requires_duplicate_detection");
-        this.DeclareOutput("requires_session");
-        this.DeclareOutput("status");
+        this.WithOutput("auto_delete_on_idle");
+        this.WithOutput("batched_operations_enabled");
+        this.WithOutput("dead_lettering_on_message_expiration");
+        this.WithOutput("default_message_ttl");
+        this.WithOutput("duplicate_detection_history_time_window");
+        this.WithOutput("enable_batched_operations");
+        this.WithOutput("enable_express");
+        this.WithOutput("enable_partitioning");
+        this.WithOutput("express_enabled");
+        this.WithOutput("forward_dead_lettered_messages_to");
+        this.WithOutput("forward_to");
+        this.WithOutput("lock_duration");
+        this.WithOutput("max_delivery_count");
+        this.WithOutput("max_size_in_megabytes");
+        this.WithOutput("partitioning_enabled");
+        this.WithOutput("requires_duplicate_detection");
+        this.WithOutput("requires_session");
+        this.WithOutput("status");
     }
 
     /// <summary>

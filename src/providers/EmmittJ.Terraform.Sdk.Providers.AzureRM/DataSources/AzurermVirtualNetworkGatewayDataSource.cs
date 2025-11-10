@@ -31,20 +31,20 @@ public class AzurermVirtualNetworkGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("active_active");
-        this.DeclareOutput("bgp_settings");
-        this.DeclareOutput("custom_route");
-        this.DeclareOutput("default_local_network_gateway_id");
-        this.DeclareOutput("enable_bgp");
-        this.DeclareOutput("generation");
-        this.DeclareOutput("ip_configuration");
-        this.DeclareOutput("location");
-        this.DeclareOutput("private_ip_address_enabled");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("type");
-        this.DeclareOutput("vpn_client_configuration");
-        this.DeclareOutput("vpn_type");
+        this.WithOutput("active_active");
+        this.WithOutput("bgp_settings");
+        this.WithOutput("custom_route");
+        this.WithOutput("default_local_network_gateway_id");
+        this.WithOutput("enable_bgp");
+        this.WithOutput("generation");
+        this.WithOutput("ip_configuration");
+        this.WithOutput("location");
+        this.WithOutput("private_ip_address_enabled");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
+        this.WithOutput("type");
+        this.WithOutput("vpn_client_configuration");
+        this.WithOutput("vpn_type");
     }
 
     /// <summary>

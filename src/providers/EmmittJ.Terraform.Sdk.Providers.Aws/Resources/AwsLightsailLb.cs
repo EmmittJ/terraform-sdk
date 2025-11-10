@@ -14,12 +14,12 @@ public class AwsLightsailLb : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("protocol");
-        this.DeclareOutput("public_ports");
-        this.DeclareOutput("support_code");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("dns_name");
+        this.WithOutput("protocol");
+        this.WithOutput("public_ports");
+        this.WithOutput("support_code");
     }
 
     /// <summary>

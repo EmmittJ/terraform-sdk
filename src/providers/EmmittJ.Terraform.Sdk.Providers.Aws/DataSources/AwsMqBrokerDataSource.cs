@@ -14,24 +14,24 @@ public class AwsMqBrokerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("authentication_strategy");
-        this.DeclareOutput("auto_minor_version_upgrade");
-        this.DeclareOutput("configuration");
-        this.DeclareOutput("deployment_mode");
-        this.DeclareOutput("encryption_options");
-        this.DeclareOutput("engine_type");
-        this.DeclareOutput("engine_version");
-        this.DeclareOutput("host_instance_type");
-        this.DeclareOutput("instances");
-        this.DeclareOutput("ldap_server_metadata");
-        this.DeclareOutput("logs");
-        this.DeclareOutput("maintenance_window_start_time");
-        this.DeclareOutput("publicly_accessible");
-        this.DeclareOutput("security_groups");
-        this.DeclareOutput("storage_type");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("user");
+        this.WithOutput("arn");
+        this.WithOutput("authentication_strategy");
+        this.WithOutput("auto_minor_version_upgrade");
+        this.WithOutput("configuration");
+        this.WithOutput("deployment_mode");
+        this.WithOutput("encryption_options");
+        this.WithOutput("engine_type");
+        this.WithOutput("engine_version");
+        this.WithOutput("host_instance_type");
+        this.WithOutput("instances");
+        this.WithOutput("ldap_server_metadata");
+        this.WithOutput("logs");
+        this.WithOutput("maintenance_window_start_time");
+        this.WithOutput("publicly_accessible");
+        this.WithOutput("security_groups");
+        this.WithOutput("storage_type");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("user");
     }
 
     /// <summary>

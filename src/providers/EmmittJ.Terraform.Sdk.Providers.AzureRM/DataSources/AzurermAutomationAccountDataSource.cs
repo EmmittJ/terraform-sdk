@@ -31,12 +31,12 @@ public class AzurermAutomationAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("hybrid_service_url");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("primary_key");
-        this.DeclareOutput("private_endpoint_connection");
-        this.DeclareOutput("secondary_key");
+        this.WithOutput("endpoint");
+        this.WithOutput("hybrid_service_url");
+        this.WithOutput("identity");
+        this.WithOutput("primary_key");
+        this.WithOutput("private_endpoint_connection");
+        this.WithOutput("secondary_key");
     }
 
     /// <summary>

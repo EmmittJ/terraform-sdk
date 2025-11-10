@@ -76,11 +76,11 @@ public class GoogleChronicleReferenceList : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("name");
-        this.DeclareOutput("revision_create_time");
-        this.DeclareOutput("rule_associations_count");
-        this.DeclareOutput("rules");
+        this.WithOutput("display_name");
+        this.WithOutput("name");
+        this.WithOutput("revision_create_time");
+        this.WithOutput("rule_associations_count");
+        this.WithOutput("rules");
     }
 
     /// <summary>

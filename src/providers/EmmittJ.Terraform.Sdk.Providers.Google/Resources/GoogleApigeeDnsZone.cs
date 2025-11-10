@@ -69,7 +69,7 @@ public class GoogleApigeeDnsZone : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
+        this.WithOutput("name");
     }
 
     /// <summary>

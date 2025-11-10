@@ -32,9 +32,9 @@ public class AwsSagemakerNotebookInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("network_interface_id");
-        this.DeclareOutput("url");
+        this.WithOutput("arn");
+        this.WithOutput("network_interface_id");
+        this.WithOutput("url");
     }
 
     /// <summary>

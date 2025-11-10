@@ -49,21 +49,21 @@ public class AwsWorkspaceswebPortal : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("browser_type");
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("data_protection_settings_arn");
-        this.DeclareOutput("ip_access_settings_arn");
-        this.DeclareOutput("network_settings_arn");
-        this.DeclareOutput("portal_arn");
-        this.DeclareOutput("portal_endpoint");
-        this.DeclareOutput("portal_status");
-        this.DeclareOutput("renderer_type");
-        this.DeclareOutput("session_logger_arn");
-        this.DeclareOutput("status_reason");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("trust_store_arn");
-        this.DeclareOutput("user_access_logging_settings_arn");
-        this.DeclareOutput("user_settings_arn");
+        this.WithOutput("browser_type");
+        this.WithOutput("creation_date");
+        this.WithOutput("data_protection_settings_arn");
+        this.WithOutput("ip_access_settings_arn");
+        this.WithOutput("network_settings_arn");
+        this.WithOutput("portal_arn");
+        this.WithOutput("portal_endpoint");
+        this.WithOutput("portal_status");
+        this.WithOutput("renderer_type");
+        this.WithOutput("session_logger_arn");
+        this.WithOutput("status_reason");
+        this.WithOutput("tags_all");
+        this.WithOutput("trust_store_arn");
+        this.WithOutput("user_access_logging_settings_arn");
+        this.WithOutput("user_settings_arn");
     }
 
     /// <summary>

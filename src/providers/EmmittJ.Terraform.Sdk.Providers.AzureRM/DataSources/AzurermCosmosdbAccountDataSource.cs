@@ -31,35 +31,35 @@ public class AzurermCosmosdbAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("automatic_failover_enabled");
-        this.DeclareOutput("capabilities");
-        this.DeclareOutput("consistency_policy");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("free_tier_enabled");
-        this.DeclareOutput("geo_location");
-        this.DeclareOutput("ip_range_filter");
-        this.DeclareOutput("is_virtual_network_filter_enabled");
-        this.DeclareOutput("key_vault_key_id");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("location");
-        this.DeclareOutput("multiple_write_locations_enabled");
-        this.DeclareOutput("offer_type");
-        this.DeclareOutput("primary_key");
-        this.DeclareOutput("primary_mongodb_connection_string");
-        this.DeclareOutput("primary_readonly_key");
-        this.DeclareOutput("primary_readonly_mongodb_connection_string");
-        this.DeclareOutput("primary_readonly_sql_connection_string");
-        this.DeclareOutput("primary_sql_connection_string");
-        this.DeclareOutput("read_endpoints");
-        this.DeclareOutput("secondary_key");
-        this.DeclareOutput("secondary_mongodb_connection_string");
-        this.DeclareOutput("secondary_readonly_key");
-        this.DeclareOutput("secondary_readonly_mongodb_connection_string");
-        this.DeclareOutput("secondary_readonly_sql_connection_string");
-        this.DeclareOutput("secondary_sql_connection_string");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("virtual_network_rule");
-        this.DeclareOutput("write_endpoints");
+        this.WithOutput("automatic_failover_enabled");
+        this.WithOutput("capabilities");
+        this.WithOutput("consistency_policy");
+        this.WithOutput("endpoint");
+        this.WithOutput("free_tier_enabled");
+        this.WithOutput("geo_location");
+        this.WithOutput("ip_range_filter");
+        this.WithOutput("is_virtual_network_filter_enabled");
+        this.WithOutput("key_vault_key_id");
+        this.WithOutput("kind");
+        this.WithOutput("location");
+        this.WithOutput("multiple_write_locations_enabled");
+        this.WithOutput("offer_type");
+        this.WithOutput("primary_key");
+        this.WithOutput("primary_mongodb_connection_string");
+        this.WithOutput("primary_readonly_key");
+        this.WithOutput("primary_readonly_mongodb_connection_string");
+        this.WithOutput("primary_readonly_sql_connection_string");
+        this.WithOutput("primary_sql_connection_string");
+        this.WithOutput("read_endpoints");
+        this.WithOutput("secondary_key");
+        this.WithOutput("secondary_mongodb_connection_string");
+        this.WithOutput("secondary_readonly_key");
+        this.WithOutput("secondary_readonly_mongodb_connection_string");
+        this.WithOutput("secondary_readonly_sql_connection_string");
+        this.WithOutput("secondary_sql_connection_string");
+        this.WithOutput("tags");
+        this.WithOutput("virtual_network_rule");
+        this.WithOutput("write_endpoints");
     }
 
     /// <summary>

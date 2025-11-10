@@ -176,13 +176,13 @@ public class GoogleComputeFirewallPolicyWithRules : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("policy_id");
-        this.DeclareOutput("predefined_rules");
-        this.DeclareOutput("rule_tuple_count");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("self_link_with_id");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("fingerprint");
+        this.WithOutput("policy_id");
+        this.WithOutput("predefined_rules");
+        this.WithOutput("rule_tuple_count");
+        this.WithOutput("self_link");
+        this.WithOutput("self_link_with_id");
     }
 
     /// <summary>

@@ -42,8 +42,8 @@ public class AwsIotProvisioningTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("default_version_id");
+        this.WithOutput("arn");
+        this.WithOutput("default_version_id");
     }
 
     /// <summary>

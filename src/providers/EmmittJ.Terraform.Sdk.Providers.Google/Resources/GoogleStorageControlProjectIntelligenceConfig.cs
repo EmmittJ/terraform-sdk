@@ -58,9 +58,9 @@ public class GoogleStorageControlProjectIntelligenceConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_intelligence_config");
-        this.DeclareOutput("trial_config");
-        this.DeclareOutput("update_time");
+        this.WithOutput("effective_intelligence_config");
+        this.WithOutput("trial_config");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

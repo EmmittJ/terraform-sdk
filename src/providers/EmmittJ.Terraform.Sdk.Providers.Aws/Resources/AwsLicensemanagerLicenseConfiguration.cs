@@ -14,8 +14,8 @@ public class AwsLicensemanagerLicenseConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("owner_account_id");
+        this.WithOutput("arn");
+        this.WithOutput("owner_account_id");
     }
 
     /// <summary>

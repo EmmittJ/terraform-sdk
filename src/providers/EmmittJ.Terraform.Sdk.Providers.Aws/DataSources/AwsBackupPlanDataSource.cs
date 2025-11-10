@@ -14,10 +14,10 @@ public class AwsBackupPlanDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("name");
-        this.DeclareOutput("rule");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("name");
+        this.WithOutput("rule");
+        this.WithOutput("version");
     }
 
     /// <summary>

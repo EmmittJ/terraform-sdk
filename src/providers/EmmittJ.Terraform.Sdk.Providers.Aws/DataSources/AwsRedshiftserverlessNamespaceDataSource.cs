@@ -14,14 +14,14 @@ public class AwsRedshiftserverlessNamespaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("admin_username");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("db_name");
-        this.DeclareOutput("default_iam_role_arn");
-        this.DeclareOutput("iam_roles");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("log_exports");
-        this.DeclareOutput("namespace_id");
+        this.WithOutput("admin_username");
+        this.WithOutput("arn");
+        this.WithOutput("db_name");
+        this.WithOutput("default_iam_role_arn");
+        this.WithOutput("iam_roles");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("log_exports");
+        this.WithOutput("namespace_id");
     }
 
     /// <summary>

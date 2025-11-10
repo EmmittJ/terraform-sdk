@@ -31,28 +31,28 @@ public class AzurermVirtualNetworkGatewayConnectionDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("authorization_key");
-        this.DeclareOutput("connection_protocol");
-        this.DeclareOutput("dpd_timeout_seconds");
-        this.DeclareOutput("egress_bytes_transferred");
-        this.DeclareOutput("enable_bgp");
-        this.DeclareOutput("express_route_circuit_id");
-        this.DeclareOutput("express_route_gateway_bypass");
-        this.DeclareOutput("ingress_bytes_transferred");
-        this.DeclareOutput("ipsec_policy");
-        this.DeclareOutput("local_azure_ip_address_enabled");
-        this.DeclareOutput("local_network_gateway_id");
-        this.DeclareOutput("location");
-        this.DeclareOutput("peer_virtual_network_gateway_id");
-        this.DeclareOutput("private_link_fast_path_enabled");
-        this.DeclareOutput("resource_guid");
-        this.DeclareOutput("routing_weight");
-        this.DeclareOutput("shared_key");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("traffic_selector_policy");
-        this.DeclareOutput("type");
-        this.DeclareOutput("use_policy_based_traffic_selectors");
-        this.DeclareOutput("virtual_network_gateway_id");
+        this.WithOutput("authorization_key");
+        this.WithOutput("connection_protocol");
+        this.WithOutput("dpd_timeout_seconds");
+        this.WithOutput("egress_bytes_transferred");
+        this.WithOutput("enable_bgp");
+        this.WithOutput("express_route_circuit_id");
+        this.WithOutput("express_route_gateway_bypass");
+        this.WithOutput("ingress_bytes_transferred");
+        this.WithOutput("ipsec_policy");
+        this.WithOutput("local_azure_ip_address_enabled");
+        this.WithOutput("local_network_gateway_id");
+        this.WithOutput("location");
+        this.WithOutput("peer_virtual_network_gateway_id");
+        this.WithOutput("private_link_fast_path_enabled");
+        this.WithOutput("resource_guid");
+        this.WithOutput("routing_weight");
+        this.WithOutput("shared_key");
+        this.WithOutput("tags");
+        this.WithOutput("traffic_selector_policy");
+        this.WithOutput("type");
+        this.WithOutput("use_policy_based_traffic_selectors");
+        this.WithOutput("virtual_network_gateway_id");
     }
 
     /// <summary>

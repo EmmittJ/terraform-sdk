@@ -14,14 +14,14 @@ public class GoogleSpannerDatabaseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("database_dialect");
-        this.DeclareOutput("ddl");
-        this.DeclareOutput("default_time_zone");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("enable_drop_protection");
-        this.DeclareOutput("encryption_config");
-        this.DeclareOutput("state");
-        this.DeclareOutput("version_retention_period");
+        this.WithOutput("database_dialect");
+        this.WithOutput("ddl");
+        this.WithOutput("default_time_zone");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("enable_drop_protection");
+        this.WithOutput("encryption_config");
+        this.WithOutput("state");
+        this.WithOutput("version_retention_period");
     }
 
     /// <summary>

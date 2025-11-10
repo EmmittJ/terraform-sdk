@@ -14,7 +14,7 @@ public class AwsS3BucketPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("policy");
+        this.WithOutput("policy");
     }
 
     /// <summary>

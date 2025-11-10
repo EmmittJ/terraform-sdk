@@ -49,9 +49,9 @@ public class GoogleSccEventThreatDetectionCustomModule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("last_editor");
-        this.DeclareOutput("name");
-        this.DeclareOutput("update_time");
+        this.WithOutput("last_editor");
+        this.WithOutput("name");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

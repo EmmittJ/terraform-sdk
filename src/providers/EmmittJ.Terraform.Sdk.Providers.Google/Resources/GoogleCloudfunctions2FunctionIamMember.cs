@@ -52,7 +52,7 @@ public class GoogleCloudfunctions2FunctionIamMember : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

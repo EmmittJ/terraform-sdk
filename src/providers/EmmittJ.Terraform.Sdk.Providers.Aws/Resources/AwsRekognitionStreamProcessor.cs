@@ -116,9 +116,9 @@ public class AwsRekognitionStreamProcessor : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("stream_processor_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("stream_processor_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

@@ -14,18 +14,18 @@ public class GoogleVmwareengineExternalAccessRuleDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("action");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("destination_ip_ranges");
-        this.DeclareOutput("destination_ports");
-        this.DeclareOutput("ip_protocol");
-        this.DeclareOutput("priority");
-        this.DeclareOutput("source_ip_ranges");
-        this.DeclareOutput("source_ports");
-        this.DeclareOutput("state");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("action");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("destination_ip_ranges");
+        this.WithOutput("destination_ports");
+        this.WithOutput("ip_protocol");
+        this.WithOutput("priority");
+        this.WithOutput("source_ip_ranges");
+        this.WithOutput("source_ports");
+        this.WithOutput("state");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

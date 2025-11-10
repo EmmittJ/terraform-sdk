@@ -58,10 +58,10 @@ public class AzurermKeyVaultSecret : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_id");
-        this.DeclareOutput("resource_versionless_id");
-        this.DeclareOutput("version");
-        this.DeclareOutput("versionless_id");
+        this.WithOutput("resource_id");
+        this.WithOutput("resource_versionless_id");
+        this.WithOutput("version");
+        this.WithOutput("versionless_id");
     }
 
     /// <summary>

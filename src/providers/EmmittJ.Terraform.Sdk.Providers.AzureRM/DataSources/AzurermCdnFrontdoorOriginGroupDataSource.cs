@@ -31,11 +31,11 @@ public class AzurermCdnFrontdoorOriginGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cdn_frontdoor_profile_id");
-        this.DeclareOutput("health_probe");
-        this.DeclareOutput("load_balancing");
-        this.DeclareOutput("restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
-        this.DeclareOutput("session_affinity_enabled");
+        this.WithOutput("cdn_frontdoor_profile_id");
+        this.WithOutput("health_probe");
+        this.WithOutput("load_balancing");
+        this.WithOutput("restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
+        this.WithOutput("session_affinity_enabled");
     }
 
     /// <summary>

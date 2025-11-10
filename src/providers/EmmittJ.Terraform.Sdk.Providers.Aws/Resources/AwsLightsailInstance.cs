@@ -53,15 +53,15 @@ public class AwsLightsailInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cpu_count");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("ipv6_addresses");
-        this.DeclareOutput("is_static_ip");
-        this.DeclareOutput("private_ip_address");
-        this.DeclareOutput("public_ip_address");
-        this.DeclareOutput("ram_size");
-        this.DeclareOutput("username");
+        this.WithOutput("arn");
+        this.WithOutput("cpu_count");
+        this.WithOutput("created_at");
+        this.WithOutput("ipv6_addresses");
+        this.WithOutput("is_static_ip");
+        this.WithOutput("private_ip_address");
+        this.WithOutput("public_ip_address");
+        this.WithOutput("ram_size");
+        this.WithOutput("username");
     }
 
     /// <summary>

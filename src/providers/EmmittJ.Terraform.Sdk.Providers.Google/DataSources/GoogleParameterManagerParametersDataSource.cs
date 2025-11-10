@@ -14,7 +14,7 @@ public class GoogleParameterManagerParametersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("parameters");
+        this.WithOutput("parameters");
     }
 
     /// <summary>

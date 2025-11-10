@@ -14,8 +14,8 @@ public class AwsSesDomainIdentityDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("verification_token");
+        this.WithOutput("arn");
+        this.WithOutput("verification_token");
     }
 
     /// <summary>

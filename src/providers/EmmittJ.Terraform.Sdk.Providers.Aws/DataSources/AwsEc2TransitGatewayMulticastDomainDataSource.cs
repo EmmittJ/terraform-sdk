@@ -59,17 +59,17 @@ public class AwsEc2TransitGatewayMulticastDomainDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("associations");
-        this.DeclareOutput("auto_accept_shared_associations");
-        this.DeclareOutput("igmpv2_support");
-        this.DeclareOutput("members");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("sources");
-        this.DeclareOutput("state");
-        this.DeclareOutput("static_sources_support");
-        this.DeclareOutput("transit_gateway_attachment_id");
-        this.DeclareOutput("transit_gateway_id");
+        this.WithOutput("arn");
+        this.WithOutput("associations");
+        this.WithOutput("auto_accept_shared_associations");
+        this.WithOutput("igmpv2_support");
+        this.WithOutput("members");
+        this.WithOutput("owner_id");
+        this.WithOutput("sources");
+        this.WithOutput("state");
+        this.WithOutput("static_sources_support");
+        this.WithOutput("transit_gateway_attachment_id");
+        this.WithOutput("transit_gateway_id");
     }
 
     /// <summary>

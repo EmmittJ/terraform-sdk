@@ -58,7 +58,7 @@ public class AzurermNotificationHubNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("servicebus_endpoint");
+        this.WithOutput("servicebus_endpoint");
     }
 
     /// <summary>

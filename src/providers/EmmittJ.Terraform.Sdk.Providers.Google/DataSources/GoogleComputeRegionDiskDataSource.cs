@@ -14,35 +14,35 @@ public class GoogleComputeRegionDiskDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_mode");
-        this.DeclareOutput("async_primary_disk");
-        this.DeclareOutput("create_snapshot_before_destroy");
-        this.DeclareOutput("create_snapshot_before_destroy_prefix");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("description");
-        this.DeclareOutput("disk_encryption_key");
-        this.DeclareOutput("disk_id");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("guest_os_features");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("last_attach_timestamp");
-        this.DeclareOutput("last_detach_timestamp");
-        this.DeclareOutput("licenses");
-        this.DeclareOutput("physical_block_size_bytes");
-        this.DeclareOutput("provisioned_iops");
-        this.DeclareOutput("provisioned_throughput");
-        this.DeclareOutput("replica_zones");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("size");
-        this.DeclareOutput("snapshot");
-        this.DeclareOutput("source_disk");
-        this.DeclareOutput("source_disk_id");
-        this.DeclareOutput("source_snapshot_encryption_key");
-        this.DeclareOutput("source_snapshot_id");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("type");
-        this.DeclareOutput("users");
+        this.WithOutput("access_mode");
+        this.WithOutput("async_primary_disk");
+        this.WithOutput("create_snapshot_before_destroy");
+        this.WithOutput("create_snapshot_before_destroy_prefix");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("description");
+        this.WithOutput("disk_encryption_key");
+        this.WithOutput("disk_id");
+        this.WithOutput("effective_labels");
+        this.WithOutput("guest_os_features");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("labels");
+        this.WithOutput("last_attach_timestamp");
+        this.WithOutput("last_detach_timestamp");
+        this.WithOutput("licenses");
+        this.WithOutput("physical_block_size_bytes");
+        this.WithOutput("provisioned_iops");
+        this.WithOutput("provisioned_throughput");
+        this.WithOutput("replica_zones");
+        this.WithOutput("self_link");
+        this.WithOutput("size");
+        this.WithOutput("snapshot");
+        this.WithOutput("source_disk");
+        this.WithOutput("source_disk_id");
+        this.WithOutput("source_snapshot_encryption_key");
+        this.WithOutput("source_snapshot_id");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("type");
+        this.WithOutput("users");
     }
 
     /// <summary>

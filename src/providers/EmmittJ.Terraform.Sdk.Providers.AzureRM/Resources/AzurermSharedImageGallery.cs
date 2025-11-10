@@ -77,7 +77,7 @@ public class AzurermSharedImageGallery : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("unique_name");
+        this.WithOutput("unique_name");
     }
 
     /// <summary>

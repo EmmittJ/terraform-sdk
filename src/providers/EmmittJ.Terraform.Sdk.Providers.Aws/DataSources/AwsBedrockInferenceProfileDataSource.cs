@@ -14,14 +14,14 @@ public class AwsBedrockInferenceProfileDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("description");
-        this.DeclareOutput("inference_profile_arn");
-        this.DeclareOutput("inference_profile_name");
-        this.DeclareOutput("models");
-        this.DeclareOutput("status");
-        this.DeclareOutput("type");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("created_at");
+        this.WithOutput("description");
+        this.WithOutput("inference_profile_arn");
+        this.WithOutput("inference_profile_name");
+        this.WithOutput("models");
+        this.WithOutput("status");
+        this.WithOutput("type");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

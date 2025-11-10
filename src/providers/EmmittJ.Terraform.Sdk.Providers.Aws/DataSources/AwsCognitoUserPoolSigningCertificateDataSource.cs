@@ -14,7 +14,7 @@ public class AwsCognitoUserPoolSigningCertificateDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate");
+        this.WithOutput("certificate");
     }
 
     /// <summary>

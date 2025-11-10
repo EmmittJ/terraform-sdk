@@ -31,9 +31,9 @@ public class AzurermNetworkDdosProtectionPlanDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("virtual_network_ids");
+        this.WithOutput("location");
+        this.WithOutput("tags");
+        this.WithOutput("virtual_network_ids");
     }
 
     /// <summary>

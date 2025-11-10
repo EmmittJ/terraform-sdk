@@ -158,7 +158,7 @@ public class AwsComprehendDocumentClassifier : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutputrn");
     }
 
     /// <summary>

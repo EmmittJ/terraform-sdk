@@ -14,15 +14,15 @@ public class AwsGlobalacceleratorAcceleratorDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attributes");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("dual_stack_dns_name");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("hosted_zone_id");
-        this.DeclareOutput("id");
-        this.DeclareOutput("ip_address_type");
-        this.DeclareOutput("ip_sets");
-        this.DeclareOutput("tags");
+        this.WithOutput("attributes");
+        this.WithOutput("dns_name");
+        this.WithOutput("dual_stack_dns_name");
+        this.WithOutput("enabled");
+        this.WithOutput("hosted_zone_id");
+        this.WithOutput("id");
+        this.WithOutput("ip_address_type");
+        this.WithOutput("ip_sets");
+        this.WithOutput("tags");
     }
 
     /// <summary>

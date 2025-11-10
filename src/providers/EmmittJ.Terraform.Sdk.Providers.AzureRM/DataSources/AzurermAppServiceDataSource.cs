@@ -32,24 +32,24 @@ public class AzurermAppServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_service_plan_id");
-        this.DeclareOutput("app_settings");
-        this.DeclareOutput("client_affinity_enabled");
-        this.DeclareOutput("client_cert_enabled");
-        this.DeclareOutput("connection_string");
-        this.DeclareOutput("custom_domain_verification_id");
-        this.DeclareOutput("default_site_hostname");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("https_only");
-        this.DeclareOutput("location");
-        this.DeclareOutput("outbound_ip_address_list");
-        this.DeclareOutput("outbound_ip_addresses");
-        this.DeclareOutput("possible_outbound_ip_address_list");
-        this.DeclareOutput("possible_outbound_ip_addresses");
-        this.DeclareOutput("site_config");
-        this.DeclareOutput("site_credential");
-        this.DeclareOutput("source_control");
-        this.DeclareOutput("tags");
+        this.WithOutput("app_service_plan_id");
+        this.WithOutput("app_settings");
+        this.WithOutput("client_affinity_enabled");
+        this.WithOutput("client_cert_enabled");
+        this.WithOutput("connection_string");
+        this.WithOutput("custom_domain_verification_id");
+        this.WithOutput("default_site_hostname");
+        this.WithOutput("enabled");
+        this.WithOutput("https_only");
+        this.WithOutput("location");
+        this.WithOutput("outbound_ip_address_list");
+        this.WithOutput("outbound_ip_addresses");
+        this.WithOutput("possible_outbound_ip_address_list");
+        this.WithOutput("possible_outbound_ip_addresses");
+        this.WithOutput("site_config");
+        this.WithOutput("site_credential");
+        this.WithOutput("source_control");
+        this.WithOutput("tags");
     }
 
     /// <summary>

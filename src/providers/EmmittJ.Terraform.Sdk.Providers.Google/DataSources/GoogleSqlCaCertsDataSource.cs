@@ -14,8 +14,8 @@ public class GoogleSqlCaCertsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("active_version");
-        this.DeclareOutput("certs");
+        this.WithOutput("active_version");
+        this.WithOutput("certs");
     }
 
     /// <summary>

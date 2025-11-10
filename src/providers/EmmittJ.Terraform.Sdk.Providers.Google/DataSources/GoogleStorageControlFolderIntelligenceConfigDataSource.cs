@@ -14,11 +14,11 @@ public class GoogleStorageControlFolderIntelligenceConfigDataSource : TerraformD
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("edition_config");
-        this.DeclareOutput("effective_intelligence_config");
-        this.DeclareOutput("filter");
-        this.DeclareOutput("trial_config");
-        this.DeclareOutput("update_time");
+        this.WithOutput("edition_config");
+        this.WithOutput("effective_intelligence_config");
+        this.WithOutput("filter");
+        this.WithOutput("trial_config");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

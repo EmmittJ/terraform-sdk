@@ -14,13 +14,13 @@ public class AwsSecurityhubStandardsControl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("control_id");
-        this.DeclareOutput("control_status_updated_at");
-        this.DeclareOutput("description");
-        this.DeclareOutput("related_requirements");
-        this.DeclareOutput("remediation_url");
-        this.DeclareOutput("severity_rating");
-        this.DeclareOutput("title");
+        this.WithOutput("control_id");
+        this.WithOutput("control_status_updated_at");
+        this.WithOutput("description");
+        this.WithOutput("related_requirements");
+        this.WithOutput("remediation_url");
+        this.WithOutput("severity_rating");
+        this.WithOutput("title");
     }
 
     /// <summary>

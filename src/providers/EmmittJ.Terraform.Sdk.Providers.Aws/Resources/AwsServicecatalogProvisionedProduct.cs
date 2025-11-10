@@ -157,17 +157,17 @@ public class AwsServicecatalogProvisionedProduct : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cloudwatch_dashboard_names");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("last_provisioning_record_id");
-        this.DeclareOutput("last_record_id");
-        this.DeclareOutput("last_successful_provisioning_record_id");
-        this.DeclareOutput("launch_role_arn");
-        this.DeclareOutput("outputs");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_message");
-        this.DeclareOutput("type");
+        this.WithOutput("arn");
+        this.WithOutput("cloudwatch_dashboard_names");
+        this.WithOutput("created_time");
+        this.WithOutput("last_provisioning_record_id");
+        this.WithOutput("last_record_id");
+        this.WithOutput("last_successful_provisioning_record_id");
+        this.WithOutput("launch_role_arn");
+        this.WithOutput("outputs");
+        this.WithOutput("status");
+        this.WithOutput("status_message");
+        this.WithOutput("type");
     }
 
     /// <summary>

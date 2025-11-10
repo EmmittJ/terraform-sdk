@@ -14,15 +14,15 @@ public class AwsCloudformationStackDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("capabilities");
-        this.DeclareOutput("description");
-        this.DeclareOutput("disable_rollback");
-        this.DeclareOutput("iam_role_arn");
-        this.DeclareOutput("notification_arns");
-        this.DeclareOutput("outputs");
-        this.DeclareOutput("parameters");
-        this.DeclareOutput("template_body");
-        this.DeclareOutput("timeout_in_minutes");
+        this.WithOutput("capabilities");
+        this.WithOutput("description");
+        this.WithOutput("disable_rollback");
+        this.WithOutput("iam_role_arn");
+        this.WithOutput("notification_arns");
+        this.WithOutput("outputs");
+        this.WithOutput("parameters");
+        this.WithOutput("template_body");
+        this.WithOutput("timeout_in_minutes");
     }
 
     /// <summary>

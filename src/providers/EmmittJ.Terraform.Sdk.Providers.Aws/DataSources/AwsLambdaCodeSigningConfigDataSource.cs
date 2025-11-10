@@ -14,11 +14,11 @@ public class AwsLambdaCodeSigningConfigDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allowed_publishers");
-        this.DeclareOutput("config_id");
-        this.DeclareOutput("description");
-        this.DeclareOutput("last_modified");
-        this.DeclareOutput("policies");
+        this.WithOutput("allowed_publishers");
+        this.WithOutput("config_id");
+        this.WithOutput("description");
+        this.WithOutput("last_modified");
+        this.WithOutput("policies");
     }
 
     /// <summary>

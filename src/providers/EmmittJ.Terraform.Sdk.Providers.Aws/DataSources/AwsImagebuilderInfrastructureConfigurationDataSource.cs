@@ -14,20 +14,20 @@ public class AwsImagebuilderInfrastructureConfigurationDataSource : TerraformDat
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("date_created");
-        this.DeclareOutput("date_updated");
-        this.DeclareOutput("description");
-        this.DeclareOutput("instance_metadata_options");
-        this.DeclareOutput("instance_profile_name");
-        this.DeclareOutput("instance_types");
-        this.DeclareOutput("key_pair");
-        this.DeclareOutput("logging");
-        this.DeclareOutput("name");
-        this.DeclareOutput("placement");
-        this.DeclareOutput("security_group_ids");
-        this.DeclareOutput("sns_topic_arn");
-        this.DeclareOutput("subnet_id");
-        this.DeclareOutput("terminate_instance_on_failure");
+        this.WithOutput("date_created");
+        this.WithOutput("date_updated");
+        this.WithOutput("description");
+        this.WithOutput("instance_metadata_options");
+        this.WithOutput("instance_profile_name");
+        this.WithOutput("instance_types");
+        this.WithOutput("key_pair");
+        this.WithOutput("logging");
+        this.WithOutput("name");
+        this.WithOutput("placement");
+        this.WithOutput("security_group_ids");
+        this.WithOutput("sns_topic_arn");
+        this.WithOutput("subnet_id");
+        this.WithOutput("terminate_instance_on_failure");
     }
 
     /// <summary>

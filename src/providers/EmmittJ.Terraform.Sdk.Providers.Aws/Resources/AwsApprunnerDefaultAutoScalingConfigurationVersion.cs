@@ -14,7 +14,7 @@ public class AwsApprunnerDefaultAutoScalingConfigurationVersion : TerraformResou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
+        this.WithOutput("id");
     }
 
     /// <summary>

@@ -14,22 +14,22 @@ public class AwsEksNodeGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ami_type");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("capacity_type");
-        this.DeclareOutput("disk_size");
-        this.DeclareOutput("instance_types");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("launch_template");
-        this.DeclareOutput("node_role_arn");
-        this.DeclareOutput("release_version");
-        this.DeclareOutput("remote_access");
-        this.DeclareOutput("resources");
-        this.DeclareOutput("scaling_config");
-        this.DeclareOutput("status");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("taints");
-        this.DeclareOutput("version");
+        this.WithOutput("ami_type");
+        this.WithOutput("arn");
+        this.WithOutput("capacity_type");
+        this.WithOutput("disk_size");
+        this.WithOutput("instance_types");
+        this.WithOutput("labels");
+        this.WithOutput("launch_template");
+        this.WithOutput("node_role_arn");
+        this.WithOutput("release_version");
+        this.WithOutput("remote_access");
+        this.WithOutput("resources");
+        this.WithOutput("scaling_config");
+        this.WithOutput("status");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("taints");
+        this.WithOutput("version");
     }
 
     /// <summary>

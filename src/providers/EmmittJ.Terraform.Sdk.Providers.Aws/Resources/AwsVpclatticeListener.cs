@@ -58,10 +58,10 @@ public class AwsVpclatticeListener : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("last_updated_at");
-        this.DeclareOutput("listener_id");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("last_updated_at");
+        this.WithOutput("listener_id");
     }
 
     /// <summary>

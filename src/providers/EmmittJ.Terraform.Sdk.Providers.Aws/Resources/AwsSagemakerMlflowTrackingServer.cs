@@ -14,8 +14,8 @@ public class AwsSagemakerMlflowTrackingServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("tracking_server_url");
+        this.WithOutput("arn");
+        this.WithOutput("tracking_server_url");
     }
 
     /// <summary>

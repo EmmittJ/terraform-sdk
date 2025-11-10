@@ -14,15 +14,15 @@ public class AwsIamRoleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("assume_role_policy");
-        this.DeclareOutput("create_date");
-        this.DeclareOutput("description");
-        this.DeclareOutput("max_session_duration");
-        this.DeclareOutput("path");
-        this.DeclareOutput("permissions_boundary");
-        this.DeclareOutput("role_last_used");
-        this.DeclareOutput("unique_id");
+        this.WithOutput("arn");
+        this.WithOutput("assume_role_policy");
+        this.WithOutput("create_date");
+        this.WithOutput("description");
+        this.WithOutput("max_session_duration");
+        this.WithOutput("path");
+        this.WithOutput("permissions_boundary");
+        this.WithOutput("role_last_used");
+        this.WithOutput("unique_id");
     }
 
     /// <summary>

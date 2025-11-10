@@ -14,8 +14,8 @@ public class AwsRoute53DelegationSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("name_servers");
+        this.WithOutput("arn");
+        this.WithOutput("name_servers");
     }
 
     /// <summary>

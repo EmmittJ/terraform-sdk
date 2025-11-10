@@ -31,9 +31,9 @@ public class AzurermMonitorDiagnosticCategoriesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("log_category_groups");
-        this.DeclareOutput("log_category_types");
-        this.DeclareOutput("metrics");
+        this.WithOutput("log_category_groups");
+        this.WithOutput("log_category_types");
+        this.WithOutput("metrics");
     }
 
     /// <summary>

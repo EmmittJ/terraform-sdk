@@ -15,9 +15,9 @@ public class AwsS3BucketObjectsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("common_prefixes");
-        this.DeclareOutput("keys");
-        this.DeclareOutput("owners");
+        this.WithOutput("common_prefixes");
+        this.WithOutput("keys");
+        this.WithOutput("owners");
     }
 
     /// <summary>

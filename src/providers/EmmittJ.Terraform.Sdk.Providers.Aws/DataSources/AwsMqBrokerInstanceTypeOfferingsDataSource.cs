@@ -14,7 +14,7 @@ public class AwsMqBrokerInstanceTypeOfferingsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("broker_instance_options");
+        this.WithOutput("broker_instance_options");
     }
 
     /// <summary>

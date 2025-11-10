@@ -40,9 +40,9 @@ public class AwsCloudhsmV2Hsm : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("hsm_eni_id");
-        this.DeclareOutput("hsm_id");
-        this.DeclareOutput("hsm_state");
+        this.WithOutput("hsm_eni_id");
+        this.WithOutput("hsm_id");
+        this.WithOutput("hsm_state");
     }
 
     /// <summary>

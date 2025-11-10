@@ -92,8 +92,8 @@ public class GoogleSccV2OrganizationNotificationConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("service_account");
+        this.WithOutput("name");
+        this.WithOutput("service_account");
     }
 
     /// <summary>

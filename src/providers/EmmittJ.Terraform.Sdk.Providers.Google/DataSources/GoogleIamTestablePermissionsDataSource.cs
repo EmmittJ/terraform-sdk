@@ -14,7 +14,7 @@ public class GoogleIamTestablePermissionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("permissions");
+        this.WithOutput("permissions");
     }
 
     /// <summary>

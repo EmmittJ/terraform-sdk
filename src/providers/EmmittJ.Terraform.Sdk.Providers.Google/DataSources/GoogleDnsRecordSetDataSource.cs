@@ -14,8 +14,8 @@ public class GoogleDnsRecordSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("rrdatas");
-        this.DeclareOutput("ttl");
+        this.WithOutput("rrdatas");
+        this.WithOutput("ttl");
     }
 
     /// <summary>

@@ -31,13 +31,13 @@ public class AzurermApiManagementProductDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("approval_required");
-        this.DeclareOutput("description");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("published");
-        this.DeclareOutput("subscription_required");
-        this.DeclareOutput("subscriptions_limit");
-        this.DeclareOutput("terms");
+        this.WithOutput("approval_required");
+        this.WithOutput("description");
+        this.WithOutput("display_name");
+        this.WithOutput("published");
+        this.WithOutput("subscription_required");
+        this.WithOutput("subscriptions_limit");
+        this.WithOutput("terms");
     }
 
     /// <summary>

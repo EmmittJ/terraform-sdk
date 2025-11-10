@@ -49,7 +49,7 @@ public class AzurermManagedDiskSasToken : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("sas_url");
+        this.WithOutput("sas_url");
     }
 
     /// <summary>

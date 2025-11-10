@@ -95,7 +95,7 @@ public class AwsElasticsearchVpcEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint");
+        this.WithOutput("endpoint");
     }
 
     /// <summary>

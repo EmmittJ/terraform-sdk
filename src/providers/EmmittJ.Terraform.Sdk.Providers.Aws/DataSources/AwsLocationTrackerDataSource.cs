@@ -14,12 +14,12 @@ public class AwsLocationTrackerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("position_filtering");
-        this.DeclareOutput("tracker_arn");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("position_filtering");
+        this.WithOutput("tracker_arn");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

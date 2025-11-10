@@ -14,7 +14,7 @@ public class GoogleComposerUserWorkloadsSecretDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("data");
+        this.WithOutput("data");
     }
 
     /// <summary>

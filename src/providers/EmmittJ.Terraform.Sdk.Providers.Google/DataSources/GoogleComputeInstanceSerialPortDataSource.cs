@@ -14,7 +14,7 @@ public class GoogleComputeInstanceSerialPortDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("contents");
+        this.WithOutput("contents");
     }
 
     /// <summary>

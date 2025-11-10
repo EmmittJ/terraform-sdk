@@ -121,14 +121,14 @@ public class GoogleVertexAiEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("dedicated_endpoint_dns");
-        this.DeclareOutput("deployed_models");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("model_deployment_monitoring_job");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("dedicated_endpoint_dns");
+        this.WithOutput("deployed_models");
+        this.WithOutput("effective_labels");
+        this.WithOutput("etag");
+        this.WithOutput("model_deployment_monitoring_job");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

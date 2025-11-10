@@ -14,13 +14,13 @@ public class AwsServicequotasServiceQuotaDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("adjustable");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("default_value");
-        this.DeclareOutput("global_quota");
-        this.DeclareOutput("service_name");
-        this.DeclareOutput("usage_metric");
-        this.DeclareOutput("value");
+        this.WithOutput("adjustable");
+        this.WithOutput("arn");
+        this.WithOutput("default_value");
+        this.WithOutput("global_quota");
+        this.WithOutput("service_name");
+        this.WithOutput("usage_metric");
+        this.WithOutput("value");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class AwsRedshiftDataSharesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("data_shares");
-        this.DeclareOutput("id");
+        this.WithOutputata_shares");
+        this.WithOutputd");
     }
 
     /// <summary>

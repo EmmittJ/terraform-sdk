@@ -42,17 +42,17 @@ public class AwsEc2NetworkInsightsPathDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("destination");
-        this.DeclareOutput("destination_arn");
-        this.DeclareOutput("destination_ip");
-        this.DeclareOutput("destination_port");
-        this.DeclareOutput("filter_at_destination");
-        this.DeclareOutput("filter_at_source");
-        this.DeclareOutput("protocol");
-        this.DeclareOutput("source");
-        this.DeclareOutput("source_arn");
-        this.DeclareOutput("source_ip");
+        this.WithOutput("arn");
+        this.WithOutput("destination");
+        this.WithOutput("destination_arn");
+        this.WithOutput("destination_ip");
+        this.WithOutput("destination_port");
+        this.WithOutput("filter_at_destination");
+        this.WithOutput("filter_at_source");
+        this.WithOutput("protocol");
+        this.WithOutput("source");
+        this.WithOutput("source_arn");
+        this.WithOutput("source_ip");
     }
 
     /// <summary>

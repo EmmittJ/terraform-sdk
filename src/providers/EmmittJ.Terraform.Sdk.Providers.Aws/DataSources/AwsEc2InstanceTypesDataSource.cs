@@ -59,7 +59,7 @@ public class AwsEc2InstanceTypesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("instance_types");
+        this.WithOutput("instance_types");
     }
 
     /// <summary>

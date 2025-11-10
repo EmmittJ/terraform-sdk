@@ -14,11 +14,11 @@ public class GoogleComputeInstanceGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("instances");
-        this.DeclareOutput("named_port");
-        this.DeclareOutput("network");
-        this.DeclareOutput("size");
+        this.WithOutput("description");
+        this.WithOutput("instances");
+        this.WithOutput("named_port");
+        this.WithOutput("network");
+        this.WithOutput("size");
     }
 
     /// <summary>

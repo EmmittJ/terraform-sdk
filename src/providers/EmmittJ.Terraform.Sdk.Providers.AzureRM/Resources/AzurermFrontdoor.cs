@@ -389,14 +389,14 @@ public class AzurermFrontdoor : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("backend_pool_health_probes");
-        this.DeclareOutput("backend_pool_load_balancing_settings");
-        this.DeclareOutput("backend_pools");
-        this.DeclareOutput("cname");
-        this.DeclareOutput("explicit_resource_order");
-        this.DeclareOutput("frontend_endpoints");
-        this.DeclareOutput("header_frontdoor_id");
-        this.DeclareOutput("routing_rules");
+        this.WithOutput("backend_pool_health_probes");
+        this.WithOutput("backend_pool_load_balancing_settings");
+        this.WithOutput("backend_pools");
+        this.WithOutput("cname");
+        this.WithOutput("explicit_resource_order");
+        this.WithOutput("frontend_endpoints");
+        this.WithOutput("header_frontdoor_id");
+        this.WithOutput("routing_rules");
     }
 
     /// <summary>

@@ -14,12 +14,12 @@ public class AwsCloudfrontOriginRequestPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("comment");
-        this.DeclareOutput("cookies_config");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("headers_config");
-        this.DeclareOutput("query_strings_config");
+        this.WithOutput("arn");
+        this.WithOutput("comment");
+        this.WithOutput("cookies_config");
+        this.WithOutput("etag");
+        this.WithOutput("headers_config");
+        this.WithOutput("query_strings_config");
     }
 
     /// <summary>

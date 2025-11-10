@@ -14,13 +14,13 @@ public class AwsSfnStateMachineDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("definition");
-        this.DeclareOutput("description");
-        this.DeclareOutput("revision_id");
-        this.DeclareOutput("role_arn");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("creation_date");
+        this.WithOutput("definition");
+        this.WithOutput("description");
+        this.WithOutput("revision_id");
+        this.WithOutput("role_arn");
+        this.WithOutput("status");
     }
 
     /// <summary>

@@ -15,10 +15,10 @@ public class AwsInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("public_ip");
-        this.DeclareOutput("private_ip");
+        this.WithOutput("id");
+        this.WithOutput("arn");
+        this.WithOutput("public_ip");
+        this.WithOutput("private_ip");
     }
 
     /// <summary>

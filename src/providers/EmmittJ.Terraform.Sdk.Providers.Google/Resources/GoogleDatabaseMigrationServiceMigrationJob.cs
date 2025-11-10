@@ -147,13 +147,13 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("error");
-        this.DeclareOutput("name");
-        this.DeclareOutput("phase");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("error");
+        this.WithOutput("name");
+        this.WithOutput("phase");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

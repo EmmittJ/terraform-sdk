@@ -33,8 +33,8 @@ public class AwsSsoadminInstanceAccessControlAttributes : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
+        this.WithOutput("status");
+        this.WithOutput("status_reason");
     }
 
     /// <summary>

@@ -31,7 +31,7 @@ public class AzurermSubscriptionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("subscriptions");
+        this.WithOutput("subscriptions");
     }
 
     /// <summary>

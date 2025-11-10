@@ -31,20 +31,20 @@ public class AzurermKeyVaultDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_policy");
-        this.DeclareOutput("enable_rbac_authorization");
-        this.DeclareOutput("enabled_for_deployment");
-        this.DeclareOutput("enabled_for_disk_encryption");
-        this.DeclareOutput("enabled_for_template_deployment");
-        this.DeclareOutput("location");
-        this.DeclareOutput("network_acls");
-        this.DeclareOutput("public_network_access_enabled");
-        this.DeclareOutput("purge_protection_enabled");
-        this.DeclareOutput("rbac_authorization_enabled");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("tenant_id");
-        this.DeclareOutput("vault_uri");
+        this.WithOutput("access_policy");
+        this.WithOutput("enable_rbac_authorization");
+        this.WithOutput("enabled_for_deployment");
+        this.WithOutput("enabled_for_disk_encryption");
+        this.WithOutput("enabled_for_template_deployment");
+        this.WithOutput("location");
+        this.WithOutput("network_acls");
+        this.WithOutput("public_network_access_enabled");
+        this.WithOutput("purge_protection_enabled");
+        this.WithOutput("rbac_authorization_enabled");
+        this.WithOutput("sku_name");
+        this.WithOutput("tags");
+        this.WithOutput("tenant_id");
+        this.WithOutput("vault_uri");
     }
 
     /// <summary>

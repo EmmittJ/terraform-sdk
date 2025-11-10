@@ -14,7 +14,7 @@ public class AwsLambdaInvocation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("result");
+        this.WithOutput("result");
     }
 
     /// <summary>

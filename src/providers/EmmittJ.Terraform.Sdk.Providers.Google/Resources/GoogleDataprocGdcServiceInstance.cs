@@ -76,17 +76,17 @@ public class GoogleDataprocGdcServiceInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("effective_service_account");
-        this.DeclareOutput("name");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("requested_state");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_message");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("effective_service_account");
+        this.WithOutput("name");
+        this.WithOutput("reconciling");
+        this.WithOutput("requested_state");
+        this.WithOutput("state");
+        this.WithOutput("state_message");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

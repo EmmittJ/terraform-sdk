@@ -31,9 +31,9 @@ public class AzurermNetworkSecurityGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("security_rule");
-        this.DeclareOutput("tags");
+        this.WithOutput("location");
+        this.WithOutput("security_rule");
+        this.WithOutput("tags");
     }
 
     /// <summary>

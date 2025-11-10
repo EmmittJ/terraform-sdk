@@ -14,28 +14,28 @@ public class GoogleBigqueryDatasetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("default_collation");
-        this.DeclareOutput("default_encryption_configuration");
-        this.DeclareOutput("default_partition_expiration_ms");
-        this.DeclareOutput("default_table_expiration_ms");
-        this.DeclareOutput("delete_contents_on_destroy");
-        this.DeclareOutput("description");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("external_catalog_dataset_options");
-        this.DeclareOutput("external_dataset_reference");
-        this.DeclareOutput("friendly_name");
-        this.DeclareOutput("is_case_insensitive");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("last_modified_time");
-        this.DeclareOutput("location");
-        this.DeclareOutput("max_time_travel_hours");
-        this.DeclareOutput("resource_tags");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("storage_billing_model");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("access");
+        this.WithOutput("creation_time");
+        this.WithOutput("default_collation");
+        this.WithOutput("default_encryption_configuration");
+        this.WithOutput("default_partition_expiration_ms");
+        this.WithOutput("default_table_expiration_ms");
+        this.WithOutput("delete_contents_on_destroy");
+        this.WithOutput("description");
+        this.WithOutput("effective_labels");
+        this.WithOutput("etag");
+        this.WithOutput("external_catalog_dataset_options");
+        this.WithOutput("external_dataset_reference");
+        this.WithOutput("friendly_name");
+        this.WithOutput("is_case_insensitive");
+        this.WithOutput("labels");
+        this.WithOutput("last_modified_time");
+        this.WithOutput("location");
+        this.WithOutput("max_time_travel_hours");
+        this.WithOutput("resource_tags");
+        this.WithOutput("self_link");
+        this.WithOutput("storage_billing_model");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

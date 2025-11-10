@@ -14,8 +14,8 @@ public class AwsAppsyncDomainName : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("appsync_domain_name");
-        this.DeclareOutput("hosted_zone_id");
+        this.WithOutput("appsync_domain_name");
+        this.WithOutput("hosted_zone_id");
     }
 
     /// <summary>

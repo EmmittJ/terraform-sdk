@@ -57,12 +57,12 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("id");
-        this.DeclareOutput("influx_auth_parameters_secret_arn");
-        this.DeclareOutput("reader_endpoint");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("endpoint");
+        this.WithOutput("id");
+        this.WithOutput("influx_auth_parameters_secret_arn");
+        this.WithOutput("reader_endpoint");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

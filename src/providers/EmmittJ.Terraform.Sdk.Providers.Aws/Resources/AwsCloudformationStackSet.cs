@@ -137,8 +137,8 @@ public class AwsCloudformationStackSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("stack_set_id");
+        this.WithOutput("arn");
+        this.WithOutput("stack_set_id");
     }
 
     /// <summary>

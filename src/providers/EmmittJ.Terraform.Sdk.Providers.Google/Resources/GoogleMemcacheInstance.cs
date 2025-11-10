@@ -145,13 +145,13 @@ public class GoogleMemcacheInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("discovery_endpoint");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("maintenance_schedule");
-        this.DeclareOutput("memcache_full_version");
-        this.DeclareOutput("memcache_nodes");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("create_time");
+        this.WithOutput("discovery_endpoint");
+        this.WithOutput("effective_labels");
+        this.WithOutput("maintenance_schedule");
+        this.WithOutput("memcache_full_version");
+        this.WithOutput("memcache_nodes");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

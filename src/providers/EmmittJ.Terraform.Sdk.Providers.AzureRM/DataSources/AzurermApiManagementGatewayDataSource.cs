@@ -31,8 +31,8 @@ public class AzurermApiManagementGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("location_data");
+        this.WithOutput("description");
+        this.WithOutput("location_data");
     }
 
     /// <summary>

@@ -14,36 +14,36 @@ public class GoogleComputeRegionBackendServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("affinity_cookie_ttl_sec");
-        this.DeclareOutput("backend");
-        this.DeclareOutput("cdn_policy");
-        this.DeclareOutput("circuit_breakers");
-        this.DeclareOutput("connection_draining_timeout_sec");
-        this.DeclareOutput("consistent_hash");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("custom_metrics");
-        this.DeclareOutput("description");
-        this.DeclareOutput("enable_cdn");
-        this.DeclareOutput("failover_policy");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("generated_id");
-        this.DeclareOutput("ha_policy");
-        this.DeclareOutput("health_checks");
-        this.DeclareOutput("iap");
-        this.DeclareOutput("ip_address_selection_policy");
-        this.DeclareOutput("load_balancing_scheme");
-        this.DeclareOutput("locality_lb_policy");
-        this.DeclareOutput("log_config");
-        this.DeclareOutput("network");
-        this.DeclareOutput("outlier_detection");
-        this.DeclareOutput("params");
-        this.DeclareOutput("port_name");
-        this.DeclareOutput("protocol");
-        this.DeclareOutput("security_policy");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("session_affinity");
-        this.DeclareOutput("strong_session_affinity_cookie");
-        this.DeclareOutput("timeout_sec");
+        this.WithOutput("affinity_cookie_ttl_sec");
+        this.WithOutput("backend");
+        this.WithOutput("cdn_policy");
+        this.WithOutput("circuit_breakers");
+        this.WithOutput("connection_draining_timeout_sec");
+        this.WithOutput("consistent_hash");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("custom_metrics");
+        this.WithOutput("description");
+        this.WithOutput("enable_cdn");
+        this.WithOutput("failover_policy");
+        this.WithOutput("fingerprint");
+        this.WithOutput("generated_id");
+        this.WithOutput("ha_policy");
+        this.WithOutput("health_checks");
+        this.WithOutput("iap");
+        this.WithOutput("ip_address_selection_policy");
+        this.WithOutput("load_balancing_scheme");
+        this.WithOutput("locality_lb_policy");
+        this.WithOutput("log_config");
+        this.WithOutput("network");
+        this.WithOutput("outlier_detection");
+        this.WithOutput("params");
+        this.WithOutput("port_name");
+        this.WithOutput("protocol");
+        this.WithOutput("security_policy");
+        this.WithOutput("self_link");
+        this.WithOutput("session_affinity");
+        this.WithOutput("strong_session_affinity_cookie");
+        this.WithOutput("timeout_sec");
     }
 
     /// <summary>

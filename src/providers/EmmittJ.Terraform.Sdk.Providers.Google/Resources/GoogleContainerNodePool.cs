@@ -495,9 +495,9 @@ public class GoogleContainerNodePool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("instance_group_urls");
-        this.DeclareOutput("managed_instance_group_urls");
-        this.DeclareOutput("operation");
+        this.WithOutput("instance_group_urls");
+        this.WithOutput("managed_instance_group_urls");
+        this.WithOutput("operation");
     }
 
     /// <summary>

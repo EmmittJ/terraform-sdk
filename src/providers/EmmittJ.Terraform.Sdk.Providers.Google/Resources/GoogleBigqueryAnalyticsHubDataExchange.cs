@@ -58,8 +58,8 @@ public class GoogleBigqueryAnalyticsHubDataExchange : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("listing_count");
-        this.DeclareOutput("name");
+        this.WithOutput("listing_count");
+        this.WithOutput("name");
     }
 
     /// <summary>

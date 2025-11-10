@@ -298,18 +298,18 @@ public class GoogleAlloydbCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("backup_source");
-        this.DeclareOutput("continuous_backup_info");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("encryption_info");
-        this.DeclareOutput("migration_source");
-        this.DeclareOutput("name");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("trial_metadata");
-        this.DeclareOutput("uid");
+        this.WithOutput("backup_source");
+        this.WithOutput("continuous_backup_info");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("effective_labels");
+        this.WithOutput("encryption_info");
+        this.WithOutput("migration_source");
+        this.WithOutput("name");
+        this.WithOutput("reconciling");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("trial_metadata");
+        this.WithOutput("uid");
     }
 
     /// <summary>

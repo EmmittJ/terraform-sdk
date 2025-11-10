@@ -41,9 +41,9 @@ public class AwsWorkspaceswebIpAccessSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("associated_portal_arns");
-        this.DeclareOutput("ip_access_settings_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("associated_portal_arns");
+        this.WithOutput("ip_access_settings_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

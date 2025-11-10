@@ -59,9 +59,9 @@ public class AwsInternetGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("attachments");
-        this.DeclareOutput("owner_id");
+        this.WithOutput("arn");
+        this.WithOutput("attachments");
+        this.WithOutput("owner_id");
     }
 
     /// <summary>

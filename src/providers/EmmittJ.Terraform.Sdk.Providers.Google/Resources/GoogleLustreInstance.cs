@@ -49,13 +49,13 @@ public class GoogleLustreInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("mount_point");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("mount_point");
+        this.WithOutput("name");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

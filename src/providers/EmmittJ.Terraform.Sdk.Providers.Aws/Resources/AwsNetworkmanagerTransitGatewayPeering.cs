@@ -40,13 +40,13 @@ public class AwsNetworkmanagerTransitGatewayPeering : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("core_network_arn");
-        this.DeclareOutput("edge_location");
-        this.DeclareOutput("owner_account_id");
-        this.DeclareOutput("peering_type");
-        this.DeclareOutput("resource_arn");
-        this.DeclareOutput("transit_gateway_peering_attachment_id");
+        this.WithOutput("arn");
+        this.WithOutput("core_network_arn");
+        this.WithOutput("edge_location");
+        this.WithOutput("owner_account_id");
+        this.WithOutput("peering_type");
+        this.WithOutput("resource_arn");
+        this.WithOutput("transit_gateway_peering_attachment_id");
     }
 
     /// <summary>

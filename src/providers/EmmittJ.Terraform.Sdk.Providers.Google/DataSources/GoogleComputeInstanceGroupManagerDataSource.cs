@@ -14,32 +14,32 @@ public class GoogleComputeInstanceGroupManagerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("all_instances_config");
-        this.DeclareOutput("auto_healing_policies");
-        this.DeclareOutput("base_instance_name");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("description");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("instance_group");
-        this.DeclareOutput("instance_group_manager_id");
-        this.DeclareOutput("instance_lifecycle_policy");
-        this.DeclareOutput("list_managed_instances_results");
-        this.DeclareOutput("named_port");
-        this.DeclareOutput("operation");
-        this.DeclareOutput("resource_policies");
-        this.DeclareOutput("standby_policy");
-        this.DeclareOutput("stateful_disk");
-        this.DeclareOutput("stateful_external_ip");
-        this.DeclareOutput("stateful_internal_ip");
-        this.DeclareOutput("status");
-        this.DeclareOutput("target_pools");
-        this.DeclareOutput("target_size");
-        this.DeclareOutput("target_stopped_size");
-        this.DeclareOutput("target_suspended_size");
-        this.DeclareOutput("update_policy");
-        this.DeclareOutput("version");
-        this.DeclareOutput("wait_for_instances");
-        this.DeclareOutput("wait_for_instances_status");
+        this.WithOutput("all_instances_config");
+        this.WithOutput("auto_healing_policies");
+        this.WithOutput("base_instance_name");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("description");
+        this.WithOutput("fingerprint");
+        this.WithOutput("instance_group");
+        this.WithOutput("instance_group_manager_id");
+        this.WithOutput("instance_lifecycle_policy");
+        this.WithOutput("list_managed_instances_results");
+        this.WithOutput("named_port");
+        this.WithOutput("operation");
+        this.WithOutput("resource_policies");
+        this.WithOutput("standby_policy");
+        this.WithOutput("stateful_disk");
+        this.WithOutput("stateful_external_ip");
+        this.WithOutput("stateful_internal_ip");
+        this.WithOutput("status");
+        this.WithOutput("target_pools");
+        this.WithOutput("target_size");
+        this.WithOutput("target_stopped_size");
+        this.WithOutput("target_suspended_size");
+        this.WithOutput("update_policy");
+        this.WithOutput("version");
+        this.WithOutput("wait_for_instances");
+        this.WithOutput("wait_for_instances_status");
     }
 
     /// <summary>

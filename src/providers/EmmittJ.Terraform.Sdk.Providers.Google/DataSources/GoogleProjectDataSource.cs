@@ -14,17 +14,17 @@ public class GoogleProjectDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("auto_create_network");
-        this.DeclareOutput("billing_account");
-        this.DeclareOutput("deletion_policy");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("folder_id");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("number");
-        this.DeclareOutput("org_id");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("auto_create_network");
+        this.WithOutput("billing_account");
+        this.WithOutput("deletion_policy");
+        this.WithOutput("effective_labels");
+        this.WithOutput("folder_id");
+        this.WithOutput("labels");
+        this.WithOutput("name");
+        this.WithOutput("number");
+        this.WithOutput("org_id");
+        this.WithOutput("tags");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

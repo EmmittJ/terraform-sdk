@@ -69,12 +69,12 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("is_default");
-        this.DeclareOutput("kms_key_version");
-        this.DeclareOutput("last_rotation_timestamp_micros");
-        this.DeclareOutput("name");
-        this.DeclareOutput("notebooklm_state");
-        this.DeclareOutput("state");
+        this.WithOutput("is_default");
+        this.WithOutput("kms_key_version");
+        this.WithOutput("last_rotation_timestamp_micros");
+        this.WithOutput("name");
+        this.WithOutput("notebooklm_state");
+        this.WithOutput("state");
     }
 
     /// <summary>

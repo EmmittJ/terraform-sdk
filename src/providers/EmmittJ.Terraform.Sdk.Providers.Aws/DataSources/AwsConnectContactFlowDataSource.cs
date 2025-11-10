@@ -14,9 +14,9 @@ public class AwsConnectContactFlowDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("content");
-        this.DeclareOutput("description");
+        this.WithOutput("arn");
+        this.WithOutput("content");
+        this.WithOutput("description");
     }
 
     /// <summary>

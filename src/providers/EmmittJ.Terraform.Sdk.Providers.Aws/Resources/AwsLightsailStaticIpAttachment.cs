@@ -14,7 +14,7 @@ public class AwsLightsailStaticIpAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ip_address");
+        this.WithOutput("ip_address");
     }
 
     /// <summary>

@@ -31,9 +31,9 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("credential_set_id");
-        this.DeclareOutput("source_repo");
-        this.DeclareOutput("target_repo");
+        this.WithOutput("credential_set_id");
+        this.WithOutput("source_repo");
+        this.WithOutput("target_repo");
     }
 
     /// <summary>

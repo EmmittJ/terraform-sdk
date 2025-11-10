@@ -31,13 +31,13 @@ public class AzurermPublicIpPrefixDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ip_prefix");
-        this.DeclareOutput("location");
-        this.DeclareOutput("prefix_length");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("sku_tier");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("zones");
+        this.WithOutput("ip_prefix");
+        this.WithOutput("location");
+        this.WithOutput("prefix_length");
+        this.WithOutput("sku");
+        this.WithOutput("sku_tier");
+        this.WithOutput("tags");
+        this.WithOutput("zones");
     }
 
     /// <summary>

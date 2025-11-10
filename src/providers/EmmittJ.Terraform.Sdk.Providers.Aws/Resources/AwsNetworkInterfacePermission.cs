@@ -40,7 +40,7 @@ public class AwsNetworkInterfacePermission : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("network_interface_permission_id");
+        this.WithOutput("network_interface_permission_id");
     }
 
     /// <summary>

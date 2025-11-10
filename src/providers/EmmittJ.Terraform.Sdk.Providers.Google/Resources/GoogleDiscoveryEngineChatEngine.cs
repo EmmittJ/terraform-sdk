@@ -100,10 +100,10 @@ public class GoogleDiscoveryEngineChatEngine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("chat_engine_metadata");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("update_time");
+        this.WithOutput("chat_engine_metadata");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

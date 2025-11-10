@@ -14,8 +14,8 @@ public class GoogleServiceNetworkingPeeredDnsDomainDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dns_suffix");
-        this.DeclareOutput("parent");
+        this.WithOutput("dns_suffix");
+        this.WithOutput("parent");
     }
 
     /// <summary>

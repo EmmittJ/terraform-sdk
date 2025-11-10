@@ -154,8 +154,8 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_record");
-        this.DeclareOutput("name");
+        this.WithOutput("creation_record");
+        this.WithOutput("name");
     }
 
     /// <summary>

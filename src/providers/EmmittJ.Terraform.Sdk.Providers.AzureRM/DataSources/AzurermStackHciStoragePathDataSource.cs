@@ -31,10 +31,10 @@ public class AzurermStackHciStoragePathDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("custom_location_id");
-        this.DeclareOutput("location");
-        this.DeclareOutput("path");
-        this.DeclareOutput("tags");
+        this.WithOutput("custom_location_id");
+        this.WithOutput("location");
+        this.WithOutput("path");
+        this.WithOutput("tags");
     }
 
     /// <summary>

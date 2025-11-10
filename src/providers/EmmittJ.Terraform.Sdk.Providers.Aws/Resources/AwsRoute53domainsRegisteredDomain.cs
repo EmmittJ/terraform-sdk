@@ -604,16 +604,16 @@ public class AwsRoute53domainsRegisteredDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("abuse_contact_email");
-        this.DeclareOutput("abuse_contact_phone");
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("expiration_date");
-        this.DeclareOutput("registrar_name");
-        this.DeclareOutput("registrar_url");
-        this.DeclareOutput("reseller");
-        this.DeclareOutput("status_list");
-        this.DeclareOutput("updated_date");
-        this.DeclareOutput("whois_server");
+        this.WithOutput("abuse_contact_email");
+        this.WithOutput("abuse_contact_phone");
+        this.WithOutput("creation_date");
+        this.WithOutput("expiration_date");
+        this.WithOutput("registrar_name");
+        this.WithOutput("registrar_url");
+        this.WithOutput("reseller");
+        this.WithOutput("status_list");
+        this.WithOutput("updated_date");
+        this.WithOutput("whois_server");
     }
 
     /// <summary>

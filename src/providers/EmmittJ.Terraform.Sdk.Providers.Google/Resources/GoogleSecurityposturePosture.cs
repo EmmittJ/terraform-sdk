@@ -77,12 +77,12 @@ public class GoogleSecurityposturePosture : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("name");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("revision_id");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("etag");
+        this.WithOutput("name");
+        this.WithOutput("reconciling");
+        this.WithOutput("revision_id");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

@@ -142,35 +142,35 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("activated_storage_count");
-        this.DeclareOutput("additional_storage_count");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("available_storage_size_in_gbs");
-        this.DeclareOutput("compute_model");
-        this.DeclareOutput("cpu_count");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("data_storage_size_in_tbs");
-        this.DeclareOutput("db_node_storage_size_in_gbs");
-        this.DeclareOutput("db_server_version");
-        this.DeclareOutput("id");
-        this.DeclareOutput("last_maintenance_run_id");
-        this.DeclareOutput("max_cpu_count");
-        this.DeclareOutput("max_data_storage_in_tbs");
-        this.DeclareOutput("max_db_node_storage_size_in_gbs");
-        this.DeclareOutput("max_memory_in_gbs");
-        this.DeclareOutput("memory_size_in_gbs");
-        this.DeclareOutput("monthly_db_server_version");
-        this.DeclareOutput("monthly_storage_server_version");
-        this.DeclareOutput("next_maintenance_run_id");
-        this.DeclareOutput("oci_resource_anchor_name");
-        this.DeclareOutput("oci_url");
-        this.DeclareOutput("ocid");
-        this.DeclareOutput("percent_progress");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
-        this.DeclareOutput("storage_server_version");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("total_storage_size_in_gbs");
+        this.WithOutput("activated_storage_count");
+        this.WithOutput("additional_storage_count");
+        this.WithOutput("arn");
+        this.WithOutput("available_storage_size_in_gbs");
+        this.WithOutput("compute_model");
+        this.WithOutput("cpu_count");
+        this.WithOutput("created_at");
+        this.WithOutput("data_storage_size_in_tbs");
+        this.WithOutput("db_node_storage_size_in_gbs");
+        this.WithOutput("db_server_version");
+        this.WithOutput("id");
+        this.WithOutput("last_maintenance_run_id");
+        this.WithOutput("max_cpu_count");
+        this.WithOutput("max_data_storage_in_tbs");
+        this.WithOutput("max_db_node_storage_size_in_gbs");
+        this.WithOutput("max_memory_in_gbs");
+        this.WithOutput("memory_size_in_gbs");
+        this.WithOutput("monthly_db_server_version");
+        this.WithOutput("monthly_storage_server_version");
+        this.WithOutput("next_maintenance_run_id");
+        this.WithOutput("oci_resource_anchor_name");
+        this.WithOutput("oci_url");
+        this.WithOutput("ocid");
+        this.WithOutput("percent_progress");
+        this.WithOutput("status");
+        this.WithOutput("status_reason");
+        this.WithOutput("storage_server_version");
+        this.WithOutput("tags_all");
+        this.WithOutput("total_storage_size_in_gbs");
     }
 
     /// <summary>

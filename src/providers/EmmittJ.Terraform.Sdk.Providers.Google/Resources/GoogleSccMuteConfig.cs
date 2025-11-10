@@ -49,10 +49,10 @@ public class GoogleSccMuteConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("most_recent_editor");
-        this.DeclareOutput("name");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("most_recent_editor");
+        this.WithOutput("name");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

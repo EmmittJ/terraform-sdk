@@ -14,7 +14,7 @@ public class GoogleOrganizationIamCustomRolesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("roles");
+        this.WithOutput("roles");
     }
 
     /// <summary>

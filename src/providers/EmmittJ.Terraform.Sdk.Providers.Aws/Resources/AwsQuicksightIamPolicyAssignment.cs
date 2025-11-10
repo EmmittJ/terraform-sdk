@@ -40,8 +40,8 @@ public class AwsQuicksightIamPolicyAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("assignment_id");
-        this.DeclareOutput("id");
+        this.WithOutput("assignment_id");
+        this.WithOutput("id");
     }
 
     /// <summary>

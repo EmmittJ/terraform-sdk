@@ -58,14 +58,14 @@ public class GoogleComputeVpnTunnel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("detailed_status");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("shared_secret_hash");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("tunnel_id");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("detailed_status");
+        this.WithOutput("effective_labels");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("self_link");
+        this.WithOutput("shared_secret_hash");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("tunnel_id");
     }
 
     /// <summary>

@@ -89,10 +89,10 @@ public class GoogleDataCatalogEntry : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("bigquery_date_sharded_spec");
-        this.DeclareOutput("bigquery_table_spec");
-        this.DeclareOutput("integrated_system");
-        this.DeclareOutput("name");
+        this.WithOutput("bigquery_date_sharded_spec");
+        this.WithOutput("bigquery_table_spec");
+        this.WithOutput("integrated_system");
+        this.WithOutput("name");
     }
 
     /// <summary>

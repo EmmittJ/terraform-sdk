@@ -163,12 +163,12 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("dataset_config_state");
-        this.DeclareOutput("link");
-        this.DeclareOutput("name");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("dataset_config_state");
+        this.WithOutput("link");
+        this.WithOutput("name");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

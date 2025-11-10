@@ -49,16 +49,16 @@ public class AwsEip : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocation_id");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("association_id");
-        this.DeclareOutput("carrier_ip");
-        this.DeclareOutput("customer_owned_ip");
-        this.DeclareOutput("private_dns");
-        this.DeclareOutput("private_ip");
-        this.DeclareOutput("ptr_record");
-        this.DeclareOutput("public_dns");
-        this.DeclareOutput("public_ip");
+        this.WithOutput("allocation_id");
+        this.WithOutput("arn");
+        this.WithOutput("association_id");
+        this.WithOutput("carrier_ip");
+        this.WithOutput("customer_owned_ip");
+        this.WithOutput("private_dns");
+        this.WithOutput("private_ip");
+        this.WithOutput("ptr_record");
+        this.WithOutput("public_dns");
+        this.WithOutput("public_ip");
     }
 
     /// <summary>

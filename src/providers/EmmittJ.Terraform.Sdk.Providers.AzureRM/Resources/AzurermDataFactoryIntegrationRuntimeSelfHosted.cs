@@ -76,8 +76,8 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHosted : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("primary_authorization_key");
-        this.DeclareOutput("secondary_authorization_key");
+        this.WithOutput("primary_authorization_key");
+        this.WithOutput("secondary_authorization_key");
     }
 
     /// <summary>

@@ -31,8 +31,8 @@ public class AzurermHealthcareWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

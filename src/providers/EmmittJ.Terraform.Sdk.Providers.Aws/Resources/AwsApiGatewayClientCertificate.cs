@@ -14,10 +14,10 @@ public class AwsApiGatewayClientCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("expiration_date");
-        this.DeclareOutput("pem_encoded_certificate");
+        this.WithOutput("arn");
+        this.WithOutput("created_date");
+        this.WithOutput("expiration_date");
+        this.WithOutput("pem_encoded_certificate");
     }
 
     /// <summary>

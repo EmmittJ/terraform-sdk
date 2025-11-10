@@ -111,14 +111,14 @@ public class AwsVpcEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cidr_blocks");
-        this.DeclareOutput("dns_entry");
-        this.DeclareOutput("network_interface_ids");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("prefix_list_id");
-        this.DeclareOutput("requester_managed");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("cidr_blocks");
+        this.WithOutput("dns_entry");
+        this.WithOutput("network_interface_ids");
+        this.WithOutput("owner_id");
+        this.WithOutput("prefix_list_id");
+        this.WithOutput("requester_managed");
+        this.WithOutput("state");
     }
 
     /// <summary>

@@ -57,14 +57,14 @@ public class AwsNetworkfirewallTlsInspectionConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("certificate_authority");
-        this.DeclareOutput("certificates");
-        this.DeclareOutput("id");
-        this.DeclareOutput("number_of_associations");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("tls_inspection_configuration_id");
-        this.DeclareOutput("update_token");
+        this.WithOutput("arn");
+        this.WithOutput("certificate_authority");
+        this.WithOutput("certificates");
+        this.WithOutput("id");
+        this.WithOutput("number_of_associations");
+        this.WithOutput("tags_all");
+        this.WithOutput("tls_inspection_configuration_id");
+        this.WithOutput("update_token");
     }
 
     /// <summary>

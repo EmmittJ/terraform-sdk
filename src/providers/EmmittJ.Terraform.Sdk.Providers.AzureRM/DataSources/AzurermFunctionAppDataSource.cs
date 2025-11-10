@@ -32,21 +32,21 @@ public class AzurermFunctionAppDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_service_plan_id");
-        this.DeclareOutput("app_settings");
-        this.DeclareOutput("client_cert_mode");
-        this.DeclareOutput("connection_string");
-        this.DeclareOutput("custom_domain_verification_id");
-        this.DeclareOutput("default_hostname");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("os_type");
-        this.DeclareOutput("outbound_ip_addresses");
-        this.DeclareOutput("possible_outbound_ip_addresses");
-        this.DeclareOutput("site_config");
-        this.DeclareOutput("site_credential");
-        this.DeclareOutput("source_control");
+        this.WithOutput("app_service_plan_id");
+        this.WithOutput("app_settings");
+        this.WithOutput("client_cert_mode");
+        this.WithOutput("connection_string");
+        this.WithOutput("custom_domain_verification_id");
+        this.WithOutput("default_hostname");
+        this.WithOutput("enabled");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("os_type");
+        this.WithOutput("outbound_ip_addresses");
+        this.WithOutput("possible_outbound_ip_addresses");
+        this.WithOutput("site_config");
+        this.WithOutput("site_credential");
+        this.WithOutput("source_control");
     }
 
     /// <summary>

@@ -14,19 +14,19 @@ public class AwsApiGatewayDomainNameDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("certificate_arn");
-        this.DeclareOutput("certificate_name");
-        this.DeclareOutput("certificate_upload_date");
-        this.DeclareOutput("cloudfront_domain_name");
-        this.DeclareOutput("cloudfront_zone_id");
-        this.DeclareOutput("endpoint_configuration");
-        this.DeclareOutput("policy");
-        this.DeclareOutput("regional_certificate_arn");
-        this.DeclareOutput("regional_certificate_name");
-        this.DeclareOutput("regional_domain_name");
-        this.DeclareOutput("regional_zone_id");
-        this.DeclareOutput("security_policy");
+        this.WithOutput("arn");
+        this.WithOutput("certificate_arn");
+        this.WithOutput("certificate_name");
+        this.WithOutput("certificate_upload_date");
+        this.WithOutput("cloudfront_domain_name");
+        this.WithOutput("cloudfront_zone_id");
+        this.WithOutput("endpoint_configuration");
+        this.WithOutput("policy");
+        this.WithOutput("regional_certificate_arn");
+        this.WithOutput("regional_certificate_name");
+        this.WithOutput("regional_domain_name");
+        this.WithOutput("regional_zone_id");
+        this.WithOutput("security_policy");
     }
 
     /// <summary>

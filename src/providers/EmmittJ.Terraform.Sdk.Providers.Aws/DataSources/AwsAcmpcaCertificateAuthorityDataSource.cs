@@ -14,17 +14,17 @@ public class AwsAcmpcaCertificateAuthorityDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate");
-        this.DeclareOutput("certificate_chain");
-        this.DeclareOutput("certificate_signing_request");
-        this.DeclareOutput("key_storage_security_standard");
-        this.DeclareOutput("not_after");
-        this.DeclareOutput("not_before");
-        this.DeclareOutput("revocation_configuration");
-        this.DeclareOutput("serial");
-        this.DeclareOutput("status");
-        this.DeclareOutput("type");
-        this.DeclareOutput("usage_mode");
+        this.WithOutput("certificate");
+        this.WithOutput("certificate_chain");
+        this.WithOutput("certificate_signing_request");
+        this.WithOutput("key_storage_security_standard");
+        this.WithOutput("not_after");
+        this.WithOutput("not_before");
+        this.WithOutput("revocation_configuration");
+        this.WithOutput("serial");
+        this.WithOutput("status");
+        this.WithOutput("type");
+        this.WithOutput("usage_mode");
     }
 
     /// <summary>

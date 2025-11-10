@@ -229,8 +229,8 @@ public class AwsIdentitystoreUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("external_ids");
-        this.DeclareOutput("user_id");
+        this.WithOutput("external_ids");
+        this.WithOutput("user_id");
     }
 
     /// <summary>

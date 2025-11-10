@@ -40,7 +40,7 @@ public class AwsVpcSecurityGroupVpcAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("state");
+        this.WithOutput("state");
     }
 
     /// <summary>

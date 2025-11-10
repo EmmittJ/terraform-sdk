@@ -78,9 +78,9 @@ public class AwsKendraQuerySuggestionsBlockList : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("query_suggestions_block_list_id");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("query_suggestions_block_list_id");
+        this.WithOutput("status");
     }
 
     /// <summary>

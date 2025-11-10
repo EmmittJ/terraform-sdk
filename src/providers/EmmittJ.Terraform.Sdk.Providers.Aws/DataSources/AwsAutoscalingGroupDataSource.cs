@@ -14,35 +14,35 @@ public class AwsAutoscalingGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zones");
-        this.DeclareOutput("default_cooldown");
-        this.DeclareOutput("desired_capacity");
-        this.DeclareOutput("desired_capacity_type");
-        this.DeclareOutput("enabled_metrics");
-        this.DeclareOutput("health_check_grace_period");
-        this.DeclareOutput("health_check_type");
-        this.DeclareOutput("instance_maintenance_policy");
-        this.DeclareOutput("launch_configuration");
-        this.DeclareOutput("launch_template");
-        this.DeclareOutput("load_balancers");
-        this.DeclareOutput("max_instance_lifetime");
-        this.DeclareOutput("max_size");
-        this.DeclareOutput("min_size");
-        this.DeclareOutput("mixed_instances_policy");
-        this.DeclareOutput("new_instances_protected_from_scale_in");
-        this.DeclareOutput("placement_group");
-        this.DeclareOutput("predicted_capacity");
-        this.DeclareOutput("service_linked_role_arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("suspended_processes");
-        this.DeclareOutput("tag");
-        this.DeclareOutput("target_group_arns");
-        this.DeclareOutput("termination_policies");
-        this.DeclareOutput("traffic_source");
-        this.DeclareOutput("vpc_zone_identifier");
-        this.DeclareOutput("warm_pool");
-        this.DeclareOutput("warm_pool_size");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zones");
+        this.WithOutput("default_cooldown");
+        this.WithOutput("desired_capacity");
+        this.WithOutput("desired_capacity_type");
+        this.WithOutput("enabled_metrics");
+        this.WithOutput("health_check_grace_period");
+        this.WithOutput("health_check_type");
+        this.WithOutput("instance_maintenance_policy");
+        this.WithOutput("launch_configuration");
+        this.WithOutput("launch_template");
+        this.WithOutput("load_balancers");
+        this.WithOutput("max_instance_lifetime");
+        this.WithOutput("max_size");
+        this.WithOutput("min_size");
+        this.WithOutput("mixed_instances_policy");
+        this.WithOutput("new_instances_protected_from_scale_in");
+        this.WithOutput("placement_group");
+        this.WithOutput("predicted_capacity");
+        this.WithOutput("service_linked_role_arn");
+        this.WithOutput("status");
+        this.WithOutput("suspended_processes");
+        this.WithOutput("tag");
+        this.WithOutput("target_group_arns");
+        this.WithOutput("termination_policies");
+        this.WithOutput("traffic_source");
+        this.WithOutput("vpc_zone_identifier");
+        this.WithOutput("warm_pool");
+        this.WithOutput("warm_pool_size");
     }
 
     /// <summary>

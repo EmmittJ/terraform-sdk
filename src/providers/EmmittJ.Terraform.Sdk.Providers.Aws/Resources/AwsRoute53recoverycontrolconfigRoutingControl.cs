@@ -14,8 +14,8 @@ public class AwsRoute53recoverycontrolconfigRoutingControl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("status");
     }
 
     /// <summary>

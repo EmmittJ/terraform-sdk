@@ -31,17 +31,17 @@ public class AwsDocdbClusterSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("availability_zones");
-        this.DeclareOutput("db_cluster_snapshot_arn");
-        this.DeclareOutput("engine");
-        this.DeclareOutput("engine_version");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("port");
-        this.DeclareOutput("snapshot_type");
-        this.DeclareOutput("source_db_cluster_snapshot_arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("storage_encrypted");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("availability_zones");
+        this.WithOutput("db_cluster_snapshot_arn");
+        this.WithOutput("engine");
+        this.WithOutput("engine_version");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("port");
+        this.WithOutput("snapshot_type");
+        this.WithOutput("source_db_cluster_snapshot_arn");
+        this.WithOutput("status");
+        this.WithOutput("storage_encrypted");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

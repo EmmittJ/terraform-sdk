@@ -68,12 +68,12 @@ public class AwsVpcIpam : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("default_resource_discovery_association_id");
-        this.DeclareOutput("default_resource_discovery_id");
-        this.DeclareOutput("private_default_scope_id");
-        this.DeclareOutput("public_default_scope_id");
-        this.DeclareOutput("scope_count");
+        this.WithOutput("arn");
+        this.WithOutput("default_resource_discovery_association_id");
+        this.WithOutput("default_resource_discovery_id");
+        this.WithOutput("private_default_scope_id");
+        this.WithOutput("public_default_scope_id");
+        this.WithOutput("scope_count");
     }
 
     /// <summary>

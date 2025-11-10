@@ -58,10 +58,10 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("primary_connection_string");
-        this.DeclareOutput("primary_key");
-        this.DeclareOutput("secondary_connection_string");
-        this.DeclareOutput("secondary_key");
+        this.WithOutput("primary_connection_string");
+        this.WithOutput("primary_key");
+        this.WithOutput("secondary_connection_string");
+        this.WithOutput("secondary_key");
     }
 
     /// <summary>

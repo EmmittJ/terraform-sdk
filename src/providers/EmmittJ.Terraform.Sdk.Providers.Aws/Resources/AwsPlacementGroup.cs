@@ -14,8 +14,8 @@ public class AwsPlacementGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("placement_group_id");
+        this.WithOutput("arn");
+        this.WithOutput("placement_group_id");
     }
 
     /// <summary>

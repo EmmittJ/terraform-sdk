@@ -202,7 +202,7 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("instance_view");
+        this.WithOutputnstance_view");
     }
 
     /// <summary>

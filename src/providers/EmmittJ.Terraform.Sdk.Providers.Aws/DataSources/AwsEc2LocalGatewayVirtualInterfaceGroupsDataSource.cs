@@ -59,8 +59,8 @@ public class AwsEc2LocalGatewayVirtualInterfaceGroupsDataSource : TerraformDataS
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ids");
-        this.DeclareOutput("local_gateway_virtual_interface_ids");
+        this.WithOutput("ids");
+        this.WithOutput("local_gateway_virtual_interface_ids");
     }
 
     /// <summary>

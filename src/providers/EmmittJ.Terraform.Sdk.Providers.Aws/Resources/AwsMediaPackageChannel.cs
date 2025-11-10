@@ -14,8 +14,8 @@ public class AwsMediaPackageChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("hls_ingest");
+        this.WithOutput("arn");
+        this.WithOutput("hls_ingest");
     }
 
     /// <summary>

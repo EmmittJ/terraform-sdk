@@ -193,7 +193,7 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("immutable_id");
+        this.WithOutput("immutable_id");
     }
 
     /// <summary>

@@ -14,14 +14,14 @@ public class GoogleComputeRegionSslCertificateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate");
-        this.DeclareOutput("certificate_id");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("description");
-        this.DeclareOutput("expire_time");
-        this.DeclareOutput("name_prefix");
-        this.DeclareOutput("private_key");
-        this.DeclareOutput("self_link");
+        this.WithOutput("certificate");
+        this.WithOutput("certificate_id");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("description");
+        this.WithOutput("expire_time");
+        this.WithOutput("name_prefix");
+        this.WithOutput("private_key");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

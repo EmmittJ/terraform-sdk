@@ -31,8 +31,8 @@ public class AzurermSourceControlTokenDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("token");
-        this.DeclareOutput("token_secret");
+        this.WithOutput("token");
+        this.WithOutput("token_secret");
     }
 
     /// <summary>

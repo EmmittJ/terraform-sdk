@@ -14,7 +14,7 @@ public class GoogleKmsKeyRingsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("key_rings");
+        this.WithOutput("key_rings");
     }
 
     /// <summary>

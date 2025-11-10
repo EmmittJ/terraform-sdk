@@ -97,7 +97,7 @@ public class AzurermAppServicePlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("maximum_number_of_workers");
+        this.WithOutput("maximum_number_of_workers");
     }
 
     /// <summary>

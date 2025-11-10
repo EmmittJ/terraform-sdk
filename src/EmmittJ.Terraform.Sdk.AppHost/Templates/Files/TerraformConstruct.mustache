@@ -62,7 +62,7 @@ public class {{ClassName}} : {{BaseClassName}}
     private void InitializeOutputs()
     {
 {{#OutputAttributes}}
-        this.DeclareOutput("{{TerraformName}}");
+        SetOutput("{{TerraformName}}");
 {{/OutputAttributes}}
     }
 
@@ -84,12 +84,12 @@ public class {{ClassName}} : {{BaseClassName}}
 {{/UseNullable}}
     {
 {{#UseRequiredKeyword}}
-        get => GetRequiredProperty<{{{PropertyWrapper}}}>("{{TerraformName}}");
+        get => GetRequiredOutput<{{{PropertyWrapper}}}>("{{TerraformName}}");
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-        get => GetProperty<{{{PropertyWrapper}}}>("{{TerraformName}}");
+        get => GetOutput<{{{PropertyWrapper}}}?>("{{TerraformName}}");
 {{/UseNullable}}
-        set => this.WithProperty("{{TerraformName}}", value);
+        set => SetProperty("{{TerraformName}}", value);
     }
 
 {{/Properties}}
@@ -104,10 +104,20 @@ public class {{ClassName}} : {{BaseClassName}}
 {{#IsDeprecated}}
     [Obsolete("This block is deprecated.")]
 {{/IsDeprecated}}
+{{#UseRequiredKeyword}}
+    public required {{{BlockPropertyType}}} {{Name}}
+{{/UseRequiredKeyword}}
+{{#UseNullable}}
     public {{{BlockPropertyType}}}? {{Name}}
+{{/UseNullable}}
     {
-        get => GetProperty<{{{BlockPropertyType}}}>("{{TerraformName}}");
-        set => this.WithProperty("{{TerraformName}}", value);
+{{#UseRequiredKeyword}}
+        get => GetRequiredOutput<{{{BlockPropertyType}}}>("{{TerraformName}}");
+{{/UseRequiredKeyword}}
+{{#UseNullable}}
+        get => GetOutput<{{{BlockPropertyType}}}?>("{{TerraformName}}");
+{{/UseNullable}}
+        set => SetProperty("{{TerraformName}}", value);
     }
 
 {{/BlockTypes}}

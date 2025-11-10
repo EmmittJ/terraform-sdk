@@ -15,8 +15,8 @@ public class AwsS3BucketObject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("version_id");
+        this.WithOutput("arn");
+        this.WithOutput("version_id");
     }
 
     /// <summary>

@@ -31,7 +31,7 @@ public class AzurermWebPubsubPrivateLinkResourceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("shared_private_link_resource_types");
+        this.WithOutput("shared_private_link_resource_types");
     }
 
     /// <summary>

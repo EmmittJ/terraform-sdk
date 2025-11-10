@@ -14,13 +14,13 @@ public class AwsTimestreamwriteTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("last_updated_time");
-        this.DeclareOutput("magnetic_store_write_properties");
-        this.DeclareOutput("retention_properties");
-        this.DeclareOutput("schema");
-        this.DeclareOutput("table_status");
+        this.WithOutput("arn");
+        this.WithOutput("creation_time");
+        this.WithOutput("last_updated_time");
+        this.WithOutput("magnetic_store_write_properties");
+        this.WithOutput("retention_properties");
+        this.WithOutput("schema");
+        this.WithOutput("table_status");
     }
 
     /// <summary>

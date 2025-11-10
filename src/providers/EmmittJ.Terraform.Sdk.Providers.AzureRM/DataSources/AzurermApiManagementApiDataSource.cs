@@ -31,18 +31,18 @@ public class AzurermApiManagementApiDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("is_current");
-        this.DeclareOutput("is_online");
-        this.DeclareOutput("path");
-        this.DeclareOutput("protocols");
-        this.DeclareOutput("service_url");
-        this.DeclareOutput("soap_pass_through");
-        this.DeclareOutput("subscription_key_parameter_names");
-        this.DeclareOutput("subscription_required");
-        this.DeclareOutput("version");
-        this.DeclareOutput("version_set_id");
+        this.WithOutput("description");
+        this.WithOutput("display_name");
+        this.WithOutput("is_current");
+        this.WithOutput("is_online");
+        this.WithOutput("path");
+        this.WithOutput("protocols");
+        this.WithOutput("service_url");
+        this.WithOutput("soap_pass_through");
+        this.WithOutput("subscription_key_parameter_names");
+        this.WithOutput("subscription_required");
+        this.WithOutput("version");
+        this.WithOutput("version_set_id");
     }
 
     /// <summary>

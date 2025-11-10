@@ -49,11 +49,11 @@ public class AwsRdsGlobalCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("engine_version_actual");
-        this.DeclareOutput("global_cluster_members");
-        this.DeclareOutput("global_cluster_resource_id");
+        this.WithOutput("arn");
+        this.WithOutput("endpoint");
+        this.WithOutput("engine_version_actual");
+        this.WithOutput("global_cluster_members");
+        this.WithOutput("global_cluster_resource_id");
     }
 
     /// <summary>

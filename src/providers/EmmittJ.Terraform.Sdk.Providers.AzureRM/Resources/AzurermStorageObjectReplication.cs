@@ -114,8 +114,8 @@ public class AzurermStorageObjectReplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("destination_object_replication_id");
-        this.DeclareOutput("source_object_replication_id");
+        this.WithOutputestination_object_replication_id");
+        this.WithOutputource_object_replication_id");
     }
 
     /// <summary>

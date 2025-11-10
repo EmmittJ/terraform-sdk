@@ -59,9 +59,9 @@ public class AwsEc2TransitGatewayConnectDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("protocol");
-        this.DeclareOutput("transit_gateway_id");
-        this.DeclareOutput("transport_attachment_id");
+        this.WithOutput("protocol");
+        this.WithOutput("transit_gateway_id");
+        this.WithOutput("transport_attachment_id");
     }
 
     /// <summary>

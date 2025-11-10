@@ -31,15 +31,15 @@ public class AzurermMssqlServerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("administrator_login");
-        this.DeclareOutput("express_vulnerability_assessment_enabled");
-        this.DeclareOutput("fully_qualified_domain_name");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("restorable_dropped_database_ids");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("transparent_data_encryption_key_vault_key_id");
-        this.DeclareOutput("version");
+        this.WithOutput("administrator_login");
+        this.WithOutput("express_vulnerability_assessment_enabled");
+        this.WithOutput("fully_qualified_domain_name");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("restorable_dropped_database_ids");
+        this.WithOutput("tags");
+        this.WithOutput("transparent_data_encryption_key_vault_key_id");
+        this.WithOutput("version");
     }
 
     /// <summary>

@@ -17,7 +17,7 @@ public class TerraformOutputTests
     public Task Output_WithResourceReference_GeneratesHcl()
     {
         var vpc = new TerraformResource("aws_vpc", "main");
-        vpc.DeclareOutput("id");
+        vpc.WithOutput("id");
 
         var output = new TerraformOutput("vpc_id")
         {

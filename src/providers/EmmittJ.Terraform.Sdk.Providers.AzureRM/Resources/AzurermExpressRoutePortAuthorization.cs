@@ -49,8 +49,8 @@ public class AzurermExpressRoutePortAuthorization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("authorization_key");
-        this.DeclareOutput("authorization_use_status");
+        this.WithOutput("authorization_key");
+        this.WithOutput("authorization_use_status");
     }
 
     /// <summary>

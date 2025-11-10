@@ -15,11 +15,11 @@ public class AwsLambdaInvocationEphemeralResource : TerraformEphemeralResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("executed_version");
-        this.DeclareOutput("function_error");
-        this.DeclareOutput("log_result");
-        this.DeclareOutput("result");
-        this.DeclareOutput("status_code");
+        this.WithOutput("executed_version");
+        this.WithOutput("function_error");
+        this.WithOutput("log_result");
+        this.WithOutput("result");
+        this.WithOutput("status_code");
     }
 
     /// <summary>

@@ -14,17 +14,17 @@ public class GoogleComputeSecurityPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("adaptive_protection_config");
-        this.DeclareOutput("advanced_options_config");
-        this.DeclareOutput("description");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("recaptcha_options_config");
-        this.DeclareOutput("rule");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("type");
+        this.WithOutput("adaptive_protection_config");
+        this.WithOutput("advanced_options_config");
+        this.WithOutput("description");
+        this.WithOutput("effective_labels");
+        this.WithOutput("fingerprint");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("labels");
+        this.WithOutput("recaptcha_options_config");
+        this.WithOutput("rule");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("type");
     }
 
     /// <summary>

@@ -49,14 +49,14 @@ public class GoogleComputeStoragePool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("id");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("resource_status");
-        this.DeclareOutput("status");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("effective_labels");
+        this.WithOutput("id");
+        this.WithOutput("kind");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("resource_status");
+        this.WithOutput("status");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

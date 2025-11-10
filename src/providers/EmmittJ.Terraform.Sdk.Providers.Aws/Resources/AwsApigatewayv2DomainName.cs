@@ -142,8 +142,8 @@ public class AwsApigatewayv2DomainName : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api_mapping_selection_expression");
-        this.DeclareOutput("arn");
+        this.WithOutput("api_mapping_selection_expression");
+        this.WithOutput("arn");
     }
 
     /// <summary>

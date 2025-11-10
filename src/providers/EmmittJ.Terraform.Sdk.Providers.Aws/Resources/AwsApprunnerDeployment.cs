@@ -31,9 +31,9 @@ public class AwsApprunnerDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("operation_id");
-        this.DeclareOutput("status");
+        this.WithOutput("id");
+        this.WithOutput("operation_id");
+        this.WithOutput("status");
     }
 
     /// <summary>

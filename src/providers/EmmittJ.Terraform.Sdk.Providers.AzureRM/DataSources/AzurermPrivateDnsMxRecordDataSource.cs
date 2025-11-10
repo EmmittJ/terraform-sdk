@@ -31,10 +31,10 @@ public class AzurermPrivateDnsMxRecordDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("record");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("ttl");
+        this.WithOutput("fqdn");
+        this.WithOutput("record");
+        this.WithOutput("tags");
+        this.WithOutput("ttl");
     }
 
     /// <summary>

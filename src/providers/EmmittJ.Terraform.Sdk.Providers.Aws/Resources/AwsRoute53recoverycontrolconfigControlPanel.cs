@@ -14,10 +14,10 @@ public class AwsRoute53recoverycontrolconfigControlPanel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("default_control_panel");
-        this.DeclareOutput("routing_control_count");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("default_control_panel");
+        this.WithOutput("routing_control_count");
+        this.WithOutput("status");
     }
 
     /// <summary>

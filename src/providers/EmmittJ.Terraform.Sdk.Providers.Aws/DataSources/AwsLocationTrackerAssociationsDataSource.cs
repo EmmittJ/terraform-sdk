@@ -14,7 +14,7 @@ public class AwsLocationTrackerAssociationsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("consumer_arns");
+        this.WithOutput("consumer_arns");
     }
 
     /// <summary>

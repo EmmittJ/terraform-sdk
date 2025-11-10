@@ -31,8 +31,8 @@ public class AwsRoute53recoveryreadinessCell : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("parent_readiness_scopes");
+        this.WithOutput("arn");
+        this.WithOutput("parent_readiness_scopes");
     }
 
     /// <summary>

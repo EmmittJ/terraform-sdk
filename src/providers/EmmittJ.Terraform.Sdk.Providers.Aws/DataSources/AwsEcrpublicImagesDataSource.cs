@@ -40,7 +40,7 @@ public class AwsEcrpublicImagesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("images");
+        this.WithOutput("images");
     }
 
     /// <summary>

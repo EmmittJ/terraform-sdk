@@ -14,30 +14,30 @@ public class AwsMemorydbClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("acl_name");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("auto_minor_version_upgrade");
-        this.DeclareOutput("cluster_endpoint");
-        this.DeclareOutput("data_tiering");
-        this.DeclareOutput("description");
-        this.DeclareOutput("engine");
-        this.DeclareOutput("engine_patch_version");
-        this.DeclareOutput("engine_version");
-        this.DeclareOutput("final_snapshot_name");
-        this.DeclareOutput("kms_key_arn");
-        this.DeclareOutput("maintenance_window");
-        this.DeclareOutput("node_type");
-        this.DeclareOutput("num_replicas_per_shard");
-        this.DeclareOutput("num_shards");
-        this.DeclareOutput("parameter_group_name");
-        this.DeclareOutput("port");
-        this.DeclareOutput("security_group_ids");
-        this.DeclareOutput("shards");
-        this.DeclareOutput("snapshot_retention_limit");
-        this.DeclareOutput("snapshot_window");
-        this.DeclareOutput("sns_topic_arn");
-        this.DeclareOutput("subnet_group_name");
-        this.DeclareOutput("tls_enabled");
+        this.WithOutput("acl_name");
+        this.WithOutput("arn");
+        this.WithOutput("auto_minor_version_upgrade");
+        this.WithOutput("cluster_endpoint");
+        this.WithOutput("data_tiering");
+        this.WithOutput("description");
+        this.WithOutput("engine");
+        this.WithOutput("engine_patch_version");
+        this.WithOutput("engine_version");
+        this.WithOutput("final_snapshot_name");
+        this.WithOutput("kms_key_arn");
+        this.WithOutput("maintenance_window");
+        this.WithOutput("node_type");
+        this.WithOutput("num_replicas_per_shard");
+        this.WithOutput("num_shards");
+        this.WithOutput("parameter_group_name");
+        this.WithOutput("port");
+        this.WithOutput("security_group_ids");
+        this.WithOutput("shards");
+        this.WithOutput("snapshot_retention_limit");
+        this.WithOutput("snapshot_window");
+        this.WithOutput("sns_topic_arn");
+        this.WithOutput("subnet_group_name");
+        this.WithOutput("tls_enabled");
     }
 
     /// <summary>

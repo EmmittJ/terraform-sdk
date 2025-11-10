@@ -104,7 +104,7 @@ public class AzurermAiFoundryProject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("project_id");
+        this.WithOutput("project_id");
     }
 
     /// <summary>

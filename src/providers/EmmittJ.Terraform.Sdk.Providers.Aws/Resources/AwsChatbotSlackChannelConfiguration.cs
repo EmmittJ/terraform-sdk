@@ -49,10 +49,10 @@ public class AwsChatbotSlackChannelConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("chat_configuration_arn");
-        this.DeclareOutput("slack_channel_name");
-        this.DeclareOutput("slack_team_name");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("chat_configuration_arn");
+        this.WithOutput("slack_channel_name");
+        this.WithOutput("slack_team_name");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

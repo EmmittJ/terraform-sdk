@@ -543,18 +543,18 @@ public class GoogleSqlDatabaseInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("available_maintenance_versions");
-        this.DeclareOutput("connection_name");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("dns_names");
-        this.DeclareOutput("first_ip_address");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("private_ip_address");
-        this.DeclareOutput("psc_service_attachment_link");
-        this.DeclareOutput("public_ip_address");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("server_ca_cert");
-        this.DeclareOutput("service_account_email_address");
+        this.WithOutput("available_maintenance_versions");
+        this.WithOutput("connection_name");
+        this.WithOutput("dns_name");
+        this.WithOutput("dns_names");
+        this.WithOutput("first_ip_address");
+        this.WithOutput("ip_address");
+        this.WithOutput("private_ip_address");
+        this.WithOutput("psc_service_attachment_link");
+        this.WithOutput("public_ip_address");
+        this.WithOutput("self_link");
+        this.WithOutput("server_ca_cert");
+        this.WithOutput("service_account_email_address");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class AwsDmsReplicationSubnetGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("replication_subnet_group_arn");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("replication_subnet_group_arn");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

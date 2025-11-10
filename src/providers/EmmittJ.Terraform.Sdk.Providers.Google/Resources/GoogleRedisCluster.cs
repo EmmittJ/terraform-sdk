@@ -247,20 +247,20 @@ public class GoogleRedisCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("available_maintenance_versions");
-        this.DeclareOutput("backup_collection");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("discovery_endpoints");
-        this.DeclareOutput("effective_maintenance_version");
-        this.DeclareOutput("maintenance_schedule");
-        this.DeclareOutput("managed_server_ca");
-        this.DeclareOutput("precise_size_gb");
-        this.DeclareOutput("psc_connections");
-        this.DeclareOutput("psc_service_attachments");
-        this.DeclareOutput("size_gb");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_info");
-        this.DeclareOutput("uid");
+        this.WithOutput("available_maintenance_versions");
+        this.WithOutput("backup_collection");
+        this.WithOutput("create_time");
+        this.WithOutput("discovery_endpoints");
+        this.WithOutput("effective_maintenance_version");
+        this.WithOutput("maintenance_schedule");
+        this.WithOutput("managed_server_ca");
+        this.WithOutput("precise_size_gb");
+        this.WithOutput("psc_connections");
+        this.WithOutput("psc_service_attachments");
+        this.WithOutput("size_gb");
+        this.WithOutput("state");
+        this.WithOutput("state_info");
+        this.WithOutput("uid");
     }
 
     /// <summary>

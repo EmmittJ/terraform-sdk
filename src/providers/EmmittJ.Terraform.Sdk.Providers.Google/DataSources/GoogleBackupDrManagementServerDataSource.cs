@@ -14,12 +14,12 @@ public class GoogleBackupDrManagementServerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("management_uri");
-        this.DeclareOutput("name");
-        this.DeclareOutput("networks");
-        this.DeclareOutput("oauth2_client_id");
-        this.DeclareOutput("project");
-        this.DeclareOutput("type");
+        this.WithOutput("management_uri");
+        this.WithOutput("name");
+        this.WithOutput("networks");
+        this.WithOutput("oauth2_client_id");
+        this.WithOutput("project");
+        this.WithOutput("type");
     }
 
     /// <summary>

@@ -14,12 +14,12 @@ public class AwsLocationPlaceIndexDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("data_source");
-        this.DeclareOutput("data_source_configuration");
-        this.DeclareOutput("description");
-        this.DeclareOutput("index_arn");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("data_source");
+        this.WithOutput("data_source_configuration");
+        this.WithOutput("description");
+        this.WithOutput("index_arn");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

@@ -49,7 +49,7 @@ public class AzurermAdvisorSuppression : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("suppression_id");
+        this.WithOutput("suppression_id");
     }
 
     /// <summary>

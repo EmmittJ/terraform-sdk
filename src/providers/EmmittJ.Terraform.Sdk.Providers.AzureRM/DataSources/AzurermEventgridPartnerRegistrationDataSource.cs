@@ -31,8 +31,8 @@ public class AzurermEventgridPartnerRegistrationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("partner_registration_id");
-        this.DeclareOutput("tags");
+        this.WithOutput("partner_registration_id");
+        this.WithOutput("tags");
     }
 
     /// <summary>

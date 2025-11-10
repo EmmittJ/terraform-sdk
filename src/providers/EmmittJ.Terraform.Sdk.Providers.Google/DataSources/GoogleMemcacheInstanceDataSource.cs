@@ -14,24 +14,24 @@ public class GoogleMemcacheInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("authorized_network");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("discovery_endpoint");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("maintenance_policy");
-        this.DeclareOutput("maintenance_schedule");
-        this.DeclareOutput("memcache_full_version");
-        this.DeclareOutput("memcache_nodes");
-        this.DeclareOutput("memcache_parameters");
-        this.DeclareOutput("memcache_version");
-        this.DeclareOutput("node_config");
-        this.DeclareOutput("node_count");
-        this.DeclareOutput("reserved_ip_range_id");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("zones");
+        this.WithOutput("authorized_network");
+        this.WithOutput("create_time");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("discovery_endpoint");
+        this.WithOutput("display_name");
+        this.WithOutput("effective_labels");
+        this.WithOutput("labels");
+        this.WithOutput("maintenance_policy");
+        this.WithOutput("maintenance_schedule");
+        this.WithOutput("memcache_full_version");
+        this.WithOutput("memcache_nodes");
+        this.WithOutput("memcache_parameters");
+        this.WithOutput("memcache_version");
+        this.WithOutput("node_config");
+        this.WithOutput("node_count");
+        this.WithOutput("reserved_ip_range_id");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("zones");
     }
 
     /// <summary>

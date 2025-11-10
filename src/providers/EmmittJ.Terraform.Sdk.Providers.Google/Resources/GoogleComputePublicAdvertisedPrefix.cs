@@ -40,8 +40,8 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("shared_secret");
+        this.WithOutput("self_link");
+        this.WithOutput("shared_secret");
     }
 
     /// <summary>

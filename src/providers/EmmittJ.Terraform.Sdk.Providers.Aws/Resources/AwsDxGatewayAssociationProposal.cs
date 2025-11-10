@@ -14,8 +14,8 @@ public class AwsDxGatewayAssociationProposal : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("associated_gateway_owner_account_id");
-        this.DeclareOutput("associated_gateway_type");
+        this.WithOutput("associated_gateway_owner_account_id");
+        this.WithOutput("associated_gateway_type");
     }
 
     /// <summary>

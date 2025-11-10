@@ -14,15 +14,15 @@ public class AwsQuicksightAnalysisDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("definition");
-        this.DeclareOutput("last_published_time");
-        this.DeclareOutput("last_updated_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("permissions");
-        this.DeclareOutput("status");
-        this.DeclareOutput("theme_arn");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
+        this.WithOutput("definition");
+        this.WithOutput("last_published_time");
+        this.WithOutput("last_updated_time");
+        this.WithOutput("name");
+        this.WithOutput("permissions");
+        this.WithOutput("status");
+        this.WithOutput("theme_arn");
     }
 
     /// <summary>

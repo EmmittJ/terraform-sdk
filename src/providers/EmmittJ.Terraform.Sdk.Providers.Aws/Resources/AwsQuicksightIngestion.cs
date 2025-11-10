@@ -14,9 +14,9 @@ public class AwsQuicksightIngestion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("ingestion_status");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("ingestion_status");
     }
 
     /// <summary>

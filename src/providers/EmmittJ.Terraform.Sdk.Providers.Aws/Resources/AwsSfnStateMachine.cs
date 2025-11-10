@@ -137,13 +137,13 @@ public class AwsSfnStateMachine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("description");
-        this.DeclareOutput("revision_id");
-        this.DeclareOutput("state_machine_version_arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("version_description");
+        this.WithOutput("arn");
+        this.WithOutput("creation_date");
+        this.WithOutput("description");
+        this.WithOutput("revision_id");
+        this.WithOutput("state_machine_version_arn");
+        this.WithOutput("status");
+        this.WithOutput("version_description");
     }
 
     /// <summary>

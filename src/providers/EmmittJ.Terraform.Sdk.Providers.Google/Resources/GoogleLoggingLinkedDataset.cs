@@ -60,9 +60,9 @@ public class GoogleLoggingLinkedDataset : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("lifecycle_state");
-        this.DeclareOutput("name");
+        this.WithOutput("create_time");
+        this.WithOutput("lifecycle_state");
+        this.WithOutput("name");
     }
 
     /// <summary>

@@ -49,15 +49,15 @@ public class AwsRdsClusterInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("dbi_resource_id");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("engine_version_actual");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("network_type");
-        this.DeclareOutput("port");
-        this.DeclareOutput("storage_encrypted");
-        this.DeclareOutput("writer");
+        this.WithOutput("arn");
+        this.WithOutput("dbi_resource_id");
+        this.WithOutput("endpoint");
+        this.WithOutput("engine_version_actual");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("network_type");
+        this.WithOutput("port");
+        this.WithOutput("storage_encrypted");
+        this.WithOutput("writer");
     }
 
     /// <summary>

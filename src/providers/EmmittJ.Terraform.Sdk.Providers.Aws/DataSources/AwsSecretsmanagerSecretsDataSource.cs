@@ -42,8 +42,8 @@ public class AwsSecretsmanagerSecretsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arns");
-        this.DeclareOutput("names");
+        this.WithOutput("arns");
+        this.WithOutput("names");
     }
 
     /// <summary>

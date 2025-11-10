@@ -14,8 +14,8 @@ public class AwsAppsyncApiKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api_key_id");
-        this.DeclareOutput("key");
+        this.WithOutput("api_key_id");
+        this.WithOutput("key");
     }
 
     /// <summary>

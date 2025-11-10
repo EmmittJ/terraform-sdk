@@ -94,13 +94,13 @@ public class GoogleFirestoreDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("earliest_version_time");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("key_prefix");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("version_retention_period");
+        this.WithOutput("create_time");
+        this.WithOutput("earliest_version_time");
+        this.WithOutput("etag");
+        this.WithOutput("key_prefix");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("version_retention_period");
     }
 
     /// <summary>

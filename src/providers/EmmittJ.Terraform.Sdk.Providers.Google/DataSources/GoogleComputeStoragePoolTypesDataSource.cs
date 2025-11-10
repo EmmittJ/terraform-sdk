@@ -14,21 +14,21 @@ public class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("deprecated");
-        this.DeclareOutput("description");
-        this.DeclareOutput("id");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("max_pool_provisioned_capacity_gb");
-        this.DeclareOutput("max_pool_provisioned_iops");
-        this.DeclareOutput("max_pool_provisioned_throughput");
-        this.DeclareOutput("min_pool_provisioned_capacity_gb");
-        this.DeclareOutput("min_pool_provisioned_iops");
-        this.DeclareOutput("min_pool_provisioned_throughput");
-        this.DeclareOutput("name");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("self_link_with_id");
-        this.DeclareOutput("supported_disk_types");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("deprecated");
+        this.WithOutput("description");
+        this.WithOutput("id");
+        this.WithOutput("kind");
+        this.WithOutput("max_pool_provisioned_capacity_gb");
+        this.WithOutput("max_pool_provisioned_iops");
+        this.WithOutput("max_pool_provisioned_throughput");
+        this.WithOutput("min_pool_provisioned_capacity_gb");
+        this.WithOutput("min_pool_provisioned_iops");
+        this.WithOutput("min_pool_provisioned_throughput");
+        this.WithOutput("name");
+        this.WithOutput("self_link");
+        this.WithOutput("self_link_with_id");
+        this.WithOutput("supported_disk_types");
     }
 
     /// <summary>

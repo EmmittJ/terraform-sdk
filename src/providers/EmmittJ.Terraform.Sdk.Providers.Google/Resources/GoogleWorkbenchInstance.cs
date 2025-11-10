@@ -105,16 +105,16 @@ public class GoogleWorkbenchInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("creator");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("health_info");
-        this.DeclareOutput("health_state");
-        this.DeclareOutput("proxy_uri");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("upgrade_history");
+        this.WithOutput("create_time");
+        this.WithOutput("creator");
+        this.WithOutput("effective_labels");
+        this.WithOutput("health_info");
+        this.WithOutput("health_state");
+        this.WithOutput("proxy_uri");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
+        this.WithOutput("upgrade_history");
     }
 
     /// <summary>

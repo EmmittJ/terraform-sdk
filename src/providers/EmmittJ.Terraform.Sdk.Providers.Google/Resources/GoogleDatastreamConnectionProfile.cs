@@ -464,9 +464,9 @@ public class GoogleDatastreamConnectionProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("effective_labels");
+        this.WithOutput("name");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

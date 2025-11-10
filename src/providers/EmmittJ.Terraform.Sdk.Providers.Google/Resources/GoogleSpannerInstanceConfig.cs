@@ -88,9 +88,9 @@ public class GoogleSpannerInstanceConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("config_type");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("config_type");
+        this.WithOutput("effective_labels");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

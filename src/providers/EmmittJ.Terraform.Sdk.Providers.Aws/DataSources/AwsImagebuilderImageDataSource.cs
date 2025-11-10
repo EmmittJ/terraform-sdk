@@ -14,20 +14,20 @@ public class AwsImagebuilderImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("build_version_arn");
-        this.DeclareOutput("container_recipe_arn");
-        this.DeclareOutput("date_created");
-        this.DeclareOutput("distribution_configuration_arn");
-        this.DeclareOutput("enhanced_image_metadata_enabled");
-        this.DeclareOutput("image_recipe_arn");
-        this.DeclareOutput("image_scanning_configuration");
-        this.DeclareOutput("image_tests_configuration");
-        this.DeclareOutput("infrastructure_configuration_arn");
-        this.DeclareOutput("name");
-        this.DeclareOutput("os_version");
-        this.DeclareOutput("output_resources");
-        this.DeclareOutput("platform");
-        this.DeclareOutput("version");
+        this.WithOutput("build_version_arn");
+        this.WithOutput("container_recipe_arn");
+        this.WithOutput("date_created");
+        this.WithOutput("distribution_configuration_arn");
+        this.WithOutput("enhanced_image_metadata_enabled");
+        this.WithOutput("image_recipe_arn");
+        this.WithOutput("image_scanning_configuration");
+        this.WithOutput("image_tests_configuration");
+        this.WithOutput("infrastructure_configuration_arn");
+        this.WithOutput("name");
+        this.WithOutput("os_version");
+        this.WithOutput("output_resources");
+        this.WithOutput("platform");
+        this.WithOutput("version");
     }
 
     /// <summary>

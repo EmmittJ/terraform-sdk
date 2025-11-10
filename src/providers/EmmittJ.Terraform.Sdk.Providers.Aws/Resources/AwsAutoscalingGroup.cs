@@ -346,9 +346,9 @@ public class AwsAutoscalingGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("predicted_capacity");
-        this.DeclareOutput("warm_pool_size");
+        this.WithOutput("arn");
+        this.WithOutput("predicted_capacity");
+        this.WithOutput("warm_pool_size");
     }
 
     /// <summary>

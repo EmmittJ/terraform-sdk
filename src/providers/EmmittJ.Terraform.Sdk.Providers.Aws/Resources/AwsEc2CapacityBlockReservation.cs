@@ -31,21 +31,21 @@ public class AwsEc2CapacityBlockReservation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("ebs_optimized");
-        this.DeclareOutput("end_date");
-        this.DeclareOutput("end_date_type");
-        this.DeclareOutput("id");
-        this.DeclareOutput("instance_count");
-        this.DeclareOutput("instance_type");
-        this.DeclareOutput("outpost_arn");
-        this.DeclareOutput("placement_group_arn");
-        this.DeclareOutput("reservation_type");
-        this.DeclareOutput("start_date");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("tenancy");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zone");
+        this.WithOutput("created_date");
+        this.WithOutput("ebs_optimized");
+        this.WithOutput("end_date");
+        this.WithOutput("end_date_type");
+        this.WithOutput("id");
+        this.WithOutput("instance_count");
+        this.WithOutput("instance_type");
+        this.WithOutput("outpost_arn");
+        this.WithOutput("placement_group_arn");
+        this.WithOutput("reservation_type");
+        this.WithOutput("start_date");
+        this.WithOutput("tags_all");
+        this.WithOutput("tenancy");
     }
 
     /// <summary>

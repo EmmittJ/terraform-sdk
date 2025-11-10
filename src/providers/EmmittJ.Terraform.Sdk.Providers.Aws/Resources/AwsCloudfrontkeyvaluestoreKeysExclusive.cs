@@ -42,7 +42,7 @@ public class AwsCloudfrontkeyvaluestoreKeysExclusive : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("total_size_in_bytes");
+        this.WithOutput("total_size_in_bytes");
     }
 
     /// <summary>

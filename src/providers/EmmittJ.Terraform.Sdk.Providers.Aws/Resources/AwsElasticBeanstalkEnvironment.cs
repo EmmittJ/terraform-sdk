@@ -61,16 +61,16 @@ public class AwsElasticBeanstalkEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("all_settings");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("autoscaling_groups");
-        this.DeclareOutput("cname");
-        this.DeclareOutput("endpoint_url");
-        this.DeclareOutput("instances");
-        this.DeclareOutput("launch_configurations");
-        this.DeclareOutput("load_balancers");
-        this.DeclareOutput("queues");
-        this.DeclareOutput("triggers");
+        this.WithOutput("all_settings");
+        this.WithOutput("arn");
+        this.WithOutput("autoscaling_groups");
+        this.WithOutput("cname");
+        this.WithOutput("endpoint_url");
+        this.WithOutput("instances");
+        this.WithOutput("launch_configurations");
+        this.WithOutput("load_balancers");
+        this.WithOutput("queues");
+        this.WithOutput("triggers");
     }
 
     /// <summary>

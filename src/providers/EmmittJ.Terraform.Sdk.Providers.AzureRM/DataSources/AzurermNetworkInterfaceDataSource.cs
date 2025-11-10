@@ -31,19 +31,19 @@ public class AzurermNetworkInterfaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("accelerated_networking_enabled");
-        this.DeclareOutput("applied_dns_servers");
-        this.DeclareOutput("dns_servers");
-        this.DeclareOutput("internal_dns_name_label");
-        this.DeclareOutput("ip_configuration");
-        this.DeclareOutput("ip_forwarding_enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("mac_address");
-        this.DeclareOutput("network_security_group_id");
-        this.DeclareOutput("private_ip_address");
-        this.DeclareOutput("private_ip_addresses");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("virtual_machine_id");
+        this.WithOutput("accelerated_networking_enabled");
+        this.WithOutput("applied_dns_servers");
+        this.WithOutput("dns_servers");
+        this.WithOutput("internal_dns_name_label");
+        this.WithOutput("ip_configuration");
+        this.WithOutput("ip_forwarding_enabled");
+        this.WithOutput("location");
+        this.WithOutput("mac_address");
+        this.WithOutput("network_security_group_id");
+        this.WithOutput("private_ip_address");
+        this.WithOutput("private_ip_addresses");
+        this.WithOutput("tags");
+        this.WithOutput("virtual_machine_id");
     }
 
     /// <summary>

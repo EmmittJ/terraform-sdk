@@ -49,8 +49,8 @@ public class AwsSesConfigurationSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("last_fresh_start");
+        this.WithOutput("arn");
+        this.WithOutput("last_fresh_start");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsIotRegistrationCodeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("registration_code");
+        this.WithOutput("registration_code");
     }
 
     /// <summary>

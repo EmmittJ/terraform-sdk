@@ -31,20 +31,20 @@ public class AzurermEventhubNamespaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("auto_inflate_enabled");
-        this.DeclareOutput("capacity");
-        this.DeclareOutput("dedicated_cluster_id");
-        this.DeclareOutput("default_primary_connection_string");
-        this.DeclareOutput("default_primary_connection_string_alias");
-        this.DeclareOutput("default_primary_key");
-        this.DeclareOutput("default_secondary_connection_string");
-        this.DeclareOutput("default_secondary_connection_string_alias");
-        this.DeclareOutput("default_secondary_key");
-        this.DeclareOutput("kafka_enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("maximum_throughput_units");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
+        this.WithOutput("auto_inflate_enabled");
+        this.WithOutput("capacity");
+        this.WithOutput("dedicated_cluster_id");
+        this.WithOutput("default_primary_connection_string");
+        this.WithOutput("default_primary_connection_string_alias");
+        this.WithOutput("default_primary_key");
+        this.WithOutput("default_secondary_connection_string");
+        this.WithOutput("default_secondary_connection_string_alias");
+        this.WithOutput("default_secondary_key");
+        this.WithOutput("kafka_enabled");
+        this.WithOutput("location");
+        this.WithOutput("maximum_throughput_units");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
     }
 
     /// <summary>

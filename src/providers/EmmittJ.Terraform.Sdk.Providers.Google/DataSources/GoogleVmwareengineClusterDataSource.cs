@@ -14,13 +14,13 @@ public class GoogleVmwareengineClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("autoscaling_settings");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("management");
-        this.DeclareOutput("node_type_configs");
-        this.DeclareOutput("state");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("autoscaling_settings");
+        this.WithOutput("create_time");
+        this.WithOutput("management");
+        this.WithOutput("node_type_configs");
+        this.WithOutput("state");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

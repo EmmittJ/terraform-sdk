@@ -49,9 +49,9 @@ public class AwsKinesisVideoStream : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("creation_time");
+        this.WithOutput("version");
     }
 
     /// <summary>

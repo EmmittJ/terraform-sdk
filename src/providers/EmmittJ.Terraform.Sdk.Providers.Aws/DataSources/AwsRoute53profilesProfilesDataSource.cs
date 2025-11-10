@@ -14,7 +14,7 @@ public class AwsRoute53profilesProfilesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("profiles");
+        this.WithOutputrofiles");
     }
 
     /// <summary>

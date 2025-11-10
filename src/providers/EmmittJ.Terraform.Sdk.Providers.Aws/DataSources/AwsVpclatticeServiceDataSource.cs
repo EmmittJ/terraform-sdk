@@ -14,12 +14,12 @@ public class AwsVpclatticeServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("auth_type");
-        this.DeclareOutput("certificate_arn");
-        this.DeclareOutput("custom_domain_name");
-        this.DeclareOutput("dns_entry");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("auth_type");
+        this.WithOutput("certificate_arn");
+        this.WithOutput("custom_domain_name");
+        this.WithOutput("dns_entry");
+        this.WithOutput("status");
     }
 
     /// <summary>

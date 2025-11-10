@@ -14,10 +14,10 @@ public class AwsS3AccountPublicAccessBlockDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("block_public_acls");
-        this.DeclareOutput("block_public_policy");
-        this.DeclareOutput("ignore_public_acls");
-        this.DeclareOutput("restrict_public_buckets");
+        this.WithOutputlock_public_acls");
+        this.WithOutputlock_public_policy");
+        this.WithOutputgnore_public_acls");
+        this.WithOutputestrict_public_buckets");
     }
 
     /// <summary>

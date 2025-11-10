@@ -14,15 +14,15 @@ public class GoogleComputeRegionNetworkEndpointGroupDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_engine");
-        this.DeclareOutput("cloud_function");
-        this.DeclareOutput("cloud_run");
-        this.DeclareOutput("description");
-        this.DeclareOutput("network");
-        this.DeclareOutput("network_endpoint_type");
-        this.DeclareOutput("psc_data");
-        this.DeclareOutput("psc_target_service");
-        this.DeclareOutput("subnetwork");
+        this.WithOutput("app_engine");
+        this.WithOutput("cloud_function");
+        this.WithOutput("cloud_run");
+        this.WithOutput("description");
+        this.WithOutput("network");
+        this.WithOutput("network_endpoint_type");
+        this.WithOutput("psc_data");
+        this.WithOutput("psc_target_service");
+        this.WithOutput("subnetwork");
     }
 
     /// <summary>

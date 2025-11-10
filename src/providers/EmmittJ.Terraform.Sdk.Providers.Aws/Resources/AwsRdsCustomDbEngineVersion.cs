@@ -49,12 +49,12 @@ public class AwsRdsCustomDbEngineVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("db_parameter_group_family");
-        this.DeclareOutput("image_id");
-        this.DeclareOutput("major_engine_version");
-        this.DeclareOutput("manifest_computed");
+        this.WithOutput("arn");
+        this.WithOutput("create_time");
+        this.WithOutput("db_parameter_group_family");
+        this.WithOutput("image_id");
+        this.WithOutput("major_engine_version");
+        this.WithOutput("manifest_computed");
     }
 
     /// <summary>

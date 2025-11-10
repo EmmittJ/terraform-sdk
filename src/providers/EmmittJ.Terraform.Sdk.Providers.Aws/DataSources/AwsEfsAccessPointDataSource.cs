@@ -14,12 +14,12 @@ public class AwsEfsAccessPointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("file_system_arn");
-        this.DeclareOutput("file_system_id");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("posix_user");
-        this.DeclareOutput("root_directory");
+        this.WithOutput("arn");
+        this.WithOutput("file_system_arn");
+        this.WithOutput("file_system_id");
+        this.WithOutput("owner_id");
+        this.WithOutput("posix_user");
+        this.WithOutput("root_directory");
     }
 
     /// <summary>

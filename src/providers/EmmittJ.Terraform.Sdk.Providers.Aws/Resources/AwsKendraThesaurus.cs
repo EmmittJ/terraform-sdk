@@ -78,9 +78,9 @@ public class AwsKendraThesaurus : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("thesaurus_id");
+        this.WithOutput("arn");
+        this.WithOutput("status");
+        this.WithOutput("thesaurus_id");
     }
 
     /// <summary>

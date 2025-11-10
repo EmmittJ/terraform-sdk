@@ -14,7 +14,7 @@ public class GoogleSpannerInstanceIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

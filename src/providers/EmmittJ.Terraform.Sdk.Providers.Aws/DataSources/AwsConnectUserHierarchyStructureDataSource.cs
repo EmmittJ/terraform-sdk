@@ -14,7 +14,7 @@ public class AwsConnectUserHierarchyStructureDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("hierarchy_structure");
+        this.WithOutput("hierarchy_structure");
     }
 
     /// <summary>

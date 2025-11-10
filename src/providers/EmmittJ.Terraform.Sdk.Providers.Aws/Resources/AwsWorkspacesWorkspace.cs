@@ -103,9 +103,9 @@ public class AwsWorkspacesWorkspace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("computer_name");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("state");
+        this.WithOutput("computer_name");
+        this.WithOutput("ip_address");
+        this.WithOutput("state");
     }
 
     /// <summary>

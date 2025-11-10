@@ -14,12 +14,12 @@ public class GoogleParameterManagerParameterVersionDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("disabled");
-        this.DeclareOutput("kms_key_version");
-        this.DeclareOutput("name");
-        this.DeclareOutput("parameter_data");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("disabled");
+        this.WithOutput("kms_key_version");
+        this.WithOutput("name");
+        this.WithOutput("parameter_data");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

@@ -14,10 +14,10 @@ public class AwsS3ObjectsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("common_prefixes");
-        this.DeclareOutput("keys");
-        this.DeclareOutput("owners");
-        this.DeclareOutput("request_charged");
+        this.WithOutput("common_prefixes");
+        this.WithOutput("keys");
+        this.WithOutput("owners");
+        this.WithOutput("request_charged");
     }
 
     /// <summary>

@@ -40,12 +40,12 @@ public class AwsVpcRouteServerEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("eni_address");
-        this.DeclareOutput("eni_id");
-        this.DeclareOutput("route_server_endpoint_id");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("arn");
+        this.WithOutput("eni_address");
+        this.WithOutput("eni_id");
+        this.WithOutput("route_server_endpoint_id");
+        this.WithOutput("tags_all");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

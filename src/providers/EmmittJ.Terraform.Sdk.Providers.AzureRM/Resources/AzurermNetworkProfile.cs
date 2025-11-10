@@ -77,7 +77,7 @@ public class AzurermNetworkProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("container_network_interface_ids");
+        this.WithOutput("container_network_interface_ids");
     }
 
     /// <summary>

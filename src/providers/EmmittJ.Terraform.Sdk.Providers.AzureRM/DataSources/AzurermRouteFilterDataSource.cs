@@ -31,9 +31,9 @@ public class AzurermRouteFilterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("rule");
-        this.DeclareOutput("tags");
+        this.WithOutput("location");
+        this.WithOutput("rule");
+        this.WithOutput("tags");
     }
 
     /// <summary>

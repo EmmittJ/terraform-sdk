@@ -31,7 +31,7 @@ public class AzurermDevCenterGalleryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("shared_gallery_id");
+        this.WithOutput("shared_gallery_id");
     }
 
     /// <summary>

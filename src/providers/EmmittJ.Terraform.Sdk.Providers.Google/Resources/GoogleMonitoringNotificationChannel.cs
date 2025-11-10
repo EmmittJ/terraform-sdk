@@ -85,8 +85,8 @@ public class GoogleMonitoringNotificationChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("verification_status");
+        this.WithOutput("name");
+        this.WithOutput("verification_status");
     }
 
     /// <summary>

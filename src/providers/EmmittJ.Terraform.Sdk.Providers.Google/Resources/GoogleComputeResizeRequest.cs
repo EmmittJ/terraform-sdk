@@ -68,9 +68,9 @@ public class GoogleComputeResizeRequest : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("state");
-        this.DeclareOutput("status");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("state");
+        this.WithOutput("status");
     }
 
     /// <summary>

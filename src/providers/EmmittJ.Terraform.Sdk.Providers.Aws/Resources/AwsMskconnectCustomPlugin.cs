@@ -49,9 +49,9 @@ public class AwsMskconnectCustomPlugin : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("latest_revision");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("latest_revision");
+        this.WithOutput("state");
     }
 
     /// <summary>

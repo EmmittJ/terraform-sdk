@@ -31,7 +31,7 @@ public class AzurermSshPublicKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("public_key");
+        this.WithOutput("public_key");
     }
 
     /// <summary>

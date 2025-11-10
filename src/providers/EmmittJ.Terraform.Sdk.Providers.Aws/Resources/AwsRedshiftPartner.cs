@@ -14,8 +14,8 @@ public class AwsRedshiftPartner : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_message");
+        this.WithOutput("status");
+        this.WithOutput("status_message");
     }
 
     /// <summary>

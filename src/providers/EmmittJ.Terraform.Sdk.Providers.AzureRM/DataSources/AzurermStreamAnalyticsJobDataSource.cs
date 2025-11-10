@@ -31,21 +31,21 @@ public class AzurermStreamAnalyticsJobDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("compatibility_level");
-        this.DeclareOutput("data_locale");
-        this.DeclareOutput("events_late_arrival_max_delay_in_seconds");
-        this.DeclareOutput("events_out_of_order_max_delay_in_seconds");
-        this.DeclareOutput("events_out_of_order_policy");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("job_id");
-        this.DeclareOutput("last_output_time");
-        this.DeclareOutput("location");
-        this.DeclareOutput("output_error_policy");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("start_mode");
-        this.DeclareOutput("start_time");
-        this.DeclareOutput("streaming_units");
-        this.DeclareOutput("transformation_query");
+        this.WithOutput("compatibility_level");
+        this.WithOutput("data_locale");
+        this.WithOutput("events_late_arrival_max_delay_in_seconds");
+        this.WithOutput("events_out_of_order_max_delay_in_seconds");
+        this.WithOutput("events_out_of_order_policy");
+        this.WithOutput("identity");
+        this.WithOutput("job_id");
+        this.WithOutput("last_output_time");
+        this.WithOutput("location");
+        this.WithOutput("output_error_policy");
+        this.WithOutput("sku_name");
+        this.WithOutput("start_mode");
+        this.WithOutput("start_time");
+        this.WithOutput("streaming_units");
+        this.WithOutput("transformation_query");
     }
 
     /// <summary>

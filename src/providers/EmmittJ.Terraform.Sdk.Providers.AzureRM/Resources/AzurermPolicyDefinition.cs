@@ -58,7 +58,7 @@ public class AzurermPolicyDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("role_definition_ids");
+        this.WithOutput("role_definition_ids");
     }
 
     /// <summary>

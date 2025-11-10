@@ -14,10 +14,10 @@ public class AwsAppconfigDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("deployment_number");
-        this.DeclareOutput("kms_key_arn");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("deployment_number");
+        this.WithOutput("kms_key_arn");
+        this.WithOutput("state");
     }
 
     /// <summary>

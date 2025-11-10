@@ -31,7 +31,7 @@ public class AzurermOracleAdbsCharacterSetsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("character_sets");
+        this.WithOutput("character_sets");
     }
 
     /// <summary>

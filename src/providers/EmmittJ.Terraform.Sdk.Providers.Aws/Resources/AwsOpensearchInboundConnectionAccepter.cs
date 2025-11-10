@@ -40,7 +40,7 @@ public class AwsOpensearchInboundConnectionAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connection_status");
+        this.WithOutput("connection_status");
     }
 
     /// <summary>

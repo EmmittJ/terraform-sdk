@@ -14,12 +14,12 @@ public class AwsAppmeshVirtualGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("last_updated_date");
-        this.DeclareOutput("mesh_owner");
-        this.DeclareOutput("resource_owner");
-        this.DeclareOutput("spec");
+        this.WithOutput("arn");
+        this.WithOutput("created_date");
+        this.WithOutput("last_updated_date");
+        this.WithOutput("mesh_owner");
+        this.WithOutput("resource_owner");
+        this.WithOutput("spec");
     }
 
     /// <summary>

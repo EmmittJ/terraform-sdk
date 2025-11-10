@@ -15,27 +15,27 @@ public class AwsS3BucketObjectDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("body");
-        this.DeclareOutput("bucket_key_enabled");
-        this.DeclareOutput("cache_control");
-        this.DeclareOutput("content_disposition");
-        this.DeclareOutput("content_encoding");
-        this.DeclareOutput("content_language");
-        this.DeclareOutput("content_length");
-        this.DeclareOutput("content_type");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("expiration");
-        this.DeclareOutput("expires");
-        this.DeclareOutput("last_modified");
-        this.DeclareOutput("metadata");
-        this.DeclareOutput("object_lock_legal_hold_status");
-        this.DeclareOutput("object_lock_mode");
-        this.DeclareOutput("object_lock_retain_until_date");
-        this.DeclareOutput("server_side_encryption");
-        this.DeclareOutput("sse_kms_key_id");
-        this.DeclareOutput("storage_class");
-        this.DeclareOutput("website_redirect_location");
+        this.WithOutput("arn");
+        this.WithOutput("body");
+        this.WithOutput("bucket_key_enabled");
+        this.WithOutput("cache_control");
+        this.WithOutput("content_disposition");
+        this.WithOutput("content_encoding");
+        this.WithOutput("content_language");
+        this.WithOutput("content_length");
+        this.WithOutput("content_type");
+        this.WithOutput("etag");
+        this.WithOutput("expiration");
+        this.WithOutput("expires");
+        this.WithOutput("last_modified");
+        this.WithOutput("metadata");
+        this.WithOutput("object_lock_legal_hold_status");
+        this.WithOutput("object_lock_mode");
+        this.WithOutput("object_lock_retain_until_date");
+        this.WithOutput("server_side_encryption");
+        this.WithOutput("sse_kms_key_id");
+        this.WithOutput("storage_class");
+        this.WithOutput("website_redirect_location");
     }
 
     /// <summary>

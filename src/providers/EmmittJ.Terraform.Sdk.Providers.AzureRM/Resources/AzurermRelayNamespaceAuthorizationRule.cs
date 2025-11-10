@@ -58,10 +58,10 @@ public class AzurermRelayNamespaceAuthorizationRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("primary_connection_string");
-        this.DeclareOutput("primary_key");
-        this.DeclareOutput("secondary_connection_string");
-        this.DeclareOutput("secondary_key");
+        this.WithOutputrimary_connection_string");
+        this.WithOutputrimary_key");
+        this.WithOutputecondary_connection_string");
+        this.WithOutputecondary_key");
     }
 
     /// <summary>

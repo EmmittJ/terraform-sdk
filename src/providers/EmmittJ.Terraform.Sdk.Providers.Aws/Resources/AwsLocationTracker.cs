@@ -14,9 +14,9 @@ public class AwsLocationTracker : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("tracker_arn");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("tracker_arn");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

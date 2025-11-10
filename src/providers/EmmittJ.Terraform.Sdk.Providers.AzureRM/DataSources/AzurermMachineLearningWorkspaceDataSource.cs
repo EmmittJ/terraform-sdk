@@ -31,9 +31,9 @@ public class AzurermMachineLearningWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

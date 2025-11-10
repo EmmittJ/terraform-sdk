@@ -31,13 +31,13 @@ public class AzurermMonitorScheduledQueryRulesLogDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("authorized_resource_ids");
-        this.DeclareOutput("criteria");
-        this.DeclareOutput("data_source_id");
-        this.DeclareOutput("description");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("authorized_resource_ids");
+        this.WithOutput("criteria");
+        this.WithOutput("data_source_id");
+        this.WithOutput("description");
+        this.WithOutput("enabled");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

@@ -49,10 +49,10 @@ public class GoogleNetappHostGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

@@ -157,11 +157,11 @@ public class GoogleComputeSecurityPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("effective_labels");
+        this.WithOutput("fingerprint");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("self_link");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

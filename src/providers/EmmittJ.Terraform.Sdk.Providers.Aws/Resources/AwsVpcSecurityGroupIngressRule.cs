@@ -14,10 +14,10 @@ public class AwsVpcSecurityGroupIngressRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("security_group_rule_id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("security_group_rule_id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

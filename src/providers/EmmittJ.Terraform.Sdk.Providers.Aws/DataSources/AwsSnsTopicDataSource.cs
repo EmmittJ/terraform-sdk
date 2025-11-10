@@ -14,7 +14,7 @@ public class AwsSnsTopicDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutput("arn");
     }
 
     /// <summary>

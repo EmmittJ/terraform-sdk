@@ -322,18 +322,18 @@ public class GoogleDataprocBatch : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("creator");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("operation");
-        this.DeclareOutput("runtime_info");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_history");
-        this.DeclareOutput("state_message");
-        this.DeclareOutput("state_time");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uuid");
+        this.WithOutput("create_time");
+        this.WithOutput("creator");
+        this.WithOutput("effective_labels");
+        this.WithOutput("name");
+        this.WithOutput("operation");
+        this.WithOutput("runtime_info");
+        this.WithOutput("state");
+        this.WithOutput("state_history");
+        this.WithOutput("state_message");
+        this.WithOutput("state_time");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uuid");
     }
 
     /// <summary>

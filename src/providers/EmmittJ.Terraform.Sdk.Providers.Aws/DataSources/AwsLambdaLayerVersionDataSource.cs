@@ -14,18 +14,18 @@ public class AwsLambdaLayerVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("code_sha256");
-        this.DeclareOutput("compatible_architectures");
-        this.DeclareOutput("compatible_runtimes");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("description");
-        this.DeclareOutput("layer_arn");
-        this.DeclareOutput("license_info");
-        this.DeclareOutput("signing_job_arn");
-        this.DeclareOutput("signing_profile_version_arn");
-        this.DeclareOutput("source_code_hash");
-        this.DeclareOutput("source_code_size");
+        this.WithOutput("arn");
+        this.WithOutput("code_sha256");
+        this.WithOutput("compatible_architectures");
+        this.WithOutput("compatible_runtimes");
+        this.WithOutput("created_date");
+        this.WithOutput("description");
+        this.WithOutput("layer_arn");
+        this.WithOutput("license_info");
+        this.WithOutput("signing_job_arn");
+        this.WithOutput("signing_profile_version_arn");
+        this.WithOutput("source_code_hash");
+        this.WithOutput("source_code_size");
     }
 
     /// <summary>

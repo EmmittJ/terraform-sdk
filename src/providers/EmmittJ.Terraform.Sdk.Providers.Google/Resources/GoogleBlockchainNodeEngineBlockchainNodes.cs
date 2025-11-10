@@ -121,12 +121,12 @@ public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connection_info");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("connection_info");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("name");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

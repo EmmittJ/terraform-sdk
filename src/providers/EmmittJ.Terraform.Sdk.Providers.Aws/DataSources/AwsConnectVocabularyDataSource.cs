@@ -14,12 +14,12 @@ public class AwsConnectVocabularyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("content");
-        this.DeclareOutput("failure_reason");
-        this.DeclareOutput("language_code");
-        this.DeclareOutput("last_modified_time");
-        this.DeclareOutput("state");
+        this.WithOutputrn");
+        this.WithOutputontent");
+        this.WithOutputailure_reason");
+        this.WithOutputanguage_code");
+        this.WithOutputast_modified_time");
+        this.WithOutputtate");
     }
 
     /// <summary>

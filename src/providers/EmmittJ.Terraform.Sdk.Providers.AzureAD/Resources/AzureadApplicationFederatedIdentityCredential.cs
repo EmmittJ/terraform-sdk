@@ -58,7 +58,7 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("credential_id");
+        this.WithOutput("credential_id");
     }
 
     /// <summary>

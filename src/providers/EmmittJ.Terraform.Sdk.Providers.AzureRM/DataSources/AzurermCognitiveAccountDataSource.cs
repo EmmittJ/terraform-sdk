@@ -31,15 +31,15 @@ public class AzurermCognitiveAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("local_auth_enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("qna_runtime_endpoint");
-        this.DeclareOutput("secondary_access_key");
-        this.DeclareOutput("sku_name");
+        this.WithOutput("endpoint");
+        this.WithOutput("identity");
+        this.WithOutput("kind");
+        this.WithOutput("local_auth_enabled");
+        this.WithOutput("location");
+        this.WithOutput("primary_access_key");
+        this.WithOutput("qna_runtime_endpoint");
+        this.WithOutput("secondary_access_key");
+        this.WithOutput("sku_name");
     }
 
     /// <summary>

@@ -114,8 +114,8 @@ public class AwsMskReplicator : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("current_version");
+        this.WithOutput("arn");
+        this.WithOutput("current_version");
     }
 
     /// <summary>

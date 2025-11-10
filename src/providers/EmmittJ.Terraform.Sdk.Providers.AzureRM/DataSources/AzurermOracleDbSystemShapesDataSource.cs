@@ -31,7 +31,7 @@ public class AzurermOracleDbSystemShapesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("db_system_shapes");
+        this.WithOutput("db_system_shapes");
     }
 
     /// <summary>

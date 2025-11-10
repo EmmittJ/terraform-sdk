@@ -14,9 +14,9 @@ public class GoogleBillingAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("currency_code");
-        this.DeclareOutput("name");
-        this.DeclareOutput("project_ids");
+        this.WithOutput("currency_code");
+        this.WithOutput("name");
+        this.WithOutput("project_ids");
     }
 
     /// <summary>

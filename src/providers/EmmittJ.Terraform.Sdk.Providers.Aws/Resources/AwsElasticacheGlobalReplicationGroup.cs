@@ -49,14 +49,14 @@ public class AwsElasticacheGlobalReplicationGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("at_rest_encryption_enabled");
-        this.DeclareOutput("auth_token_enabled");
-        this.DeclareOutput("cluster_enabled");
-        this.DeclareOutput("engine_version_actual");
-        this.DeclareOutput("global_node_groups");
-        this.DeclareOutput("global_replication_group_id");
-        this.DeclareOutput("transit_encryption_enabled");
+        this.WithOutput("arn");
+        this.WithOutput("at_rest_encryption_enabled");
+        this.WithOutput("auth_token_enabled");
+        this.WithOutput("cluster_enabled");
+        this.WithOutput("engine_version_actual");
+        this.WithOutput("global_node_groups");
+        this.WithOutput("global_replication_group_id");
+        this.WithOutput("transit_encryption_enabled");
     }
 
     /// <summary>

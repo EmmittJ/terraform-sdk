@@ -52,7 +52,7 @@ public class GoogleComputeDiskIamMember : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

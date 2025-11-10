@@ -59,15 +59,15 @@ public class AwsNatGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocation_id");
-        this.DeclareOutput("association_id");
-        this.DeclareOutput("connectivity_type");
-        this.DeclareOutput("network_interface_id");
-        this.DeclareOutput("private_ip");
-        this.DeclareOutput("public_ip");
-        this.DeclareOutput("secondary_allocation_ids");
-        this.DeclareOutput("secondary_private_ip_address_count");
-        this.DeclareOutput("secondary_private_ip_addresses");
+        this.WithOutput("allocation_id");
+        this.WithOutput("association_id");
+        this.WithOutput("connectivity_type");
+        this.WithOutput("network_interface_id");
+        this.WithOutput("private_ip");
+        this.WithOutput("public_ip");
+        this.WithOutput("secondary_allocation_ids");
+        this.WithOutput("secondary_private_ip_address_count");
+        this.WithOutput("secondary_private_ip_addresses");
     }
 
     /// <summary>

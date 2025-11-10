@@ -40,8 +40,8 @@ public class AwsIvsPlaybackKeyPair : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("fingerprint");
+        this.WithOutput("arn");
+        this.WithOutput("fingerprint");
     }
 
     /// <summary>

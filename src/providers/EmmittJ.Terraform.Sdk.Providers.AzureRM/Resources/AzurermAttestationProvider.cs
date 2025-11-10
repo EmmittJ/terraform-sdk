@@ -58,8 +58,8 @@ public class AzurermAttestationProvider : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attestation_uri");
-        this.DeclareOutput("trust_model");
+        this.WithOutput("attestation_uri");
+        this.WithOutput("trust_model");
     }
 
     /// <summary>

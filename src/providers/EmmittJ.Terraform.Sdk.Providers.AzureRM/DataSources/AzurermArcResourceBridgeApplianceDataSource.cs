@@ -31,12 +31,12 @@ public class AzurermArcResourceBridgeApplianceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("distro");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("infrastructure_provider");
-        this.DeclareOutput("location");
-        this.DeclareOutput("public_key_base64");
-        this.DeclareOutput("tags");
+        this.WithOutput("distro");
+        this.WithOutput("identity");
+        this.WithOutput("infrastructure_provider");
+        this.WithOutput("location");
+        this.WithOutput("public_key_base64");
+        this.WithOutput("tags");
     }
 
     /// <summary>

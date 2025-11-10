@@ -51,7 +51,7 @@ public class AwsNeptuneClusterParameterGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutputrn");
     }
 
     /// <summary>

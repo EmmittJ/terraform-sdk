@@ -113,8 +113,8 @@ public class AzurermStorageAccountLocalUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("password");
-        this.DeclareOutput("sid");
+        this.WithOutputassword");
+        this.WithOutputid");
     }
 
     /// <summary>

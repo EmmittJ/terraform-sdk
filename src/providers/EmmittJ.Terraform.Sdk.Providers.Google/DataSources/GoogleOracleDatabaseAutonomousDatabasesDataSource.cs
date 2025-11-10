@@ -14,7 +14,7 @@ public class GoogleOracleDatabaseAutonomousDatabasesDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("autonomous_databases");
+        this.WithOutput("autonomous_databases");
     }
 
     /// <summary>

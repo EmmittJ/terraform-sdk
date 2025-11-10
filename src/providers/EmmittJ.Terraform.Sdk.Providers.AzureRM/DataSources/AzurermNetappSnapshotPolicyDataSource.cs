@@ -31,13 +31,13 @@ public class AzurermNetappSnapshotPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("daily_schedule");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("hourly_schedule");
-        this.DeclareOutput("location");
-        this.DeclareOutput("monthly_schedule");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("weekly_schedule");
+        this.WithOutput("daily_schedule");
+        this.WithOutput("enabled");
+        this.WithOutput("hourly_schedule");
+        this.WithOutput("location");
+        this.WithOutput("monthly_schedule");
+        this.WithOutput("tags");
+        this.WithOutput("weekly_schedule");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsIotEndpointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint_address");
+        this.WithOutput("endpoint_address");
     }
 
     /// <summary>

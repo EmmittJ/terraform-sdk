@@ -14,8 +14,8 @@ public class AwsCloudformationExportDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("exporting_stack_id");
-        this.DeclareOutput("value");
+        this.WithOutput("exporting_stack_id");
+        this.WithOutput("value");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsRoute53ResolverRulesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resolver_rule_ids");
+        this.WithOutputesolver_rule_ids");
     }
 
     /// <summary>

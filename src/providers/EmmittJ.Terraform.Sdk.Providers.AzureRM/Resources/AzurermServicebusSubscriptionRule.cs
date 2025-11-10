@@ -148,7 +148,7 @@ public class AzurermServicebusSubscriptionRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("sql_filter_compatibility_level");
+        this.WithOutputql_filter_compatibility_level");
     }
 
     /// <summary>

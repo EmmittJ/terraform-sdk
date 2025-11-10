@@ -70,7 +70,7 @@ public class GoogleHealthcareDataset : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("self_link");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

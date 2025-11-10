@@ -49,9 +49,9 @@ public class AwsVpclatticeService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("dns_entry");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("dns_entry");
+        this.WithOutput("status");
     }
 
     /// <summary>

@@ -31,14 +31,14 @@ public class AzurermApplicationInsightsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_id");
-        this.DeclareOutput("application_type");
-        this.DeclareOutput("connection_string");
-        this.DeclareOutput("instrumentation_key");
-        this.DeclareOutput("location");
-        this.DeclareOutput("retention_in_days");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("workspace_id");
+        this.WithOutput("app_id");
+        this.WithOutput("application_type");
+        this.WithOutput("connection_string");
+        this.WithOutput("instrumentation_key");
+        this.WithOutput("location");
+        this.WithOutput("retention_in_days");
+        this.WithOutput("tags");
+        this.WithOutput("workspace_id");
     }
 
     /// <summary>

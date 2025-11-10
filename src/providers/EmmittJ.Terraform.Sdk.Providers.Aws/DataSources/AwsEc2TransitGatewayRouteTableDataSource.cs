@@ -59,10 +59,10 @@ public class AwsEc2TransitGatewayRouteTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("default_association_route_table");
-        this.DeclareOutput("default_propagation_route_table");
-        this.DeclareOutput("transit_gateway_id");
+        this.WithOutputrn");
+        this.WithOutputefault_association_route_table");
+        this.WithOutputefault_propagation_route_table");
+        this.WithOutputransit_gateway_id");
     }
 
     /// <summary>

@@ -59,14 +59,14 @@ public class AwsEc2TransitGatewayConnectPeerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("bgp_asn");
-        this.DeclareOutput("bgp_peer_address");
-        this.DeclareOutput("bgp_transit_gateway_addresses");
-        this.DeclareOutput("inside_cidr_blocks");
-        this.DeclareOutput("peer_address");
-        this.DeclareOutput("transit_gateway_address");
-        this.DeclareOutput("transit_gateway_attachment_id");
+        this.WithOutput("arn");
+        this.WithOutput("bgp_asn");
+        this.WithOutput("bgp_peer_address");
+        this.WithOutput("bgp_transit_gateway_addresses");
+        this.WithOutput("inside_cidr_blocks");
+        this.WithOutput("peer_address");
+        this.WithOutput("transit_gateway_address");
+        this.WithOutput("transit_gateway_attachment_id");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsApiGatewayAuthorizersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ids");
+        this.WithOutput("ids");
     }
 
     /// <summary>

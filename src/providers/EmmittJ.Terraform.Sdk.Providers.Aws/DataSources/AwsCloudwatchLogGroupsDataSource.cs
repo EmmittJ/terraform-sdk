@@ -14,8 +14,8 @@ public class AwsCloudwatchLogGroupsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arns");
-        this.DeclareOutput("log_group_names");
+        this.WithOutput("arns");
+        this.WithOutput("log_group_names");
     }
 
     /// <summary>

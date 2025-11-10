@@ -59,18 +59,18 @@ public class AwsEc2HostDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("asset_id");
-        this.DeclareOutput("auto_placement");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("cores");
-        this.DeclareOutput("host_recovery");
-        this.DeclareOutput("instance_family");
-        this.DeclareOutput("instance_type");
-        this.DeclareOutput("outpost_arn");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("sockets");
-        this.DeclareOutput("total_vcpus");
+        this.WithOutput("arn");
+        this.WithOutput("asset_id");
+        this.WithOutput("auto_placement");
+        this.WithOutput("availability_zone");
+        this.WithOutput("cores");
+        this.WithOutput("host_recovery");
+        this.WithOutput("instance_family");
+        this.WithOutput("instance_type");
+        this.WithOutput("outpost_arn");
+        this.WithOutput("owner_id");
+        this.WithOutput("sockets");
+        this.WithOutput("total_vcpus");
     }
 
     /// <summary>

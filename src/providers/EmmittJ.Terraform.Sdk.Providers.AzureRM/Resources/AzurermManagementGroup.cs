@@ -58,7 +58,7 @@ public class AzurermManagementGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("tenant_scoped_id");
+        this.WithOutput("tenant_scoped_id");
     }
 
     /// <summary>

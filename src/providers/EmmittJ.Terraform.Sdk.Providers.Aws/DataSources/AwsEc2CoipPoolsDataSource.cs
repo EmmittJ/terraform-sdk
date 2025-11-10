@@ -59,7 +59,7 @@ public class AwsEc2CoipPoolsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("pool_ids");
+        this.WithOutput("pool_ids");
     }
 
     /// <summary>

@@ -75,12 +75,12 @@ public class AwsKendraDataSource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("data_source_id");
-        this.DeclareOutput("error_message");
-        this.DeclareOutput("status");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("data_source_id");
+        this.WithOutput("error_message");
+        this.WithOutput("status");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

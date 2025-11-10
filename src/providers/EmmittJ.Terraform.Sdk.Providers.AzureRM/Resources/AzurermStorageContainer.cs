@@ -58,9 +58,9 @@ public class AzurermStorageContainer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("has_immutability_policy");
-        this.DeclareOutput("has_legal_hold");
-        this.DeclareOutput("resource_manager_id");
+        this.WithOutputas_immutability_policy");
+        this.WithOutputas_legal_hold");
+        this.WithOutputesource_manager_id");
     }
 
     /// <summary>

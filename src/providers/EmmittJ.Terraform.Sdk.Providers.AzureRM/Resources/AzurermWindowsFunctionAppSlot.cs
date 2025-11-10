@@ -748,15 +748,15 @@ public class AzurermWindowsFunctionAppSlot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("custom_domain_verification_id");
-        this.DeclareOutput("default_hostname");
-        this.DeclareOutput("hosting_environment_id");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("outbound_ip_address_list");
-        this.DeclareOutput("outbound_ip_addresses");
-        this.DeclareOutput("possible_outbound_ip_address_list");
-        this.DeclareOutput("possible_outbound_ip_addresses");
-        this.DeclareOutput("site_credential");
+        this.WithOutputustom_domain_verification_id");
+        this.WithOutputefault_hostname");
+        this.WithOutputosting_environment_id");
+        this.WithOutputind");
+        this.WithOutpututbound_ip_address_list");
+        this.WithOutpututbound_ip_addresses");
+        this.WithOutputossible_outbound_ip_address_list");
+        this.WithOutputossible_outbound_ip_addresses");
+        this.WithOutputite_credential");
     }
 
     /// <summary>

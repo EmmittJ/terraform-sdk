@@ -121,8 +121,8 @@ public class GoogleProjectOrganizationPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
-        this.DeclareOutput("update_time");
+        this.WithOutput("etag");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

@@ -40,10 +40,10 @@ public class GoogleComputeRegionSslCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_id");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("expire_time");
-        this.DeclareOutput("self_link");
+        this.WithOutput("certificate_id");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("expire_time");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

@@ -31,11 +31,11 @@ public class AzurermRouteTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("bgp_route_propagation_enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("route");
-        this.DeclareOutput("subnets");
-        this.DeclareOutput("tags");
+        this.WithOutput("bgp_route_propagation_enabled");
+        this.WithOutput("location");
+        this.WithOutput("route");
+        this.WithOutput("subnets");
+        this.WithOutput("tags");
     }
 
     /// <summary>

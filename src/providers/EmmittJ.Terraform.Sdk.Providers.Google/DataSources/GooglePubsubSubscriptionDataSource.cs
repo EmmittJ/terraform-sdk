@@ -14,24 +14,24 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ack_deadline_seconds");
-        this.DeclareOutput("bigquery_config");
-        this.DeclareOutput("cloud_storage_config");
-        this.DeclareOutput("dead_letter_policy");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("enable_exactly_once_delivery");
-        this.DeclareOutput("enable_message_ordering");
-        this.DeclareOutput("expiration_policy");
-        this.DeclareOutput("filter");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("message_retention_duration");
-        this.DeclareOutput("message_transforms");
-        this.DeclareOutput("push_config");
-        this.DeclareOutput("retain_acked_messages");
-        this.DeclareOutput("retry_policy");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("topic");
+        this.WithOutput("ack_deadline_seconds");
+        this.WithOutput("bigquery_config");
+        this.WithOutput("cloud_storage_config");
+        this.WithOutput("dead_letter_policy");
+        this.WithOutput("effective_labels");
+        this.WithOutput("enable_exactly_once_delivery");
+        this.WithOutput("enable_message_ordering");
+        this.WithOutput("expiration_policy");
+        this.WithOutput("filter");
+        this.WithOutput("labels");
+        this.WithOutput("message_retention_duration");
+        this.WithOutput("message_transforms");
+        this.WithOutput("push_config");
+        this.WithOutput("retain_acked_messages");
+        this.WithOutput("retry_policy");
+        this.WithOutput("tags");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("topic");
     }
 
     /// <summary>

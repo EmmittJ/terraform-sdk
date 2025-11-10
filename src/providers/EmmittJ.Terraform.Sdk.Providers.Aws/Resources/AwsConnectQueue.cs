@@ -50,8 +50,8 @@ public class AwsConnectQueue : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("queue_id");
+        this.WithOutput("arn");
+        this.WithOutput("queue_id");
     }
 
     /// <summary>

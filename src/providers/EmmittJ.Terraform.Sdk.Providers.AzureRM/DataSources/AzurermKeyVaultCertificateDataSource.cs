@@ -31,18 +31,18 @@ public class AzurermKeyVaultCertificateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_data");
-        this.DeclareOutput("certificate_data_base64");
-        this.DeclareOutput("certificate_policy");
-        this.DeclareOutput("expires");
-        this.DeclareOutput("not_before");
-        this.DeclareOutput("resource_manager_id");
-        this.DeclareOutput("resource_manager_versionless_id");
-        this.DeclareOutput("secret_id");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("thumbprint");
-        this.DeclareOutput("versionless_id");
-        this.DeclareOutput("versionless_secret_id");
+        this.WithOutput("certificate_data");
+        this.WithOutput("certificate_data_base64");
+        this.WithOutput("certificate_policy");
+        this.WithOutput("expires");
+        this.WithOutput("not_before");
+        this.WithOutput("resource_manager_id");
+        this.WithOutput("resource_manager_versionless_id");
+        this.WithOutput("secret_id");
+        this.WithOutput("tags");
+        this.WithOutput("thumbprint");
+        this.WithOutput("versionless_id");
+        this.WithOutput("versionless_secret_id");
     }
 
     /// <summary>

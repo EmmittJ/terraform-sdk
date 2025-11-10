@@ -14,12 +14,12 @@ public class GoogleOrganizationIamCustomRoleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("deleted");
-        this.DeclareOutput("description");
-        this.DeclareOutput("name");
-        this.DeclareOutput("permissions");
-        this.DeclareOutput("stage");
-        this.DeclareOutput("title");
+        this.WithOutput("deleted");
+        this.WithOutput("description");
+        this.WithOutput("name");
+        this.WithOutput("permissions");
+        this.WithOutput("stage");
+        this.WithOutput("title");
     }
 
     /// <summary>

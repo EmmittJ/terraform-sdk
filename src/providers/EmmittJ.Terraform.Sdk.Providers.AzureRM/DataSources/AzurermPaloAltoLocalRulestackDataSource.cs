@@ -31,16 +31,16 @@ public class AzurermPaloAltoLocalRulestackDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("anti_spyware_profile");
-        this.DeclareOutput("anti_virus_profile");
-        this.DeclareOutput("description");
-        this.DeclareOutput("dns_subscription");
-        this.DeclareOutput("file_blocking_profile");
-        this.DeclareOutput("location");
-        this.DeclareOutput("outbound_trust_certificate");
-        this.DeclareOutput("outbound_untrust_certificate");
-        this.DeclareOutput("url_filtering_profile");
-        this.DeclareOutput("vulnerability_profile");
+        this.WithOutput("anti_spyware_profile");
+        this.WithOutput("anti_virus_profile");
+        this.WithOutput("description");
+        this.WithOutput("dns_subscription");
+        this.WithOutput("file_blocking_profile");
+        this.WithOutput("location");
+        this.WithOutput("outbound_trust_certificate");
+        this.WithOutput("outbound_untrust_certificate");
+        this.WithOutput("url_filtering_profile");
+        this.WithOutput("vulnerability_profile");
     }
 
     /// <summary>

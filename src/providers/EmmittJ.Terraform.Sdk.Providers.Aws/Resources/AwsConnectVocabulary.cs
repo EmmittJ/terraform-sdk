@@ -40,11 +40,11 @@ public class AwsConnectVocabulary : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("failure_reason");
-        this.DeclareOutput("last_modified_time");
-        this.DeclareOutput("state");
-        this.DeclareOutput("vocabulary_id");
+        this.WithOutputrn");
+        this.WithOutputailure_reason");
+        this.WithOutputast_modified_time");
+        this.WithOutputtate");
+        this.WithOutputocabulary_id");
     }
 
     /// <summary>

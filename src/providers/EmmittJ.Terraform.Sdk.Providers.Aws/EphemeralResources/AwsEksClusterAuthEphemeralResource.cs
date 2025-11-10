@@ -15,7 +15,7 @@ public class AwsEksClusterAuthEphemeralResource : TerraformEphemeralResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("token");
+        this.WithOutput("token");
     }
 
     /// <summary>

@@ -14,20 +14,20 @@ public class AwsDirectoryServiceDirectoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_url");
-        this.DeclareOutput("alias");
-        this.DeclareOutput("connect_settings");
-        this.DeclareOutput("description");
-        this.DeclareOutput("dns_ip_addresses");
-        this.DeclareOutput("edition");
-        this.DeclareOutput("enable_sso");
-        this.DeclareOutput("name");
-        this.DeclareOutput("radius_settings");
-        this.DeclareOutput("security_group_id");
-        this.DeclareOutput("short_name");
-        this.DeclareOutput("size");
-        this.DeclareOutput("type");
-        this.DeclareOutput("vpc_settings");
+        this.WithOutput("access_url");
+        this.WithOutput("alias");
+        this.WithOutput("connect_settings");
+        this.WithOutput("description");
+        this.WithOutput("dns_ip_addresses");
+        this.WithOutput("edition");
+        this.WithOutput("enable_sso");
+        this.WithOutput("name");
+        this.WithOutput("radius_settings");
+        this.WithOutput("security_group_id");
+        this.WithOutput("short_name");
+        this.WithOutput("size");
+        this.WithOutput("type");
+        this.WithOutput("vpc_settings");
     }
 
     /// <summary>

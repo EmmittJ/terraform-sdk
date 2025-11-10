@@ -154,15 +154,15 @@ public class GoogleComputeSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("disk_size_gb");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("licenses");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("snapshot_id");
-        this.DeclareOutput("storage_bytes");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("disk_size_gb");
+        this.WithOutput("effective_labels");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("licenses");
+        this.WithOutput("self_link");
+        this.WithOutput("snapshot_id");
+        this.WithOutput("storage_bytes");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

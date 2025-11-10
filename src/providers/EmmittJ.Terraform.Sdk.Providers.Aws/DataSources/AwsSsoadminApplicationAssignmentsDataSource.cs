@@ -14,8 +14,8 @@ public class AwsSsoadminApplicationAssignmentsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_assignments");
-        this.DeclareOutput("id");
+        this.WithOutput("application_assignments");
+        this.WithOutput("id");
     }
 
     /// <summary>

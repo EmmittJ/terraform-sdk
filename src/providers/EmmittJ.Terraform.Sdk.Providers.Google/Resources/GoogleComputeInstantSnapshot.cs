@@ -49,13 +49,13 @@ public class GoogleComputeInstantSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("disk_size_gb");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("source_disk_id");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("disk_size_gb");
+        this.WithOutput("effective_labels");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("self_link");
+        this.WithOutput("source_disk_id");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

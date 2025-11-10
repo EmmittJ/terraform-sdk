@@ -78,8 +78,8 @@ public class AwsRoute53domainsDelegationSignerRecord : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dnssec_key_id");
-        this.DeclareOutput("id");
+        this.WithOutput("dnssec_key_id");
+        this.WithOutput("id");
     }
 
     /// <summary>

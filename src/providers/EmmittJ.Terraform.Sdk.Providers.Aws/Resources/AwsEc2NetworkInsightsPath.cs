@@ -67,9 +67,9 @@ public class AwsEc2NetworkInsightsPath : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("destination_arn");
-        this.DeclareOutput("source_arn");
+        this.WithOutput("arn");
+        this.WithOutput("destination_arn");
+        this.WithOutput("source_arn");
     }
 
     /// <summary>

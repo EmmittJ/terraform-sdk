@@ -31,14 +31,14 @@ public class AzurermManagedRedisDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("customer_managed_key");
-        this.DeclareOutput("default_database");
-        this.DeclareOutput("high_availability_enabled");
-        this.DeclareOutput("hostname");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("tags");
+        this.WithOutput("customer_managed_key");
+        this.WithOutput("default_database");
+        this.WithOutput("high_availability_enabled");
+        this.WithOutput("hostname");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("sku_name");
+        this.WithOutput("tags");
     }
 
     /// <summary>

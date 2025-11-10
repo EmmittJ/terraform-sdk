@@ -14,12 +14,12 @@ public class AwsNetworkmanagerConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("connected_device_id");
-        this.DeclareOutput("connected_link_id");
-        this.DeclareOutput("description");
-        this.DeclareOutput("device_id");
-        this.DeclareOutput("link_id");
+        this.WithOutput("arn");
+        this.WithOutput("connected_device_id");
+        this.WithOutput("connected_link_id");
+        this.WithOutput("description");
+        this.WithOutput("device_id");
+        this.WithOutput("link_id");
     }
 
     /// <summary>

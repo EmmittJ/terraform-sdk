@@ -282,7 +282,7 @@ public class AzurermSynapseWorkspace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connectivity_endpoints");
+        this.WithOutputonnectivity_endpoints");
     }
 
     /// <summary>

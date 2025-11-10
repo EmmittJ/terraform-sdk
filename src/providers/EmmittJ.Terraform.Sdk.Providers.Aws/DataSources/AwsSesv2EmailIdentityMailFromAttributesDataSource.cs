@@ -14,8 +14,8 @@ public class AwsSesv2EmailIdentityMailFromAttributesDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("behavior_on_mx_failure");
-        this.DeclareOutput("mail_from_domain");
+        this.WithOutput("behavior_on_mx_failure");
+        this.WithOutput("mail_from_domain");
     }
 
     /// <summary>

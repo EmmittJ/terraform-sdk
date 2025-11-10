@@ -301,10 +301,10 @@ public class GoogleComputeRegionUrlMap : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("map_id");
-        this.DeclareOutput("self_link");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("fingerprint");
+        this.WithOutput("map_id");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

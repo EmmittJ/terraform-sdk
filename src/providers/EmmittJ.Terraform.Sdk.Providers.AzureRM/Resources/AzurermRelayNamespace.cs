@@ -58,11 +58,11 @@ public class AzurermRelayNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("metric_id");
-        this.DeclareOutput("primary_connection_string");
-        this.DeclareOutput("primary_key");
-        this.DeclareOutput("secondary_connection_string");
-        this.DeclareOutput("secondary_key");
+        this.WithOutputetric_id");
+        this.WithOutputrimary_connection_string");
+        this.WithOutputrimary_key");
+        this.WithOutputecondary_connection_string");
+        this.WithOutputecondary_key");
     }
 
     /// <summary>

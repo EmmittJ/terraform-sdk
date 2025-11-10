@@ -69,9 +69,9 @@ public class AwsEfsAccessPoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("file_system_arn");
-        this.DeclareOutput("owner_id");
+        this.WithOutput("arn");
+        this.WithOutput("file_system_arn");
+        this.WithOutput("owner_id");
     }
 
     /// <summary>

@@ -14,18 +14,18 @@ public class AwsDbProxyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("auth");
-        this.DeclareOutput("debug_logging");
-        this.DeclareOutput("default_auth_scheme");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("engine_family");
-        this.DeclareOutput("idle_client_timeout");
-        this.DeclareOutput("require_tls");
-        this.DeclareOutput("role_arn");
-        this.DeclareOutput("vpc_id");
-        this.DeclareOutput("vpc_security_group_ids");
-        this.DeclareOutput("vpc_subnet_ids");
+        this.WithOutput("arn");
+        this.WithOutput("auth");
+        this.WithOutput("debug_logging");
+        this.WithOutput("default_auth_scheme");
+        this.WithOutput("endpoint");
+        this.WithOutput("engine_family");
+        this.WithOutput("idle_client_timeout");
+        this.WithOutput("require_tls");
+        this.WithOutput("role_arn");
+        this.WithOutput("vpc_id");
+        this.WithOutput("vpc_security_group_ids");
+        this.WithOutput("vpc_subnet_ids");
     }
 
     /// <summary>

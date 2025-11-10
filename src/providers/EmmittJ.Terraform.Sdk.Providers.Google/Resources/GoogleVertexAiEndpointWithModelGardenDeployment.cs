@@ -149,9 +149,9 @@ public class GoogleVertexAiEndpointWithModelGardenDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("deployed_model_display_name");
-        this.DeclareOutput("deployed_model_id");
-        this.DeclareOutput("endpoint");
+        this.WithOutput("deployed_model_display_name");
+        this.WithOutput("deployed_model_id");
+        this.WithOutput("endpoint");
     }
 
     /// <summary>

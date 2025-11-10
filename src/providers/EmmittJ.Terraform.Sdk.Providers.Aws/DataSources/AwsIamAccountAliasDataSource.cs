@@ -14,7 +14,7 @@ public class AwsIamAccountAliasDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_alias");
+        this.WithOutput("account_alias");
     }
 
     /// <summary>

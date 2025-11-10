@@ -107,7 +107,7 @@ public class AzurermDnsSrvRecord : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fqdn");
+        this.WithOutput("fqdn");
     }
 
     /// <summary>

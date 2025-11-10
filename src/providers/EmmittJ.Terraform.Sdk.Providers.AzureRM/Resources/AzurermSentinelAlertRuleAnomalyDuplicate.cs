@@ -250,16 +250,16 @@ public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("anomaly_settings_version");
-        this.DeclareOutput("anomaly_version");
-        this.DeclareOutput("description");
-        this.DeclareOutput("frequency");
-        this.DeclareOutput("is_default_settings");
-        this.DeclareOutput("name");
-        this.DeclareOutput("required_data_connector");
-        this.DeclareOutput("settings_definition_id");
-        this.DeclareOutput("tactics");
-        this.DeclareOutput("techniques");
+        this.WithOutputnomaly_settings_version");
+        this.WithOutputnomaly_version");
+        this.WithOutputescription");
+        this.WithOutputrequency");
+        this.WithOutputs_default_settings");
+        this.WithOutputame");
+        this.WithOutputequired_data_connector");
+        this.WithOutputettings_definition_id");
+        this.WithOutputactics");
+        this.WithOutputechniques");
     }
 
     /// <summary>

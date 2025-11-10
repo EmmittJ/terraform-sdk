@@ -14,12 +14,12 @@ public class AwsDirectoryServiceTrust : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_date_time");
-        this.DeclareOutput("id");
-        this.DeclareOutput("last_updated_date_time");
-        this.DeclareOutput("state_last_updated_date_time");
-        this.DeclareOutput("trust_state");
-        this.DeclareOutput("trust_state_reason");
+        this.WithOutput("created_date_time");
+        this.WithOutput("id");
+        this.WithOutput("last_updated_date_time");
+        this.WithOutput("state_last_updated_date_time");
+        this.WithOutput("trust_state");
+        this.WithOutput("trust_state_reason");
     }
 
     /// <summary>

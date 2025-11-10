@@ -14,9 +14,9 @@ public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("currency_code");
-        this.DeclareOutput("fixed_price");
-        this.DeclareOutput("offering_id");
+        this.WithOutput("currency_code");
+        this.WithOutput("fixed_price");
+        this.WithOutput("offering_id");
     }
 
     /// <summary>

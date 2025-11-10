@@ -40,7 +40,7 @@ public class GoogleKmsKeyHandle : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("kms_key");
+        this.WithOutput("kms_key");
     }
 
     /// <summary>

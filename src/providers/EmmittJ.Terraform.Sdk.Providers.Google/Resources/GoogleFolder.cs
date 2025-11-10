@@ -58,12 +58,12 @@ public class GoogleFolder : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("configured_capabilities");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("folder_id");
-        this.DeclareOutput("lifecycle_state");
-        this.DeclareOutput("management_project");
-        this.DeclareOutput("name");
+        this.WithOutput("configured_capabilities");
+        this.WithOutput("create_time");
+        this.WithOutput("folder_id");
+        this.WithOutput("lifecycle_state");
+        this.WithOutput("management_project");
+        this.WithOutput("name");
     }
 
     /// <summary>

@@ -14,21 +14,21 @@ public class AwsNeptuneOrderableDbInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("availability_zones");
-        this.DeclareOutput("max_iops_per_db_instance");
-        this.DeclareOutput("max_iops_per_gib");
-        this.DeclareOutput("max_storage_size");
-        this.DeclareOutput("min_iops_per_db_instance");
-        this.DeclareOutput("min_iops_per_gib");
-        this.DeclareOutput("min_storage_size");
-        this.DeclareOutput("multi_az_capable");
-        this.DeclareOutput("read_replica_capable");
-        this.DeclareOutput("storage_type");
-        this.DeclareOutput("supports_enhanced_monitoring");
-        this.DeclareOutput("supports_iam_database_authentication");
-        this.DeclareOutput("supports_iops");
-        this.DeclareOutput("supports_performance_insights");
-        this.DeclareOutput("supports_storage_encryption");
+        this.WithOutput("availability_zones");
+        this.WithOutput("max_iops_per_db_instance");
+        this.WithOutput("max_iops_per_gib");
+        this.WithOutput("max_storage_size");
+        this.WithOutput("min_iops_per_db_instance");
+        this.WithOutput("min_iops_per_gib");
+        this.WithOutput("min_storage_size");
+        this.WithOutput("multi_az_capable");
+        this.WithOutput("read_replica_capable");
+        this.WithOutput("storage_type");
+        this.WithOutput("supports_enhanced_monitoring");
+        this.WithOutput("supports_iam_database_authentication");
+        this.WithOutput("supports_iops");
+        this.WithOutput("supports_performance_insights");
+        this.WithOutput("supports_storage_encryption");
     }
 
     /// <summary>

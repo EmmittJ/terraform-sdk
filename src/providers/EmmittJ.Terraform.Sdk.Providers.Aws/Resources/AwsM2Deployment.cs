@@ -49,8 +49,8 @@ public class AwsM2Deployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("deployment_id");
-        this.DeclareOutput("id");
+        this.WithOutput("deployment_id");
+        this.WithOutput("id");
     }
 
     /// <summary>

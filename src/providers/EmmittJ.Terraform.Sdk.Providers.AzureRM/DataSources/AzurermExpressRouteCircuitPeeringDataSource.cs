@@ -31,17 +31,17 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("azure_asn");
-        this.DeclareOutput("gateway_manager_etag");
-        this.DeclareOutput("ipv4_enabled");
-        this.DeclareOutput("peer_asn");
-        this.DeclareOutput("primary_azure_port");
-        this.DeclareOutput("primary_peer_address_prefix");
-        this.DeclareOutput("route_filter_id");
-        this.DeclareOutput("secondary_azure_port");
-        this.DeclareOutput("secondary_peer_address_prefix");
-        this.DeclareOutput("shared_key");
-        this.DeclareOutput("vlan_id");
+        this.WithOutput("azure_asn");
+        this.WithOutput("gateway_manager_etag");
+        this.WithOutput("ipv4_enabled");
+        this.WithOutput("peer_asn");
+        this.WithOutput("primary_azure_port");
+        this.WithOutput("primary_peer_address_prefix");
+        this.WithOutput("route_filter_id");
+        this.WithOutput("secondary_azure_port");
+        this.WithOutput("secondary_peer_address_prefix");
+        this.WithOutput("shared_key");
+        this.WithOutput("vlan_id");
     }
 
     /// <summary>

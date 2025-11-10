@@ -14,7 +14,7 @@ public class GoogleHealthcareHl7V2StoreIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

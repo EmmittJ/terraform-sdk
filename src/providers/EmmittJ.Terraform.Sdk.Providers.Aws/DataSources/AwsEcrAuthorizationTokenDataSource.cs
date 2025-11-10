@@ -14,11 +14,11 @@ public class AwsEcrAuthorizationTokenDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("authorization_token");
-        this.DeclareOutput("expires_at");
-        this.DeclareOutput("password");
-        this.DeclareOutput("proxy_endpoint");
-        this.DeclareOutput("user_name");
+        this.WithOutput("authorization_token");
+        this.WithOutput("expires_at");
+        this.WithOutput("password");
+        this.WithOutput("proxy_endpoint");
+        this.WithOutput("user_name");
     }
 
     /// <summary>

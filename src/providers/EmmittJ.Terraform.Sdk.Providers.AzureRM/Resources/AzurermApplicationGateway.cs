@@ -1575,7 +1575,7 @@ public class AzurermApplicationGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("private_endpoint_connection");
+        this.WithOutput("private_endpoint_connection");
     }
 
     /// <summary>

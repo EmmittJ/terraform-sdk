@@ -78,11 +78,11 @@ public class GoogleBackupDrBackupPlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("backup_vault_service_account");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("supported_resource_types");
-        this.DeclareOutput("update_time");
+        this.WithOutput("backup_vault_service_account");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("supported_resource_types");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

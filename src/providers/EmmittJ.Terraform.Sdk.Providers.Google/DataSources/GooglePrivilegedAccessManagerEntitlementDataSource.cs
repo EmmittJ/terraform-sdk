@@ -14,17 +14,17 @@ public class GooglePrivilegedAccessManagerEntitlementDataSource : TerraformDataS
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("additional_notification_targets");
-        this.DeclareOutput("approval_workflow");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("eligible_users");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("max_request_duration");
-        this.DeclareOutput("name");
-        this.DeclareOutput("privileged_access");
-        this.DeclareOutput("requester_justification_config");
-        this.DeclareOutput("state");
-        this.DeclareOutput("update_time");
+        this.WithOutput("additional_notification_targets");
+        this.WithOutput("approval_workflow");
+        this.WithOutput("create_time");
+        this.WithOutput("eligible_users");
+        this.WithOutput("etag");
+        this.WithOutput("max_request_duration");
+        this.WithOutput("name");
+        this.WithOutput("privileged_access");
+        this.WithOutput("requester_justification_config");
+        this.WithOutput("state");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

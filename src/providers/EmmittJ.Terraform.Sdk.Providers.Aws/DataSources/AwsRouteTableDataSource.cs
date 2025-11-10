@@ -59,10 +59,10 @@ public class AwsRouteTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("associations");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("routes");
+        this.WithOutputrn");
+        this.WithOutputssociations");
+        this.WithOutputwner_id");
+        this.WithOutputoutes");
     }
 
     /// <summary>

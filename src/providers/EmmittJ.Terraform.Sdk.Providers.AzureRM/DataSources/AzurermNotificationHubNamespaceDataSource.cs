@@ -31,12 +31,12 @@ public class AzurermNotificationHubNamespaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("namespace_type");
-        this.DeclareOutput("servicebus_endpoint");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
+        this.WithOutput("enabled");
+        this.WithOutput("location");
+        this.WithOutput("namespace_type");
+        this.WithOutput("servicebus_endpoint");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
     }
 
     /// <summary>

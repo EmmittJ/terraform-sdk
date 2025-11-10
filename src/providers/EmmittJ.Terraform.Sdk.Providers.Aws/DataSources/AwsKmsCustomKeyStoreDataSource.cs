@@ -14,10 +14,10 @@ public class AwsKmsCustomKeyStoreDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cloud_hsm_cluster_id");
-        this.DeclareOutput("connection_state");
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("trust_anchor_certificate");
+        this.WithOutput("cloud_hsm_cluster_id");
+        this.WithOutput("connection_state");
+        this.WithOutput("creation_date");
+        this.WithOutput("trust_anchor_certificate");
     }
 
     /// <summary>

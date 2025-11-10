@@ -49,10 +49,10 @@ public class GoogleStorageManagedFolder : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("metageneration");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("metageneration");
+        this.WithOutput("self_link");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

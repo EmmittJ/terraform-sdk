@@ -40,10 +40,10 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("created_by");
-        this.DeclareOutput("id");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("created_at");
+        this.WithOutput("created_by");
+        this.WithOutput("id");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

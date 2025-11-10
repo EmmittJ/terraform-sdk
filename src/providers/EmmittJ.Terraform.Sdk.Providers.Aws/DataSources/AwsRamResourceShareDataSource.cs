@@ -42,10 +42,10 @@ public class AwsRamResourceShareDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("owning_account_id");
-        this.DeclareOutput("resource_arns");
-        this.DeclareOutput("status");
+        this.WithOutputrn");
+        this.WithOutputwning_account_id");
+        this.WithOutputesource_arns");
+        this.WithOutputtatus");
     }
 
     /// <summary>

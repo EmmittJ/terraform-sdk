@@ -491,10 +491,10 @@ public class AwsElasticsearchDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("domain_id");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("kibana_endpoint");
+        this.WithOutput("arn");
+        this.WithOutput("domain_id");
+        this.WithOutput("endpoint");
+        this.WithOutput("kibana_endpoint");
     }
 
     /// <summary>

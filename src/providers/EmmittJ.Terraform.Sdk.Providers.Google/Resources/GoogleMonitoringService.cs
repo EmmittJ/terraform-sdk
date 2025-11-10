@@ -78,8 +78,8 @@ public class GoogleMonitoringService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("telemetry");
+        this.WithOutput("name");
+        this.WithOutput("telemetry");
     }
 
     /// <summary>

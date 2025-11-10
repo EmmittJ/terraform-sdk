@@ -141,12 +141,12 @@ public class AzurermNetworkInterface : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("applied_dns_servers");
-        this.DeclareOutput("internal_domain_name_suffix");
-        this.DeclareOutput("mac_address");
-        this.DeclareOutput("private_ip_address");
-        this.DeclareOutput("private_ip_addresses");
-        this.DeclareOutput("virtual_machine_id");
+        this.WithOutput("applied_dns_servers");
+        this.WithOutput("internal_domain_name_suffix");
+        this.WithOutput("mac_address");
+        this.WithOutput("private_ip_address");
+        this.WithOutput("private_ip_addresses");
+        this.WithOutput("virtual_machine_id");
     }
 
     /// <summary>

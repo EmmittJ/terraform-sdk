@@ -14,9 +14,9 @@ public class AwsBackupVaultDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("kms_key_arn");
-        this.DeclareOutput("recovery_points");
+        this.WithOutput("arn");
+        this.WithOutput("kms_key_arn");
+        this.WithOutput("recovery_points");
     }
 
     /// <summary>

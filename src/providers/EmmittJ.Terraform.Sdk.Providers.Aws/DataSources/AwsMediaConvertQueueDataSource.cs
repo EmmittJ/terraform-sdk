@@ -14,9 +14,9 @@ public class AwsMediaConvertQueueDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("name");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("name");
+        this.WithOutput("status");
     }
 
     /// <summary>

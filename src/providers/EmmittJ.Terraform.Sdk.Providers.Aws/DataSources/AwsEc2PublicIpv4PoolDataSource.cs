@@ -14,11 +14,11 @@ public class AwsEc2PublicIpv4PoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("network_border_group");
-        this.DeclareOutput("pool_address_ranges");
-        this.DeclareOutput("total_address_count");
-        this.DeclareOutput("total_available_address_count");
+        this.WithOutput("description");
+        this.WithOutput("network_border_group");
+        this.WithOutput("pool_address_ranges");
+        this.WithOutput("total_address_count");
+        this.WithOutput("total_available_address_count");
     }
 
     /// <summary>

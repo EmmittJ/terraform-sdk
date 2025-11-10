@@ -31,33 +31,33 @@ public class AzurermLogicAppStandardDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_service_plan_id");
-        this.DeclareOutput("app_settings");
-        this.DeclareOutput("bundle_version");
-        this.DeclareOutput("client_affinity_enabled");
-        this.DeclareOutput("client_certificate_mode");
-        this.DeclareOutput("connection_string");
-        this.DeclareOutput("custom_domain_verification_id");
-        this.DeclareOutput("default_hostname");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("ftp_publish_basic_authentication_enabled");
-        this.DeclareOutput("https_only");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("location");
-        this.DeclareOutput("outbound_ip_addresses");
-        this.DeclareOutput("possible_outbound_ip_addresses");
-        this.DeclareOutput("public_network_access");
-        this.DeclareOutput("scm_publish_basic_authentication_enabled");
-        this.DeclareOutput("site_config");
-        this.DeclareOutput("site_credential");
-        this.DeclareOutput("storage_account_access_key");
-        this.DeclareOutput("storage_account_name");
-        this.DeclareOutput("storage_account_share_name");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("use_extension_bundle");
-        this.DeclareOutput("version");
-        this.DeclareOutput("virtual_network_subnet_id");
+        this.WithOutput("app_service_plan_id");
+        this.WithOutput("app_settings");
+        this.WithOutput("bundle_version");
+        this.WithOutput("client_affinity_enabled");
+        this.WithOutput("client_certificate_mode");
+        this.WithOutput("connection_string");
+        this.WithOutput("custom_domain_verification_id");
+        this.WithOutput("default_hostname");
+        this.WithOutput("enabled");
+        this.WithOutput("ftp_publish_basic_authentication_enabled");
+        this.WithOutput("https_only");
+        this.WithOutput("identity");
+        this.WithOutput("kind");
+        this.WithOutput("location");
+        this.WithOutput("outbound_ip_addresses");
+        this.WithOutput("possible_outbound_ip_addresses");
+        this.WithOutput("public_network_access");
+        this.WithOutput("scm_publish_basic_authentication_enabled");
+        this.WithOutput("site_config");
+        this.WithOutput("site_credential");
+        this.WithOutput("storage_account_access_key");
+        this.WithOutput("storage_account_name");
+        this.WithOutput("storage_account_share_name");
+        this.WithOutput("tags");
+        this.WithOutput("use_extension_bundle");
+        this.WithOutput("version");
+        this.WithOutput("virtual_network_subnet_id");
     }
 
     /// <summary>

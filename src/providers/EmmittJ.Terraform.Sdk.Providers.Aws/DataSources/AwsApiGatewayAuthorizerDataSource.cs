@@ -14,15 +14,15 @@ public class AwsApiGatewayAuthorizerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("authorizer_credentials");
-        this.DeclareOutput("authorizer_result_ttl_in_seconds");
-        this.DeclareOutput("authorizer_uri");
-        this.DeclareOutput("identity_source");
-        this.DeclareOutput("identity_validation_expression");
-        this.DeclareOutput("name");
-        this.DeclareOutput("provider_arns");
-        this.DeclareOutput("type");
+        this.WithOutput("arn");
+        this.WithOutput("authorizer_credentials");
+        this.WithOutput("authorizer_result_ttl_in_seconds");
+        this.WithOutput("authorizer_uri");
+        this.WithOutput("identity_source");
+        this.WithOutput("identity_validation_expression");
+        this.WithOutput("name");
+        this.WithOutput("provider_arns");
+        this.WithOutput("type");
     }
 
     /// <summary>

@@ -14,26 +14,26 @@ public class AwsElasticsearchDomainDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_policies");
-        this.DeclareOutput("advanced_options");
-        this.DeclareOutput("advanced_security_options");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("auto_tune_options");
-        this.DeclareOutput("cluster_config");
-        this.DeclareOutput("cognito_options");
-        this.DeclareOutput("created");
-        this.DeclareOutput("deleted");
-        this.DeclareOutput("domain_id");
-        this.DeclareOutput("ebs_options");
-        this.DeclareOutput("elasticsearch_version");
-        this.DeclareOutput("encryption_at_rest");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("kibana_endpoint");
-        this.DeclareOutput("log_publishing_options");
-        this.DeclareOutput("node_to_node_encryption");
-        this.DeclareOutput("processing");
-        this.DeclareOutput("snapshot_options");
-        this.DeclareOutput("vpc_options");
+        this.WithOutput("access_policies");
+        this.WithOutput("advanced_options");
+        this.WithOutput("advanced_security_options");
+        this.WithOutput("arn");
+        this.WithOutput("auto_tune_options");
+        this.WithOutput("cluster_config");
+        this.WithOutput("cognito_options");
+        this.WithOutput("created");
+        this.WithOutput("deleted");
+        this.WithOutput("domain_id");
+        this.WithOutput("ebs_options");
+        this.WithOutput("elasticsearch_version");
+        this.WithOutput("encryption_at_rest");
+        this.WithOutput("endpoint");
+        this.WithOutput("kibana_endpoint");
+        this.WithOutput("log_publishing_options");
+        this.WithOutput("node_to_node_encryption");
+        this.WithOutput("processing");
+        this.WithOutput("snapshot_options");
+        this.WithOutput("vpc_options");
     }
 
     /// <summary>

@@ -59,14 +59,14 @@ public class AwsAvailabilityZoneDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("group_long_name");
-        this.DeclareOutput("group_name");
-        this.DeclareOutput("name_suffix");
-        this.DeclareOutput("network_border_group");
-        this.DeclareOutput("opt_in_status");
-        this.DeclareOutput("parent_zone_id");
-        this.DeclareOutput("parent_zone_name");
-        this.DeclareOutput("zone_type");
+        this.WithOutput("group_long_name");
+        this.WithOutput("group_name");
+        this.WithOutput("name_suffix");
+        this.WithOutput("network_border_group");
+        this.WithOutput("opt_in_status");
+        this.WithOutput("parent_zone_id");
+        this.WithOutput("parent_zone_name");
+        this.WithOutput("zone_type");
     }
 
     /// <summary>

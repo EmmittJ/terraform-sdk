@@ -86,11 +86,11 @@ public class AzurermElasticSan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("total_iops");
-        this.DeclareOutput("total_mbps");
-        this.DeclareOutput("total_size_in_tib");
-        this.DeclareOutput("total_volume_size_in_gib");
-        this.DeclareOutput("volume_group_count");
+        this.WithOutput("total_iops");
+        this.WithOutput("total_mbps");
+        this.WithOutput("total_size_in_tib");
+        this.WithOutput("total_volume_size_in_gib");
+        this.WithOutput("volume_group_count");
     }
 
     /// <summary>

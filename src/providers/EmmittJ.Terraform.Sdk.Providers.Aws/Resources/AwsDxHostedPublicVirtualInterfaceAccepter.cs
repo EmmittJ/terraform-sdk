@@ -40,7 +40,7 @@ public class AwsDxHostedPublicVirtualInterfaceAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutput("arn");
     }
 
     /// <summary>

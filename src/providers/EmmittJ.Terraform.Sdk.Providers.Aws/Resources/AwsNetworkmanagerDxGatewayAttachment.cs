@@ -49,15 +49,15 @@ public class AwsNetworkmanagerDxGatewayAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("attachment_policy_rule_number");
-        this.DeclareOutput("attachment_type");
-        this.DeclareOutput("core_network_arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("owner_account_id");
-        this.DeclareOutput("segment_name");
-        this.DeclareOutput("state");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("attachment_policy_rule_number");
+        this.WithOutput("attachment_type");
+        this.WithOutput("core_network_arn");
+        this.WithOutput("id");
+        this.WithOutput("owner_account_id");
+        this.WithOutput("segment_name");
+        this.WithOutput("state");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

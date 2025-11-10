@@ -79,7 +79,7 @@ public class GoogleLoggingFolderSink : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("writer_identity");
+        this.WithOutput("writer_identity");
     }
 
     /// <summary>

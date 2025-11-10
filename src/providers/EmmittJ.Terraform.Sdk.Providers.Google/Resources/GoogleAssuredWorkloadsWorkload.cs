@@ -165,16 +165,16 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("compliance_status");
-        this.DeclareOutput("compliant_but_disallowed_services");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("ekm_provisioning_response");
-        this.DeclareOutput("kaj_enrollment_state");
-        this.DeclareOutput("name");
-        this.DeclareOutput("resources");
-        this.DeclareOutput("saa_enrollment_response");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("compliance_status");
+        this.WithOutput("compliant_but_disallowed_services");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("ekm_provisioning_response");
+        this.WithOutput("kaj_enrollment_state");
+        this.WithOutput("name");
+        this.WithOutput("resources");
+        this.WithOutput("saa_enrollment_response");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

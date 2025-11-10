@@ -14,7 +14,7 @@ public class AwsEc2LocalGatewayRouteTableVpcAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("local_gateway_id");
+        this.WithOutputocal_gateway_id");
     }
 
     /// <summary>

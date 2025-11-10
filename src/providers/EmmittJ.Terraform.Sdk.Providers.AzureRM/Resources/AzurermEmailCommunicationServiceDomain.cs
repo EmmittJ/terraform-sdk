@@ -58,9 +58,9 @@ public class AzurermEmailCommunicationServiceDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("from_sender_domain");
-        this.DeclareOutput("mail_from_sender_domain");
-        this.DeclareOutput("verification_records");
+        this.WithOutput("from_sender_domain");
+        this.WithOutput("mail_from_sender_domain");
+        this.WithOutput("verification_records");
     }
 
     /// <summary>

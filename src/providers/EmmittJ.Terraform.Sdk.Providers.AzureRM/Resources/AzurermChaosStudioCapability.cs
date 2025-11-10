@@ -49,7 +49,7 @@ public class AzurermChaosStudioCapability : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("urn");
+        this.WithOutput("urn");
     }
 
     /// <summary>

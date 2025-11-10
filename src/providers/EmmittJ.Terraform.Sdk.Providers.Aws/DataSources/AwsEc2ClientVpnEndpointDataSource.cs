@@ -59,27 +59,27 @@ public class AwsEc2ClientVpnEndpointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("authentication_options");
-        this.DeclareOutput("client_cidr_block");
-        this.DeclareOutput("client_connect_options");
-        this.DeclareOutput("client_login_banner_options");
-        this.DeclareOutput("client_route_enforcement_options");
-        this.DeclareOutput("connection_log_options");
-        this.DeclareOutput("description");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("dns_servers");
-        this.DeclareOutput("endpoint_ip_address_type");
-        this.DeclareOutput("security_group_ids");
-        this.DeclareOutput("self_service_portal");
-        this.DeclareOutput("self_service_portal_url");
-        this.DeclareOutput("server_certificate_arn");
-        this.DeclareOutput("session_timeout_hours");
-        this.DeclareOutput("split_tunnel");
-        this.DeclareOutput("traffic_ip_address_type");
-        this.DeclareOutput("transport_protocol");
-        this.DeclareOutput("vpc_id");
-        this.DeclareOutput("vpn_port");
+        this.WithOutput("arn");
+        this.WithOutput("authentication_options");
+        this.WithOutput("client_cidr_block");
+        this.WithOutput("client_connect_options");
+        this.WithOutput("client_login_banner_options");
+        this.WithOutput("client_route_enforcement_options");
+        this.WithOutput("connection_log_options");
+        this.WithOutput("description");
+        this.WithOutput("dns_name");
+        this.WithOutput("dns_servers");
+        this.WithOutput("endpoint_ip_address_type");
+        this.WithOutput("security_group_ids");
+        this.WithOutput("self_service_portal");
+        this.WithOutput("self_service_portal_url");
+        this.WithOutput("server_certificate_arn");
+        this.WithOutput("session_timeout_hours");
+        this.WithOutput("split_tunnel");
+        this.WithOutput("traffic_ip_address_type");
+        this.WithOutput("transport_protocol");
+        this.WithOutput("vpc_id");
+        this.WithOutput("vpn_port");
     }
 
     /// <summary>

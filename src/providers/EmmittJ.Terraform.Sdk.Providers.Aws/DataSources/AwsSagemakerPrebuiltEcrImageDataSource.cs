@@ -14,8 +14,8 @@ public class AwsSagemakerPrebuiltEcrImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("registry_id");
-        this.DeclareOutput("registry_path");
+        this.WithOutput("registry_id");
+        this.WithOutput("registry_path");
     }
 
     /// <summary>

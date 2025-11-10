@@ -40,7 +40,7 @@ public class AwsNatGatewayEipAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("association_id");
+        this.WithOutput("association_id");
     }
 
     /// <summary>

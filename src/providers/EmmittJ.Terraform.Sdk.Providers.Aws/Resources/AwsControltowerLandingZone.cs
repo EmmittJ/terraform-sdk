@@ -49,9 +49,9 @@ public class AwsControltowerLandingZone : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("drift_status");
-        this.DeclareOutput("latest_available_version");
+        this.WithOutput("arn");
+        this.WithOutput("drift_status");
+        this.WithOutput("latest_available_version");
     }
 
     /// <summary>

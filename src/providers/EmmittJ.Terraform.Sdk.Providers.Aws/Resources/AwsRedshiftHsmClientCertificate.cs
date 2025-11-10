@@ -14,8 +14,8 @@ public class AwsRedshiftHsmClientCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("hsm_client_certificate_public_key");
+        this.WithOutput("arn");
+        this.WithOutput("hsm_client_certificate_public_key");
     }
 
     /// <summary>

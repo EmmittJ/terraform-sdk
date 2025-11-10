@@ -14,9 +14,9 @@ public class AwsServicePrincipalDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("name");
-        this.DeclareOutput("suffix");
+        this.WithOutput("id");
+        this.WithOutput("name");
+        this.WithOutput("suffix");
     }
 
     /// <summary>

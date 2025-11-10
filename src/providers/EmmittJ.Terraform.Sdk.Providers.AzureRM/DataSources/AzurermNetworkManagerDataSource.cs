@@ -31,12 +31,12 @@ public class AzurermNetworkManagerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cross_tenant_scopes");
-        this.DeclareOutput("description");
-        this.DeclareOutput("location");
-        this.DeclareOutput("scope");
-        this.DeclareOutput("scope_accesses");
-        this.DeclareOutput("tags");
+        this.WithOutput("cross_tenant_scopes");
+        this.WithOutput("description");
+        this.WithOutput("location");
+        this.WithOutput("scope");
+        this.WithOutput("scope_accesses");
+        this.WithOutput("tags");
     }
 
     /// <summary>

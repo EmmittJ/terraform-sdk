@@ -33,7 +33,7 @@ public class AwsChimesdkvoiceSipMediaApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutput("arn");
     }
 
     /// <summary>

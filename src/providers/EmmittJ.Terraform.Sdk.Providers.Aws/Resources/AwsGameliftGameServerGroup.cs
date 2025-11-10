@@ -120,8 +120,8 @@ public class AwsGameliftGameServerGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("auto_scaling_group_arn");
+        this.WithOutput("arn");
+        this.WithOutput("auto_scaling_group_arn");
     }
 
     /// <summary>

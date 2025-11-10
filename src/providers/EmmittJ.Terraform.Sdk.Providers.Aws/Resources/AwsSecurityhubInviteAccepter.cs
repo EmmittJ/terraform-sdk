@@ -14,7 +14,7 @@ public class AwsSecurityhubInviteAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("invitation_id");
+        this.WithOutput("invitation_id");
     }
 
     /// <summary>

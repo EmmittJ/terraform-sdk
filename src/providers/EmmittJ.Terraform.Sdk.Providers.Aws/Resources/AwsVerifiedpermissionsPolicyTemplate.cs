@@ -14,9 +14,9 @@ public class AwsVerifiedpermissionsPolicyTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("id");
-        this.DeclareOutput("policy_template_id");
+        this.WithOutput("created_date");
+        this.WithOutput("id");
+        this.WithOutput("policy_template_id");
     }
 
     /// <summary>

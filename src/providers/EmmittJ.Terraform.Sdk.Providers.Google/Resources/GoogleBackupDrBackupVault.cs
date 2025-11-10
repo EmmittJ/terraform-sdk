@@ -49,19 +49,19 @@ public class GoogleBackupDrBackupVault : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("backup_count");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("deletable");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("name");
-        this.DeclareOutput("service_account");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("total_stored_bytes");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("backup_count");
+        this.WithOutput("create_time");
+        this.WithOutput("deletable");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("effective_labels");
+        this.WithOutput("etag");
+        this.WithOutput("name");
+        this.WithOutput("service_account");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("total_stored_bytes");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

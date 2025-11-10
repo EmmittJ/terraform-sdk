@@ -14,9 +14,9 @@ public class GoogleComputeRouterStatusDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("best_routes");
-        this.DeclareOutput("best_routes_for_router");
-        this.DeclareOutput("network");
+        this.WithOutput("best_routes");
+        this.WithOutput("best_routes_for_router");
+        this.WithOutput("network");
     }
 
     /// <summary>

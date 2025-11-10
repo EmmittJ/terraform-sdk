@@ -58,7 +58,7 @@ public class AzureadPrivilegedAccessGroupEligibilitySchedule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("status");
+        this.WithOutput("status");
     }
 
     /// <summary>

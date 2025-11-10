@@ -156,10 +156,10 @@ public class AwsFsxOntapVolume : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("file_system_id");
-        this.DeclareOutput("flexcache_endpoint_type");
-        this.DeclareOutput("uuid");
+        this.WithOutput("arn");
+        this.WithOutput("file_system_id");
+        this.WithOutput("flexcache_endpoint_type");
+        this.WithOutput("uuid");
     }
 
     /// <summary>

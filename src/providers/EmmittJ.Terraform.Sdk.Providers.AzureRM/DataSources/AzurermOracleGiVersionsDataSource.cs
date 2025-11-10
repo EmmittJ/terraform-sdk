@@ -31,7 +31,7 @@ public class AzurermOracleGiVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("versions");
+        this.WithOutput("versions");
     }
 
     /// <summary>

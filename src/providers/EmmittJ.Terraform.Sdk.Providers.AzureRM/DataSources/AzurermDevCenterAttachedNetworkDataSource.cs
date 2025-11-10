@@ -31,7 +31,7 @@ public class AzurermDevCenterAttachedNetworkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("network_connection_id");
+        this.WithOutput("network_connection_id");
     }
 
     /// <summary>

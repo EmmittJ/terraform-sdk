@@ -14,9 +14,9 @@ public class GoogleIamRoleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("included_permissions");
-        this.DeclareOutput("stage");
-        this.DeclareOutput("title");
+        this.WithOutput("included_permissions");
+        this.WithOutput("stage");
+        this.WithOutput("title");
     }
 
     /// <summary>

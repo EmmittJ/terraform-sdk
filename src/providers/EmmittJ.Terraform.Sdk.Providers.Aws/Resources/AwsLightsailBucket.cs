@@ -14,11 +14,11 @@ public class AwsLightsailBucket : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("support_code");
-        this.DeclareOutput("url");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zone");
+        this.WithOutput("created_at");
+        this.WithOutput("support_code");
+        this.WithOutput("url");
     }
 
     /// <summary>

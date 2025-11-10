@@ -71,7 +71,7 @@ public class AwsCodecommitTrigger : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("configuration_id");
+        this.WithOutputonfiguration_id");
     }
 
     /// <summary>

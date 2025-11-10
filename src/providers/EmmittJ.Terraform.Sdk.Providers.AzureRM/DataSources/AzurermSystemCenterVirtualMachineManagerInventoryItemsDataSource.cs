@@ -31,7 +31,7 @@ public class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSource : 
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("inventory_items");
+        this.WithOutput("inventory_items");
     }
 
     /// <summary>

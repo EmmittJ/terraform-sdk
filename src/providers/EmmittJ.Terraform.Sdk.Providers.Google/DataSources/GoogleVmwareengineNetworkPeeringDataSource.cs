@@ -14,20 +14,20 @@ public class GoogleVmwareengineNetworkPeeringDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("export_custom_routes");
-        this.DeclareOutput("export_custom_routes_with_public_ip");
-        this.DeclareOutput("import_custom_routes");
-        this.DeclareOutput("import_custom_routes_with_public_ip");
-        this.DeclareOutput("peer_network");
-        this.DeclareOutput("peer_network_type");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_details");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("vmware_engine_network");
-        this.DeclareOutput("vmware_engine_network_canonical");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("export_custom_routes");
+        this.WithOutput("export_custom_routes_with_public_ip");
+        this.WithOutput("import_custom_routes");
+        this.WithOutput("import_custom_routes_with_public_ip");
+        this.WithOutput("peer_network");
+        this.WithOutput("peer_network_type");
+        this.WithOutput("state");
+        this.WithOutput("state_details");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("vmware_engine_network");
+        this.WithOutput("vmware_engine_network_canonical");
     }
 
     /// <summary>

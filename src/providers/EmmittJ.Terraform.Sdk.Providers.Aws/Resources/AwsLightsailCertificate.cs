@@ -14,9 +14,9 @@ public class AwsLightsailCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("domain_validation_options");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("domain_validation_options");
     }
 
     /// <summary>

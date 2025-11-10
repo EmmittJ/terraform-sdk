@@ -14,8 +14,8 @@ public class GoogleIapClientDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("secret");
+        this.WithOutput("display_name");
+        this.WithOutput("secret");
     }
 
     /// <summary>

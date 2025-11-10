@@ -14,7 +14,7 @@ public class GoogleSqlTiersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("tiers");
+        this.WithOutput("tiers");
     }
 
     /// <summary>

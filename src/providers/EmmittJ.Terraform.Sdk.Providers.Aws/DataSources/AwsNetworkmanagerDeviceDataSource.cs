@@ -14,15 +14,15 @@ public class AwsNetworkmanagerDeviceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("aws_location");
-        this.DeclareOutput("description");
-        this.DeclareOutput("location");
-        this.DeclareOutput("model");
-        this.DeclareOutput("serial_number");
-        this.DeclareOutput("site_id");
-        this.DeclareOutput("type");
-        this.DeclareOutput("vendor");
+        this.WithOutput("arn");
+        this.WithOutput("aws_location");
+        this.WithOutput("description");
+        this.WithOutput("location");
+        this.WithOutput("model");
+        this.WithOutput("serial_number");
+        this.WithOutput("site_id");
+        this.WithOutput("type");
+        this.WithOutput("vendor");
     }
 
     /// <summary>

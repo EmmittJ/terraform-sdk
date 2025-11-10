@@ -201,10 +201,10 @@ public class AwsElb : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("source_security_group_id");
-        this.DeclareOutput("zone_id");
+        this.WithOutput("arn");
+        this.WithOutput("dns_name");
+        this.WithOutput("source_security_group_id");
+        this.WithOutput("zone_id");
     }
 
     /// <summary>

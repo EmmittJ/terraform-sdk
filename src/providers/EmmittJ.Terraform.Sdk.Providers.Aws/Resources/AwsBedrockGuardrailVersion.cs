@@ -40,7 +40,7 @@ public class AwsBedrockGuardrailVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("version");
+        this.WithOutput("version");
     }
 
     /// <summary>

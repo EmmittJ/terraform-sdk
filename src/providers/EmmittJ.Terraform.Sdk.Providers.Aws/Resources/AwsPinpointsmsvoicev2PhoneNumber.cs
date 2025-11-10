@@ -49,11 +49,11 @@ public class AwsPinpointsmsvoicev2PhoneNumber : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("monthly_leasing_price");
-        this.DeclareOutput("phone_number");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("monthly_leasing_price");
+        this.WithOutput("phone_number");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

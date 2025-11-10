@@ -14,8 +14,8 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamPolicyDataSource : Ter
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
-        this.DeclareOutput("policy_data");
+        this.WithOutput("etag");
+        this.WithOutput("policy_data");
     }
 
     /// <summary>

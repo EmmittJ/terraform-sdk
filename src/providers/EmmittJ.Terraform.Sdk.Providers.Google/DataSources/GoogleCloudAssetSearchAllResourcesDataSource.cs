@@ -14,7 +14,7 @@ public class GoogleCloudAssetSearchAllResourcesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("results");
+        this.WithOutput("results");
     }
 
     /// <summary>

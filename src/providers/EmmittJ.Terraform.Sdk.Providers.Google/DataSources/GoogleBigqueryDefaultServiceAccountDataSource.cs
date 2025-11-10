@@ -14,8 +14,8 @@ public class GoogleBigqueryDefaultServiceAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("email");
-        this.DeclareOutput("member");
+        this.WithOutput("email");
+        this.WithOutput("member");
     }
 
     /// <summary>

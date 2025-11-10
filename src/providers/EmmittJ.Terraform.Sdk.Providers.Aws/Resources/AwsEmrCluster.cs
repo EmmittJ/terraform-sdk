@@ -455,9 +455,9 @@ public class AwsEmrCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cluster_state");
-        this.DeclareOutput("master_public_dns");
+        this.WithOutput("arn");
+        this.WithOutput("cluster_state");
+        this.WithOutput("master_public_dns");
     }
 
     /// <summary>

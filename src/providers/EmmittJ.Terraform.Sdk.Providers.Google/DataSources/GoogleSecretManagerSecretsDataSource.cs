@@ -14,7 +14,7 @@ public class GoogleSecretManagerSecretsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("secrets");
+        this.WithOutput("secrets");
     }
 
     /// <summary>

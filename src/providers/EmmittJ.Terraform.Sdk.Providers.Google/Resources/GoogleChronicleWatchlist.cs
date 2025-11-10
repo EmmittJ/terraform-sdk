@@ -75,10 +75,10 @@ public class GoogleChronicleWatchlist : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("entity_count");
-        this.DeclareOutput("name");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("entity_count");
+        this.WithOutput("name");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

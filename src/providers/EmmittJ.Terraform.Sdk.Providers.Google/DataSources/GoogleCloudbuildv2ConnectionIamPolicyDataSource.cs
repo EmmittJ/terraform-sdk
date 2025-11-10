@@ -14,8 +14,8 @@ public class GoogleCloudbuildv2ConnectionIamPolicyDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
-        this.DeclareOutput("policy_data");
+        this.WithOutput("etag");
+        this.WithOutput("policy_data");
     }
 
     /// <summary>

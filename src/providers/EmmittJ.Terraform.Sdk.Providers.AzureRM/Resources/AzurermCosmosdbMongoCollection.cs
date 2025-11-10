@@ -103,7 +103,7 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("system_indexes");
+        this.WithOutput("system_indexes");
     }
 
     /// <summary>

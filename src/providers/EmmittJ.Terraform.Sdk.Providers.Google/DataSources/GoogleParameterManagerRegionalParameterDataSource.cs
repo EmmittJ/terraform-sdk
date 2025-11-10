@@ -14,15 +14,15 @@ public class GoogleParameterManagerRegionalParameterDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("format");
-        this.DeclareOutput("kms_key");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("policy_member");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("format");
+        this.WithOutput("kms_key");
+        this.WithOutput("labels");
+        this.WithOutput("name");
+        this.WithOutput("policy_member");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

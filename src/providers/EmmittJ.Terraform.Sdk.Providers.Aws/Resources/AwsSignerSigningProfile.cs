@@ -61,12 +61,12 @@ public class AwsSignerSigningProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("platform_display_name");
-        this.DeclareOutput("revocation_record");
-        this.DeclareOutput("status");
-        this.DeclareOutput("version");
-        this.DeclareOutput("version_arn");
+        this.WithOutput("arn");
+        this.WithOutput("platform_display_name");
+        this.WithOutput("revocation_record");
+        this.WithOutput("status");
+        this.WithOutput("version");
+        this.WithOutput("version_arn");
     }
 
     /// <summary>

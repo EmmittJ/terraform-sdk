@@ -106,17 +106,17 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_id");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("creator_email");
-        this.DeclareOutput("credential_type");
-        this.DeclareOutput("encrypted_credential");
-        this.DeclareOutput("last_modifier_email");
-        this.DeclareOutput("name");
-        this.DeclareOutput("reason");
-        this.DeclareOutput("state");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("valid_time");
+        this.WithOutput("certificate_id");
+        this.WithOutput("create_time");
+        this.WithOutput("creator_email");
+        this.WithOutput("credential_type");
+        this.WithOutput("encrypted_credential");
+        this.WithOutput("last_modifier_email");
+        this.WithOutput("name");
+        this.WithOutput("reason");
+        this.WithOutput("state");
+        this.WithOutput("update_time");
+        this.WithOutput("valid_time");
     }
 
     /// <summary>

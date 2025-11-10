@@ -31,7 +31,7 @@ public class AwsVpcIpamPreviewNextCidrDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cidr");
+        this.WithOutput("cidr");
     }
 
     /// <summary>

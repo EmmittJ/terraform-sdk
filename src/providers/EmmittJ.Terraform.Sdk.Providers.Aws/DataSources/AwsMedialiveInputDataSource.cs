@@ -14,21 +14,21 @@ public class AwsMedialiveInputDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("attached_channels");
-        this.DeclareOutput("destinations");
-        this.DeclareOutput("input_class");
-        this.DeclareOutput("input_devices");
-        this.DeclareOutput("input_partner_ids");
-        this.DeclareOutput("input_source_type");
-        this.DeclareOutput("media_connect_flows");
-        this.DeclareOutput("name");
-        this.DeclareOutput("role_arn");
-        this.DeclareOutput("security_groups");
-        this.DeclareOutput("sources");
-        this.DeclareOutput("state");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("type");
+        this.WithOutputrn");
+        this.WithOutputttached_channels");
+        this.WithOutputestinations");
+        this.WithOutputnput_class");
+        this.WithOutputnput_devices");
+        this.WithOutputnput_partner_ids");
+        this.WithOutputnput_source_type");
+        this.WithOutputedia_connect_flows");
+        this.WithOutputame");
+        this.WithOutputole_arn");
+        this.WithOutputecurity_groups");
+        this.WithOutputources");
+        this.WithOutputtate");
+        this.WithOutputags");
+        this.WithOutputype");
     }
 
     /// <summary>

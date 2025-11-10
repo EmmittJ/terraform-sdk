@@ -14,24 +14,24 @@ public class AwsElbDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_logs");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zones");
-        this.DeclareOutput("connection_draining");
-        this.DeclareOutput("connection_draining_timeout");
-        this.DeclareOutput("cross_zone_load_balancing");
-        this.DeclareOutput("desync_mitigation_mode");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("health_check");
-        this.DeclareOutput("idle_timeout");
-        this.DeclareOutput("instances");
-        this.DeclareOutput("internal");
-        this.DeclareOutput("listener");
-        this.DeclareOutput("security_groups");
-        this.DeclareOutput("source_security_group");
-        this.DeclareOutput("source_security_group_id");
-        this.DeclareOutput("subnets");
-        this.DeclareOutput("zone_id");
+        this.WithOutput("access_logs");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zones");
+        this.WithOutput("connection_draining");
+        this.WithOutput("connection_draining_timeout");
+        this.WithOutput("cross_zone_load_balancing");
+        this.WithOutput("desync_mitigation_mode");
+        this.WithOutput("dns_name");
+        this.WithOutput("health_check");
+        this.WithOutput("idle_timeout");
+        this.WithOutput("instances");
+        this.WithOutput("internal");
+        this.WithOutput("listener");
+        this.WithOutput("security_groups");
+        this.WithOutput("source_security_group");
+        this.WithOutput("source_security_group_id");
+        this.WithOutput("subnets");
+        this.WithOutput("zone_id");
     }
 
     /// <summary>

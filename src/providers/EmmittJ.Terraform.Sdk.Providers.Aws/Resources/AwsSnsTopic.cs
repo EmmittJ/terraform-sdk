@@ -14,9 +14,9 @@ public class AwsSnsTopic : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("beginning_archive_time");
-        this.DeclareOutput("owner");
+        this.WithOutput("arn");
+        this.WithOutput("beginning_archive_time");
+        this.WithOutput("owner");
     }
 
     /// <summary>

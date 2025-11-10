@@ -103,7 +103,7 @@ public class AzurermSpringCloudApiPortal : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("url");
+        this.WithOutputrl");
     }
 
     /// <summary>

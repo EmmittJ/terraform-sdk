@@ -84,8 +84,8 @@ public class AwsCodedeployDeploymentConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("deployment_config_id");
+        this.WithOutput("arn");
+        this.WithOutput("deployment_config_id");
     }
 
     /// <summary>

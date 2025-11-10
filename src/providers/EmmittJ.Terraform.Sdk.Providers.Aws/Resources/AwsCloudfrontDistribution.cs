@@ -570,16 +570,16 @@ public class AwsCloudfrontDistribution : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("caller_reference");
-        this.DeclareOutput("domain_name");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("hosted_zone_id");
-        this.DeclareOutput("in_progress_validation_batches");
-        this.DeclareOutput("last_modified_time");
-        this.DeclareOutput("status");
-        this.DeclareOutput("trusted_key_groups");
-        this.DeclareOutput("trusted_signers");
+        this.WithOutput("arn");
+        this.WithOutput("caller_reference");
+        this.WithOutput("domain_name");
+        this.WithOutput("etag");
+        this.WithOutput("hosted_zone_id");
+        this.WithOutput("in_progress_validation_batches");
+        this.WithOutput("last_modified_time");
+        this.WithOutput("status");
+        this.WithOutput("trusted_key_groups");
+        this.WithOutput("trusted_signers");
     }
 
     /// <summary>

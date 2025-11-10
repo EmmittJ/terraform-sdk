@@ -14,10 +14,10 @@ public class AwsMemorydbParameterGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("family");
-        this.DeclareOutput("parameter");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("family");
+        this.WithOutput("parameter");
     }
 
     /// <summary>

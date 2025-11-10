@@ -49,8 +49,8 @@ public class AwsRouteTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("owner_id");
+        this.WithOutput("arn");
+        this.WithOutput("owner_id");
     }
 
     /// <summary>

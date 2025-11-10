@@ -14,8 +14,8 @@ public class AwsWorkspaceswebIdentityProvider : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("identity_provider_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("identity_provider_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

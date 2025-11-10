@@ -127,8 +127,8 @@ public class AwsTransferConnector : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("connector_id");
+        this.WithOutput("arn");
+        this.WithOutput("connector_id");
     }
 
     /// <summary>

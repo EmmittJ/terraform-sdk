@@ -58,8 +58,8 @@ public class AwsAppsyncChannelNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("channel_namespace_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("channel_namespace_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

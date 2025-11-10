@@ -14,14 +14,14 @@ public class AwsAuditmanagerControlDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("action_plan_instructions");
-        this.DeclareOutput("action_plan_title");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("control_mapping_sources");
-        this.DeclareOutput("description");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("testing_information");
+        this.WithOutput("action_plan_instructions");
+        this.WithOutput("action_plan_title");
+        this.WithOutput("arn");
+        this.WithOutput("control_mapping_sources");
+        this.WithOutput("description");
+        this.WithOutput("id");
+        this.WithOutput("tags");
+        this.WithOutput("testing_information");
     }
 
     /// <summary>

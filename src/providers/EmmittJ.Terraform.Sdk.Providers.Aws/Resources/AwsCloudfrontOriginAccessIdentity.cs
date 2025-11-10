@@ -14,12 +14,12 @@ public class AwsCloudfrontOriginAccessIdentity : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("caller_reference");
-        this.DeclareOutput("cloudfront_access_identity_path");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("iam_arn");
-        this.DeclareOutput("s3_canonical_user_id");
+        this.WithOutput("arn");
+        this.WithOutput("caller_reference");
+        this.WithOutput("cloudfront_access_identity_path");
+        this.WithOutput("etag");
+        this.WithOutput("iam_arn");
+        this.WithOutput("s3_canonical_user_id");
     }
 
     /// <summary>

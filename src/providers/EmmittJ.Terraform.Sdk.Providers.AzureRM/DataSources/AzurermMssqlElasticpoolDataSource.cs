@@ -31,16 +31,16 @@ public class AzurermMssqlElasticpoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("enclave_type");
-        this.DeclareOutput("license_type");
-        this.DeclareOutput("location");
-        this.DeclareOutput("max_size_bytes");
-        this.DeclareOutput("max_size_gb");
-        this.DeclareOutput("per_db_max_capacity");
-        this.DeclareOutput("per_db_min_capacity");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("zone_redundant");
+        this.WithOutput("enclave_type");
+        this.WithOutput("license_type");
+        this.WithOutput("location");
+        this.WithOutput("max_size_bytes");
+        this.WithOutput("max_size_gb");
+        this.WithOutput("per_db_max_capacity");
+        this.WithOutput("per_db_min_capacity");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
+        this.WithOutput("zone_redundant");
     }
 
     /// <summary>

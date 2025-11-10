@@ -49,16 +49,16 @@ public class AwsRoute53KeySigningKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("digest_algorithm_mnemonic");
-        this.DeclareOutput("digest_algorithm_type");
-        this.DeclareOutput("digest_value");
-        this.DeclareOutput("dnskey_record");
-        this.DeclareOutput("ds_record");
-        this.DeclareOutput("flag");
-        this.DeclareOutput("key_tag");
-        this.DeclareOutput("public_key");
-        this.DeclareOutput("signing_algorithm_mnemonic");
-        this.DeclareOutput("signing_algorithm_type");
+        this.WithOutput("digest_algorithm_mnemonic");
+        this.WithOutput("digest_algorithm_type");
+        this.WithOutput("digest_value");
+        this.WithOutput("dnskey_record");
+        this.WithOutput("ds_record");
+        this.WithOutput("flag");
+        this.WithOutput("key_tag");
+        this.WithOutput("public_key");
+        this.WithOutput("signing_algorithm_mnemonic");
+        this.WithOutput("signing_algorithm_type");
     }
 
     /// <summary>

@@ -31,10 +31,10 @@ public class AzurermNotificationHubDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("apns_credential");
-        this.DeclareOutput("gcm_credential");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("apns_credential");
+        this.WithOutput("gcm_credential");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

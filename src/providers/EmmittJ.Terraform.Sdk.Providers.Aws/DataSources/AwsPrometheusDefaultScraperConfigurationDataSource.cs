@@ -14,7 +14,7 @@ public class AwsPrometheusDefaultScraperConfigurationDataSource : TerraformDataS
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("configuration");
+        this.WithOutput("configuration");
     }
 
     /// <summary>

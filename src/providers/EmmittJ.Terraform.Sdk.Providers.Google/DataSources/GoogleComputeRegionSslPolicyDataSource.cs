@@ -14,14 +14,14 @@ public class GoogleComputeRegionSslPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("custom_features");
-        this.DeclareOutput("description");
-        this.DeclareOutput("enabled_features");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("min_tls_version");
-        this.DeclareOutput("profile");
-        this.DeclareOutput("self_link");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("custom_features");
+        this.WithOutput("description");
+        this.WithOutput("enabled_features");
+        this.WithOutput("fingerprint");
+        this.WithOutput("min_tls_version");
+        this.WithOutput("profile");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

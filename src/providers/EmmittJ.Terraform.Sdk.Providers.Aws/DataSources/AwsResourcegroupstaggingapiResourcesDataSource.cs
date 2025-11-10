@@ -42,7 +42,7 @@ public class AwsResourcegroupstaggingapiResourcesDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_tag_mapping_list");
+        this.WithOutput("resource_tag_mapping_list");
     }
 
     /// <summary>

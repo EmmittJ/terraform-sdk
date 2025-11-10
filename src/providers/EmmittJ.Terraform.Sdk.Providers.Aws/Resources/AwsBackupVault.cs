@@ -31,8 +31,8 @@ public class AwsBackupVault : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("recovery_points");
+        this.WithOutput("arn");
+        this.WithOutput("recovery_points");
     }
 
     /// <summary>

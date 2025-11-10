@@ -31,29 +31,29 @@ public class AzurermBatchPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("auto_scale");
-        this.DeclareOutput("certificate");
-        this.DeclareOutput("container_configuration");
-        this.DeclareOutput("data_disks");
-        this.DeclareOutput("disk_encryption");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("extensions");
-        this.DeclareOutput("fixed_scale");
-        this.DeclareOutput("inter_node_communication");
-        this.DeclareOutput("license_type");
-        this.DeclareOutput("max_tasks_per_node");
-        this.DeclareOutput("metadata");
-        this.DeclareOutput("mount");
-        this.DeclareOutput("network_configuration");
-        this.DeclareOutput("node_agent_sku_id");
-        this.DeclareOutput("node_placement");
-        this.DeclareOutput("os_disk_placement");
-        this.DeclareOutput("start_task");
-        this.DeclareOutput("storage_image_reference");
-        this.DeclareOutput("task_scheduling_policy");
-        this.DeclareOutput("user_accounts");
-        this.DeclareOutput("vm_size");
-        this.DeclareOutput("windows");
+        this.WithOutput("auto_scale");
+        this.WithOutput("certificate");
+        this.WithOutput("container_configuration");
+        this.WithOutput("data_disks");
+        this.WithOutput("disk_encryption");
+        this.WithOutput("display_name");
+        this.WithOutput("extensions");
+        this.WithOutput("fixed_scale");
+        this.WithOutput("inter_node_communication");
+        this.WithOutput("license_type");
+        this.WithOutput("max_tasks_per_node");
+        this.WithOutput("metadata");
+        this.WithOutput("mount");
+        this.WithOutput("network_configuration");
+        this.WithOutput("node_agent_sku_id");
+        this.WithOutput("node_placement");
+        this.WithOutput("os_disk_placement");
+        this.WithOutput("start_task");
+        this.WithOutput("storage_image_reference");
+        this.WithOutput("task_scheduling_policy");
+        this.WithOutput("user_accounts");
+        this.WithOutput("vm_size");
+        this.WithOutput("windows");
     }
 
     /// <summary>

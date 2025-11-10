@@ -22,7 +22,7 @@ public class AwsVerifiedpermissionsIdentitySource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
+        this.WithOutput("id");
     }
 
     /// <summary>

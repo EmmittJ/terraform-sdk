@@ -79,11 +79,11 @@ public class GoogleApphubApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("state");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

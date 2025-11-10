@@ -14,10 +14,10 @@ public class AwsVpcIpamPoolCidrAllocation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ipam_pool_allocation_id");
-        this.DeclareOutput("resource_id");
-        this.DeclareOutput("resource_owner");
-        this.DeclareOutput("resource_type");
+        this.WithOutput("ipam_pool_allocation_id");
+        this.WithOutput("resource_id");
+        this.WithOutput("resource_owner");
+        this.WithOutput("resource_type");
     }
 
     /// <summary>

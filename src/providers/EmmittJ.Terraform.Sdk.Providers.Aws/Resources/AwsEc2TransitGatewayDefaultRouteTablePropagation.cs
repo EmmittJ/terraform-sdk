@@ -49,8 +49,8 @@ public class AwsEc2TransitGatewayDefaultRouteTablePropagation : TerraformResourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("original_default_route_table_id");
+        this.WithOutputd");
+        this.WithOutputriginal_default_route_table_id");
     }
 
     /// <summary>

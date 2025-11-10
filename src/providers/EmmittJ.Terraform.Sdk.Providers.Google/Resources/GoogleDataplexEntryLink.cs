@@ -79,9 +79,9 @@ public class GoogleDataplexEntryLink : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

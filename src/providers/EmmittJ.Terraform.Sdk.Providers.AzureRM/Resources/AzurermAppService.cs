@@ -694,13 +694,13 @@ public class AzurermAppService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("custom_domain_verification_id");
-        this.DeclareOutput("default_site_hostname");
-        this.DeclareOutput("outbound_ip_address_list");
-        this.DeclareOutput("outbound_ip_addresses");
-        this.DeclareOutput("possible_outbound_ip_address_list");
-        this.DeclareOutput("possible_outbound_ip_addresses");
-        this.DeclareOutput("site_credential");
+        this.WithOutput("custom_domain_verification_id");
+        this.WithOutput("default_site_hostname");
+        this.WithOutput("outbound_ip_address_list");
+        this.WithOutput("outbound_ip_addresses");
+        this.WithOutput("possible_outbound_ip_address_list");
+        this.WithOutput("possible_outbound_ip_addresses");
+        this.WithOutput("site_credential");
     }
 
     /// <summary>

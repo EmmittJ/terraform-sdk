@@ -40,11 +40,11 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attestation");
-        this.DeclareOutput("expire_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("public_key");
-        this.DeclareOutput("state");
+        this.WithOutput("attestation");
+        this.WithOutput("expire_time");
+        this.WithOutput("name");
+        this.WithOutput("public_key");
+        this.WithOutput("state");
     }
 
     /// <summary>

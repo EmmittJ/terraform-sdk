@@ -79,9 +79,9 @@ public class AwsGlueMlTransform : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("label_count");
-        this.DeclareOutput("schema");
+        this.WithOutput("arn");
+        this.WithOutput("label_count");
+        this.WithOutput("schema");
     }
 
     /// <summary>

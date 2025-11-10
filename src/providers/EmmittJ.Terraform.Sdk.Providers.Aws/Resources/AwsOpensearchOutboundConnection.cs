@@ -134,7 +134,7 @@ public class AwsOpensearchOutboundConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connection_status");
+        this.WithOutputonnection_status");
     }
 
     /// <summary>

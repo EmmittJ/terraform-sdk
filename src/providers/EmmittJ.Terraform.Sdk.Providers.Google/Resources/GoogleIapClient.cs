@@ -41,8 +41,8 @@ public class GoogleIapClient : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("client_id");
-        this.DeclareOutput("secret");
+        this.WithOutput("client_id");
+        this.WithOutput("secret");
     }
 
     /// <summary>

@@ -41,7 +41,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("json");
+        this.WithOutput("json");
     }
 
     /// <summary>

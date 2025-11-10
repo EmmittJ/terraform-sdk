@@ -14,18 +14,18 @@ public class AwsOpensearchserverlessCollectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("collection_endpoint");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("dashboard_endpoint");
-        this.DeclareOutput("description");
-        this.DeclareOutput("failure_code");
-        this.DeclareOutput("failure_message");
-        this.DeclareOutput("kms_key_arn");
-        this.DeclareOutput("last_modified_date");
-        this.DeclareOutput("standby_replicas");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("type");
+        this.WithOutput("arn");
+        this.WithOutput("collection_endpoint");
+        this.WithOutput("created_date");
+        this.WithOutput("dashboard_endpoint");
+        this.WithOutput("description");
+        this.WithOutput("failure_code");
+        this.WithOutput("failure_message");
+        this.WithOutput("kms_key_arn");
+        this.WithOutput("last_modified_date");
+        this.WithOutput("standby_replicas");
+        this.WithOutput("tags");
+        this.WithOutput("type");
     }
 
     /// <summary>

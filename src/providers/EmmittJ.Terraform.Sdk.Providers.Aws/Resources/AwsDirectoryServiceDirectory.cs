@@ -153,9 +153,9 @@ public class AwsDirectoryServiceDirectory : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_url");
-        this.DeclareOutput("dns_ip_addresses");
-        this.DeclareOutput("security_group_id");
+        this.WithOutput("access_url");
+        this.WithOutput("dns_ip_addresses");
+        this.WithOutput("security_group_id");
     }
 
     /// <summary>

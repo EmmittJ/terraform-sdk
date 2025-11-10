@@ -58,7 +58,7 @@ public class AzurermMachineLearningDatastoreDatalakeGen2 : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("is_default");
+        this.WithOutput("is_default");
     }
 
     /// <summary>

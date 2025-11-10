@@ -14,11 +14,11 @@ public class GoogleIamWorkloadIdentityPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("disabled");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
+        this.WithOutput("description");
+        this.WithOutput("disabled");
+        this.WithOutput("display_name");
+        this.WithOutput("name");
+        this.WithOutput("state");
     }
 
     /// <summary>

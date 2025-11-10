@@ -69,10 +69,10 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("name");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("kind");
+        this.WithOutput("name");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

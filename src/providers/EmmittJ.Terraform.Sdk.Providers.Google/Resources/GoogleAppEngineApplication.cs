@@ -105,13 +105,13 @@ public class GoogleAppEngineApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_id");
-        this.DeclareOutput("code_bucket");
-        this.DeclareOutput("default_bucket");
-        this.DeclareOutput("default_hostname");
-        this.DeclareOutput("gcr_domain");
-        this.DeclareOutput("name");
-        this.DeclareOutput("url_dispatch_rule");
+        this.WithOutput("app_id");
+        this.WithOutput("code_bucket");
+        this.WithOutput("default_bucket");
+        this.WithOutput("default_hostname");
+        this.WithOutput("gcr_domain");
+        this.WithOutput("name");
+        this.WithOutput("url_dispatch_rule");
     }
 
     /// <summary>

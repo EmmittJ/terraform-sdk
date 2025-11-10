@@ -14,9 +14,9 @@ public class AwsCloudwatchContributorManagedInsightRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("rule_name");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("rule_name");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

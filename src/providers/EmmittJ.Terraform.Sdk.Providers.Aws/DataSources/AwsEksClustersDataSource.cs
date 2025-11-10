@@ -14,7 +14,7 @@ public class AwsEksClustersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("names");
+        this.WithOutput("names");
     }
 
     /// <summary>

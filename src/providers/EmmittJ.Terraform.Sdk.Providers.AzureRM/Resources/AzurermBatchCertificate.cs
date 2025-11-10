@@ -58,8 +58,8 @@ public class AzurermBatchCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("public_data");
+        this.WithOutput("name");
+        this.WithOutput("public_data");
     }
 
     /// <summary>

@@ -31,10 +31,10 @@ public class AzurermTrustedSigningAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_uri");
-        this.DeclareOutput("location");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("tags");
+        this.WithOutput("account_uri");
+        this.WithOutput("location");
+        this.WithOutput("sku_name");
+        this.WithOutput("tags");
     }
 
     /// <summary>

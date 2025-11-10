@@ -300,7 +300,7 @@ public class AzurermHpcCache : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("mount_addresses");
+        this.WithOutput("mount_addresses");
     }
 
     /// <summary>

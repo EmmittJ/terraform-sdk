@@ -49,7 +49,7 @@ public class AzurermContainerAppCustomDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("container_app_environment_managed_certificate_id");
+        this.WithOutput("container_app_environment_managed_certificate_id");
     }
 
     /// <summary>

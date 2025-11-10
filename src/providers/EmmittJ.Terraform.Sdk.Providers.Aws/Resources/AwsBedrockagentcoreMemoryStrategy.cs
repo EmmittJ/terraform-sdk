@@ -67,7 +67,7 @@ public class AwsBedrockagentcoreMemoryStrategy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("memory_strategy_id");
+        this.WithOutput("memory_strategy_id");
     }
 
     /// <summary>

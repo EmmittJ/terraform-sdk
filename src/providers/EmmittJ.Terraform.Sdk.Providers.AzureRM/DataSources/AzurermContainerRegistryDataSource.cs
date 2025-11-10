@@ -31,15 +31,15 @@ public class AzurermContainerRegistryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("admin_enabled");
-        this.DeclareOutput("admin_password");
-        this.DeclareOutput("admin_username");
-        this.DeclareOutput("data_endpoint_enabled");
-        this.DeclareOutput("data_endpoint_host_names");
-        this.DeclareOutput("location");
-        this.DeclareOutput("login_server");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
+        this.WithOutput("admin_enabled");
+        this.WithOutput("admin_password");
+        this.WithOutput("admin_username");
+        this.WithOutput("data_endpoint_enabled");
+        this.WithOutput("data_endpoint_host_names");
+        this.WithOutput("location");
+        this.WithOutput("login_server");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
     }
 
     /// <summary>

@@ -115,7 +115,7 @@ public class AzurermPrivateLinkService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("alias");
+        this.WithOutput("alias");
     }
 
     /// <summary>

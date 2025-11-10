@@ -86,15 +86,15 @@ public class AzurermAppServiceEnvironmentV3 : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dns_suffix");
-        this.DeclareOutput("external_inbound_ip_addresses");
-        this.DeclareOutput("inbound_network_dependencies");
-        this.DeclareOutput("internal_inbound_ip_addresses");
-        this.DeclareOutput("ip_ssl_address_count");
-        this.DeclareOutput("linux_outbound_ip_addresses");
-        this.DeclareOutput("location");
-        this.DeclareOutput("pricing_tier");
-        this.DeclareOutput("windows_outbound_ip_addresses");
+        this.WithOutput("dns_suffix");
+        this.WithOutput("external_inbound_ip_addresses");
+        this.WithOutput("inbound_network_dependencies");
+        this.WithOutput("internal_inbound_ip_addresses");
+        this.WithOutput("ip_ssl_address_count");
+        this.WithOutput("linux_outbound_ip_addresses");
+        this.WithOutput("location");
+        this.WithOutput("pricing_tier");
+        this.WithOutput("windows_outbound_ip_addresses");
     }
 
     /// <summary>

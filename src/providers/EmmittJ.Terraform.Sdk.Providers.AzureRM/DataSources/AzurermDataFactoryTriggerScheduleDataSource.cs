@@ -31,16 +31,16 @@ public class AzurermDataFactoryTriggerScheduleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("activated");
-        this.DeclareOutput("annotations");
-        this.DeclareOutput("description");
-        this.DeclareOutput("end_time");
-        this.DeclareOutput("frequency");
-        this.DeclareOutput("interval");
-        this.DeclareOutput("pipeline_name");
-        this.DeclareOutput("schedule");
-        this.DeclareOutput("start_time");
-        this.DeclareOutput("time_zone");
+        this.WithOutput("activated");
+        this.WithOutput("annotations");
+        this.WithOutput("description");
+        this.WithOutput("end_time");
+        this.WithOutput("frequency");
+        this.WithOutput("interval");
+        this.WithOutput("pipeline_name");
+        this.WithOutput("schedule");
+        this.WithOutput("start_time");
+        this.WithOutput("time_zone");
     }
 
     /// <summary>

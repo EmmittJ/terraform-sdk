@@ -31,17 +31,17 @@ public class AzurermElasticSanDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("base_size_in_tib");
-        this.DeclareOutput("extended_size_in_tib");
-        this.DeclareOutput("location");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("total_iops");
-        this.DeclareOutput("total_mbps");
-        this.DeclareOutput("total_size_in_tib");
-        this.DeclareOutput("total_volume_size_in_gib");
-        this.DeclareOutput("volume_group_count");
-        this.DeclareOutput("zones");
+        this.WithOutput("base_size_in_tib");
+        this.WithOutput("extended_size_in_tib");
+        this.WithOutput("location");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
+        this.WithOutput("total_iops");
+        this.WithOutput("total_mbps");
+        this.WithOutput("total_size_in_tib");
+        this.WithOutput("total_volume_size_in_gib");
+        this.WithOutput("volume_group_count");
+        this.WithOutput("zones");
     }
 
     /// <summary>

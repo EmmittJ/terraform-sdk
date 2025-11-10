@@ -14,26 +14,26 @@ public class AwsEcsTaskDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("arn_without_revision");
-        this.DeclareOutput("container_definitions");
-        this.DeclareOutput("cpu");
-        this.DeclareOutput("enable_fault_injection");
-        this.DeclareOutput("ephemeral_storage");
-        this.DeclareOutput("execution_role_arn");
-        this.DeclareOutput("family");
-        this.DeclareOutput("ipc_mode");
-        this.DeclareOutput("memory");
-        this.DeclareOutput("network_mode");
-        this.DeclareOutput("pid_mode");
-        this.DeclareOutput("placement_constraints");
-        this.DeclareOutput("proxy_configuration");
-        this.DeclareOutput("requires_compatibilities");
-        this.DeclareOutput("revision");
-        this.DeclareOutput("runtime_platform");
-        this.DeclareOutput("status");
-        this.DeclareOutput("task_role_arn");
-        this.DeclareOutput("volume");
+        this.WithOutput("arn");
+        this.WithOutput("arn_without_revision");
+        this.WithOutput("container_definitions");
+        this.WithOutput("cpu");
+        this.WithOutput("enable_fault_injection");
+        this.WithOutput("ephemeral_storage");
+        this.WithOutput("execution_role_arn");
+        this.WithOutput("family");
+        this.WithOutput("ipc_mode");
+        this.WithOutput("memory");
+        this.WithOutput("network_mode");
+        this.WithOutput("pid_mode");
+        this.WithOutput("placement_constraints");
+        this.WithOutput("proxy_configuration");
+        this.WithOutput("requires_compatibilities");
+        this.WithOutput("revision");
+        this.WithOutput("runtime_platform");
+        this.WithOutput("status");
+        this.WithOutput("task_role_arn");
+        this.WithOutput("volume");
     }
 
     /// <summary>

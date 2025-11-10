@@ -848,7 +848,7 @@ public class AwsDmsEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint_arn");
+        this.WithOutput("endpoint_arn");
     }
 
     /// <summary>

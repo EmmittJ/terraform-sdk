@@ -93,12 +93,12 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("referenced_flows");
-        this.DeclareOutput("referenced_playbooks");
-        this.DeclareOutput("token_count");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("referenced_flows");
+        this.WithOutput("referenced_playbooks");
+        this.WithOutput("token_count");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

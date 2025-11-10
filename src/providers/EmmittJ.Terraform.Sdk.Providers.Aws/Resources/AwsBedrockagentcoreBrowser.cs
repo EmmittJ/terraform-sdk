@@ -75,9 +75,9 @@ public class AwsBedrockagentcoreBrowser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("browser_arn");
-        this.DeclareOutput("browser_id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("browser_arn");
+        this.WithOutput("browser_id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

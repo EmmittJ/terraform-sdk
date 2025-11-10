@@ -31,30 +31,30 @@ public class AzureadGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("assignable_to_role");
-        this.DeclareOutput("auto_subscribe_new_members");
-        this.DeclareOutput("behaviors");
-        this.DeclareOutput("description");
-        this.DeclareOutput("dynamic_membership");
-        this.DeclareOutput("external_senders_allowed");
-        this.DeclareOutput("hide_from_address_lists");
-        this.DeclareOutput("hide_from_outlook_clients");
-        this.DeclareOutput("mail");
-        this.DeclareOutput("members");
-        this.DeclareOutput("onpremises_domain_name");
-        this.DeclareOutput("onpremises_group_type");
-        this.DeclareOutput("onpremises_netbios_name");
-        this.DeclareOutput("onpremises_sam_account_name");
-        this.DeclareOutput("onpremises_security_identifier");
-        this.DeclareOutput("onpremises_sync_enabled");
-        this.DeclareOutput("owners");
-        this.DeclareOutput("preferred_language");
-        this.DeclareOutput("provisioning_options");
-        this.DeclareOutput("proxy_addresses");
-        this.DeclareOutput("theme");
-        this.DeclareOutput("types");
-        this.DeclareOutput("visibility");
-        this.DeclareOutput("writeback_enabled");
+        this.WithOutput("assignable_to_role");
+        this.WithOutput("auto_subscribe_new_members");
+        this.WithOutput("behaviors");
+        this.WithOutput("description");
+        this.WithOutput("dynamic_membership");
+        this.WithOutput("external_senders_allowed");
+        this.WithOutput("hide_from_address_lists");
+        this.WithOutput("hide_from_outlook_clients");
+        this.WithOutput("mail");
+        this.WithOutput("members");
+        this.WithOutput("onpremises_domain_name");
+        this.WithOutput("onpremises_group_type");
+        this.WithOutput("onpremises_netbios_name");
+        this.WithOutput("onpremises_sam_account_name");
+        this.WithOutput("onpremises_security_identifier");
+        this.WithOutput("onpremises_sync_enabled");
+        this.WithOutput("owners");
+        this.WithOutput("preferred_language");
+        this.WithOutput("provisioning_options");
+        this.WithOutput("proxy_addresses");
+        this.WithOutput("theme");
+        this.WithOutput("types");
+        this.WithOutput("visibility");
+        this.WithOutput("writeback_enabled");
     }
 
     /// <summary>

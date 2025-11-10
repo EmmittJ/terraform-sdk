@@ -31,9 +31,9 @@ public class AzureadAccessPackageCatalogDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("externally_visible");
-        this.DeclareOutput("published");
+        this.WithOutput("description");
+        this.WithOutput("externally_visible");
+        this.WithOutput("published");
     }
 
     /// <summary>

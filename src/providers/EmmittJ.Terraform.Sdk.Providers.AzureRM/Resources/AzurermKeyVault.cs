@@ -142,7 +142,7 @@ public class AzurermKeyVault : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("vault_uri");
+        this.WithOutput("vault_uri");
     }
 
     /// <summary>

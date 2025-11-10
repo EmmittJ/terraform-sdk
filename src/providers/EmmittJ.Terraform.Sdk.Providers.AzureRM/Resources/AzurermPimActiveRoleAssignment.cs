@@ -93,7 +93,7 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("principal_type");
+        this.WithOutput("principal_type");
     }
 
     /// <summary>

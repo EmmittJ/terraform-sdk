@@ -31,21 +31,21 @@ public class AzurermMssqlDatabaseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("collation");
-        this.DeclareOutput("elastic_pool_id");
-        this.DeclareOutput("enclave_type");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("license_type");
-        this.DeclareOutput("max_size_gb");
-        this.DeclareOutput("read_replica_count");
-        this.DeclareOutput("read_scale");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("storage_account_type");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("transparent_data_encryption_enabled");
-        this.DeclareOutput("transparent_data_encryption_key_automatic_rotation_enabled");
-        this.DeclareOutput("transparent_data_encryption_key_vault_key_id");
-        this.DeclareOutput("zone_redundant");
+        this.WithOutput("collation");
+        this.WithOutput("elastic_pool_id");
+        this.WithOutput("enclave_type");
+        this.WithOutput("identity");
+        this.WithOutput("license_type");
+        this.WithOutput("max_size_gb");
+        this.WithOutput("read_replica_count");
+        this.WithOutput("read_scale");
+        this.WithOutput("sku_name");
+        this.WithOutput("storage_account_type");
+        this.WithOutput("tags");
+        this.WithOutput("transparent_data_encryption_enabled");
+        this.WithOutput("transparent_data_encryption_key_automatic_rotation_enabled");
+        this.WithOutput("transparent_data_encryption_key_vault_key_id");
+        this.WithOutput("zone_redundant");
     }
 
     /// <summary>

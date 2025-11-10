@@ -121,7 +121,7 @@ public class AzurermKustoAttachedDatabaseConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attached_database_names");
+        this.WithOutput("attached_database_names");
     }
 
     /// <summary>

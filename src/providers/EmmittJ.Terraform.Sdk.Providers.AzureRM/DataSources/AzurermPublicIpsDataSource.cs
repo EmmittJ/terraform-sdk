@@ -31,7 +31,7 @@ public class AzurermPublicIpsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("public_ips");
+        this.WithOutput("public_ips");
     }
 
     /// <summary>

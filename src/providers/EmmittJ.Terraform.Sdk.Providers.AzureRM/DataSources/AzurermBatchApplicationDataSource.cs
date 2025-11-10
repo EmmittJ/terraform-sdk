@@ -31,9 +31,9 @@ public class AzurermBatchApplicationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allow_updates");
-        this.DeclareOutput("default_version");
-        this.DeclareOutput("display_name");
+        this.WithOutput("allow_updates");
+        this.WithOutput("default_version");
+        this.WithOutput("display_name");
     }
 
     /// <summary>

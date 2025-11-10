@@ -14,13 +14,13 @@ public class AwsKmsPublicKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("customer_master_key_spec");
-        this.DeclareOutput("encryption_algorithms");
-        this.DeclareOutput("key_usage");
-        this.DeclareOutput("public_key");
-        this.DeclareOutput("public_key_pem");
-        this.DeclareOutput("signing_algorithms");
+        this.WithOutput("arn");
+        this.WithOutput("customer_master_key_spec");
+        this.WithOutput("encryption_algorithms");
+        this.WithOutput("key_usage");
+        this.WithOutput("public_key");
+        this.WithOutput("public_key_pem");
+        this.WithOutput("signing_algorithms");
     }
 
     /// <summary>

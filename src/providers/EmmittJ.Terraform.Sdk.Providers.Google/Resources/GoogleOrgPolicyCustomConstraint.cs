@@ -49,7 +49,7 @@ public class GoogleOrgPolicyCustomConstraint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("update_time");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class AwsTransferProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("profile_id");
+        this.WithOutput("arn");
+        this.WithOutput("profile_id");
     }
 
     /// <summary>

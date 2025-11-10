@@ -58,8 +58,8 @@ public class AwsIotDomainConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("domain_type");
+        this.WithOutput("arn");
+        this.WithOutput("domain_type");
     }
 
     /// <summary>

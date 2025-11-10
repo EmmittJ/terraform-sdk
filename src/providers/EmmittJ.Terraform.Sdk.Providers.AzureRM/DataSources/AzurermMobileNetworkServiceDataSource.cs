@@ -31,11 +31,11 @@ public class AzurermMobileNetworkServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("pcc_rule");
-        this.DeclareOutput("service_precedence");
-        this.DeclareOutput("service_qos_policy");
-        this.DeclareOutput("tags");
+        this.WithOutput("location");
+        this.WithOutput("pcc_rule");
+        this.WithOutput("service_precedence");
+        this.WithOutput("service_qos_policy");
+        this.WithOutput("tags");
     }
 
     /// <summary>

@@ -31,13 +31,13 @@ public class AzurermHealthcareServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_policy_object_ids");
-        this.DeclareOutput("authentication_configuration");
-        this.DeclareOutput("cors_configuration");
-        this.DeclareOutput("cosmosdb_key_vault_key_versionless_id");
-        this.DeclareOutput("cosmosdb_throughput");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("tags");
+        this.WithOutput("access_policy_object_ids");
+        this.WithOutput("authentication_configuration");
+        this.WithOutput("cors_configuration");
+        this.WithOutput("cosmosdb_key_vault_key_versionless_id");
+        this.WithOutput("cosmosdb_throughput");
+        this.WithOutput("kind");
+        this.WithOutput("tags");
     }
 
     /// <summary>

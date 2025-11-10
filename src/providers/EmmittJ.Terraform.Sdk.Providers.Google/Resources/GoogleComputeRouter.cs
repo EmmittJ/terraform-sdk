@@ -174,8 +174,8 @@ public class GoogleComputeRouter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("self_link");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

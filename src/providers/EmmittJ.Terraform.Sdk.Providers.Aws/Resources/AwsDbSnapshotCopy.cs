@@ -31,19 +31,19 @@ public class AwsDbSnapshotCopy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocated_storage");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("db_snapshot_arn");
-        this.DeclareOutput("encrypted");
-        this.DeclareOutput("engine");
-        this.DeclareOutput("engine_version");
-        this.DeclareOutput("iops");
-        this.DeclareOutput("license_model");
-        this.DeclareOutput("port");
-        this.DeclareOutput("snapshot_type");
-        this.DeclareOutput("source_region");
-        this.DeclareOutput("storage_type");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("allocated_storage");
+        this.WithOutput("availability_zone");
+        this.WithOutput("db_snapshot_arn");
+        this.WithOutput("encrypted");
+        this.WithOutput("engine");
+        this.WithOutput("engine_version");
+        this.WithOutput("iops");
+        this.WithOutput("license_model");
+        this.WithOutput("port");
+        this.WithOutput("snapshot_type");
+        this.WithOutput("source_region");
+        this.WithOutput("storage_type");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

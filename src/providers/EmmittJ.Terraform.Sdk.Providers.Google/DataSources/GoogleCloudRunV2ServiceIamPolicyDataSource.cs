@@ -14,8 +14,8 @@ public class GoogleCloudRunV2ServiceIamPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
-        this.DeclareOutput("policy_data");
+        this.WithOutput("etag");
+        this.WithOutput("policy_data");
     }
 
     /// <summary>

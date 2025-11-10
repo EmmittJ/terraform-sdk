@@ -31,14 +31,14 @@ public class AzurermEventgridPartnerNamespaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("inbound_ip_rule");
-        this.DeclareOutput("local_authentication_enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("partner_registration_id");
-        this.DeclareOutput("partner_topic_routing_mode");
-        this.DeclareOutput("public_network_access");
-        this.DeclareOutput("tags");
+        this.WithOutput("endpoint");
+        this.WithOutput("inbound_ip_rule");
+        this.WithOutput("local_authentication_enabled");
+        this.WithOutput("location");
+        this.WithOutput("partner_registration_id");
+        this.WithOutput("partner_topic_routing_mode");
+        this.WithOutput("public_network_access");
+        this.WithOutput("tags");
     }
 
     /// <summary>

@@ -14,12 +14,12 @@ public class AwsLexBotAliasDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("bot_version");
-        this.DeclareOutput("checksum");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("description");
-        this.DeclareOutput("last_updated_date");
+        this.WithOutput("arn");
+        this.WithOutput("bot_version");
+        this.WithOutput("checksum");
+        this.WithOutput("created_date");
+        this.WithOutput("description");
+        this.WithOutput("last_updated_date");
     }
 
     /// <summary>

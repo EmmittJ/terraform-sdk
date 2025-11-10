@@ -31,7 +31,7 @@ public class AwsLbTrustStoreRevocation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("revocation_id");
+        this.WithOutput("revocation_id");
     }
 
     /// <summary>

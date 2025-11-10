@@ -215,9 +215,9 @@ public class AzurermPrivateEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("custom_dns_configs");
-        this.DeclareOutput("network_interface");
-        this.DeclareOutput("private_dns_zone_configs");
+        this.WithOutputustom_dns_configs");
+        this.WithOutputetwork_interface");
+        this.WithOutputrivate_dns_zone_configs");
     }
 
     /// <summary>

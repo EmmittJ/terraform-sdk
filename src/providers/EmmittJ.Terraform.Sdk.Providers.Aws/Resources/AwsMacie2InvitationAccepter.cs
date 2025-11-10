@@ -31,7 +31,7 @@ public class AwsMacie2InvitationAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("invitation_id");
+        this.WithOutput("invitation_id");
     }
 
     /// <summary>

@@ -135,15 +135,15 @@ public class GoogleVmwareenginePrivateCloud : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("delete_time");
-        this.DeclareOutput("expire_time");
-        this.DeclareOutput("hcx");
-        this.DeclareOutput("nsx");
-        this.DeclareOutput("state");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("vcenter");
+        this.WithOutput("create_time");
+        this.WithOutput("delete_time");
+        this.WithOutput("expire_time");
+        this.WithOutput("hcx");
+        this.WithOutput("nsx");
+        this.WithOutput("state");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("vcenter");
     }
 
     /// <summary>

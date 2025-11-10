@@ -14,11 +14,11 @@ public class AwsConnectContactFlowModuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("content");
-        this.DeclareOutput("description");
-        this.DeclareOutput("state");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("content");
+        this.WithOutput("description");
+        this.WithOutput("state");
+        this.WithOutput("status");
     }
 
     /// <summary>

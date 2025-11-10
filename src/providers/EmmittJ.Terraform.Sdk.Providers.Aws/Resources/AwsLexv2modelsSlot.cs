@@ -119,8 +119,8 @@ public class AwsLexv2modelsSlot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("slot_id");
+        this.WithOutput("id");
+        this.WithOutput("slot_id");
     }
 
     /// <summary>

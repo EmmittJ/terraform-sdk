@@ -40,13 +40,13 @@ public class AwsEbsSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("data_encryption_key_id");
-        this.DeclareOutput("encrypted");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("owner_alias");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("volume_size");
+        this.WithOutput("arn");
+        this.WithOutput("data_encryption_key_id");
+        this.WithOutput("encrypted");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("owner_alias");
+        this.WithOutput("owner_id");
+        this.WithOutput("volume_size");
     }
 
     /// <summary>

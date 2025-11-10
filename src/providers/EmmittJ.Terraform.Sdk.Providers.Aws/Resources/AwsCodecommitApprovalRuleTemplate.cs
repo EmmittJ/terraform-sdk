@@ -14,11 +14,11 @@ public class AwsCodecommitApprovalRuleTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("approval_rule_template_id");
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("last_modified_date");
-        this.DeclareOutput("last_modified_user");
-        this.DeclareOutput("rule_content_sha256");
+        this.WithOutputpproval_rule_template_id");
+        this.WithOutputreation_date");
+        this.WithOutputast_modified_date");
+        this.WithOutputast_modified_user");
+        this.WithOutputule_content_sha256");
     }
 
     /// <summary>

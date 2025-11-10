@@ -14,7 +14,7 @@ public class AwsIamSigningCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_id");
+        this.WithOutput("certificate_id");
     }
 
     /// <summary>

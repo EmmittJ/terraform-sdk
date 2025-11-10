@@ -31,24 +31,24 @@ public class AzurermSharedImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("accelerated_network_support_enabled");
-        this.DeclareOutput("architecture");
-        this.DeclareOutput("confidential_vm_enabled");
-        this.DeclareOutput("confidential_vm_supported");
-        this.DeclareOutput("description");
-        this.DeclareOutput("eula");
-        this.DeclareOutput("hibernation_enabled");
-        this.DeclareOutput("hyper_v_generation");
-        this.DeclareOutput("identifier");
-        this.DeclareOutput("location");
-        this.DeclareOutput("os_type");
-        this.DeclareOutput("privacy_statement_uri");
-        this.DeclareOutput("purchase_plan");
-        this.DeclareOutput("release_note_uri");
-        this.DeclareOutput("specialized");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("trusted_launch_enabled");
-        this.DeclareOutput("trusted_launch_supported");
+        this.WithOutput("accelerated_network_support_enabled");
+        this.WithOutput("architecture");
+        this.WithOutput("confidential_vm_enabled");
+        this.WithOutput("confidential_vm_supported");
+        this.WithOutput("description");
+        this.WithOutput("eula");
+        this.WithOutput("hibernation_enabled");
+        this.WithOutput("hyper_v_generation");
+        this.WithOutput("identifier");
+        this.WithOutput("location");
+        this.WithOutput("os_type");
+        this.WithOutput("privacy_statement_uri");
+        this.WithOutput("purchase_plan");
+        this.WithOutput("release_note_uri");
+        this.WithOutput("specialized");
+        this.WithOutput("tags");
+        this.WithOutput("trusted_launch_enabled");
+        this.WithOutput("trusted_launch_supported");
     }
 
     /// <summary>

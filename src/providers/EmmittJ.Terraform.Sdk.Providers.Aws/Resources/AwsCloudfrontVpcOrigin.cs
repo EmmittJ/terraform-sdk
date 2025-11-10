@@ -107,10 +107,10 @@ public class AwsCloudfrontVpcOrigin : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("etag");
+        this.WithOutput("id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

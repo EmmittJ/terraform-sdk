@@ -78,9 +78,9 @@ public class AwsDatazoneAssetType : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("created_by");
-        this.DeclareOutput("revision");
+        this.WithOutput("created_at");
+        this.WithOutput("created_by");
+        this.WithOutput("revision");
     }
 
     /// <summary>

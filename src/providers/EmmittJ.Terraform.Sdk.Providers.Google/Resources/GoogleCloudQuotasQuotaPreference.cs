@@ -115,10 +115,10 @@ public class GoogleCloudQuotasQuotaPreference : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("etag");
+        this.WithOutput("reconciling");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

@@ -253,7 +253,7 @@ public class GoogleCloudRunService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("status");
+        this.WithOutput("status");
     }
 
     /// <summary>

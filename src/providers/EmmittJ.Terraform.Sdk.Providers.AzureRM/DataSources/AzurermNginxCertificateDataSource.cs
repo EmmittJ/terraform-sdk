@@ -31,14 +31,14 @@ public class AzurermNginxCertificateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_virtual_path");
-        this.DeclareOutput("error_code");
-        this.DeclareOutput("error_message");
-        this.DeclareOutput("key_vault_secret_creation_date");
-        this.DeclareOutput("key_vault_secret_id");
-        this.DeclareOutput("key_vault_secret_version");
-        this.DeclareOutput("key_virtual_path");
-        this.DeclareOutput("sha1_thumbprint");
+        this.WithOutput("certificate_virtual_path");
+        this.WithOutput("error_code");
+        this.WithOutput("error_message");
+        this.WithOutput("key_vault_secret_creation_date");
+        this.WithOutput("key_vault_secret_id");
+        this.WithOutput("key_vault_secret_version");
+        this.WithOutput("key_virtual_path");
+        this.WithOutput("sha1_thumbprint");
     }
 
     /// <summary>

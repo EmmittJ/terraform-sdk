@@ -105,8 +105,8 @@ public class GoogleDialogflowCxTool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("tool_type");
+        this.WithOutput("name");
+        this.WithOutput("tool_type");
     }
 
     /// <summary>

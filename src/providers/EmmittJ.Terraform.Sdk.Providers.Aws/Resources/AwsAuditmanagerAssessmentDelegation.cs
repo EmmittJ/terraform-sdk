@@ -14,9 +14,9 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("delegation_id");
-        this.DeclareOutput("id");
-        this.DeclareOutput("status");
+        this.WithOutput("delegation_id");
+        this.WithOutput("id");
+        this.WithOutput("status");
     }
 
     /// <summary>

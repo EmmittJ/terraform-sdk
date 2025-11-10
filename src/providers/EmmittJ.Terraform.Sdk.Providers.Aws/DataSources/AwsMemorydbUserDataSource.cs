@@ -14,10 +14,10 @@ public class AwsMemorydbUserDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_string");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("authentication_mode");
-        this.DeclareOutput("minimum_engine_version");
+        this.WithOutput("access_string");
+        this.WithOutput("arn");
+        this.WithOutput("authentication_mode");
+        this.WithOutput("minimum_engine_version");
     }
 
     /// <summary>

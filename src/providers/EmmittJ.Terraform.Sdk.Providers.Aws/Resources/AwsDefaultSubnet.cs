@@ -40,15 +40,15 @@ public class AwsDefaultSubnet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zone_id");
-        this.DeclareOutput("cidr_block");
-        this.DeclareOutput("enable_lni_at_device_index");
-        this.DeclareOutput("existing_default_subnet");
-        this.DeclareOutput("ipv6_cidr_block_association_id");
-        this.DeclareOutput("outpost_arn");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zone_id");
+        this.WithOutput("cidr_block");
+        this.WithOutput("enable_lni_at_device_index");
+        this.WithOutput("existing_default_subnet");
+        this.WithOutput("ipv6_cidr_block_association_id");
+        this.WithOutput("outpost_arn");
+        this.WithOutput("owner_id");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

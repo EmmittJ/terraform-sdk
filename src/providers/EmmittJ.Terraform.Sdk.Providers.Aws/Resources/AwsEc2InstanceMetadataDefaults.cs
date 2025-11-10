@@ -14,7 +14,7 @@ public class AwsEc2InstanceMetadataDefaults : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
+        this.WithOutput("id");
     }
 
     /// <summary>

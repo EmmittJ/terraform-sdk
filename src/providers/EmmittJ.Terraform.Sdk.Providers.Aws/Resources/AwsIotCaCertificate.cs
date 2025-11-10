@@ -50,10 +50,10 @@ public class AwsIotCaCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("customer_version");
-        this.DeclareOutput("generation_id");
-        this.DeclareOutput("validity");
+        this.WithOutput("arn");
+        this.WithOutput("customer_version");
+        this.WithOutput("generation_id");
+        this.WithOutput("validity");
     }
 
     /// <summary>

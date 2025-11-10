@@ -235,8 +235,8 @@ public class AwsAppsyncGraphqlApi : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("uris");
+        this.WithOutput("arn");
+        this.WithOutput("uris");
     }
 
     /// <summary>

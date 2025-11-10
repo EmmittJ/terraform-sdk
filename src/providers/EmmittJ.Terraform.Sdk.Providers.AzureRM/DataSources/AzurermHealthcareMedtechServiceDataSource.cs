@@ -31,11 +31,11 @@ public class AzurermHealthcareMedtechServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("device_mapping_json");
-        this.DeclareOutput("eventhub_consumer_group_name");
-        this.DeclareOutput("eventhub_name");
-        this.DeclareOutput("eventhub_namespace_name");
-        this.DeclareOutput("identity");
+        this.WithOutput("device_mapping_json");
+        this.WithOutput("eventhub_consumer_group_name");
+        this.WithOutput("eventhub_name");
+        this.WithOutput("eventhub_namespace_name");
+        this.WithOutput("identity");
     }
 
     /// <summary>

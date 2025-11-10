@@ -59,9 +59,9 @@ public class AwsAvailabilityZonesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("group_names");
-        this.DeclareOutput("names");
-        this.DeclareOutput("zone_ids");
+        this.WithOutput("group_names");
+        this.WithOutput("names");
+        this.WithOutput("zone_ids");
     }
 
     /// <summary>

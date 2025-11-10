@@ -88,19 +88,19 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("commercial_info");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("last_modify_time");
-        this.DeclareOutput("linked_dataset_map");
-        this.DeclareOutput("linked_resources");
-        this.DeclareOutput("log_linked_dataset_query_user_email");
-        this.DeclareOutput("name");
-        this.DeclareOutput("organization_display_name");
-        this.DeclareOutput("organization_id");
-        this.DeclareOutput("resource_type");
-        this.DeclareOutput("state");
-        this.DeclareOutput("subscriber_contact");
-        this.DeclareOutput("subscription_id");
+        this.WithOutput("commercial_info");
+        this.WithOutput("creation_time");
+        this.WithOutput("last_modify_time");
+        this.WithOutput("linked_dataset_map");
+        this.WithOutput("linked_resources");
+        this.WithOutput("log_linked_dataset_query_user_email");
+        this.WithOutput("name");
+        this.WithOutput("organization_display_name");
+        this.WithOutput("organization_id");
+        this.WithOutput("resource_type");
+        this.WithOutput("state");
+        this.WithOutput("subscriber_contact");
+        this.WithOutput("subscription_id");
     }
 
     /// <summary>

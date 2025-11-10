@@ -49,14 +49,14 @@ public class AwsNeptuneClusterInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("dbi_resource_id");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("kms_key_arn");
-        this.DeclareOutput("storage_encrypted");
-        this.DeclareOutput("storage_type");
-        this.DeclareOutput("writer");
+        this.WithOutputddress");
+        this.WithOutputrn");
+        this.WithOutputbi_resource_id");
+        this.WithOutputndpoint");
+        this.WithOutputms_key_arn");
+        this.WithOutputtorage_encrypted");
+        this.WithOutputtorage_type");
+        this.WithOutputriter");
     }
 
     /// <summary>

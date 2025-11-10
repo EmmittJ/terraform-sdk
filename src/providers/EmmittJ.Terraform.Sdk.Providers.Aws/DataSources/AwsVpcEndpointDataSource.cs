@@ -59,21 +59,21 @@ public class AwsVpcEndpointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cidr_blocks");
-        this.DeclareOutput("dns_entry");
-        this.DeclareOutput("dns_options");
-        this.DeclareOutput("ip_address_type");
-        this.DeclareOutput("network_interface_ids");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("policy");
-        this.DeclareOutput("prefix_list_id");
-        this.DeclareOutput("private_dns_enabled");
-        this.DeclareOutput("requester_managed");
-        this.DeclareOutput("route_table_ids");
-        this.DeclareOutput("security_group_ids");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("vpc_endpoint_type");
+        this.WithOutput("arn");
+        this.WithOutput("cidr_blocks");
+        this.WithOutput("dns_entry");
+        this.WithOutput("dns_options");
+        this.WithOutput("ip_address_type");
+        this.WithOutput("network_interface_ids");
+        this.WithOutput("owner_id");
+        this.WithOutput("policy");
+        this.WithOutput("prefix_list_id");
+        this.WithOutput("private_dns_enabled");
+        this.WithOutput("requester_managed");
+        this.WithOutput("route_table_ids");
+        this.WithOutput("security_group_ids");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("vpc_endpoint_type");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsEksClusterAuthDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("token");
+        this.WithOutput("token");
     }
 
     /// <summary>

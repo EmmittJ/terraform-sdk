@@ -240,8 +240,8 @@ public class AzurermSpringCloudApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("url");
+        this.WithOutputqdn");
+        this.WithOutputrl");
     }
 
     /// <summary>

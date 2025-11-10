@@ -14,11 +14,11 @@ public class AwsSecretsmanagerSecretVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("secret_binary");
-        this.DeclareOutput("secret_string");
-        this.DeclareOutput("version_stages");
+        this.WithOutput("arn");
+        this.WithOutput("created_date");
+        this.WithOutput("secret_binary");
+        this.WithOutput("secret_string");
+        this.WithOutput("version_stages");
     }
 
     /// <summary>

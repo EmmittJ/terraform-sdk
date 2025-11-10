@@ -14,10 +14,10 @@ public class AwsAppintegrationsEventIntegrationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("event_filter");
-        this.DeclareOutput("eventbridge_bus");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("event_filter");
+        this.WithOutput("eventbridge_bus");
     }
 
     /// <summary>

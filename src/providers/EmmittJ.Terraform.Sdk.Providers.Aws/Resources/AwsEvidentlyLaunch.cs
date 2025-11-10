@@ -114,13 +114,13 @@ public class AwsEvidentlyLaunch : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("execution");
-        this.DeclareOutput("last_updated_time");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
-        this.DeclareOutput("type");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
+        this.WithOutput("execution");
+        this.WithOutput("last_updated_time");
+        this.WithOutput("status");
+        this.WithOutput("status_reason");
+        this.WithOutput("type");
     }
 
     /// <summary>

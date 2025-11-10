@@ -31,17 +31,17 @@ public class AzurermPostgresqlFlexibleServerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("administrator_login");
-        this.DeclareOutput("auto_grow_enabled");
-        this.DeclareOutput("backup_retention_days");
-        this.DeclareOutput("delegated_subnet_id");
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("location");
-        this.DeclareOutput("public_network_access_enabled");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("storage_mb");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("version");
+        this.WithOutput("administrator_login");
+        this.WithOutput("auto_grow_enabled");
+        this.WithOutput("backup_retention_days");
+        this.WithOutput("delegated_subnet_id");
+        this.WithOutput("fqdn");
+        this.WithOutput("location");
+        this.WithOutput("public_network_access_enabled");
+        this.WithOutput("sku_name");
+        this.WithOutput("storage_mb");
+        this.WithOutput("tags");
+        this.WithOutput("version");
     }
 
     /// <summary>

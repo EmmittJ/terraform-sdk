@@ -14,9 +14,9 @@ public class AwsRoute53ResolverRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("share_status");
+        this.WithOutputrn");
+        this.WithOutputwner_id");
+        this.WithOutputhare_status");
     }
 
     /// <summary>

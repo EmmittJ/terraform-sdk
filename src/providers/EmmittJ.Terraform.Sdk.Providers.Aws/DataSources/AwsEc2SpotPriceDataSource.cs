@@ -59,8 +59,8 @@ public class AwsEc2SpotPriceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("spot_price");
-        this.DeclareOutput("spot_price_timestamp");
+        this.WithOutput("spot_price");
+        this.WithOutput("spot_price_timestamp");
     }
 
     /// <summary>

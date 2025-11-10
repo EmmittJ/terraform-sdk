@@ -67,13 +67,13 @@ public class AwsEfsFileSystem : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zone_id");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("name");
-        this.DeclareOutput("number_of_mount_targets");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("size_in_bytes");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zone_id");
+        this.WithOutput("dns_name");
+        this.WithOutput("name");
+        this.WithOutput("number_of_mount_targets");
+        this.WithOutput("owner_id");
+        this.WithOutput("size_in_bytes");
     }
 
     /// <summary>

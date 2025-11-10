@@ -14,10 +14,10 @@ public class AwsConnectSecurityProfileDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("organization_resource_id");
-        this.DeclareOutput("permissions");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("organization_resource_id");
+        this.WithOutput("permissions");
     }
 
     /// <summary>

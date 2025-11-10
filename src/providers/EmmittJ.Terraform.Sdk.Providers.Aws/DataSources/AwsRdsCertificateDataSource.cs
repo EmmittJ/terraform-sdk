@@ -14,13 +14,13 @@ public class AwsRdsCertificateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("certificate_type");
-        this.DeclareOutput("customer_override");
-        this.DeclareOutput("customer_override_valid_till");
-        this.DeclareOutput("thumbprint");
-        this.DeclareOutput("valid_from");
-        this.DeclareOutput("valid_till");
+        this.WithOutput("arn");
+        this.WithOutput("certificate_type");
+        this.WithOutput("customer_override");
+        this.WithOutput("customer_override_valid_till");
+        this.WithOutput("thumbprint");
+        this.WithOutput("valid_from");
+        this.WithOutput("valid_till");
     }
 
     /// <summary>

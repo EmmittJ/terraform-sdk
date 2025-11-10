@@ -31,20 +31,20 @@ public class AzurermActiveDirectoryDomainServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("deployment_id");
-        this.DeclareOutput("domain_configuration_type");
-        this.DeclareOutput("domain_name");
-        this.DeclareOutput("filtered_sync_enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("notifications");
-        this.DeclareOutput("replica_sets");
-        this.DeclareOutput("resource_id");
-        this.DeclareOutput("secure_ldap");
-        this.DeclareOutput("security");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("sync_owner");
-        this.DeclareOutput("tenant_id");
-        this.DeclareOutput("version");
+        this.WithOutput("deployment_id");
+        this.WithOutput("domain_configuration_type");
+        this.WithOutput("domain_name");
+        this.WithOutput("filtered_sync_enabled");
+        this.WithOutput("location");
+        this.WithOutput("notifications");
+        this.WithOutput("replica_sets");
+        this.WithOutput("resource_id");
+        this.WithOutput("secure_ldap");
+        this.WithOutput("security");
+        this.WithOutput("sku");
+        this.WithOutput("sync_owner");
+        this.WithOutput("tenant_id");
+        this.WithOutput("version");
     }
 
     /// <summary>

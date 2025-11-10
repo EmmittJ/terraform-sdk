@@ -102,7 +102,7 @@ public class AzurermRoleDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("role_definition_resource_id");
+        this.WithOutputole_definition_resource_id");
     }
 
     /// <summary>

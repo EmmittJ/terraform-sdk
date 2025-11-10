@@ -31,7 +31,7 @@ public class AzurermRoleAssignmentsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("role_assignments");
+        this.WithOutput("role_assignments");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class AwsCodeartifactAuthorizationTokenDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("authorization_token");
-        this.DeclareOutput("expiration");
+        this.WithOutput("authorization_token");
+        this.WithOutput("expiration");
     }
 
     /// <summary>

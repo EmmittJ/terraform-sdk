@@ -14,8 +14,8 @@ public class AwsEfsAccessPointsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arns");
-        this.DeclareOutput("ids");
+        this.WithOutput("arns");
+        this.WithOutput("ids");
     }
 
     /// <summary>

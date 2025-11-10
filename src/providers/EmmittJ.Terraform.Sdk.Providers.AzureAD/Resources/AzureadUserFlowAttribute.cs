@@ -58,7 +58,7 @@ public class AzureadUserFlowAttribute : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attribute_type");
+        this.WithOutput("attribute_type");
     }
 
     /// <summary>

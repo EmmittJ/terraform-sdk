@@ -67,22 +67,22 @@ public class GoogleAlloydbBackup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cluster_uid");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("delete_time");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("encryption_info");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("expiry_quantity");
-        this.DeclareOutput("expiry_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("size_bytes");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("cluster_uid");
+        this.WithOutput("create_time");
+        this.WithOutput("delete_time");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("effective_labels");
+        this.WithOutput("encryption_info");
+        this.WithOutput("etag");
+        this.WithOutput("expiry_quantity");
+        this.WithOutput("expiry_time");
+        this.WithOutput("name");
+        this.WithOutput("reconciling");
+        this.WithOutput("size_bytes");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

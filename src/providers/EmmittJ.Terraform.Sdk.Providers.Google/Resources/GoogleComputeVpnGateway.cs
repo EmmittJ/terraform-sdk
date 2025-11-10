@@ -40,9 +40,9 @@ public class GoogleComputeVpnGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("gateway_id");
-        this.DeclareOutput("self_link");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("gateway_id");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

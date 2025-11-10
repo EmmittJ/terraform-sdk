@@ -31,12 +31,12 @@ public class AzurermLoadTestDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("data_plane_uri");
-        this.DeclareOutput("description");
-        this.DeclareOutput("encryption");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutputata_plane_uri");
+        this.WithOutputescription");
+        this.WithOutputncryption");
+        this.WithOutputdentity");
+        this.WithOutputocation");
+        this.WithOutputags");
     }
 
     /// <summary>

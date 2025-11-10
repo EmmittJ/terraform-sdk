@@ -49,15 +49,15 @@ public class GoogleParallelstoreInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_points");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("daos_version");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("effective_reserved_ip_range");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("access_points");
+        this.WithOutput("create_time");
+        this.WithOutput("daos_version");
+        this.WithOutput("effective_labels");
+        this.WithOutput("effective_reserved_ip_range");
+        this.WithOutput("name");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

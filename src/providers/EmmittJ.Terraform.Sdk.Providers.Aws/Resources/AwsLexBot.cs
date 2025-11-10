@@ -122,13 +122,13 @@ public class AwsLexBot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("checksum");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("failure_reason");
-        this.DeclareOutput("last_updated_date");
-        this.DeclareOutput("status");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("checksum");
+        this.WithOutput("created_date");
+        this.WithOutput("failure_reason");
+        this.WithOutput("last_updated_date");
+        this.WithOutput("status");
+        this.WithOutput("version");
     }
 
     /// <summary>

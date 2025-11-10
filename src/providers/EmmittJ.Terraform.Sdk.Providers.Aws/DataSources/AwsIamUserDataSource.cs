@@ -14,10 +14,10 @@ public class AwsIamUserDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("path");
-        this.DeclareOutput("permissions_boundary");
-        this.DeclareOutput("user_id");
+        this.WithOutput("arn");
+        this.WithOutput("path");
+        this.WithOutput("permissions_boundary");
+        this.WithOutput("user_id");
     }
 
     /// <summary>

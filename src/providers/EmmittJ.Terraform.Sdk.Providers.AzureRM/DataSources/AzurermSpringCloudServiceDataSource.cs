@@ -31,11 +31,11 @@ public class AzurermSpringCloudServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("config_server_git_setting");
-        this.DeclareOutput("location");
-        this.DeclareOutput("outbound_public_ip_addresses");
-        this.DeclareOutput("required_network_traffic_rules");
-        this.DeclareOutput("tags");
+        this.WithOutput("config_server_git_setting");
+        this.WithOutput("location");
+        this.WithOutput("outbound_public_ip_addresses");
+        this.WithOutput("required_network_traffic_rules");
+        this.WithOutput("tags");
     }
 
     /// <summary>

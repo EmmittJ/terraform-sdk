@@ -14,7 +14,7 @@ public class AwsXrayResourcePolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("last_updated_time");
+        this.WithOutput("last_updated_time");
     }
 
     /// <summary>

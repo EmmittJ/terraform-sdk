@@ -69,10 +69,10 @@ public class GoogleComputeNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("gateway_ipv4");
-        this.DeclareOutput("network_id");
-        this.DeclareOutput("numeric_id");
-        this.DeclareOutput("self_link");
+        this.WithOutput("gateway_ipv4");
+        this.WithOutput("network_id");
+        this.WithOutput("numeric_id");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

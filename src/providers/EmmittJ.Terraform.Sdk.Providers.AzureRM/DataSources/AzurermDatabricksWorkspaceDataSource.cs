@@ -31,14 +31,14 @@ public class AzurermDatabricksWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("custom_parameters");
-        this.DeclareOutput("enhanced_security_compliance");
-        this.DeclareOutput("location");
-        this.DeclareOutput("managed_disk_identity");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("storage_account_identity");
-        this.DeclareOutput("workspace_id");
-        this.DeclareOutput("workspace_url");
+        this.WithOutput("custom_parameters");
+        this.WithOutput("enhanced_security_compliance");
+        this.WithOutput("location");
+        this.WithOutput("managed_disk_identity");
+        this.WithOutput("sku");
+        this.WithOutput("storage_account_identity");
+        this.WithOutput("workspace_id");
+        this.WithOutput("workspace_url");
     }
 
     /// <summary>

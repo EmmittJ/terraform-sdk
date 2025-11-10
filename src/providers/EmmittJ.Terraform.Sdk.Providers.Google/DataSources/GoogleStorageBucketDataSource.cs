@@ -14,35 +14,35 @@ public class GoogleStorageBucketDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("autoclass");
-        this.DeclareOutput("cors");
-        this.DeclareOutput("custom_placement_config");
-        this.DeclareOutput("default_event_based_hold");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("enable_object_retention");
-        this.DeclareOutput("encryption");
-        this.DeclareOutput("force_destroy");
-        this.DeclareOutput("hierarchical_namespace");
-        this.DeclareOutput("ip_filter");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("lifecycle_rule");
-        this.DeclareOutput("location");
-        this.DeclareOutput("logging");
-        this.DeclareOutput("project_number");
-        this.DeclareOutput("public_access_prevention");
-        this.DeclareOutput("requester_pays");
-        this.DeclareOutput("retention_policy");
-        this.DeclareOutput("rpo");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("soft_delete_policy");
-        this.DeclareOutput("storage_class");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("time_created");
-        this.DeclareOutput("uniform_bucket_level_access");
-        this.DeclareOutput("updated");
-        this.DeclareOutput("url");
-        this.DeclareOutput("versioning");
-        this.DeclareOutput("website");
+        this.WithOutput("autoclass");
+        this.WithOutput("cors");
+        this.WithOutput("custom_placement_config");
+        this.WithOutput("default_event_based_hold");
+        this.WithOutput("effective_labels");
+        this.WithOutput("enable_object_retention");
+        this.WithOutput("encryption");
+        this.WithOutput("force_destroy");
+        this.WithOutput("hierarchical_namespace");
+        this.WithOutput("ip_filter");
+        this.WithOutput("labels");
+        this.WithOutput("lifecycle_rule");
+        this.WithOutput("location");
+        this.WithOutput("logging");
+        this.WithOutput("project_number");
+        this.WithOutput("public_access_prevention");
+        this.WithOutput("requester_pays");
+        this.WithOutput("retention_policy");
+        this.WithOutput("rpo");
+        this.WithOutput("self_link");
+        this.WithOutput("soft_delete_policy");
+        this.WithOutput("storage_class");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("time_created");
+        this.WithOutput("uniform_bucket_level_access");
+        this.WithOutput("updated");
+        this.WithOutput("url");
+        this.WithOutput("versioning");
+        this.WithOutput("website");
     }
 
     /// <summary>

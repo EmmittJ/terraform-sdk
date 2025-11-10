@@ -14,22 +14,22 @@ public class GoogleSecretManagerSecretDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("annotations");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("expire_time");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("replication");
-        this.DeclareOutput("rotation");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("topics");
-        this.DeclareOutput("ttl");
-        this.DeclareOutput("version_aliases");
-        this.DeclareOutput("version_destroy_ttl");
+        this.WithOutput("annotations");
+        this.WithOutput("create_time");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("effective_labels");
+        this.WithOutput("expire_time");
+        this.WithOutput("labels");
+        this.WithOutput("name");
+        this.WithOutput("replication");
+        this.WithOutput("rotation");
+        this.WithOutput("tags");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("topics");
+        this.WithOutput("ttl");
+        this.WithOutput("version_aliases");
+        this.WithOutput("version_destroy_ttl");
     }
 
     /// <summary>

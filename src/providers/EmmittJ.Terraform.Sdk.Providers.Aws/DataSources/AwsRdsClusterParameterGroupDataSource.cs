@@ -14,9 +14,9 @@ public class AwsRdsClusterParameterGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("family");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("family");
     }
 
     /// <summary>

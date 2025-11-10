@@ -59,12 +59,12 @@ public class AwsEc2ManagedPrefixListDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address_family");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("entries");
-        this.DeclareOutput("max_entries");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("version");
+        this.WithOutput("address_family");
+        this.WithOutput("arn");
+        this.WithOutput("entries");
+        this.WithOutput("max_entries");
+        this.WithOutput("owner_id");
+        this.WithOutput("version");
     }
 
     /// <summary>

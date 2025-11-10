@@ -14,19 +14,19 @@ public class AwsAppstreamImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("applications");
-        this.DeclareOutput("appstream_agent_version");
-        this.DeclareOutput("base_image_arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("image_builder_name");
-        this.DeclareOutput("image_builder_supported");
-        this.DeclareOutput("image_permissions");
-        this.DeclareOutput("platform");
-        this.DeclareOutput("public_base_image_released_date");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_change_reason");
+        this.WithOutput("applications");
+        this.WithOutput("appstream_agent_version");
+        this.WithOutput("base_image_arn");
+        this.WithOutput("created_time");
+        this.WithOutput("description");
+        this.WithOutput("display_name");
+        this.WithOutput("image_builder_name");
+        this.WithOutput("image_builder_supported");
+        this.WithOutput("image_permissions");
+        this.WithOutput("platform");
+        this.WithOutput("public_base_image_released_date");
+        this.WithOutput("state");
+        this.WithOutput("state_change_reason");
     }
 
     /// <summary>

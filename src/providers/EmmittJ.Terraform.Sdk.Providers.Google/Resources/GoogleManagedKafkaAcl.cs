@@ -99,11 +99,11 @@ public class GoogleManagedKafkaAcl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
-        this.DeclareOutput("name");
-        this.DeclareOutput("pattern_type");
-        this.DeclareOutput("resource_name");
-        this.DeclareOutput("resource_type");
+        this.WithOutput("etag");
+        this.WithOutput("name");
+        this.WithOutput("pattern_type");
+        this.WithOutput("resource_name");
+        this.WithOutput("resource_type");
     }
 
     /// <summary>
@@ -184,7 +184,7 @@ public class GoogleManagedKafkaAcl : TerraformResource
     /// response to &#39;GetAcl&#39; and &#39;CreateAcl&#39;. Callers are required to put that etag
     /// in the request to &#39;UpdateAcl&#39; to ensure that their change will be applied
     /// to the same version of the acl that exists in the Kafka Cluster.
-    /// 
+    ///
     /// A terminal &#39;T&#39; character in the etag indicates that the AclEntries were
     /// truncated due to repeated field limits.
     /// </summary>

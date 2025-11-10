@@ -14,9 +14,9 @@ public class AwsDxRouterConfigurationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("customer_router_config");
-        this.DeclareOutput("router");
-        this.DeclareOutput("virtual_interface_name");
+        this.WithOutputustomer_router_config");
+        this.WithOutputouter");
+        this.WithOutputirtual_interface_name");
     }
 
     /// <summary>

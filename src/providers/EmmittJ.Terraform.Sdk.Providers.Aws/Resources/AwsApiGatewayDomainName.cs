@@ -69,13 +69,13 @@ public class AwsApiGatewayDomainName : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("certificate_upload_date");
-        this.DeclareOutput("cloudfront_domain_name");
-        this.DeclareOutput("cloudfront_zone_id");
-        this.DeclareOutput("domain_name_id");
-        this.DeclareOutput("regional_domain_name");
-        this.DeclareOutput("regional_zone_id");
+        this.WithOutput("arn");
+        this.WithOutput("certificate_upload_date");
+        this.WithOutput("cloudfront_domain_name");
+        this.WithOutput("cloudfront_zone_id");
+        this.WithOutput("domain_name_id");
+        this.WithOutput("regional_domain_name");
+        this.WithOutput("regional_zone_id");
     }
 
     /// <summary>

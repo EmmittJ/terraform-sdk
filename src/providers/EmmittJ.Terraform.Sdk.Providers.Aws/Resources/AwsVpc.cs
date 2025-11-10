@@ -14,14 +14,14 @@ public class AwsVpc : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("default_network_acl_id");
-        this.DeclareOutput("default_route_table_id");
-        this.DeclareOutput("default_security_group_id");
-        this.DeclareOutput("dhcp_options_id");
-        this.DeclareOutput("ipv6_association_id");
-        this.DeclareOutput("main_route_table_id");
-        this.DeclareOutput("owner_id");
+        this.WithOutput("arn");
+        this.WithOutput("default_network_acl_id");
+        this.WithOutput("default_route_table_id");
+        this.WithOutput("default_security_group_id");
+        this.WithOutput("dhcp_options_id");
+        this.WithOutput("ipv6_association_id");
+        this.WithOutput("main_route_table_id");
+        this.WithOutput("owner_id");
     }
 
     /// <summary>

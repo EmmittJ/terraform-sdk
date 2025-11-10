@@ -50,7 +50,7 @@ public class AwsSecretsmanagerSecretRotation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("rotation_enabled");
+        this.WithOutput("rotation_enabled");
     }
 
     /// <summary>

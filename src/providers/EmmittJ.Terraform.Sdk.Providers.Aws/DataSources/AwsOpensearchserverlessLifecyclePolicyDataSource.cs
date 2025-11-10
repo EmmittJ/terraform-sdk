@@ -14,12 +14,12 @@ public class AwsOpensearchserverlessLifecyclePolicyDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("description");
-        this.DeclareOutput("id");
-        this.DeclareOutput("last_modified_date");
-        this.DeclareOutput("policy");
-        this.DeclareOutput("policy_version");
+        this.WithOutput("created_date");
+        this.WithOutput("description");
+        this.WithOutput("id");
+        this.WithOutput("last_modified_date");
+        this.WithOutput("policy");
+        this.WithOutput("policy_version");
     }
 
     /// <summary>

@@ -40,9 +40,9 @@ public class AwsDxPublicVirtualInterface : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("amazon_side_asn");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("aws_device");
+        this.WithOutput("amazon_side_asn");
+        this.WithOutput("arn");
+        this.WithOutput("aws_device");
     }
 
     /// <summary>

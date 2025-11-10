@@ -14,10 +14,10 @@ public class AwsServicecatalogappregistryApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_tag");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("application_tag");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

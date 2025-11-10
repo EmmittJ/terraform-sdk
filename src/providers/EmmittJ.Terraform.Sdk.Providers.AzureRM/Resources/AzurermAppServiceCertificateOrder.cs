@@ -58,15 +58,15 @@ public class AzurermAppServiceCertificateOrder : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_service_certificate_not_renewable_reasons");
-        this.DeclareOutput("certificates");
-        this.DeclareOutput("domain_verification_token");
-        this.DeclareOutput("expiration_time");
-        this.DeclareOutput("intermediate_thumbprint");
-        this.DeclareOutput("is_private_key_external");
-        this.DeclareOutput("root_thumbprint");
-        this.DeclareOutput("signed_certificate_thumbprint");
-        this.DeclareOutput("status");
+        this.WithOutput("app_service_certificate_not_renewable_reasons");
+        this.WithOutput("certificates");
+        this.WithOutput("domain_verification_token");
+        this.WithOutput("expiration_time");
+        this.WithOutput("intermediate_thumbprint");
+        this.WithOutput("is_private_key_external");
+        this.WithOutput("root_thumbprint");
+        this.WithOutput("signed_certificate_thumbprint");
+        this.WithOutput("status");
     }
 
     /// <summary>

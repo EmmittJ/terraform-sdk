@@ -57,9 +57,9 @@ public class AwsDatazoneGlossaryTerm : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("created_by");
-        this.DeclareOutput("id");
+        this.WithOutput("created_at");
+        this.WithOutput("created_by");
+        this.WithOutput("id");
     }
 
     /// <summary>

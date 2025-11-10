@@ -49,7 +49,7 @@ public class GoogleDialogflowAgent : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("avatar_uri_backend");
+        this.WithOutput("avatar_uri_backend");
     }
 
     /// <summary>

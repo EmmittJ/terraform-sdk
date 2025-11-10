@@ -177,17 +177,17 @@ public class AwsDbInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("engine_version_actual");
-        this.DeclareOutput("hosted_zone_id");
-        this.DeclareOutput("latest_restorable_time");
-        this.DeclareOutput("listener_endpoint");
-        this.DeclareOutput("master_user_secret");
-        this.DeclareOutput("replicas");
-        this.DeclareOutput("resource_id");
-        this.DeclareOutput("status");
+        this.WithOutput("address");
+        this.WithOutput("arn");
+        this.WithOutput("endpoint");
+        this.WithOutput("engine_version_actual");
+        this.WithOutput("hosted_zone_id");
+        this.WithOutput("latest_restorable_time");
+        this.WithOutput("listener_endpoint");
+        this.WithOutput("master_user_secret");
+        this.WithOutput("replicas");
+        this.WithOutput("resource_id");
+        this.WithOutput("status");
     }
 
     /// <summary>

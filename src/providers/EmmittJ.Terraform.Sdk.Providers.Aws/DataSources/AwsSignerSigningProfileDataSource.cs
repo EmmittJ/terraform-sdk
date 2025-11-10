@@ -14,16 +14,16 @@ public class AwsSignerSigningProfileDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("platform_display_name");
-        this.DeclareOutput("platform_id");
-        this.DeclareOutput("revocation_record");
-        this.DeclareOutput("signature_validity_period");
-        this.DeclareOutput("signing_material");
-        this.DeclareOutput("signing_parameters");
-        this.DeclareOutput("status");
-        this.DeclareOutput("version");
-        this.DeclareOutput("version_arn");
+        this.WithOutput("arn");
+        this.WithOutput("platform_display_name");
+        this.WithOutput("platform_id");
+        this.WithOutput("revocation_record");
+        this.WithOutput("signature_validity_period");
+        this.WithOutput("signing_material");
+        this.WithOutput("signing_parameters");
+        this.WithOutput("status");
+        this.WithOutput("version");
+        this.WithOutput("version_arn");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsChatbotSlackWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("slack_team_id");
+        this.WithOutput("slack_team_id");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class GoogleSqlDatabaseInstanceLatestRecoveryTimeDataSource : TerraformDa
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("latest_recovery_time");
+        this.WithOutput("latest_recovery_time");
     }
 
     /// <summary>

@@ -14,9 +14,9 @@ public class AwsLightsailDisk : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("support_code");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("support_code");
     }
 
     /// <summary>

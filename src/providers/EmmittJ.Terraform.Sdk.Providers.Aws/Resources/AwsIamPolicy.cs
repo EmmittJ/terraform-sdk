@@ -14,9 +14,9 @@ public class AwsIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("attachment_count");
-        this.DeclareOutput("policy_id");
+        this.WithOutput("arn");
+        this.WithOutput("attachment_count");
+        this.WithOutput("policy_id");
     }
 
     /// <summary>

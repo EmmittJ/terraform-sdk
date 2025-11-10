@@ -31,12 +31,12 @@ public class AwsServicecatalogConstraintDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("owner");
-        this.DeclareOutput("parameters");
-        this.DeclareOutput("portfolio_id");
-        this.DeclareOutput("product_id");
-        this.DeclareOutput("status");
-        this.DeclareOutput("type");
+        this.WithOutput("owner");
+        this.WithOutput("parameters");
+        this.WithOutput("portfolio_id");
+        this.WithOutput("product_id");
+        this.WithOutput("status");
+        this.WithOutput("type");
     }
 
     /// <summary>

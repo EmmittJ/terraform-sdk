@@ -49,7 +49,7 @@ public class AzurermPostgresqlFlexibleServerBackup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("completed_time");
+        this.WithOutput("completed_time");
     }
 
     /// <summary>

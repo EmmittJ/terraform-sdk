@@ -58,9 +58,9 @@ public class AzurermApplicationInsights : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_id");
-        this.DeclareOutput("connection_string");
-        this.DeclareOutput("instrumentation_key");
+        this.WithOutput("app_id");
+        this.WithOutput("connection_string");
+        this.WithOutput("instrumentation_key");
     }
 
     /// <summary>

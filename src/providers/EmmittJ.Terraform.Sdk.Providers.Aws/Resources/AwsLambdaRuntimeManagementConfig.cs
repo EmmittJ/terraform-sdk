@@ -14,7 +14,7 @@ public class AwsLambdaRuntimeManagementConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("function_arn");
+        this.WithOutput("function_arn");
     }
 
     /// <summary>

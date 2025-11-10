@@ -14,9 +14,9 @@ public class AwsApprunnerCustomDomainAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_validation_records");
-        this.DeclareOutput("dns_target");
-        this.DeclareOutput("status");
+        this.WithOutput("certificate_validation_records");
+        this.WithOutput("dns_target");
+        this.WithOutput("status");
     }
 
     /// <summary>

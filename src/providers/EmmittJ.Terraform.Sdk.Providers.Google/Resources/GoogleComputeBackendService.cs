@@ -802,10 +802,10 @@ public class GoogleComputeBackendService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("generated_id");
-        this.DeclareOutput("self_link");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("fingerprint");
+        this.WithOutput("generated_id");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

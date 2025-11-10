@@ -102,8 +102,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_manager_id");
-        this.DeclareOutput("role_type");
+        this.WithOutput("resource_manager_id");
+        this.WithOutput("role_type");
     }
 
     /// <summary>

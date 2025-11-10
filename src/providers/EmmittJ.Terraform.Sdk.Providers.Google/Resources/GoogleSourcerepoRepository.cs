@@ -91,8 +91,8 @@ public class GoogleSourcerepoRepository : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("size");
-        this.DeclareOutput("url");
+        this.WithOutput("size");
+        this.WithOutput("url");
     }
 
     /// <summary>

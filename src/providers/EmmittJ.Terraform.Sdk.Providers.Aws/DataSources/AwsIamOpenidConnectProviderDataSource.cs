@@ -14,8 +14,8 @@ public class AwsIamOpenidConnectProviderDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("client_id_list");
-        this.DeclareOutput("thumbprint_list");
+        this.WithOutput("client_id_list");
+        this.WithOutput("thumbprint_list");
     }
 
     /// <summary>

@@ -59,7 +59,7 @@ public class AwsEbsSnapshotIdsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ids");
+        this.WithOutput("ids");
     }
 
     /// <summary>

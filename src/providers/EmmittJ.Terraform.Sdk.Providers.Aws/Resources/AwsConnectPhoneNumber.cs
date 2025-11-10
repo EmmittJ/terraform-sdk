@@ -49,9 +49,9 @@ public class AwsConnectPhoneNumber : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("phone_number");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("phone_number");
+        this.WithOutput("status");
     }
 
     /// <summary>

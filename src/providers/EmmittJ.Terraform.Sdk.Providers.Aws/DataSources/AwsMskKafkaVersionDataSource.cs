@@ -14,7 +14,7 @@ public class AwsMskKafkaVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("status");
+        this.WithOutput("status");
     }
 
     /// <summary>

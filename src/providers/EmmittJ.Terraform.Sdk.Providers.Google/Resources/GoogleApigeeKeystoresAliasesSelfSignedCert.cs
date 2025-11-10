@@ -129,8 +129,8 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certs_info");
-        this.DeclareOutput("type");
+        this.WithOutput("certs_info");
+        this.WithOutput("type");
     }
 
     /// <summary>

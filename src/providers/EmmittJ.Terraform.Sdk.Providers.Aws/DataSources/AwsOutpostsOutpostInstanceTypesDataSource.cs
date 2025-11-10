@@ -14,7 +14,7 @@ public class AwsOutpostsOutpostInstanceTypesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("instance_types");
+        this.WithOutputnstance_types");
     }
 
     /// <summary>

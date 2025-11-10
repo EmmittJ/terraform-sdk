@@ -76,7 +76,7 @@ public class AwsGlobalacceleratorCustomRoutingListener : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutputrn");
     }
 
     /// <summary>

@@ -164,30 +164,30 @@ public class AwsAmiFromInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("architecture");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("boot_mode");
-        this.DeclareOutput("ena_support");
-        this.DeclareOutput("hypervisor");
-        this.DeclareOutput("image_location");
-        this.DeclareOutput("image_owner_alias");
-        this.DeclareOutput("image_type");
-        this.DeclareOutput("imds_support");
-        this.DeclareOutput("kernel_id");
-        this.DeclareOutput("last_launched_time");
-        this.DeclareOutput("manage_ebs_snapshots");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("platform");
-        this.DeclareOutput("platform_details");
-        this.DeclareOutput("public");
-        this.DeclareOutput("ramdisk_id");
-        this.DeclareOutput("root_device_name");
-        this.DeclareOutput("root_snapshot_id");
-        this.DeclareOutput("sriov_net_support");
-        this.DeclareOutput("tpm_support");
-        this.DeclareOutput("uefi_data");
-        this.DeclareOutput("usage_operation");
-        this.DeclareOutput("virtualization_type");
+        this.WithOutput("architecture");
+        this.WithOutput("arn");
+        this.WithOutput("boot_mode");
+        this.WithOutput("ena_support");
+        this.WithOutput("hypervisor");
+        this.WithOutput("image_location");
+        this.WithOutput("image_owner_alias");
+        this.WithOutput("image_type");
+        this.WithOutput("imds_support");
+        this.WithOutput("kernel_id");
+        this.WithOutput("last_launched_time");
+        this.WithOutput("manage_ebs_snapshots");
+        this.WithOutput("owner_id");
+        this.WithOutput("platform");
+        this.WithOutput("platform_details");
+        this.WithOutput("public");
+        this.WithOutput("ramdisk_id");
+        this.WithOutput("root_device_name");
+        this.WithOutput("root_snapshot_id");
+        this.WithOutput("sriov_net_support");
+        this.WithOutput("tpm_support");
+        this.WithOutput("uefi_data");
+        this.WithOutput("usage_operation");
+        this.WithOutput("virtualization_type");
     }
 
     /// <summary>

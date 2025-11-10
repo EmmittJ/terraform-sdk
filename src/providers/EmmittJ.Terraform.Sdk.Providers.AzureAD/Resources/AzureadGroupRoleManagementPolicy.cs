@@ -208,8 +208,8 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("display_name");
+        this.WithOutput("description");
+        this.WithOutput("display_name");
     }
 
     /// <summary>

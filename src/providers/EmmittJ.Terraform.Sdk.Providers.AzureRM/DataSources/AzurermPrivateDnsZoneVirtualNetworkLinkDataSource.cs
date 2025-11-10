@@ -31,10 +31,10 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("registration_enabled");
-        this.DeclareOutput("resolution_policy");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("virtual_network_id");
+        this.WithOutput("registration_enabled");
+        this.WithOutput("resolution_policy");
+        this.WithOutput("tags");
+        this.WithOutput("virtual_network_id");
     }
 
     /// <summary>

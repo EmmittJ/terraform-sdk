@@ -51,10 +51,10 @@ public class AwsApiGatewayRestApi : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("execution_arn");
-        this.DeclareOutput("root_resource_id");
+        this.WithOutput("arn");
+        this.WithOutput("created_date");
+        this.WithOutput("execution_arn");
+        this.WithOutput("root_resource_id");
     }
 
     /// <summary>

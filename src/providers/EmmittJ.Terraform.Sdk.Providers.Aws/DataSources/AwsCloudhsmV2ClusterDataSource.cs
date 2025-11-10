@@ -14,10 +14,10 @@ public class AwsCloudhsmV2ClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cluster_certificates");
-        this.DeclareOutput("security_group_id");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("cluster_certificates");
+        this.WithOutput("security_group_id");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

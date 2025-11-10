@@ -14,7 +14,7 @@ public class AwsRdsClusterActivityStream : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("kinesis_stream_name");
+        this.WithOutput("kinesis_stream_name");
     }
 
     /// <summary>

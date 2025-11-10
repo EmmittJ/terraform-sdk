@@ -49,10 +49,10 @@ public class GoogleComputeRegionSslPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("enabled_features");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("self_link");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("enabled_features");
+        this.WithOutput("fingerprint");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

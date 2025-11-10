@@ -14,10 +14,10 @@ public class AwsMemorydbSubnetGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

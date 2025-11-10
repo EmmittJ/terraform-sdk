@@ -14,10 +14,10 @@ public class AwsIamSamlProviderDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_date");
-        this.DeclareOutput("name");
-        this.DeclareOutput("saml_metadata_document");
-        this.DeclareOutput("valid_until");
+        this.WithOutput("create_date");
+        this.WithOutput("name");
+        this.WithOutput("saml_metadata_document");
+        this.WithOutput("valid_until");
     }
 
     /// <summary>

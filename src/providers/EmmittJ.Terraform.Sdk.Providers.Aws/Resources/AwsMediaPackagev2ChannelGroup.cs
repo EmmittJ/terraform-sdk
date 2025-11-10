@@ -14,9 +14,9 @@ public class AwsMediaPackagev2ChannelGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("egress_domain");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("egress_domain");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

@@ -112,7 +112,7 @@ public class AwsAppsyncResolver : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutput("arn");
     }
 
     /// <summary>

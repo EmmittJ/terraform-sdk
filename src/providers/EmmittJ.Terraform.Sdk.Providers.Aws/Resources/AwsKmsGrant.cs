@@ -40,8 +40,8 @@ public class AwsKmsGrant : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("grant_id");
-        this.DeclareOutput("grant_token");
+        this.WithOutput("grant_id");
+        this.WithOutput("grant_token");
     }
 
     /// <summary>

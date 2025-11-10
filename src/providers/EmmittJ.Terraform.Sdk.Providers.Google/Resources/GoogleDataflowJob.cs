@@ -31,11 +31,11 @@ public class GoogleDataflowJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("job_id");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("type");
+        this.WithOutput("effective_labels");
+        this.WithOutput("job_id");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("type");
     }
 
     /// <summary>

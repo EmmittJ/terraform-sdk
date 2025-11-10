@@ -43,18 +43,18 @@ public class AwsCloudformationType : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("default_version_id");
-        this.DeclareOutput("deprecated_status");
-        this.DeclareOutput("description");
-        this.DeclareOutput("documentation_url");
-        this.DeclareOutput("is_default_version");
-        this.DeclareOutput("provisioning_type");
-        this.DeclareOutput("schema");
-        this.DeclareOutput("source_url");
-        this.DeclareOutput("type_arn");
-        this.DeclareOutput("version_id");
-        this.DeclareOutput("visibility");
+        this.WithOutput("arn");
+        this.WithOutput("default_version_id");
+        this.WithOutput("deprecated_status");
+        this.WithOutput("description");
+        this.WithOutput("documentation_url");
+        this.WithOutput("is_default_version");
+        this.WithOutput("provisioning_type");
+        this.WithOutput("schema");
+        this.WithOutput("source_url");
+        this.WithOutput("type_arn");
+        this.WithOutput("version_id");
+        this.WithOutput("visibility");
     }
 
     /// <summary>

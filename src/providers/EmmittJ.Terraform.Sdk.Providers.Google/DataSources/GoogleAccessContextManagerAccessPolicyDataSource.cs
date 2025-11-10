@@ -14,8 +14,8 @@ public class GoogleAccessContextManagerAccessPolicyDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("title");
+        this.WithOutput("name");
+        this.WithOutput("title");
     }
 
     /// <summary>

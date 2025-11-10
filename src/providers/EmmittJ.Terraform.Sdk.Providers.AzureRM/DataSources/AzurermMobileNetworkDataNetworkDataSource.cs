@@ -31,9 +31,9 @@ public class AzurermMobileNetworkDataNetworkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("description");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

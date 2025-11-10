@@ -14,10 +14,10 @@ public class AwsCodedeployApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_id");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("github_account_name");
-        this.DeclareOutput("linked_to_github");
+        this.WithOutput("application_id");
+        this.WithOutput("arn");
+        this.WithOutput("github_account_name");
+        this.WithOutput("linked_to_github");
     }
 
     /// <summary>

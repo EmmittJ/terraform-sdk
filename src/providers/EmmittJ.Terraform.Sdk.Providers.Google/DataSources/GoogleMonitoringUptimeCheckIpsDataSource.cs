@@ -14,7 +14,7 @@ public class GoogleMonitoringUptimeCheckIpsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("uptime_check_ips");
+        this.WithOutput("uptime_check_ips");
     }
 
     /// <summary>

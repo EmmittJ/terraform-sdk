@@ -87,10 +87,10 @@ public class GoogleProjectAccessApprovalSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ancestor_has_active_key_version");
-        this.DeclareOutput("enrolled_ancestor");
-        this.DeclareOutput("invalid_key_version");
-        this.DeclareOutput("name");
+        this.WithOutput("ancestor_has_active_key_version");
+        this.WithOutput("enrolled_ancestor");
+        this.WithOutput("invalid_key_version");
+        this.WithOutput("name");
     }
 
     /// <summary>

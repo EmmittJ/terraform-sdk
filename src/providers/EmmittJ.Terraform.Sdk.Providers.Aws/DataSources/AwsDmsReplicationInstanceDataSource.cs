@@ -14,21 +14,21 @@ public class AwsDmsReplicationInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocated_storage");
-        this.DeclareOutput("auto_minor_version_upgrade");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("engine_version");
-        this.DeclareOutput("kms_key_arn");
-        this.DeclareOutput("multi_az");
-        this.DeclareOutput("network_type");
-        this.DeclareOutput("preferred_maintenance_window");
-        this.DeclareOutput("publicly_accessible");
-        this.DeclareOutput("replication_instance_arn");
-        this.DeclareOutput("replication_instance_class");
-        this.DeclareOutput("replication_instance_private_ips");
-        this.DeclareOutput("replication_instance_public_ips");
-        this.DeclareOutput("replication_subnet_group_id");
-        this.DeclareOutput("vpc_security_group_ids");
+        this.WithOutput("allocated_storage");
+        this.WithOutput("auto_minor_version_upgrade");
+        this.WithOutput("availability_zone");
+        this.WithOutput("engine_version");
+        this.WithOutput("kms_key_arn");
+        this.WithOutput("multi_az");
+        this.WithOutput("network_type");
+        this.WithOutput("preferred_maintenance_window");
+        this.WithOutput("publicly_accessible");
+        this.WithOutput("replication_instance_arn");
+        this.WithOutput("replication_instance_class");
+        this.WithOutput("replication_instance_private_ips");
+        this.WithOutput("replication_instance_public_ips");
+        this.WithOutput("replication_subnet_group_id");
+        this.WithOutput("vpc_security_group_ids");
     }
 
     /// <summary>

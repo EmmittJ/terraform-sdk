@@ -31,10 +31,10 @@ public class AzurermMobileNetworkSimGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("encryption_key_url");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("encryption_key_url");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

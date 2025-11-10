@@ -31,13 +31,13 @@ public class AzurermMobileNetworkSimPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_slice_id");
-        this.DeclareOutput("location");
-        this.DeclareOutput("rat_frequency_selection_priority_index");
-        this.DeclareOutput("registration_timer_in_seconds");
-        this.DeclareOutput("slice");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("user_equipment_aggregate_maximum_bit_rate");
+        this.WithOutput("default_slice_id");
+        this.WithOutput("location");
+        this.WithOutput("rat_frequency_selection_priority_index");
+        this.WithOutput("registration_timer_in_seconds");
+        this.WithOutput("slice");
+        this.WithOutput("tags");
+        this.WithOutput("user_equipment_aggregate_maximum_bit_rate");
     }
 
     /// <summary>

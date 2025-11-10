@@ -14,8 +14,8 @@ public class AwsEcrRepositoriesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("names");
+        this.WithOutput("id");
+        this.WithOutput("names");
     }
 
     /// <summary>

@@ -75,10 +75,10 @@ public class GoogleApigeeAppGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_group_id");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("last_modified_at");
-        this.DeclareOutput("organization");
+        this.WithOutput("app_group_id");
+        this.WithOutput("created_at");
+        this.WithOutput("last_modified_at");
+        this.WithOutput("organization");
     }
 
     /// <summary>

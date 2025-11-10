@@ -98,13 +98,13 @@ public class AwsElasticacheReplicationGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cluster_enabled");
-        this.DeclareOutput("configuration_endpoint_address");
-        this.DeclareOutput("engine_version_actual");
-        this.DeclareOutput("member_clusters");
-        this.DeclareOutput("primary_endpoint_address");
-        this.DeclareOutput("reader_endpoint_address");
+        this.WithOutput("arn");
+        this.WithOutput("cluster_enabled");
+        this.WithOutput("configuration_endpoint_address");
+        this.WithOutput("engine_version_actual");
+        this.WithOutput("member_clusters");
+        this.WithOutput("primary_endpoint_address");
+        this.WithOutput("reader_endpoint_address");
     }
 
     /// <summary>

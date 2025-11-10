@@ -14,7 +14,7 @@ public class AwsSecretsmanagerRandomPasswordDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("random_password");
+        this.WithOutput("random_password");
     }
 
     /// <summary>

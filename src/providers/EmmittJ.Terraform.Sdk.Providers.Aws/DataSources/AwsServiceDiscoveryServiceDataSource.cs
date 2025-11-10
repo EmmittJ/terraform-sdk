@@ -14,11 +14,11 @@ public class AwsServiceDiscoveryServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("dns_config");
-        this.DeclareOutput("health_check_config");
-        this.DeclareOutput("health_check_custom_config");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("dns_config");
+        this.WithOutput("health_check_config");
+        this.WithOutput("health_check_custom_config");
     }
 
     /// <summary>

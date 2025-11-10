@@ -58,12 +58,12 @@ public class AzurermServicebusNamespaceAuthorizationRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("primary_connection_string");
-        this.DeclareOutput("primary_connection_string_alias");
-        this.DeclareOutput("primary_key");
-        this.DeclareOutput("secondary_connection_string");
-        this.DeclareOutput("secondary_connection_string_alias");
-        this.DeclareOutput("secondary_key");
+        this.WithOutputrimary_connection_string");
+        this.WithOutputrimary_connection_string_alias");
+        this.WithOutputrimary_key");
+        this.WithOutputecondary_connection_string");
+        this.WithOutputecondary_connection_string_alias");
+        this.WithOutputecondary_key");
     }
 
     /// <summary>

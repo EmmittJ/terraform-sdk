@@ -14,15 +14,15 @@ public class AwsApiGatewayRestApiDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api_key_source");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("binary_media_types");
-        this.DeclareOutput("description");
-        this.DeclareOutput("endpoint_configuration");
-        this.DeclareOutput("execution_arn");
-        this.DeclareOutput("minimum_compression_size");
-        this.DeclareOutput("policy");
-        this.DeclareOutput("root_resource_id");
+        this.WithOutput("api_key_source");
+        this.WithOutput("arn");
+        this.WithOutput("binary_media_types");
+        this.WithOutput("description");
+        this.WithOutput("endpoint_configuration");
+        this.WithOutput("execution_arn");
+        this.WithOutput("minimum_compression_size");
+        this.WithOutput("policy");
+        this.WithOutput("root_resource_id");
     }
 
     /// <summary>

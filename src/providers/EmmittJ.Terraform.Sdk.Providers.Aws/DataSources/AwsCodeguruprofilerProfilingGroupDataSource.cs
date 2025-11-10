@@ -14,14 +14,14 @@ public class AwsCodeguruprofilerProfilingGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("agent_orchestration_config");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("compute_platform");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("id");
-        this.DeclareOutput("profiling_status");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("agent_orchestration_config");
+        this.WithOutput("arn");
+        this.WithOutput("compute_platform");
+        this.WithOutput("created_at");
+        this.WithOutput("id");
+        this.WithOutput("profiling_status");
+        this.WithOutput("tags");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

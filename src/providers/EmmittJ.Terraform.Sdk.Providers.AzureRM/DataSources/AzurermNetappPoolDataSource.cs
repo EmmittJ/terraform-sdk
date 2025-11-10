@@ -31,12 +31,12 @@ public class AzurermNetappPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cool_access_enabled");
-        this.DeclareOutput("custom_throughput_mibps");
-        this.DeclareOutput("encryption_type");
-        this.DeclareOutput("location");
-        this.DeclareOutput("service_level");
-        this.DeclareOutput("size_in_tb");
+        this.WithOutput("cool_access_enabled");
+        this.WithOutput("custom_throughput_mibps");
+        this.WithOutput("encryption_type");
+        this.WithOutput("location");
+        this.WithOutput("service_level");
+        this.WithOutput("size_in_tb");
     }
 
     /// <summary>

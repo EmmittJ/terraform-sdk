@@ -14,13 +14,13 @@ public class AwsConnectUserDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("directory_user_id");
-        this.DeclareOutput("hierarchy_group_id");
-        this.DeclareOutput("identity_info");
-        this.DeclareOutput("phone_config");
-        this.DeclareOutput("routing_profile_id");
-        this.DeclareOutput("security_profile_ids");
+        this.WithOutput("arn");
+        this.WithOutput("directory_user_id");
+        this.WithOutput("hierarchy_group_id");
+        this.WithOutput("identity_info");
+        this.WithOutput("phone_config");
+        this.WithOutput("routing_profile_id");
+        this.WithOutput("security_profile_ids");
     }
 
     /// <summary>

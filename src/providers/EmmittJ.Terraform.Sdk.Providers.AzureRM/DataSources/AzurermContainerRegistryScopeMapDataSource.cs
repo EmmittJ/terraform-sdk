@@ -31,8 +31,8 @@ public class AzurermContainerRegistryScopeMapDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("actions");
-        this.DeclareOutput("description");
+        this.WithOutput("actions");
+        this.WithOutput("description");
     }
 
     /// <summary>

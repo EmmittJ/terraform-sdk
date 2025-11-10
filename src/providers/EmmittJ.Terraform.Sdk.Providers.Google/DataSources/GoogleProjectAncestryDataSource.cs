@@ -14,10 +14,10 @@ public class GoogleProjectAncestryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ancestors");
-        this.DeclareOutput("org_id");
-        this.DeclareOutput("parent_id");
-        this.DeclareOutput("parent_type");
+        this.WithOutput("ancestors");
+        this.WithOutput("org_id");
+        this.WithOutput("parent_id");
+        this.WithOutput("parent_type");
     }
 
     /// <summary>

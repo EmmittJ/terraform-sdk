@@ -14,17 +14,17 @@ public class GoogleBeyondcorpSecurityGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("delegating_service_account");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("external_ips");
-        this.DeclareOutput("hubs");
-        this.DeclareOutput("location");
-        this.DeclareOutput("name");
-        this.DeclareOutput("proxy_protocol_config");
-        this.DeclareOutput("service_discovery");
-        this.DeclareOutput("state");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("delegating_service_account");
+        this.WithOutput("display_name");
+        this.WithOutput("external_ips");
+        this.WithOutput("hubs");
+        this.WithOutput("location");
+        this.WithOutput("name");
+        this.WithOutput("proxy_protocol_config");
+        this.WithOutput("service_discovery");
+        this.WithOutput("state");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

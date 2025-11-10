@@ -14,7 +14,7 @@ public class AwsKinesisResourcePolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
+        this.WithOutput("id");
     }
 
     /// <summary>

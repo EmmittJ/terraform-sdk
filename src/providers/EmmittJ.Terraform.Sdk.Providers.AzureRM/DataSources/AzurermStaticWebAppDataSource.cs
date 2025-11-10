@@ -31,20 +31,20 @@ public class AzurermStaticWebAppDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api_key");
-        this.DeclareOutput("app_settings");
-        this.DeclareOutput("basic_auth");
-        this.DeclareOutput("configuration_file_changes_enabled");
-        this.DeclareOutput("default_host_name");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("preview_environments_enabled");
-        this.DeclareOutput("public_network_access_enabled");
-        this.DeclareOutput("repository_branch");
-        this.DeclareOutput("repository_url");
-        this.DeclareOutput("sku_size");
-        this.DeclareOutput("sku_tier");
-        this.DeclareOutput("tags");
+        this.WithOutput("api_key");
+        this.WithOutput("app_settings");
+        this.WithOutput("basic_auth");
+        this.WithOutput("configuration_file_changes_enabled");
+        this.WithOutput("default_host_name");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("preview_environments_enabled");
+        this.WithOutput("public_network_access_enabled");
+        this.WithOutput("repository_branch");
+        this.WithOutput("repository_url");
+        this.WithOutput("sku_size");
+        this.WithOutput("sku_tier");
+        this.WithOutput("tags");
     }
 
     /// <summary>

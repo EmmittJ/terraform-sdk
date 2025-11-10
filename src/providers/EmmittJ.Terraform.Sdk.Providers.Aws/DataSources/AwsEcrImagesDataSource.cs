@@ -14,7 +14,7 @@ public class AwsEcrImagesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("image_ids");
+        this.WithOutput("image_ids");
     }
 
     /// <summary>

@@ -79,8 +79,8 @@ public class AwsCeCostCategory : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("effective_end");
+        this.WithOutput("arn");
+        this.WithOutput("effective_end");
     }
 
     /// <summary>

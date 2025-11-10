@@ -49,8 +49,8 @@ public class GoogleComputeNetworkPeering : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_details");
+        this.WithOutput("state");
+        this.WithOutput("state_details");
     }
 
     /// <summary>

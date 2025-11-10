@@ -69,7 +69,7 @@ public class AwsApiGatewayDocumentationPart : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("documentation_part_id");
+        this.WithOutput("documentation_part_id");
     }
 
     /// <summary>

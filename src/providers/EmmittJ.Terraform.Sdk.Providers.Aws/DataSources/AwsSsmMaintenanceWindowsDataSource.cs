@@ -42,7 +42,7 @@ public class AwsSsmMaintenanceWindowsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ids");
+        this.WithOutput("ids");
     }
 
     /// <summary>

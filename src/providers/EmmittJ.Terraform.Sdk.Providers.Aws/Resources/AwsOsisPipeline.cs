@@ -138,10 +138,10 @@ public class AwsOsisPipeline : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("ingest_endpoint_urls");
-        this.DeclareOutput("pipeline_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("id");
+        this.WithOutput("ingest_endpoint_urls");
+        this.WithOutput("pipeline_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

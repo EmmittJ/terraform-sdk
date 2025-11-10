@@ -49,12 +49,12 @@ public class GoogleOracleDatabaseOdbNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("entitlement_id");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("entitlement_id");
+        this.WithOutput("name");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

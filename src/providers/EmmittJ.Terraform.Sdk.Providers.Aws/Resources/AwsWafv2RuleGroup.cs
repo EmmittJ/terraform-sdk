@@ -119,8 +119,8 @@ public class AwsWafv2RuleGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("lock_token");
+        this.WithOutput("arn");
+        this.WithOutput("lock_token");
     }
 
     /// <summary>

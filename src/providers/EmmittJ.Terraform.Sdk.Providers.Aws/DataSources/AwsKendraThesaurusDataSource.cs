@@ -14,18 +14,18 @@ public class AwsKendraThesaurusDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("description");
-        this.DeclareOutput("error_message");
-        this.DeclareOutput("file_size_bytes");
-        this.DeclareOutput("name");
-        this.DeclareOutput("role_arn");
-        this.DeclareOutput("source_s3_path");
-        this.DeclareOutput("status");
-        this.DeclareOutput("synonym_rule_count");
-        this.DeclareOutput("term_count");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("description");
+        this.WithOutput("error_message");
+        this.WithOutput("file_size_bytes");
+        this.WithOutput("name");
+        this.WithOutput("role_arn");
+        this.WithOutput("source_s3_path");
+        this.WithOutput("status");
+        this.WithOutput("synonym_rule_count");
+        this.WithOutput("term_count");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

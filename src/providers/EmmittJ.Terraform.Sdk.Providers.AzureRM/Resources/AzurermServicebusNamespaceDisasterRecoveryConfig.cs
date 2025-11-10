@@ -58,10 +58,10 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfig : TerraformResourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_primary_key");
-        this.DeclareOutput("default_secondary_key");
-        this.DeclareOutput("primary_connection_string_alias");
-        this.DeclareOutput("secondary_connection_string_alias");
+        this.WithOutputefault_primary_key");
+        this.WithOutputefault_secondary_key");
+        this.WithOutputrimary_connection_string_alias");
+        this.WithOutputecondary_connection_string_alias");
     }
 
     /// <summary>

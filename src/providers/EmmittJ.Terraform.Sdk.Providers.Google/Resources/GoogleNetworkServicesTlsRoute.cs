@@ -58,9 +58,9 @@ public class GoogleNetworkServicesTlsRoute : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("self_link");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

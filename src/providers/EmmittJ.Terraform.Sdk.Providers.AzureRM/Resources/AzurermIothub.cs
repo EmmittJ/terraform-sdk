@@ -319,14 +319,14 @@ public class AzurermIothub : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("event_hub_events_endpoint");
-        this.DeclareOutput("event_hub_events_namespace");
-        this.DeclareOutput("event_hub_events_path");
-        this.DeclareOutput("event_hub_operations_endpoint");
-        this.DeclareOutput("event_hub_operations_path");
-        this.DeclareOutput("hostname");
-        this.DeclareOutput("shared_access_policy");
-        this.DeclareOutput("type");
+        this.WithOutput("event_hub_events_endpoint");
+        this.WithOutput("event_hub_events_namespace");
+        this.WithOutput("event_hub_events_path");
+        this.WithOutput("event_hub_operations_endpoint");
+        this.WithOutput("event_hub_operations_path");
+        this.WithOutput("hostname");
+        this.WithOutput("shared_access_policy");
+        this.WithOutput("type");
     }
 
     /// <summary>

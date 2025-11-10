@@ -31,7 +31,7 @@ public class AzureadUsersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("users");
+        this.WithOutput("users");
     }
 
     /// <summary>

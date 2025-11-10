@@ -14,7 +14,7 @@ public class AwsVpclatticeServiceNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutput("arn");
     }
 
     /// <summary>

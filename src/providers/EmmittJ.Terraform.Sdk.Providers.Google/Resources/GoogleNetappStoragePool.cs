@@ -49,14 +49,14 @@ public class GoogleNetappStoragePool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("available_throughput_mibps");
-        this.DeclareOutput("cold_tier_size_used_gib");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("encryption_type");
-        this.DeclareOutput("hot_tier_size_used_gib");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("volume_capacity_gib");
-        this.DeclareOutput("volume_count");
+        this.WithOutput("available_throughput_mibps");
+        this.WithOutput("cold_tier_size_used_gib");
+        this.WithOutput("effective_labels");
+        this.WithOutput("encryption_type");
+        this.WithOutput("hot_tier_size_used_gib");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("volume_capacity_gib");
+        this.WithOutput("volume_count");
     }
 
     /// <summary>

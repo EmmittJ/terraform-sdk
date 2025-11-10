@@ -239,8 +239,8 @@ public class AzurermWebApplicationFirewallPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("http_listener_ids");
-        this.DeclareOutput("path_based_rule_ids");
+        this.WithOutputttp_listener_ids");
+        this.WithOutputath_based_rule_ids");
     }
 
     /// <summary>

@@ -94,9 +94,9 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("default_schema_id");
-        this.DeclareOutput("name");
+        this.WithOutput("create_time");
+        this.WithOutput("default_schema_id");
+        this.WithOutput("name");
     }
 
     /// <summary>

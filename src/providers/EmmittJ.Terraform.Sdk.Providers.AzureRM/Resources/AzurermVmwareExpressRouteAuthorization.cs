@@ -49,8 +49,8 @@ public class AzurermVmwareExpressRouteAuthorization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("express_route_authorization_id");
-        this.DeclareOutput("express_route_authorization_key");
+        this.WithOutput("express_route_authorization_id");
+        this.WithOutput("express_route_authorization_key");
     }
 
     /// <summary>

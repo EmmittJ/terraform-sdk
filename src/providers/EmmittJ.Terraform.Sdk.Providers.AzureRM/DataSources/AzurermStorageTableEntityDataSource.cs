@@ -31,7 +31,7 @@ public class AzurermStorageTableEntityDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("entity");
+        this.WithOutput("entity");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class AwsMqConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("latest_revision");
+        this.WithOutput("arn");
+        this.WithOutput("latest_revision");
     }
 
     /// <summary>

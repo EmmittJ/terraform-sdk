@@ -270,19 +270,19 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("delete_time");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("fleet");
-        this.DeclareOutput("local_name");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("state");
-        this.DeclareOutput("status");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("validation_check");
+        this.WithOutput("create_time");
+        this.WithOutput("delete_time");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("endpoint");
+        this.WithOutput("etag");
+        this.WithOutput("fleet");
+        this.WithOutput("local_name");
+        this.WithOutput("reconciling");
+        this.WithOutput("state");
+        this.WithOutput("status");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("validation_check");
     }
 
     /// <summary>

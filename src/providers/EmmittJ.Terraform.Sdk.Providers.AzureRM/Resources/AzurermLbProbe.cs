@@ -58,7 +58,7 @@ public class AzurermLbProbe : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("load_balancer_rules");
+        this.WithOutput("load_balancer_rules");
     }
 
     /// <summary>

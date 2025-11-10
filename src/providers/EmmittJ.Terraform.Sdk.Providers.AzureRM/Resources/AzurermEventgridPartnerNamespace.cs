@@ -86,7 +86,7 @@ public class AzurermEventgridPartnerNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint");
+        this.WithOutput("endpoint");
     }
 
     /// <summary>

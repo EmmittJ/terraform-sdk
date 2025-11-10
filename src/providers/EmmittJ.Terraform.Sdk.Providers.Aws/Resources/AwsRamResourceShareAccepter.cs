@@ -40,13 +40,13 @@ public class AwsRamResourceShareAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("invitation_arn");
-        this.DeclareOutput("receiver_account_id");
-        this.DeclareOutput("resources");
-        this.DeclareOutput("sender_account_id");
-        this.DeclareOutput("share_id");
-        this.DeclareOutput("share_name");
-        this.DeclareOutput("status");
+        this.WithOutputnvitation_arn");
+        this.WithOutputeceiver_account_id");
+        this.WithOutputesources");
+        this.WithOutputender_account_id");
+        this.WithOutputhare_id");
+        this.WithOutputhare_name");
+        this.WithOutputtatus");
     }
 
     /// <summary>

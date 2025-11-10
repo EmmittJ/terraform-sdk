@@ -58,8 +58,8 @@ public class AzurermSynapseIntegrationRuntimeSelfHosted : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("authorization_key_primary");
-        this.DeclareOutput("authorization_key_secondary");
+        this.WithOutpututhorization_key_primary");
+        this.WithOutpututhorization_key_secondary");
     }
 
     /// <summary>

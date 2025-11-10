@@ -14,18 +14,18 @@ public class AwsCloudformationTypeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_version_id");
-        this.DeclareOutput("deprecated_status");
-        this.DeclareOutput("description");
-        this.DeclareOutput("documentation_url");
-        this.DeclareOutput("execution_role_arn");
-        this.DeclareOutput("is_default_version");
-        this.DeclareOutput("logging_config");
-        this.DeclareOutput("provisioning_type");
-        this.DeclareOutput("schema");
-        this.DeclareOutput("source_url");
-        this.DeclareOutput("type_arn");
-        this.DeclareOutput("visibility");
+        this.WithOutput("default_version_id");
+        this.WithOutput("deprecated_status");
+        this.WithOutput("description");
+        this.WithOutput("documentation_url");
+        this.WithOutput("execution_role_arn");
+        this.WithOutput("is_default_version");
+        this.WithOutput("logging_config");
+        this.WithOutput("provisioning_type");
+        this.WithOutput("schema");
+        this.WithOutput("source_url");
+        this.WithOutput("type_arn");
+        this.WithOutput("visibility");
     }
 
     /// <summary>

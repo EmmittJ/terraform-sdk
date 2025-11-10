@@ -78,9 +78,9 @@ public class GoogleKmsCryptoKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("primary");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("effective_labels");
+        this.WithOutput("primary");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

@@ -918,7 +918,7 @@ public class AzurermWindowsVirtualMachineScaleSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("unique_id");
+        this.WithOutputnique_id");
     }
 
     /// <summary>

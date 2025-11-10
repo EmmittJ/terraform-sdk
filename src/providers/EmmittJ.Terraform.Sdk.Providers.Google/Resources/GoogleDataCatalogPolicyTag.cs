@@ -49,8 +49,8 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("child_policy_tags");
-        this.DeclareOutput("name");
+        this.WithOutput("child_policy_tags");
+        this.WithOutput("name");
     }
 
     /// <summary>

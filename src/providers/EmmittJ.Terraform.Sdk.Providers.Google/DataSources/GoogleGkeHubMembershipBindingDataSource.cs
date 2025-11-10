@@ -14,16 +14,16 @@ public class GoogleGkeHubMembershipBindingDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("delete_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("scope");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("delete_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("labels");
+        this.WithOutput("name");
+        this.WithOutput("scope");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

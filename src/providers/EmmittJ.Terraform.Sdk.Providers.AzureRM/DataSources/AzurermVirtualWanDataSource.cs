@@ -31,14 +31,14 @@ public class AzurermVirtualWanDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allow_branch_to_branch_traffic");
-        this.DeclareOutput("disable_vpn_encryption");
-        this.DeclareOutput("location");
-        this.DeclareOutput("office365_local_breakout_category");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("virtual_hub_ids");
-        this.DeclareOutput("vpn_site_ids");
+        this.WithOutput("allow_branch_to_branch_traffic");
+        this.WithOutput("disable_vpn_encryption");
+        this.WithOutput("location");
+        this.WithOutput("office365_local_breakout_category");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
+        this.WithOutput("virtual_hub_ids");
+        this.WithOutput("vpn_site_ids");
     }
 
     /// <summary>

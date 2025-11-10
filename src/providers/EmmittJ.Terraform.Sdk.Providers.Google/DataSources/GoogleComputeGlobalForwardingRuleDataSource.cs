@@ -14,31 +14,31 @@ public class GoogleComputeGlobalForwardingRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("base_forwarding_rule");
-        this.DeclareOutput("description");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("external_managed_backend_bucket_migration_state");
-        this.DeclareOutput("external_managed_backend_bucket_migration_testing_percentage");
-        this.DeclareOutput("forwarding_rule_id");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("ip_protocol");
-        this.DeclareOutput("ip_version");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("load_balancing_scheme");
-        this.DeclareOutput("metadata_filters");
-        this.DeclareOutput("network");
-        this.DeclareOutput("network_tier");
-        this.DeclareOutput("no_automate_dns_zone");
-        this.DeclareOutput("port_range");
-        this.DeclareOutput("psc_connection_id");
-        this.DeclareOutput("psc_connection_status");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("service_directory_registrations");
-        this.DeclareOutput("source_ip_ranges");
-        this.DeclareOutput("subnetwork");
-        this.DeclareOutput("target");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("base_forwarding_rule");
+        this.WithOutput("description");
+        this.WithOutput("effective_labels");
+        this.WithOutput("external_managed_backend_bucket_migration_state");
+        this.WithOutput("external_managed_backend_bucket_migration_testing_percentage");
+        this.WithOutput("forwarding_rule_id");
+        this.WithOutput("ip_address");
+        this.WithOutput("ip_protocol");
+        this.WithOutput("ip_version");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("labels");
+        this.WithOutput("load_balancing_scheme");
+        this.WithOutput("metadata_filters");
+        this.WithOutput("network");
+        this.WithOutput("network_tier");
+        this.WithOutput("no_automate_dns_zone");
+        this.WithOutput("port_range");
+        this.WithOutput("psc_connection_id");
+        this.WithOutput("psc_connection_status");
+        this.WithOutput("self_link");
+        this.WithOutput("service_directory_registrations");
+        this.WithOutput("source_ip_ranges");
+        this.WithOutput("subnetwork");
+        this.WithOutput("target");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

@@ -49,14 +49,14 @@ public class GoogleComputeNetworkAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connection_endpoints");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("id");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("network");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("self_link_with_id");
+        this.WithOutput("connection_endpoints");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("fingerprint");
+        this.WithOutput("id");
+        this.WithOutput("kind");
+        this.WithOutput("network");
+        this.WithOutput("self_link");
+        this.WithOutput("self_link_with_id");
     }
 
     /// <summary>

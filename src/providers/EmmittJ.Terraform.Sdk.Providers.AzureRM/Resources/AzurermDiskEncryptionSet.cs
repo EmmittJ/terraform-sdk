@@ -104,7 +104,7 @@ public class AzurermDiskEncryptionSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("key_vault_key_url");
+        this.WithOutput("key_vault_key_url");
     }
 
     /// <summary>

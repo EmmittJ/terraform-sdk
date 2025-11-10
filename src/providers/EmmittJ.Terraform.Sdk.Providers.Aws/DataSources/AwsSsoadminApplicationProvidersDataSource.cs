@@ -14,8 +14,8 @@ public class AwsSsoadminApplicationProvidersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_providers");
-        this.DeclareOutput("id");
+        this.WithOutput("application_providers");
+        this.WithOutput("id");
     }
 
     /// <summary>

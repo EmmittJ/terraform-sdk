@@ -31,7 +31,7 @@ public class AzurermStorageManagementPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("rule");
+        this.WithOutput("rule");
     }
 
     /// <summary>

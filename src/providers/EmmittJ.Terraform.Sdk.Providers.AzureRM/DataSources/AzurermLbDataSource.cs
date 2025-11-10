@@ -31,12 +31,12 @@ public class AzurermLbDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("frontend_ip_configuration");
-        this.DeclareOutput("location");
-        this.DeclareOutput("private_ip_address");
-        this.DeclareOutput("private_ip_addresses");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
+        this.WithOutput("frontend_ip_configuration");
+        this.WithOutput("location");
+        this.WithOutput("private_ip_address");
+        this.WithOutput("private_ip_addresses");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
     }
 
     /// <summary>

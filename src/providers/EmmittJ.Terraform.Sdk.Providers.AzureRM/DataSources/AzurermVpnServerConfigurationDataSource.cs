@@ -31,15 +31,15 @@ public class AzurermVpnServerConfigurationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("azure_active_directory_authentication");
-        this.DeclareOutput("client_revoked_certificate");
-        this.DeclareOutput("client_root_certificate");
-        this.DeclareOutput("ipsec_policy");
-        this.DeclareOutput("location");
-        this.DeclareOutput("radius");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("vpn_authentication_types");
-        this.DeclareOutput("vpn_protocols");
+        this.WithOutput("azure_active_directory_authentication");
+        this.WithOutput("client_revoked_certificate");
+        this.WithOutput("client_root_certificate");
+        this.WithOutput("ipsec_policy");
+        this.WithOutput("location");
+        this.WithOutput("radius");
+        this.WithOutput("tags");
+        this.WithOutput("vpn_authentication_types");
+        this.WithOutput("vpn_protocols");
     }
 
     /// <summary>

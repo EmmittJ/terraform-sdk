@@ -103,8 +103,8 @@ public class AwsConfigConfigRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("rule_id");
+        this.WithOutput("arn");
+        this.WithOutput("rule_id");
     }
 
     /// <summary>

@@ -58,7 +58,7 @@ public class AzurermTrustedSigningAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_uri");
+        this.WithOutputccount_uri");
     }
 
     /// <summary>

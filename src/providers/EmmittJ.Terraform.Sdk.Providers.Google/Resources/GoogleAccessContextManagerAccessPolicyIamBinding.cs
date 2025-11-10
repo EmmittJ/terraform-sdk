@@ -52,7 +52,7 @@ public class GoogleAccessContextManagerAccessPolicyIamBinding : TerraformResourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

@@ -59,7 +59,7 @@ public class AwsRouteTablesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ids");
+        this.WithOutputds");
     }
 
     /// <summary>

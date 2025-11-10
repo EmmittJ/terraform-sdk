@@ -96,7 +96,7 @@ public class AzurermAnalysisServicesServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("server_full_name");
+        this.WithOutput("server_full_name");
     }
 
     /// <summary>

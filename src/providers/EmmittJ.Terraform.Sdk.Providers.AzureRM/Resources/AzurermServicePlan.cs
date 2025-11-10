@@ -58,8 +58,8 @@ public class AzurermServicePlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("kind");
-        this.DeclareOutput("reserved");
+        this.WithOutputind");
+        this.WithOutputeserved");
     }
 
     /// <summary>

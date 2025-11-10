@@ -14,7 +14,7 @@ public class AwsDbEventCategoriesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("event_categories");
+        this.WithOutput("event_categories");
     }
 
     /// <summary>

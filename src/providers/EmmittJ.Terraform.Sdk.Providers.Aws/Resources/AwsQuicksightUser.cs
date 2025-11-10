@@ -14,8 +14,8 @@ public class AwsQuicksightUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("user_invitation_url");
+        this.WithOutput("arn");
+        this.WithOutput("user_invitation_url");
     }
 
     /// <summary>

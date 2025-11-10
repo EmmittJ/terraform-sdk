@@ -76,10 +76,10 @@ public class AwsSecuritylakeDataLake : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("s3_bucket_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("s3_bucket_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

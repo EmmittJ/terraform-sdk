@@ -14,9 +14,9 @@ public class AwsNetworkmanagerSiteDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("location");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("location");
     }
 
     /// <summary>

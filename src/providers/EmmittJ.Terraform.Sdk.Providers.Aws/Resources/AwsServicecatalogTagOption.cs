@@ -58,7 +58,7 @@ public class AwsServicecatalogTagOption : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("owner");
+        this.WithOutput("owner");
     }
 
     /// <summary>

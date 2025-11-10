@@ -240,7 +240,7 @@ public class AwsRoute53Record : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fqdn");
+        this.WithOutput("fqdn");
     }
 
     /// <summary>

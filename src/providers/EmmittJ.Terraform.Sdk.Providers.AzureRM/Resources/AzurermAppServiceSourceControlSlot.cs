@@ -76,8 +76,8 @@ public class AzurermAppServiceSourceControlSlot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("scm_type");
-        this.DeclareOutput("uses_github_action");
+        this.WithOutput("scm_type");
+        this.WithOutput("uses_github_action");
     }
 
     /// <summary>

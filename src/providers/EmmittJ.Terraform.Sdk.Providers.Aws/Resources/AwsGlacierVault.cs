@@ -43,8 +43,8 @@ public class AwsGlacierVault : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("location");
+        this.WithOutput("arn");
+        this.WithOutput("location");
     }
 
     /// <summary>

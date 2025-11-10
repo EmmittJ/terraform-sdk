@@ -31,7 +31,7 @@ public class AzurermResourceGroupTemplateDeploymentDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("output_content");
+        this.WithOutput("output_content");
     }
 
     /// <summary>

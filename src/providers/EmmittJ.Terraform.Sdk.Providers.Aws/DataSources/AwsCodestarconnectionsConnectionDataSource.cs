@@ -14,9 +14,9 @@ public class AwsCodestarconnectionsConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connection_status");
-        this.DeclareOutput("host_arn");
-        this.DeclareOutput("provider_type");
+        this.WithOutput("connection_status");
+        this.WithOutput("host_arn");
+        this.WithOutput("provider_type");
     }
 
     /// <summary>

@@ -14,11 +14,11 @@ public class AwsKmsReplicaExternalKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("expiration_model");
-        this.DeclareOutput("key_id");
-        this.DeclareOutput("key_state");
-        this.DeclareOutput("key_usage");
+        this.WithOutput("arn");
+        this.WithOutput("expiration_model");
+        this.WithOutput("key_id");
+        this.WithOutput("key_state");
+        this.WithOutput("key_usage");
     }
 
     /// <summary>

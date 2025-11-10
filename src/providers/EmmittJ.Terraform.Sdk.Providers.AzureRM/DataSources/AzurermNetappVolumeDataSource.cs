@@ -31,23 +31,23 @@ public class AzurermNetappVolumeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("accept_grow_capacity_pool_for_short_term_clone_split");
-        this.DeclareOutput("data_protection_backup_policy");
-        this.DeclareOutput("data_protection_replication");
-        this.DeclareOutput("encryption_key_source");
-        this.DeclareOutput("key_vault_private_endpoint_id");
-        this.DeclareOutput("large_volume_enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("mount_ip_addresses");
-        this.DeclareOutput("network_features");
-        this.DeclareOutput("protocols");
-        this.DeclareOutput("service_level");
-        this.DeclareOutput("smb_access_based_enumeration_enabled");
-        this.DeclareOutput("smb_non_browsable_enabled");
-        this.DeclareOutput("storage_quota_in_gb");
-        this.DeclareOutput("subnet_id");
-        this.DeclareOutput("volume_path");
-        this.DeclareOutput("zone");
+        this.WithOutput("accept_grow_capacity_pool_for_short_term_clone_split");
+        this.WithOutput("data_protection_backup_policy");
+        this.WithOutput("data_protection_replication");
+        this.WithOutput("encryption_key_source");
+        this.WithOutput("key_vault_private_endpoint_id");
+        this.WithOutput("large_volume_enabled");
+        this.WithOutput("location");
+        this.WithOutput("mount_ip_addresses");
+        this.WithOutput("network_features");
+        this.WithOutput("protocols");
+        this.WithOutput("service_level");
+        this.WithOutput("smb_access_based_enumeration_enabled");
+        this.WithOutput("smb_non_browsable_enabled");
+        this.WithOutput("storage_quota_in_gb");
+        this.WithOutput("subnet_id");
+        this.WithOutput("volume_path");
+        this.WithOutput("zone");
     }
 
     /// <summary>

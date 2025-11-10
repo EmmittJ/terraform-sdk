@@ -214,7 +214,7 @@ public class AzurermDatadogMonitor : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("marketplace_subscription_status");
+        this.WithOutput("marketplace_subscription_status");
     }
 
     /// <summary>

@@ -177,11 +177,11 @@ public class ValidationTests
         var config = new TerraformStack();
 
         var vpc = new TerraformResource("aws_vpc", "main");
-        vpc.DeclareOutput("id");
+        vpc.WithOutput("id");
 
         var subnet = new TerraformResource("aws_subnet", "app");
         subnet.WithProperty("vpc_id", vpc["id"]);
-        subnet.DeclareOutput("id");
+        subnet.WithOutput("id");
 
         var instance = new TerraformResource("aws_instance", "web");
         instance.WithProperty("subnet_id", subnet["id"]);

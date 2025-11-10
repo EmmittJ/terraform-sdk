@@ -31,13 +31,13 @@ public class AzurermLbOutboundRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocated_outbound_ports");
-        this.DeclareOutput("backend_address_pool_id");
-        this.DeclareOutput("enable_tcp_reset");
-        this.DeclareOutput("frontend_ip_configuration");
-        this.DeclareOutput("idle_timeout_in_minutes");
-        this.DeclareOutput("protocol");
-        this.DeclareOutput("tcp_reset_enabled");
+        this.WithOutput("allocated_outbound_ports");
+        this.WithOutput("backend_address_pool_id");
+        this.WithOutput("enable_tcp_reset");
+        this.WithOutput("frontend_ip_configuration");
+        this.WithOutput("idle_timeout_in_minutes");
+        this.WithOutput("protocol");
+        this.WithOutput("tcp_reset_enabled");
     }
 
     /// <summary>

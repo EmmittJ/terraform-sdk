@@ -49,10 +49,10 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

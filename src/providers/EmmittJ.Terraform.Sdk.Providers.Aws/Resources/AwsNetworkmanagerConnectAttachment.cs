@@ -58,15 +58,15 @@ public class AwsNetworkmanagerConnectAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("attachment_id");
-        this.DeclareOutput("attachment_policy_rule_number");
-        this.DeclareOutput("attachment_type");
-        this.DeclareOutput("core_network_arn");
-        this.DeclareOutput("owner_account_id");
-        this.DeclareOutput("resource_arn");
-        this.DeclareOutput("segment_name");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("attachment_id");
+        this.WithOutput("attachment_policy_rule_number");
+        this.WithOutput("attachment_type");
+        this.WithOutput("core_network_arn");
+        this.WithOutput("owner_account_id");
+        this.WithOutput("resource_arn");
+        this.WithOutput("segment_name");
+        this.WithOutput("state");
     }
 
     /// <summary>

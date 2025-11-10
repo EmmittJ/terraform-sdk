@@ -125,12 +125,12 @@ public class AwsBedrockGuardrail : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("guardrail_arn");
-        this.DeclareOutput("guardrail_id");
-        this.DeclareOutput("status");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("version");
+        this.WithOutput("created_at");
+        this.WithOutput("guardrail_arn");
+        this.WithOutput("guardrail_id");
+        this.WithOutput("status");
+        this.WithOutput("tags_all");
+        this.WithOutput("version");
     }
 
     /// <summary>

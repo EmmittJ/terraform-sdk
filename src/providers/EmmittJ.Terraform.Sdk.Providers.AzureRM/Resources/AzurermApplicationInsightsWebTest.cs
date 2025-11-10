@@ -58,7 +58,7 @@ public class AzurermApplicationInsightsWebTest : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("synthetic_monitor_id");
+        this.WithOutputynthetic_monitor_id");
     }
 
     /// <summary>

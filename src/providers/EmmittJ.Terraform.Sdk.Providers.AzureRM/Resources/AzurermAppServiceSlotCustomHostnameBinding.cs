@@ -49,7 +49,7 @@ public class AzurermAppServiceSlotCustomHostnameBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("virtual_ip");
+        this.WithOutput("virtual_ip");
     }
 
     /// <summary>

@@ -68,13 +68,13 @@ public class AwsAcmpcaCertificateAuthority : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("certificate");
-        this.DeclareOutput("certificate_chain");
-        this.DeclareOutput("certificate_signing_request");
-        this.DeclareOutput("not_after");
-        this.DeclareOutput("not_before");
-        this.DeclareOutput("serial");
+        this.WithOutput("arn");
+        this.WithOutput("certificate");
+        this.WithOutput("certificate_chain");
+        this.WithOutput("certificate_signing_request");
+        this.WithOutput("not_after");
+        this.WithOutput("not_before");
+        this.WithOutput("serial");
     }
 
     /// <summary>

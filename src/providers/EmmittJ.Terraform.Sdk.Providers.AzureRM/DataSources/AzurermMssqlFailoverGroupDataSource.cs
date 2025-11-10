@@ -31,11 +31,11 @@ public class AzurermMssqlFailoverGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("databases");
-        this.DeclareOutput("partner_server");
-        this.DeclareOutput("read_write_endpoint_failover_policy");
-        this.DeclareOutput("readonly_endpoint_failover_policy_enabled");
-        this.DeclareOutput("tags");
+        this.WithOutput("databases");
+        this.WithOutput("partner_server");
+        this.WithOutput("read_write_endpoint_failover_policy");
+        this.WithOutput("readonly_endpoint_failover_policy_enabled");
+        this.WithOutput("tags");
     }
 
     /// <summary>

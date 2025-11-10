@@ -14,27 +14,27 @@ public class AwsFsxOntapFileSystemDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("automatic_backup_retention_days");
-        this.DeclareOutput("daily_automatic_backup_start_time");
-        this.DeclareOutput("deployment_type");
-        this.DeclareOutput("disk_iops_configuration");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("endpoint_ip_address_range");
-        this.DeclareOutput("endpoints");
-        this.DeclareOutput("ha_pairs");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("network_interface_ids");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("preferred_subnet_id");
-        this.DeclareOutput("route_table_ids");
-        this.DeclareOutput("storage_capacity");
-        this.DeclareOutput("storage_type");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("throughput_capacity");
-        this.DeclareOutput("throughput_capacity_per_ha_pair");
-        this.DeclareOutput("vpc_id");
-        this.DeclareOutput("weekly_maintenance_start_time");
+        this.WithOutput("arn");
+        this.WithOutput("automatic_backup_retention_days");
+        this.WithOutput("daily_automatic_backup_start_time");
+        this.WithOutput("deployment_type");
+        this.WithOutput("disk_iops_configuration");
+        this.WithOutput("dns_name");
+        this.WithOutput("endpoint_ip_address_range");
+        this.WithOutput("endpoints");
+        this.WithOutput("ha_pairs");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("network_interface_ids");
+        this.WithOutput("owner_id");
+        this.WithOutput("preferred_subnet_id");
+        this.WithOutput("route_table_ids");
+        this.WithOutput("storage_capacity");
+        this.WithOutput("storage_type");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("throughput_capacity");
+        this.WithOutput("throughput_capacity_per_ha_pair");
+        this.WithOutput("vpc_id");
+        this.WithOutput("weekly_maintenance_start_time");
     }
 
     /// <summary>

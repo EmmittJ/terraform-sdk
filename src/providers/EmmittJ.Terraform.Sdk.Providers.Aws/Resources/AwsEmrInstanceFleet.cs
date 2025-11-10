@@ -68,8 +68,8 @@ public class AwsEmrInstanceFleet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("provisioned_on_demand_capacity");
-        this.DeclareOutput("provisioned_spot_capacity");
+        this.WithOutput("provisioned_on_demand_capacity");
+        this.WithOutput("provisioned_spot_capacity");
     }
 
     /// <summary>

@@ -31,13 +31,13 @@ public class AzurermAppConfigurationKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("content_type");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("locked");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("type");
-        this.DeclareOutput("value");
-        this.DeclareOutput("vault_key_reference");
+        this.WithOutput("content_type");
+        this.WithOutput("etag");
+        this.WithOutput("locked");
+        this.WithOutput("tags");
+        this.WithOutput("type");
+        this.WithOutput("value");
+        this.WithOutput("vault_key_reference");
     }
 
     /// <summary>

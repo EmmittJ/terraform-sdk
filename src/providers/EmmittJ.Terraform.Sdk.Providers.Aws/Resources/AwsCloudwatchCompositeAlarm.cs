@@ -53,7 +53,7 @@ public class AwsCloudwatchCompositeAlarm : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutputrn");
     }
 
     /// <summary>

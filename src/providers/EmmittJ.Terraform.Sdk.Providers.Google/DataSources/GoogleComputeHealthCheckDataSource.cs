@@ -14,23 +14,23 @@ public class GoogleComputeHealthCheckDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("check_interval_sec");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("description");
-        this.DeclareOutput("grpc_health_check");
-        this.DeclareOutput("grpc_tls_health_check");
-        this.DeclareOutput("healthy_threshold");
-        this.DeclareOutput("http2_health_check");
-        this.DeclareOutput("http_health_check");
-        this.DeclareOutput("https_health_check");
-        this.DeclareOutput("log_config");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("source_regions");
-        this.DeclareOutput("ssl_health_check");
-        this.DeclareOutput("tcp_health_check");
-        this.DeclareOutput("timeout_sec");
-        this.DeclareOutput("type");
-        this.DeclareOutput("unhealthy_threshold");
+        this.WithOutput("check_interval_sec");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("description");
+        this.WithOutput("grpc_health_check");
+        this.WithOutput("grpc_tls_health_check");
+        this.WithOutput("healthy_threshold");
+        this.WithOutput("http2_health_check");
+        this.WithOutput("http_health_check");
+        this.WithOutput("https_health_check");
+        this.WithOutput("log_config");
+        this.WithOutput("self_link");
+        this.WithOutput("source_regions");
+        this.WithOutput("ssl_health_check");
+        this.WithOutput("tcp_health_check");
+        this.WithOutput("timeout_sec");
+        this.WithOutput("type");
+        this.WithOutput("unhealthy_threshold");
     }
 
     /// <summary>

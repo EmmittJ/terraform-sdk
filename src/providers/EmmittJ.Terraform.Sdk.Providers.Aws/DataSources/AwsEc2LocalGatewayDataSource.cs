@@ -59,8 +59,8 @@ public class AwsEc2LocalGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("outpost_arn");
-        this.DeclareOutput("owner_id");
+        this.WithOutput("outpost_arn");
+        this.WithOutput("owner_id");
     }
 
     /// <summary>

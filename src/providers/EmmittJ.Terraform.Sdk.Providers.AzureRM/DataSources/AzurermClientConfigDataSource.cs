@@ -31,10 +31,10 @@ public class AzurermClientConfigDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("client_id");
-        this.DeclareOutput("object_id");
-        this.DeclareOutput("subscription_id");
-        this.DeclareOutput("tenant_id");
+        this.WithOutput("client_id");
+        this.WithOutput("object_id");
+        this.WithOutput("subscription_id");
+        this.WithOutput("tenant_id");
     }
 
     /// <summary>

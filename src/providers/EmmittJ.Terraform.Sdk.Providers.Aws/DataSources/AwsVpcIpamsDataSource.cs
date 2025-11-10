@@ -42,7 +42,7 @@ public class AwsVpcIpamsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ipams");
+        this.WithOutput("ipams");
     }
 
     /// <summary>

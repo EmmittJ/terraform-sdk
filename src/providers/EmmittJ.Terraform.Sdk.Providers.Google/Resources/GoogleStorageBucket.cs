@@ -343,13 +343,13 @@ public class GoogleStorageBucket : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("project_number");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("time_created");
-        this.DeclareOutput("updated");
-        this.DeclareOutput("url");
+        this.WithOutput("effective_labels");
+        this.WithOutput("project_number");
+        this.WithOutput("self_link");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("time_created");
+        this.WithOutput("updated");
+        this.WithOutput("url");
     }
 
     /// <summary>

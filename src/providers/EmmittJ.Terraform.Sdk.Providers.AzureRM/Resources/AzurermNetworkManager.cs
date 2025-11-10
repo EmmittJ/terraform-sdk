@@ -85,7 +85,7 @@ public class AzurermNetworkManager : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cross_tenant_scopes");
+        this.WithOutput("cross_tenant_scopes");
     }
 
     /// <summary>

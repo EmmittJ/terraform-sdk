@@ -31,11 +31,11 @@ public class AzurermDataShareDatasetDataLakeGen2DataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("file_path");
-        this.DeclareOutput("file_system_name");
-        this.DeclareOutput("folder_path");
-        this.DeclareOutput("storage_account_id");
+        this.WithOutput("display_name");
+        this.WithOutput("file_path");
+        this.WithOutput("file_system_name");
+        this.WithOutput("folder_path");
+        this.WithOutput("storage_account_id");
     }
 
     /// <summary>

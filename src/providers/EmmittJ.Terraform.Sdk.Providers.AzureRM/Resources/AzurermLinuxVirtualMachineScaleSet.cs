@@ -891,7 +891,7 @@ public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("unique_id");
+        this.WithOutput("unique_id");
     }
 
     /// <summary>

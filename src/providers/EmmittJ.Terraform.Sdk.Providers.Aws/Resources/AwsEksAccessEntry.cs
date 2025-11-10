@@ -40,9 +40,9 @@ public class AwsEksAccessEntry : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_entry_arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("modified_at");
+        this.WithOutput("access_entry_arn");
+        this.WithOutput("created_at");
+        this.WithOutput("modified_at");
     }
 
     /// <summary>

@@ -31,15 +31,15 @@ public class GoogleComputeNetworkPeeringDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("export_custom_routes");
-        this.DeclareOutput("export_subnet_routes_with_public_ip");
-        this.DeclareOutput("import_custom_routes");
-        this.DeclareOutput("import_subnet_routes_with_public_ip");
-        this.DeclareOutput("peer_network");
-        this.DeclareOutput("stack_type");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_details");
-        this.DeclareOutput("update_strategy");
+        this.WithOutput("export_custom_routes");
+        this.WithOutput("export_subnet_routes_with_public_ip");
+        this.WithOutput("import_custom_routes");
+        this.WithOutput("import_subnet_routes_with_public_ip");
+        this.WithOutput("peer_network");
+        this.WithOutput("stack_type");
+        this.WithOutput("state");
+        this.WithOutput("state_details");
+        this.WithOutput("update_strategy");
     }
 
     /// <summary>

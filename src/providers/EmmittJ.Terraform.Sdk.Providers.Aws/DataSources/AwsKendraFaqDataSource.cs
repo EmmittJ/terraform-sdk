@@ -14,17 +14,17 @@ public class AwsKendraFaqDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("description");
-        this.DeclareOutput("error_message");
-        this.DeclareOutput("file_format");
-        this.DeclareOutput("language_code");
-        this.DeclareOutput("name");
-        this.DeclareOutput("role_arn");
-        this.DeclareOutput("s3_path");
-        this.DeclareOutput("status");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("description");
+        this.WithOutput("error_message");
+        this.WithOutput("file_format");
+        this.WithOutput("language_code");
+        this.WithOutput("name");
+        this.WithOutput("role_arn");
+        this.WithOutput("s3_path");
+        this.WithOutput("status");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

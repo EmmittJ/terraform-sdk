@@ -69,13 +69,13 @@ public class GoogleVertexAiTensorboard : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("blob_storage_path_prefix");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("run_count");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("blob_storage_path_prefix");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("name");
+        this.WithOutput("run_count");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

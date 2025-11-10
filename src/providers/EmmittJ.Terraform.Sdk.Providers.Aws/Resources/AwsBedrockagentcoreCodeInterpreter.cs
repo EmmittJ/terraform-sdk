@@ -58,9 +58,9 @@ public class AwsBedrockagentcoreCodeInterpreter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("code_interpreter_arn");
-        this.DeclareOutput("code_interpreter_id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("code_interpreter_arn");
+        this.WithOutput("code_interpreter_id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

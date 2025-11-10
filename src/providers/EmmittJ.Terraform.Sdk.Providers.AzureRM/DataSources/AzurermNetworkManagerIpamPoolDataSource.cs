@@ -31,12 +31,12 @@ public class AzurermNetworkManagerIpamPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address_prefixes");
-        this.DeclareOutput("description");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("location");
-        this.DeclareOutput("parent_pool_name");
-        this.DeclareOutput("tags");
+        this.WithOutput("address_prefixes");
+        this.WithOutput("description");
+        this.WithOutput("display_name");
+        this.WithOutput("location");
+        this.WithOutput("parent_pool_name");
+        this.WithOutput("tags");
     }
 
     /// <summary>

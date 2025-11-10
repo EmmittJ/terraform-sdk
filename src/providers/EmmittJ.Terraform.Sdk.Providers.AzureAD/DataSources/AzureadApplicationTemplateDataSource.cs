@@ -31,12 +31,12 @@ public class AzureadApplicationTemplateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("categories");
-        this.DeclareOutput("homepage_url");
-        this.DeclareOutput("logo_url");
-        this.DeclareOutput("publisher");
-        this.DeclareOutput("supported_provisioning_types");
-        this.DeclareOutput("supported_single_sign_on_modes");
+        this.WithOutput("categories");
+        this.WithOutput("homepage_url");
+        this.WithOutput("logo_url");
+        this.WithOutput("publisher");
+        this.WithOutput("supported_provisioning_types");
+        this.WithOutput("supported_single_sign_on_modes");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class GoogleComposerUserWorkloadsConfigMapDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("data");
+        this.WithOutput("data");
     }
 
     /// <summary>

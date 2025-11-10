@@ -49,14 +49,14 @@ public class GoogleEventarcChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("activation_token");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("pubsub_topic");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("activation_token");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("pubsub_topic");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

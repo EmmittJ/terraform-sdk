@@ -327,7 +327,7 @@ public class AzurermNetappVolume : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("mount_ip_addresses");
+        this.WithOutput("mount_ip_addresses");
     }
 
     /// <summary>

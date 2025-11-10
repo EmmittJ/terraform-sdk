@@ -122,7 +122,7 @@ public class AzureadNamedLocation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("object_id");
+        this.WithOutput("object_id");
     }
 
     /// <summary>

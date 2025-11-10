@@ -14,9 +14,9 @@ public class AwsSsmDocumentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("content");
-        this.DeclareOutput("document_type");
+        this.WithOutput("arn");
+        this.WithOutput("content");
+        this.WithOutput("document_type");
     }
 
     /// <summary>

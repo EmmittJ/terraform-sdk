@@ -14,8 +14,8 @@ public class AwsConnectPromptDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("prompt_id");
+        this.WithOutput("arn");
+        this.WithOutput("prompt_id");
     }
 
     /// <summary>

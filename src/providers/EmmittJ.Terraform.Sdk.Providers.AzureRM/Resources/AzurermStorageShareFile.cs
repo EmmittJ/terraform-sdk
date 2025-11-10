@@ -58,7 +58,7 @@ public class AzurermStorageShareFile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("content_length");
+        this.WithOutput("content_length");
     }
 
     /// <summary>

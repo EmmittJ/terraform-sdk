@@ -14,11 +14,11 @@ public class AwsLakeformationResourceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("hybrid_access_enabled");
-        this.DeclareOutput("last_modified");
-        this.DeclareOutput("role_arn");
-        this.DeclareOutput("with_federation");
-        this.DeclareOutput("with_privileged_access");
+        this.WithOutput("hybrid_access_enabled");
+        this.WithOutput("last_modified");
+        this.WithOutput("role_arn");
+        this.WithOutput("with_federation");
+        this.WithOutput("with_privileged_access");
     }
 
     /// <summary>

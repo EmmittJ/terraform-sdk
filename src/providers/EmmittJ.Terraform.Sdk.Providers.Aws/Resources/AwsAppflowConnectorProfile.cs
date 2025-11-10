@@ -23,8 +23,8 @@ public class AwsAppflowConnectorProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("credentials_arn");
+        this.WithOutput("arn");
+        this.WithOutput("credentials_arn");
     }
 
     /// <summary>

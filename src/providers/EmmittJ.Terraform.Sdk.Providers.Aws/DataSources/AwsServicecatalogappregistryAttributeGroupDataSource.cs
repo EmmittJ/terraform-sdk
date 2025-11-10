@@ -14,9 +14,9 @@ public class AwsServicecatalogappregistryAttributeGroupDataSource : TerraformDat
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attributes");
-        this.DeclareOutput("description");
-        this.DeclareOutput("tags");
+        this.WithOutput("attributes");
+        this.WithOutput("description");
+        this.WithOutput("tags");
     }
 
     /// <summary>

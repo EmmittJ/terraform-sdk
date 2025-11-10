@@ -14,9 +14,9 @@ public class GoogleComputeVpnGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("network");
-        this.DeclareOutput("self_link");
+        this.WithOutput("description");
+        this.WithOutput("network");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

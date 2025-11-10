@@ -49,7 +49,7 @@ public class GoogleProjectDefaultServiceAccounts : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("service_accounts");
+        this.WithOutput("service_accounts");
     }
 
     /// <summary>

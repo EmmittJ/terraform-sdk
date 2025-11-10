@@ -14,8 +14,8 @@ public class AwsConfigRetentionConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("name");
+        this.WithOutput("id");
+        this.WithOutput("name");
     }
 
     /// <summary>

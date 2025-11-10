@@ -14,30 +14,30 @@ public class AwsCognitoUserPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_recovery_setting");
-        this.DeclareOutput("admin_create_user_config");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("auto_verified_attributes");
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("custom_domain");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("device_configuration");
-        this.DeclareOutput("domain");
-        this.DeclareOutput("email_configuration");
-        this.DeclareOutput("estimated_number_of_users");
-        this.DeclareOutput("id");
-        this.DeclareOutput("lambda_config");
-        this.DeclareOutput("last_modified_date");
-        this.DeclareOutput("mfa_configuration");
-        this.DeclareOutput("name");
-        this.DeclareOutput("schema_attributes");
-        this.DeclareOutput("sms_authentication_message");
-        this.DeclareOutput("sms_configuration_failure");
-        this.DeclareOutput("sms_verification_message");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("user_pool_add_ons");
-        this.DeclareOutput("user_pool_tags");
-        this.DeclareOutput("username_attributes");
+        this.WithOutput("account_recovery_setting");
+        this.WithOutput("admin_create_user_config");
+        this.WithOutput("arn");
+        this.WithOutput("auto_verified_attributes");
+        this.WithOutput("creation_date");
+        this.WithOutput("custom_domain");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("device_configuration");
+        this.WithOutput("domain");
+        this.WithOutput("email_configuration");
+        this.WithOutput("estimated_number_of_users");
+        this.WithOutput("id");
+        this.WithOutput("lambda_config");
+        this.WithOutput("last_modified_date");
+        this.WithOutput("mfa_configuration");
+        this.WithOutput("name");
+        this.WithOutput("schema_attributes");
+        this.WithOutput("sms_authentication_message");
+        this.WithOutput("sms_configuration_failure");
+        this.WithOutput("sms_verification_message");
+        this.WithOutput("tags");
+        this.WithOutput("user_pool_add_ons");
+        this.WithOutput("user_pool_tags");
+        this.WithOutput("username_attributes");
     }
 
     /// <summary>

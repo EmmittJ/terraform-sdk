@@ -14,7 +14,7 @@ public class AwsSfnStateMachineVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("statemachine_versions");
+        this.WithOutput("statemachine_versions");
     }
 
     /// <summary>

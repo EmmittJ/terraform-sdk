@@ -14,13 +14,13 @@ public class AwsIamServiceSpecificCredential : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_date");
-        this.DeclareOutput("expiration_date");
-        this.DeclareOutput("service_credential_alias");
-        this.DeclareOutput("service_credential_secret");
-        this.DeclareOutput("service_password");
-        this.DeclareOutput("service_specific_credential_id");
-        this.DeclareOutput("service_user_name");
+        this.WithOutput("create_date");
+        this.WithOutput("expiration_date");
+        this.WithOutput("service_credential_alias");
+        this.WithOutput("service_credential_secret");
+        this.WithOutput("service_password");
+        this.WithOutput("service_specific_credential_id");
+        this.WithOutput("service_user_name");
     }
 
     /// <summary>

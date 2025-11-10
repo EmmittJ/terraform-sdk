@@ -49,11 +49,11 @@ public class AwsNetworkmanagerCoreNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("edges");
-        this.DeclareOutput("segments");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("edges");
+        this.WithOutput("segments");
+        this.WithOutput("state");
     }
 
     /// <summary>

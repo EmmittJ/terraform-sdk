@@ -14,9 +14,9 @@ public class AwsTransferAgreement : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("agreement_id");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("status");
+        this.WithOutput("agreement_id");
+        this.WithOutput("arn");
+        this.WithOutput("status");
     }
 
     /// <summary>

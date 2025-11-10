@@ -14,8 +14,8 @@ public class GoogleProjectServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("disable_dependent_services");
-        this.DeclareOutput("disable_on_destroy");
+        this.WithOutput("disable_dependent_services");
+        this.WithOutput("disable_on_destroy");
     }
 
     /// <summary>

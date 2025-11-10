@@ -49,11 +49,11 @@ public class GoogleStorageObjectAccessControl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("domain");
-        this.DeclareOutput("email");
-        this.DeclareOutput("entity_id");
-        this.DeclareOutput("generation");
-        this.DeclareOutput("project_team");
+        this.WithOutput("domain");
+        this.WithOutput("email");
+        this.WithOutput("entity_id");
+        this.WithOutput("generation");
+        this.WithOutput("project_team");
     }
 
     /// <summary>

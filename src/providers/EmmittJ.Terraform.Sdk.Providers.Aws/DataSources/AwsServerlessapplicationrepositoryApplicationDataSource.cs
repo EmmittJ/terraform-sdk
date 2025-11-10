@@ -14,10 +14,10 @@ public class AwsServerlessapplicationrepositoryApplicationDataSource : Terraform
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("required_capabilities");
-        this.DeclareOutput("source_code_url");
-        this.DeclareOutput("template_url");
+        this.WithOutput("name");
+        this.WithOutput("required_capabilities");
+        this.WithOutput("source_code_url");
+        this.WithOutput("template_url");
     }
 
     /// <summary>

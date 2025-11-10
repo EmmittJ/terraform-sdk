@@ -14,7 +14,7 @@ public class GoogleArtifactRegistryMavenArtifactsDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("maven_artifacts");
+        this.WithOutput("maven_artifacts");
     }
 
     /// <summary>

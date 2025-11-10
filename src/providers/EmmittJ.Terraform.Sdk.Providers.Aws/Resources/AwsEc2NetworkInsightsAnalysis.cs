@@ -14,16 +14,16 @@ public class AwsEc2NetworkInsightsAnalysis : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("alternate_path_hints");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("explanations");
-        this.DeclareOutput("forward_path_components");
-        this.DeclareOutput("path_found");
-        this.DeclareOutput("return_path_components");
-        this.DeclareOutput("start_date");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_message");
-        this.DeclareOutput("warning_message");
+        this.WithOutput("alternate_path_hints");
+        this.WithOutput("arn");
+        this.WithOutput("explanations");
+        this.WithOutput("forward_path_components");
+        this.WithOutput("path_found");
+        this.WithOutput("return_path_components");
+        this.WithOutput("start_date");
+        this.WithOutput("status");
+        this.WithOutput("status_message");
+        this.WithOutput("warning_message");
     }
 
     /// <summary>

@@ -69,7 +69,7 @@ public class AwsAppstreamDirectoryConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_time");
+        this.WithOutput("created_time");
     }
 
     /// <summary>

@@ -14,19 +14,19 @@ public class GoogleComputeNetworkAttachmentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connection_endpoints");
-        this.DeclareOutput("connection_preference");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("description");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("id");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("network");
-        this.DeclareOutput("producer_accept_lists");
-        this.DeclareOutput("producer_reject_lists");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("self_link_with_id");
-        this.DeclareOutput("subnetworks");
+        this.WithOutput("connection_endpoints");
+        this.WithOutput("connection_preference");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("description");
+        this.WithOutput("fingerprint");
+        this.WithOutput("id");
+        this.WithOutput("kind");
+        this.WithOutput("network");
+        this.WithOutput("producer_accept_lists");
+        this.WithOutput("producer_reject_lists");
+        this.WithOutput("self_link");
+        this.WithOutput("self_link_with_id");
+        this.WithOutput("subnetworks");
     }
 
     /// <summary>

@@ -31,12 +31,12 @@ public class AzurermVpnGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("bgp_settings");
-        this.DeclareOutput("ip_configuration");
-        this.DeclareOutput("location");
-        this.DeclareOutput("scale_unit");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("virtual_hub_id");
+        this.WithOutput("bgp_settings");
+        this.WithOutput("ip_configuration");
+        this.WithOutput("location");
+        this.WithOutput("scale_unit");
+        this.WithOutput("tags");
+        this.WithOutput("virtual_hub_id");
     }
 
     /// <summary>

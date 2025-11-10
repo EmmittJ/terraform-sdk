@@ -14,14 +14,14 @@ public class AwsCloudfrontFunctionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("code");
-        this.DeclareOutput("comment");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("key_value_store_associations");
-        this.DeclareOutput("last_modified_time");
-        this.DeclareOutput("runtime");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("code");
+        this.WithOutput("comment");
+        this.WithOutput("etag");
+        this.WithOutput("key_value_store_associations");
+        this.WithOutput("last_modified_time");
+        this.WithOutput("runtime");
+        this.WithOutput("status");
     }
 
     /// <summary>

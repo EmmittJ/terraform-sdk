@@ -78,9 +78,9 @@ public class AwsCleanroomsConfiguredTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("update_time");
+        this.WithOutput("arn");
+        this.WithOutput("create_time");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

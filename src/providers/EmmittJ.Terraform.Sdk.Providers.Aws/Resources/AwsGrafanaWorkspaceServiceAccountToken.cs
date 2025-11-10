@@ -14,11 +14,11 @@ public class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("expires_at");
-        this.DeclareOutput("id");
-        this.DeclareOutput("key");
-        this.DeclareOutput("service_account_token_id");
+        this.WithOutput("created_at");
+        this.WithOutput("expires_at");
+        this.WithOutput("id");
+        this.WithOutput("key");
+        this.WithOutput("service_account_token_id");
     }
 
     /// <summary>

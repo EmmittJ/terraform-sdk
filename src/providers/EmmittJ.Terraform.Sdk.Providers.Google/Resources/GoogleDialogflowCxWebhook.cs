@@ -176,8 +176,8 @@ public class GoogleDialogflowCxWebhook : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("start_flow");
+        this.WithOutput("name");
+        this.WithOutput("start_flow");
     }
 
     /// <summary>

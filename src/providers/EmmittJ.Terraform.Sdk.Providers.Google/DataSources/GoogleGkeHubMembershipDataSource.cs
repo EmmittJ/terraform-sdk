@@ -14,12 +14,12 @@ public class GoogleGkeHubMembershipDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("authority");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("authority");
+        this.WithOutput("effective_labels");
+        this.WithOutput("endpoint");
+        this.WithOutput("labels");
+        this.WithOutput("name");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

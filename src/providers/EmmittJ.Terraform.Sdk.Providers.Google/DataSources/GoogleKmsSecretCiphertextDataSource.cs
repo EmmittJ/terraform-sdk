@@ -15,7 +15,7 @@ public class GoogleKmsSecretCiphertextDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ciphertext");
+        this.WithOutput("ciphertext");
     }
 
     /// <summary>

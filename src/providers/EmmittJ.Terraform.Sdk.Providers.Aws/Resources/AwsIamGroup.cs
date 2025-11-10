@@ -14,8 +14,8 @@ public class AwsIamGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("unique_id");
+        this.WithOutput("arn");
+        this.WithOutput("unique_id");
     }
 
     /// <summary>

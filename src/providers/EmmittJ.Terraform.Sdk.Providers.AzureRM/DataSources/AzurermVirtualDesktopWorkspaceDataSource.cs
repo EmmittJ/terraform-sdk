@@ -31,11 +31,11 @@ public class AzurermVirtualDesktopWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("friendly_name");
-        this.DeclareOutput("location");
-        this.DeclareOutput("public_network_access_enabled");
-        this.DeclareOutput("tags");
+        this.WithOutput("description");
+        this.WithOutput("friendly_name");
+        this.WithOutput("location");
+        this.WithOutput("public_network_access_enabled");
+        this.WithOutput("tags");
     }
 
     /// <summary>

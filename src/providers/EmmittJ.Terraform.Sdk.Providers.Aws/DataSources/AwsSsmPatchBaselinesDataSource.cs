@@ -42,7 +42,7 @@ public class AwsSsmPatchBaselinesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("baseline_identities");
+        this.WithOutput("baseline_identities");
     }
 
     /// <summary>

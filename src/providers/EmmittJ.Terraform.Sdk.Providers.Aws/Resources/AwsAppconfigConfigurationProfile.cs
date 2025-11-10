@@ -42,8 +42,8 @@ public class AwsAppconfigConfigurationProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("configuration_profile_id");
+        this.WithOutput("arn");
+        this.WithOutput("configuration_profile_id");
     }
 
     /// <summary>

@@ -76,8 +76,8 @@ public class AwsIamPolicyDocumentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("json");
-        this.DeclareOutput("minified_json");
+        this.WithOutput("json");
+        this.WithOutput("minified_json");
     }
 
     /// <summary>

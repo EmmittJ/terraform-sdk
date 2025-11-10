@@ -58,7 +58,7 @@ public class AzurermRouteTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("subnets");
+        this.WithOutput("subnets");
     }
 
     /// <summary>

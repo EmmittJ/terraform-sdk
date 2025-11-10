@@ -106,8 +106,8 @@ public class GoogleCloudAssetFolderFeed : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("folder_id");
-        this.DeclareOutput("name");
+        this.WithOutput("folder_id");
+        this.WithOutput("name");
     }
 
     /// <summary>

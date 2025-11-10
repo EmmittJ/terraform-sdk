@@ -14,14 +14,14 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("build_time");
-        this.DeclareOutput("image_size_bytes");
-        this.DeclareOutput("media_type");
-        this.DeclareOutput("name");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("upload_time");
+        this.WithOutput("build_time");
+        this.WithOutput("image_size_bytes");
+        this.WithOutput("media_type");
+        this.WithOutput("name");
+        this.WithOutput("self_link");
+        this.WithOutput("tags");
+        this.WithOutput("update_time");
+        this.WithOutput("upload_time");
     }
 
     /// <summary>

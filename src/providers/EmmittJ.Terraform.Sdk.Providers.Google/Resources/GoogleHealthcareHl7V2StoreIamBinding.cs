@@ -52,7 +52,7 @@ public class GoogleHealthcareHl7V2StoreIamBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

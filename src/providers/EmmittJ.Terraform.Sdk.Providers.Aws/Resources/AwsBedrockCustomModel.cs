@@ -112,13 +112,13 @@ public class AwsBedrockCustomModel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("custom_model_arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("job_arn");
-        this.DeclareOutput("job_status");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("training_metrics");
-        this.DeclareOutput("validation_metrics");
+        this.WithOutput("custom_model_arn");
+        this.WithOutput("id");
+        this.WithOutput("job_arn");
+        this.WithOutput("job_status");
+        this.WithOutput("tags_all");
+        this.WithOutput("training_metrics");
+        this.WithOutput("validation_metrics");
     }
 
     /// <summary>

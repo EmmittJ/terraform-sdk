@@ -43,7 +43,7 @@ public class AwsCognitoResourceServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("scope_identifiers");
+        this.WithOutput("scope_identifiers");
     }
 
     /// <summary>

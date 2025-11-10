@@ -14,9 +14,9 @@ public class AwsDxGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("amazon_side_asn");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("owner_account_id");
+        this.WithOutput("amazon_side_asn");
+        this.WithOutput("arn");
+        this.WithOutput("owner_account_id");
     }
 
     /// <summary>

@@ -49,15 +49,15 @@ public class GoogleFilestoreBackup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("capacity_gb");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("download_bytes");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("kms_key_name");
-        this.DeclareOutput("source_instance_tier");
-        this.DeclareOutput("state");
-        this.DeclareOutput("storage_bytes");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("capacity_gb");
+        this.WithOutput("create_time");
+        this.WithOutput("download_bytes");
+        this.WithOutput("effective_labels");
+        this.WithOutput("kms_key_name");
+        this.WithOutput("source_instance_tier");
+        this.WithOutput("state");
+        this.WithOutput("storage_bytes");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

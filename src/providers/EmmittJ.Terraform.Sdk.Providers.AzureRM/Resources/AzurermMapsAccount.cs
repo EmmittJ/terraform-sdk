@@ -149,9 +149,9 @@ public class AzurermMapsAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("secondary_access_key");
-        this.DeclareOutput("x_ms_client_id");
+        this.WithOutput("primary_access_key");
+        this.WithOutput("secondary_access_key");
+        this.WithOutput("x_ms_client_id");
     }
 
     /// <summary>

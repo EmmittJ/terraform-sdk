@@ -49,8 +49,8 @@ public class GoogleFirebaseAppCheckRecaptchaV3Config : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("site_secret_set");
+        this.WithOutput("name");
+        this.WithOutput("site_secret_set");
     }
 
     /// <summary>

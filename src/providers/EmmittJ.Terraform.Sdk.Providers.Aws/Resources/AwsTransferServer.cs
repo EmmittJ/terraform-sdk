@@ -137,9 +137,9 @@ public class AwsTransferServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("host_key_fingerprint");
+        this.WithOutput("arn");
+        this.WithOutput("endpoint");
+        this.WithOutput("host_key_fingerprint");
     }
 
     /// <summary>

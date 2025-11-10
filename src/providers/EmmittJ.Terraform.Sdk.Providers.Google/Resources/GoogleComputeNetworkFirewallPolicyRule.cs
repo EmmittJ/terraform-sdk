@@ -174,9 +174,9 @@ public class GoogleComputeNetworkFirewallPolicyRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("rule_tuple_count");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("kind");
+        this.WithOutput("rule_tuple_count");
     }
 
     /// <summary>

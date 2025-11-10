@@ -14,9 +14,9 @@ public class AwsSecretsmanagerSecretVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("has_secret_string_wo");
-        this.DeclareOutput("version_id");
+        this.WithOutput("arn");
+        this.WithOutput("has_secret_string_wo");
+        this.WithOutput("version_id");
     }
 
     /// <summary>

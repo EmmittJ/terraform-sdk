@@ -247,7 +247,7 @@ public class AzureadConditionalAccessPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("object_id");
+        this.WithOutput("object_id");
     }
 
     /// <summary>

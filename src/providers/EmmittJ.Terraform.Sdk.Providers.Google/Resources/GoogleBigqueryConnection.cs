@@ -275,8 +275,8 @@ public class GoogleBigqueryConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("has_credential");
-        this.DeclareOutput("name");
+        this.WithOutput("has_credential");
+        this.WithOutput("name");
     }
 
     /// <summary>

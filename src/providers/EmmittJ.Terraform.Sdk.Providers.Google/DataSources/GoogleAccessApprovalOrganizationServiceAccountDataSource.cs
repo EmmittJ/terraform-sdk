@@ -14,8 +14,8 @@ public class GoogleAccessApprovalOrganizationServiceAccountDataSource : Terrafor
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_email");
-        this.DeclareOutput("name");
+        this.WithOutput("account_email");
+        this.WithOutput("name");
     }
 
     /// <summary>

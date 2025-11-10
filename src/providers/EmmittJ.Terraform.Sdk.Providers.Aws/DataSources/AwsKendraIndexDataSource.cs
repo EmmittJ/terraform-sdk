@@ -14,22 +14,22 @@ public class AwsKendraIndexDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("capacity_units");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("description");
-        this.DeclareOutput("document_metadata_configuration_updates");
-        this.DeclareOutput("edition");
-        this.DeclareOutput("error_message");
-        this.DeclareOutput("index_statistics");
-        this.DeclareOutput("name");
-        this.DeclareOutput("role_arn");
-        this.DeclareOutput("server_side_encryption_configuration");
-        this.DeclareOutput("status");
-        this.DeclareOutput("updated_at");
-        this.DeclareOutput("user_context_policy");
-        this.DeclareOutput("user_group_resolution_configuration");
-        this.DeclareOutput("user_token_configurations");
+        this.WithOutput("arn");
+        this.WithOutput("capacity_units");
+        this.WithOutput("created_at");
+        this.WithOutput("description");
+        this.WithOutput("document_metadata_configuration_updates");
+        this.WithOutput("edition");
+        this.WithOutput("error_message");
+        this.WithOutput("index_statistics");
+        this.WithOutput("name");
+        this.WithOutput("role_arn");
+        this.WithOutput("server_side_encryption_configuration");
+        this.WithOutput("status");
+        this.WithOutput("updated_at");
+        this.WithOutput("user_context_policy");
+        this.WithOutput("user_group_resolution_configuration");
+        this.WithOutput("user_token_configurations");
     }
 
     /// <summary>

@@ -31,11 +31,11 @@ public class AzurermDataFactoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("github_configuration");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("vsts_configuration");
+        this.WithOutput("github_configuration");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("tags");
+        this.WithOutput("vsts_configuration");
     }
 
     /// <summary>

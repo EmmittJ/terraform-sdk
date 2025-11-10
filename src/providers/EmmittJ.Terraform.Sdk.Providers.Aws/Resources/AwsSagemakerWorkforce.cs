@@ -211,8 +211,8 @@ public class AwsSagemakerWorkforce : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("subdomain");
+        this.WithOutput("arn");
+        this.WithOutput("subdomain");
     }
 
     /// <summary>

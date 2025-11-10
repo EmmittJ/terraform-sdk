@@ -120,8 +120,8 @@ public class AwsPinpointApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_id");
-        this.DeclareOutput("arn");
+        this.WithOutput("application_id");
+        this.WithOutput("arn");
     }
 
     /// <summary>

@@ -14,13 +14,13 @@ public class GoogleComputeNetworkEndpointGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_port");
-        this.DeclareOutput("description");
-        this.DeclareOutput("generated_id");
-        this.DeclareOutput("network");
-        this.DeclareOutput("network_endpoint_type");
-        this.DeclareOutput("size");
-        this.DeclareOutput("subnetwork");
+        this.WithOutput("default_port");
+        this.WithOutput("description");
+        this.WithOutput("generated_id");
+        this.WithOutput("network");
+        this.WithOutput("network_endpoint_type");
+        this.WithOutput("size");
+        this.WithOutput("subnetwork");
     }
 
     /// <summary>

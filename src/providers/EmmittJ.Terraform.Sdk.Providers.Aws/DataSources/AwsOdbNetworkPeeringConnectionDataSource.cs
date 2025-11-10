@@ -14,16 +14,16 @@ public class AwsOdbNetworkPeeringConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("odb_network_arn");
-        this.DeclareOutput("odb_peering_connection_type");
-        this.DeclareOutput("peer_network_arn");
-        this.DeclareOutput("percent_progress");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
-        this.DeclareOutput("tags");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("display_name");
+        this.WithOutput("odb_network_arn");
+        this.WithOutput("odb_peering_connection_type");
+        this.WithOutput("peer_network_arn");
+        this.WithOutput("percent_progress");
+        this.WithOutput("status");
+        this.WithOutput("status_reason");
+        this.WithOutput("tags");
     }
 
     /// <summary>

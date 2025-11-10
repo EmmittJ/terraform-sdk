@@ -14,18 +14,18 @@ public class AwsAccountPrimaryContactDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address_line_1");
-        this.DeclareOutput("address_line_2");
-        this.DeclareOutput("address_line_3");
-        this.DeclareOutput("city");
-        this.DeclareOutput("company_name");
-        this.DeclareOutput("country_code");
-        this.DeclareOutput("district_or_county");
-        this.DeclareOutput("full_name");
-        this.DeclareOutput("phone_number");
-        this.DeclareOutput("postal_code");
-        this.DeclareOutput("state_or_region");
-        this.DeclareOutput("website_url");
+        this.WithOutput("address_line_1");
+        this.WithOutput("address_line_2");
+        this.WithOutput("address_line_3");
+        this.WithOutput("city");
+        this.WithOutput("company_name");
+        this.WithOutput("country_code");
+        this.WithOutput("district_or_county");
+        this.WithOutput("full_name");
+        this.WithOutput("phone_number");
+        this.WithOutput("postal_code");
+        this.WithOutput("state_or_region");
+        this.WithOutput("website_url");
     }
 
     /// <summary>

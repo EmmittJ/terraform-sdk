@@ -122,10 +122,10 @@ public class AwsNetworkfirewallFirewall : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("firewall_status");
-        this.DeclareOutput("transit_gateway_owner_account_id");
-        this.DeclareOutput("update_token");
+        this.WithOutput("arn");
+        this.WithOutput("firewall_status");
+        this.WithOutput("transit_gateway_owner_account_id");
+        this.WithOutput("update_token");
     }
 
     /// <summary>

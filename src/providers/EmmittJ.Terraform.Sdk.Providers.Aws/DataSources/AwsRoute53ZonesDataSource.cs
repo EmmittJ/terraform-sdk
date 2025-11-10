@@ -14,8 +14,8 @@ public class AwsRoute53ZonesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("ids");
+        this.WithOutputd");
+        this.WithOutputds");
     }
 
     /// <summary>

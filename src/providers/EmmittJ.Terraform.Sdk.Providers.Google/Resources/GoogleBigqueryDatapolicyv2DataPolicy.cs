@@ -87,9 +87,9 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("policy_tag");
-        this.DeclareOutput("version");
+        this.WithOutput("name");
+        this.WithOutput("policy_tag");
+        this.WithOutput("version");
     }
 
     /// <summary>

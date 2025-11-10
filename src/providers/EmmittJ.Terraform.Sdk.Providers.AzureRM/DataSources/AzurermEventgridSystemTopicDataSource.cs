@@ -31,14 +31,14 @@ public class AzurermEventgridSystemTopicDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("metric_arm_resource_id");
-        this.DeclareOutput("metric_resource_id");
-        this.DeclareOutput("source_arm_resource_id");
-        this.DeclareOutput("source_resource_id");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("topic_type");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("metric_arm_resource_id");
+        this.WithOutput("metric_resource_id");
+        this.WithOutput("source_arm_resource_id");
+        this.WithOutput("source_resource_id");
+        this.WithOutput("tags");
+        this.WithOutput("topic_type");
     }
 
     /// <summary>

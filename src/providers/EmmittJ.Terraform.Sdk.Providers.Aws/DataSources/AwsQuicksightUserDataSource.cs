@@ -14,13 +14,13 @@ public class AwsQuicksightUserDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("active");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("custom_permissions_name");
-        this.DeclareOutput("email");
-        this.DeclareOutput("identity_type");
-        this.DeclareOutput("principal_id");
-        this.DeclareOutput("user_role");
+        this.WithOutput("active");
+        this.WithOutput("arn");
+        this.WithOutput("custom_permissions_name");
+        this.WithOutput("email");
+        this.WithOutput("identity_type");
+        this.WithOutput("principal_id");
+        this.WithOutput("user_role");
     }
 
     /// <summary>

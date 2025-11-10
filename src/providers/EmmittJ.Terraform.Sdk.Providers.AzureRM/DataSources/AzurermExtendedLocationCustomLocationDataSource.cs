@@ -31,13 +31,13 @@ public class AzurermExtendedLocationCustomLocationDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("authentication");
-        this.DeclareOutput("cluster_extension_ids");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("host_resource_id");
-        this.DeclareOutput("host_type");
-        this.DeclareOutput("location");
-        this.DeclareOutput("namespace");
+        this.WithOutput("authentication");
+        this.WithOutput("cluster_extension_ids");
+        this.WithOutput("display_name");
+        this.WithOutput("host_resource_id");
+        this.WithOutput("host_type");
+        this.WithOutput("location");
+        this.WithOutput("namespace");
     }
 
     /// <summary>

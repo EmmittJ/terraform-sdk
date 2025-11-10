@@ -50,8 +50,8 @@ public class AwsNetworkfirewallRuleGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("update_token");
+        this.WithOutput("arn");
+        this.WithOutput("update_token");
     }
 
     /// <summary>

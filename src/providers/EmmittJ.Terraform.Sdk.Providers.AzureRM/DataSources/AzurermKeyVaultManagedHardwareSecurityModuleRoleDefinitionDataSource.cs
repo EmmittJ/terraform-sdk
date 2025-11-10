@@ -31,12 +31,12 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("assignable_scopes");
-        this.DeclareOutput("description");
-        this.DeclareOutput("permission");
-        this.DeclareOutput("resource_manager_id");
-        this.DeclareOutput("role_name");
-        this.DeclareOutput("role_type");
+        this.WithOutput("assignable_scopes");
+        this.WithOutput("description");
+        this.WithOutput("permission");
+        this.WithOutput("resource_manager_id");
+        this.WithOutput("role_name");
+        this.WithOutput("role_type");
     }
 
     /// <summary>

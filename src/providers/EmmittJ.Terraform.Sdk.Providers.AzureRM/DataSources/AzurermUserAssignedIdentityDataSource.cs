@@ -31,11 +31,11 @@ public class AzurermUserAssignedIdentityDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("client_id");
-        this.DeclareOutput("location");
-        this.DeclareOutput("principal_id");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("tenant_id");
+        this.WithOutput("client_id");
+        this.WithOutput("location");
+        this.WithOutput("principal_id");
+        this.WithOutput("tags");
+        this.WithOutput("tenant_id");
     }
 
     /// <summary>

@@ -58,7 +58,7 @@ public class AzurermNginxApiKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("hint");
+        this.WithOutput("hint");
     }
 
     /// <summary>

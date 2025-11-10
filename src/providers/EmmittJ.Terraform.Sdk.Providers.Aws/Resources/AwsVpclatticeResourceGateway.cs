@@ -49,10 +49,10 @@ public class AwsVpclatticeResourceGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("status");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("status");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

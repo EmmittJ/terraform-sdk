@@ -85,16 +85,16 @@ public class AzurermKeyVaultKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("e");
-        this.DeclareOutput("n");
-        this.DeclareOutput("public_key_openssh");
-        this.DeclareOutput("public_key_pem");
-        this.DeclareOutput("resource_id");
-        this.DeclareOutput("resource_versionless_id");
-        this.DeclareOutput("version");
-        this.DeclareOutput("versionless_id");
-        this.DeclareOutput("x");
-        this.DeclareOutput("y");
+        this.WithOutput("e");
+        this.WithOutput("n");
+        this.WithOutput("public_key_openssh");
+        this.WithOutput("public_key_pem");
+        this.WithOutput("resource_id");
+        this.WithOutput("resource_versionless_id");
+        this.WithOutput("version");
+        this.WithOutput("versionless_id");
+        this.WithOutput("x");
+        this.WithOutput("y");
     }
 
     /// <summary>

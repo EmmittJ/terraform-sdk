@@ -58,11 +58,11 @@ public class AwsOpensearchserverlessSecurityConfigDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("config_version");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("description");
-        this.DeclareOutput("last_modified_date");
-        this.DeclareOutput("type");
+        this.WithOutput("config_version");
+        this.WithOutput("created_date");
+        this.WithOutput("description");
+        this.WithOutput("last_modified_date");
+        this.WithOutput("type");
     }
 
     /// <summary>

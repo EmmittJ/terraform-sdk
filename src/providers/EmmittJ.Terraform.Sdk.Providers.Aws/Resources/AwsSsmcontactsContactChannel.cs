@@ -33,8 +33,8 @@ public class AwsSsmcontactsContactChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("activation_status");
-        this.DeclareOutput("arn");
+        this.WithOutput("activation_status");
+        this.WithOutput("arn");
     }
 
     /// <summary>

@@ -591,13 +591,13 @@ public class AwsCognitoUserPool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("custom_domain");
-        this.DeclareOutput("domain");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("estimated_number_of_users");
-        this.DeclareOutput("last_modified_date");
+        this.WithOutput("arn");
+        this.WithOutput("creation_date");
+        this.WithOutput("custom_domain");
+        this.WithOutput("domain");
+        this.WithOutput("endpoint");
+        this.WithOutput("estimated_number_of_users");
+        this.WithOutput("last_modified_date");
     }
 
     /// <summary>

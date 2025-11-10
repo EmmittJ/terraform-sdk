@@ -14,11 +14,11 @@ public class AwsLicensemanagerGrant : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("home_region");
-        this.DeclareOutput("parent_arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("home_region");
+        this.WithOutput("parent_arn");
+        this.WithOutput("status");
+        this.WithOutput("version");
     }
 
     /// <summary>

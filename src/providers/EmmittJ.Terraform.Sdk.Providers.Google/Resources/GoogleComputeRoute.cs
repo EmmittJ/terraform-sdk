@@ -63,18 +63,18 @@ public class GoogleComputeRoute : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("as_paths");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("next_hop_hub");
-        this.DeclareOutput("next_hop_inter_region_cost");
-        this.DeclareOutput("next_hop_med");
-        this.DeclareOutput("next_hop_network");
-        this.DeclareOutput("next_hop_origin");
-        this.DeclareOutput("next_hop_peering");
-        this.DeclareOutput("route_status");
-        this.DeclareOutput("route_type");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("warnings");
+        this.WithOutput("as_paths");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("next_hop_hub");
+        this.WithOutput("next_hop_inter_region_cost");
+        this.WithOutput("next_hop_med");
+        this.WithOutput("next_hop_network");
+        this.WithOutput("next_hop_origin");
+        this.WithOutput("next_hop_peering");
+        this.WithOutput("route_status");
+        this.WithOutput("route_type");
+        this.WithOutput("self_link");
+        this.WithOutput("warnings");
     }
 
     /// <summary>

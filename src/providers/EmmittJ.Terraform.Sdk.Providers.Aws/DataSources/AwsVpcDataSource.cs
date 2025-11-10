@@ -59,16 +59,16 @@ public class AwsVpcDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cidr_block_associations");
-        this.DeclareOutput("enable_dns_hostnames");
-        this.DeclareOutput("enable_dns_support");
-        this.DeclareOutput("enable_network_address_usage_metrics");
-        this.DeclareOutput("instance_tenancy");
-        this.DeclareOutput("ipv6_association_id");
-        this.DeclareOutput("ipv6_cidr_block");
-        this.DeclareOutput("main_route_table_id");
-        this.DeclareOutput("owner_id");
+        this.WithOutput("arn");
+        this.WithOutput("cidr_block_associations");
+        this.WithOutput("enable_dns_hostnames");
+        this.WithOutput("enable_dns_support");
+        this.WithOutput("enable_network_address_usage_metrics");
+        this.WithOutput("instance_tenancy");
+        this.WithOutput("ipv6_association_id");
+        this.WithOutput("ipv6_cidr_block");
+        this.WithOutput("main_route_table_id");
+        this.WithOutput("owner_id");
     }
 
     /// <summary>

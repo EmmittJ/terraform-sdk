@@ -113,9 +113,9 @@ public class AwsSsmquicksetupConfigurationManager : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("manager_arn");
-        this.DeclareOutput("status_summaries");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("manager_arn");
+        this.WithOutput("status_summaries");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

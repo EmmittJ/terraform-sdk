@@ -73,8 +73,8 @@ public static class QuickStartExample
                 {
                     ["Name"] = TerraformExpression.Interpolate(locals["project_name"], "-vpc")
                 }))
-            .DeclareOutput("id")
-            .DeclareOutput("cidr_block");
+            .WithOutput("id")
+            .WithOutput("cidr_block");
         config.Add(vpc);
 
         // Create internet gateway
@@ -86,7 +86,7 @@ public static class QuickStartExample
                 {
                     ["Name"] = TerraformExpression.Interpolate(locals["project_name"], "-igw")
                 }))
-            .DeclareOutput("id");
+            .WithOutput("id");
         config.Add(igw);
 
         // Create subnets using for_each
@@ -108,8 +108,8 @@ public static class QuickStartExample
                     ["Name"] = TerraformExpression.Interpolate(locals["project_name"], "-public-", Tf.Helpers.EachValue),
                     ["Tier"] = "Public"
                 }))
-            .DeclareOutput("id")
-            .DeclareOutput("cidr_block");
+            .WithOutput("id")
+            .WithOutput("cidr_block");
         config.Add(subnets);
 
         // Output VPC ID
@@ -161,7 +161,7 @@ public static class QuickStartExample
         // Resource
         var bucket = new TerraformResource("aws_s3_bucket", "example")
             .WithProperty("bucket", Tf.Functions.Format("%s-bucket", region.AsReference()))
-            .DeclareOutput("arn");
+            .WithOutput("arn");
         config.Add(bucket);
 
         // Output

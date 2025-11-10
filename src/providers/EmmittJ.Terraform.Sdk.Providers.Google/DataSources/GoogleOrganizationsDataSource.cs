@@ -14,7 +14,7 @@ public class GoogleOrganizationsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("organizations");
+        this.WithOutput("organizations");
     }
 
     /// <summary>

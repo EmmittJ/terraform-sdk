@@ -14,9 +14,9 @@ public class AwsAppsyncType : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("name");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("name");
     }
 
     /// <summary>

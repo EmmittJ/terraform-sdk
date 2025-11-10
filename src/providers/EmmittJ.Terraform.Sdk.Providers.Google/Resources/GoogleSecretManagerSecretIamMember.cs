@@ -52,7 +52,7 @@ public class GoogleSecretManagerSecretIamMember : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

@@ -86,10 +86,10 @@ public class AwsFinspaceKxDataview : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_timestamp");
-        this.DeclareOutput("last_modified_timestamp");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("created_timestamp");
+        this.WithOutput("last_modified_timestamp");
+        this.WithOutput("status");
     }
 
     /// <summary>

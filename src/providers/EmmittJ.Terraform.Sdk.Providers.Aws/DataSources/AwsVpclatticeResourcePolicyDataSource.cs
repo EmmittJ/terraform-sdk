@@ -14,7 +14,7 @@ public class AwsVpclatticeResourcePolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("policy");
+        this.WithOutput("policy");
     }
 
     /// <summary>

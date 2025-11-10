@@ -87,9 +87,9 @@ public class AwsCodebuildWebhook : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("payload_url");
-        this.DeclareOutput("secret");
-        this.DeclareOutput("url");
+        this.WithOutput("payload_url");
+        this.WithOutput("secret");
+        this.WithOutput("url");
     }
 
     /// <summary>

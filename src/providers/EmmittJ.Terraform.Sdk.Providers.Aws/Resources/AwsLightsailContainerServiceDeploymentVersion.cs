@@ -115,9 +115,9 @@ public class AwsLightsailContainerServiceDeploymentVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("state");
-        this.DeclareOutput("version");
+        this.WithOutput("created_at");
+        this.WithOutput("state");
+        this.WithOutput("version");
     }
 
     /// <summary>

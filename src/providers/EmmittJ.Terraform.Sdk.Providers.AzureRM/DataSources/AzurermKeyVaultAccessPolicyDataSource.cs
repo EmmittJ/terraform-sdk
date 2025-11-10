@@ -31,9 +31,9 @@ public class AzurermKeyVaultAccessPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_permissions");
-        this.DeclareOutput("key_permissions");
-        this.DeclareOutput("secret_permissions");
+        this.WithOutput("certificate_permissions");
+        this.WithOutput("key_permissions");
+        this.WithOutput("secret_permissions");
     }
 
     /// <summary>

@@ -14,21 +14,21 @@ public class GoogleLustreInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("capacity_gib");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("filesystem");
-        this.DeclareOutput("gke_support_enabled");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("location");
-        this.DeclareOutput("mount_point");
-        this.DeclareOutput("name");
-        this.DeclareOutput("network");
-        this.DeclareOutput("per_unit_storage_throughput");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("capacity_gib");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("effective_labels");
+        this.WithOutput("filesystem");
+        this.WithOutput("gke_support_enabled");
+        this.WithOutput("labels");
+        this.WithOutput("location");
+        this.WithOutput("mount_point");
+        this.WithOutput("name");
+        this.WithOutput("network");
+        this.WithOutput("per_unit_storage_throughput");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

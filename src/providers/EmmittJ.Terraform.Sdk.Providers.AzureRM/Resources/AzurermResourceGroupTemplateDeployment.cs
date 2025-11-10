@@ -58,7 +58,7 @@ public class AzurermResourceGroupTemplateDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("output_content");
+        this.WithOutpututput_content");
     }
 
     /// <summary>

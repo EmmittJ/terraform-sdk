@@ -140,11 +140,11 @@ public class AwsRbinRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("lock_end_time");
-        this.DeclareOutput("lock_state");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("lock_end_time");
+        this.WithOutput("lock_state");
+        this.WithOutput("status");
     }
 
     /// <summary>

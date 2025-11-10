@@ -290,14 +290,14 @@ public class AwsWorkspacesDirectory : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("alias");
-        this.DeclareOutput("customer_user_name");
-        this.DeclareOutput("directory_name");
-        this.DeclareOutput("directory_type");
-        this.DeclareOutput("dns_ip_addresses");
-        this.DeclareOutput("iam_role_id");
-        this.DeclareOutput("registration_code");
-        this.DeclareOutput("workspace_security_group_id");
+        this.WithOutput("alias");
+        this.WithOutput("customer_user_name");
+        this.WithOutput("directory_name");
+        this.WithOutput("directory_type");
+        this.WithOutput("dns_ip_addresses");
+        this.WithOutput("iam_role_id");
+        this.WithOutput("registration_code");
+        this.WithOutput("workspace_security_group_id");
     }
 
     /// <summary>

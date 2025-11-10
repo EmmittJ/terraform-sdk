@@ -14,8 +14,8 @@ public class AwsAmplifyWebhook : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("url");
+        this.WithOutput("arn");
+        this.WithOutput("url");
     }
 
     /// <summary>

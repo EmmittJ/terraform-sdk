@@ -95,20 +95,20 @@ public class GoogleNetappVolumeReplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("destination_volume");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("healthy");
-        this.DeclareOutput("hybrid_peering_details");
-        this.DeclareOutput("hybrid_replication_type");
-        this.DeclareOutput("hybrid_replication_user_commands");
-        this.DeclareOutput("mirror_state");
-        this.DeclareOutput("role");
-        this.DeclareOutput("source_volume");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_details");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("transfer_stats");
+        this.WithOutput("create_time");
+        this.WithOutput("destination_volume");
+        this.WithOutput("effective_labels");
+        this.WithOutput("healthy");
+        this.WithOutput("hybrid_peering_details");
+        this.WithOutput("hybrid_replication_type");
+        this.WithOutput("hybrid_replication_user_commands");
+        this.WithOutput("mirror_state");
+        this.WithOutput("role");
+        this.WithOutput("source_volume");
+        this.WithOutput("state");
+        this.WithOutput("state_details");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("transfer_stats");
     }
 
     /// <summary>

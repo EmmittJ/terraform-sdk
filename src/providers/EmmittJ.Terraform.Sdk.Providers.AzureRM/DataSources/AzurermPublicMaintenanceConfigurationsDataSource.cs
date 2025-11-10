@@ -31,7 +31,7 @@ public class AzurermPublicMaintenanceConfigurationsDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("configs");
+        this.WithOutput("configs");
     }
 
     /// <summary>

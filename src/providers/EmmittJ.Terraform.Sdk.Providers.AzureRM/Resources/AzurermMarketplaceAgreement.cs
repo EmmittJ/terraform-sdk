@@ -49,8 +49,8 @@ public class AzurermMarketplaceAgreement : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("license_text_link");
-        this.DeclareOutput("privacy_policy_link");
+        this.WithOutput("license_text_link");
+        this.WithOutput("privacy_policy_link");
     }
 
     /// <summary>

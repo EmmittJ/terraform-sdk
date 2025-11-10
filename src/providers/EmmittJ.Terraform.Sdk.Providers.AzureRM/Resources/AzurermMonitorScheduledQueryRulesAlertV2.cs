@@ -196,9 +196,9 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_with_api_version");
-        this.DeclareOutput("is_a_legacy_log_analytics_rule");
-        this.DeclareOutput("is_workspace_alerts_storage_configured");
+        this.WithOutput("created_with_api_version");
+        this.WithOutput("is_a_legacy_log_analytics_rule");
+        this.WithOutput("is_workspace_alerts_storage_configured");
     }
 
     /// <summary>

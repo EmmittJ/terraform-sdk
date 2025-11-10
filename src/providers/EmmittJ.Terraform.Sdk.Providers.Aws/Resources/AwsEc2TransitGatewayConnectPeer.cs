@@ -40,9 +40,9 @@ public class AwsEc2TransitGatewayConnectPeer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("bgp_peer_address");
-        this.DeclareOutput("bgp_transit_gateway_addresses");
+        this.WithOutput("arn");
+        this.WithOutput("bgp_peer_address");
+        this.WithOutput("bgp_transit_gateway_addresses");
     }
 
     /// <summary>

@@ -91,10 +91,10 @@ public class GoogleSccFolderCustomModule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ancestor_module");
-        this.DeclareOutput("last_editor");
-        this.DeclareOutput("name");
-        this.DeclareOutput("update_time");
+        this.WithOutput("ancestor_module");
+        this.WithOutput("last_editor");
+        this.WithOutput("name");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

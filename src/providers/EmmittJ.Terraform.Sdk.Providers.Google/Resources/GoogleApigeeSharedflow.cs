@@ -49,10 +49,10 @@ public class GoogleApigeeSharedflow : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("latest_revision_id");
-        this.DeclareOutput("md5hash");
-        this.DeclareOutput("meta_data");
-        this.DeclareOutput("revision");
+        this.WithOutput("latest_revision_id");
+        this.WithOutput("md5hash");
+        this.WithOutput("meta_data");
+        this.WithOutput("revision");
     }
 
     /// <summary>

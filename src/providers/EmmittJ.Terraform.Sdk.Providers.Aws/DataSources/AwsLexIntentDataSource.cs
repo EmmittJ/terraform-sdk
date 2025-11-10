@@ -14,12 +14,12 @@ public class AwsLexIntentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("checksum");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("description");
-        this.DeclareOutput("last_updated_date");
-        this.DeclareOutput("parent_intent_signature");
+        this.WithOutput("arn");
+        this.WithOutput("checksum");
+        this.WithOutput("created_date");
+        this.WithOutput("description");
+        this.WithOutput("last_updated_date");
+        this.WithOutput("parent_intent_signature");
     }
 
     /// <summary>

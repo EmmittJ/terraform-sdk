@@ -111,13 +111,13 @@ public class AwsImagebuilderImage : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("date_created");
-        this.DeclareOutput("name");
-        this.DeclareOutput("os_version");
-        this.DeclareOutput("output_resources");
-        this.DeclareOutput("platform");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("date_created");
+        this.WithOutput("name");
+        this.WithOutput("os_version");
+        this.WithOutput("output_resources");
+        this.WithOutput("platform");
+        this.WithOutput("version");
     }
 
     /// <summary>

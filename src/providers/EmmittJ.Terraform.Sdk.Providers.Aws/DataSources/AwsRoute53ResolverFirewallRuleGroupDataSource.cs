@@ -14,16 +14,16 @@ public class AwsRoute53ResolverFirewallRuleGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("creator_request_id");
-        this.DeclareOutput("modification_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("rule_count");
-        this.DeclareOutput("share_status");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_message");
+        this.WithOutputrn");
+        this.WithOutputreation_time");
+        this.WithOutputreator_request_id");
+        this.WithOutputodification_time");
+        this.WithOutputame");
+        this.WithOutputwner_id");
+        this.WithOutputule_count");
+        this.WithOutputhare_status");
+        this.WithOutputtatus");
+        this.WithOutputtatus_message");
     }
 
     /// <summary>

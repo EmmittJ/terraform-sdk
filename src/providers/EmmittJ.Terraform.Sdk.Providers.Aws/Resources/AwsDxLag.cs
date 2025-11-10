@@ -14,10 +14,10 @@ public class AwsDxLag : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("has_logical_redundancy");
-        this.DeclareOutput("jumbo_frame_capable");
-        this.DeclareOutput("owner_account_id");
+        this.WithOutput("arn");
+        this.WithOutput("has_logical_redundancy");
+        this.WithOutput("jumbo_frame_capable");
+        this.WithOutput("owner_account_id");
     }
 
     /// <summary>

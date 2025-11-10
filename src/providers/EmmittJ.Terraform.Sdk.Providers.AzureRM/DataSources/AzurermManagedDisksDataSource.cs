@@ -31,7 +31,7 @@ public class AzurermManagedDisksDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("disk");
+        this.WithOutput("disk");
     }
 
     /// <summary>

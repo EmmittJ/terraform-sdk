@@ -49,12 +49,12 @@ public class GoogleSecretManagerRegionalSecretVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("customer_managed_encryption");
-        this.DeclareOutput("destroy_time");
-        this.DeclareOutput("location");
-        this.DeclareOutput("name");
-        this.DeclareOutput("version");
+        this.WithOutput("create_time");
+        this.WithOutput("customer_managed_encryption");
+        this.WithOutput("destroy_time");
+        this.WithOutput("location");
+        this.WithOutput("name");
+        this.WithOutput("version");
     }
 
     /// <summary>

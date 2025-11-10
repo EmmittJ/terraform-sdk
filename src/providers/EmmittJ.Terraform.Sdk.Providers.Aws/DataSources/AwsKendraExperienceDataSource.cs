@@ -14,16 +14,16 @@ public class AwsKendraExperienceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("configuration");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("description");
-        this.DeclareOutput("endpoints");
-        this.DeclareOutput("error_message");
-        this.DeclareOutput("name");
-        this.DeclareOutput("role_arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("arn");
+        this.WithOutput("configuration");
+        this.WithOutput("created_at");
+        this.WithOutput("description");
+        this.WithOutput("endpoints");
+        this.WithOutput("error_message");
+        this.WithOutput("name");
+        this.WithOutput("role_arn");
+        this.WithOutput("status");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

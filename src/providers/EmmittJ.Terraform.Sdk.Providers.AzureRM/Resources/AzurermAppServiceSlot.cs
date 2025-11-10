@@ -604,8 +604,8 @@ public class AzurermAppServiceSlot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_site_hostname");
-        this.DeclareOutput("site_credential");
+        this.WithOutput("default_site_hostname");
+        this.WithOutput("site_credential");
     }
 
     /// <summary>

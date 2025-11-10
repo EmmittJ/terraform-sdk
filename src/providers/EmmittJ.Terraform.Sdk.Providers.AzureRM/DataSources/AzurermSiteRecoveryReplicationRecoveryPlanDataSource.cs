@@ -31,11 +31,11 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanDataSource : TerraformDat
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("azure_to_azure_settings");
-        this.DeclareOutput("failover_deployment_model");
-        this.DeclareOutput("recovery_group");
-        this.DeclareOutput("source_recovery_fabric_id");
-        this.DeclareOutput("target_recovery_fabric_id");
+        this.WithOutput("azure_to_azure_settings");
+        this.WithOutput("failover_deployment_model");
+        this.WithOutput("recovery_group");
+        this.WithOutput("source_recovery_fabric_id");
+        this.WithOutput("target_recovery_fabric_id");
     }
 
     /// <summary>

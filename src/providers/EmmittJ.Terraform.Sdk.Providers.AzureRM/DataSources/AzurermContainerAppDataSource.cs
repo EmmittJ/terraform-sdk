@@ -31,22 +31,22 @@ public class AzurermContainerAppDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("container_app_environment_id");
-        this.DeclareOutput("custom_domain_verification_id");
-        this.DeclareOutput("dapr");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("ingress");
-        this.DeclareOutput("latest_revision_fqdn");
-        this.DeclareOutput("latest_revision_name");
-        this.DeclareOutput("location");
-        this.DeclareOutput("max_inactive_revisions");
-        this.DeclareOutput("outbound_ip_addresses");
-        this.DeclareOutput("registry");
-        this.DeclareOutput("revision_mode");
-        this.DeclareOutput("secret");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("template");
-        this.DeclareOutput("workload_profile_name");
+        this.WithOutput("container_app_environment_id");
+        this.WithOutput("custom_domain_verification_id");
+        this.WithOutput("dapr");
+        this.WithOutput("identity");
+        this.WithOutput("ingress");
+        this.WithOutput("latest_revision_fqdn");
+        this.WithOutput("latest_revision_name");
+        this.WithOutput("location");
+        this.WithOutput("max_inactive_revisions");
+        this.WithOutput("outbound_ip_addresses");
+        this.WithOutput("registry");
+        this.WithOutput("revision_mode");
+        this.WithOutput("secret");
+        this.WithOutput("tags");
+        this.WithOutput("template");
+        this.WithOutput("workload_profile_name");
     }
 
     /// <summary>

@@ -49,9 +49,9 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("base_uri");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
+        this.WithOutput("base_uri");
+        this.WithOutput("name");
+        this.WithOutput("state");
     }
 
     /// <summary>

@@ -85,15 +85,15 @@ public class AwsSecuritylakeSubscriber : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("resource_share_arn");
-        this.DeclareOutput("resource_share_name");
-        this.DeclareOutput("role_arn");
-        this.DeclareOutput("s3_bucket_arn");
-        this.DeclareOutput("subscriber_endpoint");
-        this.DeclareOutput("subscriber_status");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("resource_share_arn");
+        this.WithOutput("resource_share_name");
+        this.WithOutput("role_arn");
+        this.WithOutput("s3_bucket_arn");
+        this.WithOutput("subscriber_endpoint");
+        this.WithOutput("subscriber_status");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

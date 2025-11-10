@@ -257,8 +257,8 @@ public class GoogleBigqueryRoutine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("last_modified_time");
+        this.WithOutput("creation_time");
+        this.WithOutput("last_modified_time");
     }
 
     /// <summary>

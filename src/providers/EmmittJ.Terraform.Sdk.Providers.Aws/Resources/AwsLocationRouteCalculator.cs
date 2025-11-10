@@ -49,9 +49,9 @@ public class AwsLocationRouteCalculator : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("calculator_arn");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("update_time");
+        this.WithOutputalculator_arn");
+        this.WithOutputreate_time");
+        this.WithOutputpdate_time");
     }
 
     /// <summary>

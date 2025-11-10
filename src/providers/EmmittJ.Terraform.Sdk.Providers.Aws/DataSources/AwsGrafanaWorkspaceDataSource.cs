@@ -14,24 +14,24 @@ public class AwsGrafanaWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_access_type");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("authentication_providers");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("data_sources");
-        this.DeclareOutput("description");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("grafana_version");
-        this.DeclareOutput("last_updated_date");
-        this.DeclareOutput("name");
-        this.DeclareOutput("notification_destinations");
-        this.DeclareOutput("organization_role_name");
-        this.DeclareOutput("organizational_units");
-        this.DeclareOutput("permission_type");
-        this.DeclareOutput("role_arn");
-        this.DeclareOutput("saml_configuration_status");
-        this.DeclareOutput("stack_set_name");
-        this.DeclareOutput("status");
+        this.WithOutput("account_access_type");
+        this.WithOutput("arn");
+        this.WithOutput("authentication_providers");
+        this.WithOutput("created_date");
+        this.WithOutput("data_sources");
+        this.WithOutput("description");
+        this.WithOutput("endpoint");
+        this.WithOutput("grafana_version");
+        this.WithOutput("last_updated_date");
+        this.WithOutput("name");
+        this.WithOutput("notification_destinations");
+        this.WithOutput("organization_role_name");
+        this.WithOutput("organizational_units");
+        this.WithOutput("permission_type");
+        this.WithOutput("role_arn");
+        this.WithOutput("saml_configuration_status");
+        this.WithOutput("stack_set_name");
+        this.WithOutput("status");
     }
 
     /// <summary>

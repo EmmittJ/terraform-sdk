@@ -58,7 +58,7 @@ public class AzurermLogAnalyticsDataExportRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("export_rule_id");
+        this.WithOutput("export_rule_id");
     }
 
     /// <summary>

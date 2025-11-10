@@ -14,11 +14,11 @@ public class AwsArnDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account");
-        this.DeclareOutput("partition");
-        this.DeclareOutput("region");
-        this.DeclareOutput("resource");
-        this.DeclareOutput("service");
+        this.WithOutput("account");
+        this.WithOutput("partition");
+        this.WithOutput("region");
+        this.WithOutput("resource");
+        this.WithOutput("service");
     }
 
     /// <summary>

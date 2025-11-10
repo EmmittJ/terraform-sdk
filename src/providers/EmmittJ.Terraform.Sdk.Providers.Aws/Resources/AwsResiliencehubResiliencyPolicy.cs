@@ -57,9 +57,9 @@ public class AwsResiliencehubResiliencyPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("estimated_cost_tier");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("estimated_cost_tier");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

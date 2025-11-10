@@ -58,7 +58,7 @@ public class AzurermStorageSync : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("registered_servers");
+        this.WithOutputegistered_servers");
     }
 
     /// <summary>

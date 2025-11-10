@@ -114,7 +114,7 @@ public class GoogleBigtableAppProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
+        this.WithOutput("name");
     }
 
     /// <summary>

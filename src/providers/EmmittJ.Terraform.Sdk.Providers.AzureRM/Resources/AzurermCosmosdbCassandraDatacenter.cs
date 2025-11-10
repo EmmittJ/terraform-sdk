@@ -58,7 +58,7 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("seed_node_ip_addresses");
+        this.WithOutput("seed_node_ip_addresses");
     }
 
     /// <summary>

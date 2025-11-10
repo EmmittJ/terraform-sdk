@@ -52,7 +52,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicyIamBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

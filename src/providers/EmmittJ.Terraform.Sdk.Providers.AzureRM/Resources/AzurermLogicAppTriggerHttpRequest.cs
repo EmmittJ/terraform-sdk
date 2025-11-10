@@ -58,7 +58,7 @@ public class AzurermLogicAppTriggerHttpRequest : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("callback_url");
+        this.WithOutput("callback_url");
     }
 
     /// <summary>

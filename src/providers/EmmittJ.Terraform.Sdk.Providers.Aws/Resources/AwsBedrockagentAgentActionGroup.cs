@@ -91,8 +91,8 @@ public class AwsBedrockagentAgentActionGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("action_group_id");
-        this.DeclareOutput("id");
+        this.WithOutput("action_group_id");
+        this.WithOutput("id");
     }
 
     /// <summary>

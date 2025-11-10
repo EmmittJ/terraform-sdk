@@ -14,13 +14,13 @@ public class AwsOutpostsOutpostDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("availability_zone_id");
-        this.DeclareOutput("description");
-        this.DeclareOutput("lifecycle_status");
-        this.DeclareOutput("site_arn");
-        this.DeclareOutput("site_id");
-        this.DeclareOutput("supported_hardware_type");
+        this.WithOutputvailability_zone");
+        this.WithOutputvailability_zone_id");
+        this.WithOutputescription");
+        this.WithOutputifecycle_status");
+        this.WithOutputite_arn");
+        this.WithOutputite_id");
+        this.WithOutputupported_hardware_type");
     }
 
     /// <summary>

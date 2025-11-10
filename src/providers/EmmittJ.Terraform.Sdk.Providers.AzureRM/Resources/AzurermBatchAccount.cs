@@ -140,9 +140,9 @@ public class AzurermBatchAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_endpoint");
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("secondary_access_key");
+        this.WithOutput("account_endpoint");
+        this.WithOutput("primary_access_key");
+        this.WithOutput("secondary_access_key");
     }
 
     /// <summary>

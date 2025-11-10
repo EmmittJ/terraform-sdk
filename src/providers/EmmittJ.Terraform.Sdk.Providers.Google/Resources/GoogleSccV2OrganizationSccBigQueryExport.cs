@@ -49,10 +49,10 @@ public class GoogleSccV2OrganizationSccBigQueryExport : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("most_recent_editor");
-        this.DeclareOutput("principal");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("most_recent_editor");
+        this.WithOutput("principal");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

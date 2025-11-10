@@ -49,12 +49,12 @@ public class AwsBedrockagentAgent : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("agent_arn");
-        this.DeclareOutput("agent_id");
-        this.DeclareOutput("agent_version");
-        this.DeclareOutput("id");
-        this.DeclareOutput("prepared_at");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("agent_arn");
+        this.WithOutput("agent_id");
+        this.WithOutput("agent_version");
+        this.WithOutput("id");
+        this.WithOutput("prepared_at");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

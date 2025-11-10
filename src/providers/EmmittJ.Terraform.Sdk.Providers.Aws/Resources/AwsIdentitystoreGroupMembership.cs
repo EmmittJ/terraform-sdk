@@ -14,7 +14,7 @@ public class AwsIdentitystoreGroupMembership : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("membership_id");
+        this.WithOutput("membership_id");
     }
 
     /// <summary>

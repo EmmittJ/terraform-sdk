@@ -49,12 +49,12 @@ public class AwsVpcIpamResourceDiscoveryAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("ipam_arn");
-        this.DeclareOutput("ipam_region");
-        this.DeclareOutput("is_default");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("ipam_arn");
+        this.WithOutput("ipam_region");
+        this.WithOutput("is_default");
+        this.WithOutput("owner_id");
+        this.WithOutput("state");
     }
 
     /// <summary>

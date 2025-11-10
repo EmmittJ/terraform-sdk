@@ -31,11 +31,11 @@ public class AzurermDnsARecordDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("records");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("target_resource_id");
-        this.DeclareOutput("ttl");
+        this.WithOutput("fqdn");
+        this.WithOutput("records");
+        this.WithOutput("tags");
+        this.WithOutput("target_resource_id");
+        this.WithOutput("ttl");
     }
 
     /// <summary>

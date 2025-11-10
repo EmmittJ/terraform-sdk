@@ -14,17 +14,17 @@ public class GoogleComputeReservationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("commitment");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("delete_after_duration");
-        this.DeclareOutput("delete_at_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("reservation_sharing_policy");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("share_settings");
-        this.DeclareOutput("specific_reservation");
-        this.DeclareOutput("specific_reservation_required");
-        this.DeclareOutput("status");
+        this.WithOutput("commitment");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("delete_after_duration");
+        this.WithOutput("delete_at_time");
+        this.WithOutput("description");
+        this.WithOutput("reservation_sharing_policy");
+        this.WithOutput("self_link");
+        this.WithOutput("share_settings");
+        this.WithOutput("specific_reservation");
+        this.WithOutput("specific_reservation_required");
+        this.WithOutput("status");
     }
 
     /// <summary>

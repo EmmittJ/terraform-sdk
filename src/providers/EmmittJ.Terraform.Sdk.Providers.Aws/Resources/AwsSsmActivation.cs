@@ -14,9 +14,9 @@ public class AwsSsmActivation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("activation_code");
-        this.DeclareOutput("expired");
-        this.DeclareOutput("registration_count");
+        this.WithOutput("activation_code");
+        this.WithOutput("expired");
+        this.WithOutput("registration_count");
     }
 
     /// <summary>

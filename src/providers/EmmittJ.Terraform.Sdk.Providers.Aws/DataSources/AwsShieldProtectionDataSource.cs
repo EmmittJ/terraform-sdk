@@ -14,9 +14,9 @@ public class AwsShieldProtectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("name");
-        this.DeclareOutput("protection_arn");
+        this.WithOutput("id");
+        this.WithOutput("name");
+        this.WithOutput("protection_arn");
     }
 
     /// <summary>

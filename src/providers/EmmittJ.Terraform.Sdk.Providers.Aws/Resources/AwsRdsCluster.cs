@@ -259,14 +259,14 @@ public class AwsRdsCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("ca_certificate_valid_till");
-        this.DeclareOutput("cluster_resource_id");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("engine_version_actual");
-        this.DeclareOutput("hosted_zone_id");
-        this.DeclareOutput("master_user_secret");
-        this.DeclareOutput("reader_endpoint");
+        this.WithOutput("arn");
+        this.WithOutput("ca_certificate_valid_till");
+        this.WithOutput("cluster_resource_id");
+        this.WithOutput("endpoint");
+        this.WithOutput("engine_version_actual");
+        this.WithOutput("hosted_zone_id");
+        this.WithOutput("master_user_secret");
+        this.WithOutput("reader_endpoint");
     }
 
     /// <summary>

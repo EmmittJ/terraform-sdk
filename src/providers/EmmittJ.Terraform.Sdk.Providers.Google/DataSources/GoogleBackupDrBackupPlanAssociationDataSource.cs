@@ -14,15 +14,15 @@ public class GoogleBackupDrBackupPlanAssociationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("backup_plan");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("data_source");
-        this.DeclareOutput("last_successful_backup_consistency_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("resource");
-        this.DeclareOutput("resource_type");
-        this.DeclareOutput("rules_config_info");
-        this.DeclareOutput("update_time");
+        this.WithOutput("backup_plan");
+        this.WithOutput("create_time");
+        this.WithOutput("data_source");
+        this.WithOutput("last_successful_backup_consistency_time");
+        this.WithOutput("name");
+        this.WithOutput("resource");
+        this.WithOutput("resource_type");
+        this.WithOutput("rules_config_info");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

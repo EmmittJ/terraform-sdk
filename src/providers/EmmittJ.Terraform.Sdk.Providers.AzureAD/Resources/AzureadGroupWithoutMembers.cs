@@ -87,15 +87,15 @@ public class AzureadGroupWithoutMembers : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("mail");
-        this.DeclareOutput("object_id");
-        this.DeclareOutput("onpremises_domain_name");
-        this.DeclareOutput("onpremises_netbios_name");
-        this.DeclareOutput("onpremises_sam_account_name");
-        this.DeclareOutput("onpremises_security_identifier");
-        this.DeclareOutput("onpremises_sync_enabled");
-        this.DeclareOutput("preferred_language");
-        this.DeclareOutput("proxy_addresses");
+        this.WithOutput("mail");
+        this.WithOutput("object_id");
+        this.WithOutput("onpremises_domain_name");
+        this.WithOutput("onpremises_netbios_name");
+        this.WithOutput("onpremises_sam_account_name");
+        this.WithOutput("onpremises_security_identifier");
+        this.WithOutput("onpremises_sync_enabled");
+        this.WithOutput("preferred_language");
+        this.WithOutput("proxy_addresses");
     }
 
     /// <summary>

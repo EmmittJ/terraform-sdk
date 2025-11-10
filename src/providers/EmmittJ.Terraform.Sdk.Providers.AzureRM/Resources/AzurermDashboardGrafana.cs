@@ -207,9 +207,9 @@ public class AzurermDashboardGrafana : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("grafana_version");
-        this.DeclareOutput("outbound_ip");
+        this.WithOutput("endpoint");
+        this.WithOutput("grafana_version");
+        this.WithOutput("outbound_ip");
     }
 
     /// <summary>

@@ -14,9 +14,9 @@ public class AwsRedshiftEndpointAccess : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address");
-        this.DeclareOutput("port");
-        this.DeclareOutput("vpc_endpoint");
+        this.WithOutput("address");
+        this.WithOutput("port");
+        this.WithOutput("vpc_endpoint");
     }
 
     /// <summary>

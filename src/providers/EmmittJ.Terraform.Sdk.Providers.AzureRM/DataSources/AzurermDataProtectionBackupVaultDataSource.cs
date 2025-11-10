@@ -31,11 +31,11 @@ public class AzurermDataProtectionBackupVaultDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("datastore_type");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("redundancy");
-        this.DeclareOutput("tags");
+        this.WithOutput("datastore_type");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("redundancy");
+        this.WithOutput("tags");
     }
 
     /// <summary>

@@ -262,9 +262,9 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("compute_platform");
-        this.DeclareOutput("deployment_group_id");
+        this.WithOutput("arn");
+        this.WithOutput("compute_platform");
+        this.WithOutput("deployment_group_id");
     }
 
     /// <summary>

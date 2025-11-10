@@ -14,7 +14,7 @@ public class GoogleCertificateManagerCertificatesDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificates");
+        this.WithOutput("certificates");
     }
 
     /// <summary>

@@ -31,9 +31,9 @@ public class AzurermResourceGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("managed_by");
-        this.DeclareOutput("tags");
+        this.WithOutput("location");
+        this.WithOutput("managed_by");
+        this.WithOutput("tags");
     }
 
     /// <summary>

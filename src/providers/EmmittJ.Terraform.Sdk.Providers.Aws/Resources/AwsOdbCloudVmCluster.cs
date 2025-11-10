@@ -87,32 +87,32 @@ public class AwsOdbCloudVmCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("compute_model");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("disk_redundancy");
-        this.DeclareOutput("domain");
-        this.DeclareOutput("gi_version_computed");
-        this.DeclareOutput("hostname_prefix_computed");
-        this.DeclareOutput("id");
-        this.DeclareOutput("iorm_config_cache");
-        this.DeclareOutput("last_update_history_entry_id");
-        this.DeclareOutput("listener_port");
-        this.DeclareOutput("node_count");
-        this.DeclareOutput("oci_resource_anchor_name");
-        this.DeclareOutput("oci_url");
-        this.DeclareOutput("ocid");
-        this.DeclareOutput("percent_progress");
-        this.DeclareOutput("scan_dns_name");
-        this.DeclareOutput("scan_dns_record_id");
-        this.DeclareOutput("scan_ip_ids");
-        this.DeclareOutput("shape");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
-        this.DeclareOutput("storage_size_in_gbs");
-        this.DeclareOutput("system_version");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("vip_ids");
+        this.WithOutput("arn");
+        this.WithOutput("compute_model");
+        this.WithOutput("created_at");
+        this.WithOutput("disk_redundancy");
+        this.WithOutput("domain");
+        this.WithOutput("gi_version_computed");
+        this.WithOutput("hostname_prefix_computed");
+        this.WithOutput("id");
+        this.WithOutput("iorm_config_cache");
+        this.WithOutput("last_update_history_entry_id");
+        this.WithOutput("listener_port");
+        this.WithOutput("node_count");
+        this.WithOutput("oci_resource_anchor_name");
+        this.WithOutput("oci_url");
+        this.WithOutput("ocid");
+        this.WithOutput("percent_progress");
+        this.WithOutput("scan_dns_name");
+        this.WithOutput("scan_dns_record_id");
+        this.WithOutput("scan_ip_ids");
+        this.WithOutput("shape");
+        this.WithOutput("status");
+        this.WithOutput("status_reason");
+        this.WithOutput("storage_size_in_gbs");
+        this.WithOutput("system_version");
+        this.WithOutput("tags_all");
+        this.WithOutput("vip_ids");
     }
 
     /// <summary>

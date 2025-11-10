@@ -14,12 +14,12 @@ public class GoogleClientConfigDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_token");
-        this.DeclareOutput("default_labels");
-        this.DeclareOutput("id");
-        this.DeclareOutput("project");
-        this.DeclareOutput("region");
-        this.DeclareOutput("zone");
+        this.WithOutput("access_token");
+        this.WithOutput("default_labels");
+        this.WithOutput("id");
+        this.WithOutput("project");
+        this.WithOutput("region");
+        this.WithOutput("zone");
     }
 
     /// <summary>

@@ -185,9 +185,9 @@ public class GoogleComputeRouterPeer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("is_advertised_route_priority_set");
-        this.DeclareOutput("is_custom_learned_priority_set");
-        this.DeclareOutput("management_type");
+        this.WithOutput("is_advertised_route_priority_set");
+        this.WithOutput("is_custom_learned_priority_set");
+        this.WithOutput("management_type");
     }
 
     /// <summary>

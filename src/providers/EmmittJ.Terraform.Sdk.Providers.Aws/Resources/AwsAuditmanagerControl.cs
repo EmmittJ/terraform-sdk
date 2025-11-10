@@ -97,10 +97,10 @@ public class AwsAuditmanagerControl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("type");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("tags_all");
+        this.WithOutput("type");
     }
 
     /// <summary>

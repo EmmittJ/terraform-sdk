@@ -14,8 +14,8 @@ public class AwsChimeVoiceConnector : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("outbound_host_name");
+        this.WithOutput("arn");
+        this.WithOutput("outbound_host_name");
     }
 
     /// <summary>

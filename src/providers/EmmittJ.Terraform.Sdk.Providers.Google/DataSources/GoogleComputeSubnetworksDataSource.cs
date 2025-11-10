@@ -14,7 +14,7 @@ public class GoogleComputeSubnetworksDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("subnetworks");
+        this.WithOutput("subnetworks");
     }
 
     /// <summary>

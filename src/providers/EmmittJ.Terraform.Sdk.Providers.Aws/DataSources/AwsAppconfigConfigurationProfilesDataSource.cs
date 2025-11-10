@@ -14,7 +14,7 @@ public class AwsAppconfigConfigurationProfilesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("configuration_profile_ids");
+        this.WithOutput("configuration_profile_ids");
     }
 
     /// <summary>

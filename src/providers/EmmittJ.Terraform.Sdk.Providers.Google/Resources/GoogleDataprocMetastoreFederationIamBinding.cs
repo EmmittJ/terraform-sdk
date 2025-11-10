@@ -52,7 +52,7 @@ public class GoogleDataprocMetastoreFederationIamBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

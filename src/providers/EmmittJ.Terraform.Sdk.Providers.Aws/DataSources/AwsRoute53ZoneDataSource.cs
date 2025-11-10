@@ -14,14 +14,14 @@ public class AwsRoute53ZoneDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("caller_reference");
-        this.DeclareOutput("comment");
-        this.DeclareOutput("linked_service_description");
-        this.DeclareOutput("linked_service_principal");
-        this.DeclareOutput("name_servers");
-        this.DeclareOutput("primary_name_server");
-        this.DeclareOutput("resource_record_set_count");
+        this.WithOutputrn");
+        this.WithOutputaller_reference");
+        this.WithOutputomment");
+        this.WithOutputinked_service_description");
+        this.WithOutputinked_service_principal");
+        this.WithOutputame_servers");
+        this.WithOutputrimary_name_server");
+        this.WithOutputesource_record_set_count");
     }
 
     /// <summary>

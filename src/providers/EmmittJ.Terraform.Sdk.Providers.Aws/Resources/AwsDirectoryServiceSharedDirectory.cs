@@ -59,7 +59,7 @@ public class AwsDirectoryServiceSharedDirectory : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("shared_directory_id");
+        this.WithOutputhared_directory_id");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsCeCostAllocationTag : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("type");
+        this.WithOutput("type");
     }
 
     /// <summary>

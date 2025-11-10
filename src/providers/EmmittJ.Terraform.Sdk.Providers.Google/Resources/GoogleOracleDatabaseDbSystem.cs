@@ -238,12 +238,12 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("entitlement_id");
-        this.DeclareOutput("name");
-        this.DeclareOutput("oci_url");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("entitlement_id");
+        this.WithOutput("name");
+        this.WithOutput("oci_url");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

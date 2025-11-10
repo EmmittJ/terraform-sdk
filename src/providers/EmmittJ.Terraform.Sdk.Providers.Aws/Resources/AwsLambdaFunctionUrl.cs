@@ -94,9 +94,9 @@ public class AwsLambdaFunctionUrl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("function_arn");
-        this.DeclareOutput("function_url");
-        this.DeclareOutput("url_id");
+        this.WithOutput("function_arn");
+        this.WithOutput("function_url");
+        this.WithOutput("url_id");
     }
 
     /// <summary>

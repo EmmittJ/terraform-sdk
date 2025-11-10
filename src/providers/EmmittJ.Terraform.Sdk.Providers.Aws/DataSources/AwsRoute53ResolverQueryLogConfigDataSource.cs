@@ -42,10 +42,10 @@ public class AwsRoute53ResolverQueryLogConfigDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("destination_arn");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("share_status");
+        this.WithOutputrn");
+        this.WithOutputestination_arn");
+        this.WithOutputwner_id");
+        this.WithOutputhare_status");
     }
 
     /// <summary>

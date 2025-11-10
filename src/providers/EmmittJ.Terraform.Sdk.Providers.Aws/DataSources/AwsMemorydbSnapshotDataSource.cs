@@ -14,11 +14,11 @@ public class AwsMemorydbSnapshotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cluster_configuration");
-        this.DeclareOutput("cluster_name");
-        this.DeclareOutput("kms_key_arn");
-        this.DeclareOutput("source");
+        this.WithOutput("arn");
+        this.WithOutput("cluster_configuration");
+        this.WithOutput("cluster_name");
+        this.WithOutput("kms_key_arn");
+        this.WithOutput("source");
     }
 
     /// <summary>

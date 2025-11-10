@@ -14,11 +14,11 @@ public class AwsCloudwatchEventBusDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("dead_letter_config");
-        this.DeclareOutput("description");
-        this.DeclareOutput("kms_key_identifier");
-        this.DeclareOutput("log_config");
+        this.WithOutput("arn");
+        this.WithOutput("dead_letter_config");
+        this.WithOutput("description");
+        this.WithOutput("kms_key_identifier");
+        this.WithOutput("log_config");
     }
 
     /// <summary>

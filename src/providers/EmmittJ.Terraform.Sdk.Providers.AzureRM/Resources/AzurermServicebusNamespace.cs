@@ -185,11 +185,11 @@ public class AzurermServicebusNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_primary_connection_string");
-        this.DeclareOutput("default_primary_key");
-        this.DeclareOutput("default_secondary_connection_string");
-        this.DeclareOutput("default_secondary_key");
-        this.DeclareOutput("endpoint");
+        this.WithOutputefault_primary_connection_string");
+        this.WithOutputefault_primary_key");
+        this.WithOutputefault_secondary_connection_string");
+        this.WithOutputefault_secondary_key");
+        this.WithOutputndpoint");
     }
 
     /// <summary>

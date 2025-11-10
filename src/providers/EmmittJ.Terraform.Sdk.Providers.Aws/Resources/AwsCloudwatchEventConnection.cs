@@ -31,8 +31,8 @@ public class AwsCloudwatchEventConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("secret_arn");
+        this.WithOutput("arn");
+        this.WithOutput("secret_arn");
     }
 
     /// <summary>

@@ -245,13 +245,13 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("reasons");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("unique_id");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("reasons");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("unique_id");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

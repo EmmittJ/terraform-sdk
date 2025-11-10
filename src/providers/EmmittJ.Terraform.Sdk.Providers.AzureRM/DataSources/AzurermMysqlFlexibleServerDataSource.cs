@@ -31,24 +31,24 @@ public class AzurermMysqlFlexibleServerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("administrator_login");
-        this.DeclareOutput("backup_retention_days");
-        this.DeclareOutput("delegated_subnet_id");
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("geo_redundant_backup_enabled");
-        this.DeclareOutput("high_availability");
-        this.DeclareOutput("location");
-        this.DeclareOutput("maintenance_window");
-        this.DeclareOutput("private_dns_zone_id");
-        this.DeclareOutput("public_network_access_enabled");
-        this.DeclareOutput("replica_capacity");
-        this.DeclareOutput("replication_role");
-        this.DeclareOutput("restore_point_in_time");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("storage");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("version");
-        this.DeclareOutput("zone");
+        this.WithOutput("administrator_login");
+        this.WithOutput("backup_retention_days");
+        this.WithOutput("delegated_subnet_id");
+        this.WithOutput("fqdn");
+        this.WithOutput("geo_redundant_backup_enabled");
+        this.WithOutput("high_availability");
+        this.WithOutput("location");
+        this.WithOutput("maintenance_window");
+        this.WithOutput("private_dns_zone_id");
+        this.WithOutput("public_network_access_enabled");
+        this.WithOutput("replica_capacity");
+        this.WithOutput("replication_role");
+        this.WithOutput("restore_point_in_time");
+        this.WithOutput("sku_name");
+        this.WithOutput("storage");
+        this.WithOutput("tags");
+        this.WithOutput("version");
+        this.WithOutput("zone");
     }
 
     /// <summary>

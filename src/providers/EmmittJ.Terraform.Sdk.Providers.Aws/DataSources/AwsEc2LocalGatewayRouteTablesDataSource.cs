@@ -59,7 +59,7 @@ public class AwsEc2LocalGatewayRouteTablesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ids");
+        this.WithOutputds");
     }
 
     /// <summary>

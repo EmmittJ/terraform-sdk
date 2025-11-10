@@ -14,10 +14,10 @@ public class GoogleParameterManagerRegionalParameterVersionRenderDataSource : Te
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("disabled");
-        this.DeclareOutput("name");
-        this.DeclareOutput("parameter_data");
-        this.DeclareOutput("rendered_parameter_data");
+        this.WithOutput("disabled");
+        this.WithOutput("name");
+        this.WithOutput("parameter_data");
+        this.WithOutput("rendered_parameter_data");
     }
 
     /// <summary>

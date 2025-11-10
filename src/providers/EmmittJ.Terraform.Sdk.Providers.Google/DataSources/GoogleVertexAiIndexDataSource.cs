@@ -14,20 +14,20 @@ public class GoogleVertexAiIndexDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("deployed_indexes");
-        this.DeclareOutput("description");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("encryption_spec");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("index_stats");
-        this.DeclareOutput("index_update_method");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("metadata");
-        this.DeclareOutput("metadata_schema_uri");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("deployed_indexes");
+        this.WithOutput("description");
+        this.WithOutput("display_name");
+        this.WithOutput("effective_labels");
+        this.WithOutput("encryption_spec");
+        this.WithOutput("etag");
+        this.WithOutput("index_stats");
+        this.WithOutput("index_update_method");
+        this.WithOutput("labels");
+        this.WithOutput("metadata");
+        this.WithOutput("metadata_schema_uri");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

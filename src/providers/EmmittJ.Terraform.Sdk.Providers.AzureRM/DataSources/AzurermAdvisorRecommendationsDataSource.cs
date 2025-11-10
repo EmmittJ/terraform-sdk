@@ -31,7 +31,7 @@ public class AzurermAdvisorRecommendationsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("recommendations");
+        this.WithOutput("recommendations");
     }
 
     /// <summary>

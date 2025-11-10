@@ -49,9 +49,9 @@ public class AzureadAppRoleAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("principal_display_name");
-        this.DeclareOutput("principal_type");
-        this.DeclareOutput("resource_display_name");
+        this.WithOutput("principal_display_name");
+        this.WithOutput("principal_type");
+        this.WithOutput("resource_display_name");
     }
 
     /// <summary>

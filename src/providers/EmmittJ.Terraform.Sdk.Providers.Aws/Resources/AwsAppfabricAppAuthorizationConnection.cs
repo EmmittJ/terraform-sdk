@@ -59,9 +59,9 @@ public class AwsAppfabricAppAuthorizationConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tenant");
+        this.WithOutput("app");
+        this.WithOutput("id");
+        this.WithOutput("tenant");
     }
 
     /// <summary>

@@ -150,10 +150,10 @@ public class AzurermExpressRouteCircuitPeering : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("azure_asn");
-        this.DeclareOutput("gateway_manager_etag");
-        this.DeclareOutput("primary_azure_port");
-        this.DeclareOutput("secondary_azure_port");
+        this.WithOutput("azure_asn");
+        this.WithOutput("gateway_manager_etag");
+        this.WithOutput("primary_azure_port");
+        this.WithOutput("secondary_azure_port");
     }
 
     /// <summary>

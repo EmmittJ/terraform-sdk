@@ -87,7 +87,7 @@ public class GoogleKmsEkmConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
+        this.WithOutput("create_time");
     }
 
     /// <summary>

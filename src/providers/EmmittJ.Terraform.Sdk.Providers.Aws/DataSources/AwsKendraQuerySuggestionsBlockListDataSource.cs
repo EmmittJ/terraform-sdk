@@ -14,17 +14,17 @@ public class AwsKendraQuerySuggestionsBlockListDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("description");
-        this.DeclareOutput("error_message");
-        this.DeclareOutput("file_size_bytes");
-        this.DeclareOutput("item_count");
-        this.DeclareOutput("name");
-        this.DeclareOutput("role_arn");
-        this.DeclareOutput("source_s3_path");
-        this.DeclareOutput("status");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("description");
+        this.WithOutput("error_message");
+        this.WithOutput("file_size_bytes");
+        this.WithOutput("item_count");
+        this.WithOutput("name");
+        this.WithOutput("role_arn");
+        this.WithOutput("source_s3_path");
+        this.WithOutput("status");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

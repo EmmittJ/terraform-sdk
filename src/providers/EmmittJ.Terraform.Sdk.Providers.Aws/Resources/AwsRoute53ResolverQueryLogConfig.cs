@@ -14,9 +14,9 @@ public class AwsRoute53ResolverQueryLogConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("share_status");
+        this.WithOutput("arn");
+        this.WithOutput("owner_id");
+        this.WithOutput("share_status");
     }
 
     /// <summary>

@@ -15,7 +15,7 @@ public class GoogleContainerRegistryRepositoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("repository_url");
+        this.WithOutput("repository_url");
     }
 
     /// <summary>

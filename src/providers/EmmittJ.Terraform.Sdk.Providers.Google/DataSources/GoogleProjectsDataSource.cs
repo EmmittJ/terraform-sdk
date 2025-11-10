@@ -14,7 +14,7 @@ public class GoogleProjectsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("projects");
+        this.WithOutput("projects");
     }
 
     /// <summary>

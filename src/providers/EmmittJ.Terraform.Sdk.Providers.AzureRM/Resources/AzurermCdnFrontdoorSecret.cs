@@ -58,7 +58,7 @@ public class AzurermCdnFrontdoorSecret : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cdn_frontdoor_profile_name");
+        this.WithOutput("cdn_frontdoor_profile_name");
     }
 
     /// <summary>

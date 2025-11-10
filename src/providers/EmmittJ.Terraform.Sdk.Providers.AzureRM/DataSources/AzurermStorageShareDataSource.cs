@@ -57,8 +57,8 @@ public class AzurermStorageShareDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("quota");
-        this.DeclareOutput("resource_manager_id");
+        this.WithOutput("quota");
+        this.WithOutput("resource_manager_id");
     }
 
     /// <summary>

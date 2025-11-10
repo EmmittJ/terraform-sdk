@@ -31,34 +31,34 @@ public class AzureadApplicationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api");
-        this.DeclareOutput("app_role_ids");
-        this.DeclareOutput("app_roles");
-        this.DeclareOutput("description");
-        this.DeclareOutput("device_only_auth_enabled");
-        this.DeclareOutput("disabled_by_microsoft");
-        this.DeclareOutput("fallback_public_client_enabled");
-        this.DeclareOutput("feature_tags");
-        this.DeclareOutput("group_membership_claims");
-        this.DeclareOutput("identifier_uris");
-        this.DeclareOutput("logo_url");
-        this.DeclareOutput("marketing_url");
-        this.DeclareOutput("notes");
-        this.DeclareOutput("oauth2_permission_scope_ids");
-        this.DeclareOutput("oauth2_post_response_required");
-        this.DeclareOutput("optional_claims");
-        this.DeclareOutput("owners");
-        this.DeclareOutput("privacy_statement_url");
-        this.DeclareOutput("public_client");
-        this.DeclareOutput("publisher_domain");
-        this.DeclareOutput("required_resource_access");
-        this.DeclareOutput("service_management_reference");
-        this.DeclareOutput("sign_in_audience");
-        this.DeclareOutput("single_page_application");
-        this.DeclareOutput("support_url");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("terms_of_service_url");
-        this.DeclareOutput("web");
+        this.WithOutput("api");
+        this.WithOutput("app_role_ids");
+        this.WithOutput("app_roles");
+        this.WithOutput("description");
+        this.WithOutput("device_only_auth_enabled");
+        this.WithOutput("disabled_by_microsoft");
+        this.WithOutput("fallback_public_client_enabled");
+        this.WithOutput("feature_tags");
+        this.WithOutput("group_membership_claims");
+        this.WithOutput("identifier_uris");
+        this.WithOutput("logo_url");
+        this.WithOutput("marketing_url");
+        this.WithOutput("notes");
+        this.WithOutput("oauth2_permission_scope_ids");
+        this.WithOutput("oauth2_post_response_required");
+        this.WithOutput("optional_claims");
+        this.WithOutput("owners");
+        this.WithOutput("privacy_statement_url");
+        this.WithOutput("public_client");
+        this.WithOutput("publisher_domain");
+        this.WithOutput("required_resource_access");
+        this.WithOutput("service_management_reference");
+        this.WithOutput("sign_in_audience");
+        this.WithOutput("single_page_application");
+        this.WithOutput("support_url");
+        this.WithOutput("tags");
+        this.WithOutput("terms_of_service_url");
+        this.WithOutput("web");
     }
 
     /// <summary>

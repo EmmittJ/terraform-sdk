@@ -141,11 +141,11 @@ public class AwsCodebuildFleet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created");
-        this.DeclareOutput("id");
-        this.DeclareOutput("last_modified");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("created");
+        this.WithOutput("id");
+        this.WithOutput("last_modified");
+        this.WithOutput("status");
     }
 
     /// <summary>

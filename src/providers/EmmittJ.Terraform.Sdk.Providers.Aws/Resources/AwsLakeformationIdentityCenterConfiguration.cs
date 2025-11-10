@@ -14,8 +14,8 @@ public class AwsLakeformationIdentityCenterConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_arn");
-        this.DeclareOutput("resource_share");
+        this.WithOutput("application_arn");
+        this.WithOutput("resource_share");
     }
 
     /// <summary>

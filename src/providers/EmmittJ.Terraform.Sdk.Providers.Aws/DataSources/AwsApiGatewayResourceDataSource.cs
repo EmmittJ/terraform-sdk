@@ -14,8 +14,8 @@ public class AwsApiGatewayResourceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("parent_id");
-        this.DeclareOutput("path_part");
+        this.WithOutput("parent_id");
+        this.WithOutput("path_part");
     }
 
     /// <summary>

@@ -58,19 +58,19 @@ public class AzureadUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("about_me");
-        this.DeclareOutput("creation_type");
-        this.DeclareOutput("external_user_state");
-        this.DeclareOutput("im_addresses");
-        this.DeclareOutput("object_id");
-        this.DeclareOutput("onpremises_distinguished_name");
-        this.DeclareOutput("onpremises_domain_name");
-        this.DeclareOutput("onpremises_sam_account_name");
-        this.DeclareOutput("onpremises_security_identifier");
-        this.DeclareOutput("onpremises_sync_enabled");
-        this.DeclareOutput("onpremises_user_principal_name");
-        this.DeclareOutput("proxy_addresses");
-        this.DeclareOutput("user_type");
+        this.WithOutput("about_me");
+        this.WithOutput("creation_type");
+        this.WithOutput("external_user_state");
+        this.WithOutput("im_addresses");
+        this.WithOutput("object_id");
+        this.WithOutput("onpremises_distinguished_name");
+        this.WithOutput("onpremises_domain_name");
+        this.WithOutput("onpremises_sam_account_name");
+        this.WithOutput("onpremises_security_identifier");
+        this.WithOutput("onpremises_sync_enabled");
+        this.WithOutput("onpremises_user_principal_name");
+        this.WithOutput("proxy_addresses");
+        this.WithOutput("user_type");
     }
 
     /// <summary>

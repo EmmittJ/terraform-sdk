@@ -31,9 +31,9 @@ public class AzurermPrivateLinkServiceEndpointConnectionsDataSource : TerraformD
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("private_endpoint_connections");
-        this.DeclareOutput("service_name");
+        this.WithOutput("location");
+        this.WithOutput("private_endpoint_connections");
+        this.WithOutput("service_name");
     }
 
     /// <summary>

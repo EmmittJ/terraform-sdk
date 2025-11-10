@@ -40,8 +40,8 @@ public class AwsDatapipelinePipelineDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("parameter_object");
-        this.DeclareOutput("pipeline_object");
+        this.WithOutput("parameter_object");
+        this.WithOutput("pipeline_object");
     }
 
     /// <summary>

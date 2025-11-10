@@ -14,9 +14,9 @@ public class GoogleNetblockIpRangesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cidr_blocks");
-        this.DeclareOutput("cidr_blocks_ipv4");
-        this.DeclareOutput("cidr_blocks_ipv6");
+        this.WithOutput("cidr_blocks");
+        this.WithOutput("cidr_blocks_ipv4");
+        this.WithOutput("cidr_blocks_ipv6");
     }
 
     /// <summary>

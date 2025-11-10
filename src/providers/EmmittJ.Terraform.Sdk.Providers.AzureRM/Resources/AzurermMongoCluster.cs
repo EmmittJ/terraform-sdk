@@ -58,7 +58,7 @@ public class AzurermMongoCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connection_strings");
+        this.WithOutput("connection_strings");
     }
 
     /// <summary>

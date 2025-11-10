@@ -14,7 +14,7 @@ public class GoogleBackupDrDataSourceReferencesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("data_source_references");
+        this.WithOutput("data_source_references");
     }
 
     /// <summary>

@@ -43,8 +43,8 @@ public class AwsOpensearchPackage : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("available_package_version");
-        this.DeclareOutput("package_id");
+        this.WithOutput("available_package_version");
+        this.WithOutput("package_id");
     }
 
     /// <summary>

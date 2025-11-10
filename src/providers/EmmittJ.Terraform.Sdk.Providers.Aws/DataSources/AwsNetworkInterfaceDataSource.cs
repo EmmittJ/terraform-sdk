@@ -59,23 +59,23 @@ public class AwsNetworkInterfaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("association");
-        this.DeclareOutput("attachment");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("description");
-        this.DeclareOutput("interface_type");
-        this.DeclareOutput("ipv6_addresses");
-        this.DeclareOutput("mac_address");
-        this.DeclareOutput("outpost_arn");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("private_dns_name");
-        this.DeclareOutput("private_ip");
-        this.DeclareOutput("private_ips");
-        this.DeclareOutput("requester_id");
-        this.DeclareOutput("security_groups");
-        this.DeclareOutput("subnet_id");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("arn");
+        this.WithOutput("association");
+        this.WithOutput("attachment");
+        this.WithOutput("availability_zone");
+        this.WithOutput("description");
+        this.WithOutput("interface_type");
+        this.WithOutput("ipv6_addresses");
+        this.WithOutput("mac_address");
+        this.WithOutput("outpost_arn");
+        this.WithOutput("owner_id");
+        this.WithOutput("private_dns_name");
+        this.WithOutput("private_ip");
+        this.WithOutput("private_ips");
+        this.WithOutput("requester_id");
+        this.WithOutput("security_groups");
+        this.WithOutput("subnet_id");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

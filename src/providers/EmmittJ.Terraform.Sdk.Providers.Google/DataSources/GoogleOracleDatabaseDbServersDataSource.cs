@@ -14,7 +14,7 @@ public class GoogleOracleDatabaseDbServersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("db_servers");
+        this.WithOutput("db_servers");
     }
 
     /// <summary>

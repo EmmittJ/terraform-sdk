@@ -84,15 +84,15 @@ public class AwsCodegurureviewerRepositoryAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("association_id");
-        this.DeclareOutput("connection_arn");
-        this.DeclareOutput("name");
-        this.DeclareOutput("owner");
-        this.DeclareOutput("provider_type");
-        this.DeclareOutput("s3_repository_details");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_reason");
+        this.WithOutput("arn");
+        this.WithOutput("association_id");
+        this.WithOutput("connection_arn");
+        this.WithOutput("name");
+        this.WithOutput("owner");
+        this.WithOutput("provider_type");
+        this.WithOutput("s3_repository_details");
+        this.WithOutput("state");
+        this.WithOutput("state_reason");
     }
 
     /// <summary>

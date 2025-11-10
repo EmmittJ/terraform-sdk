@@ -14,7 +14,7 @@ public class GoogleFoldersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("folders");
+        this.WithOutput("folders");
     }
 
     /// <summary>

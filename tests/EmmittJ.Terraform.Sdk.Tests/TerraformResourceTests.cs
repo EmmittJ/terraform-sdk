@@ -58,7 +58,7 @@ public class TerraformResourceTests
 
         var vpc = new TerraformResource("aws_vpc", "main")
             .WithProperty("cidr_block", "10.0.0.0/16")
-            .DeclareOutput("id");
+            .WithOutput("id");
         config.Add(vpc);
 
         config.Add(new TerraformResource("aws_subnet", "public")
@@ -165,7 +165,7 @@ public class TerraformResourceTests
     public void Resource_IndexerAccess_CreatesReference()
     {
         var resource = new TerraformResource("aws_vpc", "main");
-        resource.DeclareOutput("cidr_block");
+        resource.WithOutput("cidr_block");
         var reference = resource["cidr_block"];
 
         Assert.NotNull(reference);
@@ -189,8 +189,8 @@ public class TerraformResourceTests
         // VPC
         var vpc = new TerraformResource("aws_vpc", "main")
             .WithProperty("cidr_block", cidr.AsReference())
-            .DeclareOutput("id")
-            .DeclareOutput("cidr_block");
+            .WithOutput("id")
+            .WithOutput("cidr_block");
         config.Add(vpc);
 
         // Subnet

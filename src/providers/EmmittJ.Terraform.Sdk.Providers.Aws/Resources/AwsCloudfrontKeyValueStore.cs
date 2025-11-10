@@ -31,10 +31,10 @@ public class AwsCloudfrontKeyValueStore : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("id");
-        this.DeclareOutput("last_modified_time");
+        this.WithOutput("arn");
+        this.WithOutput("etag");
+        this.WithOutput("id");
+        this.WithOutput("last_modified_time");
     }
 
     /// <summary>

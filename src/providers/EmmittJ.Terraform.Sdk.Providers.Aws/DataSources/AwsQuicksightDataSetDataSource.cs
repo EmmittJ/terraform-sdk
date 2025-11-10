@@ -14,18 +14,18 @@ public class AwsQuicksightDataSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("column_groups");
-        this.DeclareOutput("column_level_permission_rules");
-        this.DeclareOutput("data_set_usage_configuration");
-        this.DeclareOutput("field_folders");
-        this.DeclareOutput("import_mode");
-        this.DeclareOutput("logical_table_map");
-        this.DeclareOutput("name");
-        this.DeclareOutput("permissions");
-        this.DeclareOutput("physical_table_map");
-        this.DeclareOutput("row_level_permission_data_set");
-        this.DeclareOutput("row_level_permission_tag_configuration");
+        this.WithOutput("arn");
+        this.WithOutput("column_groups");
+        this.WithOutput("column_level_permission_rules");
+        this.WithOutput("data_set_usage_configuration");
+        this.WithOutput("field_folders");
+        this.WithOutput("import_mode");
+        this.WithOutput("logical_table_map");
+        this.WithOutput("name");
+        this.WithOutput("permissions");
+        this.WithOutput("physical_table_map");
+        this.WithOutput("row_level_permission_data_set");
+        this.WithOutput("row_level_permission_tag_configuration");
     }
 
     /// <summary>

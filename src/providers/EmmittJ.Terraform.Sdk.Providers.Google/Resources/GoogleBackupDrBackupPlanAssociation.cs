@@ -49,12 +49,12 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("data_source");
-        this.DeclareOutput("last_successful_backup_consistency_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("rules_config_info");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("data_source");
+        this.WithOutput("last_successful_backup_consistency_time");
+        this.WithOutput("name");
+        this.WithOutput("rules_config_info");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

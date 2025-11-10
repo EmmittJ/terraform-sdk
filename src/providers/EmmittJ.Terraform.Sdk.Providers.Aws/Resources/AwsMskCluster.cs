@@ -175,21 +175,21 @@ public class AwsMskCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("bootstrap_brokers");
-        this.DeclareOutput("bootstrap_brokers_public_sasl_iam");
-        this.DeclareOutput("bootstrap_brokers_public_sasl_scram");
-        this.DeclareOutput("bootstrap_brokers_public_tls");
-        this.DeclareOutput("bootstrap_brokers_sasl_iam");
-        this.DeclareOutput("bootstrap_brokers_sasl_scram");
-        this.DeclareOutput("bootstrap_brokers_tls");
-        this.DeclareOutput("bootstrap_brokers_vpc_connectivity_sasl_iam");
-        this.DeclareOutput("bootstrap_brokers_vpc_connectivity_sasl_scram");
-        this.DeclareOutput("bootstrap_brokers_vpc_connectivity_tls");
-        this.DeclareOutput("cluster_uuid");
-        this.DeclareOutput("current_version");
-        this.DeclareOutput("zookeeper_connect_string");
-        this.DeclareOutput("zookeeper_connect_string_tls");
+        this.WithOutput("arn");
+        this.WithOutput("bootstrap_brokers");
+        this.WithOutput("bootstrap_brokers_public_sasl_iam");
+        this.WithOutput("bootstrap_brokers_public_sasl_scram");
+        this.WithOutput("bootstrap_brokers_public_tls");
+        this.WithOutput("bootstrap_brokers_sasl_iam");
+        this.WithOutput("bootstrap_brokers_sasl_scram");
+        this.WithOutput("bootstrap_brokers_tls");
+        this.WithOutput("bootstrap_brokers_vpc_connectivity_sasl_iam");
+        this.WithOutput("bootstrap_brokers_vpc_connectivity_sasl_scram");
+        this.WithOutput("bootstrap_brokers_vpc_connectivity_tls");
+        this.WithOutput("cluster_uuid");
+        this.WithOutput("current_version");
+        this.WithOutput("zookeeper_connect_string");
+        this.WithOutput("zookeeper_connect_string_tls");
     }
 
     /// <summary>

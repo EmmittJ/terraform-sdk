@@ -14,20 +14,20 @@ public class AwsMskClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("bootstrap_brokers");
-        this.DeclareOutput("bootstrap_brokers_public_sasl_iam");
-        this.DeclareOutput("bootstrap_brokers_public_sasl_scram");
-        this.DeclareOutput("bootstrap_brokers_public_tls");
-        this.DeclareOutput("bootstrap_brokers_sasl_iam");
-        this.DeclareOutput("bootstrap_brokers_sasl_scram");
-        this.DeclareOutput("bootstrap_brokers_tls");
-        this.DeclareOutput("broker_node_group_info");
-        this.DeclareOutput("cluster_uuid");
-        this.DeclareOutput("kafka_version");
-        this.DeclareOutput("number_of_broker_nodes");
-        this.DeclareOutput("zookeeper_connect_string");
-        this.DeclareOutput("zookeeper_connect_string_tls");
+        this.WithOutput("arn");
+        this.WithOutput("bootstrap_brokers");
+        this.WithOutput("bootstrap_brokers_public_sasl_iam");
+        this.WithOutput("bootstrap_brokers_public_sasl_scram");
+        this.WithOutput("bootstrap_brokers_public_tls");
+        this.WithOutput("bootstrap_brokers_sasl_iam");
+        this.WithOutput("bootstrap_brokers_sasl_scram");
+        this.WithOutput("bootstrap_brokers_tls");
+        this.WithOutput("broker_node_group_info");
+        this.WithOutput("cluster_uuid");
+        this.WithOutput("kafka_version");
+        this.WithOutput("number_of_broker_nodes");
+        this.WithOutput("zookeeper_connect_string");
+        this.WithOutput("zookeeper_connect_string_tls");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class GoogleKmsCryptoKeyVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("public_key");
-        this.DeclareOutput("versions");
+        this.WithOutput("public_key");
+        this.WithOutput("versions");
     }
 
     /// <summary>

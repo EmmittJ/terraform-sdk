@@ -58,13 +58,13 @@ public class AwsNetworkmanagerConnectPeer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("configuration");
-        this.DeclareOutput("connect_peer_id");
-        this.DeclareOutput("core_network_id");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("edge_location");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("configuration");
+        this.WithOutput("connect_peer_id");
+        this.WithOutput("core_network_id");
+        this.WithOutput("created_at");
+        this.WithOutput("edge_location");
+        this.WithOutput("state");
     }
 
     /// <summary>

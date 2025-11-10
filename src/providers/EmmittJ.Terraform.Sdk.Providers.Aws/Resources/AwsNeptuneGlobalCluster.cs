@@ -49,10 +49,10 @@ public class AwsNeptuneGlobalCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("global_cluster_members");
-        this.DeclareOutput("global_cluster_resource_id");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("global_cluster_members");
+        this.WithOutput("global_cluster_resource_id");
+        this.WithOutput("status");
     }
 
     /// <summary>

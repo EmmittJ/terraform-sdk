@@ -14,7 +14,7 @@ public class AwsOdbCloudVmClustersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cloud_vm_clusters");
+        this.WithOutput("cloud_vm_clusters");
     }
 
     /// <summary>

@@ -14,9 +14,9 @@ public class AwsSsmcontactsContactDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("alias");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("type");
+        this.WithOutput("alias");
+        this.WithOutput("display_name");
+        this.WithOutput("type");
     }
 
     /// <summary>

@@ -31,10 +31,10 @@ public class AzurermRoleDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("assignable_scopes");
-        this.DeclareOutput("description");
-        this.DeclareOutput("permissions");
-        this.DeclareOutput("type");
+        this.WithOutput("assignable_scopes");
+        this.WithOutput("description");
+        this.WithOutput("permissions");
+        this.WithOutput("type");
     }
 
     /// <summary>

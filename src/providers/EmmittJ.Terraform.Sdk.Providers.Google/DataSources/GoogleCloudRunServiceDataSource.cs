@@ -14,11 +14,11 @@ public class GoogleCloudRunServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("autogenerate_revision_name");
-        this.DeclareOutput("metadata");
-        this.DeclareOutput("status");
-        this.DeclareOutput("template");
-        this.DeclareOutput("traffic");
+        this.WithOutput("autogenerate_revision_name");
+        this.WithOutput("metadata");
+        this.WithOutput("status");
+        this.WithOutput("template");
+        this.WithOutput("traffic");
     }
 
     /// <summary>

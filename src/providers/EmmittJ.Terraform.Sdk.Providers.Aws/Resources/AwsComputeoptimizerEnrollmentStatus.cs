@@ -40,8 +40,8 @@ public class AwsComputeoptimizerEnrollmentStatus : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("number_of_member_accounts_opted_in");
+        this.WithOutputd");
+        this.WithOutputumber_of_member_accounts_opted_in");
     }
 
     /// <summary>

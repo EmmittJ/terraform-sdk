@@ -14,8 +14,8 @@ public class AwsCodestarconnectionsConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("connection_status");
+        this.WithOutput("arn");
+        this.WithOutput("connection_status");
     }
 
     /// <summary>

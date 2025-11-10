@@ -14,8 +14,8 @@ public class AwsCognitoUserGroupsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("groups");
-        this.DeclareOutput("id");
+        this.WithOutput("groups");
+        this.WithOutput("id");
     }
 
     /// <summary>

@@ -49,7 +49,7 @@ public class AwsServerlessapplicationrepositoryCloudformationStack : TerraformRe
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("outputs");
+        this.WithOutput("outputs");
     }
 
     /// <summary>

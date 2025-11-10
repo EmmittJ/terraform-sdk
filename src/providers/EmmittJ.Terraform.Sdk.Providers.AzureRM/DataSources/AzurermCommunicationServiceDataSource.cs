@@ -31,14 +31,14 @@ public class AzurermCommunicationServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("data_location");
-        this.DeclareOutput("hostname");
-        this.DeclareOutput("immutable_resource_id");
-        this.DeclareOutput("primary_connection_string");
-        this.DeclareOutput("primary_key");
-        this.DeclareOutput("secondary_connection_string");
-        this.DeclareOutput("secondary_key");
-        this.DeclareOutput("tags");
+        this.WithOutput("data_location");
+        this.WithOutput("hostname");
+        this.WithOutput("immutable_resource_id");
+        this.WithOutput("primary_connection_string");
+        this.WithOutput("primary_key");
+        this.WithOutput("secondary_connection_string");
+        this.WithOutput("secondary_key");
+        this.WithOutput("tags");
     }
 
     /// <summary>

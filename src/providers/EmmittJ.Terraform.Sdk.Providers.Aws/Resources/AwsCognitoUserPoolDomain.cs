@@ -14,12 +14,12 @@ public class AwsCognitoUserPoolDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("aws_account_id");
-        this.DeclareOutput("cloudfront_distribution");
-        this.DeclareOutput("cloudfront_distribution_arn");
-        this.DeclareOutput("cloudfront_distribution_zone_id");
-        this.DeclareOutput("s3_bucket");
-        this.DeclareOutput("version");
+        this.WithOutput("aws_account_id");
+        this.WithOutput("cloudfront_distribution");
+        this.WithOutput("cloudfront_distribution_arn");
+        this.WithOutput("cloudfront_distribution_zone_id");
+        this.WithOutput("s3_bucket");
+        this.WithOutput("version");
     }
 
     /// <summary>

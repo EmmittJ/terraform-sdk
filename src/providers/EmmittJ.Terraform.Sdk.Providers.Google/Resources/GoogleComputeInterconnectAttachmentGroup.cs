@@ -94,9 +94,9 @@ public class GoogleComputeInterconnectAttachmentGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("configured");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("logical_structure");
+        this.WithOutput("configured");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("logical_structure");
     }
 
     /// <summary>

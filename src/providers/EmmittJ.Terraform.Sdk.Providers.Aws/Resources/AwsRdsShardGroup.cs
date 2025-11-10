@@ -49,10 +49,10 @@ public class AwsRdsShardGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("db_shard_group_resource_id");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("db_shard_group_resource_id");
+        this.WithOutput("endpoint");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

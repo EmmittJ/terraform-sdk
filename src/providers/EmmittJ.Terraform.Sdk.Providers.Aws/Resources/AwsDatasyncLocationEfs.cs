@@ -43,8 +43,8 @@ public class AwsDatasyncLocationEfs : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("uri");
+        this.WithOutput("arn");
+        this.WithOutput("uri");
     }
 
     /// <summary>

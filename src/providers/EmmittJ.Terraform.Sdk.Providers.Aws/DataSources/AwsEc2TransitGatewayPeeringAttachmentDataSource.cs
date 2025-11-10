@@ -59,12 +59,12 @@ public class AwsEc2TransitGatewayPeeringAttachmentDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("peer_account_id");
-        this.DeclareOutput("peer_region");
-        this.DeclareOutput("peer_transit_gateway_id");
-        this.DeclareOutput("state");
-        this.DeclareOutput("transit_gateway_id");
+        this.WithOutput("arn");
+        this.WithOutput("peer_account_id");
+        this.WithOutput("peer_region");
+        this.WithOutput("peer_transit_gateway_id");
+        this.WithOutput("state");
+        this.WithOutput("transit_gateway_id");
     }
 
     /// <summary>

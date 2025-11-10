@@ -212,11 +212,11 @@ public class AwsLb : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("arn_suffix");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("vpc_id");
-        this.DeclareOutput("zone_id");
+        this.WithOutput("arn");
+        this.WithOutput("arn_suffix");
+        this.WithOutput("dns_name");
+        this.WithOutput("vpc_id");
+        this.WithOutput("zone_id");
     }
 
     /// <summary>

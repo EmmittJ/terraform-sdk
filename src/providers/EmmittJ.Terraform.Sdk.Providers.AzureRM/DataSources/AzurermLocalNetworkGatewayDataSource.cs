@@ -31,12 +31,12 @@ public class AzurermLocalNetworkGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address_space");
-        this.DeclareOutput("bgp_settings");
-        this.DeclareOutput("gateway_address");
-        this.DeclareOutput("gateway_fqdn");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("address_space");
+        this.WithOutput("bgp_settings");
+        this.WithOutput("gateway_address");
+        this.WithOutput("gateway_fqdn");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

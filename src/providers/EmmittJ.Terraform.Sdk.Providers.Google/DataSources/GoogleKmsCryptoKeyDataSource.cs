@@ -14,17 +14,17 @@ public class GoogleKmsCryptoKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("crypto_key_backend");
-        this.DeclareOutput("destroy_scheduled_duration");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("import_only");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("primary");
-        this.DeclareOutput("purpose");
-        this.DeclareOutput("rotation_period");
-        this.DeclareOutput("skip_initial_version_creation");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("version_template");
+        this.WithOutput("crypto_key_backend");
+        this.WithOutput("destroy_scheduled_duration");
+        this.WithOutput("effective_labels");
+        this.WithOutput("import_only");
+        this.WithOutput("labels");
+        this.WithOutput("primary");
+        this.WithOutput("purpose");
+        this.WithOutput("rotation_period");
+        this.WithOutput("skip_initial_version_creation");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("version_template");
     }
 
     /// <summary>

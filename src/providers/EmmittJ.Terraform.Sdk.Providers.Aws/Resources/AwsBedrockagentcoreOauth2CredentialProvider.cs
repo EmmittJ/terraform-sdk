@@ -22,8 +22,8 @@ public class AwsBedrockagentcoreOauth2CredentialProvider : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("client_secret_arn");
-        this.DeclareOutput("credential_provider_arn");
+        this.WithOutputlient_secret_arn");
+        this.WithOutputredential_provider_arn");
     }
 
     /// <summary>

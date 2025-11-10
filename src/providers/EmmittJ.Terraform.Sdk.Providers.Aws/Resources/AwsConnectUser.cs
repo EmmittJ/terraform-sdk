@@ -104,8 +104,8 @@ public class AwsConnectUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("user_id");
+        this.WithOutput("arn");
+        this.WithOutput("user_id");
     }
 
     /// <summary>

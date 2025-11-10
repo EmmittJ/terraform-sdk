@@ -14,23 +14,23 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("chain_name");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("description");
-        this.DeclareOutput("disk_size_gb");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("licenses");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("snapshot_encryption_key");
-        this.DeclareOutput("snapshot_id");
-        this.DeclareOutput("source_disk");
-        this.DeclareOutput("source_disk_encryption_key");
-        this.DeclareOutput("storage_bytes");
-        this.DeclareOutput("storage_locations");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("zone");
+        this.WithOutput("chain_name");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("description");
+        this.WithOutput("disk_size_gb");
+        this.WithOutput("effective_labels");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("labels");
+        this.WithOutput("licenses");
+        this.WithOutput("self_link");
+        this.WithOutput("snapshot_encryption_key");
+        this.WithOutput("snapshot_id");
+        this.WithOutput("source_disk");
+        this.WithOutput("source_disk_encryption_key");
+        this.WithOutput("storage_bytes");
+        this.WithOutput("storage_locations");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("zone");
     }
 
     /// <summary>

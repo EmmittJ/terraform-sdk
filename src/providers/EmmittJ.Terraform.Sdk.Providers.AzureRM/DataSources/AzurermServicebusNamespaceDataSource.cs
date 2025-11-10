@@ -31,16 +31,16 @@ public class AzurermServicebusNamespaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("capacity");
-        this.DeclareOutput("default_primary_connection_string");
-        this.DeclareOutput("default_primary_key");
-        this.DeclareOutput("default_secondary_connection_string");
-        this.DeclareOutput("default_secondary_key");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("location");
-        this.DeclareOutput("premium_messaging_partitions");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
+        this.WithOutput("capacity");
+        this.WithOutput("default_primary_connection_string");
+        this.WithOutput("default_primary_key");
+        this.WithOutput("default_secondary_connection_string");
+        this.WithOutput("default_secondary_key");
+        this.WithOutput("endpoint");
+        this.WithOutput("location");
+        this.WithOutput("premium_messaging_partitions");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
     }
 
     /// <summary>

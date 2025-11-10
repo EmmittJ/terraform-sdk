@@ -14,14 +14,14 @@ public class AwsLambdaLayerVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("code_sha256");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("layer_arn");
-        this.DeclareOutput("signing_job_arn");
-        this.DeclareOutput("signing_profile_version_arn");
-        this.DeclareOutput("source_code_size");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("code_sha256");
+        this.WithOutput("created_date");
+        this.WithOutput("layer_arn");
+        this.WithOutput("signing_job_arn");
+        this.WithOutput("signing_profile_version_arn");
+        this.WithOutput("source_code_size");
+        this.WithOutput("version");
     }
 
     /// <summary>

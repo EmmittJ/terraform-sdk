@@ -14,9 +14,9 @@ public class AwsRedshiftserverlessNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("admin_password_secret_arn");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("namespace_id");
+        this.WithOutput("admin_password_secret_arn");
+        this.WithOutput("arn");
+        this.WithOutput("namespace_id");
     }
 
     /// <summary>

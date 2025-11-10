@@ -233,7 +233,7 @@ public class AzurermHealthcareFhirService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("public_network_access_enabled");
+        this.WithOutput("public_network_access_enabled");
     }
 
     /// <summary>

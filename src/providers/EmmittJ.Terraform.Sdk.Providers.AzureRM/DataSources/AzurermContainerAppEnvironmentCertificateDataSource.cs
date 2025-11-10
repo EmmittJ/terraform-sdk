@@ -31,12 +31,12 @@ public class AzurermContainerAppEnvironmentCertificateDataSource : TerraformData
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("expiration_date");
-        this.DeclareOutput("issue_date");
-        this.DeclareOutput("issuer");
-        this.DeclareOutput("subject_name");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("thumbprint");
+        this.WithOutput("expiration_date");
+        this.WithOutput("issue_date");
+        this.WithOutput("issuer");
+        this.WithOutput("subject_name");
+        this.WithOutput("tags");
+        this.WithOutput("thumbprint");
     }
 
     /// <summary>

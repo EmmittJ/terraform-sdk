@@ -49,8 +49,8 @@ public class AwsChatbotTeamsChannelConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("chat_configuration_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("chat_configuration_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

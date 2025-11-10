@@ -59,7 +59,7 @@ public class AwsEc2TransitGatewayRouteTableAssociationsDataSource : TerraformDat
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ids");
+        this.WithOutputds");
     }
 
     /// <summary>

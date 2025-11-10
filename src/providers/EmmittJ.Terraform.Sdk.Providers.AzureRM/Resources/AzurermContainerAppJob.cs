@@ -290,8 +290,8 @@ public class AzurermContainerAppJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("event_stream_endpoint");
-        this.DeclareOutput("outbound_ip_addresses");
+        this.WithOutput("event_stream_endpoint");
+        this.WithOutput("outbound_ip_addresses");
     }
 
     /// <summary>

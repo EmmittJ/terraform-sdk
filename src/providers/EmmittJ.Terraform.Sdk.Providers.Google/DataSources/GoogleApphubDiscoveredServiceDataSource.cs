@@ -14,9 +14,9 @@ public class GoogleApphubDiscoveredServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("service_properties");
-        this.DeclareOutput("service_reference");
+        this.WithOutput("name");
+        this.WithOutput("service_properties");
+        this.WithOutput("service_reference");
     }
 
     /// <summary>

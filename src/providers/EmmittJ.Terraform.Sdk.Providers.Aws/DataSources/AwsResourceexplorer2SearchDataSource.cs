@@ -14,9 +14,9 @@ public class AwsResourceexplorer2SearchDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("resource_count");
-        this.DeclareOutput("resources");
+        this.WithOutput("id");
+        this.WithOutput("resource_count");
+        this.WithOutput("resources");
     }
 
     /// <summary>

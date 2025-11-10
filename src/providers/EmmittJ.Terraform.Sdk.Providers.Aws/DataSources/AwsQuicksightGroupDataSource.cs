@@ -14,9 +14,9 @@ public class AwsQuicksightGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("principal_id");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("principal_id");
     }
 
     /// <summary>

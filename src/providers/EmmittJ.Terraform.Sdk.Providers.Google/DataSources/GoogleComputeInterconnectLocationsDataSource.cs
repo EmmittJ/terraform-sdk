@@ -14,7 +14,7 @@ public class GoogleComputeInterconnectLocationsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("locations");
+        this.WithOutput("locations");
     }
 
     /// <summary>

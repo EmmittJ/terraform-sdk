@@ -59,7 +59,7 @@ public class AwsEc2TransitGatewayAttachmentsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ids");
+        this.WithOutput("ids");
     }
 
     /// <summary>

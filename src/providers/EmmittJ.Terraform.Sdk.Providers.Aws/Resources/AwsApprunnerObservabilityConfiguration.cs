@@ -32,10 +32,10 @@ public class AwsApprunnerObservabilityConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("latest");
-        this.DeclareOutput("observability_configuration_revision");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("latest");
+        this.WithOutput("observability_configuration_revision");
+        this.WithOutput("status");
     }
 
     /// <summary>

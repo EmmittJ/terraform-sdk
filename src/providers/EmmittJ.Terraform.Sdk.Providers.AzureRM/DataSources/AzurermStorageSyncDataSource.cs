@@ -31,9 +31,9 @@ public class AzurermStorageSyncDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("incoming_traffic_policy");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("incoming_traffic_policy");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

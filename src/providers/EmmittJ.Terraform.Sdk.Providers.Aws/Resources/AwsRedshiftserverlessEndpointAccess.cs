@@ -14,10 +14,10 @@ public class AwsRedshiftserverlessEndpointAccess : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("port");
-        this.DeclareOutput("vpc_endpoint");
+        this.WithOutput("address");
+        this.WithOutput("arn");
+        this.WithOutput("port");
+        this.WithOutput("vpc_endpoint");
     }
 
     /// <summary>

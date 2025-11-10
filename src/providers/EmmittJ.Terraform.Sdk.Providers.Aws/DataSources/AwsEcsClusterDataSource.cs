@@ -14,13 +14,13 @@ public class AwsEcsClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("pending_tasks_count");
-        this.DeclareOutput("registered_container_instances_count");
-        this.DeclareOutput("running_tasks_count");
-        this.DeclareOutput("service_connect_defaults");
-        this.DeclareOutput("setting");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("pending_tasks_count");
+        this.WithOutput("registered_container_instances_count");
+        this.WithOutput("running_tasks_count");
+        this.WithOutput("service_connect_defaults");
+        this.WithOutput("setting");
+        this.WithOutput("status");
     }
 
     /// <summary>

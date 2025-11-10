@@ -14,10 +14,10 @@ public class AwsS3outpostsEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cidr_block");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("network_interfaces");
+        this.WithOutput("arn");
+        this.WithOutput("cidr_block");
+        this.WithOutput("creation_time");
+        this.WithOutput("network_interfaces");
     }
 
     /// <summary>

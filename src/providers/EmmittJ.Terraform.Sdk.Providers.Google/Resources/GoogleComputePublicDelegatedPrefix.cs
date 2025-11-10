@@ -40,8 +40,8 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("public_delegated_sub_prefixs");
-        this.DeclareOutput("self_link");
+        this.WithOutput("public_delegated_sub_prefixs");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

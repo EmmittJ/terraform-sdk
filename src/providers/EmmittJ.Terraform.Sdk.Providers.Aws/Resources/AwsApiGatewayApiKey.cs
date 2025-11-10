@@ -14,9 +14,9 @@ public class AwsApiGatewayApiKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("last_updated_date");
+        this.WithOutput("arn");
+        this.WithOutput("created_date");
+        this.WithOutput("last_updated_date");
     }
 
     /// <summary>

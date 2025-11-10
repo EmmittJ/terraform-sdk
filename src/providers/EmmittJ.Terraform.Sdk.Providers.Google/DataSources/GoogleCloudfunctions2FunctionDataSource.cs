@@ -14,18 +14,18 @@ public class GoogleCloudfunctions2FunctionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("build_config");
-        this.DeclareOutput("description");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("environment");
-        this.DeclareOutput("event_trigger");
-        this.DeclareOutput("kms_key_name");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("service_config");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("url");
+        this.WithOutput("build_config");
+        this.WithOutput("description");
+        this.WithOutput("effective_labels");
+        this.WithOutput("environment");
+        this.WithOutput("event_trigger");
+        this.WithOutput("kms_key_name");
+        this.WithOutput("labels");
+        this.WithOutput("service_config");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
+        this.WithOutput("url");
     }
 
     /// <summary>

@@ -23,9 +23,9 @@ public class AwsIdentitystoreGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("external_ids");
+        this.WithOutput("description");
+        this.WithOutput("display_name");
+        this.WithOutput("external_ids");
     }
 
     /// <summary>

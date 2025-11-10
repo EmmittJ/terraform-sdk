@@ -59,20 +59,20 @@ public class AwsEbsSnapshotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("data_encryption_key_id");
-        this.DeclareOutput("description");
-        this.DeclareOutput("encrypted");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("outpost_arn");
-        this.DeclareOutput("owner_alias");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("snapshot_id");
-        this.DeclareOutput("start_time");
-        this.DeclareOutput("state");
-        this.DeclareOutput("storage_tier");
-        this.DeclareOutput("volume_id");
-        this.DeclareOutput("volume_size");
+        this.WithOutput("arn");
+        this.WithOutput("data_encryption_key_id");
+        this.WithOutput("description");
+        this.WithOutput("encrypted");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("outpost_arn");
+        this.WithOutput("owner_alias");
+        this.WithOutput("owner_id");
+        this.WithOutput("snapshot_id");
+        this.WithOutput("start_time");
+        this.WithOutput("state");
+        this.WithOutput("storage_tier");
+        this.WithOutput("volume_id");
+        this.WithOutput("volume_size");
     }
 
     /// <summary>

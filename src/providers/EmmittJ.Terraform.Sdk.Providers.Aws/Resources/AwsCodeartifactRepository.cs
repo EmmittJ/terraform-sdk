@@ -69,8 +69,8 @@ public class AwsCodeartifactRepository : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("administrator_account");
-        this.DeclareOutput("arn");
+        this.WithOutput("administrator_account");
+        this.WithOutput("arn");
     }
 
     /// <summary>

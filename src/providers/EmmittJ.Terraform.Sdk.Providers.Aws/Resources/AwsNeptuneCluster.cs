@@ -76,12 +76,12 @@ public class AwsNeptuneCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cluster_members");
-        this.DeclareOutput("cluster_resource_id");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("hosted_zone_id");
-        this.DeclareOutput("reader_endpoint");
+        this.WithOutputrn");
+        this.WithOutputluster_members");
+        this.WithOutputluster_resource_id");
+        this.WithOutputndpoint");
+        this.WithOutputosted_zone_id");
+        this.WithOutputeader_endpoint");
     }
 
     /// <summary>

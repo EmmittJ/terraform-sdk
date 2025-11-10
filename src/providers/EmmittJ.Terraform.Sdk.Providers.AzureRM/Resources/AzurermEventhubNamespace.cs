@@ -104,12 +104,12 @@ public class AzurermEventhubNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_primary_connection_string");
-        this.DeclareOutput("default_primary_connection_string_alias");
-        this.DeclareOutput("default_primary_key");
-        this.DeclareOutput("default_secondary_connection_string");
-        this.DeclareOutput("default_secondary_connection_string_alias");
-        this.DeclareOutput("default_secondary_key");
+        this.WithOutput("default_primary_connection_string");
+        this.WithOutput("default_primary_connection_string_alias");
+        this.WithOutput("default_primary_key");
+        this.WithOutput("default_secondary_connection_string");
+        this.WithOutput("default_secondary_connection_string_alias");
+        this.WithOutput("default_secondary_key");
     }
 
     /// <summary>

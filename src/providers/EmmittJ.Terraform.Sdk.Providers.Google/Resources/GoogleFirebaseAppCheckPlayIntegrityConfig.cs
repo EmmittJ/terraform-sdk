@@ -49,7 +49,7 @@ public class GoogleFirebaseAppCheckPlayIntegrityConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
+        this.WithOutput("name");
     }
 
     /// <summary>

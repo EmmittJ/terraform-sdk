@@ -14,7 +14,7 @@ public class GoogleNetworkManagementConnectivityTestRunDataSource : TerraformDat
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("reachability_details");
+        this.WithOutput("reachability_details");
     }
 
     /// <summary>

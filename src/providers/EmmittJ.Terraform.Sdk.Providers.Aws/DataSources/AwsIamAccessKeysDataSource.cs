@@ -14,7 +14,7 @@ public class AwsIamAccessKeysDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_keys");
+        this.WithOutput("access_keys");
     }
 
     /// <summary>

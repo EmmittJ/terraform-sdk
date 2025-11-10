@@ -8,7 +8,7 @@ public class TerraformDataSourceTests
         var dataSource = new TerraformDataSource("aws_ami", "ubuntu")
             .WithProperty("most_recent", true)
             .WithProperty("owners", "099720109477")
-            .DeclareOutput("id");
+            .WithOutput("id");
 
         return Verify(dataSource.Resolve());
     }
@@ -65,7 +65,7 @@ public class TerraformDataSourceTests
         var variable = new TerraformVariable("vpc_id") { Type = "string" };
         var dataSource = new TerraformDataSource("aws_vpc", "selected")
             .WithProperty("id", variable.AsReference())
-            .DeclareOutput("cidr_block");
+            .WithOutput("cidr_block");
 
         return Verify(dataSource.Resolve());
     }
@@ -102,7 +102,7 @@ public class TerraformDataSourceTests
     public void DataSource_GetOutput_ReturnsReferenceWhenDeclared()
     {
         var dataSource = new TerraformDataSource("aws_ami", "ubuntu")
-            .DeclareOutput("id");
+            .WithOutput("id");
 
         var reference = dataSource["id"];
 
@@ -115,8 +115,8 @@ public class TerraformDataSourceTests
         var dataSource = new TerraformDataSource("aws_ami", "ubuntu")
             .WithProperty("most_recent", true)
             .WithProperty("owners", "099720109477")
-            .DeclareOutput("id")
-            .DeclareOutput("name");
+            .WithOutput("id")
+            .WithOutput("name");
 
         // Verify fluent chaining returns TerraformDataSource
         Assert.IsType<TerraformDataSource>(dataSource);
@@ -130,7 +130,7 @@ public class TerraformDataSourceTests
         var config = new TerraformStack();
         var dataSource = new TerraformDataSource("aws_ami", "ubuntu")
             .WithProperty("most_recent", true)
-            .DeclareOutput("id");
+            .WithOutput("id");
 
         config.Add(dataSource);
 
@@ -148,7 +148,7 @@ public class TerraformDataSourceTests
         dataSource.WithProperty("filter_name", "name");
         dataSource.WithProperty("filter_values", "ubuntu/images/*");
 
-        dataSource.DeclareOutput("id");
+        dataSource.WithOutput("id");
 
         return Verify(dataSource.Resolve());
     }
@@ -163,7 +163,7 @@ public class TerraformDataSourceTests
         };
         dataSource.DependsOn.Add("aws_vpc.main");
         dataSource.WithProperty("vpc_id", "vpc-12345");
-        dataSource.DeclareOutput("id");
+        dataSource.WithOutput("id");
 
         return Verify(dataSource.Resolve());
     }

@@ -76,10 +76,10 @@ public class AwsRoute53Zone : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("name_servers");
-        this.DeclareOutput("primary_name_server");
-        this.DeclareOutput("zone_id");
+        this.WithOutput("arn");
+        this.WithOutput("name_servers");
+        this.WithOutput("primary_name_server");
+        this.WithOutput("zone_id");
     }
 
     /// <summary>

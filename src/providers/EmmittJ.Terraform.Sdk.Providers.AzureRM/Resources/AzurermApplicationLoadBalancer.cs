@@ -58,7 +58,7 @@ public class AzurermApplicationLoadBalancer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("primary_configuration_endpoint");
+        this.WithOutput("primary_configuration_endpoint");
     }
 
     /// <summary>

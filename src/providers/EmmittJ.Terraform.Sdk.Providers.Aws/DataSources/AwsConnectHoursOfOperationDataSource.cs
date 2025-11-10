@@ -14,10 +14,10 @@ public class AwsConnectHoursOfOperationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("config");
-        this.DeclareOutput("description");
-        this.DeclareOutput("time_zone");
+        this.WithOutput("arn");
+        this.WithOutput("config");
+        this.WithOutput("description");
+        this.WithOutput("time_zone");
     }
 
     /// <summary>

@@ -14,21 +14,21 @@ public class AwsNetworkfirewallFirewallDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("availability_zone_change_protection");
-        this.DeclareOutput("availability_zone_mapping");
-        this.DeclareOutput("delete_protection");
-        this.DeclareOutput("description");
-        this.DeclareOutput("enabled_analysis_types");
-        this.DeclareOutput("encryption_configuration");
-        this.DeclareOutput("firewall_policy_arn");
-        this.DeclareOutput("firewall_policy_change_protection");
-        this.DeclareOutput("firewall_status");
-        this.DeclareOutput("subnet_change_protection");
-        this.DeclareOutput("subnet_mapping");
-        this.DeclareOutput("transit_gateway_id");
-        this.DeclareOutput("transit_gateway_owner_account_id");
-        this.DeclareOutput("update_token");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("availability_zone_change_protection");
+        this.WithOutput("availability_zone_mapping");
+        this.WithOutput("delete_protection");
+        this.WithOutput("description");
+        this.WithOutput("enabled_analysis_types");
+        this.WithOutput("encryption_configuration");
+        this.WithOutput("firewall_policy_arn");
+        this.WithOutput("firewall_policy_change_protection");
+        this.WithOutput("firewall_status");
+        this.WithOutput("subnet_change_protection");
+        this.WithOutput("subnet_mapping");
+        this.WithOutput("transit_gateway_id");
+        this.WithOutput("transit_gateway_owner_account_id");
+        this.WithOutput("update_token");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

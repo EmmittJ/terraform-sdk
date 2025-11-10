@@ -58,7 +58,7 @@ public class AzurermNetworkManagerSubscriptionConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connection_state");
+        this.WithOutput("connection_state");
     }
 
     /// <summary>

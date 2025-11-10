@@ -14,12 +14,12 @@ public class AwsIamInstanceProfileDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("create_date");
-        this.DeclareOutput("path");
-        this.DeclareOutput("role_arn");
-        this.DeclareOutput("role_id");
-        this.DeclareOutput("role_name");
+        this.WithOutput("arn");
+        this.WithOutput("create_date");
+        this.WithOutput("path");
+        this.WithOutput("role_arn");
+        this.WithOutput("role_id");
+        this.WithOutput("role_name");
     }
 
     /// <summary>

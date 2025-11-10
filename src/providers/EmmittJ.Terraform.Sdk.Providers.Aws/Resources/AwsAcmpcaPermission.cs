@@ -14,7 +14,7 @@ public class AwsAcmpcaPermission : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("policy");
+        this.WithOutput("policy");
     }
 
     /// <summary>

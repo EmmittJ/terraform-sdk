@@ -58,7 +58,7 @@ public class AzurermPublicIpPrefix : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ip_prefix");
+        this.WithOutput("ip_prefix");
     }
 
     /// <summary>

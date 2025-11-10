@@ -31,12 +31,12 @@ public class AzurermNatGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("idle_timeout_in_minutes");
-        this.DeclareOutput("location");
-        this.DeclareOutput("resource_guid");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("zones");
+        this.WithOutput("idle_timeout_in_minutes");
+        this.WithOutput("location");
+        this.WithOutput("resource_guid");
+        this.WithOutput("sku_name");
+        this.WithOutput("tags");
+        this.WithOutput("zones");
     }
 
     /// <summary>

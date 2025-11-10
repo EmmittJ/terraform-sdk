@@ -42,7 +42,7 @@ public class AwsLicensemanagerReceivedLicensesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arns");
+        this.WithOutput("arns");
     }
 
     /// <summary>

@@ -14,9 +14,9 @@ public class AwsNetworkfirewallFirewallPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("firewall_policy");
-        this.DeclareOutput("update_token");
+        this.WithOutput("description");
+        this.WithOutput("firewall_policy");
+        this.WithOutput("update_token");
     }
 
     /// <summary>

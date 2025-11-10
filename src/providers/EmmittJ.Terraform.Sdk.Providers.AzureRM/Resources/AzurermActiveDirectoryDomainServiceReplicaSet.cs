@@ -49,9 +49,9 @@ public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("domain_controller_ip_addresses");
-        this.DeclareOutput("external_access_ip_address");
-        this.DeclareOutput("service_status");
+        this.WithOutput("domain_controller_ip_addresses");
+        this.WithOutput("external_access_ip_address");
+        this.WithOutput("service_status");
     }
 
     /// <summary>

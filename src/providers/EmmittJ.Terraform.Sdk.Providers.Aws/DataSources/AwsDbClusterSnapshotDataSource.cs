@@ -14,19 +14,19 @@ public class AwsDbClusterSnapshotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocated_storage");
-        this.DeclareOutput("availability_zones");
-        this.DeclareOutput("db_cluster_snapshot_arn");
-        this.DeclareOutput("engine");
-        this.DeclareOutput("engine_version");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("license_model");
-        this.DeclareOutput("port");
-        this.DeclareOutput("snapshot_create_time");
-        this.DeclareOutput("source_db_cluster_snapshot_arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("storage_encrypted");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("allocated_storage");
+        this.WithOutput("availability_zones");
+        this.WithOutput("db_cluster_snapshot_arn");
+        this.WithOutput("engine");
+        this.WithOutput("engine_version");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("license_model");
+        this.WithOutput("port");
+        this.WithOutput("snapshot_create_time");
+        this.WithOutput("source_db_cluster_snapshot_arn");
+        this.WithOutput("status");
+        this.WithOutput("storage_encrypted");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

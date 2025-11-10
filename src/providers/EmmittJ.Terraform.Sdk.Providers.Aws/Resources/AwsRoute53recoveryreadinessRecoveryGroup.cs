@@ -31,7 +31,7 @@ public class AwsRoute53recoveryreadinessRecoveryGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutput("arn");
     }
 
     /// <summary>

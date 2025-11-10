@@ -49,9 +49,9 @@ public class AwsLocationGeofenceCollection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("collection_arn");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("update_time");
+        this.WithOutput("collection_arn");
+        this.WithOutput("create_time");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

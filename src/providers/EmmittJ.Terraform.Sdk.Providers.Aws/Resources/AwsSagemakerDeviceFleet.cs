@@ -42,8 +42,8 @@ public class AwsSagemakerDeviceFleet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("iot_role_alias");
+        this.WithOutput("arn");
+        this.WithOutput("iot_role_alias");
     }
 
     /// <summary>

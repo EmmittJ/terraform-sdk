@@ -40,13 +40,13 @@ public class AwsEbsSnapshotCopy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("data_encryption_key_id");
-        this.DeclareOutput("outpost_arn");
-        this.DeclareOutput("owner_alias");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("volume_id");
-        this.DeclareOutput("volume_size");
+        this.WithOutput("arn");
+        this.WithOutput("data_encryption_key_id");
+        this.WithOutput("outpost_arn");
+        this.WithOutput("owner_alias");
+        this.WithOutput("owner_id");
+        this.WithOutput("volume_id");
+        this.WithOutput("volume_size");
     }
 
     /// <summary>

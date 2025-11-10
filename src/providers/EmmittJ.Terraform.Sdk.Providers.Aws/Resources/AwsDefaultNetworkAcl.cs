@@ -202,9 +202,9 @@ public class AwsDefaultNetworkAcl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("arn");
+        this.WithOutput("owner_id");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

@@ -59,11 +59,11 @@ public class AwsKeyPairDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("key_type");
-        this.DeclareOutput("public_key");
+        this.WithOutput("arn");
+        this.WithOutput("create_time");
+        this.WithOutput("fingerprint");
+        this.WithOutput("key_type");
+        this.WithOutput("public_key");
     }
 
     /// <summary>

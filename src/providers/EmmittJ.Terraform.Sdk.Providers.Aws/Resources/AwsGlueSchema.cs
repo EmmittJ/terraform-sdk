@@ -14,11 +14,11 @@ public class AwsGlueSchema : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("latest_schema_version");
-        this.DeclareOutput("next_schema_version");
-        this.DeclareOutput("registry_name");
-        this.DeclareOutput("schema_checkpoint");
+        this.WithOutput("arn");
+        this.WithOutput("latest_schema_version");
+        this.WithOutput("next_schema_version");
+        this.WithOutput("registry_name");
+        this.WithOutput("schema_checkpoint");
     }
 
     /// <summary>

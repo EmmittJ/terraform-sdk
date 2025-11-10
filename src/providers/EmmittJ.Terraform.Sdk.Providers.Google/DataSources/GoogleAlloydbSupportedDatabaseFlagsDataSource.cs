@@ -14,7 +14,7 @@ public class GoogleAlloydbSupportedDatabaseFlagsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("supported_database_flags");
+        this.WithOutput("supported_database_flags");
     }
 
     /// <summary>

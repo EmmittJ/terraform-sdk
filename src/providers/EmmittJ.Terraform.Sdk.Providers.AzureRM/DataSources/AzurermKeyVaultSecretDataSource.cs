@@ -31,14 +31,14 @@ public class AzurermKeyVaultSecretDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("content_type");
-        this.DeclareOutput("expiration_date");
-        this.DeclareOutput("not_before_date");
-        this.DeclareOutput("resource_id");
-        this.DeclareOutput("resource_versionless_id");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("value");
-        this.DeclareOutput("versionless_id");
+        this.WithOutput("content_type");
+        this.WithOutput("expiration_date");
+        this.WithOutput("not_before_date");
+        this.WithOutput("resource_id");
+        this.WithOutput("resource_versionless_id");
+        this.WithOutput("tags");
+        this.WithOutput("value");
+        this.WithOutput("versionless_id");
     }
 
     /// <summary>

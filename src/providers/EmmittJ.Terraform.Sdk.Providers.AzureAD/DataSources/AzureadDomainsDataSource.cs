@@ -31,7 +31,7 @@ public class AzureadDomainsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("domains");
+        this.WithOutput("domains");
     }
 
     /// <summary>

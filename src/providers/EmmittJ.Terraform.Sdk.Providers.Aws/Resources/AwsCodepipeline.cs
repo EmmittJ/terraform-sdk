@@ -124,8 +124,8 @@ public class AwsCodepipeline : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("trigger_all");
+        this.WithOutput("arn");
+        this.WithOutput("trigger_all");
     }
 
     /// <summary>

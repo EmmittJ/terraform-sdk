@@ -14,11 +14,11 @@ public class AwsLocationMapDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("configuration");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("map_arn");
-        this.DeclareOutput("update_time");
+        this.WithOutput("configuration");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("map_arn");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

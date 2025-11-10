@@ -131,15 +131,15 @@ public class GoogleDataplexAsset : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("discovery_status");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("resource_status");
-        this.DeclareOutput("security_status");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("discovery_status");
+        this.WithOutput("effective_labels");
+        this.WithOutput("resource_status");
+        this.WithOutput("security_status");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

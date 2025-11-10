@@ -223,7 +223,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama : Terraform
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("panorama");
+        this.WithOutput("panorama");
     }
 
     /// <summary>

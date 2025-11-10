@@ -40,7 +40,7 @@ public class GoogleKmsSecretCiphertext : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ciphertext");
+        this.WithOutput("ciphertext");
     }
 
     /// <summary>

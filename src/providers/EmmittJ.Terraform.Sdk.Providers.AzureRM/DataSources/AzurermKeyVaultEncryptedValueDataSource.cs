@@ -31,7 +31,7 @@ public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("decoded_plain_text_value");
+        this.WithOutput("decoded_plain_text_value");
     }
 
     /// <summary>

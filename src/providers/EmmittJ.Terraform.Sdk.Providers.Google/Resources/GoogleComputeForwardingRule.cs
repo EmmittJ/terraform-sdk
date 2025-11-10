@@ -76,16 +76,16 @@ public class GoogleComputeForwardingRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("base_forwarding_rule");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("forwarding_rule_id");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("psc_connection_id");
-        this.DeclareOutput("psc_connection_status");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("service_name");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("base_forwarding_rule");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("effective_labels");
+        this.WithOutput("forwarding_rule_id");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("psc_connection_id");
+        this.WithOutput("psc_connection_status");
+        this.WithOutput("self_link");
+        this.WithOutput("service_name");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

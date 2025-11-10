@@ -59,8 +59,8 @@ public class AwsOpensearchserverlessSecurityConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("config_version");
-        this.DeclareOutput("id");
+        this.WithOutput("config_version");
+        this.WithOutput("id");
     }
 
     /// <summary>

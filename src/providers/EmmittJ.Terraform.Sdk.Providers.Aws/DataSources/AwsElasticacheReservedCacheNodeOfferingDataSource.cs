@@ -14,8 +14,8 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fixed_price");
-        this.DeclareOutput("offering_id");
+        this.WithOutput("fixed_price");
+        this.WithOutput("offering_id");
     }
 
     /// <summary>

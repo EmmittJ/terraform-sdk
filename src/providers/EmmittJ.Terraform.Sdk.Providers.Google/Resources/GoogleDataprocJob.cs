@@ -566,11 +566,11 @@ public class GoogleDataprocJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("driver_controls_files_uri");
-        this.DeclareOutput("driver_output_resource_uri");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("status");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("driver_controls_files_uri");
+        this.WithOutput("driver_output_resource_uri");
+        this.WithOutput("effective_labels");
+        this.WithOutput("status");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

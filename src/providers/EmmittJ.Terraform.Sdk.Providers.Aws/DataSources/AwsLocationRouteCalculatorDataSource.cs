@@ -14,11 +14,11 @@ public class AwsLocationRouteCalculatorDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("calculator_arn");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("data_source");
-        this.DeclareOutput("description");
-        this.DeclareOutput("update_time");
+        this.WithOutputalculator_arn");
+        this.WithOutputreate_time");
+        this.WithOutputata_source");
+        this.WithOutputescription");
+        this.WithOutputpdate_time");
     }
 
     /// <summary>

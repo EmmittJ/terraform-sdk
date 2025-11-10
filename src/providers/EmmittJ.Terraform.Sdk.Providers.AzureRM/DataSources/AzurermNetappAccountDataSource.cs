@@ -77,8 +77,8 @@ public class AzurermNetappAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

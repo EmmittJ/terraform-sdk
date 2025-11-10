@@ -32,9 +32,9 @@ public class AwsCloudwatchLogDeliveryDestination : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("delivery_destination_type");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("delivery_destination_type");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

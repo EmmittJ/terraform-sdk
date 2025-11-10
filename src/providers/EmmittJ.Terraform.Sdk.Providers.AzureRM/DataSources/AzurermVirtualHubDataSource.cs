@@ -31,13 +31,13 @@ public class AzurermVirtualHubDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address_prefix");
-        this.DeclareOutput("default_route_table_id");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("virtual_router_asn");
-        this.DeclareOutput("virtual_router_ips");
-        this.DeclareOutput("virtual_wan_id");
+        this.WithOutput("address_prefix");
+        this.WithOutput("default_route_table_id");
+        this.WithOutput("location");
+        this.WithOutput("tags");
+        this.WithOutput("virtual_router_asn");
+        this.WithOutput("virtual_router_ips");
+        this.WithOutput("virtual_wan_id");
     }
 
     /// <summary>

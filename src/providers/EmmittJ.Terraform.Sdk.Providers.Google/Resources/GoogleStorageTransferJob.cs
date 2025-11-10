@@ -174,9 +174,9 @@ public class GoogleStorageTransferJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("deletion_time");
-        this.DeclareOutput("last_modification_time");
+        this.WithOutput("creation_time");
+        this.WithOutput("deletion_time");
+        this.WithOutput("last_modification_time");
     }
 
     /// <summary>

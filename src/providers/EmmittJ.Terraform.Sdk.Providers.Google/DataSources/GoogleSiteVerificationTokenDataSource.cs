@@ -31,7 +31,7 @@ public class GoogleSiteVerificationTokenDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("token");
+        this.WithOutput("token");
     }
 
     /// <summary>

@@ -58,11 +58,11 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("total_deployed_resources");
-        this.DeclareOutput("total_monitored_resources");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("total_deployed_resources");
+        this.WithOutput("total_monitored_resources");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

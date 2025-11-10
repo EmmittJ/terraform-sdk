@@ -14,7 +14,7 @@ public class GoogleStorageObjectSignedUrlDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("signed_url");
+        this.WithOutput("signed_url");
     }
 
     /// <summary>

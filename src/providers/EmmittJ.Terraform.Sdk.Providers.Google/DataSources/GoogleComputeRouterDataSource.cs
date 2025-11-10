@@ -14,13 +14,13 @@ public class GoogleComputeRouterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("bgp");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("description");
-        this.DeclareOutput("encrypted_interconnect_router");
-        this.DeclareOutput("md5_authentication_keys");
-        this.DeclareOutput("params");
-        this.DeclareOutput("self_link");
+        this.WithOutput("bgp");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("description");
+        this.WithOutput("encrypted_interconnect_router");
+        this.WithOutput("md5_authentication_keys");
+        this.WithOutput("params");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

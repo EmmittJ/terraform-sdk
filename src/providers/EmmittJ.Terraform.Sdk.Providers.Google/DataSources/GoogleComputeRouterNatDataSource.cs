@@ -14,28 +14,28 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("auto_network_tier");
-        this.DeclareOutput("drain_nat_ips");
-        this.DeclareOutput("enable_dynamic_port_allocation");
-        this.DeclareOutput("enable_endpoint_independent_mapping");
-        this.DeclareOutput("endpoint_types");
-        this.DeclareOutput("icmp_idle_timeout_sec");
-        this.DeclareOutput("initial_nat_ips");
-        this.DeclareOutput("log_config");
-        this.DeclareOutput("max_ports_per_vm");
-        this.DeclareOutput("min_ports_per_vm");
-        this.DeclareOutput("nat64_subnetwork");
-        this.DeclareOutput("nat_ip_allocate_option");
-        this.DeclareOutput("nat_ips");
-        this.DeclareOutput("rules");
-        this.DeclareOutput("source_subnetwork_ip_ranges_to_nat");
-        this.DeclareOutput("source_subnetwork_ip_ranges_to_nat64");
-        this.DeclareOutput("subnetwork");
-        this.DeclareOutput("tcp_established_idle_timeout_sec");
-        this.DeclareOutput("tcp_time_wait_timeout_sec");
-        this.DeclareOutput("tcp_transitory_idle_timeout_sec");
-        this.DeclareOutput("type");
-        this.DeclareOutput("udp_idle_timeout_sec");
+        this.WithOutput("auto_network_tier");
+        this.WithOutput("drain_nat_ips");
+        this.WithOutput("enable_dynamic_port_allocation");
+        this.WithOutput("enable_endpoint_independent_mapping");
+        this.WithOutput("endpoint_types");
+        this.WithOutput("icmp_idle_timeout_sec");
+        this.WithOutput("initial_nat_ips");
+        this.WithOutput("log_config");
+        this.WithOutput("max_ports_per_vm");
+        this.WithOutput("min_ports_per_vm");
+        this.WithOutput("nat64_subnetwork");
+        this.WithOutput("nat_ip_allocate_option");
+        this.WithOutput("nat_ips");
+        this.WithOutput("rules");
+        this.WithOutput("source_subnetwork_ip_ranges_to_nat");
+        this.WithOutput("source_subnetwork_ip_ranges_to_nat64");
+        this.WithOutput("subnetwork");
+        this.WithOutput("tcp_established_idle_timeout_sec");
+        this.WithOutput("tcp_time_wait_timeout_sec");
+        this.WithOutput("tcp_transitory_idle_timeout_sec");
+        this.WithOutput("type");
+        this.WithOutput("udp_idle_timeout_sec");
     }
 
     /// <summary>

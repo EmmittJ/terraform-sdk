@@ -31,8 +31,8 @@ public class AzurermContainerRegistryTokenDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("scope_map_id");
+        this.WithOutput("enabled");
+        this.WithOutput("scope_map_id");
     }
 
     /// <summary>

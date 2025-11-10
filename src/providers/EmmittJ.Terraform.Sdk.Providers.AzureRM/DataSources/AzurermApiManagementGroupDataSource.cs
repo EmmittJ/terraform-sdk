@@ -31,10 +31,10 @@ public class AzurermApiManagementGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("external_id");
-        this.DeclareOutput("type");
+        this.WithOutput("description");
+        this.WithOutput("display_name");
+        this.WithOutput("external_id");
+        this.WithOutput("type");
     }
 
     /// <summary>

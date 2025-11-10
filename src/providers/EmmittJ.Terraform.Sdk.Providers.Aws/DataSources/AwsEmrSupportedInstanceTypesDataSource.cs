@@ -14,8 +14,8 @@ public class AwsEmrSupportedInstanceTypesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("supported_instance_types");
+        this.WithOutput("id");
+        this.WithOutput("supported_instance_types");
     }
 
     /// <summary>

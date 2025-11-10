@@ -14,9 +14,9 @@ public class GoogleStorageTransferProjectServiceAccountDataSource : TerraformDat
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("email");
-        this.DeclareOutput("member");
-        this.DeclareOutput("subject_id");
+        this.WithOutput("email");
+        this.WithOutput("member");
+        this.WithOutput("subject_id");
     }
 
     /// <summary>

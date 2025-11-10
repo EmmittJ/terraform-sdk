@@ -76,9 +76,9 @@ public class GoogleBigqueryReservation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("original_primary_location");
-        this.DeclareOutput("primary_location");
-        this.DeclareOutput("replication_status");
+        this.WithOutput("original_primary_location");
+        this.WithOutput("primary_location");
+        this.WithOutput("replication_status");
     }
 
     /// <summary>

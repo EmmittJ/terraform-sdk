@@ -31,8 +31,8 @@ public class AzurermEventhubDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("partition_count");
-        this.DeclareOutput("partition_ids");
+        this.WithOutput("partition_count");
+        this.WithOutput("partition_ids");
     }
 
     /// <summary>

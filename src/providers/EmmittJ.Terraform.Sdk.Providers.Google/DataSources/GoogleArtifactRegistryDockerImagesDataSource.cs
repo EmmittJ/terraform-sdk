@@ -14,7 +14,7 @@ public class GoogleArtifactRegistryDockerImagesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("docker_images");
+        this.WithOutput("docker_images");
     }
 
     /// <summary>

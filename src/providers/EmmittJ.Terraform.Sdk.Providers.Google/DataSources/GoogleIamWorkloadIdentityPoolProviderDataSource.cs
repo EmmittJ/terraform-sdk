@@ -14,17 +14,17 @@ public class GoogleIamWorkloadIdentityPoolProviderDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attribute_condition");
-        this.DeclareOutput("attribute_mapping");
-        this.DeclareOutput("aws");
-        this.DeclareOutput("description");
-        this.DeclareOutput("disabled");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("name");
-        this.DeclareOutput("oidc");
-        this.DeclareOutput("saml");
-        this.DeclareOutput("state");
-        this.DeclareOutput("x509");
+        this.WithOutput("attribute_condition");
+        this.WithOutput("attribute_mapping");
+        this.WithOutput("aws");
+        this.WithOutput("description");
+        this.WithOutput("disabled");
+        this.WithOutput("display_name");
+        this.WithOutput("name");
+        this.WithOutput("oidc");
+        this.WithOutput("saml");
+        this.WithOutput("state");
+        this.WithOutput("x509");
     }
 
     /// <summary>

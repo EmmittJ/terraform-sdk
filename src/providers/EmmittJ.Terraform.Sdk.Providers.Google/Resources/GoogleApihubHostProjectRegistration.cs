@@ -40,8 +40,8 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
     }
 
     /// <summary>

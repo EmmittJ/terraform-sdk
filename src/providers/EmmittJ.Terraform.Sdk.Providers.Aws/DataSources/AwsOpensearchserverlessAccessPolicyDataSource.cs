@@ -14,10 +14,10 @@ public class AwsOpensearchserverlessAccessPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("id");
-        this.DeclareOutput("policy");
-        this.DeclareOutput("policy_version");
+        this.WithOutput("description");
+        this.WithOutput("id");
+        this.WithOutput("policy");
+        this.WithOutput("policy_version");
     }
 
     /// <summary>

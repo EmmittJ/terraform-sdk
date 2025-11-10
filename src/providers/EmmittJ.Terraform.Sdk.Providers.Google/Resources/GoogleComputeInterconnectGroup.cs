@@ -95,9 +95,9 @@ public class GoogleComputeInterconnectGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("configured");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("physical_structure");
+        this.WithOutput("configured");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("physical_structure");
     }
 
     /// <summary>

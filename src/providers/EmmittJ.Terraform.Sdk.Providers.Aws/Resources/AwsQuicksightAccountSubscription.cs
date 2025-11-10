@@ -49,7 +49,7 @@ public class AwsQuicksightAccountSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_subscription_status");
+        this.WithOutput("account_subscription_status");
     }
 
     /// <summary>

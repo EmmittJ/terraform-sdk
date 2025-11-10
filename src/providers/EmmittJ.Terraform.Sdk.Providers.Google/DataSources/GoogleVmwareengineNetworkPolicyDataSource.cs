@@ -14,15 +14,15 @@ public class GoogleVmwareengineNetworkPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("edge_services_cidr");
-        this.DeclareOutput("external_ip");
-        this.DeclareOutput("internet_access");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("vmware_engine_network");
-        this.DeclareOutput("vmware_engine_network_canonical");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("edge_services_cidr");
+        this.WithOutput("external_ip");
+        this.WithOutput("internet_access");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("vmware_engine_network");
+        this.WithOutput("vmware_engine_network_canonical");
     }
 
     /// <summary>

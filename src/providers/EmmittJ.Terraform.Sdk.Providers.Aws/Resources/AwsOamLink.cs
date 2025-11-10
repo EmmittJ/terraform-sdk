@@ -58,10 +58,10 @@ public class AwsOamLink : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("label");
-        this.DeclareOutput("link_id");
-        this.DeclareOutput("sink_arn");
+        this.WithOutput("arn");
+        this.WithOutput("label");
+        this.WithOutput("link_id");
+        this.WithOutput("sink_arn");
     }
 
     /// <summary>

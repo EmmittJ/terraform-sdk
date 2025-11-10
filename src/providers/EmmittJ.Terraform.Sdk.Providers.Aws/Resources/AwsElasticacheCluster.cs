@@ -98,11 +98,11 @@ public class AwsElasticacheCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cache_nodes");
-        this.DeclareOutput("cluster_address");
-        this.DeclareOutput("configuration_endpoint");
-        this.DeclareOutput("engine_version_actual");
+        this.WithOutputrn");
+        this.WithOutputache_nodes");
+        this.WithOutputluster_address");
+        this.WithOutputonfiguration_endpoint");
+        this.WithOutputngine_version_actual");
     }
 
     /// <summary>

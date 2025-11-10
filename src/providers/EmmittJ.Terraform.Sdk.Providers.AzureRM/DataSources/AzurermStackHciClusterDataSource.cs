@@ -31,15 +31,15 @@ public class AzurermStackHciClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("automanage_configuration_id");
-        this.DeclareOutput("client_id");
-        this.DeclareOutput("cloud_id");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("resource_provider_object_id");
-        this.DeclareOutput("service_endpoint");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("tenant_id");
+        this.WithOutput("automanage_configuration_id");
+        this.WithOutput("client_id");
+        this.WithOutput("cloud_id");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("resource_provider_object_id");
+        this.WithOutput("service_endpoint");
+        this.WithOutput("tags");
+        this.WithOutput("tenant_id");
     }
 
     /// <summary>

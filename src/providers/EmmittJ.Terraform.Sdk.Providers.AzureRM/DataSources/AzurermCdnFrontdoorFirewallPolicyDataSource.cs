@@ -31,13 +31,13 @@ public class AzurermCdnFrontdoorFirewallPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("captcha_cookie_expiration_in_minutes");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("frontend_endpoint_ids");
-        this.DeclareOutput("js_challenge_cookie_expiration_in_minutes");
-        this.DeclareOutput("mode");
-        this.DeclareOutput("redirect_url");
-        this.DeclareOutput("sku_name");
+        this.WithOutput("captcha_cookie_expiration_in_minutes");
+        this.WithOutput("enabled");
+        this.WithOutput("frontend_endpoint_ids");
+        this.WithOutput("js_challenge_cookie_expiration_in_minutes");
+        this.WithOutput("mode");
+        this.WithOutput("redirect_url");
+        this.WithOutput("sku_name");
     }
 
     /// <summary>

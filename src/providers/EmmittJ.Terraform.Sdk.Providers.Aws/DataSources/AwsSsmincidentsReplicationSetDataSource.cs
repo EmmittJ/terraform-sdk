@@ -14,13 +14,13 @@ public class AwsSsmincidentsReplicationSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_by");
-        this.DeclareOutput("deletion_protected");
-        this.DeclareOutput("last_modified_by");
-        this.DeclareOutput("region");
-        this.DeclareOutput("regions");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("created_by");
+        this.WithOutput("deletion_protected");
+        this.WithOutput("last_modified_by");
+        this.WithOutput("region");
+        this.WithOutput("regions");
+        this.WithOutput("status");
     }
 
     /// <summary>

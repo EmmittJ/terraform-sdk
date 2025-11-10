@@ -302,11 +302,11 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("deployment_id");
-        this.DeclareOutput("resource_id");
-        this.DeclareOutput("sync_owner");
-        this.DeclareOutput("tenant_id");
-        this.DeclareOutput("version");
+        this.WithOutput("deployment_id");
+        this.WithOutput("resource_id");
+        this.WithOutput("sync_owner");
+        this.WithOutput("tenant_id");
+        this.WithOutput("version");
     }
 
     /// <summary>

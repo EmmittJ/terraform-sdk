@@ -353,13 +353,13 @@ public class AzureadApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_role_ids");
-        this.DeclareOutput("client_id");
-        this.DeclareOutput("disabled_by_microsoft");
-        this.DeclareOutput("logo_url");
-        this.DeclareOutput("oauth2_permission_scope_ids");
-        this.DeclareOutput("object_id");
-        this.DeclareOutput("publisher_domain");
+        this.WithOutput("app_role_ids");
+        this.WithOutput("client_id");
+        this.WithOutput("disabled_by_microsoft");
+        this.WithOutput("logo_url");
+        this.WithOutput("oauth2_permission_scope_ids");
+        this.WithOutput("object_id");
+        this.WithOutput("publisher_domain");
     }
 
     /// <summary>

@@ -78,7 +78,7 @@ public class AwsS3BucketLifecycleConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
+        this.WithOutput("id");
     }
 
     /// <summary>

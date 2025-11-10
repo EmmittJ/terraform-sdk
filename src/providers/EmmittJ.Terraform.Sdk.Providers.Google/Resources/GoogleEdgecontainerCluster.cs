@@ -231,17 +231,17 @@ public class GoogleEdgecontainerCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cluster_ca_certificate");
-        this.DeclareOutput("control_plane_version");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("maintenance_events");
-        this.DeclareOutput("node_version");
-        this.DeclareOutput("port");
-        this.DeclareOutput("status");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("cluster_ca_certificate");
+        this.WithOutput("control_plane_version");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("endpoint");
+        this.WithOutput("maintenance_events");
+        this.WithOutput("node_version");
+        this.WithOutput("port");
+        this.WithOutput("status");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

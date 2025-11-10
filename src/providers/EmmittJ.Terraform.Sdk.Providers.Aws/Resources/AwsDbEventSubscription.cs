@@ -49,8 +49,8 @@ public class AwsDbEventSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("customer_aws_id");
+        this.WithOutput("arn");
+        this.WithOutput("customer_aws_id");
     }
 
     /// <summary>

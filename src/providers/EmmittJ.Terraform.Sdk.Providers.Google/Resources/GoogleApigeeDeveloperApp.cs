@@ -75,11 +75,11 @@ public class GoogleApigeeDeveloperApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_id");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("credentials");
-        this.DeclareOutput("developer_id");
-        this.DeclareOutput("last_modified_at");
+        this.WithOutput("app_id");
+        this.WithOutput("created_at");
+        this.WithOutput("credentials");
+        this.WithOutput("developer_id");
+        this.WithOutput("last_modified_at");
     }
 
     /// <summary>

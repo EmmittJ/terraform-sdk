@@ -14,11 +14,11 @@ public class AwsSyntheticsRuntimeVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("deprecation_date");
-        this.DeclareOutput("description");
-        this.DeclareOutput("id");
-        this.DeclareOutput("release_date");
-        this.DeclareOutput("version_name");
+        this.WithOutput("deprecation_date");
+        this.WithOutput("description");
+        this.WithOutput("id");
+        this.WithOutput("release_date");
+        this.WithOutput("version_name");
     }
 
     /// <summary>

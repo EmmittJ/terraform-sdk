@@ -40,13 +40,13 @@ public class AwsEfsMountTarget : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("availability_zone_id");
-        this.DeclareOutput("availability_zone_name");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("file_system_arn");
-        this.DeclareOutput("mount_target_dns_name");
-        this.DeclareOutput("network_interface_id");
-        this.DeclareOutput("owner_id");
+        this.WithOutput("availability_zone_id");
+        this.WithOutput("availability_zone_name");
+        this.WithOutput("dns_name");
+        this.WithOutput("file_system_arn");
+        this.WithOutput("mount_target_dns_name");
+        this.WithOutput("network_interface_id");
+        this.WithOutput("owner_id");
     }
 
     /// <summary>

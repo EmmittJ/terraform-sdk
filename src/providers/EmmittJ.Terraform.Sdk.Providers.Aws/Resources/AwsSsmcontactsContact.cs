@@ -14,7 +14,7 @@ public class AwsSsmcontactsContact : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutput("arn");
     }
 
     /// <summary>

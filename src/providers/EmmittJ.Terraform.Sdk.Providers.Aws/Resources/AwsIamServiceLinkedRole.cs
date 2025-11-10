@@ -14,11 +14,11 @@ public class AwsIamServiceLinkedRole : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("create_date");
-        this.DeclareOutput("name");
-        this.DeclareOutput("path");
-        this.DeclareOutput("unique_id");
+        this.WithOutput("arn");
+        this.WithOutput("create_date");
+        this.WithOutput("name");
+        this.WithOutput("path");
+        this.WithOutput("unique_id");
     }
 
     /// <summary>

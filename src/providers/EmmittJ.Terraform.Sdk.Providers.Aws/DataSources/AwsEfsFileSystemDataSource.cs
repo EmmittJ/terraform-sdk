@@ -14,19 +14,19 @@ public class AwsEfsFileSystemDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zone_id");
-        this.DeclareOutput("availability_zone_name");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("encrypted");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("lifecycle_policy");
-        this.DeclareOutput("name");
-        this.DeclareOutput("performance_mode");
-        this.DeclareOutput("protection");
-        this.DeclareOutput("provisioned_throughput_in_mibps");
-        this.DeclareOutput("size_in_bytes");
-        this.DeclareOutput("throughput_mode");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zone_id");
+        this.WithOutput("availability_zone_name");
+        this.WithOutput("dns_name");
+        this.WithOutput("encrypted");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("lifecycle_policy");
+        this.WithOutput("name");
+        this.WithOutput("performance_mode");
+        this.WithOutput("protection");
+        this.WithOutput("provisioned_throughput_in_mibps");
+        this.WithOutput("size_in_bytes");
+        this.WithOutput("throughput_mode");
     }
 
     /// <summary>

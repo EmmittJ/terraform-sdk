@@ -14,7 +14,7 @@ public class AwsPinpointEmailChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("messages_per_second");
+        this.WithOutput("messages_per_second");
     }
 
     /// <summary>

@@ -40,7 +40,7 @@ public class GoogleComputeRegionNetworkEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("network_endpoint_id");
+        this.WithOutput("network_endpoint_id");
     }
 
     /// <summary>

@@ -94,9 +94,9 @@ public class GoogleDataPipelinePipeline : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("job_count");
-        this.DeclareOutput("last_update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("job_count");
+        this.WithOutput("last_update_time");
     }
 
     /// <summary>

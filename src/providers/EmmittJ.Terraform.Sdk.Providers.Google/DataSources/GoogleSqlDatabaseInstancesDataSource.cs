@@ -14,7 +14,7 @@ public class GoogleSqlDatabaseInstancesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("instances");
+        this.WithOutput("instances");
     }
 
     /// <summary>

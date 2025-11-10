@@ -167,18 +167,18 @@ public class AwsAmi : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("hypervisor");
-        this.DeclareOutput("image_owner_alias");
-        this.DeclareOutput("image_type");
-        this.DeclareOutput("last_launched_time");
-        this.DeclareOutput("manage_ebs_snapshots");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("platform");
-        this.DeclareOutput("platform_details");
-        this.DeclareOutput("public");
-        this.DeclareOutput("root_snapshot_id");
-        this.DeclareOutput("usage_operation");
+        this.WithOutput("arn");
+        this.WithOutput("hypervisor");
+        this.WithOutput("image_owner_alias");
+        this.WithOutput("image_type");
+        this.WithOutput("last_launched_time");
+        this.WithOutput("manage_ebs_snapshots");
+        this.WithOutput("owner_id");
+        this.WithOutput("platform");
+        this.WithOutput("platform_details");
+        this.WithOutput("public");
+        this.WithOutput("root_snapshot_id");
+        this.WithOutput("usage_operation");
     }
 
     /// <summary>

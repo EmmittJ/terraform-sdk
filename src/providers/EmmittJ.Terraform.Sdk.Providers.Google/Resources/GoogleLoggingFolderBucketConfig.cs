@@ -102,8 +102,8 @@ public class GoogleLoggingFolderBucketConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("lifecycle_state");
-        this.DeclareOutput("name");
+        this.WithOutput("lifecycle_state");
+        this.WithOutput("name");
     }
 
     /// <summary>

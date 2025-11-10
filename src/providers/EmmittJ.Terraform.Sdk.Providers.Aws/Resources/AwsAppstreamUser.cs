@@ -14,8 +14,8 @@ public class AwsAppstreamUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
     }
 
     /// <summary>

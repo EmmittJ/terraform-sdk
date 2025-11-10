@@ -31,30 +31,30 @@ public class AzurermKubernetesClusterNodePoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("auto_scaling_enabled");
-        this.DeclareOutput("eviction_policy");
-        this.DeclareOutput("gpu_driver");
-        this.DeclareOutput("max_count");
-        this.DeclareOutput("max_pods");
-        this.DeclareOutput("min_count");
-        this.DeclareOutput("mode");
-        this.DeclareOutput("node_count");
-        this.DeclareOutput("node_labels");
-        this.DeclareOutput("node_public_ip_enabled");
-        this.DeclareOutput("node_public_ip_prefix_id");
-        this.DeclareOutput("node_taints");
-        this.DeclareOutput("orchestrator_version");
-        this.DeclareOutput("os_disk_size_gb");
-        this.DeclareOutput("os_disk_type");
-        this.DeclareOutput("os_type");
-        this.DeclareOutput("priority");
-        this.DeclareOutput("proximity_placement_group_id");
-        this.DeclareOutput("spot_max_price");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("upgrade_settings");
-        this.DeclareOutput("vm_size");
-        this.DeclareOutput("vnet_subnet_id");
-        this.DeclareOutput("zones");
+        this.WithOutput("auto_scaling_enabled");
+        this.WithOutput("eviction_policy");
+        this.WithOutput("gpu_driver");
+        this.WithOutput("max_count");
+        this.WithOutput("max_pods");
+        this.WithOutput("min_count");
+        this.WithOutput("mode");
+        this.WithOutput("node_count");
+        this.WithOutput("node_labels");
+        this.WithOutput("node_public_ip_enabled");
+        this.WithOutput("node_public_ip_prefix_id");
+        this.WithOutput("node_taints");
+        this.WithOutput("orchestrator_version");
+        this.WithOutput("os_disk_size_gb");
+        this.WithOutput("os_disk_type");
+        this.WithOutput("os_type");
+        this.WithOutput("priority");
+        this.WithOutput("proximity_placement_group_id");
+        this.WithOutput("spot_max_price");
+        this.WithOutput("tags");
+        this.WithOutput("upgrade_settings");
+        this.WithOutput("vm_size");
+        this.WithOutput("vnet_subnet_id");
+        this.WithOutput("zones");
     }
 
     /// <summary>

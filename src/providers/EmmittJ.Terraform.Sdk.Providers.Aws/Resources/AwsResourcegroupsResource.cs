@@ -40,7 +40,7 @@ public class AwsResourcegroupsResource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_type");
+        this.WithOutput("resource_type");
     }
 
     /// <summary>

@@ -14,24 +14,24 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("deletion_protection_enabled");
-        this.DeclareOutput("deletion_protection_reason");
-        this.DeclareOutput("description");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("effective_replication");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("file_shares");
-        this.DeclareOutput("initial_replication");
-        this.DeclareOutput("kms_key_name");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("networks");
-        this.DeclareOutput("performance_config");
-        this.DeclareOutput("protocol");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("tier");
-        this.DeclareOutput("zone");
+        this.WithOutput("create_time");
+        this.WithOutput("deletion_protection_enabled");
+        this.WithOutput("deletion_protection_reason");
+        this.WithOutput("description");
+        this.WithOutput("effective_labels");
+        this.WithOutput("effective_replication");
+        this.WithOutput("etag");
+        this.WithOutput("file_shares");
+        this.WithOutput("initial_replication");
+        this.WithOutput("kms_key_name");
+        this.WithOutput("labels");
+        this.WithOutput("networks");
+        this.WithOutput("performance_config");
+        this.WithOutput("protocol");
+        this.WithOutput("tags");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("tier");
+        this.WithOutput("zone");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class GoogleArtifactRegistryTagDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("version");
+        this.WithOutput("name");
+        this.WithOutput("version");
     }
 
     /// <summary>

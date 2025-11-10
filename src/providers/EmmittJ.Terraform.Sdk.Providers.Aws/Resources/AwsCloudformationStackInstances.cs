@@ -165,8 +165,8 @@ public class AwsCloudformationStackInstances : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("stack_instance_summaries");
-        this.DeclareOutput("stack_set_id");
+        this.WithOutput("stack_instance_summaries");
+        this.WithOutput("stack_set_id");
     }
 
     /// <summary>

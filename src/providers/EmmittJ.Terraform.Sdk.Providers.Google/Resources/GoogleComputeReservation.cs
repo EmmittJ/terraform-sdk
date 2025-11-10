@@ -147,10 +147,10 @@ public class GoogleComputeReservation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("commitment");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("status");
+        this.WithOutput("commitment");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("self_link");
+        this.WithOutput("status");
     }
 
     /// <summary>

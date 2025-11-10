@@ -14,7 +14,7 @@ public class GoogleCloudRunV2WorkerPoolIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

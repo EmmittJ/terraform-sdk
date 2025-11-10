@@ -49,7 +49,7 @@ public class AzurermAppServicePublicCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("thumbprint");
+        this.WithOutput("thumbprint");
     }
 
     /// <summary>

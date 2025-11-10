@@ -14,7 +14,7 @@ public class AwsKmsCiphertext : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ciphertext_blob");
+        this.WithOutput("ciphertext_blob");
     }
 
     /// <summary>

@@ -86,14 +86,14 @@ public class AwsMwaaEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("database_vpc_endpoint_service");
-        this.DeclareOutput("last_updated");
-        this.DeclareOutput("service_role_arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("webserver_url");
-        this.DeclareOutput("webserver_vpc_endpoint_service");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("database_vpc_endpoint_service");
+        this.WithOutput("last_updated");
+        this.WithOutput("service_role_arn");
+        this.WithOutput("status");
+        this.WithOutput("webserver_url");
+        this.WithOutput("webserver_vpc_endpoint_service");
     }
 
     /// <summary>

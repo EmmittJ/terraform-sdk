@@ -1602,17 +1602,17 @@ public class AzurermKubernetesCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("current_kubernetes_version");
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("http_application_routing_zone_name");
-        this.DeclareOutput("kube_admin_config");
-        this.DeclareOutput("kube_admin_config_raw");
-        this.DeclareOutput("kube_config");
-        this.DeclareOutput("kube_config_raw");
-        this.DeclareOutput("node_resource_group_id");
-        this.DeclareOutput("oidc_issuer_url");
-        this.DeclareOutput("portal_fqdn");
-        this.DeclareOutput("private_fqdn");
+        this.WithOutput("current_kubernetes_version");
+        this.WithOutput("fqdn");
+        this.WithOutput("http_application_routing_zone_name");
+        this.WithOutput("kube_admin_config");
+        this.WithOutput("kube_admin_config_raw");
+        this.WithOutput("kube_config");
+        this.WithOutput("kube_config_raw");
+        this.WithOutput("node_resource_group_id");
+        this.WithOutput("oidc_issuer_url");
+        this.WithOutput("portal_fqdn");
+        this.WithOutput("private_fqdn");
     }
 
     /// <summary>

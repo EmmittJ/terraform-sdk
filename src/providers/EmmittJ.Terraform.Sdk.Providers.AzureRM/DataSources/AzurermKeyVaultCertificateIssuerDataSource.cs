@@ -31,10 +31,10 @@ public class AzurermKeyVaultCertificateIssuerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_id");
-        this.DeclareOutput("admin");
-        this.DeclareOutput("org_id");
-        this.DeclareOutput("provider_name");
+        this.WithOutput("account_id");
+        this.WithOutput("admin");
+        this.WithOutput("org_id");
+        this.WithOutput("provider_name");
     }
 
     /// <summary>

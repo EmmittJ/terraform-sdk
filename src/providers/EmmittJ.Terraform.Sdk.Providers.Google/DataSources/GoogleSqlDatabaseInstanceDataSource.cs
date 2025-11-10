@@ -14,36 +14,36 @@ public class GoogleSqlDatabaseInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("available_maintenance_versions");
-        this.DeclareOutput("backupdr_backup");
-        this.DeclareOutput("clone");
-        this.DeclareOutput("connection_name");
-        this.DeclareOutput("database_version");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("dns_names");
-        this.DeclareOutput("encryption_key_name");
-        this.DeclareOutput("final_backup_description");
-        this.DeclareOutput("first_ip_address");
-        this.DeclareOutput("instance_type");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("maintenance_version");
-        this.DeclareOutput("master_instance_name");
-        this.DeclareOutput("node_count");
-        this.DeclareOutput("point_in_time_restore_context");
-        this.DeclareOutput("private_ip_address");
-        this.DeclareOutput("psc_service_attachment_link");
-        this.DeclareOutput("public_ip_address");
-        this.DeclareOutput("region");
-        this.DeclareOutput("replica_configuration");
-        this.DeclareOutput("replica_names");
-        this.DeclareOutput("replication_cluster");
-        this.DeclareOutput("restore_backup_context");
-        this.DeclareOutput("root_password");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("server_ca_cert");
-        this.DeclareOutput("service_account_email_address");
-        this.DeclareOutput("settings");
+        this.WithOutput("available_maintenance_versions");
+        this.WithOutput("backupdr_backup");
+        this.WithOutput("clone");
+        this.WithOutput("connection_name");
+        this.WithOutput("database_version");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("dns_name");
+        this.WithOutput("dns_names");
+        this.WithOutput("encryption_key_name");
+        this.WithOutput("final_backup_description");
+        this.WithOutput("first_ip_address");
+        this.WithOutput("instance_type");
+        this.WithOutput("ip_address");
+        this.WithOutput("maintenance_version");
+        this.WithOutput("master_instance_name");
+        this.WithOutput("node_count");
+        this.WithOutput("point_in_time_restore_context");
+        this.WithOutput("private_ip_address");
+        this.WithOutput("psc_service_attachment_link");
+        this.WithOutput("public_ip_address");
+        this.WithOutput("region");
+        this.WithOutput("replica_configuration");
+        this.WithOutput("replica_names");
+        this.WithOutput("replication_cluster");
+        this.WithOutput("restore_backup_context");
+        this.WithOutput("root_password");
+        this.WithOutput("self_link");
+        this.WithOutput("server_ca_cert");
+        this.WithOutput("service_account_email_address");
+        this.WithOutput("settings");
     }
 
     /// <summary>

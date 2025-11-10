@@ -31,17 +31,17 @@ public class AzurermEventgridDomainDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("inbound_ip_rule");
-        this.DeclareOutput("input_mapping_default_values");
-        this.DeclareOutput("input_mapping_fields");
-        this.DeclareOutput("input_schema");
-        this.DeclareOutput("location");
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("public_network_access_enabled");
-        this.DeclareOutput("secondary_access_key");
-        this.DeclareOutput("tags");
+        this.WithOutput("endpoint");
+        this.WithOutput("identity");
+        this.WithOutput("inbound_ip_rule");
+        this.WithOutput("input_mapping_default_values");
+        this.WithOutput("input_mapping_fields");
+        this.WithOutput("input_schema");
+        this.WithOutput("location");
+        this.WithOutput("primary_access_key");
+        this.WithOutput("public_network_access_enabled");
+        this.WithOutput("secondary_access_key");
+        this.WithOutput("tags");
     }
 
     /// <summary>

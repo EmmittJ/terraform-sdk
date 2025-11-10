@@ -76,13 +76,13 @@ public class AwsDynamodbTableExport : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("billed_size_in_bytes");
-        this.DeclareOutput("end_time");
-        this.DeclareOutput("export_status");
-        this.DeclareOutput("item_count");
-        this.DeclareOutput("manifest_files_s3_key");
-        this.DeclareOutput("start_time");
+        this.WithOutput("arn");
+        this.WithOutput("billed_size_in_bytes");
+        this.WithOutput("end_time");
+        this.WithOutput("export_status");
+        this.WithOutput("item_count");
+        this.WithOutput("manifest_files_s3_key");
+        this.WithOutput("start_time");
     }
 
     /// <summary>

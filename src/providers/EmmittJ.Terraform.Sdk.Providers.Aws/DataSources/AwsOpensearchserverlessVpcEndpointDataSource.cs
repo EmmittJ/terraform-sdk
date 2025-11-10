@@ -14,11 +14,11 @@ public class AwsOpensearchserverlessVpcEndpointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("name");
-        this.DeclareOutput("security_group_ids");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("created_date");
+        this.WithOutput("name");
+        this.WithOutput("security_group_ids");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

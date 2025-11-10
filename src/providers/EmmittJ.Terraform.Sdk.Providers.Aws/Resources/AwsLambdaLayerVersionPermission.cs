@@ -14,8 +14,8 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("policy");
-        this.DeclareOutput("revision_id");
+        this.WithOutput("policy");
+        this.WithOutput("revision_id");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class AwsBedrockCustomModelsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("model_summaries");
+        this.WithOutput("id");
+        this.WithOutput("model_summaries");
     }
 
     /// <summary>

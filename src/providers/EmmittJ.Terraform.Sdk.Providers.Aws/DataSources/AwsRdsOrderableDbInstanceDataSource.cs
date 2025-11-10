@@ -14,15 +14,15 @@ public class AwsRdsOrderableDbInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("availability_zones");
-        this.DeclareOutput("max_iops_per_db_instance");
-        this.DeclareOutput("max_iops_per_gib");
-        this.DeclareOutput("max_storage_size");
-        this.DeclareOutput("min_iops_per_db_instance");
-        this.DeclareOutput("min_iops_per_gib");
-        this.DeclareOutput("min_storage_size");
-        this.DeclareOutput("multi_az_capable");
-        this.DeclareOutput("outpost_capable");
+        this.WithOutput("availability_zones");
+        this.WithOutput("max_iops_per_db_instance");
+        this.WithOutput("max_iops_per_gib");
+        this.WithOutput("max_storage_size");
+        this.WithOutput("min_iops_per_db_instance");
+        this.WithOutput("min_iops_per_gib");
+        this.WithOutput("min_storage_size");
+        this.WithOutput("multi_az_capable");
+        this.WithOutput("outpost_capable");
     }
 
     /// <summary>

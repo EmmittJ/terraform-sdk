@@ -78,11 +78,11 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("date_created");
-        this.DeclareOutput("encrypted");
-        this.DeclareOutput("owner");
-        this.DeclareOutput("platform");
+        this.WithOutput("arn");
+        this.WithOutput("date_created");
+        this.WithOutput("encrypted");
+        this.WithOutput("owner");
+        this.WithOutput("platform");
     }
 
     /// <summary>

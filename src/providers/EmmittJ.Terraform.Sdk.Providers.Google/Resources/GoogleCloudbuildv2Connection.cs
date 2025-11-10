@@ -258,12 +258,12 @@ public class GoogleCloudbuildv2Connection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("installation_state");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("etag");
+        this.WithOutput("installation_state");
+        this.WithOutput("reconciling");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

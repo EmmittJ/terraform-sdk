@@ -59,13 +59,13 @@ public class AwsEc2LocalGatewayVirtualInterfaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("local_address");
-        this.DeclareOutput("local_bgp_asn");
-        this.DeclareOutput("local_gateway_id");
-        this.DeclareOutput("local_gateway_virtual_interface_ids");
-        this.DeclareOutput("peer_address");
-        this.DeclareOutput("peer_bgp_asn");
-        this.DeclareOutput("vlan");
+        this.WithOutput("local_address");
+        this.WithOutput("local_bgp_asn");
+        this.WithOutput("local_gateway_id");
+        this.WithOutput("local_gateway_virtual_interface_ids");
+        this.WithOutput("peer_address");
+        this.WithOutput("peer_bgp_asn");
+        this.WithOutput("vlan");
     }
 
     /// <summary>

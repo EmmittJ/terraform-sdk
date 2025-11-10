@@ -14,28 +14,28 @@ public class AwsCognitoUserPoolClientDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_token_validity");
-        this.DeclareOutput("allowed_oauth_flows");
-        this.DeclareOutput("allowed_oauth_flows_user_pool_client");
-        this.DeclareOutput("allowed_oauth_scopes");
-        this.DeclareOutput("analytics_configuration");
-        this.DeclareOutput("callback_urls");
-        this.DeclareOutput("client_secret");
-        this.DeclareOutput("default_redirect_uri");
-        this.DeclareOutput("enable_propagate_additional_user_context_data");
-        this.DeclareOutput("enable_token_revocation");
-        this.DeclareOutput("explicit_auth_flows");
-        this.DeclareOutput("generate_secret");
-        this.DeclareOutput("id_token_validity");
-        this.DeclareOutput("logout_urls");
-        this.DeclareOutput("name");
-        this.DeclareOutput("prevent_user_existence_errors");
-        this.DeclareOutput("read_attributes");
-        this.DeclareOutput("refresh_token_rotation");
-        this.DeclareOutput("refresh_token_validity");
-        this.DeclareOutput("supported_identity_providers");
-        this.DeclareOutput("token_validity_units");
-        this.DeclareOutput("write_attributes");
+        this.WithOutput("access_token_validity");
+        this.WithOutput("allowed_oauth_flows");
+        this.WithOutput("allowed_oauth_flows_user_pool_client");
+        this.WithOutput("allowed_oauth_scopes");
+        this.WithOutput("analytics_configuration");
+        this.WithOutput("callback_urls");
+        this.WithOutput("client_secret");
+        this.WithOutput("default_redirect_uri");
+        this.WithOutput("enable_propagate_additional_user_context_data");
+        this.WithOutput("enable_token_revocation");
+        this.WithOutput("explicit_auth_flows");
+        this.WithOutput("generate_secret");
+        this.WithOutput("id_token_validity");
+        this.WithOutput("logout_urls");
+        this.WithOutput("name");
+        this.WithOutput("prevent_user_existence_errors");
+        this.WithOutput("read_attributes");
+        this.WithOutput("refresh_token_rotation");
+        this.WithOutput("refresh_token_validity");
+        this.WithOutput("supported_identity_providers");
+        this.WithOutput("token_validity_units");
+        this.WithOutput("write_attributes");
     }
 
     /// <summary>

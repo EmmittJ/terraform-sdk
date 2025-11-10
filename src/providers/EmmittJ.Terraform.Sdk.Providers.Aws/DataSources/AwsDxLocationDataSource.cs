@@ -14,10 +14,10 @@ public class AwsDxLocationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("available_macsec_port_speeds");
-        this.DeclareOutput("available_port_speeds");
-        this.DeclareOutput("available_providers");
-        this.DeclareOutput("location_name");
+        this.WithOutput("available_macsec_port_speeds");
+        this.WithOutput("available_port_speeds");
+        this.WithOutput("available_providers");
+        this.WithOutput("location_name");
     }
 
     /// <summary>

@@ -144,8 +144,8 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("unique_identifier");
+        this.WithOutputqdn");
+        this.WithOutputnique_identifier");
     }
 
     /// <summary>

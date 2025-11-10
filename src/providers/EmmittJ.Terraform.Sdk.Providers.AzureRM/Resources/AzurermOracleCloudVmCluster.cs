@@ -120,8 +120,8 @@ public class AzurermOracleCloudVmCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("hostname_actual");
-        this.DeclareOutput("ocid");
+        this.WithOutput("hostname_actual");
+        this.WithOutput("ocid");
     }
 
     /// <summary>

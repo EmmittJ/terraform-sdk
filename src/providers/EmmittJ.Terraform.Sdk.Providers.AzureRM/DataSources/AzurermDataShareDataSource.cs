@@ -31,10 +31,10 @@ public class AzurermDataShareDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("snapshot_schedule");
-        this.DeclareOutput("terms");
+        this.WithOutput("description");
+        this.WithOutput("kind");
+        this.WithOutput("snapshot_schedule");
+        this.WithOutput("terms");
     }
 
     /// <summary>

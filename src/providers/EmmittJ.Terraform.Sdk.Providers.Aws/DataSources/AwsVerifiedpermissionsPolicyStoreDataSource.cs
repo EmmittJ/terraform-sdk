@@ -14,13 +14,13 @@ public class AwsVerifiedpermissionsPolicyStoreDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("description");
-        this.DeclareOutput("last_updated_date");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("validation_settings");
+        this.WithOutput("arn");
+        this.WithOutput("created_date");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("description");
+        this.WithOutput("last_updated_date");
+        this.WithOutput("tags");
+        this.WithOutput("validation_settings");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class GoogleComputeNetworksDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("networks");
-        this.DeclareOutput("self_link");
+        this.WithOutput("networks");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

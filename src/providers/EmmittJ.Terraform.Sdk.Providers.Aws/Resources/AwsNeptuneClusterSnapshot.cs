@@ -31,19 +31,19 @@ public class AwsNeptuneClusterSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocated_storage");
-        this.DeclareOutput("availability_zones");
-        this.DeclareOutput("db_cluster_snapshot_arn");
-        this.DeclareOutput("engine");
-        this.DeclareOutput("engine_version");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("license_model");
-        this.DeclareOutput("port");
-        this.DeclareOutput("snapshot_type");
-        this.DeclareOutput("source_db_cluster_snapshot_arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("storage_encrypted");
-        this.DeclareOutput("vpc_id");
+        this.WithOutputllocated_storage");
+        this.WithOutputvailability_zones");
+        this.WithOutputb_cluster_snapshot_arn");
+        this.WithOutputngine");
+        this.WithOutputngine_version");
+        this.WithOutputms_key_id");
+        this.WithOutputicense_model");
+        this.WithOutputort");
+        this.WithOutputnapshot_type");
+        this.WithOutputource_db_cluster_snapshot_arn");
+        this.WithOutputtatus");
+        this.WithOutputtorage_encrypted");
+        this.WithOutputpc_id");
     }
 
     /// <summary>

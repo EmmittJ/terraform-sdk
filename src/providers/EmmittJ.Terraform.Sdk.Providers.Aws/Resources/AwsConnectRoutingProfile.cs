@@ -109,8 +109,8 @@ public class AwsConnectRoutingProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("routing_profile_id");
+        this.WithOutputrn");
+        this.WithOutputouting_profile_id");
     }
 
     /// <summary>

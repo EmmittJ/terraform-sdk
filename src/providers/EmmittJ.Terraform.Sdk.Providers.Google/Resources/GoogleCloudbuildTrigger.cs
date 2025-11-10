@@ -562,8 +562,8 @@ public class GoogleCloudbuildTrigger : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("trigger_id");
+        this.WithOutput("create_time");
+        this.WithOutput("trigger_id");
     }
 
     /// <summary>

@@ -150,7 +150,7 @@ public class AzurermEventhub : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("partition_ids");
+        this.WithOutput("partition_ids");
     }
 
     /// <summary>

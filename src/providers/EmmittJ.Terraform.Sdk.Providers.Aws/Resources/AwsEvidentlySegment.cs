@@ -15,11 +15,11 @@ public class AwsEvidentlySegment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("experiment_count");
-        this.DeclareOutput("last_updated_time");
-        this.DeclareOutput("launch_count");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
+        this.WithOutput("experiment_count");
+        this.WithOutput("last_updated_time");
+        this.WithOutput("launch_count");
     }
 
     /// <summary>

@@ -15,7 +15,7 @@ public class AwsSecretsmanagerRandomPasswordEphemeralResource : TerraformEphemer
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("random_password");
+        this.WithOutput("random_password");
     }
 
     /// <summary>

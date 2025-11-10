@@ -31,15 +31,15 @@ public class AwsNetworkmanagerAttachmentAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attachment_policy_rule_number");
-        this.DeclareOutput("core_network_arn");
-        this.DeclareOutput("core_network_id");
-        this.DeclareOutput("edge_location");
-        this.DeclareOutput("edge_locations");
-        this.DeclareOutput("owner_account_id");
-        this.DeclareOutput("resource_arn");
-        this.DeclareOutput("segment_name");
-        this.DeclareOutput("state");
+        this.WithOutput("attachment_policy_rule_number");
+        this.WithOutput("core_network_arn");
+        this.WithOutput("core_network_id");
+        this.WithOutput("edge_location");
+        this.WithOutput("edge_locations");
+        this.WithOutput("owner_account_id");
+        this.WithOutput("resource_arn");
+        this.WithOutput("segment_name");
+        this.WithOutput("state");
     }
 
     /// <summary>

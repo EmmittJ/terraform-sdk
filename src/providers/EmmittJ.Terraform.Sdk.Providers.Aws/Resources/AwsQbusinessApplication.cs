@@ -85,10 +85,10 @@ public class AwsQbusinessApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("identity_center_application_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("identity_center_application_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

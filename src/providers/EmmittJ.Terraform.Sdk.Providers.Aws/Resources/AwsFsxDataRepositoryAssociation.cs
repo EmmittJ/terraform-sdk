@@ -58,8 +58,8 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("association_id");
+        this.WithOutputrn");
+        this.WithOutputssociation_id");
     }
 
     /// <summary>

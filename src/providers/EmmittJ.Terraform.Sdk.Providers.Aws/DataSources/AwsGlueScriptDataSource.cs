@@ -89,8 +89,8 @@ public class AwsGlueScriptDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("python_script");
-        this.DeclareOutput("scala_code");
+        this.WithOutput("python_script");
+        this.WithOutput("scala_code");
     }
 
     /// <summary>

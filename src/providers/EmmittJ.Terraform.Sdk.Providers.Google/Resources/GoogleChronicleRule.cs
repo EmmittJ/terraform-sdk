@@ -49,21 +49,21 @@ public class GoogleChronicleRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allowed_run_frequencies");
-        this.DeclareOutput("author");
-        this.DeclareOutput("compilation_diagnostics");
-        this.DeclareOutput("compilation_state");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("data_tables");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("metadata");
-        this.DeclareOutput("name");
-        this.DeclareOutput("near_real_time_live_rule_eligible");
-        this.DeclareOutput("reference_lists");
-        this.DeclareOutput("revision_create_time");
-        this.DeclareOutput("revision_id");
-        this.DeclareOutput("severity");
-        this.DeclareOutput("type");
+        this.WithOutput("allowed_run_frequencies");
+        this.WithOutput("author");
+        this.WithOutput("compilation_diagnostics");
+        this.WithOutput("compilation_state");
+        this.WithOutput("create_time");
+        this.WithOutput("data_tables");
+        this.WithOutput("display_name");
+        this.WithOutput("metadata");
+        this.WithOutput("name");
+        this.WithOutput("near_real_time_live_rule_eligible");
+        this.WithOutput("reference_lists");
+        this.WithOutput("revision_create_time");
+        this.WithOutput("revision_id");
+        this.WithOutput("severity");
+        this.WithOutput("type");
     }
 
     /// <summary>

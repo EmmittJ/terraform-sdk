@@ -174,9 +174,9 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("self_service_portal_url");
+        this.WithOutput("arn");
+        this.WithOutput("dns_name");
+        this.WithOutput("self_service_portal_url");
     }
 
     /// <summary>

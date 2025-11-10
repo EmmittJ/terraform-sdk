@@ -31,36 +31,36 @@ public class AwsLbDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_logs");
-        this.DeclareOutput("arn_suffix");
-        this.DeclareOutput("client_keep_alive");
-        this.DeclareOutput("connection_logs");
-        this.DeclareOutput("customer_owned_ipv4_pool");
-        this.DeclareOutput("desync_mitigation_mode");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("dns_record_client_routing_policy");
-        this.DeclareOutput("drop_invalid_header_fields");
-        this.DeclareOutput("enable_cross_zone_load_balancing");
-        this.DeclareOutput("enable_deletion_protection");
-        this.DeclareOutput("enable_http2");
-        this.DeclareOutput("enable_tls_version_and_cipher_suite_headers");
-        this.DeclareOutput("enable_waf_fail_open");
-        this.DeclareOutput("enable_xff_client_port");
-        this.DeclareOutput("enable_zonal_shift");
-        this.DeclareOutput("enforce_security_group_inbound_rules_on_private_link_traffic");
-        this.DeclareOutput("idle_timeout");
-        this.DeclareOutput("internal");
-        this.DeclareOutput("ip_address_type");
-        this.DeclareOutput("ipam_pools");
-        this.DeclareOutput("load_balancer_type");
-        this.DeclareOutput("preserve_host_header");
-        this.DeclareOutput("secondary_ips_auto_assigned_per_subnet");
-        this.DeclareOutput("security_groups");
-        this.DeclareOutput("subnet_mapping");
-        this.DeclareOutput("subnets");
-        this.DeclareOutput("vpc_id");
-        this.DeclareOutput("xff_header_processing_mode");
-        this.DeclareOutput("zone_id");
+        this.WithOutput("access_logs");
+        this.WithOutput("arn_suffix");
+        this.WithOutput("client_keep_alive");
+        this.WithOutput("connection_logs");
+        this.WithOutput("customer_owned_ipv4_pool");
+        this.WithOutput("desync_mitigation_mode");
+        this.WithOutput("dns_name");
+        this.WithOutput("dns_record_client_routing_policy");
+        this.WithOutput("drop_invalid_header_fields");
+        this.WithOutput("enable_cross_zone_load_balancing");
+        this.WithOutput("enable_deletion_protection");
+        this.WithOutput("enable_http2");
+        this.WithOutput("enable_tls_version_and_cipher_suite_headers");
+        this.WithOutput("enable_waf_fail_open");
+        this.WithOutput("enable_xff_client_port");
+        this.WithOutput("enable_zonal_shift");
+        this.WithOutput("enforce_security_group_inbound_rules_on_private_link_traffic");
+        this.WithOutput("idle_timeout");
+        this.WithOutput("internal");
+        this.WithOutput("ip_address_type");
+        this.WithOutput("ipam_pools");
+        this.WithOutput("load_balancer_type");
+        this.WithOutput("preserve_host_header");
+        this.WithOutput("secondary_ips_auto_assigned_per_subnet");
+        this.WithOutput("security_groups");
+        this.WithOutput("subnet_mapping");
+        this.WithOutput("subnets");
+        this.WithOutput("vpc_id");
+        this.WithOutput("xff_header_processing_mode");
+        this.WithOutput("zone_id");
     }
 
     /// <summary>

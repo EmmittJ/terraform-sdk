@@ -59,13 +59,13 @@ public class AwsCustomerGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("bgp_asn");
-        this.DeclareOutput("bgp_asn_extended");
-        this.DeclareOutput("certificate_arn");
-        this.DeclareOutput("device_name");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("type");
+        this.WithOutput("arn");
+        this.WithOutput("bgp_asn");
+        this.WithOutput("bgp_asn_extended");
+        this.WithOutput("certificate_arn");
+        this.WithOutput("device_name");
+        this.WithOutput("ip_address");
+        this.WithOutput("type");
     }
 
     /// <summary>

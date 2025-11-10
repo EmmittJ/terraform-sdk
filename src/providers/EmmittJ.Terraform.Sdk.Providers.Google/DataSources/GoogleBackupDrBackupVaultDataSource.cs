@@ -14,31 +14,31 @@ public class GoogleBackupDrBackupVaultDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_restriction");
-        this.DeclareOutput("allow_missing");
-        this.DeclareOutput("annotations");
-        this.DeclareOutput("backup_count");
-        this.DeclareOutput("backup_minimum_enforced_retention_duration");
-        this.DeclareOutput("backup_retention_inheritance");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("deletable");
-        this.DeclareOutput("description");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("effective_time");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("force_delete");
-        this.DeclareOutput("force_update");
-        this.DeclareOutput("ignore_backup_plan_references");
-        this.DeclareOutput("ignore_inactive_datasources");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("service_account");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("total_stored_bytes");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("access_restriction");
+        this.WithOutput("allow_missing");
+        this.WithOutput("annotations");
+        this.WithOutput("backup_count");
+        this.WithOutput("backup_minimum_enforced_retention_duration");
+        this.WithOutput("backup_retention_inheritance");
+        this.WithOutput("create_time");
+        this.WithOutput("deletable");
+        this.WithOutput("description");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("effective_labels");
+        this.WithOutput("effective_time");
+        this.WithOutput("etag");
+        this.WithOutput("force_delete");
+        this.WithOutput("force_update");
+        this.WithOutput("ignore_backup_plan_references");
+        this.WithOutput("ignore_inactive_datasources");
+        this.WithOutput("labels");
+        this.WithOutput("name");
+        this.WithOutput("service_account");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("total_stored_bytes");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

@@ -49,10 +49,10 @@ public class GoogleNetappKmsconfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("instructions");
-        this.DeclareOutput("service_account");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("effective_labels");
+        this.WithOutput("instructions");
+        this.WithOutput("service_account");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

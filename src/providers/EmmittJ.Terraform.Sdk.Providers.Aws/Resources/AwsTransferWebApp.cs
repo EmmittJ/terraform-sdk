@@ -22,9 +22,9 @@ public class AwsTransferWebApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("web_app_id");
+        this.WithOutput("arn");
+        this.WithOutput("tags_all");
+        this.WithOutput("web_app_id");
     }
 
     /// <summary>

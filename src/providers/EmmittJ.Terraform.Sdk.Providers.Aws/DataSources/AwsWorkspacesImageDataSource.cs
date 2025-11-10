@@ -14,11 +14,11 @@ public class AwsWorkspacesImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("name");
-        this.DeclareOutput("operating_system_type");
-        this.DeclareOutput("required_tenancy");
-        this.DeclareOutput("state");
+        this.WithOutput("description");
+        this.WithOutput("name");
+        this.WithOutput("operating_system_type");
+        this.WithOutput("required_tenancy");
+        this.WithOutput("state");
     }
 
     /// <summary>

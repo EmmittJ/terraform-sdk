@@ -14,8 +14,8 @@ public class AwsSsoadminPermissionSetsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arns");
-        this.DeclareOutput("id");
+        this.WithOutput("arns");
+        this.WithOutput("id");
     }
 
     /// <summary>

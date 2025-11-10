@@ -14,7 +14,7 @@ public class AwsServicequotasServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("service_code");
+        this.WithOutput("service_code");
     }
 
     /// <summary>

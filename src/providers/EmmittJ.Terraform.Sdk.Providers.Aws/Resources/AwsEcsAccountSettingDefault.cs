@@ -14,7 +14,7 @@ public class AwsEcsAccountSettingDefault : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("principal_arn");
+        this.WithOutput("principal_arn");
     }
 
     /// <summary>

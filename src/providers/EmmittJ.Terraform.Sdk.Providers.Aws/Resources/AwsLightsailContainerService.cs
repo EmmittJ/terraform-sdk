@@ -66,15 +66,15 @@ public class AwsLightsailContainerService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("power_id");
-        this.DeclareOutput("principal_arn");
-        this.DeclareOutput("private_domain_name");
-        this.DeclareOutput("resource_type");
-        this.DeclareOutput("state");
-        this.DeclareOutput("url");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zone");
+        this.WithOutput("created_at");
+        this.WithOutput("power_id");
+        this.WithOutput("principal_arn");
+        this.WithOutput("private_domain_name");
+        this.WithOutput("resource_type");
+        this.WithOutput("state");
+        this.WithOutput("url");
     }
 
     /// <summary>

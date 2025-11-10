@@ -76,9 +76,9 @@ public class AwsMskServerlessCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("bootstrap_brokers_sasl_iam");
-        this.DeclareOutput("cluster_uuid");
+        this.WithOutput("arn");
+        this.WithOutput("bootstrap_brokers_sasl_iam");
+        this.WithOutput("cluster_uuid");
     }
 
     /// <summary>

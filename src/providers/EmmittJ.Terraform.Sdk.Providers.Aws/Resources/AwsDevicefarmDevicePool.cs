@@ -50,8 +50,8 @@ public class AwsDevicefarmDevicePool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("type");
+        this.WithOutput("arn");
+        this.WithOutput("type");
     }
 
     /// <summary>

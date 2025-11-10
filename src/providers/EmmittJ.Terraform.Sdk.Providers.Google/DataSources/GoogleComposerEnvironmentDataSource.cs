@@ -14,11 +14,11 @@ public class GoogleComposerEnvironmentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("config");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("storage_config");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("config");
+        this.WithOutput("effective_labels");
+        this.WithOutput("labels");
+        this.WithOutput("storage_config");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

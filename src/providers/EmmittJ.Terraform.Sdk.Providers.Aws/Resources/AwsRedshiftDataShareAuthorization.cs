@@ -14,9 +14,9 @@ public class AwsRedshiftDataShareAuthorization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("managed_by");
-        this.DeclareOutput("producer_arn");
+        this.WithOutputd");
+        this.WithOutputanaged_by");
+        this.WithOutputroducer_arn");
     }
 
     /// <summary>

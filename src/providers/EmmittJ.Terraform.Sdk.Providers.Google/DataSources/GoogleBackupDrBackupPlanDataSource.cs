@@ -14,16 +14,16 @@ public class GoogleBackupDrBackupPlanDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("backup_rules");
-        this.DeclareOutput("backup_vault");
-        this.DeclareOutput("backup_vault_service_account");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("log_retention_days");
-        this.DeclareOutput("name");
-        this.DeclareOutput("resource_type");
-        this.DeclareOutput("supported_resource_types");
-        this.DeclareOutput("update_time");
+        this.WithOutput("backup_rules");
+        this.WithOutput("backup_vault");
+        this.WithOutput("backup_vault_service_account");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("log_retention_days");
+        this.WithOutput("name");
+        this.WithOutput("resource_type");
+        this.WithOutput("supported_resource_types");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

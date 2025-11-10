@@ -86,13 +86,13 @@ public class AzurermFunctionAppFunction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("config_url");
-        this.DeclareOutput("invocation_url");
-        this.DeclareOutput("script_root_path_url");
-        this.DeclareOutput("script_url");
-        this.DeclareOutput("secrets_file_url");
-        this.DeclareOutput("test_data_url");
-        this.DeclareOutput("url");
+        this.WithOutput("config_url");
+        this.WithOutput("invocation_url");
+        this.WithOutput("script_root_path_url");
+        this.WithOutput("script_url");
+        this.WithOutput("secrets_file_url");
+        this.WithOutput("test_data_url");
+        this.WithOutput("url");
     }
 
     /// <summary>

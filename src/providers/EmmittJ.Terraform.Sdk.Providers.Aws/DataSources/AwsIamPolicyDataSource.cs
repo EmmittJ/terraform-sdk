@@ -14,11 +14,11 @@ public class AwsIamPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attachment_count");
-        this.DeclareOutput("description");
-        this.DeclareOutput("path");
-        this.DeclareOutput("policy");
-        this.DeclareOutput("policy_id");
+        this.WithOutput("attachment_count");
+        this.WithOutput("description");
+        this.WithOutput("path");
+        this.WithOutput("policy");
+        this.WithOutput("policy_id");
     }
 
     /// <summary>

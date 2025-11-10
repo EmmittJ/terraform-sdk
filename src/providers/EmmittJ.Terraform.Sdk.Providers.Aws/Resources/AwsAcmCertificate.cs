@@ -69,16 +69,16 @@ public class AwsAcmCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("domain_validation_options");
-        this.DeclareOutput("not_after");
-        this.DeclareOutput("not_before");
-        this.DeclareOutput("pending_renewal");
-        this.DeclareOutput("renewal_eligibility");
-        this.DeclareOutput("renewal_summary");
-        this.DeclareOutput("status");
-        this.DeclareOutput("type");
-        this.DeclareOutput("validation_emails");
+        this.WithOutput("arn");
+        this.WithOutput("domain_validation_options");
+        this.WithOutput("not_after");
+        this.WithOutput("not_before");
+        this.WithOutput("pending_renewal");
+        this.WithOutput("renewal_eligibility");
+        this.WithOutput("renewal_summary");
+        this.WithOutput("status");
+        this.WithOutput("type");
+        this.WithOutput("validation_emails");
     }
 
     /// <summary>

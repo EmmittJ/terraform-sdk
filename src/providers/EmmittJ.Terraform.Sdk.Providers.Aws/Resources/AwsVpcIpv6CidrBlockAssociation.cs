@@ -40,8 +40,8 @@ public class AwsVpcIpv6CidrBlockAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ip_source");
-        this.DeclareOutput("ipv6_address_attribute");
+        this.WithOutput("ip_source");
+        this.WithOutput("ipv6_address_attribute");
     }
 
     /// <summary>

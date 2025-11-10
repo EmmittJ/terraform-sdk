@@ -49,7 +49,7 @@ public class GoogleKmsAutokeyConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

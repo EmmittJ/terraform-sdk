@@ -31,24 +31,24 @@ public class AzurermNginxDeploymentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("auto_scale_profile");
-        this.DeclareOutput("automatic_upgrade_channel");
-        this.DeclareOutput("capacity");
-        this.DeclareOutput("dataplane_api_endpoint");
-        this.DeclareOutput("diagnose_support_enabled");
-        this.DeclareOutput("email");
-        this.DeclareOutput("frontend_private");
-        this.DeclareOutput("frontend_public");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("location");
-        this.DeclareOutput("logging_storage_account");
-        this.DeclareOutput("managed_resource_group");
-        this.DeclareOutput("network_interface");
-        this.DeclareOutput("nginx_version");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("web_application_firewall");
+        this.WithOutput("auto_scale_profile");
+        this.WithOutput("automatic_upgrade_channel");
+        this.WithOutput("capacity");
+        this.WithOutput("dataplane_api_endpoint");
+        this.WithOutput("diagnose_support_enabled");
+        this.WithOutput("email");
+        this.WithOutput("frontend_private");
+        this.WithOutput("frontend_public");
+        this.WithOutput("identity");
+        this.WithOutput("ip_address");
+        this.WithOutput("location");
+        this.WithOutput("logging_storage_account");
+        this.WithOutput("managed_resource_group");
+        this.WithOutput("network_interface");
+        this.WithOutput("nginx_version");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
+        this.WithOutput("web_application_firewall");
     }
 
     /// <summary>

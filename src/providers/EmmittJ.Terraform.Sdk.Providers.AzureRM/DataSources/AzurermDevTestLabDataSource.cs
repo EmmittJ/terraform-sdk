@@ -31,15 +31,15 @@ public class AzurermDevTestLabDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("artifacts_storage_account_id");
-        this.DeclareOutput("default_premium_storage_account_id");
-        this.DeclareOutput("default_storage_account_id");
-        this.DeclareOutput("key_vault_id");
-        this.DeclareOutput("location");
-        this.DeclareOutput("premium_data_disk_storage_account_id");
-        this.DeclareOutput("storage_type");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("unique_identifier");
+        this.WithOutputrtifacts_storage_account_id");
+        this.WithOutputefault_premium_storage_account_id");
+        this.WithOutputefault_storage_account_id");
+        this.WithOutputey_vault_id");
+        this.WithOutputocation");
+        this.WithOutputremium_data_disk_storage_account_id");
+        this.WithOutputtorage_type");
+        this.WithOutputags");
+        this.WithOutputnique_identifier");
     }
 
     /// <summary>

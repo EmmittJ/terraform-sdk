@@ -58,8 +58,8 @@ public class AwsCloudwatchEventEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("endpoint_url");
+        this.WithOutput("arn");
+        this.WithOutput("endpoint_url");
     }
 
     /// <summary>

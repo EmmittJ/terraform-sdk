@@ -31,7 +31,7 @@ public class AwsEbsEncryptionByDefaultDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("enabled");
+        this.WithOutput("enabled");
     }
 
     /// <summary>

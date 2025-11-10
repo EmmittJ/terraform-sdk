@@ -14,9 +14,9 @@ public class AwsRedshiftSubnetGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("subnet_ids");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("subnet_ids");
     }
 
     /// <summary>

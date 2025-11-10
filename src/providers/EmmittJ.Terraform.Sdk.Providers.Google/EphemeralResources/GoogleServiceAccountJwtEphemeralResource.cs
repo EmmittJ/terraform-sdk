@@ -15,7 +15,7 @@ public class GoogleServiceAccountJwtEphemeralResource : TerraformEphemeralResour
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("jwt");
+        this.WithOutput("jwt");
     }
 
     /// <summary>

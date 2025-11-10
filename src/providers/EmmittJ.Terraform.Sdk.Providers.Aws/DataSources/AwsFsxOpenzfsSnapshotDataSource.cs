@@ -42,10 +42,10 @@ public class AwsFsxOpenzfsSnapshotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("snapshot_id");
-        this.DeclareOutput("volume_id");
+        this.WithOutput("arn");
+        this.WithOutput("creation_time");
+        this.WithOutput("snapshot_id");
+        this.WithOutput("volume_id");
     }
 
     /// <summary>

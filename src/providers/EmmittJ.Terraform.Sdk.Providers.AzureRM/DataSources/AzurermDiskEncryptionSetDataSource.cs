@@ -31,11 +31,11 @@ public class AzurermDiskEncryptionSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("auto_key_rotation_enabled");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("key_vault_key_url");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("auto_key_rotation_enabled");
+        this.WithOutput("identity");
+        this.WithOutput("key_vault_key_url");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

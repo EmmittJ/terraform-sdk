@@ -14,28 +14,28 @@ public class GooglePrivatecaCertificateAuthorityDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_urls");
-        this.DeclareOutput("config");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("desired_state");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("gcs_bucket");
-        this.DeclareOutput("ignore_active_certificates_on_deletion");
-        this.DeclareOutput("key_spec");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("lifetime");
-        this.DeclareOutput("name");
-        this.DeclareOutput("pem_ca_certificate");
-        this.DeclareOutput("pem_ca_certificates");
-        this.DeclareOutput("pem_csr");
-        this.DeclareOutput("skip_grace_period");
-        this.DeclareOutput("state");
-        this.DeclareOutput("subordinate_config");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("type");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("user_defined_access_urls");
+        this.WithOutput("access_urls");
+        this.WithOutput("config");
+        this.WithOutput("create_time");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("desired_state");
+        this.WithOutput("effective_labels");
+        this.WithOutput("gcs_bucket");
+        this.WithOutput("ignore_active_certificates_on_deletion");
+        this.WithOutput("key_spec");
+        this.WithOutput("labels");
+        this.WithOutput("lifetime");
+        this.WithOutput("name");
+        this.WithOutput("pem_ca_certificate");
+        this.WithOutput("pem_ca_certificates");
+        this.WithOutput("pem_csr");
+        this.WithOutput("skip_grace_period");
+        this.WithOutput("state");
+        this.WithOutput("subordinate_config");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("type");
+        this.WithOutput("update_time");
+        this.WithOutput("user_defined_access_urls");
     }
 
     /// <summary>

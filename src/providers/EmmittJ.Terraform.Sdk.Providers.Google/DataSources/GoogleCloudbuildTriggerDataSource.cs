@@ -14,29 +14,29 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("approval_config");
-        this.DeclareOutput("bitbucket_server_trigger_config");
-        this.DeclareOutput("build");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("developer_connect_event_config");
-        this.DeclareOutput("disabled");
-        this.DeclareOutput("filename");
-        this.DeclareOutput("filter");
-        this.DeclareOutput("git_file_source");
-        this.DeclareOutput("github");
-        this.DeclareOutput("ignored_files");
-        this.DeclareOutput("include_build_logs");
-        this.DeclareOutput("included_files");
-        this.DeclareOutput("name");
-        this.DeclareOutput("pubsub_config");
-        this.DeclareOutput("repository_event_config");
-        this.DeclareOutput("service_account");
-        this.DeclareOutput("source_to_build");
-        this.DeclareOutput("substitutions");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("trigger_template");
-        this.DeclareOutput("webhook_config");
+        this.WithOutput("approval_config");
+        this.WithOutput("bitbucket_server_trigger_config");
+        this.WithOutput("build");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("developer_connect_event_config");
+        this.WithOutput("disabled");
+        this.WithOutput("filename");
+        this.WithOutput("filter");
+        this.WithOutput("git_file_source");
+        this.WithOutput("github");
+        this.WithOutput("ignored_files");
+        this.WithOutput("include_build_logs");
+        this.WithOutput("included_files");
+        this.WithOutput("name");
+        this.WithOutput("pubsub_config");
+        this.WithOutput("repository_event_config");
+        this.WithOutput("service_account");
+        this.WithOutput("source_to_build");
+        this.WithOutput("substitutions");
+        this.WithOutput("tags");
+        this.WithOutput("trigger_template");
+        this.WithOutput("webhook_config");
     }
 
     /// <summary>

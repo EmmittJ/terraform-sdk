@@ -31,8 +31,8 @@ public class AzureadDirectoryRoleTemplatesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("object_ids");
-        this.DeclareOutput("role_templates");
+        this.WithOutput("object_ids");
+        this.WithOutput("role_templates");
     }
 
     /// <summary>

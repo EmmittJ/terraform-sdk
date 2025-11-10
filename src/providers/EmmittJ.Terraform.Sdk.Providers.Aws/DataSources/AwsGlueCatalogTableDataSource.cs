@@ -14,18 +14,18 @@ public class AwsGlueCatalogTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("owner");
-        this.DeclareOutput("parameters");
-        this.DeclareOutput("partition_index");
-        this.DeclareOutput("partition_keys");
-        this.DeclareOutput("retention");
-        this.DeclareOutput("storage_descriptor");
-        this.DeclareOutput("table_type");
-        this.DeclareOutput("target_table");
-        this.DeclareOutput("view_expanded_text");
-        this.DeclareOutput("view_original_text");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("owner");
+        this.WithOutput("parameters");
+        this.WithOutput("partition_index");
+        this.WithOutput("partition_keys");
+        this.WithOutput("retention");
+        this.WithOutput("storage_descriptor");
+        this.WithOutput("table_type");
+        this.WithOutput("target_table");
+        this.WithOutput("view_expanded_text");
+        this.WithOutput("view_original_text");
     }
 
     /// <summary>

@@ -100,7 +100,7 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("sas");
+        this.WithOutput("sas");
     }
 
     /// <summary>

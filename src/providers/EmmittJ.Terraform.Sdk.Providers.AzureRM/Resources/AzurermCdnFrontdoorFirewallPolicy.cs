@@ -188,7 +188,7 @@ public class AzurermCdnFrontdoorFirewallPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("frontend_endpoint_ids");
+        this.WithOutput("frontend_endpoint_ids");
     }
 
     /// <summary>

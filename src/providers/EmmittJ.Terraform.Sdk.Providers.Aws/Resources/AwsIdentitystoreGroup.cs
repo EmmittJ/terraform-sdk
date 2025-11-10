@@ -14,9 +14,9 @@ public class AwsIdentitystoreGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("external_ids");
-        this.DeclareOutput("group_id");
+        this.WithOutput("arn");
+        this.WithOutput("external_ids");
+        this.WithOutput("group_id");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class GoogleDataplexDataQualityRulesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("rules");
+        this.WithOutput("rules");
     }
 
     /// <summary>

@@ -49,8 +49,8 @@ public class GoogleStorageBucketAccessControl : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("domain");
-        this.DeclareOutput("email");
+        this.WithOutput("domain");
+        this.WithOutput("email");
     }
 
     /// <summary>

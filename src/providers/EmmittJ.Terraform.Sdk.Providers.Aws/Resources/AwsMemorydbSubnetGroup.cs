@@ -14,8 +14,8 @@ public class AwsMemorydbSubnetGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("arn");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

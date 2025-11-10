@@ -14,7 +14,7 @@ public class GoogleKmsCryptoKeysDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("keys");
+        this.WithOutput("keys");
     }
 
     /// <summary>

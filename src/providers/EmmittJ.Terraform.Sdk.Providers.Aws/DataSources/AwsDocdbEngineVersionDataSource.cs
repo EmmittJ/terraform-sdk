@@ -14,11 +14,11 @@ public class AwsDocdbEngineVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("engine_description");
-        this.DeclareOutput("exportable_log_types");
-        this.DeclareOutput("supports_log_exports_to_cloudwatch");
-        this.DeclareOutput("valid_upgrade_targets");
-        this.DeclareOutput("version_description");
+        this.WithOutput("engine_description");
+        this.WithOutput("exportable_log_types");
+        this.WithOutput("supports_log_exports_to_cloudwatch");
+        this.WithOutput("valid_upgrade_targets");
+        this.WithOutput("version_description");
     }
 
     /// <summary>

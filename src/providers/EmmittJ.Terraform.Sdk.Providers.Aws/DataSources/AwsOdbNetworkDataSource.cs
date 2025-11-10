@@ -14,27 +14,27 @@ public class AwsOdbNetworkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("availability_zone_id");
-        this.DeclareOutput("backup_subnet_cidr");
-        this.DeclareOutput("client_subnet_cidr");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("custom_domain_name");
-        this.DeclareOutput("default_dns_prefix");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("managed_services");
-        this.DeclareOutput("oci_dns_forwarding_configs");
-        this.DeclareOutput("oci_network_anchor_id");
-        this.DeclareOutput("oci_network_anchor_url");
-        this.DeclareOutput("oci_resource_anchor_name");
-        this.DeclareOutput("oci_vcn_id");
-        this.DeclareOutput("oci_vcn_url");
-        this.DeclareOutput("peered_cidrs");
-        this.DeclareOutput("percent_progress");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
-        this.DeclareOutput("tags");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zone");
+        this.WithOutput("availability_zone_id");
+        this.WithOutput("backup_subnet_cidr");
+        this.WithOutput("client_subnet_cidr");
+        this.WithOutput("created_at");
+        this.WithOutput("custom_domain_name");
+        this.WithOutput("default_dns_prefix");
+        this.WithOutput("display_name");
+        this.WithOutput("managed_services");
+        this.WithOutput("oci_dns_forwarding_configs");
+        this.WithOutput("oci_network_anchor_id");
+        this.WithOutput("oci_network_anchor_url");
+        this.WithOutput("oci_resource_anchor_name");
+        this.WithOutput("oci_vcn_id");
+        this.WithOutput("oci_vcn_url");
+        this.WithOutput("peered_cidrs");
+        this.WithOutput("percent_progress");
+        this.WithOutput("status");
+        this.WithOutput("status_reason");
+        this.WithOutput("tags");
     }
 
     /// <summary>

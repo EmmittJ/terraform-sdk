@@ -39,17 +39,17 @@ public class AwsCleanroomsMembership : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("collaboration_arn");
-        this.DeclareOutput("collaboration_creator_account_id");
-        this.DeclareOutput("collaboration_creator_display_name");
-        this.DeclareOutput("collaboration_name");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("id");
-        this.DeclareOutput("member_abilities");
-        this.DeclareOutput("status");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("update_time");
+        this.WithOutput("arn");
+        this.WithOutput("collaboration_arn");
+        this.WithOutput("collaboration_creator_account_id");
+        this.WithOutput("collaboration_creator_display_name");
+        this.WithOutput("collaboration_name");
+        this.WithOutput("create_time");
+        this.WithOutput("id");
+        this.WithOutput("member_abilities");
+        this.WithOutput("status");
+        this.WithOutput("tags_all");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

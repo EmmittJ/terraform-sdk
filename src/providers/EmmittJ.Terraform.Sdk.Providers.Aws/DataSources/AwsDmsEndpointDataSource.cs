@@ -14,30 +14,30 @@ public class AwsDmsEndpointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_arn");
-        this.DeclareOutput("database_name");
-        this.DeclareOutput("elasticsearch_settings");
-        this.DeclareOutput("endpoint_arn");
-        this.DeclareOutput("endpoint_type");
-        this.DeclareOutput("engine_name");
-        this.DeclareOutput("extra_connection_attributes");
-        this.DeclareOutput("kafka_settings");
-        this.DeclareOutput("kinesis_settings");
-        this.DeclareOutput("kms_key_arn");
-        this.DeclareOutput("mongodb_settings");
-        this.DeclareOutput("mysql_settings");
-        this.DeclareOutput("password");
-        this.DeclareOutput("port");
-        this.DeclareOutput("postgres_settings");
-        this.DeclareOutput("redis_settings");
-        this.DeclareOutput("redshift_settings");
-        this.DeclareOutput("s3_settings");
-        this.DeclareOutput("secrets_manager_access_role_arn");
-        this.DeclareOutput("secrets_manager_arn");
-        this.DeclareOutput("server_name");
-        this.DeclareOutput("service_access_role");
-        this.DeclareOutput("ssl_mode");
-        this.DeclareOutput("username");
+        this.WithOutput("certificate_arn");
+        this.WithOutput("database_name");
+        this.WithOutput("elasticsearch_settings");
+        this.WithOutput("endpoint_arn");
+        this.WithOutput("endpoint_type");
+        this.WithOutput("engine_name");
+        this.WithOutput("extra_connection_attributes");
+        this.WithOutput("kafka_settings");
+        this.WithOutput("kinesis_settings");
+        this.WithOutput("kms_key_arn");
+        this.WithOutput("mongodb_settings");
+        this.WithOutput("mysql_settings");
+        this.WithOutput("password");
+        this.WithOutput("port");
+        this.WithOutput("postgres_settings");
+        this.WithOutput("redis_settings");
+        this.WithOutput("redshift_settings");
+        this.WithOutput("s3_settings");
+        this.WithOutput("secrets_manager_access_role_arn");
+        this.WithOutput("secrets_manager_arn");
+        this.WithOutput("server_name");
+        this.WithOutput("service_access_role");
+        this.WithOutput("ssl_mode");
+        this.WithOutput("username");
     }
 
     /// <summary>

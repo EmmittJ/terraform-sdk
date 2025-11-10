@@ -14,11 +14,11 @@ public class AwsCodecommitRepositoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("clone_url_http");
-        this.DeclareOutput("clone_url_ssh");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("repository_id");
+        this.WithOutputrn");
+        this.WithOutputlone_url_http");
+        this.WithOutputlone_url_ssh");
+        this.WithOutputms_key_id");
+        this.WithOutputepository_id");
     }
 
     /// <summary>

@@ -23,9 +23,9 @@ public class AwsCloudfrontFieldLevelEncryptionProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("caller_reference");
-        this.DeclareOutput("etag");
+        this.WithOutput("arn");
+        this.WithOutput("caller_reference");
+        this.WithOutput("etag");
     }
 
     /// <summary>

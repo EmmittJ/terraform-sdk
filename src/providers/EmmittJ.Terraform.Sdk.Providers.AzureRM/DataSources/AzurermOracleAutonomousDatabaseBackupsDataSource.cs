@@ -31,7 +31,7 @@ public class AzurermOracleAutonomousDatabaseBackupsDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("autonomous_database_backups");
+        this.WithOutput("autonomous_database_backups");
     }
 
     /// <summary>

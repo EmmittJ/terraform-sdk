@@ -22,12 +22,12 @@ public class AwsAppsyncApi : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api_arn");
-        this.DeclareOutput("api_id");
-        this.DeclareOutput("dns");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("waf_web_acl_arn");
-        this.DeclareOutput("xray_enabled");
+        this.WithOutput("api_arn");
+        this.WithOutput("api_id");
+        this.WithOutput("dns");
+        this.WithOutput("tags_all");
+        this.WithOutput("waf_web_acl_arn");
+        this.WithOutput("xray_enabled");
     }
 
     /// <summary>

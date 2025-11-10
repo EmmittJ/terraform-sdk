@@ -14,14 +14,14 @@ public class GoogleVmwareengineNetworkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("state");
-        this.DeclareOutput("type");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("vpc_networks");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("etag");
+        this.WithOutput("state");
+        this.WithOutput("type");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("vpc_networks");
     }
 
     /// <summary>

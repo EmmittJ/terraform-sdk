@@ -15,9 +15,9 @@ public class AzurermKeyVaultSecretEphemeralResource : TerraformEphemeralResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("expiration_date");
-        this.DeclareOutput("not_before_date");
-        this.DeclareOutput("value");
+        this.WithOutput("expiration_date");
+        this.WithOutput("not_before_date");
+        this.WithOutput("value");
     }
 
     /// <summary>

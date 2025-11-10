@@ -49,7 +49,7 @@ public class GoogleSccV2OrganizationSource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
+        this.WithOutput("name");
     }
 
     /// <summary>

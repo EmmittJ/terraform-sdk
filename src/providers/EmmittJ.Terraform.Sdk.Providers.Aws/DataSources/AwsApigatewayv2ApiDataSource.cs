@@ -14,18 +14,18 @@ public class AwsApigatewayv2ApiDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api_endpoint");
-        this.DeclareOutput("api_key_selection_expression");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cors_configuration");
-        this.DeclareOutput("description");
-        this.DeclareOutput("disable_execute_api_endpoint");
-        this.DeclareOutput("execution_arn");
-        this.DeclareOutput("ip_address_type");
-        this.DeclareOutput("name");
-        this.DeclareOutput("protocol_type");
-        this.DeclareOutput("route_selection_expression");
-        this.DeclareOutput("version");
+        this.WithOutput("api_endpoint");
+        this.WithOutput("api_key_selection_expression");
+        this.WithOutput("arn");
+        this.WithOutput("cors_configuration");
+        this.WithOutput("description");
+        this.WithOutput("disable_execute_api_endpoint");
+        this.WithOutput("execution_arn");
+        this.WithOutput("ip_address_type");
+        this.WithOutput("name");
+        this.WithOutput("protocol_type");
+        this.WithOutput("route_selection_expression");
+        this.WithOutput("version");
     }
 
     /// <summary>

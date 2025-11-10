@@ -49,12 +49,12 @@ public class AwsOrganizationsAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("govcloud_id");
-        this.DeclareOutput("joined_method");
-        this.DeclareOutput("joined_timestamp");
-        this.DeclareOutput("state");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("govcloud_id");
+        this.WithOutput("joined_method");
+        this.WithOutput("joined_timestamp");
+        this.WithOutput("state");
+        this.WithOutput("status");
     }
 
     /// <summary>

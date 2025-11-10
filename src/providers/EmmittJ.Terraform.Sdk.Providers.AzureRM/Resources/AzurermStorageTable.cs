@@ -76,7 +76,7 @@ public class AzurermStorageTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_manager_id");
+        this.WithOutputesource_manager_id");
     }
 
     /// <summary>

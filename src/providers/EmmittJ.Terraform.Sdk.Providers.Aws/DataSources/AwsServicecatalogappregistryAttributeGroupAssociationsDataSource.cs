@@ -14,7 +14,7 @@ public class AwsServicecatalogappregistryAttributeGroupAssociationsDataSource : 
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attribute_group_ids");
+        this.WithOutput("attribute_group_ids");
     }
 
     /// <summary>

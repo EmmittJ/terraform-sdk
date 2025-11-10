@@ -31,8 +31,8 @@ public class AwsKmsKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("key_id");
+        this.WithOutput("arn");
+        this.WithOutput("key_id");
     }
 
     /// <summary>

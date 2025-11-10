@@ -205,13 +205,13 @@ public class AwsFsxFileCache : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("data_repository_association_ids");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("file_cache_id");
-        this.DeclareOutput("network_interface_ids");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("arn");
+        this.WithOutput("data_repository_association_ids");
+        this.WithOutput("dns_name");
+        this.WithOutput("file_cache_id");
+        this.WithOutput("network_interface_ids");
+        this.WithOutput("owner_id");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

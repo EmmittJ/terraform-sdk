@@ -14,10 +14,10 @@ public class AwsRedshiftEndpointAuthorization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allowed_all_vpcs");
-        this.DeclareOutput("endpoint_count");
-        this.DeclareOutput("grantee");
-        this.DeclareOutput("grantor");
+        this.WithOutput("allowed_all_vpcs");
+        this.WithOutput("endpoint_count");
+        this.WithOutput("grantee");
+        this.WithOutput("grantor");
     }
 
     /// <summary>

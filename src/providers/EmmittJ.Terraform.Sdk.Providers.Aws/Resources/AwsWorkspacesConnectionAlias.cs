@@ -40,10 +40,10 @@ public class AwsWorkspacesConnectionAlias : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("owner_account_id");
-        this.DeclareOutput("state");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("id");
+        this.WithOutput("owner_account_id");
+        this.WithOutput("state");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

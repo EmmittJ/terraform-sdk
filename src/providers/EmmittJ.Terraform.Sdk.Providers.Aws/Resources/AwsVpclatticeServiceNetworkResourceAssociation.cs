@@ -40,10 +40,10 @@ public class AwsVpclatticeServiceNetworkResourceAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("dns_entry");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("dns_entry");
+        this.WithOutput("id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

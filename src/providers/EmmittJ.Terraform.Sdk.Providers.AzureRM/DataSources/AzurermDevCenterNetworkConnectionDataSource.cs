@@ -31,13 +31,13 @@ public class AzurermDevCenterNetworkConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("domain_join_type");
-        this.DeclareOutput("domain_name");
-        this.DeclareOutput("domain_username");
-        this.DeclareOutput("location");
-        this.DeclareOutput("organization_unit");
-        this.DeclareOutput("subnet_id");
-        this.DeclareOutput("tags");
+        this.WithOutput("domain_join_type");
+        this.WithOutput("domain_name");
+        this.WithOutput("domain_username");
+        this.WithOutput("location");
+        this.WithOutput("organization_unit");
+        this.WithOutput("subnet_id");
+        this.WithOutput("tags");
     }
 
     /// <summary>

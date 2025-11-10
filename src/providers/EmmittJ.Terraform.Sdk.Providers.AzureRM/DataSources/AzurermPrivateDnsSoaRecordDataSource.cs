@@ -31,16 +31,16 @@ public class AzurermPrivateDnsSoaRecordDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("email");
-        this.DeclareOutput("expire_time");
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("host_name");
-        this.DeclareOutput("minimum_ttl");
-        this.DeclareOutput("refresh_time");
-        this.DeclareOutput("retry_time");
-        this.DeclareOutput("serial_number");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("ttl");
+        this.WithOutput("email");
+        this.WithOutput("expire_time");
+        this.WithOutput("fqdn");
+        this.WithOutput("host_name");
+        this.WithOutput("minimum_ttl");
+        this.WithOutput("refresh_time");
+        this.WithOutput("retry_time");
+        this.WithOutput("serial_number");
+        this.WithOutput("tags");
+        this.WithOutput("ttl");
     }
 
     /// <summary>

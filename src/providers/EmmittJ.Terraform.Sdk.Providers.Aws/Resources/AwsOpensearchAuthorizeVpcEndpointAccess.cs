@@ -14,7 +14,7 @@ public class AwsOpensearchAuthorizeVpcEndpointAccess : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("authorized_principal");
+        this.WithOutput("authorized_principal");
     }
 
     /// <summary>

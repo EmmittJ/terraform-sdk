@@ -31,14 +31,14 @@ public class AzurermPrivateLinkServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("alias");
-        this.DeclareOutput("auto_approval_subscription_ids");
-        this.DeclareOutput("enable_proxy_protocol");
-        this.DeclareOutput("load_balancer_frontend_ip_configuration_ids");
-        this.DeclareOutput("location");
-        this.DeclareOutput("nat_ip_configuration");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("visibility_subscription_ids");
+        this.WithOutput("alias");
+        this.WithOutput("auto_approval_subscription_ids");
+        this.WithOutput("enable_proxy_protocol");
+        this.WithOutput("load_balancer_frontend_ip_configuration_ids");
+        this.WithOutput("location");
+        this.WithOutput("nat_ip_configuration");
+        this.WithOutput("tags");
+        this.WithOutput("visibility_subscription_ids");
     }
 
     /// <summary>

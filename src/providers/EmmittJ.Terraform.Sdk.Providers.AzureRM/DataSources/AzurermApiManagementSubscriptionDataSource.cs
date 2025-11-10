@@ -31,14 +31,14 @@ public class AzurermApiManagementSubscriptionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allow_tracing");
-        this.DeclareOutput("api_id");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("primary_key");
-        this.DeclareOutput("product_id");
-        this.DeclareOutput("secondary_key");
-        this.DeclareOutput("state");
-        this.DeclareOutput("user_id");
+        this.WithOutput("allow_tracing");
+        this.WithOutput("api_id");
+        this.WithOutput("display_name");
+        this.WithOutput("primary_key");
+        this.WithOutput("product_id");
+        this.WithOutput("secondary_key");
+        this.WithOutput("state");
+        this.WithOutput("user_id");
     }
 
     /// <summary>

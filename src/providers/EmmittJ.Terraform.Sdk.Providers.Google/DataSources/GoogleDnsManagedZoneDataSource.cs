@@ -14,12 +14,12 @@ public class GoogleDnsManagedZoneDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("id");
-        this.DeclareOutput("managed_zone_id");
-        this.DeclareOutput("name_servers");
-        this.DeclareOutput("visibility");
+        this.WithOutput("description");
+        this.WithOutput("dns_name");
+        this.WithOutput("id");
+        this.WithOutput("managed_zone_id");
+        this.WithOutput("name_servers");
+        this.WithOutput("visibility");
     }
 
     /// <summary>

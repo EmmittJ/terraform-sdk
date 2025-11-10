@@ -14,9 +14,9 @@ public class AwsKmsExternalKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("expiration_model");
-        this.DeclareOutput("key_state");
+        this.WithOutput("arn");
+        this.WithOutput("expiration_model");
+        this.WithOutput("key_state");
     }
 
     /// <summary>

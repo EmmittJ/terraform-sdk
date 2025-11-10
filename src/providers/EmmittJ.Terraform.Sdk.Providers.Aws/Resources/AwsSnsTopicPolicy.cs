@@ -14,7 +14,7 @@ public class AwsSnsTopicPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("owner");
+        this.WithOutput("owner");
     }
 
     /// <summary>

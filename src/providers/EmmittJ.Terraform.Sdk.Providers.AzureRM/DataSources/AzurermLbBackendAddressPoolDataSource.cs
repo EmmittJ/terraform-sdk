@@ -31,11 +31,11 @@ public class AzurermLbBackendAddressPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("backend_address");
-        this.DeclareOutput("backend_ip_configurations");
-        this.DeclareOutput("inbound_nat_rules");
-        this.DeclareOutput("load_balancing_rules");
-        this.DeclareOutput("outbound_rules");
+        this.WithOutput("backend_address");
+        this.WithOutput("backend_ip_configurations");
+        this.WithOutput("inbound_nat_rules");
+        this.WithOutput("load_balancing_rules");
+        this.WithOutput("outbound_rules");
     }
 
     /// <summary>

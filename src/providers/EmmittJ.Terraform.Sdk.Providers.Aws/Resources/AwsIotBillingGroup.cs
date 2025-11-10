@@ -31,11 +31,11 @@ public class AwsIotBillingGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("metadata");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("metadata");
+        this.WithOutput("tags_all");
+        this.WithOutput("version");
     }
 
     /// <summary>

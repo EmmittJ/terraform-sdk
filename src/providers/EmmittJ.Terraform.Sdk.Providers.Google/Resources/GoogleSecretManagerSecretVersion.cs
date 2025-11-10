@@ -49,10 +49,10 @@ public class GoogleSecretManagerSecretVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("destroy_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("version");
+        this.WithOutput("create_time");
+        this.WithOutput("destroy_time");
+        this.WithOutput("name");
+        this.WithOutput("version");
     }
 
     /// <summary>

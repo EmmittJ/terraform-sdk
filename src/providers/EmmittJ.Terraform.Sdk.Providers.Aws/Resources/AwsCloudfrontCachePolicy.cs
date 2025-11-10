@@ -41,8 +41,8 @@ public class AwsCloudfrontCachePolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("etag");
+        this.WithOutput("arn");
+        this.WithOutput("etag");
     }
 
     /// <summary>

@@ -59,11 +59,11 @@ public class AwsS3controlAccessGrant : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_grant_arn");
-        this.DeclareOutput("access_grant_id");
-        this.DeclareOutput("grant_scope");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("access_grant_arn");
+        this.WithOutput("access_grant_id");
+        this.WithOutput("grant_scope");
+        this.WithOutput("id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

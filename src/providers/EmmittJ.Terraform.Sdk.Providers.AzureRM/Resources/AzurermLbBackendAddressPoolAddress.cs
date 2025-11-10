@@ -58,7 +58,7 @@ public class AzurermLbBackendAddressPoolAddress : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("inbound_nat_rule_port_mapping");
+        this.WithOutput("inbound_nat_rule_port_mapping");
     }
 
     /// <summary>

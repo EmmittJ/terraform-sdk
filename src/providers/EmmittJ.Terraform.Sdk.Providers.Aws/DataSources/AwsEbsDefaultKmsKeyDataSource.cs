@@ -31,7 +31,7 @@ public class AwsEbsDefaultKmsKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("key_arn");
+        this.WithOutput("key_arn");
     }
 
     /// <summary>

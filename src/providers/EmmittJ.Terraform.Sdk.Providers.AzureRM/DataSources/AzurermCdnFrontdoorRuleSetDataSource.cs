@@ -31,7 +31,7 @@ public class AzurermCdnFrontdoorRuleSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cdn_frontdoor_profile_id");
+        this.WithOutput("cdn_frontdoor_profile_id");
     }
 
     /// <summary>

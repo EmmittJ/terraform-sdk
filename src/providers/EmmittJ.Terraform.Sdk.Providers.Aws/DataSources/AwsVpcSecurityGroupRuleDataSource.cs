@@ -42,19 +42,19 @@ public class AwsVpcSecurityGroupRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cidr_ipv4");
-        this.DeclareOutput("cidr_ipv6");
-        this.DeclareOutput("description");
-        this.DeclareOutput("from_port");
-        this.DeclareOutput("id");
-        this.DeclareOutput("ip_protocol");
-        this.DeclareOutput("is_egress");
-        this.DeclareOutput("prefix_list_id");
-        this.DeclareOutput("referenced_security_group_id");
-        this.DeclareOutput("security_group_id");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("to_port");
+        this.WithOutput("arn");
+        this.WithOutput("cidr_ipv4");
+        this.WithOutput("cidr_ipv6");
+        this.WithOutput("description");
+        this.WithOutput("from_port");
+        this.WithOutput("id");
+        this.WithOutput("ip_protocol");
+        this.WithOutput("is_egress");
+        this.WithOutput("prefix_list_id");
+        this.WithOutput("referenced_security_group_id");
+        this.WithOutput("security_group_id");
+        this.WithOutput("tags");
+        this.WithOutput("to_port");
     }
 
     /// <summary>

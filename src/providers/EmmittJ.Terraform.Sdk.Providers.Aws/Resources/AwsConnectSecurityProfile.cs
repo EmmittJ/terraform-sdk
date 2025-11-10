@@ -14,9 +14,9 @@ public class AwsConnectSecurityProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("organization_resource_id");
-        this.DeclareOutput("security_profile_id");
+        this.WithOutput("arn");
+        this.WithOutput("organization_resource_id");
+        this.WithOutput("security_profile_id");
     }
 
     /// <summary>

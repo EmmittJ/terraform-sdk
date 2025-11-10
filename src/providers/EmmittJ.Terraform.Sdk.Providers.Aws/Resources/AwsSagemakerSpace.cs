@@ -68,9 +68,9 @@ public class AwsSagemakerSpace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("home_efs_file_system_uid");
-        this.DeclareOutput("url");
+        this.WithOutput("arn");
+        this.WithOutput("home_efs_file_system_uid");
+        this.WithOutput("url");
     }
 
     /// <summary>

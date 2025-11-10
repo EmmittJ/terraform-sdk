@@ -14,8 +14,8 @@ public class AwsSesActiveReceiptRuleSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("rule_set_name");
+        this.WithOutput("arn");
+        this.WithOutput("rule_set_name");
     }
 
     /// <summary>

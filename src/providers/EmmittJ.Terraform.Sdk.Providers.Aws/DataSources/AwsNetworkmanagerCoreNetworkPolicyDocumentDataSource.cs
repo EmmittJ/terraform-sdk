@@ -296,7 +296,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : TerraformDat
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("json");
+        this.WithOutput("json");
     }
 
     /// <summary>

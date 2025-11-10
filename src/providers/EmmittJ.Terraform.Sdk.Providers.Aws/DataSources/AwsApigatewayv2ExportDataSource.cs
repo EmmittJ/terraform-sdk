@@ -14,7 +14,7 @@ public class AwsApigatewayv2ExportDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("body");
+        this.WithOutput("body");
     }
 
     /// <summary>

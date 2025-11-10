@@ -14,17 +14,17 @@ public class GoogleComputeBackendBucketDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("bucket_name");
-        this.DeclareOutput("cdn_policy");
-        this.DeclareOutput("compression_mode");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("custom_response_headers");
-        this.DeclareOutput("description");
-        this.DeclareOutput("edge_security_policy");
-        this.DeclareOutput("enable_cdn");
-        this.DeclareOutput("load_balancing_scheme");
-        this.DeclareOutput("params");
-        this.DeclareOutput("self_link");
+        this.WithOutput("bucket_name");
+        this.WithOutput("cdn_policy");
+        this.WithOutput("compression_mode");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("custom_response_headers");
+        this.WithOutput("description");
+        this.WithOutput("edge_security_policy");
+        this.WithOutput("enable_cdn");
+        this.WithOutput("load_balancing_scheme");
+        this.WithOutput("params");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

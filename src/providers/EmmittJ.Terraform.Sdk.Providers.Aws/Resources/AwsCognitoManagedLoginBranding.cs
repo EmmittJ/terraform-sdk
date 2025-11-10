@@ -70,8 +70,8 @@ public class AwsCognitoManagedLoginBranding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("managed_login_branding_id");
-        this.DeclareOutput("settings_all");
+        this.WithOutput("managed_login_branding_id");
+        this.WithOutput("settings_all");
     }
 
     /// <summary>

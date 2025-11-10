@@ -14,14 +14,14 @@ public class AwsSsoadminApplicationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_account");
-        this.DeclareOutput("application_provider_arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("id");
-        this.DeclareOutput("instance_arn");
-        this.DeclareOutput("name");
-        this.DeclareOutput("portal_options");
-        this.DeclareOutput("status");
+        this.WithOutput("application_account");
+        this.WithOutput("application_provider_arn");
+        this.WithOutput("description");
+        this.WithOutput("id");
+        this.WithOutput("instance_arn");
+        this.WithOutput("name");
+        this.WithOutput("portal_options");
+        this.WithOutput("status");
     }
 
     /// <summary>

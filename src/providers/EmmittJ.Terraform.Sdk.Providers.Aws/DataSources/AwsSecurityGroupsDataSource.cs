@@ -59,9 +59,9 @@ public class AwsSecurityGroupsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arns");
-        this.DeclareOutput("ids");
-        this.DeclareOutput("vpc_ids");
+        this.WithOutput("arns");
+        this.WithOutput("ids");
+        this.WithOutput("vpc_ids");
     }
 
     /// <summary>

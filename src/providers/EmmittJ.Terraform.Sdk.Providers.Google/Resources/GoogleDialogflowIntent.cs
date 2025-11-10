@@ -49,9 +49,9 @@ public class GoogleDialogflowIntent : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("followup_intent_info");
-        this.DeclareOutput("name");
-        this.DeclareOutput("root_followup_intent_name");
+        this.WithOutput("followup_intent_info");
+        this.WithOutput("name");
+        this.WithOutput("root_followup_intent_name");
     }
 
     /// <summary>

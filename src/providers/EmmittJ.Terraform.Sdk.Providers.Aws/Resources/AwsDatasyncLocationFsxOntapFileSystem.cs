@@ -23,10 +23,10 @@ public class AwsDatasyncLocationFsxOntapFileSystem : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("fsx_filesystem_arn");
-        this.DeclareOutput("uri");
+        this.WithOutput("arn");
+        this.WithOutput("creation_time");
+        this.WithOutput("fsx_filesystem_arn");
+        this.WithOutput("uri");
     }
 
     /// <summary>

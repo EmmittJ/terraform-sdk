@@ -122,7 +122,7 @@ public class AzurermLoadTest : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("data_plane_uri");
+        this.WithOutputata_plane_uri");
     }
 
     /// <summary>

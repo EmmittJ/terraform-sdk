@@ -14,21 +14,21 @@ public class GoogleVmwareenginePrivateCloudDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("delete_time");
-        this.DeclareOutput("deletion_delay_hours");
-        this.DeclareOutput("description");
-        this.DeclareOutput("expire_time");
-        this.DeclareOutput("hcx");
-        this.DeclareOutput("management_cluster");
-        this.DeclareOutput("network_config");
-        this.DeclareOutput("nsx");
-        this.DeclareOutput("send_deletion_delay_hours_if_zero");
-        this.DeclareOutput("state");
-        this.DeclareOutput("type");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("vcenter");
+        this.WithOutput("create_time");
+        this.WithOutput("delete_time");
+        this.WithOutput("deletion_delay_hours");
+        this.WithOutput("description");
+        this.WithOutput("expire_time");
+        this.WithOutput("hcx");
+        this.WithOutput("management_cluster");
+        this.WithOutput("network_config");
+        this.WithOutput("nsx");
+        this.WithOutput("send_deletion_delay_hours_if_zero");
+        this.WithOutput("state");
+        this.WithOutput("type");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("vcenter");
     }
 
     /// <summary>

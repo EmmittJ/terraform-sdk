@@ -191,11 +191,11 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("complete_time");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("schedule_time");
-        this.DeclareOutput("state");
-        this.DeclareOutput("update_time");
+        this.WithOutput("complete_time");
+        this.WithOutput("create_time");
+        this.WithOutput("schedule_time");
+        this.WithOutput("state");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

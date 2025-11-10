@@ -95,13 +95,13 @@ public class AzurermArcKubernetesCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("agent_version");
-        this.DeclareOutput("distribution");
-        this.DeclareOutput("infrastructure");
-        this.DeclareOutput("kubernetes_version");
-        this.DeclareOutput("offering");
-        this.DeclareOutput("total_core_count");
-        this.DeclareOutput("total_node_count");
+        this.WithOutput("agent_version");
+        this.WithOutput("distribution");
+        this.WithOutput("infrastructure");
+        this.WithOutput("kubernetes_version");
+        this.WithOutput("offering");
+        this.WithOutput("total_core_count");
+        this.WithOutput("total_node_count");
     }
 
     /// <summary>

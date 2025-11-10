@@ -148,15 +148,15 @@ public class GoogleClouddomainsRegistration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("expire_time");
-        this.DeclareOutput("issues");
-        this.DeclareOutput("name");
-        this.DeclareOutput("register_failure_reason");
-        this.DeclareOutput("state");
-        this.DeclareOutput("supported_privacy");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("expire_time");
+        this.WithOutput("issues");
+        this.WithOutput("name");
+        this.WithOutput("register_failure_reason");
+        this.WithOutput("state");
+        this.WithOutput("supported_privacy");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

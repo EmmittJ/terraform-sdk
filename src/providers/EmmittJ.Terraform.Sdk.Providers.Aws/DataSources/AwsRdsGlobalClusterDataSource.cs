@@ -14,17 +14,17 @@ public class AwsRdsGlobalClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("database_name");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("engine");
-        this.DeclareOutput("engine_lifecycle_support");
-        this.DeclareOutput("engine_version");
-        this.DeclareOutput("members");
-        this.DeclareOutput("resource_id");
-        this.DeclareOutput("storage_encrypted");
-        this.DeclareOutput("tags");
+        this.WithOutput("arn");
+        this.WithOutput("database_name");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("endpoint");
+        this.WithOutput("engine");
+        this.WithOutput("engine_lifecycle_support");
+        this.WithOutput("engine_version");
+        this.WithOutput("members");
+        this.WithOutput("resource_id");
+        this.WithOutput("storage_encrypted");
+        this.WithOutput("tags");
     }
 
     /// <summary>

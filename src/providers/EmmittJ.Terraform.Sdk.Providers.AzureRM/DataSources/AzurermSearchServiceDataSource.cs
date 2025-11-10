@@ -31,15 +31,15 @@ public class AzurermSearchServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("customer_managed_key_encryption_compliance_status");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("partition_count");
-        this.DeclareOutput("primary_key");
-        this.DeclareOutput("public_network_access_enabled");
-        this.DeclareOutput("query_keys");
-        this.DeclareOutput("replica_count");
-        this.DeclareOutput("secondary_key");
-        this.DeclareOutput("tags");
+        this.WithOutput("customer_managed_key_encryption_compliance_status");
+        this.WithOutput("identity");
+        this.WithOutput("partition_count");
+        this.WithOutput("primary_key");
+        this.WithOutput("public_network_access_enabled");
+        this.WithOutput("query_keys");
+        this.WithOutput("replica_count");
+        this.WithOutput("secondary_key");
+        this.WithOutput("tags");
     }
 
     /// <summary>

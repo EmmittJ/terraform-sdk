@@ -40,16 +40,16 @@ public class AwsNetworkmanagerTransitGatewayRouteTableAttachment : TerraformReso
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("attachment_policy_rule_number");
-        this.DeclareOutput("attachment_type");
-        this.DeclareOutput("core_network_arn");
-        this.DeclareOutput("core_network_id");
-        this.DeclareOutput("edge_location");
-        this.DeclareOutput("owner_account_id");
-        this.DeclareOutput("resource_arn");
-        this.DeclareOutput("segment_name");
-        this.DeclareOutput("state");
+        this.WithOutputrn");
+        this.WithOutputttachment_policy_rule_number");
+        this.WithOutputttachment_type");
+        this.WithOutputore_network_arn");
+        this.WithOutputore_network_id");
+        this.WithOutputdge_location");
+        this.WithOutputwner_account_id");
+        this.WithOutputesource_arn");
+        this.WithOutputegment_name");
+        this.WithOutputtate");
     }
 
     /// <summary>

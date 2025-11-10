@@ -31,27 +31,27 @@ public class AzurermRedisCacheDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_keys_authentication_enabled");
-        this.DeclareOutput("capacity");
-        this.DeclareOutput("family");
-        this.DeclareOutput("hostname");
-        this.DeclareOutput("location");
-        this.DeclareOutput("minimum_tls_version");
-        this.DeclareOutput("non_ssl_port_enabled");
-        this.DeclareOutput("patch_schedule");
-        this.DeclareOutput("port");
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("primary_connection_string");
-        this.DeclareOutput("private_static_ip_address");
-        this.DeclareOutput("redis_configuration");
-        this.DeclareOutput("secondary_access_key");
-        this.DeclareOutput("secondary_connection_string");
-        this.DeclareOutput("shard_count");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("ssl_port");
-        this.DeclareOutput("subnet_id");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("zones");
+        this.WithOutput("access_keys_authentication_enabled");
+        this.WithOutput("capacity");
+        this.WithOutput("family");
+        this.WithOutput("hostname");
+        this.WithOutput("location");
+        this.WithOutput("minimum_tls_version");
+        this.WithOutput("non_ssl_port_enabled");
+        this.WithOutput("patch_schedule");
+        this.WithOutput("port");
+        this.WithOutput("primary_access_key");
+        this.WithOutput("primary_connection_string");
+        this.WithOutput("private_static_ip_address");
+        this.WithOutput("redis_configuration");
+        this.WithOutput("secondary_access_key");
+        this.WithOutput("secondary_connection_string");
+        this.WithOutput("shard_count");
+        this.WithOutput("sku_name");
+        this.WithOutput("ssl_port");
+        this.WithOutput("subnet_id");
+        this.WithOutput("tags");
+        this.WithOutput("zones");
     }
 
     /// <summary>

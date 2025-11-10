@@ -14,7 +14,7 @@ public class AwsRoute53RecordsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_record_sets");
+        this.WithOutputesource_record_sets");
     }
 
     /// <summary>

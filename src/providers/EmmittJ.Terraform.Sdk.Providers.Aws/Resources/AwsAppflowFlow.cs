@@ -158,8 +158,8 @@ public class AwsAppflowFlow : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("flow_status");
+        this.WithOutput("arn");
+        this.WithOutput("flow_status");
     }
 
     /// <summary>

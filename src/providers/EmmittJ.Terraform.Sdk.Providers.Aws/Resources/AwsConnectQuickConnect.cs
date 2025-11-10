@@ -33,8 +33,8 @@ public class AwsConnectQuickConnect : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("quick_connect_id");
+        this.WithOutput("arn");
+        this.WithOutput("quick_connect_id");
     }
 
     /// <summary>

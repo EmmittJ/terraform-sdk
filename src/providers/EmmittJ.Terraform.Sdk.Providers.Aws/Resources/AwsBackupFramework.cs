@@ -68,10 +68,10 @@ public class AwsBackupFramework : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("deployment_status");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("creation_time");
+        this.WithOutput("deployment_status");
+        this.WithOutput("status");
     }
 
     /// <summary>

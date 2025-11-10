@@ -33,8 +33,8 @@ public class AwsPrometheusWorkspace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("prometheus_endpoint");
+        this.WithOutput("arn");
+        this.WithOutput("prometheus_endpoint");
     }
 
     /// <summary>

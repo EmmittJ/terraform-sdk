@@ -94,12 +94,12 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("elastic_cloud_deployment_id");
-        this.DeclareOutput("elastic_cloud_sso_default_url");
-        this.DeclareOutput("elastic_cloud_user_id");
-        this.DeclareOutput("elasticsearch_service_url");
-        this.DeclareOutput("kibana_service_url");
-        this.DeclareOutput("kibana_sso_uri");
+        this.WithOutput("elastic_cloud_deployment_id");
+        this.WithOutput("elastic_cloud_sso_default_url");
+        this.WithOutput("elastic_cloud_user_id");
+        this.WithOutput("elasticsearch_service_url");
+        this.WithOutput("kibana_service_url");
+        this.WithOutput("kibana_sso_uri");
     }
 
     /// <summary>

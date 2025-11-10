@@ -159,9 +159,9 @@ public class AwsApigatewayv2Stage : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("execution_arn");
-        this.DeclareOutput("invoke_url");
+        this.WithOutput("arn");
+        this.WithOutput("execution_arn");
+        this.WithOutput("invoke_url");
     }
 
     /// <summary>

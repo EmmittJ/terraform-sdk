@@ -185,7 +185,7 @@ public class AwsEcsTaskExecutionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("task_arns");
+        this.WithOutput("task_arns");
     }
 
     /// <summary>

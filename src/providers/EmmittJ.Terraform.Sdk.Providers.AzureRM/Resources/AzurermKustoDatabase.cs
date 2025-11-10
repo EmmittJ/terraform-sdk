@@ -58,7 +58,7 @@ public class AzurermKustoDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("size");
+        this.WithOutput("size");
     }
 
     /// <summary>

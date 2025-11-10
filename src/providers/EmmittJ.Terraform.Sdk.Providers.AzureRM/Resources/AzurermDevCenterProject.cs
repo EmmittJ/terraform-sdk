@@ -104,7 +104,7 @@ public class AzurermDevCenterProject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dev_center_uri");
+        this.WithOutput("dev_center_uri");
     }
 
     /// <summary>

@@ -31,13 +31,13 @@ public class AzurermConfidentialLedgerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("azuread_based_service_principal");
-        this.DeclareOutput("certificate_based_security_principal");
-        this.DeclareOutput("identity_service_endpoint");
-        this.DeclareOutput("ledger_endpoint");
-        this.DeclareOutput("ledger_type");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("azuread_based_service_principal");
+        this.WithOutput("certificate_based_security_principal");
+        this.WithOutput("identity_service_endpoint");
+        this.WithOutput("ledger_endpoint");
+        this.WithOutput("ledger_type");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

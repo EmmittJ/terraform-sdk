@@ -31,8 +31,8 @@ public class AzurermStorageEncryptionScopeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("key_vault_key_id");
-        this.DeclareOutput("source");
+        this.WithOutput("key_vault_key_id");
+        this.WithOutput("source");
     }
 
     /// <summary>

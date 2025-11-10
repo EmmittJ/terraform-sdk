@@ -14,7 +14,7 @@ public class AwsDxLocationsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location_codes");
+        this.WithOutput("location_codes");
     }
 
     /// <summary>

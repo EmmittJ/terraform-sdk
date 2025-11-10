@@ -31,17 +31,17 @@ public class AzurermServicebusSubscriptionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("auto_delete_on_idle");
-        this.DeclareOutput("batched_operations_enabled");
-        this.DeclareOutput("dead_lettering_on_filter_evaluation_error");
-        this.DeclareOutput("dead_lettering_on_message_expiration");
-        this.DeclareOutput("default_message_ttl");
-        this.DeclareOutput("enable_batched_operations");
-        this.DeclareOutput("forward_dead_lettered_messages_to");
-        this.DeclareOutput("forward_to");
-        this.DeclareOutput("lock_duration");
-        this.DeclareOutput("max_delivery_count");
-        this.DeclareOutput("requires_session");
+        this.WithOutput("auto_delete_on_idle");
+        this.WithOutput("batched_operations_enabled");
+        this.WithOutput("dead_lettering_on_filter_evaluation_error");
+        this.WithOutput("dead_lettering_on_message_expiration");
+        this.WithOutput("default_message_ttl");
+        this.WithOutput("enable_batched_operations");
+        this.WithOutput("forward_dead_lettered_messages_to");
+        this.WithOutput("forward_to");
+        this.WithOutput("lock_duration");
+        this.WithOutput("max_delivery_count");
+        this.WithOutput("requires_session");
     }
 
     /// <summary>

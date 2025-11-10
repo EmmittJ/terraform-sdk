@@ -14,8 +14,8 @@ public class AwsSsoadminInstancesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arns");
-        this.DeclareOutput("identity_store_ids");
+        this.WithOutput("arns");
+        this.WithOutput("identity_store_ids");
     }
 
     /// <summary>

@@ -14,9 +14,9 @@ public class AwsSfnAliasDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("routing_configuration");
+        this.WithOutput("arn");
+        this.WithOutput("creation_date");
+        this.WithOutput("routing_configuration");
     }
 
     /// <summary>

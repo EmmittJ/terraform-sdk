@@ -42,14 +42,14 @@ public class AwsRoute53ResolverEndpointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("direction");
-        this.DeclareOutput("ip_addresses");
-        this.DeclareOutput("name");
-        this.DeclareOutput("protocols");
-        this.DeclareOutput("resolver_endpoint_type");
-        this.DeclareOutput("status");
-        this.DeclareOutput("vpc_id");
+        this.WithOutputrn");
+        this.WithOutputirection");
+        this.WithOutputp_addresses");
+        this.WithOutputame");
+        this.WithOutputrotocols");
+        this.WithOutputesolver_endpoint_type");
+        this.WithOutputtatus");
+        this.WithOutputpc_id");
     }
 
     /// <summary>

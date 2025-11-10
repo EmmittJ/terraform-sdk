@@ -14,8 +14,8 @@ public class AwsSyntheticsRuntimeVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("runtime_versions");
+        this.WithOutput("id");
+        this.WithOutput("runtime_versions");
     }
 
     /// <summary>

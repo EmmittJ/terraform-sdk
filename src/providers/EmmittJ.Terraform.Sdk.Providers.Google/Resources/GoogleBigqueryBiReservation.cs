@@ -84,8 +84,8 @@ public class GoogleBigqueryBiReservation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("update_time");
+        this.WithOutput("name");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

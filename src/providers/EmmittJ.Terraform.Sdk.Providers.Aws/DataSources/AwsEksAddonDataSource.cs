@@ -14,13 +14,13 @@ public class AwsEksAddonDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("addon_version");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("configuration_values");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("modified_at");
-        this.DeclareOutput("pod_identity_association");
-        this.DeclareOutput("service_account_role_arn");
+        this.WithOutput("addon_version");
+        this.WithOutput("arn");
+        this.WithOutput("configuration_values");
+        this.WithOutput("created_at");
+        this.WithOutput("modified_at");
+        this.WithOutput("pod_identity_association");
+        this.WithOutput("service_account_role_arn");
     }
 
     /// <summary>

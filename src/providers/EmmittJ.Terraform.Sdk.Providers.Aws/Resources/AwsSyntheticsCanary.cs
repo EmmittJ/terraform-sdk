@@ -147,11 +147,11 @@ public class AwsSyntheticsCanary : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("engine_arn");
-        this.DeclareOutput("source_location_arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("timeline");
+        this.WithOutput("arn");
+        this.WithOutput("engine_arn");
+        this.WithOutput("source_location_arn");
+        this.WithOutput("status");
+        this.WithOutput("timeline");
     }
 
     /// <summary>

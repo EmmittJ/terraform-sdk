@@ -14,7 +14,7 @@ public class AwsTransferSshKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ssh_key_id");
+        this.WithOutput("ssh_key_id");
     }
 
     /// <summary>

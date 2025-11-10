@@ -49,21 +49,21 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attachment_group");
-        this.DeclareOutput("cloud_router_ip_address");
-        this.DeclareOutput("cloud_router_ipv6_address");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("customer_router_ip_address");
-        this.DeclareOutput("customer_router_ipv6_address");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("google_reference_id");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("pairing_key");
-        this.DeclareOutput("partner_asn");
-        this.DeclareOutput("private_interconnect_info");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("attachment_group");
+        this.WithOutput("cloud_router_ip_address");
+        this.WithOutput("cloud_router_ipv6_address");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("customer_router_ip_address");
+        this.WithOutput("customer_router_ipv6_address");
+        this.WithOutput("effective_labels");
+        this.WithOutput("google_reference_id");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("pairing_key");
+        this.WithOutput("partner_asn");
+        this.WithOutput("private_interconnect_info");
+        this.WithOutput("self_link");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

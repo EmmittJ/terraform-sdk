@@ -14,8 +14,8 @@ public class AwsRedshiftClusterCredentialsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("db_password");
-        this.DeclareOutput("expiration");
+        this.WithOutput("db_password");
+        this.WithOutput("expiration");
     }
 
     /// <summary>

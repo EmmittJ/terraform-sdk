@@ -40,7 +40,7 @@ public class GoogleApigeeEnvKeystore : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("aliases");
+        this.WithOutput("aliases");
     }
 
     /// <summary>

@@ -224,10 +224,10 @@ public class GoogleComputeRegionSecurityPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("policy_id");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("self_link_with_policy_id");
+        this.WithOutput("fingerprint");
+        this.WithOutput("policy_id");
+        this.WithOutput("self_link");
+        this.WithOutput("self_link_with_policy_id");
     }
 
     /// <summary>

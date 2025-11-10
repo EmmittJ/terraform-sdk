@@ -31,11 +31,11 @@ public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("amount");
-        this.DeclareOutput("filter");
-        this.DeclareOutput("notification");
-        this.DeclareOutput("time_grain");
-        this.DeclareOutput("time_period");
+        this.WithOutput("amount");
+        this.WithOutput("filter");
+        this.WithOutput("notification");
+        this.WithOutput("time_grain");
+        this.WithOutput("time_period");
     }
 
     /// <summary>

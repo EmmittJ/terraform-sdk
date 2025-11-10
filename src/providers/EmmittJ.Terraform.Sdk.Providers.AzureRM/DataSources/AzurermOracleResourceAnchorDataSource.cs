@@ -31,9 +31,9 @@ public class AzurermOracleResourceAnchorDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("linked_compartment_id");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("linked_compartment_id");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

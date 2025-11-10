@@ -104,9 +104,9 @@ public class AzurermLogAnalyticsWorkspace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("primary_shared_key");
-        this.DeclareOutput("secondary_shared_key");
-        this.DeclareOutput("workspace_id");
+        this.WithOutput("primary_shared_key");
+        this.WithOutput("secondary_shared_key");
+        this.WithOutput("workspace_id");
     }
 
     /// <summary>

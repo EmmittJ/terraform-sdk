@@ -31,11 +31,11 @@ public class AzurermDedicatedHostGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("automatic_placement_enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("platform_fault_domain_count");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("zones");
+        this.WithOutput("automatic_placement_enabled");
+        this.WithOutput("location");
+        this.WithOutput("platform_fault_domain_count");
+        this.WithOutput("tags");
+        this.WithOutput("zones");
     }
 
     /// <summary>

@@ -51,8 +51,8 @@ public class AwsSagemakerProject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("project_id");
+        this.WithOutput("arn");
+        this.WithOutput("project_id");
     }
 
     /// <summary>

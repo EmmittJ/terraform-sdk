@@ -14,12 +14,12 @@ public class AwsCognitoUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("last_modified_date");
-        this.DeclareOutput("mfa_setting_list");
-        this.DeclareOutput("preferred_mfa_setting");
-        this.DeclareOutput("status");
-        this.DeclareOutput("sub");
+        this.WithOutput("creation_date");
+        this.WithOutput("last_modified_date");
+        this.WithOutput("mfa_setting_list");
+        this.WithOutput("preferred_mfa_setting");
+        this.WithOutput("status");
+        this.WithOutput("sub");
     }
 
     /// <summary>

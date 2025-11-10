@@ -50,8 +50,8 @@ public class AwsSfnActivity : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_date");
+        this.WithOutput("arn");
+        this.WithOutput("creation_date");
     }
 
     /// <summary>

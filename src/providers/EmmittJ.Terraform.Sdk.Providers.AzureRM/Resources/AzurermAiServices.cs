@@ -202,9 +202,9 @@ public class AzurermAiServices : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("secondary_access_key");
+        this.WithOutput("endpoint");
+        this.WithOutput("primary_access_key");
+        this.WithOutput("secondary_access_key");
     }
 
     /// <summary>

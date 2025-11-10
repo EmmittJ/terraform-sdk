@@ -49,9 +49,9 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_service_name");
-        this.DeclareOutput("hostname");
-        this.DeclareOutput("thumbprint");
+        this.WithOutput("app_service_name");
+        this.WithOutput("hostname");
+        this.WithOutput("thumbprint");
     }
 
     /// <summary>

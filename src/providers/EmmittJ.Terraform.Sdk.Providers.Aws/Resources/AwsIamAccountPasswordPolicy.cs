@@ -14,7 +14,7 @@ public class AwsIamAccountPasswordPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("expire_passwords");
+        this.WithOutput("expire_passwords");
     }
 
     /// <summary>

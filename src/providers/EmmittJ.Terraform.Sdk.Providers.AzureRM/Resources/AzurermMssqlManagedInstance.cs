@@ -160,8 +160,8 @@ public class AzurermMssqlManagedInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dns_zone");
-        this.DeclareOutput("fqdn");
+        this.WithOutput("dns_zone");
+        this.WithOutput("fqdn");
     }
 
     /// <summary>

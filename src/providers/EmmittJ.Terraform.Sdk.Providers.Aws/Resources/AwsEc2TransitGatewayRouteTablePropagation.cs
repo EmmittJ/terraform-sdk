@@ -14,8 +14,8 @@ public class AwsEc2TransitGatewayRouteTablePropagation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_id");
-        this.DeclareOutput("resource_type");
+        this.WithOutputesource_id");
+        this.WithOutputesource_type");
     }
 
     /// <summary>

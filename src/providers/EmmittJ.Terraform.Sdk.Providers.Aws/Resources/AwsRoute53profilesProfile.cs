@@ -49,13 +49,13 @@ public class AwsRoute53profilesProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("share_status");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_message");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("owner_id");
+        this.WithOutput("share_status");
+        this.WithOutput("status");
+        this.WithOutput("status_message");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

@@ -85,13 +85,13 @@ public class AwsAppfabricAppAuthorization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("auth_url");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("id");
-        this.DeclareOutput("persona");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("arn");
+        this.WithOutput("auth_url");
+        this.WithOutput("created_at");
+        this.WithOutput("id");
+        this.WithOutput("persona");
+        this.WithOutput("tags_all");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

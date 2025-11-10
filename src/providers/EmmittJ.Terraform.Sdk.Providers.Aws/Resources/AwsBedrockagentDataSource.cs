@@ -83,8 +83,8 @@ public class AwsBedrockagentDataSource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("data_source_id");
-        this.DeclareOutput("id");
+        this.WithOutput("data_source_id");
+        this.WithOutput("id");
     }
 
     /// <summary>

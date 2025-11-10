@@ -49,8 +49,8 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("principal_name");
-        this.DeclareOutput("tenant_name");
+        this.WithOutput("principal_name");
+        this.WithOutput("tenant_name");
     }
 
     /// <summary>

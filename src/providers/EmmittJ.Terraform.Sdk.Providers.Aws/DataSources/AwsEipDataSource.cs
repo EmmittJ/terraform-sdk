@@ -59,21 +59,21 @@ public class AwsEipDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("association_id");
-        this.DeclareOutput("carrier_ip");
-        this.DeclareOutput("customer_owned_ip");
-        this.DeclareOutput("customer_owned_ipv4_pool");
-        this.DeclareOutput("domain");
-        this.DeclareOutput("instance_id");
-        this.DeclareOutput("ipam_pool_id");
-        this.DeclareOutput("network_interface_id");
-        this.DeclareOutput("network_interface_owner_id");
-        this.DeclareOutput("private_dns");
-        this.DeclareOutput("private_ip");
-        this.DeclareOutput("ptr_record");
-        this.DeclareOutput("public_dns");
-        this.DeclareOutput("public_ipv4_pool");
+        this.WithOutput("arn");
+        this.WithOutput("association_id");
+        this.WithOutput("carrier_ip");
+        this.WithOutput("customer_owned_ip");
+        this.WithOutput("customer_owned_ipv4_pool");
+        this.WithOutput("domain");
+        this.WithOutput("instance_id");
+        this.WithOutput("ipam_pool_id");
+        this.WithOutput("network_interface_id");
+        this.WithOutput("network_interface_owner_id");
+        this.WithOutput("private_dns");
+        this.WithOutput("private_ip");
+        this.WithOutput("ptr_record");
+        this.WithOutput("public_dns");
+        this.WithOutput("public_ipv4_pool");
     }
 
     /// <summary>

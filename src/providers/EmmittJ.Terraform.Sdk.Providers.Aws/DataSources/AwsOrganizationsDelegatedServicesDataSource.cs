@@ -14,7 +14,7 @@ public class AwsOrganizationsDelegatedServicesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("delegated_services");
+        this.WithOutput("delegated_services");
     }
 
     /// <summary>

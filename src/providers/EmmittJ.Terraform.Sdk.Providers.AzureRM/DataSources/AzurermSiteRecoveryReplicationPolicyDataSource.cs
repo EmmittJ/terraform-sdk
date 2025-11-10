@@ -31,8 +31,8 @@ public class AzurermSiteRecoveryReplicationPolicyDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_consistent_snapshot_frequency_in_minutes");
-        this.DeclareOutput("recovery_point_retention_in_minutes");
+        this.WithOutput("application_consistent_snapshot_frequency_in_minutes");
+        this.WithOutput("recovery_point_retention_in_minutes");
     }
 
     /// <summary>

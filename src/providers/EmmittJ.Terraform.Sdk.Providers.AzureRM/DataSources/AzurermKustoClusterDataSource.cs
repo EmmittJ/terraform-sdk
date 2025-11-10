@@ -31,11 +31,11 @@ public class AzurermKustoClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("data_ingestion_uri");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("uri");
+        this.WithOutput("data_ingestion_uri");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("tags");
+        this.WithOutput("uri");
     }
 
     /// <summary>

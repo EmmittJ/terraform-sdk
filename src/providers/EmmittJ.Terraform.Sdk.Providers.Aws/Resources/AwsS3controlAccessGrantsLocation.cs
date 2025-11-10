@@ -14,10 +14,10 @@ public class AwsS3controlAccessGrantsLocation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_grants_location_arn");
-        this.DeclareOutput("access_grants_location_id");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("access_grants_location_arn");
+        this.WithOutput("access_grants_location_id");
+        this.WithOutput("id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

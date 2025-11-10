@@ -14,7 +14,7 @@ public class AwsOdbDbServersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("db_servers");
+        this.WithOutput("db_servers");
     }
 
     /// <summary>

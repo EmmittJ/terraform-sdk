@@ -31,9 +31,9 @@ public class AzurermCdnProfileDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
+        this.WithOutput("location");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
     }
 
     /// <summary>

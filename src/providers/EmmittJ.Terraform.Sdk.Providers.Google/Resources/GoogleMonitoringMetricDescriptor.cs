@@ -112,8 +112,8 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("monitored_resource_types");
-        this.DeclareOutput("name");
+        this.WithOutput("monitored_resource_types");
+        this.WithOutput("name");
     }
 
     /// <summary>

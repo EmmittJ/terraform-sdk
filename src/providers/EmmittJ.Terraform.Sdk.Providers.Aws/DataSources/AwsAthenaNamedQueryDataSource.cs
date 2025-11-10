@@ -14,9 +14,9 @@ public class AwsAthenaNamedQueryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("database");
-        this.DeclareOutput("description");
-        this.DeclareOutput("querystring");
+        this.WithOutput("database");
+        this.WithOutput("description");
+        this.WithOutput("querystring");
     }
 
     /// <summary>

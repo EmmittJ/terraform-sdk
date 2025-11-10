@@ -14,12 +14,12 @@ public class GoogleArtifactRegistryVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("annotations");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("name");
-        this.DeclareOutput("related_tags");
-        this.DeclareOutput("update_time");
+        this.WithOutput("annotations");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("name");
+        this.WithOutput("related_tags");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

@@ -14,15 +14,15 @@ public class AwsRoute53ResolverFirewallDomainListDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("creator_request_id");
-        this.DeclareOutput("domain_count");
-        this.DeclareOutput("managed_owner_name");
-        this.DeclareOutput("modification_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_message");
+        this.WithOutputrn");
+        this.WithOutputreation_time");
+        this.WithOutputreator_request_id");
+        this.WithOutputomain_count");
+        this.WithOutputanaged_owner_name");
+        this.WithOutputodification_time");
+        this.WithOutputame");
+        this.WithOutputtatus");
+        this.WithOutputtatus_message");
     }
 
     /// <summary>

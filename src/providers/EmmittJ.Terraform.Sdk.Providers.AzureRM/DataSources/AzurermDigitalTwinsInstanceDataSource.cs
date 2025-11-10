@@ -31,9 +31,9 @@ public class AzurermDigitalTwinsInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("host_name");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("host_name");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

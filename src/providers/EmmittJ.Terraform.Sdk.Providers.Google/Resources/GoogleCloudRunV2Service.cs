@@ -407,27 +407,27 @@ public class GoogleCloudRunV2Service : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("conditions");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("creator");
-        this.DeclareOutput("delete_time");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("expire_time");
-        this.DeclareOutput("generation");
-        this.DeclareOutput("last_modifier");
-        this.DeclareOutput("latest_created_revision");
-        this.DeclareOutput("latest_ready_revision");
-        this.DeclareOutput("observed_generation");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("terminal_condition");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("traffic_statuses");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("uri");
-        this.DeclareOutput("urls");
+        this.WithOutput("conditions");
+        this.WithOutput("create_time");
+        this.WithOutput("creator");
+        this.WithOutput("delete_time");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("effective_labels");
+        this.WithOutput("etag");
+        this.WithOutput("expire_time");
+        this.WithOutput("generation");
+        this.WithOutput("last_modifier");
+        this.WithOutput("latest_created_revision");
+        this.WithOutput("latest_ready_revision");
+        this.WithOutput("observed_generation");
+        this.WithOutput("reconciling");
+        this.WithOutput("terminal_condition");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("traffic_statuses");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("uri");
+        this.WithOutput("urls");
     }
 
     /// <summary>

@@ -31,7 +31,7 @@ public class AzurermExtendedLocationsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("extended_locations");
+        this.WithOutput("extended_locations");
     }
 
     /// <summary>

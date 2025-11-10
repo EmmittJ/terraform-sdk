@@ -14,11 +14,11 @@ public class AwsAppmeshRouteDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("last_updated_date");
-        this.DeclareOutput("resource_owner");
-        this.DeclareOutput("spec");
+        this.WithOutputrn");
+        this.WithOutputreated_date");
+        this.WithOutputast_updated_date");
+        this.WithOutputesource_owner");
+        this.WithOutputpec");
     }
 
     /// <summary>

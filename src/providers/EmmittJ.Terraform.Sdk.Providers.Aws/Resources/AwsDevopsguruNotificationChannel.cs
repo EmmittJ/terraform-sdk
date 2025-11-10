@@ -58,7 +58,7 @@ public class AwsDevopsguruNotificationChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
+        this.WithOutput("id");
     }
 
     /// <summary>

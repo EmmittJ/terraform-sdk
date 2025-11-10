@@ -140,7 +140,7 @@ public class AzurermStreamAnalyticsJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("job_id");
+        this.WithOutputob_id");
     }
 
     /// <summary>

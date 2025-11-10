@@ -158,9 +158,9 @@ public class AzurermDnsZone : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("max_number_of_record_sets");
-        this.DeclareOutput("name_servers");
-        this.DeclareOutput("number_of_record_sets");
+        this.WithOutput("max_number_of_record_sets");
+        this.WithOutput("name_servers");
+        this.WithOutput("number_of_record_sets");
     }
 
     /// <summary>

@@ -31,11 +31,11 @@ public class AzurermSharedImageGalleryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("image_names");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("unique_name");
+        this.WithOutput("description");
+        this.WithOutput("image_names");
+        this.WithOutput("location");
+        this.WithOutput("tags");
+        this.WithOutput("unique_name");
     }
 
     /// <summary>

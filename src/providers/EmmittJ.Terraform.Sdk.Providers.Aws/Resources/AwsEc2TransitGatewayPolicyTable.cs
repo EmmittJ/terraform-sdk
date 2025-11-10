@@ -14,8 +14,8 @@ public class AwsEc2TransitGatewayPolicyTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("state");
     }
 
     /// <summary>

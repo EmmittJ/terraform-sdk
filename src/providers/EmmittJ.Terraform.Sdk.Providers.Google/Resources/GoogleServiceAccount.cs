@@ -31,10 +31,10 @@ public class GoogleServiceAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("email");
-        this.DeclareOutput("member");
-        this.DeclareOutput("name");
-        this.DeclareOutput("unique_id");
+        this.WithOutput("email");
+        this.WithOutput("member");
+        this.WithOutput("name");
+        this.WithOutput("unique_id");
     }
 
     /// <summary>

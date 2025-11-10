@@ -560,13 +560,13 @@ public class AwsOpensearchDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("dashboard_endpoint");
-        this.DeclareOutput("dashboard_endpoint_v2");
-        this.DeclareOutput("domain_endpoint_v2_hosted_zone_id");
-        this.DeclareOutput("domain_id");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("endpoint_v2");
+        this.WithOutput("arn");
+        this.WithOutput("dashboard_endpoint");
+        this.WithOutput("dashboard_endpoint_v2");
+        this.WithOutput("domain_endpoint_v2_hosted_zone_id");
+        this.WithOutput("domain_id");
+        this.WithOutput("endpoint");
+        this.WithOutput("endpoint_v2");
     }
 
     /// <summary>

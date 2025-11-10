@@ -14,10 +14,10 @@ public class GoogleSqlDatabaseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("charset");
-        this.DeclareOutput("collation");
-        this.DeclareOutput("deletion_policy");
-        this.DeclareOutput("self_link");
+        this.WithOutput("charset");
+        this.WithOutput("collation");
+        this.WithOutput("deletion_policy");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

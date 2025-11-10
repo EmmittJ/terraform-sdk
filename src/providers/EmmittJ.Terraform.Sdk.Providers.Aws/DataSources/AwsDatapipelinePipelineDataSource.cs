@@ -14,8 +14,8 @@ public class AwsDatapipelinePipelineDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("name");
+        this.WithOutput("description");
+        this.WithOutput("name");
     }
 
     /// <summary>

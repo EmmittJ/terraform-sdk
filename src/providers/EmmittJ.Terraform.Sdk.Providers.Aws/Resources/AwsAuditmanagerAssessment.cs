@@ -78,11 +78,11 @@ public class AwsAuditmanagerAssessment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("roles_all");
-        this.DeclareOutput("status");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("roles_all");
+        this.WithOutput("status");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

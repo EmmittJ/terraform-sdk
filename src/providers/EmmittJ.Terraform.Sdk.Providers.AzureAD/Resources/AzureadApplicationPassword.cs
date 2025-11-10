@@ -58,8 +58,8 @@ public class AzureadApplicationPassword : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("key_id");
-        this.DeclareOutput("value");
+        this.WithOutput("key_id");
+        this.WithOutput("value");
     }
 
     /// <summary>

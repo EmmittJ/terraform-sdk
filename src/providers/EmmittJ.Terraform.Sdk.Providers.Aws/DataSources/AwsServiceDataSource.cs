@@ -14,8 +14,8 @@ public class AwsServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("partition");
-        this.DeclareOutput("supported");
+        this.WithOutput("partition");
+        this.WithOutput("supported");
     }
 
     /// <summary>

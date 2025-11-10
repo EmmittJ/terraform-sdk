@@ -58,13 +58,13 @@ public class GoogleApihubCuration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("last_execution_error_code");
-        this.DeclareOutput("last_execution_error_message");
-        this.DeclareOutput("last_execution_state");
-        this.DeclareOutput("name");
-        this.DeclareOutput("plugin_instance_actions");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("last_execution_error_code");
+        this.WithOutput("last_execution_error_message");
+        this.WithOutput("last_execution_state");
+        this.WithOutput("name");
+        this.WithOutput("plugin_instance_actions");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

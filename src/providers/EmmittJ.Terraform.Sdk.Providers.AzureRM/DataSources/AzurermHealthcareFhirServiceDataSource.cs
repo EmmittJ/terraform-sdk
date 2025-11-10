@@ -31,14 +31,14 @@ public class AzurermHealthcareFhirServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_policy_object_ids");
-        this.DeclareOutput("authentication");
-        this.DeclareOutput("configuration_export_storage_account_name");
-        this.DeclareOutput("container_registry_login_server_url");
-        this.DeclareOutput("cors");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("location");
+        this.WithOutput("access_policy_object_ids");
+        this.WithOutput("authentication");
+        this.WithOutput("configuration_export_storage_account_name");
+        this.WithOutput("container_registry_login_server_url");
+        this.WithOutput("cors");
+        this.WithOutput("identity");
+        this.WithOutput("kind");
+        this.WithOutput("location");
     }
 
     /// <summary>

@@ -58,13 +58,13 @@ public class GoogleTranscoderJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("end_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("start_time");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("end_time");
+        this.WithOutput("name");
+        this.WithOutput("start_time");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

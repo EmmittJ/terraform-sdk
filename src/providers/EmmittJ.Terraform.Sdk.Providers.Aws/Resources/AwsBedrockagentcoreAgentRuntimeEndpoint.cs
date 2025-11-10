@@ -49,9 +49,9 @@ public class AwsBedrockagentcoreAgentRuntimeEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("agent_runtime_arn");
-        this.DeclareOutput("agent_runtime_endpoint_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("agent_runtime_arn");
+        this.WithOutput("agent_runtime_endpoint_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

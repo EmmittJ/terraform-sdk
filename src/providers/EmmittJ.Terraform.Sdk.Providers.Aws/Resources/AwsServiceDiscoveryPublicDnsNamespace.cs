@@ -14,8 +14,8 @@ public class AwsServiceDiscoveryPublicDnsNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("hosted_zone");
+        this.WithOutput("arn");
+        this.WithOutput("hosted_zone");
     }
 
     /// <summary>

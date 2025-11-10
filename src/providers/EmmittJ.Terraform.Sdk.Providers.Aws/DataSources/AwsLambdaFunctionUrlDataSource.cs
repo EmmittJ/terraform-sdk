@@ -14,14 +14,14 @@ public class AwsLambdaFunctionUrlDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("authorization_type");
-        this.DeclareOutput("cors");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("function_arn");
-        this.DeclareOutput("function_url");
-        this.DeclareOutput("invoke_mode");
-        this.DeclareOutput("last_modified_time");
-        this.DeclareOutput("url_id");
+        this.WithOutput("authorization_type");
+        this.WithOutput("cors");
+        this.WithOutput("creation_time");
+        this.WithOutput("function_arn");
+        this.WithOutput("function_url");
+        this.WithOutput("invoke_mode");
+        this.WithOutput("last_modified_time");
+        this.WithOutput("url_id");
     }
 
     /// <summary>

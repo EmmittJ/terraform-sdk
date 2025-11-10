@@ -58,8 +58,8 @@ public class AzurermOracleResourceAnchor : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("linked_compartment_id");
-        this.DeclareOutput("location");
+        this.WithOutput("linked_compartment_id");
+        this.WithOutput("location");
     }
 
     /// <summary>

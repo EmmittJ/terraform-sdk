@@ -40,7 +40,7 @@ public class AwsSsoadminManagedPolicyAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("managed_policy_name");
+        this.WithOutput("managed_policy_name");
     }
 
     /// <summary>

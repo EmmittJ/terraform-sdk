@@ -262,9 +262,9 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("device_validation_domain");
-        this.DeclareOutput("endpoint_domain");
-        this.DeclareOutput("verified_access_instance_id");
+        this.WithOutput("device_validation_domain");
+        this.WithOutput("endpoint_domain");
+        this.WithOutput("verified_access_instance_id");
     }
 
     /// <summary>

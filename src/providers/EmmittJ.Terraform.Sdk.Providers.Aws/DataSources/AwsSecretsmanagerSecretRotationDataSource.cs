@@ -14,9 +14,9 @@ public class AwsSecretsmanagerSecretRotationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("rotation_enabled");
-        this.DeclareOutput("rotation_lambda_arn");
-        this.DeclareOutput("rotation_rules");
+        this.WithOutput("rotation_enabled");
+        this.WithOutput("rotation_lambda_arn");
+        this.WithOutput("rotation_rules");
     }
 
     /// <summary>

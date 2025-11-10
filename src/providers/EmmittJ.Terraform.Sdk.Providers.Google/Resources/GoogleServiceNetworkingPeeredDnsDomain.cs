@@ -49,7 +49,7 @@ public class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("parent");
+        this.WithOutput("parent");
     }
 
     /// <summary>

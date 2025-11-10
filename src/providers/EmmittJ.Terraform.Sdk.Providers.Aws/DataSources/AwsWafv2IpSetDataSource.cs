@@ -14,10 +14,10 @@ public class AwsWafv2IpSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("addresses");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("ip_address_version");
+        this.WithOutput("addresses");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("ip_address_version");
     }
 
     /// <summary>

@@ -14,14 +14,14 @@ public class AwsBatchJobQueueDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("compute_environment_order");
-        this.DeclareOutput("job_state_time_limit_action");
-        this.DeclareOutput("priority");
-        this.DeclareOutput("scheduling_policy_arn");
-        this.DeclareOutput("state");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
+        this.WithOutput("arn");
+        this.WithOutput("compute_environment_order");
+        this.WithOutput("job_state_time_limit_action");
+        this.WithOutput("priority");
+        this.WithOutput("scheduling_policy_arn");
+        this.WithOutput("state");
+        this.WithOutput("status");
+        this.WithOutput("status_reason");
     }
 
     /// <summary>

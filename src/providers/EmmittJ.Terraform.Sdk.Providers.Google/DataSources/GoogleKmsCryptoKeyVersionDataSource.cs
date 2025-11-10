@@ -14,11 +14,11 @@ public class GoogleKmsCryptoKeyVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("algorithm");
-        this.DeclareOutput("name");
-        this.DeclareOutput("protection_level");
-        this.DeclareOutput("public_key");
-        this.DeclareOutput("state");
+        this.WithOutput("algorithm");
+        this.WithOutput("name");
+        this.WithOutput("protection_level");
+        this.WithOutput("public_key");
+        this.WithOutput("state");
     }
 
     /// <summary>

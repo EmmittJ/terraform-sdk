@@ -60,8 +60,8 @@ public class AwsEmrInstanceGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("running_instance_count");
-        this.DeclareOutput("status");
+        this.WithOutput("running_instance_count");
+        this.WithOutput("status");
     }
 
     /// <summary>

@@ -14,18 +14,18 @@ public class AwsConnectInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("auto_resolve_best_voices_enabled");
-        this.DeclareOutput("contact_flow_logs_enabled");
-        this.DeclareOutput("contact_lens_enabled");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("early_media_enabled");
-        this.DeclareOutput("identity_management_type");
-        this.DeclareOutput("inbound_calls_enabled");
-        this.DeclareOutput("multi_party_conference_enabled");
-        this.DeclareOutput("outbound_calls_enabled");
-        this.DeclareOutput("service_role");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("auto_resolve_best_voices_enabled");
+        this.WithOutput("contact_flow_logs_enabled");
+        this.WithOutput("contact_lens_enabled");
+        this.WithOutput("created_time");
+        this.WithOutput("early_media_enabled");
+        this.WithOutput("identity_management_type");
+        this.WithOutput("inbound_calls_enabled");
+        this.WithOutput("multi_party_conference_enabled");
+        this.WithOutput("outbound_calls_enabled");
+        this.WithOutput("service_role");
+        this.WithOutput("status");
     }
 
     /// <summary>

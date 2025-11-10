@@ -59,8 +59,8 @@ public class AwsEipsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocation_ids");
-        this.DeclareOutput("public_ips");
+        this.WithOutput("allocation_ids");
+        this.WithOutput("public_ips");
     }
 
     /// <summary>

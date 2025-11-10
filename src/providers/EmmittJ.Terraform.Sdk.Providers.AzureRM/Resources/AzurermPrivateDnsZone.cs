@@ -158,10 +158,10 @@ public class AzurermPrivateDnsZone : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("max_number_of_record_sets");
-        this.DeclareOutput("max_number_of_virtual_network_links");
-        this.DeclareOutput("max_number_of_virtual_network_links_with_registration");
-        this.DeclareOutput("number_of_record_sets");
+        this.WithOutput("max_number_of_record_sets");
+        this.WithOutput("max_number_of_virtual_network_links");
+        this.WithOutput("max_number_of_virtual_network_links_with_registration");
+        this.WithOutput("number_of_record_sets");
     }
 
     /// <summary>

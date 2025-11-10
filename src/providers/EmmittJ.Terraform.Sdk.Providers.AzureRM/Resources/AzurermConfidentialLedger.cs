@@ -125,8 +125,8 @@ public class AzurermConfidentialLedger : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("identity_service_endpoint");
-        this.DeclareOutput("ledger_endpoint");
+        this.WithOutput("identity_service_endpoint");
+        this.WithOutput("ledger_endpoint");
     }
 
     /// <summary>

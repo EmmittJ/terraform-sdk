@@ -41,11 +41,11 @@ public class AwsAppconfigEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("environment_id");
-        this.DeclareOutput("id");
-        this.DeclareOutput("state");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("environment_id");
+        this.WithOutput("id");
+        this.WithOutput("state");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

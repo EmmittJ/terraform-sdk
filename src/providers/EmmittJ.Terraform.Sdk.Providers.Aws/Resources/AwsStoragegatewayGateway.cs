@@ -151,12 +151,12 @@ public class AwsStoragegatewayGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("ec2_instance_id");
-        this.DeclareOutput("endpoint_type");
-        this.DeclareOutput("gateway_id");
-        this.DeclareOutput("gateway_network_interface");
-        this.DeclareOutput("host_environment");
+        this.WithOutput("arn");
+        this.WithOutput("ec2_instance_id");
+        this.WithOutput("endpoint_type");
+        this.WithOutput("gateway_id");
+        this.WithOutput("gateway_network_interface");
+        this.WithOutput("host_environment");
     }
 
     /// <summary>

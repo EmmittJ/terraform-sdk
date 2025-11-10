@@ -14,10 +14,10 @@ public class AwsCloudfrontFunction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("live_stage_etag");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("etag");
+        this.WithOutput("live_stage_etag");
+        this.WithOutput("status");
     }
 
     /// <summary>

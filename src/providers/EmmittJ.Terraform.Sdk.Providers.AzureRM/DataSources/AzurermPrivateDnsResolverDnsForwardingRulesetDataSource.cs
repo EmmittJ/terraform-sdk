@@ -31,9 +31,9 @@ public class AzurermPrivateDnsResolverDnsForwardingRulesetDataSource : Terraform
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("private_dns_resolver_outbound_endpoint_ids");
-        this.DeclareOutput("tags");
+        this.WithOutput("location");
+        this.WithOutput("private_dns_resolver_outbound_endpoint_ids");
+        this.WithOutput("tags");
     }
 
     /// <summary>

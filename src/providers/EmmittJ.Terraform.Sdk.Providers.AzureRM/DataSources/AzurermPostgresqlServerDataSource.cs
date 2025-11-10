@@ -32,13 +32,13 @@ public class AzurermPostgresqlServerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("administrator_login");
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("version");
+        this.WithOutput("administrator_login");
+        this.WithOutput("fqdn");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("sku_name");
+        this.WithOutput("tags");
+        this.WithOutput("version");
     }
 
     /// <summary>

@@ -31,7 +31,7 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource : Ter
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connections");
+        this.WithOutput("connections");
     }
 
     /// <summary>

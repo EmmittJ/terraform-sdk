@@ -14,7 +14,7 @@ public class AwsMqBrokerEngineTypesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("broker_engine_types");
+        this.WithOutput("broker_engine_types");
     }
 
     /// <summary>

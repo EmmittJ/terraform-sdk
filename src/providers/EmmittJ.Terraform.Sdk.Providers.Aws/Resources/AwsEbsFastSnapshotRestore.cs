@@ -40,8 +40,8 @@ public class AwsEbsFastSnapshotRestore : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("state");
+        this.WithOutput("id");
+        this.WithOutput("state");
     }
 
     /// <summary>

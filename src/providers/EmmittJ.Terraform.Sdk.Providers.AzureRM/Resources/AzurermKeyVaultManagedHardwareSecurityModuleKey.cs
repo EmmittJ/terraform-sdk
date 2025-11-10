@@ -58,7 +58,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("versioned_id");
+        this.WithOutput("versioned_id");
     }
 
     /// <summary>

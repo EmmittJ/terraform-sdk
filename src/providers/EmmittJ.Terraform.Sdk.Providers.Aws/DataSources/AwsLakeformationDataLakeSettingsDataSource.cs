@@ -14,16 +14,16 @@ public class AwsLakeformationDataLakeSettingsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("admins");
-        this.DeclareOutput("allow_external_data_filtering");
-        this.DeclareOutput("allow_full_table_external_data_access");
-        this.DeclareOutput("authorized_session_tag_value_list");
-        this.DeclareOutput("create_database_default_permissions");
-        this.DeclareOutput("create_table_default_permissions");
-        this.DeclareOutput("external_data_filtering_allow_list");
-        this.DeclareOutput("parameters");
-        this.DeclareOutput("read_only_admins");
-        this.DeclareOutput("trusted_resource_owners");
+        this.WithOutput("admins");
+        this.WithOutput("allow_external_data_filtering");
+        this.WithOutput("allow_full_table_external_data_access");
+        this.WithOutput("authorized_session_tag_value_list");
+        this.WithOutput("create_database_default_permissions");
+        this.WithOutput("create_table_default_permissions");
+        this.WithOutput("external_data_filtering_allow_list");
+        this.WithOutput("parameters");
+        this.WithOutput("read_only_admins");
+        this.WithOutput("trusted_resource_owners");
     }
 
     /// <summary>

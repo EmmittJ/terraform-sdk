@@ -49,10 +49,10 @@ public class AwsServicecatalogTagOptionResourceAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_arn");
-        this.DeclareOutput("resource_created_time");
-        this.DeclareOutput("resource_description");
-        this.DeclareOutput("resource_name");
+        this.WithOutput("resource_arn");
+        this.WithOutput("resource_created_time");
+        this.WithOutput("resource_description");
+        this.WithOutput("resource_name");
     }
 
     /// <summary>

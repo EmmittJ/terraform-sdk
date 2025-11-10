@@ -14,15 +14,15 @@ public class AwsTransferConnectorDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_role");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("as2_config");
-        this.DeclareOutput("logging_role");
-        this.DeclareOutput("security_policy_name");
-        this.DeclareOutput("service_managed_egress_ip_addresses");
-        this.DeclareOutput("sftp_config");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("url");
+        this.WithOutput("access_role");
+        this.WithOutput("arn");
+        this.WithOutput("as2_config");
+        this.WithOutput("logging_role");
+        this.WithOutput("security_policy_name");
+        this.WithOutput("service_managed_egress_ip_addresses");
+        this.WithOutput("sftp_config");
+        this.WithOutput("tags");
+        this.WithOutput("url");
     }
 
     /// <summary>

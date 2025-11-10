@@ -49,15 +49,15 @@ public class GoogleNetworkSecurityInterceptEndpointGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("associations");
-        this.DeclareOutput("connected_deployment_group");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("associations");
+        this.WithOutput("connected_deployment_group");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("name");
+        this.WithOutput("reconciling");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

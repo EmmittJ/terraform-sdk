@@ -49,7 +49,7 @@ public class AzurermAutomationJobSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_manager_id");
+        this.WithOutput("resource_manager_id");
     }
 
     /// <summary>

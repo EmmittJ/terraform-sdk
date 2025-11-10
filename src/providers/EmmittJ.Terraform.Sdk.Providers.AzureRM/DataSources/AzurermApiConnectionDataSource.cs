@@ -31,11 +31,11 @@ public class AzurermApiConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("location");
-        this.DeclareOutput("managed_api_id");
-        this.DeclareOutput("parameter_values");
-        this.DeclareOutput("tags");
+        this.WithOutput("display_name");
+        this.WithOutput("location");
+        this.WithOutput("managed_api_id");
+        this.WithOutput("parameter_values");
+        this.WithOutput("tags");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class AwsAppconfigExtensionAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("extension_version");
+        this.WithOutput("arn");
+        this.WithOutput("extension_version");
     }
 
     /// <summary>

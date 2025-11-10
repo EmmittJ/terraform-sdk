@@ -14,21 +14,21 @@ public class GoogleOracleDatabaseAutonomousDatabaseDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("admin_password");
-        this.DeclareOutput("cidr");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("database");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("entitlement_id");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("network");
-        this.DeclareOutput("odb_network");
-        this.DeclareOutput("odb_subnet");
-        this.DeclareOutput("properties");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("admin_password");
+        this.WithOutput("cidr");
+        this.WithOutput("create_time");
+        this.WithOutput("database");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("display_name");
+        this.WithOutput("effective_labels");
+        this.WithOutput("entitlement_id");
+        this.WithOutput("labels");
+        this.WithOutput("name");
+        this.WithOutput("network");
+        this.WithOutput("odb_network");
+        this.WithOutput("odb_subnet");
+        this.WithOutput("properties");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

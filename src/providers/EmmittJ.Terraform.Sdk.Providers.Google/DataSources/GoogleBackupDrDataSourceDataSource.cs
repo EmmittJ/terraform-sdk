@@ -14,18 +14,18 @@ public class GoogleBackupDrDataSourceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("backup_config_info");
-        this.DeclareOutput("backup_count");
-        this.DeclareOutput("config_state");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("data_source_backup_appliance_application");
-        this.DeclareOutput("data_source_gcp_resource");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
-        this.DeclareOutput("total_stored_bytes");
-        this.DeclareOutput("update_time");
+        this.WithOutput("backup_config_info");
+        this.WithOutput("backup_count");
+        this.WithOutput("config_state");
+        this.WithOutput("create_time");
+        this.WithOutput("data_source_backup_appliance_application");
+        this.WithOutput("data_source_gcp_resource");
+        this.WithOutput("etag");
+        this.WithOutput("labels");
+        this.WithOutput("name");
+        this.WithOutput("state");
+        this.WithOutput("total_stored_bytes");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

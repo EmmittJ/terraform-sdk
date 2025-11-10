@@ -49,8 +49,8 @@ public class AzurermRedisLinkedServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("geo_replicated_primary_host_name");
-        this.DeclareOutput("name");
+        this.WithOutputeo_replicated_primary_host_name");
+        this.WithOutputame");
     }
 
     /// <summary>

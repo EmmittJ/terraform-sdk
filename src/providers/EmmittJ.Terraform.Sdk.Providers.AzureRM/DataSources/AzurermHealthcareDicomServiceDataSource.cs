@@ -31,16 +31,16 @@ public class AzurermHealthcareDicomServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("authentication");
-        this.DeclareOutput("cors");
-        this.DeclareOutput("data_partitions_enabled");
-        this.DeclareOutput("encryption_key_url");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("private_endpoint");
-        this.DeclareOutput("service_url");
-        this.DeclareOutput("storage");
-        this.DeclareOutput("tags");
+        this.WithOutput("authentication");
+        this.WithOutput("cors");
+        this.WithOutput("data_partitions_enabled");
+        this.WithOutput("encryption_key_url");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("private_endpoint");
+        this.WithOutput("service_url");
+        this.WithOutput("storage");
+        this.WithOutput("tags");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsVpcNetworkPerformanceMetricSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("period");
+        this.WithOutput("period");
     }
 
     /// <summary>

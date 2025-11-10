@@ -141,11 +141,11 @@ public class AzurermAutomationAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dsc_primary_access_key");
-        this.DeclareOutput("dsc_secondary_access_key");
-        this.DeclareOutput("dsc_server_endpoint");
-        this.DeclareOutput("hybrid_service_url");
-        this.DeclareOutput("private_endpoint_connection");
+        this.WithOutput("dsc_primary_access_key");
+        this.WithOutput("dsc_secondary_access_key");
+        this.WithOutput("dsc_server_endpoint");
+        this.WithOutput("hybrid_service_url");
+        this.WithOutput("private_endpoint_connection");
     }
 
     /// <summary>

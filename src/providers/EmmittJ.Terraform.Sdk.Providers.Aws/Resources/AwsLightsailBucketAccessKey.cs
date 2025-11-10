@@ -14,10 +14,10 @@ public class AwsLightsailBucketAccessKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_key_id");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("secret_access_key");
-        this.DeclareOutput("status");
+        this.WithOutput("access_key_id");
+        this.WithOutput("created_at");
+        this.WithOutput("secret_access_key");
+        this.WithOutput("status");
     }
 
     /// <summary>

@@ -31,8 +31,8 @@ public class AzurermPrivateDnsResolverVirtualNetworkLinkDataSource : TerraformDa
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("metadata");
-        this.DeclareOutput("virtual_network_id");
+        this.WithOutput("metadata");
+        this.WithOutput("virtual_network_id");
     }
 
     /// <summary>

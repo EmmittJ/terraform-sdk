@@ -14,7 +14,7 @@ public class AwsDmsCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_arn");
+        this.WithOutput("certificate_arn");
     }
 
     /// <summary>

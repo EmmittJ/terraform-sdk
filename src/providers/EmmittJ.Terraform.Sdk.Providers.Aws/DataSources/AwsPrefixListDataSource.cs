@@ -59,7 +59,7 @@ public class AwsPrefixListDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cidr_blocks");
+        this.WithOutput("cidr_blocks");
     }
 
     /// <summary>

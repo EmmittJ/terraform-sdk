@@ -31,10 +31,10 @@ public class AzurermIpGroupsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ids");
-        this.DeclareOutput("location");
-        this.DeclareOutput("names");
-        this.DeclareOutput("tags");
+        this.WithOutput("ids");
+        this.WithOutput("location");
+        this.WithOutput("names");
+        this.WithOutput("tags");
     }
 
     /// <summary>

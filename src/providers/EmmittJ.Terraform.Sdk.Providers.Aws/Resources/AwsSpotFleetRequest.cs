@@ -229,8 +229,8 @@ public class AwsSpotFleetRequest : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("client_token");
-        this.DeclareOutput("spot_request_state");
+        this.WithOutput("client_token");
+        this.WithOutput("spot_request_state");
     }
 
     /// <summary>

@@ -215,10 +215,10 @@ public class AwsBatchComputeEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("ecs_cluster_arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
+        this.WithOutputrn");
+        this.WithOutputcs_cluster_arn");
+        this.WithOutputtatus");
+        this.WithOutputtatus_reason");
     }
 
     /// <summary>

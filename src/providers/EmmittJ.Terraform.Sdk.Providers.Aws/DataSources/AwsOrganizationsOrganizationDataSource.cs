@@ -14,17 +14,17 @@ public class AwsOrganizationsOrganizationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("accounts");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("aws_service_access_principals");
-        this.DeclareOutput("enabled_policy_types");
-        this.DeclareOutput("feature_set");
-        this.DeclareOutput("master_account_arn");
-        this.DeclareOutput("master_account_email");
-        this.DeclareOutput("master_account_id");
-        this.DeclareOutput("master_account_name");
-        this.DeclareOutput("non_master_accounts");
-        this.DeclareOutput("roots");
+        this.WithOutput("accounts");
+        this.WithOutput("arn");
+        this.WithOutput("aws_service_access_principals");
+        this.WithOutput("enabled_policy_types");
+        this.WithOutput("feature_set");
+        this.WithOutput("master_account_arn");
+        this.WithOutput("master_account_email");
+        this.WithOutput("master_account_id");
+        this.WithOutput("master_account_name");
+        this.WithOutput("non_master_accounts");
+        this.WithOutput("roots");
     }
 
     /// <summary>

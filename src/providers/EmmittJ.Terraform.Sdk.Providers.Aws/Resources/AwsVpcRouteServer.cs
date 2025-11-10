@@ -49,10 +49,10 @@ public class AwsVpcRouteServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("route_server_id");
-        this.DeclareOutput("sns_topic_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("route_server_id");
+        this.WithOutput("sns_topic_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

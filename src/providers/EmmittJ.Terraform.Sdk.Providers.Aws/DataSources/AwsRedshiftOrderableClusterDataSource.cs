@@ -14,7 +14,7 @@ public class AwsRedshiftOrderableClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("availability_zones");
+        this.WithOutputvailability_zones");
     }
 
     /// <summary>

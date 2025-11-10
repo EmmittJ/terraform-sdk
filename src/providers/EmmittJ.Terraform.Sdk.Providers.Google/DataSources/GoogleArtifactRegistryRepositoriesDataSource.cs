@@ -14,7 +14,7 @@ public class GoogleArtifactRegistryRepositoriesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("repositories");
+        this.WithOutput("repositories");
     }
 
     /// <summary>

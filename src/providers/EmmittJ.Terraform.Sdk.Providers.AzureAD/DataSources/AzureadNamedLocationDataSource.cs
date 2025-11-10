@@ -31,9 +31,9 @@ public class AzureadNamedLocationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("country");
-        this.DeclareOutput("ip");
-        this.DeclareOutput("object_id");
+        this.WithOutput("country");
+        this.WithOutput("ip");
+        this.WithOutput("object_id");
     }
 
     /// <summary>

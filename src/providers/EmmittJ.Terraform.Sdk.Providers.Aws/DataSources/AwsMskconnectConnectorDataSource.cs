@@ -14,9 +14,9 @@ public class AwsMskconnectConnectorDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("version");
     }
 
     /// <summary>

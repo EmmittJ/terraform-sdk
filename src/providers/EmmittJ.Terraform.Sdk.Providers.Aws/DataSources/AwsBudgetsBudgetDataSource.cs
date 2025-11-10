@@ -14,20 +14,20 @@ public class AwsBudgetsBudgetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("auto_adjust_data");
-        this.DeclareOutput("billing_view_arn");
-        this.DeclareOutput("budget_exceeded");
-        this.DeclareOutput("budget_limit");
-        this.DeclareOutput("budget_type");
-        this.DeclareOutput("calculated_spend");
-        this.DeclareOutput("cost_filter");
-        this.DeclareOutput("cost_types");
-        this.DeclareOutput("notification");
-        this.DeclareOutput("planned_limit");
-        this.DeclareOutput("time_period_end");
-        this.DeclareOutput("time_period_start");
-        this.DeclareOutput("time_unit");
+        this.WithOutput("arn");
+        this.WithOutput("auto_adjust_data");
+        this.WithOutput("billing_view_arn");
+        this.WithOutput("budget_exceeded");
+        this.WithOutput("budget_limit");
+        this.WithOutput("budget_type");
+        this.WithOutput("calculated_spend");
+        this.WithOutput("cost_filter");
+        this.WithOutput("cost_types");
+        this.WithOutput("notification");
+        this.WithOutput("planned_limit");
+        this.WithOutput("time_period_end");
+        this.WithOutput("time_period_start");
+        this.WithOutput("time_unit");
     }
 
     /// <summary>

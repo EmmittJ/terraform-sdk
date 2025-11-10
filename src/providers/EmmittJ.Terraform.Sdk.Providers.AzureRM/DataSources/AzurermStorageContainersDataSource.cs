@@ -31,7 +31,7 @@ public class AzurermStorageContainersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("containers");
+        this.WithOutput("containers");
     }
 
     /// <summary>

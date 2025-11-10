@@ -219,12 +219,12 @@ public class AzurermDatabricksWorkspace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("disk_encryption_set_id");
-        this.DeclareOutput("managed_disk_identity");
-        this.DeclareOutput("managed_resource_group_id");
-        this.DeclareOutput("storage_account_identity");
-        this.DeclareOutput("workspace_id");
-        this.DeclareOutput("workspace_url");
+        this.WithOutput("disk_encryption_set_id");
+        this.WithOutput("managed_disk_identity");
+        this.WithOutput("managed_resource_group_id");
+        this.WithOutput("storage_account_identity");
+        this.WithOutput("workspace_id");
+        this.WithOutput("workspace_url");
     }
 
     /// <summary>

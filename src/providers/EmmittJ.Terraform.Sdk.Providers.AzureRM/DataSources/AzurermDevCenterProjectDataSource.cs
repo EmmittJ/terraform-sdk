@@ -31,13 +31,13 @@ public class AzurermDevCenterProjectDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("dev_center_id");
-        this.DeclareOutput("dev_center_uri");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("maximum_dev_boxes_per_user");
-        this.DeclareOutput("tags");
+        this.WithOutput("description");
+        this.WithOutput("dev_center_id");
+        this.WithOutput("dev_center_uri");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("maximum_dev_boxes_per_user");
+        this.WithOutput("tags");
     }
 
     /// <summary>

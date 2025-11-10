@@ -75,11 +75,11 @@ public class AwsVpcPeeringConnectionAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("accept_status");
-        this.DeclareOutput("peer_owner_id");
-        this.DeclareOutput("peer_region");
-        this.DeclareOutput("peer_vpc_id");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("accept_status");
+        this.WithOutput("peer_owner_id");
+        this.WithOutput("peer_region");
+        this.WithOutput("peer_vpc_id");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

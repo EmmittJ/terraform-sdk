@@ -69,8 +69,8 @@ public class AwsAppsyncFunction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("function_id");
+        this.WithOutput("arn");
+        this.WithOutput("function_id");
     }
 
     /// <summary>

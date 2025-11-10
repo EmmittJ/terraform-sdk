@@ -14,20 +14,20 @@ public class GoogleCloudQuotasQuotaInfoDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("container_type");
-        this.DeclareOutput("dimensions");
-        this.DeclareOutput("dimensions_infos");
-        this.DeclareOutput("is_concurrent");
-        this.DeclareOutput("is_fixed");
-        this.DeclareOutput("is_precise");
-        this.DeclareOutput("metric");
-        this.DeclareOutput("metric_display_name");
-        this.DeclareOutput("metric_unit");
-        this.DeclareOutput("name");
-        this.DeclareOutput("quota_display_name");
-        this.DeclareOutput("quota_increase_eligibility");
-        this.DeclareOutput("refresh_interval");
-        this.DeclareOutput("service_request_quota_uri");
+        this.WithOutput("container_type");
+        this.WithOutput("dimensions");
+        this.WithOutput("dimensions_infos");
+        this.WithOutput("is_concurrent");
+        this.WithOutput("is_fixed");
+        this.WithOutput("is_precise");
+        this.WithOutput("metric");
+        this.WithOutput("metric_display_name");
+        this.WithOutput("metric_unit");
+        this.WithOutput("name");
+        this.WithOutput("quota_display_name");
+        this.WithOutput("quota_increase_eligibility");
+        this.WithOutput("refresh_interval");
+        this.WithOutput("service_request_quota_uri");
     }
 
     /// <summary>

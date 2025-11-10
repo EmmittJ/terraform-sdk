@@ -198,10 +198,10 @@ public class GoogleDialogflowCxAgent : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("satisfies_pzi");
-        this.DeclareOutput("satisfies_pzs");
-        this.DeclareOutput("start_flow");
+        this.WithOutput("name");
+        this.WithOutput("satisfies_pzi");
+        this.WithOutput("satisfies_pzs");
+        this.WithOutput("start_flow");
     }
 
     /// <summary>

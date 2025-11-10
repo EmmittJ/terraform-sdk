@@ -14,7 +14,7 @@ public class GoogleNetworkManagementConnectivityTestsDataSource : TerraformDataS
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connectivity_tests");
+        this.WithOutput("connectivity_tests");
     }
 
     /// <summary>

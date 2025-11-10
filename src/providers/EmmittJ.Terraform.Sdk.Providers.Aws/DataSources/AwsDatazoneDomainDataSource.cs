@@ -14,14 +14,14 @@ public class AwsDatazoneDomainDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("description");
-        this.DeclareOutput("domain_version");
-        this.DeclareOutput("last_updated_at");
-        this.DeclareOutput("managed_account_id");
-        this.DeclareOutput("portal_url");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("description");
+        this.WithOutput("domain_version");
+        this.WithOutput("last_updated_at");
+        this.WithOutput("managed_account_id");
+        this.WithOutput("portal_url");
+        this.WithOutput("status");
     }
 
     /// <summary>

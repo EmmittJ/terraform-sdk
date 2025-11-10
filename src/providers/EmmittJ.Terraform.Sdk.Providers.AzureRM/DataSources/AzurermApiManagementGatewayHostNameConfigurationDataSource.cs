@@ -31,12 +31,12 @@ public class AzurermApiManagementGatewayHostNameConfigurationDataSource : Terraf
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_id");
-        this.DeclareOutput("host_name");
-        this.DeclareOutput("http2_enabled");
-        this.DeclareOutput("request_client_certificate_enabled");
-        this.DeclareOutput("tls10_enabled");
-        this.DeclareOutput("tls11_enabled");
+        this.WithOutput("certificate_id");
+        this.WithOutput("host_name");
+        this.WithOutput("http2_enabled");
+        this.WithOutput("request_client_certificate_enabled");
+        this.WithOutput("tls10_enabled");
+        this.WithOutput("tls11_enabled");
     }
 
     /// <summary>

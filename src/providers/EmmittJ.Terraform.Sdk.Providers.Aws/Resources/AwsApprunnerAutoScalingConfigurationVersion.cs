@@ -14,12 +14,12 @@ public class AwsApprunnerAutoScalingConfigurationVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("auto_scaling_configuration_revision");
-        this.DeclareOutput("has_associated_service");
-        this.DeclareOutput("is_default");
-        this.DeclareOutput("latest");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("auto_scaling_configuration_revision");
+        this.WithOutput("has_associated_service");
+        this.WithOutput("is_default");
+        this.WithOutput("latest");
+        this.WithOutput("status");
     }
 
     /// <summary>

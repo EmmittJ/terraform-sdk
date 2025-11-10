@@ -75,11 +75,11 @@ public class AwsM2Application : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_id");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("current_version");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("application_id");
+        this.WithOutput("arn");
+        this.WithOutput("current_version");
+        this.WithOutput("id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

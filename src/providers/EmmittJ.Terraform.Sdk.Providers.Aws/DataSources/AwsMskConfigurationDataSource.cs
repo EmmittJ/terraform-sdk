@@ -14,11 +14,11 @@ public class AwsMskConfigurationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("kafka_versions");
-        this.DeclareOutput("latest_revision");
-        this.DeclareOutput("server_properties");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("kafka_versions");
+        this.WithOutput("latest_revision");
+        this.WithOutput("server_properties");
     }
 
     /// <summary>

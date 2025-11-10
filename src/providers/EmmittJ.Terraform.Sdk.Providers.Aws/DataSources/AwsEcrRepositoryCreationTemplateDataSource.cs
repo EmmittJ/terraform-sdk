@@ -14,15 +14,15 @@ public class AwsEcrRepositoryCreationTemplateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("applied_for");
-        this.DeclareOutput("custom_role_arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("encryption_configuration");
-        this.DeclareOutput("image_tag_mutability");
-        this.DeclareOutput("image_tag_mutability_exclusion_filter");
-        this.DeclareOutput("lifecycle_policy");
-        this.DeclareOutput("registry_id");
-        this.DeclareOutput("repository_policy");
+        this.WithOutput("applied_for");
+        this.WithOutput("custom_role_arn");
+        this.WithOutput("description");
+        this.WithOutput("encryption_configuration");
+        this.WithOutput("image_tag_mutability");
+        this.WithOutput("image_tag_mutability_exclusion_filter");
+        this.WithOutput("lifecycle_policy");
+        this.WithOutput("registry_id");
+        this.WithOutput("repository_policy");
     }
 
     /// <summary>

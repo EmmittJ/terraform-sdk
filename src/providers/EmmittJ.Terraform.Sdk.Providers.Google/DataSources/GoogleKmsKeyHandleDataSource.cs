@@ -14,8 +14,8 @@ public class GoogleKmsKeyHandleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("kms_key");
-        this.DeclareOutput("resource_type_selector");
+        this.WithOutput("kms_key");
+        this.WithOutput("resource_type_selector");
     }
 
     /// <summary>

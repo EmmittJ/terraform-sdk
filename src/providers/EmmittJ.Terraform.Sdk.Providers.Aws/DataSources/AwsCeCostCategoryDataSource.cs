@@ -14,13 +14,13 @@ public class AwsCeCostCategoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_value");
-        this.DeclareOutput("effective_end");
-        this.DeclareOutput("effective_start");
-        this.DeclareOutput("name");
-        this.DeclareOutput("rule");
-        this.DeclareOutput("rule_version");
-        this.DeclareOutput("split_charge_rule");
+        this.WithOutput("default_value");
+        this.WithOutput("effective_end");
+        this.WithOutput("effective_start");
+        this.WithOutput("name");
+        this.WithOutput("rule");
+        this.WithOutput("rule_version");
+        this.WithOutput("split_charge_rule");
     }
 
     /// <summary>

@@ -77,7 +77,7 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutputrn");
     }
 
     /// <summary>

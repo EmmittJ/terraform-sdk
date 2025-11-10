@@ -14,12 +14,12 @@ public class AwsIamAccessKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_date");
-        this.DeclareOutput("encrypted_secret");
-        this.DeclareOutput("encrypted_ses_smtp_password_v4");
-        this.DeclareOutput("key_fingerprint");
-        this.DeclareOutput("secret");
-        this.DeclareOutput("ses_smtp_password_v4");
+        this.WithOutput("create_date");
+        this.WithOutput("encrypted_secret");
+        this.WithOutput("encrypted_ses_smtp_password_v4");
+        this.WithOutput("key_fingerprint");
+        this.WithOutput("secret");
+        this.WithOutput("ses_smtp_password_v4");
     }
 
     /// <summary>

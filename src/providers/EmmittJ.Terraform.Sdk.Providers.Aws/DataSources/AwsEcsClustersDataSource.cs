@@ -14,7 +14,7 @@ public class AwsEcsClustersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cluster_arns");
+        this.WithOutput("cluster_arns");
     }
 
     /// <summary>

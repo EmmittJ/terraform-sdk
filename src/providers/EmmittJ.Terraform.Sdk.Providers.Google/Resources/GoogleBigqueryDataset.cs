@@ -200,12 +200,12 @@ public class GoogleBigqueryDataset : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("last_modified_time");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("creation_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("etag");
+        this.WithOutput("last_modified_time");
+        this.WithOutput("self_link");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

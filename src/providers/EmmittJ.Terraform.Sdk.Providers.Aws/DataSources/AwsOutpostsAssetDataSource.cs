@@ -14,10 +14,10 @@ public class AwsOutpostsAssetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("asset_type");
-        this.DeclareOutput("host_id");
-        this.DeclareOutput("rack_elevation");
-        this.DeclareOutput("rack_id");
+        this.WithOutputsset_type");
+        this.WithOutputost_id");
+        this.WithOutputack_elevation");
+        this.WithOutputack_id");
     }
 
     /// <summary>

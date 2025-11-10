@@ -31,8 +31,8 @@ public class AwsMacie2CustomDataIdentifier : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
     }
 
     /// <summary>

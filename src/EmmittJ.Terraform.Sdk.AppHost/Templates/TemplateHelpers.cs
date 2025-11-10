@@ -74,6 +74,19 @@ public static class TemplateHelpers
             validationAttributes.Add($"[System.ComponentModel.DataAnnotations.MaxLength({block.MaxItems.Value}, ErrorMessage = \"Maximum {block.MaxItems.Value} {block.Name} block(s) allowed\")]");
         }
 
+        // Determine if the block should be required:
+        // - Single blocks with MinItems = 1 should be required
+        // - List/Set blocks with MinItems = 1 should be required (must have at least 1 item)
+        bool isRequired = block.MinItems == 1;
+        bool useRequiredKeyword = isRequired && block.NestingMode == "single";
+        bool useNullable = !useRequiredKeyword;
+
+        if (isRequired && block.NestingMode != "single")
+        {
+            // For collections, add the Required attribute
+            validationAttributes.Insert(0, $"[System.ComponentModel.DataAnnotations.Required(ErrorMessage = \"{block.Name} is required\")]");
+        }
+
         return new
         {
             block.Name,
@@ -84,6 +97,9 @@ public static class TemplateHelpers
             block.MinItems,
             block.MaxItems,
             block.IsDeprecated,
+            IsRequired = isRequired,
+            UseRequiredKeyword = useRequiredKeyword,
+            UseNullable = useNullable,
             ValidationAttributes = validationAttributes,
             HasValidation = validationAttributes.Count > 0,
             Properties = block.Properties.Select(PreparePropertyForTemplate).ToList()

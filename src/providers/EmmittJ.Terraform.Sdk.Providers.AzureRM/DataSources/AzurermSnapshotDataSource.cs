@@ -31,15 +31,15 @@ public class AzurermSnapshotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_option");
-        this.DeclareOutput("disk_size_gb");
-        this.DeclareOutput("encryption_settings");
-        this.DeclareOutput("os_type");
-        this.DeclareOutput("source_resource_id");
-        this.DeclareOutput("source_uri");
-        this.DeclareOutput("storage_account_id");
-        this.DeclareOutput("time_created");
-        this.DeclareOutput("trusted_launch_enabled");
+        this.WithOutput("creation_option");
+        this.WithOutput("disk_size_gb");
+        this.WithOutput("encryption_settings");
+        this.WithOutput("os_type");
+        this.WithOutput("source_resource_id");
+        this.WithOutput("source_uri");
+        this.WithOutput("storage_account_id");
+        this.WithOutput("time_created");
+        this.WithOutput("trusted_launch_enabled");
     }
 
     /// <summary>

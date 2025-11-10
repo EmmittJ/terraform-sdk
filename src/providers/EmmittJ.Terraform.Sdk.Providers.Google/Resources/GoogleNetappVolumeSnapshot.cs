@@ -49,9 +49,9 @@ public class GoogleNetappVolumeSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("used_bytes");
+        this.WithOutput("effective_labels");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("used_bytes");
     }
 
     /// <summary>

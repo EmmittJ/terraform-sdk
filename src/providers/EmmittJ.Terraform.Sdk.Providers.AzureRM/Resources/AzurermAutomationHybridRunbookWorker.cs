@@ -49,11 +49,11 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ip");
-        this.DeclareOutput("last_seen_date_time");
-        this.DeclareOutput("registration_date_time");
-        this.DeclareOutput("worker_name");
-        this.DeclareOutput("worker_type");
+        this.WithOutput("ip");
+        this.WithOutput("last_seen_date_time");
+        this.WithOutput("registration_date_time");
+        this.WithOutput("worker_name");
+        this.WithOutput("worker_type");
     }
 
     /// <summary>

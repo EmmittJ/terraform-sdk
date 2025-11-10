@@ -31,12 +31,12 @@ public class AzurermExpressRouteCircuitDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("peerings");
-        this.DeclareOutput("service_key");
-        this.DeclareOutput("service_provider_properties");
-        this.DeclareOutput("service_provider_provisioning_state");
-        this.DeclareOutput("sku");
+        this.WithOutput("location");
+        this.WithOutput("peerings");
+        this.WithOutput("service_key");
+        this.WithOutput("service_provider_properties");
+        this.WithOutput("service_provider_provisioning_state");
+        this.WithOutput("sku");
     }
 
     /// <summary>

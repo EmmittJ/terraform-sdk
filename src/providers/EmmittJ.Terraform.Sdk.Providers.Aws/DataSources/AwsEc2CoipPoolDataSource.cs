@@ -59,8 +59,8 @@ public class AwsEc2CoipPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("pool_cidrs");
+        this.WithOutput("arn");
+        this.WithOutput("pool_cidrs");
     }
 
     /// <summary>

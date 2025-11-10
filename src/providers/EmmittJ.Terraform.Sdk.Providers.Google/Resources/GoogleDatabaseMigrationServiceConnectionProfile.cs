@@ -315,13 +315,13 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("dbprovider");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("error");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("create_time");
+        this.WithOutput("dbprovider");
+        this.WithOutput("effective_labels");
+        this.WithOutput("error");
+        this.WithOutput("name");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

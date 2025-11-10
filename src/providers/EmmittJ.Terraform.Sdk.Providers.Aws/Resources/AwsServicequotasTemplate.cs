@@ -14,11 +14,11 @@ public class AwsServicequotasTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("global_quota");
-        this.DeclareOutput("id");
-        this.DeclareOutput("quota_name");
-        this.DeclareOutput("service_name");
-        this.DeclareOutput("unit");
+        this.WithOutput("global_quota");
+        this.WithOutput("id");
+        this.WithOutput("quota_name");
+        this.WithOutput("service_name");
+        this.WithOutput("unit");
     }
 
     /// <summary>

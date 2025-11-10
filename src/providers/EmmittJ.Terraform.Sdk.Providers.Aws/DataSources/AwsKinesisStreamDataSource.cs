@@ -14,16 +14,16 @@ public class AwsKinesisStreamDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("closed_shards");
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("encryption_type");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("open_shards");
-        this.DeclareOutput("retention_period");
-        this.DeclareOutput("shard_level_metrics");
-        this.DeclareOutput("status");
-        this.DeclareOutput("stream_mode_details");
+        this.WithOutput("arn");
+        this.WithOutput("closed_shards");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("encryption_type");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("open_shards");
+        this.WithOutput("retention_period");
+        this.WithOutput("shard_level_metrics");
+        this.WithOutput("status");
+        this.WithOutput("stream_mode_details");
     }
 
     /// <summary>

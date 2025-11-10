@@ -14,7 +14,7 @@ public class AwsBedrockInferenceProfilesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("inference_profile_summaries");
+        this.WithOutput("inference_profile_summaries");
     }
 
     /// <summary>

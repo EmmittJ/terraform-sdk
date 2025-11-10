@@ -415,21 +415,21 @@ public class AzurermCosmosdbAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("primary_key");
-        this.DeclareOutput("primary_mongodb_connection_string");
-        this.DeclareOutput("primary_readonly_key");
-        this.DeclareOutput("primary_readonly_mongodb_connection_string");
-        this.DeclareOutput("primary_readonly_sql_connection_string");
-        this.DeclareOutput("primary_sql_connection_string");
-        this.DeclareOutput("read_endpoints");
-        this.DeclareOutput("secondary_key");
-        this.DeclareOutput("secondary_mongodb_connection_string");
-        this.DeclareOutput("secondary_readonly_key");
-        this.DeclareOutput("secondary_readonly_mongodb_connection_string");
-        this.DeclareOutput("secondary_readonly_sql_connection_string");
-        this.DeclareOutput("secondary_sql_connection_string");
-        this.DeclareOutput("write_endpoints");
+        this.WithOutput("endpoint");
+        this.WithOutput("primary_key");
+        this.WithOutput("primary_mongodb_connection_string");
+        this.WithOutput("primary_readonly_key");
+        this.WithOutput("primary_readonly_mongodb_connection_string");
+        this.WithOutput("primary_readonly_sql_connection_string");
+        this.WithOutput("primary_sql_connection_string");
+        this.WithOutput("read_endpoints");
+        this.WithOutput("secondary_key");
+        this.WithOutput("secondary_mongodb_connection_string");
+        this.WithOutput("secondary_readonly_key");
+        this.WithOutput("secondary_readonly_mongodb_connection_string");
+        this.WithOutput("secondary_readonly_sql_connection_string");
+        this.WithOutput("secondary_sql_connection_string");
+        this.WithOutput("write_endpoints");
     }
 
     /// <summary>

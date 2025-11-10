@@ -31,7 +31,7 @@ public class AzurermEventhubSasDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("sas");
+        this.WithOutput("sas");
     }
 
     /// <summary>

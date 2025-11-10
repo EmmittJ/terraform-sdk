@@ -32,8 +32,8 @@ public class AwsLambdaAlias : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("invoke_arn");
+        this.WithOutput("arn");
+        this.WithOutput("invoke_arn");
     }
 
     /// <summary>

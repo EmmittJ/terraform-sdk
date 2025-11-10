@@ -139,12 +139,12 @@ public class AwsSagemakerDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("home_efs_file_system_id");
-        this.DeclareOutput("security_group_id_for_domain_boundary");
-        this.DeclareOutput("single_sign_on_application_arn");
-        this.DeclareOutput("single_sign_on_managed_application_instance_id");
-        this.DeclareOutput("url");
+        this.WithOutput("arn");
+        this.WithOutput("home_efs_file_system_id");
+        this.WithOutput("security_group_id_for_domain_boundary");
+        this.WithOutput("single_sign_on_application_arn");
+        this.WithOutput("single_sign_on_managed_application_instance_id");
+        this.WithOutput("url");
     }
 
     /// <summary>

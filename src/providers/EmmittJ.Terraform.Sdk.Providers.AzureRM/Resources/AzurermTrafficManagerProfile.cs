@@ -160,7 +160,7 @@ public class AzurermTrafficManagerProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fqdn");
+        this.WithOutputqdn");
     }
 
     /// <summary>

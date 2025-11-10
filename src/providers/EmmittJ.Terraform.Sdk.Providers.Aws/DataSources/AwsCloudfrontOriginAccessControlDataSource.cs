@@ -14,13 +14,13 @@ public class AwsCloudfrontOriginAccessControlDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("name");
-        this.DeclareOutput("origin_access_control_origin_type");
-        this.DeclareOutput("signing_behavior");
-        this.DeclareOutput("signing_protocol");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("etag");
+        this.WithOutput("name");
+        this.WithOutput("origin_access_control_origin_type");
+        this.WithOutput("signing_behavior");
+        this.WithOutput("signing_protocol");
     }
 
     /// <summary>

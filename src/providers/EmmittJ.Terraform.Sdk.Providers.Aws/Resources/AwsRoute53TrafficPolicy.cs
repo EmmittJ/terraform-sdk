@@ -14,9 +14,9 @@ public class AwsRoute53TrafficPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("type");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("type");
+        this.WithOutput("version");
     }
 
     /// <summary>

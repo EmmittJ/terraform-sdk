@@ -31,9 +31,9 @@ public class AzurermStorageTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("acl");
-        this.DeclareOutput("id");
-        this.DeclareOutput("resource_manager_id");
+        this.WithOutput("acl");
+        this.WithOutput("id");
+        this.WithOutput("resource_manager_id");
     }
 
     /// <summary>

@@ -49,8 +49,8 @@ public class AzurermDataShareDatasetKustoCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("kusto_cluster_location");
+        this.WithOutput("display_name");
+        this.WithOutput("kusto_cluster_location");
     }
 
     /// <summary>

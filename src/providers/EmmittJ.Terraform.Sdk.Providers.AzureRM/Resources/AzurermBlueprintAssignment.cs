@@ -104,10 +104,10 @@ public class AzurermBlueprintAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("blueprint_name");
-        this.DeclareOutput("description");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("type");
+        this.WithOutput("blueprint_name");
+        this.WithOutput("description");
+        this.WithOutput("display_name");
+        this.WithOutput("type");
     }
 
     /// <summary>

@@ -59,20 +59,20 @@ public class AwsEc2TransitGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("amazon_side_asn");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("association_default_route_table_id");
-        this.DeclareOutput("auto_accept_shared_attachments");
-        this.DeclareOutput("default_route_table_association");
-        this.DeclareOutput("default_route_table_propagation");
-        this.DeclareOutput("description");
-        this.DeclareOutput("dns_support");
-        this.DeclareOutput("multicast_support");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("propagation_default_route_table_id");
-        this.DeclareOutput("security_group_referencing_support");
-        this.DeclareOutput("transit_gateway_cidr_blocks");
-        this.DeclareOutput("vpn_ecmp_support");
+        this.WithOutput("amazon_side_asn");
+        this.WithOutput("arn");
+        this.WithOutput("association_default_route_table_id");
+        this.WithOutput("auto_accept_shared_attachments");
+        this.WithOutput("default_route_table_association");
+        this.WithOutput("default_route_table_propagation");
+        this.WithOutput("description");
+        this.WithOutput("dns_support");
+        this.WithOutput("multicast_support");
+        this.WithOutput("owner_id");
+        this.WithOutput("propagation_default_route_table_id");
+        this.WithOutput("security_group_referencing_support");
+        this.WithOutput("transit_gateway_cidr_blocks");
+        this.WithOutput("vpn_ecmp_support");
     }
 
     /// <summary>

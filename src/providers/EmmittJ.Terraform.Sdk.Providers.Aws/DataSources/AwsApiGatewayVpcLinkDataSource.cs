@@ -14,12 +14,12 @@ public class AwsApiGatewayVpcLinkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("id");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_message");
-        this.DeclareOutput("target_arns");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("id");
+        this.WithOutput("status");
+        this.WithOutput("status_message");
+        this.WithOutput("target_arns");
     }
 
     /// <summary>

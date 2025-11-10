@@ -14,14 +14,14 @@ public class AwsWorkspacesWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("bundle_id");
-        this.DeclareOutput("computer_name");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("root_volume_encryption_enabled");
-        this.DeclareOutput("state");
-        this.DeclareOutput("user_volume_encryption_enabled");
-        this.DeclareOutput("volume_encryption_key");
-        this.DeclareOutput("workspace_properties");
+        this.WithOutput("bundle_id");
+        this.WithOutput("computer_name");
+        this.WithOutput("ip_address");
+        this.WithOutput("root_volume_encryption_enabled");
+        this.WithOutput("state");
+        this.WithOutput("user_volume_encryption_enabled");
+        this.WithOutput("volume_encryption_key");
+        this.WithOutput("workspace_properties");
     }
 
     /// <summary>

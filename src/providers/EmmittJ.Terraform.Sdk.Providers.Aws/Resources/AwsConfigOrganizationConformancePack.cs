@@ -78,7 +78,7 @@ public class AwsConfigOrganizationConformancePack : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutput("arn");
     }
 
     /// <summary>

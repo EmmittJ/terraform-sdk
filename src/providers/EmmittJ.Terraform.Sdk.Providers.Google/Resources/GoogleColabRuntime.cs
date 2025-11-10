@@ -68,10 +68,10 @@ public class GoogleColabRuntime : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("expiration_time");
-        this.DeclareOutput("is_upgradable");
-        this.DeclareOutput("notebook_runtime_type");
-        this.DeclareOutput("state");
+        this.WithOutput("expiration_time");
+        this.WithOutput("is_upgradable");
+        this.WithOutput("notebook_runtime_type");
+        this.WithOutput("state");
     }
 
     /// <summary>

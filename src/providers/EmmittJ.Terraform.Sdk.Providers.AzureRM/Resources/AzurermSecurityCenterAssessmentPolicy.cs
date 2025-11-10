@@ -58,7 +58,7 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
+        this.WithOutputame");
     }
 
     /// <summary>

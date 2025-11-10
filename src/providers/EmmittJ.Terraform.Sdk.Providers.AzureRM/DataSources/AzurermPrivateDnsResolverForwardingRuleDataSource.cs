@@ -31,10 +31,10 @@ public class AzurermPrivateDnsResolverForwardingRuleDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("domain_name");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("metadata");
-        this.DeclareOutput("target_dns_servers");
+        this.WithOutput("domain_name");
+        this.WithOutput("enabled");
+        this.WithOutput("metadata");
+        this.WithOutput("target_dns_servers");
     }
 
     /// <summary>

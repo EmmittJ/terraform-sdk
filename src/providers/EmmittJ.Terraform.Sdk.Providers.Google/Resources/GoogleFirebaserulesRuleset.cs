@@ -58,9 +58,9 @@ public class GoogleFirebaserulesRuleset : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("metadata");
-        this.DeclareOutput("name");
+        this.WithOutput("create_time");
+        this.WithOutput("metadata");
+        this.WithOutput("name");
     }
 
     /// <summary>

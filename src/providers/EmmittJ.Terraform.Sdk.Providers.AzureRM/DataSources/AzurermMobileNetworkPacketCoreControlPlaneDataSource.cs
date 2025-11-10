@@ -31,21 +31,21 @@ public class AzurermMobileNetworkPacketCoreControlPlaneDataSource : TerraformDat
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("control_plane_access_ipv4_address");
-        this.DeclareOutput("control_plane_access_ipv4_gateway");
-        this.DeclareOutput("control_plane_access_ipv4_subnet");
-        this.DeclareOutput("control_plane_access_name");
-        this.DeclareOutput("core_network_technology");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("interoperability_settings_json");
-        this.DeclareOutput("local_diagnostics_access");
-        this.DeclareOutput("location");
-        this.DeclareOutput("platform");
-        this.DeclareOutput("site_ids");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("software_version");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("user_equipment_mtu_in_bytes");
+        this.WithOutput("control_plane_access_ipv4_address");
+        this.WithOutput("control_plane_access_ipv4_gateway");
+        this.WithOutput("control_plane_access_ipv4_subnet");
+        this.WithOutput("control_plane_access_name");
+        this.WithOutput("core_network_technology");
+        this.WithOutput("identity");
+        this.WithOutput("interoperability_settings_json");
+        this.WithOutput("local_diagnostics_access");
+        this.WithOutput("location");
+        this.WithOutput("platform");
+        this.WithOutput("site_ids");
+        this.WithOutput("sku");
+        this.WithOutput("software_version");
+        this.WithOutput("tags");
+        this.WithOutput("user_equipment_mtu_in_bytes");
     }
 
     /// <summary>

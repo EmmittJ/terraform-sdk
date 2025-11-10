@@ -14,17 +14,17 @@ public class AwsCloudfrontDistributionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("aliases");
-        this.DeclareOutput("anycast_ip_list_id");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("domain_name");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("hosted_zone_id");
-        this.DeclareOutput("in_progress_validation_batches");
-        this.DeclareOutput("last_modified_time");
-        this.DeclareOutput("status");
-        this.DeclareOutput("web_acl_id");
+        this.WithOutput("aliases");
+        this.WithOutput("anycast_ip_list_id");
+        this.WithOutput("arn");
+        this.WithOutput("domain_name");
+        this.WithOutput("enabled");
+        this.WithOutput("etag");
+        this.WithOutput("hosted_zone_id");
+        this.WithOutput("in_progress_validation_batches");
+        this.WithOutput("last_modified_time");
+        this.WithOutput("status");
+        this.WithOutput("web_acl_id");
     }
 
     /// <summary>

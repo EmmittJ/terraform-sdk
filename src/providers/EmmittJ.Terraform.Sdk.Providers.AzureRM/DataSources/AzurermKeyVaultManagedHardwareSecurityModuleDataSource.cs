@@ -31,14 +31,14 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleDataSource : TerraformD
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("admin_object_ids");
-        this.DeclareOutput("hsm_uri");
-        this.DeclareOutput("location");
-        this.DeclareOutput("purge_protection_enabled");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("soft_delete_retention_days");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("tenant_id");
+        this.WithOutput("admin_object_ids");
+        this.WithOutput("hsm_uri");
+        this.WithOutput("location");
+        this.WithOutput("purge_protection_enabled");
+        this.WithOutput("sku_name");
+        this.WithOutput("soft_delete_retention_days");
+        this.WithOutput("tags");
+        this.WithOutput("tenant_id");
     }
 
     /// <summary>

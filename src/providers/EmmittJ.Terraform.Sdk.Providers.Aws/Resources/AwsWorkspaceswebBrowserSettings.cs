@@ -14,9 +14,9 @@ public class AwsWorkspaceswebBrowserSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("associated_portal_arns");
-        this.DeclareOutput("browser_settings_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("associated_portal_arns");
+        this.WithOutput("browser_settings_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

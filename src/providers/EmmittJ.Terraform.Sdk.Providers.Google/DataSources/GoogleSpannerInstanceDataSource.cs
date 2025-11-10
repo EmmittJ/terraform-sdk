@@ -14,17 +14,17 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("autoscaling_config");
-        this.DeclareOutput("default_backup_schedule_type");
-        this.DeclareOutput("edition");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("force_destroy");
-        this.DeclareOutput("instance_type");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("num_nodes");
-        this.DeclareOutput("processing_units");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("autoscaling_config");
+        this.WithOutput("default_backup_schedule_type");
+        this.WithOutput("edition");
+        this.WithOutput("effective_labels");
+        this.WithOutput("force_destroy");
+        this.WithOutput("instance_type");
+        this.WithOutput("labels");
+        this.WithOutput("num_nodes");
+        this.WithOutput("processing_units");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

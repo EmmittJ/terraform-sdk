@@ -424,17 +424,17 @@ public class AwsRoute53domainsDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("abuse_contact_email");
-        this.DeclareOutput("abuse_contact_phone");
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("expiration_date");
-        this.DeclareOutput("hosted_zone_id");
-        this.DeclareOutput("registrar_name");
-        this.DeclareOutput("registrar_url");
-        this.DeclareOutput("status_list");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("updated_date");
-        this.DeclareOutput("whois_server");
+        this.WithOutput("abuse_contact_email");
+        this.WithOutput("abuse_contact_phone");
+        this.WithOutput("creation_date");
+        this.WithOutput("expiration_date");
+        this.WithOutput("hosted_zone_id");
+        this.WithOutput("registrar_name");
+        this.WithOutput("registrar_url");
+        this.WithOutput("status_list");
+        this.WithOutput("tags_all");
+        this.WithOutput("updated_date");
+        this.WithOutput("whois_server");
     }
 
     /// <summary>

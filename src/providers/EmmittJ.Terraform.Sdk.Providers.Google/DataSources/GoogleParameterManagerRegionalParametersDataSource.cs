@@ -14,7 +14,7 @@ public class GoogleParameterManagerRegionalParametersDataSource : TerraformDataS
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("parameters");
+        this.WithOutput("parameters");
     }
 
     /// <summary>

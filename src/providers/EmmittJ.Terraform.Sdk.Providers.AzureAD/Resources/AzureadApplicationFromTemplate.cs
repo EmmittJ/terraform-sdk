@@ -58,10 +58,10 @@ public class AzureadApplicationFromTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_id");
-        this.DeclareOutput("application_object_id");
-        this.DeclareOutput("service_principal_id");
-        this.DeclareOutput("service_principal_object_id");
+        this.WithOutput("application_id");
+        this.WithOutput("application_object_id");
+        this.WithOutput("service_principal_id");
+        this.WithOutput("service_principal_object_id");
     }
 
     /// <summary>

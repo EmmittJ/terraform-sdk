@@ -14,11 +14,11 @@ public class AwsTimestreamwriteDatabaseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("last_updated_time");
-        this.DeclareOutput("table_count");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("last_updated_time");
+        this.WithOutput("table_count");
     }
 
     /// <summary>

@@ -14,12 +14,12 @@ public class AwsBackupReportPlanDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("deployment_status");
-        this.DeclareOutput("description");
-        this.DeclareOutput("report_delivery_channel");
-        this.DeclareOutput("report_setting");
+        this.WithOutput("arn");
+        this.WithOutput("creation_time");
+        this.WithOutput("deployment_status");
+        this.WithOutput("description");
+        this.WithOutput("report_delivery_channel");
+        this.WithOutput("report_setting");
     }
 
     /// <summary>

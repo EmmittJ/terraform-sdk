@@ -14,9 +14,9 @@ public class AwsMacie2Account : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("service_role");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("created_at");
+        this.WithOutput("service_role");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

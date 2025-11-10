@@ -14,8 +14,8 @@ public class AwsTimestreamwriteDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("table_count");
+        this.WithOutput("arn");
+        this.WithOutput("table_count");
     }
 
     /// <summary>

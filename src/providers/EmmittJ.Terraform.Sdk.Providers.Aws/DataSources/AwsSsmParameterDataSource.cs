@@ -14,11 +14,11 @@ public class AwsSsmParameterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("insecure_value");
-        this.DeclareOutput("type");
-        this.DeclareOutput("value");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("insecure_value");
+        this.WithOutput("type");
+        this.WithOutput("value");
+        this.WithOutput("version");
     }
 
     /// <summary>

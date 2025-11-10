@@ -31,9 +31,9 @@ public class AzurermDevTestVirtualNetworkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allowed_subnets");
-        this.DeclareOutput("subnet_overrides");
-        this.DeclareOutput("unique_identifier");
+        this.WithOutputllowed_subnets");
+        this.WithOutputubnet_overrides");
+        this.WithOutputnique_identifier");
     }
 
     /// <summary>

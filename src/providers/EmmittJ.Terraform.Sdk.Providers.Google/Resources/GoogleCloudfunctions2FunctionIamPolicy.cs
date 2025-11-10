@@ -14,7 +14,7 @@ public class GoogleCloudfunctions2FunctionIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

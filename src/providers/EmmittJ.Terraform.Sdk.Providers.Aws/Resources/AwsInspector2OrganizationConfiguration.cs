@@ -105,7 +105,7 @@ public class AwsInspector2OrganizationConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("max_account_limit_reached");
+        this.WithOutput("max_account_limit_reached");
     }
 
     /// <summary>

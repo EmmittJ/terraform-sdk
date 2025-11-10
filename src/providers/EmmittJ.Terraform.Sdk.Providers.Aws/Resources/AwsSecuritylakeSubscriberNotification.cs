@@ -22,9 +22,9 @@ public class AwsSecuritylakeSubscriberNotification : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint_id");
-        this.DeclareOutput("id");
-        this.DeclareOutput("subscriber_endpoint");
+        this.WithOutput("endpoint_id");
+        this.WithOutput("id");
+        this.WithOutput("subscriber_endpoint");
     }
 
     /// <summary>

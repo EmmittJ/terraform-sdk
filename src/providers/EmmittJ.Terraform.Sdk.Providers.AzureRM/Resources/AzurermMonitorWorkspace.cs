@@ -58,9 +58,9 @@ public class AzurermMonitorWorkspace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_data_collection_endpoint_id");
-        this.DeclareOutput("default_data_collection_rule_id");
-        this.DeclareOutput("query_endpoint");
+        this.WithOutput("default_data_collection_endpoint_id");
+        this.WithOutput("default_data_collection_rule_id");
+        this.WithOutput("query_endpoint");
     }
 
     /// <summary>

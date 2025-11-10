@@ -31,7 +31,7 @@ public class AwsEc2SerialConsoleAccessDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("enabled");
+        this.WithOutput("enabled");
     }
 
     /// <summary>

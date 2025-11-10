@@ -31,11 +31,11 @@ public class AzurermTrafficManagerProfileDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dns_config");
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("monitor_config");
-        this.DeclareOutput("profile_status");
-        this.DeclareOutput("traffic_routing_method");
+        this.WithOutput("dns_config");
+        this.WithOutput("fqdn");
+        this.WithOutput("monitor_config");
+        this.WithOutput("profile_status");
+        this.WithOutput("traffic_routing_method");
     }
 
     /// <summary>

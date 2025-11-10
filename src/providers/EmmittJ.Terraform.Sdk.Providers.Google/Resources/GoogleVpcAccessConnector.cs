@@ -77,9 +77,9 @@ public class GoogleVpcAccessConnector : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connected_projects");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("state");
+        this.WithOutput("connected_projects");
+        this.WithOutput("self_link");
+        this.WithOutput("state");
     }
 
     /// <summary>

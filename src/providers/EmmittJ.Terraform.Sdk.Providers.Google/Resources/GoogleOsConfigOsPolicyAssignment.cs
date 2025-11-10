@@ -136,14 +136,14 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("baseline");
-        this.DeclareOutput("deleted");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("revision_create_time");
-        this.DeclareOutput("revision_id");
-        this.DeclareOutput("rollout_state");
-        this.DeclareOutput("uid");
+        this.WithOutput("baseline");
+        this.WithOutput("deleted");
+        this.WithOutput("etag");
+        this.WithOutput("reconciling");
+        this.WithOutput("revision_create_time");
+        this.WithOutput("revision_id");
+        this.WithOutput("rollout_state");
+        this.WithOutput("uid");
     }
 
     /// <summary>

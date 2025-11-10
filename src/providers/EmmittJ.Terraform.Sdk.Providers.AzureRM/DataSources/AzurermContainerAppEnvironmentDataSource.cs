@@ -31,18 +31,18 @@ public class AzurermContainerAppEnvironmentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("custom_domain_verification_id");
-        this.DeclareOutput("default_domain");
-        this.DeclareOutput("docker_bridge_cidr");
-        this.DeclareOutput("infrastructure_subnet_id");
-        this.DeclareOutput("internal_load_balancer_enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("log_analytics_workspace_name");
-        this.DeclareOutput("platform_reserved_cidr");
-        this.DeclareOutput("platform_reserved_dns_ip_address");
-        this.DeclareOutput("public_network_access");
-        this.DeclareOutput("static_ip_address");
-        this.DeclareOutput("tags");
+        this.WithOutput("custom_domain_verification_id");
+        this.WithOutput("default_domain");
+        this.WithOutput("docker_bridge_cidr");
+        this.WithOutput("infrastructure_subnet_id");
+        this.WithOutput("internal_load_balancer_enabled");
+        this.WithOutput("location");
+        this.WithOutput("log_analytics_workspace_name");
+        this.WithOutput("platform_reserved_cidr");
+        this.WithOutput("platform_reserved_dns_ip_address");
+        this.WithOutput("public_network_access");
+        this.WithOutput("static_ip_address");
+        this.WithOutput("tags");
     }
 
     /// <summary>

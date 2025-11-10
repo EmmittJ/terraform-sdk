@@ -49,8 +49,8 @@ public class AzureadDirectoryRole : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("object_id");
+        this.WithOutput("description");
+        this.WithOutput("object_id");
     }
 
     /// <summary>

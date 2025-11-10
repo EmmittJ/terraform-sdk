@@ -14,15 +14,15 @@ public class GoogleBeyondcorpAppGatewayDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocated_connections");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("host_type");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("type");
-        this.DeclareOutput("uri");
+        this.WithOutput("allocated_connections");
+        this.WithOutput("display_name");
+        this.WithOutput("effective_labels");
+        this.WithOutput("host_type");
+        this.WithOutput("labels");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("type");
+        this.WithOutput("uri");
     }
 
     /// <summary>

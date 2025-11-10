@@ -49,11 +49,11 @@ public class GoogleGkeBackupRestoreChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("destination_project_id");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
+        this.WithOutput("destination_project_id");
+        this.WithOutput("effective_labels");
+        this.WithOutput("etag");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
     }
 
     /// <summary>

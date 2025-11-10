@@ -148,8 +148,8 @@ public class AwsAppautoscalingPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("alarm_arns");
-        this.DeclareOutput("arn");
+        this.WithOutput("alarm_arns");
+        this.WithOutput("arn");
     }
 
     /// <summary>

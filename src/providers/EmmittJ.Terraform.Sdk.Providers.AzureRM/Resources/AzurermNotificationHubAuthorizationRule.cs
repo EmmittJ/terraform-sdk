@@ -58,10 +58,10 @@ public class AzurermNotificationHubAuthorizationRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("primary_connection_string");
-        this.DeclareOutput("secondary_access_key");
-        this.DeclareOutput("secondary_connection_string");
+        this.WithOutput("primary_access_key");
+        this.WithOutput("primary_connection_string");
+        this.WithOutput("secondary_access_key");
+        this.WithOutput("secondary_connection_string");
     }
 
     /// <summary>

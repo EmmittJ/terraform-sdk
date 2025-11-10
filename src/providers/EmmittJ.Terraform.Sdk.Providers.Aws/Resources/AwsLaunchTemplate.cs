@@ -783,8 +783,8 @@ public class AwsLaunchTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("latest_version");
+        this.WithOutput("arn");
+        this.WithOutput("latest_version");
     }
 
     /// <summary>

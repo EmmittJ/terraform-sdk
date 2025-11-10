@@ -59,8 +59,8 @@ public class AzurermSpatialAnchorsAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_domain");
-        this.DeclareOutput("account_id");
+        this.WithOutputccount_domain");
+        this.WithOutputccount_id");
     }
 
     /// <summary>

@@ -14,9 +14,9 @@ public class GoogleApphubDiscoveredWorkloadDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("workload_properties");
-        this.DeclareOutput("workload_reference");
+        this.WithOutput("name");
+        this.WithOutput("workload_properties");
+        this.WithOutput("workload_reference");
     }
 
     /// <summary>

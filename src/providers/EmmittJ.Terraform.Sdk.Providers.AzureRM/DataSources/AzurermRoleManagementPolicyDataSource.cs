@@ -31,12 +31,12 @@ public class AzurermRoleManagementPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("activation_rules");
-        this.DeclareOutput("active_assignment_rules");
-        this.DeclareOutput("description");
-        this.DeclareOutput("eligible_assignment_rules");
-        this.DeclareOutput("name");
-        this.DeclareOutput("notification_rules");
+        this.WithOutput("activation_rules");
+        this.WithOutput("active_assignment_rules");
+        this.WithOutput("description");
+        this.WithOutput("eligible_assignment_rules");
+        this.WithOutput("name");
+        this.WithOutput("notification_rules");
     }
 
     /// <summary>

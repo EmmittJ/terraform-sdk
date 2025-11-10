@@ -14,12 +14,12 @@ public class AwsNetworkmonitorProbe : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address_family");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("probe_id");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("address_family");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("probe_id");
+        this.WithOutput("tags_all");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

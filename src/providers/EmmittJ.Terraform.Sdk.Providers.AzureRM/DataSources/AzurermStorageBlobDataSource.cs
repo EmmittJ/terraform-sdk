@@ -31,12 +31,12 @@ public class AzurermStorageBlobDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_tier");
-        this.DeclareOutput("content_md5");
-        this.DeclareOutput("content_type");
-        this.DeclareOutput("encryption_scope");
-        this.DeclareOutput("type");
-        this.DeclareOutput("url");
+        this.WithOutput("access_tier");
+        this.WithOutput("content_md5");
+        this.WithOutput("content_type");
+        this.WithOutput("encryption_scope");
+        this.WithOutput("type");
+        this.WithOutput("url");
     }
 
     /// <summary>

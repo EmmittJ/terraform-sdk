@@ -31,12 +31,12 @@ public class AzurermMobileNetworkPacketCoreDataPlaneDataSource : TerraformDataSo
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("user_plane_access_ipv4_address");
-        this.DeclareOutput("user_plane_access_ipv4_gateway");
-        this.DeclareOutput("user_plane_access_ipv4_subnet");
-        this.DeclareOutput("user_plane_access_name");
+        this.WithOutput("location");
+        this.WithOutput("tags");
+        this.WithOutput("user_plane_access_ipv4_address");
+        this.WithOutput("user_plane_access_ipv4_gateway");
+        this.WithOutput("user_plane_access_ipv4_subnet");
+        this.WithOutput("user_plane_access_name");
     }
 
     /// <summary>

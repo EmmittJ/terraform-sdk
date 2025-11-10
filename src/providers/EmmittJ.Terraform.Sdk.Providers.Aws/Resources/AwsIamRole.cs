@@ -41,9 +41,9 @@ public class AwsIamRole : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("create_date");
-        this.DeclareOutput("unique_id");
+        this.WithOutput("arn");
+        this.WithOutput("create_date");
+        this.WithOutput("unique_id");
     }
 
     /// <summary>

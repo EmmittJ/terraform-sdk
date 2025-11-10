@@ -31,7 +31,7 @@ public class AzureadServicePrincipalsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("service_principals");
+        this.WithOutput("service_principals");
     }
 
     /// <summary>

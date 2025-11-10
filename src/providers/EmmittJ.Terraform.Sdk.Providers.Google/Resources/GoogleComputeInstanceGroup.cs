@@ -77,8 +77,8 @@ public class GoogleComputeInstanceGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("size");
+        this.WithOutput("self_link");
+        this.WithOutput("size");
     }
 
     /// <summary>

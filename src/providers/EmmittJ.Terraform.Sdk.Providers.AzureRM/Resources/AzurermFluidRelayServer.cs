@@ -132,12 +132,12 @@ public class AzurermFluidRelayServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("frs_tenant_id");
-        this.DeclareOutput("orderer_endpoints");
-        this.DeclareOutput("primary_key");
-        this.DeclareOutput("secondary_key");
-        this.DeclareOutput("service_endpoints");
-        this.DeclareOutput("storage_endpoints");
+        this.WithOutput("frs_tenant_id");
+        this.WithOutput("orderer_endpoints");
+        this.WithOutput("primary_key");
+        this.WithOutput("secondary_key");
+        this.WithOutput("service_endpoints");
+        this.WithOutput("storage_endpoints");
     }
 
     /// <summary>

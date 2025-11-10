@@ -31,10 +31,10 @@ public class AzurermVirtualMachineScaleSetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("identity");
-        this.DeclareOutput("instances");
-        this.DeclareOutput("location");
-        this.DeclareOutput("network_interface");
+        this.WithOutput("identity");
+        this.WithOutput("instances");
+        this.WithOutput("location");
+        this.WithOutput("network_interface");
     }
 
     /// <summary>

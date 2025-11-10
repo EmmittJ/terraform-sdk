@@ -31,8 +31,8 @@ public class AzurermDataShareAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("identity");
-        this.DeclareOutput("tags");
+        this.WithOutput("identity");
+        this.WithOutput("tags");
     }
 
     /// <summary>

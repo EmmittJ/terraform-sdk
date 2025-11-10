@@ -251,14 +251,14 @@ public class AzurermSignalrService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("hostname");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("primary_connection_string");
-        this.DeclareOutput("public_port");
-        this.DeclareOutput("secondary_access_key");
-        this.DeclareOutput("secondary_connection_string");
-        this.DeclareOutput("server_port");
+        this.WithOutputostname");
+        this.WithOutputp_address");
+        this.WithOutputrimary_access_key");
+        this.WithOutputrimary_connection_string");
+        this.WithOutputublic_port");
+        this.WithOutputecondary_access_key");
+        this.WithOutputecondary_connection_string");
+        this.WithOutputerver_port");
     }
 
     /// <summary>

@@ -31,12 +31,12 @@ public class AzurermMonitorWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_data_collection_endpoint_id");
-        this.DeclareOutput("default_data_collection_rule_id");
-        this.DeclareOutput("location");
-        this.DeclareOutput("public_network_access_enabled");
-        this.DeclareOutput("query_endpoint");
-        this.DeclareOutput("tags");
+        this.WithOutput("default_data_collection_endpoint_id");
+        this.WithOutput("default_data_collection_rule_id");
+        this.WithOutput("location");
+        this.WithOutput("public_network_access_enabled");
+        this.WithOutput("query_endpoint");
+        this.WithOutput("tags");
     }
 
     /// <summary>

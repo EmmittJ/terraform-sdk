@@ -58,9 +58,9 @@ public class AzurermAadb2cDirectory : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("billing_type");
-        this.DeclareOutput("effective_start_date");
-        this.DeclareOutput("tenant_id");
+        this.WithOutput("billing_type");
+        this.WithOutput("effective_start_date");
+        this.WithOutput("tenant_id");
     }
 
     /// <summary>

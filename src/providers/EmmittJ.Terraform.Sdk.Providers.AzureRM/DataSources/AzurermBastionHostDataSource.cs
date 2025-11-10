@@ -31,19 +31,19 @@ public class AzurermBastionHostDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("copy_paste_enabled");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("file_copy_enabled");
-        this.DeclareOutput("ip_configuration");
-        this.DeclareOutput("ip_connect_enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("scale_units");
-        this.DeclareOutput("session_recording_enabled");
-        this.DeclareOutput("shareable_link_enabled");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("tunneling_enabled");
-        this.DeclareOutput("zones");
+        this.WithOutput("copy_paste_enabled");
+        this.WithOutput("dns_name");
+        this.WithOutput("file_copy_enabled");
+        this.WithOutput("ip_configuration");
+        this.WithOutput("ip_connect_enabled");
+        this.WithOutput("location");
+        this.WithOutput("scale_units");
+        this.WithOutput("session_recording_enabled");
+        this.WithOutput("shareable_link_enabled");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
+        this.WithOutput("tunneling_enabled");
+        this.WithOutput("zones");
     }
 
     /// <summary>

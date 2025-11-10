@@ -14,18 +14,18 @@ public class AwsTransferServerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("certificate");
-        this.DeclareOutput("domain");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("endpoint_type");
-        this.DeclareOutput("identity_provider_type");
-        this.DeclareOutput("invocation_role");
-        this.DeclareOutput("logging_role");
-        this.DeclareOutput("protocols");
-        this.DeclareOutput("security_policy_name");
-        this.DeclareOutput("structured_log_destinations");
-        this.DeclareOutput("url");
+        this.WithOutput("arn");
+        this.WithOutput("certificate");
+        this.WithOutput("domain");
+        this.WithOutput("endpoint");
+        this.WithOutput("endpoint_type");
+        this.WithOutput("identity_provider_type");
+        this.WithOutput("invocation_role");
+        this.WithOutput("logging_role");
+        this.WithOutput("protocols");
+        this.WithOutput("security_policy_name");
+        this.WithOutput("structured_log_destinations");
+        this.WithOutput("url");
     }
 
     /// <summary>

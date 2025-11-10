@@ -49,8 +49,8 @@ public class GoogleLoggingLogView : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

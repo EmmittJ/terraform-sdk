@@ -14,9 +14,9 @@ public class AwsWorkspaceswebNetworkSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("associated_portal_arns");
-        this.DeclareOutput("network_settings_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("associated_portal_arns");
+        this.WithOutput("network_settings_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

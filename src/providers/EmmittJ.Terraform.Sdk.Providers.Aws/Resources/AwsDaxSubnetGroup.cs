@@ -14,7 +14,7 @@ public class AwsDaxSubnetGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

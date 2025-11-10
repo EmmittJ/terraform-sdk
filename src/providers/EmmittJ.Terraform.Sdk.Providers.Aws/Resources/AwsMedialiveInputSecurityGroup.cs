@@ -68,8 +68,8 @@ public class AwsMedialiveInputSecurityGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("inputs");
+        this.WithOutputrn");
+        this.WithOutputnputs");
     }
 
     /// <summary>

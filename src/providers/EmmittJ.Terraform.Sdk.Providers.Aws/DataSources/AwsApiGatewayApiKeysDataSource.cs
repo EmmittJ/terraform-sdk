@@ -14,8 +14,8 @@ public class AwsApiGatewayApiKeysDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("items");
+        this.WithOutput("id");
+        this.WithOutput("items");
     }
 
     /// <summary>

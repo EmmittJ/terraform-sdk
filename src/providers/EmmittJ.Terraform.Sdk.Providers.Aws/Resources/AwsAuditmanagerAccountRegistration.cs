@@ -14,8 +14,8 @@ public class AwsAuditmanagerAccountRegistration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("status");
+        this.WithOutput("id");
+        this.WithOutput("status");
     }
 
     /// <summary>

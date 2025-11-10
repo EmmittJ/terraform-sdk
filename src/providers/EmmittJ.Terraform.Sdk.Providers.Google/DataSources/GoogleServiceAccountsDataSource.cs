@@ -14,7 +14,7 @@ public class GoogleServiceAccountsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("accounts");
+        this.WithOutput("accounts");
     }
 
     /// <summary>

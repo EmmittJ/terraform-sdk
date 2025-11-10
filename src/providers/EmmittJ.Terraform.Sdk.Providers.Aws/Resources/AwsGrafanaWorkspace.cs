@@ -97,9 +97,9 @@ public class AwsGrafanaWorkspace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("saml_configuration_status");
+        this.WithOutput("arn");
+        this.WithOutput("endpoint");
+        this.WithOutput("saml_configuration_status");
     }
 
     /// <summary>

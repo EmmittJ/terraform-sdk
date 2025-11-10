@@ -14,8 +14,8 @@ public class AwsBedrockagentcoreApiKeyCredentialProvider : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api_key_secret_arn");
-        this.DeclareOutput("credential_provider_arn");
+        this.WithOutput("api_key_secret_arn");
+        this.WithOutput("credential_provider_arn");
     }
 
     /// <summary>

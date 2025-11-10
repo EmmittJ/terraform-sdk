@@ -88,14 +88,14 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("name");
-        this.DeclareOutput("orchestration_state");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("etag");
+        this.WithOutput("name");
+        this.WithOutput("orchestration_state");
+        this.WithOutput("reconciling");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

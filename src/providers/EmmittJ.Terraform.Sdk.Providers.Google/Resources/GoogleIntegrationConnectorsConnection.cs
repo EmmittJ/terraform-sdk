@@ -291,17 +291,17 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connection_revision");
-        this.DeclareOutput("connector_version_infra_config");
-        this.DeclareOutput("connector_version_launch_stage");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("eventing_runtime_data");
-        this.DeclareOutput("service_directory");
-        this.DeclareOutput("status");
-        this.DeclareOutput("subscription_type");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("connection_revision");
+        this.WithOutput("connector_version_infra_config");
+        this.WithOutput("connector_version_launch_stage");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("eventing_runtime_data");
+        this.WithOutput("service_directory");
+        this.WithOutput("status");
+        this.WithOutput("subscription_type");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

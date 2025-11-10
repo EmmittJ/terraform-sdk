@@ -49,9 +49,9 @@ public class GoogleCertificateManagerDnsAuthorization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dns_resource_record");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("dns_resource_record");
+        this.WithOutput("effective_labels");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

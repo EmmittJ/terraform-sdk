@@ -14,7 +14,7 @@ public class AwsVpcEndpointConnectionAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("vpc_endpoint_state");
+        this.WithOutput("vpc_endpoint_state");
     }
 
     /// <summary>

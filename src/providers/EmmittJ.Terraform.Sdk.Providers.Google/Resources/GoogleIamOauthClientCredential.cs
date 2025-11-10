@@ -49,8 +49,8 @@ public class GoogleIamOauthClientCredential : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("client_secret");
-        this.DeclareOutput("name");
+        this.WithOutput("client_secret");
+        this.WithOutput("name");
     }
 
     /// <summary>

@@ -49,10 +49,10 @@ public class GoogleEndpointsService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("apis");
-        this.DeclareOutput("config_id");
-        this.DeclareOutput("dns_address");
-        this.DeclareOutput("endpoints");
+        this.WithOutput("apis");
+        this.WithOutput("config_id");
+        this.WithOutput("dns_address");
+        this.WithOutput("endpoints");
     }
 
     /// <summary>

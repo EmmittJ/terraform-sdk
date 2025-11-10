@@ -473,8 +473,8 @@ public class AzurermHdinsightHadoopCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("https_endpoint");
-        this.DeclareOutput("ssh_endpoint");
+        this.WithOutput("https_endpoint");
+        this.WithOutput("ssh_endpoint");
     }
 
     /// <summary>

@@ -49,7 +49,7 @@ public class AwsShieldApplicationLayerAutomaticResponse : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
+        this.WithOutput("id");
     }
 
     /// <summary>

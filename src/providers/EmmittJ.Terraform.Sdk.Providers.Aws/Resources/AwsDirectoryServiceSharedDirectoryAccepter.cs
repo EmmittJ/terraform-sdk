@@ -40,10 +40,10 @@ public class AwsDirectoryServiceSharedDirectoryAccepter : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("method");
-        this.DeclareOutput("notes");
-        this.DeclareOutput("owner_account_id");
-        this.DeclareOutput("owner_directory_id");
+        this.WithOutputethod");
+        this.WithOutputotes");
+        this.WithOutputwner_account_id");
+        this.WithOutputwner_directory_id");
     }
 
     /// <summary>

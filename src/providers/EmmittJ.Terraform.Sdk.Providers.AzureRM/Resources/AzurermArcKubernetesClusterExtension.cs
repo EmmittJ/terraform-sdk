@@ -95,7 +95,7 @@ public class AzurermArcKubernetesClusterExtension : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("current_version");
+        this.WithOutput("current_version");
     }
 
     /// <summary>

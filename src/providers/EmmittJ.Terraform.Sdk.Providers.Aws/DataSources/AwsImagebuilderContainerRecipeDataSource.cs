@@ -14,21 +14,21 @@ public class AwsImagebuilderContainerRecipeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("component");
-        this.DeclareOutput("container_type");
-        this.DeclareOutput("date_created");
-        this.DeclareOutput("description");
-        this.DeclareOutput("dockerfile_template_data");
-        this.DeclareOutput("encrypted");
-        this.DeclareOutput("instance_configuration");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("name");
-        this.DeclareOutput("owner");
-        this.DeclareOutput("parent_image");
-        this.DeclareOutput("platform");
-        this.DeclareOutput("target_repository");
-        this.DeclareOutput("version");
-        this.DeclareOutput("working_directory");
+        this.WithOutput("component");
+        this.WithOutput("container_type");
+        this.WithOutput("date_created");
+        this.WithOutput("description");
+        this.WithOutput("dockerfile_template_data");
+        this.WithOutput("encrypted");
+        this.WithOutput("instance_configuration");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("name");
+        this.WithOutput("owner");
+        this.WithOutput("parent_image");
+        this.WithOutput("platform");
+        this.WithOutput("target_repository");
+        this.WithOutput("version");
+        this.WithOutput("working_directory");
     }
 
     /// <summary>

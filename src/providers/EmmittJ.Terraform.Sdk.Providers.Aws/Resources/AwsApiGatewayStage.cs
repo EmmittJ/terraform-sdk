@@ -88,10 +88,10 @@ public class AwsApiGatewayStage : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("execution_arn");
-        this.DeclareOutput("invoke_url");
-        this.DeclareOutput("web_acl_arn");
+        this.WithOutput("arn");
+        this.WithOutput("execution_arn");
+        this.WithOutput("invoke_url");
+        this.WithOutput("web_acl_arn");
     }
 
     /// <summary>

@@ -185,9 +185,9 @@ public class GoogleBigqueryAnalyticsHubListing : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("commercial_info");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
+        this.WithOutput("commercial_info");
+        this.WithOutput("name");
+        this.WithOutput("state");
     }
 
     /// <summary>

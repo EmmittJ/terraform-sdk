@@ -309,9 +309,9 @@ public class AzurermFirewallPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("child_policies");
-        this.DeclareOutput("firewalls");
-        this.DeclareOutput("rule_collection_groups");
+        this.WithOutput("child_policies");
+        this.WithOutput("firewalls");
+        this.WithOutput("rule_collection_groups");
     }
 
     /// <summary>

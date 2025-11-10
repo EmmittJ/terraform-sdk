@@ -49,11 +49,11 @@ public class AwsCloudhsmV2Cluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cluster_certificates");
-        this.DeclareOutput("cluster_id");
-        this.DeclareOutput("cluster_state");
-        this.DeclareOutput("security_group_id");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("cluster_certificates");
+        this.WithOutput("cluster_id");
+        this.WithOutput("cluster_state");
+        this.WithOutput("security_group_id");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

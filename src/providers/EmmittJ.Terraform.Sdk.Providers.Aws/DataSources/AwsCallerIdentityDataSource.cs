@@ -14,9 +14,9 @@ public class AwsCallerIdentityDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_id");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("user_id");
+        this.WithOutput("account_id");
+        this.WithOutput("arn");
+        this.WithOutput("user_id");
     }
 
     /// <summary>

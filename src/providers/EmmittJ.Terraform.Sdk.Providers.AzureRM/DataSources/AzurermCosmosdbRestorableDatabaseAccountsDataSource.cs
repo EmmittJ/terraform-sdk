@@ -31,7 +31,7 @@ public class AzurermCosmosdbRestorableDatabaseAccountsDataSource : TerraformData
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("accounts");
+        this.WithOutput("accounts");
     }
 
     /// <summary>

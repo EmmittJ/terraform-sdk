@@ -31,12 +31,12 @@ public class AzurermManagementGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("all_management_group_ids");
-        this.DeclareOutput("all_subscription_ids");
-        this.DeclareOutput("management_group_ids");
-        this.DeclareOutput("parent_management_group_id");
-        this.DeclareOutput("subscription_ids");
-        this.DeclareOutput("tenant_scoped_id");
+        this.WithOutput("all_management_group_ids");
+        this.WithOutput("all_subscription_ids");
+        this.WithOutput("management_group_ids");
+        this.WithOutput("parent_management_group_id");
+        this.WithOutput("subscription_ids");
+        this.WithOutput("tenant_scoped_id");
     }
 
     /// <summary>

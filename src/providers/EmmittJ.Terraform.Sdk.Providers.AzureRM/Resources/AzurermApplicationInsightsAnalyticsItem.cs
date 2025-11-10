@@ -58,9 +58,9 @@ public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("time_created");
-        this.DeclareOutput("time_modified");
-        this.DeclareOutput("version");
+        this.WithOutput("time_created");
+        this.WithOutput("time_modified");
+        this.WithOutput("version");
     }
 
     /// <summary>

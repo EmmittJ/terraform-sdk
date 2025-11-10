@@ -49,11 +49,11 @@ public class AwsGlobalacceleratorCrossAccountAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("id");
-        this.DeclareOutput("last_modified_time");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
+        this.WithOutput("id");
+        this.WithOutput("last_modified_time");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

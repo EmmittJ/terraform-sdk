@@ -151,20 +151,20 @@ public class GoogleRedisInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("auth_string");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("current_location_id");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("effective_reserved_ip_range");
-        this.DeclareOutput("host");
-        this.DeclareOutput("maintenance_schedule");
-        this.DeclareOutput("nodes");
-        this.DeclareOutput("persistence_iam_identity");
-        this.DeclareOutput("port");
-        this.DeclareOutput("read_endpoint");
-        this.DeclareOutput("read_endpoint_port");
-        this.DeclareOutput("server_ca_certs");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("auth_string");
+        this.WithOutput("create_time");
+        this.WithOutput("current_location_id");
+        this.WithOutput("effective_labels");
+        this.WithOutput("effective_reserved_ip_range");
+        this.WithOutput("host");
+        this.WithOutput("maintenance_schedule");
+        this.WithOutput("nodes");
+        this.WithOutput("persistence_iam_identity");
+        this.WithOutput("port");
+        this.WithOutput("read_endpoint");
+        this.WithOutput("read_endpoint_port");
+        this.WithOutput("server_ca_certs");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

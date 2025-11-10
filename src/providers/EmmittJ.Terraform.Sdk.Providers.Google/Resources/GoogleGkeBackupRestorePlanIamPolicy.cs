@@ -14,7 +14,7 @@ public class GoogleGkeBackupRestorePlanIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

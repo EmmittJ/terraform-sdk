@@ -31,8 +31,8 @@ public class AzurermEventhubClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("sku_name");
+        this.WithOutput("location");
+        this.WithOutput("sku_name");
     }
 
     /// <summary>

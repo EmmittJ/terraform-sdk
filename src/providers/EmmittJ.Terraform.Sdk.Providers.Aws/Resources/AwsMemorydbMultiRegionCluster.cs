@@ -49,10 +49,10 @@ public class AwsMemorydbMultiRegionCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("multi_region_cluster_name");
-        this.DeclareOutput("status");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("multi_region_cluster_name");
+        this.WithOutput("status");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class AwsCloudfrontkeyvaluestoreKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("total_size_in_bytes");
+        this.WithOutput("id");
+        this.WithOutput("total_size_in_bytes");
     }
 
     /// <summary>

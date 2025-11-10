@@ -60,11 +60,11 @@ public class AwsNetworkInterface : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("mac_address");
-        this.DeclareOutput("outpost_arn");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("private_dns_name");
+        this.WithOutput("arn");
+        this.WithOutput("mac_address");
+        this.WithOutput("outpost_arn");
+        this.WithOutput("owner_id");
+        this.WithOutput("private_dns_name");
     }
 
     /// <summary>

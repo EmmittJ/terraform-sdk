@@ -14,7 +14,7 @@ public class AwsSsoadminApplicationAssignment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
+        this.WithOutput("id");
     }
 
     /// <summary>

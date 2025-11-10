@@ -14,7 +14,7 @@ public class GoogleBigqueryTablesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("tables");
+        this.WithOutput("tables");
     }
 
     /// <summary>

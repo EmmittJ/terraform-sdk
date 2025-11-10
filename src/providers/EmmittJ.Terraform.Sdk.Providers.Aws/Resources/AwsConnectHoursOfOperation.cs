@@ -33,8 +33,8 @@ public class AwsConnectHoursOfOperation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("hours_of_operation_id");
+        this.WithOutput("arn");
+        this.WithOutput("hours_of_operation_id");
     }
 
     /// <summary>

@@ -14,10 +14,10 @@ public class AwsCloudwatchEventSourceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_by");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("created_by");
+        this.WithOutput("name");
+        this.WithOutput("state");
     }
 
     /// <summary>

@@ -32,9 +32,9 @@ public class AwsIotThingGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("metadata");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("metadata");
+        this.WithOutput("version");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class GoogleSecretManagerSecretVersionAccessDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("secret_data");
+        this.WithOutput("name");
+        this.WithOutput("secret_data");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class GoogleComputeInstanceGuestAttributesDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("query_value");
-        this.DeclareOutput("variable_value");
+        this.WithOutput("query_value");
+        this.WithOutput("variable_value");
     }
 
     /// <summary>

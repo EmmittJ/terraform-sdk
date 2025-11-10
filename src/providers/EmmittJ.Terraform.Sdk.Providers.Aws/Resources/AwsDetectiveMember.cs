@@ -14,12 +14,12 @@ public class AwsDetectiveMember : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("administrator_id");
-        this.DeclareOutput("disabled_reason");
-        this.DeclareOutput("invited_time");
-        this.DeclareOutput("status");
-        this.DeclareOutput("updated_time");
-        this.DeclareOutput("volume_usage_in_bytes");
+        this.WithOutput("administrator_id");
+        this.WithOutput("disabled_reason");
+        this.WithOutput("invited_time");
+        this.WithOutput("status");
+        this.WithOutput("updated_time");
+        this.WithOutput("volume_usage_in_bytes");
     }
 
     /// <summary>

@@ -58,8 +58,8 @@ public class AzurermApiManagementEmailTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("title");
+        this.WithOutput("description");
+        this.WithOutput("title");
     }
 
     /// <summary>

@@ -226,7 +226,7 @@ public class AzurermStorageAccountSasDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("sas");
+        this.WithOutput("sas");
     }
 
     /// <summary>

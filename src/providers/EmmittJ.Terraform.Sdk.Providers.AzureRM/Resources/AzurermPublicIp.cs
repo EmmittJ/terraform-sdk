@@ -58,8 +58,8 @@ public class AzurermPublicIp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("ip_address");
+        this.WithOutput("fqdn");
+        this.WithOutput("ip_address");
     }
 
     /// <summary>

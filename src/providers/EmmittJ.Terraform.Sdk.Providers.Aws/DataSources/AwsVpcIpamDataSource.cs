@@ -14,23 +14,23 @@ public class AwsVpcIpamDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("default_resource_discovery_association_id");
-        this.DeclareOutput("default_resource_discovery_id");
-        this.DeclareOutput("description");
-        this.DeclareOutput("enable_private_gua");
-        this.DeclareOutput("ipam_region");
-        this.DeclareOutput("metered_account");
-        this.DeclareOutput("operating_regions");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("private_default_scope_id");
-        this.DeclareOutput("public_default_scope_id");
-        this.DeclareOutput("resource_discovery_association_count");
-        this.DeclareOutput("scope_count");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_message");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("tier");
+        this.WithOutput("arn");
+        this.WithOutput("default_resource_discovery_association_id");
+        this.WithOutput("default_resource_discovery_id");
+        this.WithOutput("description");
+        this.WithOutput("enable_private_gua");
+        this.WithOutput("ipam_region");
+        this.WithOutput("metered_account");
+        this.WithOutput("operating_regions");
+        this.WithOutput("owner_id");
+        this.WithOutput("private_default_scope_id");
+        this.WithOutput("public_default_scope_id");
+        this.WithOutput("resource_discovery_association_count");
+        this.WithOutput("scope_count");
+        this.WithOutput("state");
+        this.WithOutput("state_message");
+        this.WithOutput("tags");
+        this.WithOutput("tier");
     }
 
     /// <summary>

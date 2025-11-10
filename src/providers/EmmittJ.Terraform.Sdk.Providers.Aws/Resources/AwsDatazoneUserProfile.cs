@@ -40,9 +40,9 @@ public class AwsDatazoneUserProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("details");
-        this.DeclareOutput("id");
-        this.DeclareOutput("type");
+        this.WithOutput("details");
+        this.WithOutput("id");
+        this.WithOutput("type");
     }
 
     /// <summary>

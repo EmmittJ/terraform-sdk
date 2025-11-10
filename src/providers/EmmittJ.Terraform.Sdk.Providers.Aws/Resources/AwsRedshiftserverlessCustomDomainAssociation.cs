@@ -14,8 +14,8 @@ public class AwsRedshiftserverlessCustomDomainAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("custom_domain_certificate_expiry_time");
-        this.DeclareOutput("id");
+        this.WithOutput("custom_domain_certificate_expiry_time");
+        this.WithOutput("id");
     }
 
     /// <summary>

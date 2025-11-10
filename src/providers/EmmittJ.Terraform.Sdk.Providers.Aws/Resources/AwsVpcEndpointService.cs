@@ -49,14 +49,14 @@ public class AwsVpcEndpointService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zones");
-        this.DeclareOutput("base_endpoint_dns_names");
-        this.DeclareOutput("manages_vpc_endpoints");
-        this.DeclareOutput("private_dns_name_configuration");
-        this.DeclareOutput("service_name");
-        this.DeclareOutput("service_type");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zones");
+        this.WithOutput("base_endpoint_dns_names");
+        this.WithOutput("manages_vpc_endpoints");
+        this.WithOutput("private_dns_name_configuration");
+        this.WithOutput("service_name");
+        this.WithOutput("service_type");
+        this.WithOutput("state");
     }
 
     /// <summary>

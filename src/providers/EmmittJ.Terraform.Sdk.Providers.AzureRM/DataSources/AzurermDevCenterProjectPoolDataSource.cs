@@ -31,13 +31,13 @@ public class AzurermDevCenterProjectPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dev_box_definition_name");
-        this.DeclareOutput("dev_center_attached_network_name");
-        this.DeclareOutput("local_administrator_enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("single_sign_on_enabled");
-        this.DeclareOutput("stop_on_disconnect_grace_period_minutes");
-        this.DeclareOutput("tags");
+        this.WithOutput("dev_box_definition_name");
+        this.WithOutput("dev_center_attached_network_name");
+        this.WithOutput("local_administrator_enabled");
+        this.WithOutput("location");
+        this.WithOutput("single_sign_on_enabled");
+        this.WithOutput("stop_on_disconnect_grace_period_minutes");
+        this.WithOutput("tags");
     }
 
     /// <summary>

@@ -68,8 +68,8 @@ public class GoogleIamWorkforcePool : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
+        this.WithOutput("name");
+        this.WithOutput("state");
     }
 
     /// <summary>

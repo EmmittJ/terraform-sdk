@@ -166,9 +166,9 @@ public class GoogleCertificateManagerCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("san_dnsnames");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("effective_labels");
+        this.WithOutput("san_dnsnames");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

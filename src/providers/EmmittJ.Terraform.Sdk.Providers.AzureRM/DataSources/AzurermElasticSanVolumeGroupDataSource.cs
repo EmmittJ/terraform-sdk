@@ -31,11 +31,11 @@ public class AzurermElasticSanVolumeGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("encryption");
-        this.DeclareOutput("encryption_type");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("network_rule");
-        this.DeclareOutput("protocol_type");
+        this.WithOutput("encryption");
+        this.WithOutput("encryption_type");
+        this.WithOutput("identity");
+        this.WithOutput("network_rule");
+        this.WithOutput("protocol_type");
     }
 
     /// <summary>

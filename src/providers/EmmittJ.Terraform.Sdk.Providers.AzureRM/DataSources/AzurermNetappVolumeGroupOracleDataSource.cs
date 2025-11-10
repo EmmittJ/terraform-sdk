@@ -31,10 +31,10 @@ public class AzurermNetappVolumeGroupOracleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_identifier");
-        this.DeclareOutput("group_description");
-        this.DeclareOutput("location");
-        this.DeclareOutput("volume");
+        this.WithOutput("application_identifier");
+        this.WithOutput("group_description");
+        this.WithOutput("location");
+        this.WithOutput("volume");
     }
 
     /// <summary>

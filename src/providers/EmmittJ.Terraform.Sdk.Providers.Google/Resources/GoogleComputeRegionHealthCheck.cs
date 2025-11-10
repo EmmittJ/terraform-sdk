@@ -630,10 +630,10 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("health_check_id");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("type");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("health_check_id");
+        this.WithOutput("self_link");
+        this.WithOutput("type");
     }
 
     /// <summary>

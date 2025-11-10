@@ -41,9 +41,9 @@ public class AwsApprunnerVpcIngressConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("domain_name");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("domain_name");
+        this.WithOutput("status");
     }
 
     /// <summary>

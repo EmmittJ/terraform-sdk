@@ -14,7 +14,7 @@ public class AwsStoragegatewayLocalDiskDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("disk_id");
+        this.WithOutput("disk_id");
     }
 
     /// <summary>

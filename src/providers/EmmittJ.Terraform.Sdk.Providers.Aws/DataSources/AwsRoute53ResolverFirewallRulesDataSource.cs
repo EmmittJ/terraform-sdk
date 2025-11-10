@@ -14,7 +14,7 @@ public class AwsRoute53ResolverFirewallRulesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("firewall_rules");
+        this.WithOutputirewall_rules");
     }
 
     /// <summary>

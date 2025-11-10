@@ -14,8 +14,8 @@ public class GoogleComputeRegionInstanceGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("instances");
-        this.DeclareOutput("size");
+        this.WithOutput("instances");
+        this.WithOutput("size");
     }
 
     /// <summary>

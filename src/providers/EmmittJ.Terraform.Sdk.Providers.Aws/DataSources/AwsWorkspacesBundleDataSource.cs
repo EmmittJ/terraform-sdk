@@ -14,10 +14,10 @@ public class AwsWorkspacesBundleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("compute_type");
-        this.DeclareOutput("description");
-        this.DeclareOutput("root_storage");
-        this.DeclareOutput("user_storage");
+        this.WithOutput("compute_type");
+        this.WithOutput("description");
+        this.WithOutput("root_storage");
+        this.WithOutput("user_storage");
     }
 
     /// <summary>

@@ -31,15 +31,15 @@ public class AzurermMonitorDataCollectionEndpointDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("configuration_access_endpoint");
-        this.DeclareOutput("description");
-        this.DeclareOutput("immutable_id");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("location");
-        this.DeclareOutput("logs_ingestion_endpoint");
-        this.DeclareOutput("metrics_ingestion_endpoint");
-        this.DeclareOutput("public_network_access_enabled");
-        this.DeclareOutput("tags");
+        this.WithOutput("configuration_access_endpoint");
+        this.WithOutput("description");
+        this.WithOutput("immutable_id");
+        this.WithOutput("kind");
+        this.WithOutput("location");
+        this.WithOutput("logs_ingestion_endpoint");
+        this.WithOutput("metrics_ingestion_endpoint");
+        this.WithOutput("public_network_access_enabled");
+        this.WithOutput("tags");
     }
 
     /// <summary>

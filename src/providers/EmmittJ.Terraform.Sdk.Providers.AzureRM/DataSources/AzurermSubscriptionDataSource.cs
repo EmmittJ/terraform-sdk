@@ -31,13 +31,13 @@ public class AzurermSubscriptionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("location_placement_id");
-        this.DeclareOutput("quota_id");
-        this.DeclareOutput("spending_limit");
-        this.DeclareOutput("state");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("tenant_id");
+        this.WithOutput("display_name");
+        this.WithOutput("location_placement_id");
+        this.WithOutput("quota_id");
+        this.WithOutput("spending_limit");
+        this.WithOutput("state");
+        this.WithOutput("tags");
+        this.WithOutput("tenant_id");
     }
 
     /// <summary>

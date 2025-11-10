@@ -58,7 +58,7 @@ public class AzurermCdnFrontdoorEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("host_name");
+        this.WithOutput("host_name");
     }
 
     /// <summary>

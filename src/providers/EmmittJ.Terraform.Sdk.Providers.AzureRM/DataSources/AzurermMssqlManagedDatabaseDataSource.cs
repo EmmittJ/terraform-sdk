@@ -31,11 +31,11 @@ public class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("long_term_retention_policy");
-        this.DeclareOutput("managed_instance_name");
-        this.DeclareOutput("point_in_time_restore");
-        this.DeclareOutput("resource_group_name");
-        this.DeclareOutput("short_term_retention_days");
+        this.WithOutput("long_term_retention_policy");
+        this.WithOutput("managed_instance_name");
+        this.WithOutput("point_in_time_restore");
+        this.WithOutput("resource_group_name");
+        this.WithOutput("short_term_retention_days");
     }
 
     /// <summary>

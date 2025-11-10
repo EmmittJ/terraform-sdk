@@ -95,8 +95,8 @@ public class AwsRoute53ResolverEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("host_vpc_id");
+        this.WithOutput("arn");
+        this.WithOutput("host_vpc_id");
     }
 
     /// <summary>

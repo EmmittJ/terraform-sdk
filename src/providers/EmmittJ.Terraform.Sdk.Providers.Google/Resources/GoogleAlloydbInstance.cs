@@ -234,18 +234,18 @@ public class GoogleAlloydbInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("name");
-        this.DeclareOutput("outbound_public_ip_addresses");
-        this.DeclareOutput("public_ip_address");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("effective_labels");
+        this.WithOutput("ip_address");
+        this.WithOutput("name");
+        this.WithOutput("outbound_public_ip_addresses");
+        this.WithOutput("public_ip_address");
+        this.WithOutput("reconciling");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

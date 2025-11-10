@@ -142,7 +142,7 @@ public class AzurermVirtualNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("guid");
+        this.WithOutputuid");
     }
 
     /// <summary>

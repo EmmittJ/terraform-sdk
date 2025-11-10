@@ -59,7 +59,7 @@ public class AwsVpcIpamPoolCidrsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ipam_pool_cidrs");
+        this.WithOutput("ipam_pool_cidrs");
     }
 
     /// <summary>

@@ -14,11 +14,11 @@ public class AwsMskVpcConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("authentication");
-        this.DeclareOutput("client_subnets");
-        this.DeclareOutput("security_groups");
-        this.DeclareOutput("target_cluster_arn");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("authentication");
+        this.WithOutput("client_subnets");
+        this.WithOutput("security_groups");
+        this.WithOutput("target_cluster_arn");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

@@ -85,8 +85,8 @@ public class AzureadInvitation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("redeem_url");
-        this.DeclareOutput("user_id");
+        this.WithOutput("redeem_url");
+        this.WithOutput("user_id");
     }
 
     /// <summary>

@@ -31,10 +31,10 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("internet_security_enabled");
-        this.DeclareOutput("remote_virtual_network_id");
-        this.DeclareOutput("routing");
-        this.DeclareOutput("virtual_hub_id");
+        this.WithOutput("internet_security_enabled");
+        this.WithOutput("remote_virtual_network_id");
+        this.WithOutput("routing");
+        this.WithOutput("virtual_hub_id");
     }
 
     /// <summary>

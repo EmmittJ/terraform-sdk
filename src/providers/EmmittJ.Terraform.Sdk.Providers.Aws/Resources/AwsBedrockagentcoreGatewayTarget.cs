@@ -65,7 +65,7 @@ public class AwsBedrockagentcoreGatewayTarget : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("target_id");
+        this.WithOutput("target_id");
     }
 
     /// <summary>

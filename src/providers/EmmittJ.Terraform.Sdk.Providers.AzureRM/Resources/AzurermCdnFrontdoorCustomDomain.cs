@@ -95,8 +95,8 @@ public class AzurermCdnFrontdoorCustomDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("expiration_date");
-        this.DeclareOutput("validation_token");
+        this.WithOutput("expiration_date");
+        this.WithOutput("validation_token");
     }
 
     /// <summary>

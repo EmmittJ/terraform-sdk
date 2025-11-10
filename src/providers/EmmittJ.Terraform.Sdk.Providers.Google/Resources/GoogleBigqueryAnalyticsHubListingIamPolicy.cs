@@ -14,7 +14,7 @@ public class GoogleBigqueryAnalyticsHubListingIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

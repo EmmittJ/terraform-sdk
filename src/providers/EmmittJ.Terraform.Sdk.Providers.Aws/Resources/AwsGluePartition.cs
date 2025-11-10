@@ -104,9 +104,9 @@ public class AwsGluePartition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("last_accessed_time");
-        this.DeclareOutput("last_analyzed_time");
+        this.WithOutput("creation_time");
+        this.WithOutput("last_accessed_time");
+        this.WithOutput("last_analyzed_time");
     }
 
     /// <summary>

@@ -14,13 +14,13 @@ public class GoogleCertificateManagerCertificateMapDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("gclb_targets");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("effective_labels");
+        this.WithOutput("gclb_targets");
+        this.WithOutput("labels");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

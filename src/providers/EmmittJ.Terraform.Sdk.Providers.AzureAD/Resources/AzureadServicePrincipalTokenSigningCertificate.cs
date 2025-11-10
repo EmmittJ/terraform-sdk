@@ -49,10 +49,10 @@ public class AzureadServicePrincipalTokenSigningCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("key_id");
-        this.DeclareOutput("start_date");
-        this.DeclareOutput("thumbprint");
-        this.DeclareOutput("value");
+        this.WithOutput("key_id");
+        this.WithOutput("start_date");
+        this.WithOutput("thumbprint");
+        this.WithOutput("value");
     }
 
     /// <summary>

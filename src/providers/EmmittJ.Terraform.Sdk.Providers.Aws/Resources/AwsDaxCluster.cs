@@ -67,11 +67,11 @@ public class AwsDaxCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cluster_address");
-        this.DeclareOutput("configuration_endpoint");
-        this.DeclareOutput("nodes");
-        this.DeclareOutput("port");
+        this.WithOutput("arn");
+        this.WithOutput("cluster_address");
+        this.WithOutput("configuration_endpoint");
+        this.WithOutput("nodes");
+        this.WithOutput("port");
     }
 
     /// <summary>

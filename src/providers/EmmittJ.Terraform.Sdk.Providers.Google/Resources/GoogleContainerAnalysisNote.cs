@@ -85,9 +85,9 @@ public class GoogleContainerAnalysisNote : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("kind");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

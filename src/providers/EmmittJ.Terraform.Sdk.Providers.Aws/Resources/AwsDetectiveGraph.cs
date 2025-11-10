@@ -14,8 +14,8 @@ public class AwsDetectiveGraph : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("graph_arn");
+        this.WithOutput("created_time");
+        this.WithOutput("graph_arn");
     }
 
     /// <summary>

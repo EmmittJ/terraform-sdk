@@ -184,8 +184,8 @@ public class AzurermLb : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("private_ip_address");
-        this.DeclareOutput("private_ip_addresses");
+        this.WithOutput("private_ip_address");
+        this.WithOutput("private_ip_addresses");
     }
 
     /// <summary>

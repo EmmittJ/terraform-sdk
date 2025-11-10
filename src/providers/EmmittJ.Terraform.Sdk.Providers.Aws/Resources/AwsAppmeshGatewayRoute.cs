@@ -32,10 +32,10 @@ public class AwsAppmeshGatewayRoute : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("last_updated_date");
-        this.DeclareOutput("resource_owner");
+        this.WithOutputrn");
+        this.WithOutputreated_date");
+        this.WithOutputast_updated_date");
+        this.WithOutputesource_owner");
     }
 
     /// <summary>

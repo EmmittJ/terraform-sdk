@@ -290,8 +290,8 @@ public class AwsLakeformationPermissionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("permissions");
-        this.DeclareOutput("permissions_with_grant_option");
+        this.WithOutput("permissions");
+        this.WithOutput("permissions_with_grant_option");
     }
 
     /// <summary>

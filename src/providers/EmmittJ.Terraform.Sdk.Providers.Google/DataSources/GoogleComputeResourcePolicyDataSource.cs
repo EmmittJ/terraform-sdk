@@ -14,13 +14,13 @@ public class GoogleComputeResourcePolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("disk_consistency_group_policy");
-        this.DeclareOutput("group_placement_policy");
-        this.DeclareOutput("instance_schedule_policy");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("snapshot_schedule_policy");
-        this.DeclareOutput("workload_policy");
+        this.WithOutput("description");
+        this.WithOutput("disk_consistency_group_policy");
+        this.WithOutput("group_placement_policy");
+        this.WithOutput("instance_schedule_policy");
+        this.WithOutput("self_link");
+        this.WithOutput("snapshot_schedule_policy");
+        this.WithOutput("workload_policy");
     }
 
     /// <summary>

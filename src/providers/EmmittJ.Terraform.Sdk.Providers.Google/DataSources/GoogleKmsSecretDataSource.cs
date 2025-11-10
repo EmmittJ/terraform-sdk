@@ -14,7 +14,7 @@ public class GoogleKmsSecretDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("plaintext");
+        this.WithOutput("plaintext");
     }
 
     /// <summary>

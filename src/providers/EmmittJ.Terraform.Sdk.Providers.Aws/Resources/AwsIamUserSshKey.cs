@@ -14,8 +14,8 @@ public class AwsIamUserSshKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("ssh_public_key_id");
+        this.WithOutput("fingerprint");
+        this.WithOutput("ssh_public_key_id");
     }
 
     /// <summary>

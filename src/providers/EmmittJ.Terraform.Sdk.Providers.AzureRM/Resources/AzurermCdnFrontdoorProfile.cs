@@ -122,7 +122,7 @@ public class AzurermCdnFrontdoorProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_guid");
+        this.WithOutput("resource_guid");
     }
 
     /// <summary>

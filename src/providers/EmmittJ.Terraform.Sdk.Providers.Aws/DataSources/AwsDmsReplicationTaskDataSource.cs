@@ -14,17 +14,17 @@ public class AwsDmsReplicationTaskDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cdc_start_position");
-        this.DeclareOutput("cdc_start_time");
-        this.DeclareOutput("migration_type");
-        this.DeclareOutput("replication_instance_arn");
-        this.DeclareOutput("replication_task_arn");
-        this.DeclareOutput("replication_task_settings");
-        this.DeclareOutput("source_endpoint_arn");
-        this.DeclareOutput("start_replication_task");
-        this.DeclareOutput("status");
-        this.DeclareOutput("table_mappings");
-        this.DeclareOutput("target_endpoint_arn");
+        this.WithOutput("cdc_start_position");
+        this.WithOutput("cdc_start_time");
+        this.WithOutput("migration_type");
+        this.WithOutput("replication_instance_arn");
+        this.WithOutput("replication_task_arn");
+        this.WithOutput("replication_task_settings");
+        this.WithOutput("source_endpoint_arn");
+        this.WithOutput("start_replication_task");
+        this.WithOutput("status");
+        this.WithOutput("table_mappings");
+        this.WithOutput("target_endpoint_arn");
     }
 
     /// <summary>

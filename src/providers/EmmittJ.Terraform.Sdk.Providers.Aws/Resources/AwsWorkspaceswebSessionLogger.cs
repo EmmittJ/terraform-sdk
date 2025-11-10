@@ -39,9 +39,9 @@ public class AwsWorkspaceswebSessionLogger : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("associated_portal_arns");
-        this.DeclareOutput("session_logger_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("associated_portal_arns");
+        this.WithOutput("session_logger_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

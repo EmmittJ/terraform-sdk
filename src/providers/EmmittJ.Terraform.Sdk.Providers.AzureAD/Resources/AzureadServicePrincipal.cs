@@ -165,20 +165,20 @@ public class AzureadServicePrincipal : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_role_ids");
-        this.DeclareOutput("app_roles");
-        this.DeclareOutput("application_tenant_id");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("homepage_url");
-        this.DeclareOutput("logout_url");
-        this.DeclareOutput("oauth2_permission_scope_ids");
-        this.DeclareOutput("oauth2_permission_scopes");
-        this.DeclareOutput("object_id");
-        this.DeclareOutput("redirect_uris");
-        this.DeclareOutput("saml_metadata_url");
-        this.DeclareOutput("service_principal_names");
-        this.DeclareOutput("sign_in_audience");
-        this.DeclareOutput("type");
+        this.WithOutput("app_role_ids");
+        this.WithOutput("app_roles");
+        this.WithOutput("application_tenant_id");
+        this.WithOutput("display_name");
+        this.WithOutput("homepage_url");
+        this.WithOutput("logout_url");
+        this.WithOutput("oauth2_permission_scope_ids");
+        this.WithOutput("oauth2_permission_scopes");
+        this.WithOutput("object_id");
+        this.WithOutput("redirect_uris");
+        this.WithOutput("saml_metadata_url");
+        this.WithOutput("service_principal_names");
+        this.WithOutput("sign_in_audience");
+        this.WithOutput("type");
     }
 
     /// <summary>

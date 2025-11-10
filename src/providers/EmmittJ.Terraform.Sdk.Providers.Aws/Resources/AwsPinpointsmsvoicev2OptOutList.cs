@@ -14,9 +14,9 @@ public class AwsPinpointsmsvoicev2OptOutList : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
+        this.WithOutputrn");
+        this.WithOutputd");
+        this.WithOutputags_all");
     }
 
     /// <summary>

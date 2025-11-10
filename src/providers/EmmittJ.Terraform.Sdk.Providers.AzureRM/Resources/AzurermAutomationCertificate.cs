@@ -58,7 +58,7 @@ public class AzurermAutomationCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("thumbprint");
+        this.WithOutput("thumbprint");
     }
 
     /// <summary>

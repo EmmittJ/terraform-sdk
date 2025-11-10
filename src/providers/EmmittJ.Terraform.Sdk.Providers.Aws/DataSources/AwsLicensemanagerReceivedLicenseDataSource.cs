@@ -14,20 +14,20 @@ public class AwsLicensemanagerReceivedLicenseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("beneficiary");
-        this.DeclareOutput("consumption_configuration");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("entitlements");
-        this.DeclareOutput("home_region");
-        this.DeclareOutput("issuer");
-        this.DeclareOutput("license_metadata");
-        this.DeclareOutput("license_name");
-        this.DeclareOutput("product_name");
-        this.DeclareOutput("product_sku");
-        this.DeclareOutput("received_metadata");
-        this.DeclareOutput("status");
-        this.DeclareOutput("validity");
-        this.DeclareOutput("version");
+        this.WithOutput("beneficiary");
+        this.WithOutput("consumption_configuration");
+        this.WithOutput("create_time");
+        this.WithOutput("entitlements");
+        this.WithOutput("home_region");
+        this.WithOutput("issuer");
+        this.WithOutput("license_metadata");
+        this.WithOutput("license_name");
+        this.WithOutput("product_name");
+        this.WithOutput("product_sku");
+        this.WithOutput("received_metadata");
+        this.WithOutput("status");
+        this.WithOutput("validity");
+        this.WithOutput("version");
     }
 
     /// <summary>

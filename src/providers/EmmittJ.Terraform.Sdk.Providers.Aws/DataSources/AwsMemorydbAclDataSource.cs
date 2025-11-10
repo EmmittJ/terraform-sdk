@@ -14,9 +14,9 @@ public class AwsMemorydbAclDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("minimum_engine_version");
-        this.DeclareOutput("user_names");
+        this.WithOutput("arn");
+        this.WithOutput("minimum_engine_version");
+        this.WithOutput("user_names");
     }
 
     /// <summary>

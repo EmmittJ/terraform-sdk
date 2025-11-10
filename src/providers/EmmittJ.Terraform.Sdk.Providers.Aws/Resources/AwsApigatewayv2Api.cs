@@ -77,9 +77,9 @@ public class AwsApigatewayv2Api : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api_endpoint");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("execution_arn");
+        this.WithOutput("api_endpoint");
+        this.WithOutput("arn");
+        this.WithOutput("execution_arn");
     }
 
     /// <summary>

@@ -59,15 +59,15 @@ public class AwsEvidentlyProject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("active_experiment_count");
-        this.DeclareOutput("active_launch_count");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("experiment_count");
-        this.DeclareOutput("feature_count");
-        this.DeclareOutput("last_updated_time");
-        this.DeclareOutput("launch_count");
-        this.DeclareOutput("status");
+        this.WithOutput("active_experiment_count");
+        this.WithOutput("active_launch_count");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
+        this.WithOutput("experiment_count");
+        this.WithOutput("feature_count");
+        this.WithOutput("last_updated_time");
+        this.WithOutput("launch_count");
+        this.WithOutput("status");
     }
 
     /// <summary>

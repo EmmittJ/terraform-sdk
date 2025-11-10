@@ -49,7 +49,7 @@ public class AzurermMssqlServerDnsAlias : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dns_record");
+        this.WithOutput("dns_record");
     }
 
     /// <summary>

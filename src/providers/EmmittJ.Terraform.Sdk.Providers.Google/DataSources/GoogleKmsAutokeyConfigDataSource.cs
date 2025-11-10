@@ -14,8 +14,8 @@ public class GoogleKmsAutokeyConfigDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
-        this.DeclareOutput("key_project");
+        this.WithOutput("etag");
+        this.WithOutput("key_project");
     }
 
     /// <summary>

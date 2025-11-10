@@ -31,30 +31,30 @@ public class AzureadServicePrincipalDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_enabled");
-        this.DeclareOutput("alternative_names");
-        this.DeclareOutput("app_role_assignment_required");
-        this.DeclareOutput("app_role_ids");
-        this.DeclareOutput("app_roles");
-        this.DeclareOutput("application_tenant_id");
-        this.DeclareOutput("description");
-        this.DeclareOutput("feature_tags");
-        this.DeclareOutput("features");
-        this.DeclareOutput("homepage_url");
-        this.DeclareOutput("login_url");
-        this.DeclareOutput("logout_url");
-        this.DeclareOutput("notes");
-        this.DeclareOutput("notification_email_addresses");
-        this.DeclareOutput("oauth2_permission_scope_ids");
-        this.DeclareOutput("oauth2_permission_scopes");
-        this.DeclareOutput("preferred_single_sign_on_mode");
-        this.DeclareOutput("redirect_uris");
-        this.DeclareOutput("saml_metadata_url");
-        this.DeclareOutput("saml_single_sign_on");
-        this.DeclareOutput("service_principal_names");
-        this.DeclareOutput("sign_in_audience");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("type");
+        this.WithOutput("account_enabled");
+        this.WithOutput("alternative_names");
+        this.WithOutput("app_role_assignment_required");
+        this.WithOutput("app_role_ids");
+        this.WithOutput("app_roles");
+        this.WithOutput("application_tenant_id");
+        this.WithOutput("description");
+        this.WithOutput("feature_tags");
+        this.WithOutput("features");
+        this.WithOutput("homepage_url");
+        this.WithOutput("login_url");
+        this.WithOutput("logout_url");
+        this.WithOutput("notes");
+        this.WithOutput("notification_email_addresses");
+        this.WithOutput("oauth2_permission_scope_ids");
+        this.WithOutput("oauth2_permission_scopes");
+        this.WithOutput("preferred_single_sign_on_mode");
+        this.WithOutput("redirect_uris");
+        this.WithOutput("saml_metadata_url");
+        this.WithOutput("saml_single_sign_on");
+        this.WithOutput("service_principal_names");
+        this.WithOutput("sign_in_audience");
+        this.WithOutput("tags");
+        this.WithOutput("type");
     }
 
     /// <summary>

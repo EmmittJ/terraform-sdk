@@ -31,12 +31,12 @@ public class AwsLbListenerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("alpn_policy");
-        this.DeclareOutput("certificate_arn");
-        this.DeclareOutput("default_action");
-        this.DeclareOutput("mutual_authentication");
-        this.DeclareOutput("protocol");
-        this.DeclareOutput("ssl_policy");
+        this.WithOutput("alpn_policy");
+        this.WithOutput("certificate_arn");
+        this.WithOutput("default_action");
+        this.WithOutput("mutual_authentication");
+        this.WithOutput("protocol");
+        this.WithOutput("ssl_policy");
     }
 
     /// <summary>

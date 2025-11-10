@@ -40,11 +40,11 @@ public class GoogleFirestoreUserCreds : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("resource_identity");
-        this.DeclareOutput("secure_password");
-        this.DeclareOutput("state");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("resource_identity");
+        this.WithOutput("secure_password");
+        this.WithOutput("state");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

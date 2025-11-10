@@ -58,7 +58,7 @@ public class AzurermApplicationLoadBalancerFrontend : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fully_qualified_domain_name");
+        this.WithOutput("fully_qualified_domain_name");
     }
 
     /// <summary>

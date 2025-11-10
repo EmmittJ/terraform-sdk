@@ -33,8 +33,8 @@ public class AwsCodebuildReportGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created");
+        this.WithOutput("arn");
+        this.WithOutput("created");
     }
 
     /// <summary>

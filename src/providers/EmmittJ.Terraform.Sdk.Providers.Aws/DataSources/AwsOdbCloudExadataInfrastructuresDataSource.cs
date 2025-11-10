@@ -14,7 +14,7 @@ public class AwsOdbCloudExadataInfrastructuresDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cloud_exadata_infrastructures");
+        this.WithOutput("cloud_exadata_infrastructures");
     }
 
     /// <summary>

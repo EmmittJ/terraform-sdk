@@ -41,8 +41,8 @@ public class AwsQuicksightRefreshSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
+        this.WithOutput("arn");
+        this.WithOutput("id");
     }
 
     /// <summary>

@@ -31,24 +31,24 @@ public class AwsVpnConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("core_network_arn");
-        this.DeclareOutput("core_network_attachment_arn");
-        this.DeclareOutput("customer_gateway_configuration");
-        this.DeclareOutput("preshared_key_arn");
-        this.DeclareOutput("routes");
-        this.DeclareOutput("transit_gateway_attachment_id");
-        this.DeclareOutput("tunnel1_address");
-        this.DeclareOutput("tunnel1_bgp_asn");
-        this.DeclareOutput("tunnel1_bgp_holdtime");
-        this.DeclareOutput("tunnel1_cgw_inside_address");
-        this.DeclareOutput("tunnel1_vgw_inside_address");
-        this.DeclareOutput("tunnel2_address");
-        this.DeclareOutput("tunnel2_bgp_asn");
-        this.DeclareOutput("tunnel2_bgp_holdtime");
-        this.DeclareOutput("tunnel2_cgw_inside_address");
-        this.DeclareOutput("tunnel2_vgw_inside_address");
-        this.DeclareOutput("vgw_telemetry");
+        this.WithOutput("arn");
+        this.WithOutput("core_network_arn");
+        this.WithOutput("core_network_attachment_arn");
+        this.WithOutput("customer_gateway_configuration");
+        this.WithOutput("preshared_key_arn");
+        this.WithOutput("routes");
+        this.WithOutput("transit_gateway_attachment_id");
+        this.WithOutput("tunnel1_address");
+        this.WithOutput("tunnel1_bgp_asn");
+        this.WithOutput("tunnel1_bgp_holdtime");
+        this.WithOutput("tunnel1_cgw_inside_address");
+        this.WithOutput("tunnel1_vgw_inside_address");
+        this.WithOutput("tunnel2_address");
+        this.WithOutput("tunnel2_bgp_asn");
+        this.WithOutput("tunnel2_bgp_holdtime");
+        this.WithOutput("tunnel2_cgw_inside_address");
+        this.WithOutput("tunnel2_vgw_inside_address");
+        this.WithOutput("vgw_telemetry");
     }
 
     /// <summary>

@@ -125,8 +125,8 @@ public class AwsSsmPatchBaseline : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("json");
+        this.WithOutput("arn");
+        this.WithOutput("json");
     }
 
     /// <summary>

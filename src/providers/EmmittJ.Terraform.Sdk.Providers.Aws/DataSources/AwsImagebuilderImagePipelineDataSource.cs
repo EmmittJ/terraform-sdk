@@ -14,22 +14,22 @@ public class AwsImagebuilderImagePipelineDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("container_recipe_arn");
-        this.DeclareOutput("date_created");
-        this.DeclareOutput("date_last_run");
-        this.DeclareOutput("date_next_run");
-        this.DeclareOutput("date_updated");
-        this.DeclareOutput("description");
-        this.DeclareOutput("distribution_configuration_arn");
-        this.DeclareOutput("enhanced_image_metadata_enabled");
-        this.DeclareOutput("image_recipe_arn");
-        this.DeclareOutput("image_scanning_configuration");
-        this.DeclareOutput("image_tests_configuration");
-        this.DeclareOutput("infrastructure_configuration_arn");
-        this.DeclareOutput("name");
-        this.DeclareOutput("platform");
-        this.DeclareOutput("schedule");
-        this.DeclareOutput("status");
+        this.WithOutput("container_recipe_arn");
+        this.WithOutput("date_created");
+        this.WithOutput("date_last_run");
+        this.WithOutput("date_next_run");
+        this.WithOutput("date_updated");
+        this.WithOutput("description");
+        this.WithOutput("distribution_configuration_arn");
+        this.WithOutput("enhanced_image_metadata_enabled");
+        this.WithOutput("image_recipe_arn");
+        this.WithOutput("image_scanning_configuration");
+        this.WithOutput("image_tests_configuration");
+        this.WithOutput("infrastructure_configuration_arn");
+        this.WithOutput("name");
+        this.WithOutput("platform");
+        this.WithOutput("schedule");
+        this.WithOutput("status");
     }
 
     /// <summary>

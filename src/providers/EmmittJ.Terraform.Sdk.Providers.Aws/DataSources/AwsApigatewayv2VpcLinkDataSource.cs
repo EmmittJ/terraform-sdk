@@ -14,10 +14,10 @@ public class AwsApigatewayv2VpcLinkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("name");
-        this.DeclareOutput("security_group_ids");
-        this.DeclareOutput("subnet_ids");
+        this.WithOutput("arn");
+        this.WithOutput("name");
+        this.WithOutput("security_group_ids");
+        this.WithOutput("subnet_ids");
     }
 
     /// <summary>

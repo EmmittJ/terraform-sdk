@@ -31,12 +31,12 @@ public class AzurermBlueprintPublishedVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("last_modified");
-        this.DeclareOutput("target_scope");
-        this.DeclareOutput("time_created");
-        this.DeclareOutput("type");
+        this.WithOutput("description");
+        this.WithOutput("display_name");
+        this.WithOutput("last_modified");
+        this.WithOutput("target_scope");
+        this.WithOutput("time_created");
+        this.WithOutput("type");
     }
 
     /// <summary>

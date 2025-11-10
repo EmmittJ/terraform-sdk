@@ -14,8 +14,8 @@ public class AwsDynamodbResourcePolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("revision_id");
+        this.WithOutput("id");
+        this.WithOutput("revision_id");
     }
 
     /// <summary>

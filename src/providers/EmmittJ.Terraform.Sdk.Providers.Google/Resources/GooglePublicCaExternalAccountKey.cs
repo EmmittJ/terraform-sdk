@@ -40,10 +40,10 @@ public class GooglePublicCaExternalAccountKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("b64_mac_key");
-        this.DeclareOutput("b64url_mac_key");
-        this.DeclareOutput("key_id");
-        this.DeclareOutput("name");
+        this.WithOutput("b64_mac_key");
+        this.WithOutput("b64url_mac_key");
+        this.WithOutput("key_id");
+        this.WithOutput("name");
     }
 
     /// <summary>

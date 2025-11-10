@@ -14,18 +14,18 @@ public class AwsImagebuilderImageRecipeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ami_tags");
-        this.DeclareOutput("block_device_mapping");
-        this.DeclareOutput("component");
-        this.DeclareOutput("date_created");
-        this.DeclareOutput("description");
-        this.DeclareOutput("name");
-        this.DeclareOutput("owner");
-        this.DeclareOutput("parent_image");
-        this.DeclareOutput("platform");
-        this.DeclareOutput("user_data_base64");
-        this.DeclareOutput("version");
-        this.DeclareOutput("working_directory");
+        this.WithOutput("ami_tags");
+        this.WithOutput("block_device_mapping");
+        this.WithOutput("component");
+        this.WithOutput("date_created");
+        this.WithOutput("description");
+        this.WithOutput("name");
+        this.WithOutput("owner");
+        this.WithOutput("parent_image");
+        this.WithOutput("platform");
+        this.WithOutput("user_data_base64");
+        this.WithOutput("version");
+        this.WithOutput("working_directory");
     }
 
     /// <summary>

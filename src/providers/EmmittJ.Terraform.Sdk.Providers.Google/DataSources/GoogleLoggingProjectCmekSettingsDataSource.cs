@@ -14,9 +14,9 @@ public class GoogleLoggingProjectCmekSettingsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("kms_key_version_name");
-        this.DeclareOutput("name");
-        this.DeclareOutput("service_account_id");
+        this.WithOutput("kms_key_version_name");
+        this.WithOutput("name");
+        this.WithOutput("service_account_id");
     }
 
     /// <summary>

@@ -648,14 +648,14 @@ public class AzurermApiManagement : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("developer_portal_url");
-        this.DeclareOutput("gateway_regional_url");
-        this.DeclareOutput("gateway_url");
-        this.DeclareOutput("management_api_url");
-        this.DeclareOutput("portal_url");
-        this.DeclareOutput("private_ip_addresses");
-        this.DeclareOutput("public_ip_addresses");
-        this.DeclareOutput("scm_url");
+        this.WithOutput("developer_portal_url");
+        this.WithOutput("gateway_regional_url");
+        this.WithOutput("gateway_url");
+        this.WithOutput("management_api_url");
+        this.WithOutput("portal_url");
+        this.WithOutput("private_ip_addresses");
+        this.WithOutput("public_ip_addresses");
+        this.WithOutput("scm_url");
     }
 
     /// <summary>

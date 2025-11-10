@@ -136,9 +136,9 @@ public class GoogleHealthcarePipelineJob : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("effective_labels");
+        this.WithOutput("self_link");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

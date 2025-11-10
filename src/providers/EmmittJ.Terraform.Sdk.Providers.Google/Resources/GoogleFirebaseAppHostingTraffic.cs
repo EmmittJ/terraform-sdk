@@ -94,13 +94,13 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("current");
-        this.DeclareOutput("delete_time");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("name");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("current");
+        this.WithOutput("delete_time");
+        this.WithOutput("etag");
+        this.WithOutput("name");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

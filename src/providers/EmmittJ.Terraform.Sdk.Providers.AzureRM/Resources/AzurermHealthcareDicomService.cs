@@ -185,9 +185,9 @@ public class AzurermHealthcareDicomService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("authentication");
-        this.DeclareOutput("private_endpoint");
-        this.DeclareOutput("service_url");
+        this.WithOutput("authentication");
+        this.WithOutput("private_endpoint");
+        this.WithOutput("service_url");
     }
 
     /// <summary>

@@ -58,8 +58,8 @@ public class AwsFsxOpenzfsSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
+        this.WithOutput("arn");
+        this.WithOutput("creation_time");
     }
 
     /// <summary>

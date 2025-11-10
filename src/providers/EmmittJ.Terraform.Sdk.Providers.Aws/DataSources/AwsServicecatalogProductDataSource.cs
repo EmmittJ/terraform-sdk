@@ -31,18 +31,18 @@ public class AwsServicecatalogProductDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("distributor");
-        this.DeclareOutput("has_default_path");
-        this.DeclareOutput("name");
-        this.DeclareOutput("owner");
-        this.DeclareOutput("status");
-        this.DeclareOutput("support_description");
-        this.DeclareOutput("support_email");
-        this.DeclareOutput("support_url");
-        this.DeclareOutput("type");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
+        this.WithOutput("description");
+        this.WithOutput("distributor");
+        this.WithOutput("has_default_path");
+        this.WithOutput("name");
+        this.WithOutput("owner");
+        this.WithOutput("status");
+        this.WithOutput("support_description");
+        this.WithOutput("support_email");
+        this.WithOutput("support_url");
+        this.WithOutput("type");
     }
 
     /// <summary>

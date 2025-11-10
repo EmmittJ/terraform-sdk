@@ -14,9 +14,9 @@ public class AwsCloudwatchLogDeliverySource : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("service");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("service");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

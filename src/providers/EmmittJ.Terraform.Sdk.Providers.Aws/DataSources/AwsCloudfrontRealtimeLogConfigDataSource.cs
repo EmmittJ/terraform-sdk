@@ -14,10 +14,10 @@ public class AwsCloudfrontRealtimeLogConfigDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("fields");
-        this.DeclareOutput("sampling_rate");
+        this.WithOutput("arn");
+        this.WithOutput("endpoint");
+        this.WithOutput("fields");
+        this.WithOutput("sampling_rate");
     }
 
     /// <summary>

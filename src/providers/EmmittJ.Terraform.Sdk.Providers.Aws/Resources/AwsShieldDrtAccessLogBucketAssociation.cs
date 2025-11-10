@@ -40,7 +40,7 @@ public class AwsShieldDrtAccessLogBucketAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
+        this.WithOutput("id");
     }
 
     /// <summary>

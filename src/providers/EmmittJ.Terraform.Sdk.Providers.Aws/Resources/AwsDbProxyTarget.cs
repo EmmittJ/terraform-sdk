@@ -14,12 +14,12 @@ public class AwsDbProxyTarget : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("port");
-        this.DeclareOutput("rds_resource_id");
-        this.DeclareOutput("target_arn");
-        this.DeclareOutput("tracked_cluster_id");
-        this.DeclareOutput("type");
+        this.WithOutput("endpoint");
+        this.WithOutput("port");
+        this.WithOutput("rds_resource_id");
+        this.WithOutput("target_arn");
+        this.WithOutput("tracked_cluster_id");
+        this.WithOutput("type");
     }
 
     /// <summary>

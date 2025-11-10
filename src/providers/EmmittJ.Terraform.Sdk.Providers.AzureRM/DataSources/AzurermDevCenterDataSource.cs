@@ -31,10 +31,10 @@ public class AzurermDevCenterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dev_center_uri");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("dev_center_uri");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

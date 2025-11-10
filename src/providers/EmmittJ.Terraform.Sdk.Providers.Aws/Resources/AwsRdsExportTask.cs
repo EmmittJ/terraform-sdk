@@ -40,15 +40,15 @@ public class AwsRdsExportTask : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("failure_cause");
-        this.DeclareOutput("id");
-        this.DeclareOutput("percent_progress");
-        this.DeclareOutput("snapshot_time");
-        this.DeclareOutput("source_type");
-        this.DeclareOutput("status");
-        this.DeclareOutput("task_end_time");
-        this.DeclareOutput("task_start_time");
-        this.DeclareOutput("warning_message");
+        this.WithOutput("failure_cause");
+        this.WithOutput("id");
+        this.WithOutput("percent_progress");
+        this.WithOutput("snapshot_time");
+        this.WithOutput("source_type");
+        this.WithOutput("status");
+        this.WithOutput("task_end_time");
+        this.WithOutput("task_start_time");
+        this.WithOutput("warning_message");
     }
 
     /// <summary>

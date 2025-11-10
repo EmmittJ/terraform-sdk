@@ -31,9 +31,9 @@ public class AzureadClientConfigDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("client_id");
-        this.DeclareOutput("object_id");
-        this.DeclareOutput("tenant_id");
+        this.WithOutput("client_id");
+        this.WithOutput("object_id");
+        this.WithOutput("tenant_id");
     }
 
     /// <summary>

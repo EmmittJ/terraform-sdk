@@ -14,7 +14,7 @@ public class AwsControltowerControlsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("enabled_controls");
+        this.WithOutput("enabled_controls");
     }
 
     /// <summary>

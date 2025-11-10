@@ -14,28 +14,28 @@ public class AwsElasticacheClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("cache_nodes");
-        this.DeclareOutput("cluster_address");
-        this.DeclareOutput("configuration_endpoint");
-        this.DeclareOutput("engine");
-        this.DeclareOutput("engine_version");
-        this.DeclareOutput("ip_discovery");
-        this.DeclareOutput("log_delivery_configuration");
-        this.DeclareOutput("maintenance_window");
-        this.DeclareOutput("network_type");
-        this.DeclareOutput("node_type");
-        this.DeclareOutput("notification_topic_arn");
-        this.DeclareOutput("num_cache_nodes");
-        this.DeclareOutput("parameter_group_name");
-        this.DeclareOutput("port");
-        this.DeclareOutput("preferred_outpost_arn");
-        this.DeclareOutput("replication_group_id");
-        this.DeclareOutput("security_group_ids");
-        this.DeclareOutput("snapshot_retention_limit");
-        this.DeclareOutput("snapshot_window");
-        this.DeclareOutput("subnet_group_name");
+        this.WithOutputrn");
+        this.WithOutputvailability_zone");
+        this.WithOutputache_nodes");
+        this.WithOutputluster_address");
+        this.WithOutputonfiguration_endpoint");
+        this.WithOutputngine");
+        this.WithOutputngine_version");
+        this.WithOutputp_discovery");
+        this.WithOutputog_delivery_configuration");
+        this.WithOutputaintenance_window");
+        this.WithOutputetwork_type");
+        this.WithOutputode_type");
+        this.WithOutputotification_topic_arn");
+        this.WithOutputum_cache_nodes");
+        this.WithOutputarameter_group_name");
+        this.WithOutputort");
+        this.WithOutputreferred_outpost_arn");
+        this.WithOutputeplication_group_id");
+        this.WithOutputecurity_group_ids");
+        this.WithOutputnapshot_retention_limit");
+        this.WithOutputnapshot_window");
+        this.WithOutputubnet_group_name");
     }
 
     /// <summary>

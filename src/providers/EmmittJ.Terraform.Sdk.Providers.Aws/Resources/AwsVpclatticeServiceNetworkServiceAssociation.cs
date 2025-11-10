@@ -49,11 +49,11 @@ public class AwsVpclatticeServiceNetworkServiceAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_by");
-        this.DeclareOutput("custom_domain_name");
-        this.DeclareOutput("dns_entry");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("created_by");
+        this.WithOutput("custom_domain_name");
+        this.WithOutput("dns_entry");
+        this.WithOutput("status");
     }
 
     /// <summary>

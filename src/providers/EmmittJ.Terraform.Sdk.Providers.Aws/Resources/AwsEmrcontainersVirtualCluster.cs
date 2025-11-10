@@ -60,7 +60,7 @@ public class AwsEmrcontainersVirtualCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutput("arn");
     }
 
     /// <summary>

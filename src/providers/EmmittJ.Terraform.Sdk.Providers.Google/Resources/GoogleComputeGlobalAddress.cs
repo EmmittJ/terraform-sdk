@@ -49,11 +49,11 @@ public class GoogleComputeGlobalAddress : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("effective_labels");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("self_link");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

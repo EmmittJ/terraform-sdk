@@ -14,18 +14,18 @@ public class AwsSsmPatchBaselineDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("approval_rule");
-        this.DeclareOutput("approved_patches");
-        this.DeclareOutput("approved_patches_compliance_level");
-        this.DeclareOutput("approved_patches_enable_non_security");
-        this.DeclareOutput("available_security_updates_compliance_status");
-        this.DeclareOutput("description");
-        this.DeclareOutput("global_filter");
-        this.DeclareOutput("json");
-        this.DeclareOutput("name");
-        this.DeclareOutput("rejected_patches");
-        this.DeclareOutput("rejected_patches_action");
-        this.DeclareOutput("source");
+        this.WithOutput("approval_rule");
+        this.WithOutput("approved_patches");
+        this.WithOutput("approved_patches_compliance_level");
+        this.WithOutput("approved_patches_enable_non_security");
+        this.WithOutput("available_security_updates_compliance_status");
+        this.WithOutput("description");
+        this.WithOutput("global_filter");
+        this.WithOutput("json");
+        this.WithOutput("name");
+        this.WithOutput("rejected_patches");
+        this.WithOutput("rejected_patches_action");
+        this.WithOutput("source");
     }
 
     /// <summary>

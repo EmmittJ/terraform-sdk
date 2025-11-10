@@ -14,11 +14,11 @@ public class AwsEmrcontainersVirtualClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("container_provider");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("container_provider");
+        this.WithOutput("created_at");
+        this.WithOutput("name");
+        this.WithOutput("state");
     }
 
     /// <summary>

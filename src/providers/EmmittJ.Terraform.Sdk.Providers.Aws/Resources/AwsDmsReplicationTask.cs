@@ -14,8 +14,8 @@ public class AwsDmsReplicationTask : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("replication_task_arn");
-        this.DeclareOutput("status");
+        this.WithOutput("replication_task_arn");
+        this.WithOutput("status");
     }
 
     /// <summary>

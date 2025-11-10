@@ -49,7 +49,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment : Terraf
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_id");
+        this.WithOutput("resource_id");
     }
 
     /// <summary>

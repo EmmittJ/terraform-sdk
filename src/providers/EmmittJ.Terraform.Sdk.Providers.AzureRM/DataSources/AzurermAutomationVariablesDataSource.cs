@@ -31,13 +31,13 @@ public class AzurermAutomationVariablesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("bool");
-        this.DeclareOutput("datetime");
-        this.DeclareOutput("encrypted");
-        this.DeclareOutput("int");
-        this.DeclareOutput("null");
-        this.DeclareOutput("object");
-        this.DeclareOutput("string");
+        this.WithOutput("bool");
+        this.WithOutput("datetime");
+        this.WithOutput("encrypted");
+        this.WithOutput("int");
+        this.WithOutput("null");
+        this.WithOutput("object");
+        this.WithOutput("string");
     }
 
     /// <summary>

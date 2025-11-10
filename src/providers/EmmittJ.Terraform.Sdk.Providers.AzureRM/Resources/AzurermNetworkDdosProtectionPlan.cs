@@ -58,7 +58,7 @@ public class AzurermNetworkDdosProtectionPlan : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("virtual_network_ids");
+        this.WithOutput("virtual_network_ids");
     }
 
     /// <summary>

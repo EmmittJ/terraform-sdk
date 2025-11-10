@@ -87,7 +87,7 @@ public class AzurermFrontdoorRulesEngine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
+        this.WithOutput("location");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsEksClusterVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cluster_versions");
+        this.WithOutput("cluster_versions");
     }
 
     /// <summary>

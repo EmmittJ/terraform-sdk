@@ -14,8 +14,8 @@ public class AwsOpensearchserverlessSecurityPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("policy_version");
+        this.WithOutput("id");
+        this.WithOutput("policy_version");
     }
 
     /// <summary>

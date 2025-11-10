@@ -86,8 +86,8 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("website_domain");
-        this.DeclareOutput("website_endpoint");
+        this.WithOutput("website_domain");
+        this.WithOutput("website_endpoint");
     }
 
     /// <summary>

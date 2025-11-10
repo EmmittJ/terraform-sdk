@@ -67,8 +67,8 @@ public class AwsBedrockagentAgentCollaborator : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("collaborator_id");
-        this.DeclareOutput("id");
+        this.WithOutput("collaborator_id");
+        this.WithOutput("id");
     }
 
     /// <summary>

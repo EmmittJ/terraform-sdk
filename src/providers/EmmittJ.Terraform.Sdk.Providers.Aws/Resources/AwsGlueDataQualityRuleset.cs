@@ -52,10 +52,10 @@ public class AwsGlueDataQualityRuleset : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_on");
-        this.DeclareOutput("last_modified_on");
-        this.DeclareOutput("recommendation_run_id");
+        this.WithOutput("arn");
+        this.WithOutput("created_on");
+        this.WithOutput("last_modified_on");
+        this.WithOutput("recommendation_run_id");
     }
 
     /// <summary>

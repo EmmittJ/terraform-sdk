@@ -188,7 +188,7 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api_updated_member");
+        this.WithOutput("api_updated_member");
     }
 
     /// <summary>

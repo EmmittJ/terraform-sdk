@@ -14,16 +14,16 @@ public class AwsBatchJobDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn_prefix");
-        this.DeclareOutput("container_orchestration_type");
-        this.DeclareOutput("eks_properties");
-        this.DeclareOutput("id");
-        this.DeclareOutput("node_properties");
-        this.DeclareOutput("retry_strategy");
-        this.DeclareOutput("scheduling_priority");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("timeout");
-        this.DeclareOutput("type");
+        this.WithOutput("arn_prefix");
+        this.WithOutput("container_orchestration_type");
+        this.WithOutput("eks_properties");
+        this.WithOutput("id");
+        this.WithOutput("node_properties");
+        this.WithOutput("retry_strategy");
+        this.WithOutput("scheduling_priority");
+        this.WithOutput("tags");
+        this.WithOutput("timeout");
+        this.WithOutput("type");
     }
 
     /// <summary>

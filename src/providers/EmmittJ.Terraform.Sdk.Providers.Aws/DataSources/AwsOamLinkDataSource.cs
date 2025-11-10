@@ -14,13 +14,13 @@ public class AwsOamLinkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("label");
-        this.DeclareOutput("label_template");
-        this.DeclareOutput("link_configuration");
-        this.DeclareOutput("link_id");
-        this.DeclareOutput("resource_types");
-        this.DeclareOutput("sink_arn");
+        this.WithOutput("arn");
+        this.WithOutput("label");
+        this.WithOutput("label_template");
+        this.WithOutput("link_configuration");
+        this.WithOutput("link_id");
+        this.WithOutput("resource_types");
+        this.WithOutput("sink_arn");
     }
 
     /// <summary>

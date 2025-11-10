@@ -14,12 +14,12 @@ public class AwsDbSubnetGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("description");
-        this.DeclareOutput("status");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("supported_network_types");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("arn");
+        this.WithOutput("description");
+        this.WithOutput("status");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("supported_network_types");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

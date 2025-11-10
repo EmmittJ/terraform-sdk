@@ -129,9 +129,9 @@ public class AwsCognitoManagedUserPoolClient : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("client_secret");
-        this.DeclareOutput("id");
-        this.DeclareOutput("name");
+        this.WithOutput("client_secret");
+        this.WithOutput("id");
+        this.WithOutput("name");
     }
 
     /// <summary>

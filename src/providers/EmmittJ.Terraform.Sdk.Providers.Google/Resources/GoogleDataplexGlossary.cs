@@ -49,14 +49,14 @@ public class GoogleDataplexGlossary : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("category_count");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("term_count");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("category_count");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("name");
+        this.WithOutput("term_count");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

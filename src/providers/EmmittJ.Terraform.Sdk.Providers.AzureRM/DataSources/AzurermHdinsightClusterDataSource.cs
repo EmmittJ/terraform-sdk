@@ -31,19 +31,19 @@ public class AzurermHdinsightClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cluster_id");
-        this.DeclareOutput("cluster_version");
-        this.DeclareOutput("component_versions");
-        this.DeclareOutput("edge_ssh_endpoint");
-        this.DeclareOutput("gateway");
-        this.DeclareOutput("https_endpoint");
-        this.DeclareOutput("kafka_rest_proxy_endpoint");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("location");
-        this.DeclareOutput("ssh_endpoint");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("tier");
-        this.DeclareOutput("tls_min_version");
+        this.WithOutput("cluster_id");
+        this.WithOutput("cluster_version");
+        this.WithOutput("component_versions");
+        this.WithOutput("edge_ssh_endpoint");
+        this.WithOutput("gateway");
+        this.WithOutput("https_endpoint");
+        this.WithOutput("kafka_rest_proxy_endpoint");
+        this.WithOutput("kind");
+        this.WithOutput("location");
+        this.WithOutput("ssh_endpoint");
+        this.WithOutput("tags");
+        this.WithOutput("tier");
+        this.WithOutput("tls_min_version");
     }
 
     /// <summary>

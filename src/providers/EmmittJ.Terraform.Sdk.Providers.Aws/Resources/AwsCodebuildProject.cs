@@ -613,9 +613,9 @@ public class AwsCodebuildProject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("badge_url");
-        this.DeclareOutput("public_project_alias");
+        this.WithOutput("arn");
+        this.WithOutput("badge_url");
+        this.WithOutput("public_project_alias");
     }
 
     /// <summary>

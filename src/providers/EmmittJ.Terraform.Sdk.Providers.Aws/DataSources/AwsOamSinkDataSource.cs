@@ -14,9 +14,9 @@ public class AwsOamSinkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("name");
-        this.DeclareOutput("sink_id");
+        this.WithOutput("arn");
+        this.WithOutput("name");
+        this.WithOutput("sink_id");
     }
 
     /// <summary>

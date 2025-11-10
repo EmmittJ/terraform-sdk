@@ -107,19 +107,19 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("action_state");
-        this.DeclareOutput("blocking_reasons");
-        this.DeclareOutput("connector_type");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("errors");
-        this.DeclareOutput("last_sync_time");
-        this.DeclareOutput("latest_pause_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("private_connectivity_project_id");
-        this.DeclareOutput("realtime_state");
-        this.DeclareOutput("state");
-        this.DeclareOutput("static_ip_addresses");
-        this.DeclareOutput("update_time");
+        this.WithOutput("action_state");
+        this.WithOutput("blocking_reasons");
+        this.WithOutput("connector_type");
+        this.WithOutput("create_time");
+        this.WithOutput("errors");
+        this.WithOutput("last_sync_time");
+        this.WithOutput("latest_pause_time");
+        this.WithOutput("name");
+        this.WithOutput("private_connectivity_project_id");
+        this.WithOutput("realtime_state");
+        this.WithOutput("state");
+        this.WithOutput("static_ip_addresses");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

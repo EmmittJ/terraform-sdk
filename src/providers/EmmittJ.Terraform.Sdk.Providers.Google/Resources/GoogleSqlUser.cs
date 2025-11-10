@@ -103,7 +103,7 @@ public class GoogleSqlUser : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("sql_server_user_details");
+        this.WithOutput("sql_server_user_details");
     }
 
     /// <summary>

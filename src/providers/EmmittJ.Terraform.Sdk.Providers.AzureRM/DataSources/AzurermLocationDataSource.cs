@@ -31,8 +31,8 @@ public class AzurermLocationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("zone_mappings");
+        this.WithOutput("display_name");
+        this.WithOutput("zone_mappings");
     }
 
     /// <summary>

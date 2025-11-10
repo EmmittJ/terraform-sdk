@@ -31,9 +31,9 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataSource : TerraformData
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("network_interface");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("network_interface");
     }
 
     /// <summary>

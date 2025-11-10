@@ -57,14 +57,14 @@ public class AwsElasticacheServerlessCache : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("full_engine_version");
-        this.DeclareOutput("id");
-        this.DeclareOutput("reader_endpoint");
-        this.DeclareOutput("status");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("create_time");
+        this.WithOutput("endpoint");
+        this.WithOutput("full_engine_version");
+        this.WithOutput("id");
+        this.WithOutput("reader_endpoint");
+        this.WithOutput("status");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

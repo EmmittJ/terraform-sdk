@@ -14,31 +14,31 @@ public class GoogleStorageBucketObjectDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cache_control");
-        this.DeclareOutput("content");
-        this.DeclareOutput("content_disposition");
-        this.DeclareOutput("content_encoding");
-        this.DeclareOutput("content_language");
-        this.DeclareOutput("content_type");
-        this.DeclareOutput("crc32c");
-        this.DeclareOutput("customer_encryption");
-        this.DeclareOutput("deletion_policy");
-        this.DeclareOutput("detect_md5hash");
-        this.DeclareOutput("event_based_hold");
-        this.DeclareOutput("force_empty_content_type");
-        this.DeclareOutput("generation");
-        this.DeclareOutput("kms_key_name");
-        this.DeclareOutput("md5hash");
-        this.DeclareOutput("md5hexhash");
-        this.DeclareOutput("media_link");
-        this.DeclareOutput("metadata");
-        this.DeclareOutput("output_name");
-        this.DeclareOutput("retention");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("source");
-        this.DeclareOutput("source_md5hash");
-        this.DeclareOutput("storage_class");
-        this.DeclareOutput("temporary_hold");
+        this.WithOutput("cache_control");
+        this.WithOutput("content");
+        this.WithOutput("content_disposition");
+        this.WithOutput("content_encoding");
+        this.WithOutput("content_language");
+        this.WithOutput("content_type");
+        this.WithOutput("crc32c");
+        this.WithOutput("customer_encryption");
+        this.WithOutput("deletion_policy");
+        this.WithOutput("detect_md5hash");
+        this.WithOutput("event_based_hold");
+        this.WithOutput("force_empty_content_type");
+        this.WithOutput("generation");
+        this.WithOutput("kms_key_name");
+        this.WithOutput("md5hash");
+        this.WithOutput("md5hexhash");
+        this.WithOutput("media_link");
+        this.WithOutput("metadata");
+        this.WithOutput("output_name");
+        this.WithOutput("retention");
+        this.WithOutput("self_link");
+        this.WithOutput("source");
+        this.WithOutput("source_md5hash");
+        this.WithOutput("storage_class");
+        this.WithOutput("temporary_hold");
     }
 
     /// <summary>

@@ -49,8 +49,8 @@ public class AwsTranscribeMedicalVocabulary : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("download_uri");
+        this.WithOutput("arn");
+        this.WithOutput("download_uri");
     }
 
     /// <summary>

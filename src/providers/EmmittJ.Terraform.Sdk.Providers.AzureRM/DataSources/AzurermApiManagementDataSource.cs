@@ -31,24 +31,24 @@ public class AzurermApiManagementDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("additional_location");
-        this.DeclareOutput("developer_portal_url");
-        this.DeclareOutput("gateway_regional_url");
-        this.DeclareOutput("gateway_url");
-        this.DeclareOutput("hostname_configuration");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("management_api_url");
-        this.DeclareOutput("notification_sender_email");
-        this.DeclareOutput("portal_url");
-        this.DeclareOutput("private_ip_addresses");
-        this.DeclareOutput("public_ip_address_id");
-        this.DeclareOutput("public_ip_addresses");
-        this.DeclareOutput("publisher_email");
-        this.DeclareOutput("publisher_name");
-        this.DeclareOutput("scm_url");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("tenant_access");
+        this.WithOutput("additional_location");
+        this.WithOutput("developer_portal_url");
+        this.WithOutput("gateway_regional_url");
+        this.WithOutput("gateway_url");
+        this.WithOutput("hostname_configuration");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("management_api_url");
+        this.WithOutput("notification_sender_email");
+        this.WithOutput("portal_url");
+        this.WithOutput("private_ip_addresses");
+        this.WithOutput("public_ip_address_id");
+        this.WithOutput("public_ip_addresses");
+        this.WithOutput("publisher_email");
+        this.WithOutput("publisher_name");
+        this.WithOutput("scm_url");
+        this.WithOutput("sku_name");
+        this.WithOutput("tenant_access");
     }
 
     /// <summary>

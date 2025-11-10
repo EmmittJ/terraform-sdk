@@ -452,18 +452,18 @@ public class GoogleBigqueryTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("generated_schema_columns");
-        this.DeclareOutput("last_modified_time");
-        this.DeclareOutput("location");
-        this.DeclareOutput("num_bytes");
-        this.DeclareOutput("num_long_term_bytes");
-        this.DeclareOutput("num_rows");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("type");
+        this.WithOutput("creation_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("etag");
+        this.WithOutput("generated_schema_columns");
+        this.WithOutput("last_modified_time");
+        this.WithOutput("location");
+        this.WithOutput("num_bytes");
+        this.WithOutput("num_long_term_bytes");
+        this.WithOutput("num_rows");
+        this.WithOutput("self_link");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("type");
     }
 
     /// <summary>

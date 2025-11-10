@@ -87,7 +87,7 @@ public class AzurermDnsMxRecord : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fqdn");
+        this.WithOutput("fqdn");
     }
 
     /// <summary>

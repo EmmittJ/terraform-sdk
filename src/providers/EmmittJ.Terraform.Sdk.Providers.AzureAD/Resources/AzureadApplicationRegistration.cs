@@ -58,10 +58,10 @@ public class AzureadApplicationRegistration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("client_id");
-        this.DeclareOutput("disabled_by_microsoft");
-        this.DeclareOutput("object_id");
-        this.DeclareOutput("publisher_domain");
+        this.WithOutput("client_id");
+        this.WithOutput("disabled_by_microsoft");
+        this.WithOutput("object_id");
+        this.WithOutput("publisher_domain");
     }
 
     /// <summary>

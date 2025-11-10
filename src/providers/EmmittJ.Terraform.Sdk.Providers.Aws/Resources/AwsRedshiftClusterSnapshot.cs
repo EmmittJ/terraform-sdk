@@ -14,9 +14,9 @@ public class AwsRedshiftClusterSnapshot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("owner_account");
+        this.WithOutput("arn");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("owner_account");
     }
 
     /// <summary>

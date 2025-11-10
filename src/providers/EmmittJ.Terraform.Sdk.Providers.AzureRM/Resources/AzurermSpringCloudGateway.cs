@@ -331,7 +331,7 @@ public class AzurermSpringCloudGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("url");
+        this.WithOutputrl");
     }
 
     /// <summary>

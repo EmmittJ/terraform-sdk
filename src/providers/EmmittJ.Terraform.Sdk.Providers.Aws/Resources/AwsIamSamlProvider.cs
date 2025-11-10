@@ -14,8 +14,8 @@ public class AwsIamSamlProvider : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("valid_until");
+        this.WithOutput("arn");
+        this.WithOutput("valid_until");
     }
 
     /// <summary>

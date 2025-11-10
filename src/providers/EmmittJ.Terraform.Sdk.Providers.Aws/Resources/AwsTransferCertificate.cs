@@ -14,10 +14,10 @@ public class AwsTransferCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("active_date");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("certificate_id");
-        this.DeclareOutput("inactive_date");
+        this.WithOutput("active_date");
+        this.WithOutput("arn");
+        this.WithOutput("certificate_id");
+        this.WithOutput("inactive_date");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class AwsNeptuneClusterEndpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("endpoint");
+        this.WithOutputrn");
+        this.WithOutputndpoint");
     }
 
     /// <summary>

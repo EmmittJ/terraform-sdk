@@ -51,8 +51,8 @@ public class AwsSagemakerDevice : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("agent_version");
-        this.DeclareOutput("arn");
+        this.WithOutput("agent_version");
+        this.WithOutput("arn");
     }
 
     /// <summary>

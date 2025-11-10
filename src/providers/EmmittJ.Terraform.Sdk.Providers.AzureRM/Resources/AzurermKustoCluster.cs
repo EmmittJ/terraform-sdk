@@ -255,8 +255,8 @@ public class AzurermKustoCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("data_ingestion_uri");
-        this.DeclareOutput("uri");
+        this.WithOutput("data_ingestion_uri");
+        this.WithOutput("uri");
     }
 
     /// <summary>

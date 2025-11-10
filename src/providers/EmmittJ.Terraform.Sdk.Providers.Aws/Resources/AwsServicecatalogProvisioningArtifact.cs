@@ -58,8 +58,8 @@ public class AwsServicecatalogProvisioningArtifact : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("provisioning_artifact_id");
+        this.WithOutput("created_time");
+        this.WithOutput("provisioning_artifact_id");
     }
 
     /// <summary>

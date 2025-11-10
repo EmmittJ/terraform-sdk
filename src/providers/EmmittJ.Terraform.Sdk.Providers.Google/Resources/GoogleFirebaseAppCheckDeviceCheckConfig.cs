@@ -49,8 +49,8 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("name");
-        this.DeclareOutput("private_key_set");
+        this.WithOutput("name");
+        this.WithOutput("private_key_set");
     }
 
     /// <summary>

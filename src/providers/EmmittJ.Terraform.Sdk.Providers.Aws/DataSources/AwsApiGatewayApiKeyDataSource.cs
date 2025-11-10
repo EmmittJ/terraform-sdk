@@ -14,14 +14,14 @@ public class AwsApiGatewayApiKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("customer_id");
-        this.DeclareOutput("description");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("last_updated_date");
-        this.DeclareOutput("name");
-        this.DeclareOutput("value");
+        this.WithOutput("arn");
+        this.WithOutput("created_date");
+        this.WithOutput("customer_id");
+        this.WithOutput("description");
+        this.WithOutput("enabled");
+        this.WithOutput("last_updated_date");
+        this.WithOutput("name");
+        this.WithOutput("value");
     }
 
     /// <summary>

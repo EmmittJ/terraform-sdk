@@ -40,10 +40,10 @@ public class GoogleCloudbuildv2Repository : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("etag");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

@@ -31,7 +31,7 @@ public class AzurermAppConfigurationKeysDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("items");
+        this.WithOutput("items");
     }
 
     /// <summary>

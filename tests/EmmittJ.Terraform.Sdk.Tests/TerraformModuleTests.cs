@@ -42,8 +42,8 @@ public class TerraformModuleTests
             Source = "terraform-aws-modules/vpc/aws"
         };
 
-        module.DeclareOutput("vpc_id");
-        module.DeclareOutput("subnet_ids");
+        module.WithOutput("vpc_id");
+        module.WithOutput("subnet_ids");
 
         var vpcIdRef = module["vpc_id"];
         var subnetIdsRef = module["subnet_ids"];
@@ -64,7 +64,7 @@ public class TerraformModuleTests
 
         var ex = Assert.Throws<TerraformStackException>(() => module["vpc_id"]);
         Assert.Contains("has not been declared", ex.Message);
-        Assert.Contains("DeclareOutput", ex.Message);
+        Assert.Contains("WithOutput", ex.Message);
     }
 
     [Fact]
@@ -78,7 +78,7 @@ public class TerraformModuleTests
             Version = "5.0.0"
         };
         vpcModule.WithProperty("cidr", "10.0.0.0/16");
-        vpcModule.DeclareOutput("vpc_id");
+        vpcModule.WithOutput("vpc_id");
 
         var subnet = new TerraformResource("aws_subnet", "app");
         subnet.WithProperty("vpc_id", vpcModule["vpc_id"]);

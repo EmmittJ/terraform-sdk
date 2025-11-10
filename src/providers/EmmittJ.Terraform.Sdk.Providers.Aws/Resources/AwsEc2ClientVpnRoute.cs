@@ -40,8 +40,8 @@ public class AwsEc2ClientVpnRoute : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("origin");
-        this.DeclareOutput("type");
+        this.WithOutputrigin");
+        this.WithOutputype");
     }
 
     /// <summary>

@@ -14,9 +14,9 @@ public class AwsS3controlBucket : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("public_access_block_enabled");
+        this.WithOutput("arn");
+        this.WithOutput("creation_date");
+        this.WithOutput("public_access_block_enabled");
     }
 
     /// <summary>

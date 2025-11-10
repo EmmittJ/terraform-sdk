@@ -42,9 +42,9 @@ public class AwsImagebuilderDistributionConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("date_created");
-        this.DeclareOutput("date_updated");
+        this.WithOutput("arn");
+        this.WithOutput("date_created");
+        this.WithOutput("date_updated");
     }
 
     /// <summary>

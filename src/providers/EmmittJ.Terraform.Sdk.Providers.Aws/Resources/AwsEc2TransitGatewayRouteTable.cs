@@ -14,9 +14,9 @@ public class AwsEc2TransitGatewayRouteTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("default_association_route_table");
-        this.DeclareOutput("default_propagation_route_table");
+        this.WithOutputrn");
+        this.WithOutputefault_association_route_table");
+        this.WithOutputefault_propagation_route_table");
     }
 
     /// <summary>

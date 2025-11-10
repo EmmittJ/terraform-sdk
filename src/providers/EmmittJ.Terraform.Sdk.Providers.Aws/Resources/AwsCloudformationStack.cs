@@ -49,7 +49,7 @@ public class AwsCloudformationStack : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("outputs");
+        this.WithOutput("outputs");
     }
 
     /// <summary>

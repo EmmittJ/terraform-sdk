@@ -14,8 +14,8 @@ public class AwsGrafanaWorkspaceServiceAccount : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("service_account_id");
+        this.WithOutput("id");
+        this.WithOutput("service_account_id");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class AwsVpclatticeAccessLogSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("resource_arn");
+        this.WithOutput("arn");
+        this.WithOutput("resource_arn");
     }
 
     /// <summary>

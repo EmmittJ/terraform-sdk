@@ -31,15 +31,15 @@ public class AzurermFirewallPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("base_policy_id");
-        this.DeclareOutput("child_policies");
-        this.DeclareOutput("dns");
-        this.DeclareOutput("firewalls");
-        this.DeclareOutput("location");
-        this.DeclareOutput("rule_collection_groups");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("threat_intelligence_allowlist");
-        this.DeclareOutput("threat_intelligence_mode");
+        this.WithOutput("base_policy_id");
+        this.WithOutput("child_policies");
+        this.WithOutput("dns");
+        this.WithOutput("firewalls");
+        this.WithOutput("location");
+        this.WithOutput("rule_collection_groups");
+        this.WithOutput("tags");
+        this.WithOutput("threat_intelligence_allowlist");
+        this.WithOutput("threat_intelligence_mode");
     }
 
     /// <summary>

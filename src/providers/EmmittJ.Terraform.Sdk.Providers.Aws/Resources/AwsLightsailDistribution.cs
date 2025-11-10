@@ -195,15 +195,15 @@ public class AwsLightsailDistribution : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("alternative_domain_names");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("domain_name");
-        this.DeclareOutput("location");
-        this.DeclareOutput("origin_public_dns");
-        this.DeclareOutput("resource_type");
-        this.DeclareOutput("status");
-        this.DeclareOutput("support_code");
+        this.WithOutput("alternative_domain_names");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("domain_name");
+        this.WithOutput("location");
+        this.WithOutput("origin_public_dns");
+        this.WithOutput("resource_type");
+        this.WithOutput("status");
+        this.WithOutput("support_code");
     }
 
     /// <summary>

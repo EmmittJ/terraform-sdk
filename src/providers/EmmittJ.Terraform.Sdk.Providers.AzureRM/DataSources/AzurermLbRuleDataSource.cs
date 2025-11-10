@@ -31,19 +31,19 @@ public class AzurermLbRuleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("backend_address_pool_id");
-        this.DeclareOutput("backend_port");
-        this.DeclareOutput("disable_outbound_snat");
-        this.DeclareOutput("enable_floating_ip");
-        this.DeclareOutput("enable_tcp_reset");
-        this.DeclareOutput("floating_ip_enabled");
-        this.DeclareOutput("frontend_ip_configuration_name");
-        this.DeclareOutput("frontend_port");
-        this.DeclareOutput("idle_timeout_in_minutes");
-        this.DeclareOutput("load_distribution");
-        this.DeclareOutput("probe_id");
-        this.DeclareOutput("protocol");
-        this.DeclareOutput("tcp_reset_enabled");
+        this.WithOutput("backend_address_pool_id");
+        this.WithOutput("backend_port");
+        this.WithOutput("disable_outbound_snat");
+        this.WithOutput("enable_floating_ip");
+        this.WithOutput("enable_tcp_reset");
+        this.WithOutput("floating_ip_enabled");
+        this.WithOutput("frontend_ip_configuration_name");
+        this.WithOutput("frontend_port");
+        this.WithOutput("idle_timeout_in_minutes");
+        this.WithOutput("load_distribution");
+        this.WithOutput("probe_id");
+        this.WithOutput("protocol");
+        this.WithOutput("tcp_reset_enabled");
     }
 
     /// <summary>

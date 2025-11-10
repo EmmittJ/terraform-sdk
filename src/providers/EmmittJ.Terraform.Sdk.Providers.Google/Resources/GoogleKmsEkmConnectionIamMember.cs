@@ -52,7 +52,7 @@ public class GoogleKmsEkmConnectionIamMember : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

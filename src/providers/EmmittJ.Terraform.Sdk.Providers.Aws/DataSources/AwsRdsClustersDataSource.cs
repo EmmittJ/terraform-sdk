@@ -42,8 +42,8 @@ public class AwsRdsClustersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cluster_arns");
-        this.DeclareOutput("cluster_identifiers");
+        this.WithOutput("cluster_arns");
+        this.WithOutput("cluster_identifiers");
     }
 
     /// <summary>

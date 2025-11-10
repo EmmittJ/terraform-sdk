@@ -31,12 +31,12 @@ public class AzurermCdnFrontdoorCustomDomainDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cdn_frontdoor_profile_id");
-        this.DeclareOutput("dns_zone_id");
-        this.DeclareOutput("expiration_date");
-        this.DeclareOutput("host_name");
-        this.DeclareOutput("tls");
-        this.DeclareOutput("validation_token");
+        this.WithOutput("cdn_frontdoor_profile_id");
+        this.WithOutput("dns_zone_id");
+        this.WithOutput("expiration_date");
+        this.WithOutput("host_name");
+        this.WithOutput("tls");
+        this.WithOutput("validation_token");
     }
 
     /// <summary>

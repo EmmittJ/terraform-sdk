@@ -49,7 +49,7 @@ public class GoogleServiceNetworkingConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("peering");
+        this.WithOutput("peering");
     }
 
     /// <summary>

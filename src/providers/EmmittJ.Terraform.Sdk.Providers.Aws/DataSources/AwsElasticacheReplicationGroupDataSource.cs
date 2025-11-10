@@ -14,24 +14,24 @@ public class AwsElasticacheReplicationGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("auth_token_enabled");
-        this.DeclareOutput("automatic_failover_enabled");
-        this.DeclareOutput("cluster_mode");
-        this.DeclareOutput("configuration_endpoint_address");
-        this.DeclareOutput("description");
-        this.DeclareOutput("log_delivery_configuration");
-        this.DeclareOutput("member_clusters");
-        this.DeclareOutput("multi_az_enabled");
-        this.DeclareOutput("node_type");
-        this.DeclareOutput("num_cache_clusters");
-        this.DeclareOutput("num_node_groups");
-        this.DeclareOutput("port");
-        this.DeclareOutput("primary_endpoint_address");
-        this.DeclareOutput("reader_endpoint_address");
-        this.DeclareOutput("replicas_per_node_group");
-        this.DeclareOutput("snapshot_retention_limit");
-        this.DeclareOutput("snapshot_window");
+        this.WithOutput("arn");
+        this.WithOutput("auth_token_enabled");
+        this.WithOutput("automatic_failover_enabled");
+        this.WithOutput("cluster_mode");
+        this.WithOutput("configuration_endpoint_address");
+        this.WithOutput("description");
+        this.WithOutput("log_delivery_configuration");
+        this.WithOutput("member_clusters");
+        this.WithOutput("multi_az_enabled");
+        this.WithOutput("node_type");
+        this.WithOutput("num_cache_clusters");
+        this.WithOutput("num_node_groups");
+        this.WithOutput("port");
+        this.WithOutput("primary_endpoint_address");
+        this.WithOutput("reader_endpoint_address");
+        this.WithOutput("replicas_per_node_group");
+        this.WithOutput("snapshot_retention_limit");
+        this.WithOutput("snapshot_window");
     }
 
     /// <summary>

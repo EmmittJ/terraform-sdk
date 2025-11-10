@@ -58,7 +58,7 @@ public class AzurermMobileNetworkSite : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("network_function_ids");
+        this.WithOutput("network_function_ids");
     }
 
     /// <summary>

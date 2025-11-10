@@ -14,10 +14,10 @@ public class AwsCognitoUserPoolUiCustomization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("css_version");
-        this.DeclareOutput("image_url");
-        this.DeclareOutput("last_modified_date");
+        this.WithOutput("creation_date");
+        this.WithOutput("css_version");
+        this.WithOutput("image_url");
+        this.WithOutput("last_modified_date");
     }
 
     /// <summary>

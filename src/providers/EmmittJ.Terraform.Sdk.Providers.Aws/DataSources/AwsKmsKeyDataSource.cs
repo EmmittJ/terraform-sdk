@@ -14,26 +14,26 @@ public class AwsKmsKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("aws_account_id");
-        this.DeclareOutput("cloud_hsm_cluster_id");
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("custom_key_store_id");
-        this.DeclareOutput("customer_master_key_spec");
-        this.DeclareOutput("deletion_date");
-        this.DeclareOutput("description");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("expiration_model");
-        this.DeclareOutput("key_manager");
-        this.DeclareOutput("key_spec");
-        this.DeclareOutput("key_state");
-        this.DeclareOutput("key_usage");
-        this.DeclareOutput("multi_region");
-        this.DeclareOutput("multi_region_configuration");
-        this.DeclareOutput("origin");
-        this.DeclareOutput("pending_deletion_window_in_days");
-        this.DeclareOutput("valid_to");
-        this.DeclareOutput("xks_key_configuration");
+        this.WithOutput("arn");
+        this.WithOutput("aws_account_id");
+        this.WithOutput("cloud_hsm_cluster_id");
+        this.WithOutput("creation_date");
+        this.WithOutput("custom_key_store_id");
+        this.WithOutput("customer_master_key_spec");
+        this.WithOutput("deletion_date");
+        this.WithOutput("description");
+        this.WithOutput("enabled");
+        this.WithOutput("expiration_model");
+        this.WithOutput("key_manager");
+        this.WithOutput("key_spec");
+        this.WithOutput("key_state");
+        this.WithOutput("key_usage");
+        this.WithOutput("multi_region");
+        this.WithOutput("multi_region_configuration");
+        this.WithOutput("origin");
+        this.WithOutput("pending_deletion_window_in_days");
+        this.WithOutput("valid_to");
+        this.WithOutput("xks_key_configuration");
     }
 
     /// <summary>

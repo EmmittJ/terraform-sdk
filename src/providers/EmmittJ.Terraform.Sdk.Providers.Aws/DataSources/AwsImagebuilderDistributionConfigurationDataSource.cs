@@ -14,11 +14,11 @@ public class AwsImagebuilderDistributionConfigurationDataSource : TerraformDataS
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("date_created");
-        this.DeclareOutput("date_updated");
-        this.DeclareOutput("description");
-        this.DeclareOutput("distribution");
-        this.DeclareOutput("name");
+        this.WithOutput("date_created");
+        this.WithOutput("date_updated");
+        this.WithOutput("description");
+        this.WithOutput("distribution");
+        this.WithOutput("name");
     }
 
     /// <summary>

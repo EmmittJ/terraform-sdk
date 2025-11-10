@@ -14,7 +14,7 @@ public class GoogleComputeMachineTypesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("machine_types");
+        this.WithOutput("machine_types");
     }
 
     /// <summary>

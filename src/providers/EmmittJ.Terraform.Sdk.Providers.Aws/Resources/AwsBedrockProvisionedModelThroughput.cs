@@ -31,9 +31,9 @@ public class AwsBedrockProvisionedModelThroughput : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("provisioned_model_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutputd");
+        this.WithOutputrovisioned_model_arn");
+        this.WithOutputags_all");
     }
 
     /// <summary>

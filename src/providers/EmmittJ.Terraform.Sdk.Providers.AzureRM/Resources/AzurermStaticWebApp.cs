@@ -132,8 +132,8 @@ public class AzurermStaticWebApp : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api_key");
-        this.DeclareOutput("default_host_name");
+        this.WithOutputpi_key");
+        this.WithOutputefault_host_name");
     }
 
     /// <summary>

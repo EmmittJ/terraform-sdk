@@ -14,7 +14,7 @@ public class AwsGlueDataCatalogEncryptionSettingsDataSource : TerraformDataSourc
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("data_catalog_encryption_settings");
+        this.WithOutput("data_catalog_encryption_settings");
     }
 
     /// <summary>

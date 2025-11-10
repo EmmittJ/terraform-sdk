@@ -14,17 +14,17 @@ public class GoogleComputeSubnetworkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("external_ipv6_prefix");
-        this.DeclareOutput("gateway_address");
-        this.DeclareOutput("internal_ipv6_prefix");
-        this.DeclareOutput("ip_cidr_range");
-        this.DeclareOutput("ipv6_access_type");
-        this.DeclareOutput("network");
-        this.DeclareOutput("private_ip_google_access");
-        this.DeclareOutput("secondary_ip_range");
-        this.DeclareOutput("stack_type");
-        this.DeclareOutput("subnetwork_id");
+        this.WithOutput("description");
+        this.WithOutput("external_ipv6_prefix");
+        this.WithOutput("gateway_address");
+        this.WithOutput("internal_ipv6_prefix");
+        this.WithOutput("ip_cidr_range");
+        this.WithOutput("ipv6_access_type");
+        this.WithOutput("network");
+        this.WithOutput("private_ip_google_access");
+        this.WithOutput("secondary_ip_range");
+        this.WithOutput("stack_type");
+        this.WithOutput("subnetwork_id");
     }
 
     /// <summary>

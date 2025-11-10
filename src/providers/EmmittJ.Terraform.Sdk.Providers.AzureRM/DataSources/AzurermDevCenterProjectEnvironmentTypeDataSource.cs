@@ -31,12 +31,12 @@ public class AzurermDevCenterProjectEnvironmentTypeDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creator_role_assignment_roles");
-        this.DeclareOutput("deployment_target_id");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("user_role_assignment");
+        this.WithOutput("creator_role_assignment_roles");
+        this.WithOutput("deployment_target_id");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("tags");
+        this.WithOutput("user_role_assignment");
     }
 
     /// <summary>

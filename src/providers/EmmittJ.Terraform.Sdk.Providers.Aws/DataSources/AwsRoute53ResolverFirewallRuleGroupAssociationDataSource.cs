@@ -14,18 +14,18 @@ public class AwsRoute53ResolverFirewallRuleGroupAssociationDataSource : Terrafor
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("creator_request_id");
-        this.DeclareOutput("firewall_rule_group_id");
-        this.DeclareOutput("managed_owner_name");
-        this.DeclareOutput("modification_time");
-        this.DeclareOutput("mutation_protection");
-        this.DeclareOutput("name");
-        this.DeclareOutput("priority");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_message");
-        this.DeclareOutput("vpc_id");
+        this.WithOutputrn");
+        this.WithOutputreation_time");
+        this.WithOutputreator_request_id");
+        this.WithOutputirewall_rule_group_id");
+        this.WithOutputanaged_owner_name");
+        this.WithOutputodification_time");
+        this.WithOutpututation_protection");
+        this.WithOutputame");
+        this.WithOutputriority");
+        this.WithOutputtatus");
+        this.WithOutputtatus_message");
+        this.WithOutputpc_id");
     }
 
     /// <summary>

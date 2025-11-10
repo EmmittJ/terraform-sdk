@@ -31,12 +31,12 @@ public class AzurermNetappBackupPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("daily_backups_to_keep");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("monthly_backups_to_keep");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("weekly_backups_to_keep");
+        this.WithOutput("daily_backups_to_keep");
+        this.WithOutput("enabled");
+        this.WithOutput("location");
+        this.WithOutput("monthly_backups_to_keep");
+        this.WithOutput("tags");
+        this.WithOutput("weekly_backups_to_keep");
     }
 
     /// <summary>

@@ -97,8 +97,8 @@ public class AwsAmplifyDomainAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("certificate_verification_dns_record");
+        this.WithOutput("arn");
+        this.WithOutput("certificate_verification_dns_record");
     }
 
     /// <summary>

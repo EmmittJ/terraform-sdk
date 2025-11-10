@@ -40,9 +40,9 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("generated_id");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("size");
+        this.WithOutput("generated_id");
+        this.WithOutput("self_link");
+        this.WithOutput("size");
     }
 
     /// <summary>

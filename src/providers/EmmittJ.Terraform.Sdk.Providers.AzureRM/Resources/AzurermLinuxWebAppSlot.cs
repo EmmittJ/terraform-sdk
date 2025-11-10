@@ -747,16 +747,16 @@ public class AzurermLinuxWebAppSlot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_metadata");
-        this.DeclareOutput("custom_domain_verification_id");
-        this.DeclareOutput("default_hostname");
-        this.DeclareOutput("hosting_environment_id");
-        this.DeclareOutput("kind");
-        this.DeclareOutput("outbound_ip_address_list");
-        this.DeclareOutput("outbound_ip_addresses");
-        this.DeclareOutput("possible_outbound_ip_address_list");
-        this.DeclareOutput("possible_outbound_ip_addresses");
-        this.DeclareOutput("site_credential");
+        this.WithOutput("app_metadata");
+        this.WithOutput("custom_domain_verification_id");
+        this.WithOutput("default_hostname");
+        this.WithOutput("hosting_environment_id");
+        this.WithOutput("kind");
+        this.WithOutput("outbound_ip_address_list");
+        this.WithOutput("outbound_ip_addresses");
+        this.WithOutput("possible_outbound_ip_address_list");
+        this.WithOutput("possible_outbound_ip_addresses");
+        this.WithOutput("site_credential");
     }
 
     /// <summary>

@@ -14,10 +14,10 @@ public class GoogleSourcerepoRepositoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_ignore_already_exists");
-        this.DeclareOutput("pubsub_configs");
-        this.DeclareOutput("size");
-        this.DeclareOutput("url");
+        this.WithOutput("create_ignore_already_exists");
+        this.WithOutput("pubsub_configs");
+        this.WithOutput("size");
+        this.WithOutput("url");
     }
 
     /// <summary>

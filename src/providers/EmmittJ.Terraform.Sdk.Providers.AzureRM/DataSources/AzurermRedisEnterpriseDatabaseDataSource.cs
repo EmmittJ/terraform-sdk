@@ -32,10 +32,10 @@ public class AzurermRedisEnterpriseDatabaseDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("linked_database_group_nickname");
-        this.DeclareOutput("linked_database_id");
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("secondary_access_key");
+        this.WithOutput("linked_database_group_nickname");
+        this.WithOutput("linked_database_id");
+        this.WithOutput("primary_access_key");
+        this.WithOutput("secondary_access_key");
     }
 
     /// <summary>

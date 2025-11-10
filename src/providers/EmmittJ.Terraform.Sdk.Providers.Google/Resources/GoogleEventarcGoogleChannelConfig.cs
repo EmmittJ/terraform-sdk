@@ -49,7 +49,7 @@ public class GoogleEventarcGoogleChannelConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("update_time");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

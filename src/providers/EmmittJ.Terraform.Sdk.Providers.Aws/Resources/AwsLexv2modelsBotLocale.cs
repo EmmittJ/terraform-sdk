@@ -76,7 +76,7 @@ public class AwsLexv2modelsBotLocale : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
+        this.WithOutput("id");
     }
 
     /// <summary>

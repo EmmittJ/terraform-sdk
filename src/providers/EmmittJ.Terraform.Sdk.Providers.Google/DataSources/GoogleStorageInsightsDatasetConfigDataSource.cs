@@ -14,25 +14,25 @@ public class GoogleStorageInsightsDatasetConfigDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("dataset_config_state");
-        this.DeclareOutput("description");
-        this.DeclareOutput("exclude_cloud_storage_buckets");
-        this.DeclareOutput("exclude_cloud_storage_locations");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("include_cloud_storage_buckets");
-        this.DeclareOutput("include_cloud_storage_locations");
-        this.DeclareOutput("include_newly_created_buckets");
-        this.DeclareOutput("link");
-        this.DeclareOutput("link_dataset");
-        this.DeclareOutput("name");
-        this.DeclareOutput("organization_number");
-        this.DeclareOutput("organization_scope");
-        this.DeclareOutput("retention_period_days");
-        this.DeclareOutput("source_folders");
-        this.DeclareOutput("source_projects");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("dataset_config_state");
+        this.WithOutput("description");
+        this.WithOutput("exclude_cloud_storage_buckets");
+        this.WithOutput("exclude_cloud_storage_locations");
+        this.WithOutput("identity");
+        this.WithOutput("include_cloud_storage_buckets");
+        this.WithOutput("include_cloud_storage_locations");
+        this.WithOutput("include_newly_created_buckets");
+        this.WithOutput("link");
+        this.WithOutput("link_dataset");
+        this.WithOutput("name");
+        this.WithOutput("organization_number");
+        this.WithOutput("organization_scope");
+        this.WithOutput("retention_period_days");
+        this.WithOutput("source_folders");
+        this.WithOutput("source_projects");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

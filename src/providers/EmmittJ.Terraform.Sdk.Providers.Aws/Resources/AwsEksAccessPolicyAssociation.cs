@@ -68,8 +68,8 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("associated_at");
-        this.DeclareOutput("modified_at");
+        this.WithOutput("associated_at");
+        this.WithOutput("modified_at");
     }
 
     /// <summary>

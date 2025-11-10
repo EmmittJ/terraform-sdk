@@ -40,7 +40,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyAssociation : TerraformReso
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("short_name");
+        this.WithOutput("short_name");
     }
 
     /// <summary>

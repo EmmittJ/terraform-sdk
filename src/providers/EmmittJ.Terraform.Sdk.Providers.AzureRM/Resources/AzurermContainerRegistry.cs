@@ -149,10 +149,10 @@ public class AzurermContainerRegistry : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("admin_password");
-        this.DeclareOutput("admin_username");
-        this.DeclareOutput("data_endpoint_host_names");
-        this.DeclareOutput("login_server");
+        this.WithOutput("admin_password");
+        this.WithOutput("admin_username");
+        this.WithOutput("data_endpoint_host_names");
+        this.WithOutput("login_server");
     }
 
     /// <summary>

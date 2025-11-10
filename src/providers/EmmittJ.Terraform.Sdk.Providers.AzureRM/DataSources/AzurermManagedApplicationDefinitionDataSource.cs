@@ -31,7 +31,7 @@ public class AzurermManagedApplicationDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
+        this.WithOutput("location");
     }
 
     /// <summary>

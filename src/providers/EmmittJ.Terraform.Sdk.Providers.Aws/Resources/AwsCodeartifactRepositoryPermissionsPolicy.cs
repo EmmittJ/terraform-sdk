@@ -14,7 +14,7 @@ public class AwsCodeartifactRepositoryPermissionsPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_arn");
+        this.WithOutput("resource_arn");
     }
 
     /// <summary>

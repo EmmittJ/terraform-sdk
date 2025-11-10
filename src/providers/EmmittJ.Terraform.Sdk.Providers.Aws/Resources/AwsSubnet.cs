@@ -40,9 +40,9 @@ public class AwsSubnet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("ipv6_cidr_block_association_id");
-        this.DeclareOutput("owner_id");
+        this.WithOutput("arn");
+        this.WithOutput("ipv6_cidr_block_association_id");
+        this.WithOutput("owner_id");
     }
 
     /// <summary>

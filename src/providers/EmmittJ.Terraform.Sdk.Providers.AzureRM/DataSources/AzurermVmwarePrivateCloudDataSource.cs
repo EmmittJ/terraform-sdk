@@ -31,21 +31,21 @@ public class AzurermVmwarePrivateCloudDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("circuit");
-        this.DeclareOutput("hcx_cloud_manager_endpoint");
-        this.DeclareOutput("internet_connection_enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("management_cluster");
-        this.DeclareOutput("management_subnet_cidr");
-        this.DeclareOutput("network_subnet_cidr");
-        this.DeclareOutput("nsxt_certificate_thumbprint");
-        this.DeclareOutput("nsxt_manager_endpoint");
-        this.DeclareOutput("provisioning_subnet_cidr");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("vcenter_certificate_thumbprint");
-        this.DeclareOutput("vcsa_endpoint");
-        this.DeclareOutput("vmotion_subnet_cidr");
+        this.WithOutput("circuit");
+        this.WithOutput("hcx_cloud_manager_endpoint");
+        this.WithOutput("internet_connection_enabled");
+        this.WithOutput("location");
+        this.WithOutput("management_cluster");
+        this.WithOutput("management_subnet_cidr");
+        this.WithOutput("network_subnet_cidr");
+        this.WithOutput("nsxt_certificate_thumbprint");
+        this.WithOutput("nsxt_manager_endpoint");
+        this.WithOutput("provisioning_subnet_cidr");
+        this.WithOutput("sku_name");
+        this.WithOutput("tags");
+        this.WithOutput("vcenter_certificate_thumbprint");
+        this.WithOutput("vcsa_endpoint");
+        this.WithOutput("vmotion_subnet_cidr");
     }
 
     /// <summary>

@@ -49,10 +49,10 @@ public class AwsAthenaCapacityReservation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocated_dpus");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("allocated_dpus");
+        this.WithOutput("arn");
+        this.WithOutput("status");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

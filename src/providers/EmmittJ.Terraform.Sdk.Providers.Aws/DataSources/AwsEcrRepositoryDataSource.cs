@@ -14,13 +14,13 @@ public class AwsEcrRepositoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("encryption_configuration");
-        this.DeclareOutput("image_scanning_configuration");
-        this.DeclareOutput("image_tag_mutability");
-        this.DeclareOutput("image_tag_mutability_exclusion_filter");
-        this.DeclareOutput("most_recent_image_tags");
-        this.DeclareOutput("repository_url");
+        this.WithOutput("arn");
+        this.WithOutput("encryption_configuration");
+        this.WithOutput("image_scanning_configuration");
+        this.WithOutput("image_tag_mutability");
+        this.WithOutput("image_tag_mutability_exclusion_filter");
+        this.WithOutput("most_recent_image_tags");
+        this.WithOutput("repository_url");
     }
 
     /// <summary>

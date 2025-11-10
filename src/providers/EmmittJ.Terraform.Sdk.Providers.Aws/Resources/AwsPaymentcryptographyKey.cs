@@ -87,12 +87,12 @@ public class AwsPaymentcryptographyKey : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("key_check_value");
-        this.DeclareOutput("key_origin");
-        this.DeclareOutput("key_state");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("key_check_value");
+        this.WithOutput("key_origin");
+        this.WithOutput("key_state");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

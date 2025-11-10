@@ -58,7 +58,7 @@ public class AwsServicecatalogPortfolioShare : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("accepted");
+        this.WithOutput("accepted");
     }
 
     /// <summary>

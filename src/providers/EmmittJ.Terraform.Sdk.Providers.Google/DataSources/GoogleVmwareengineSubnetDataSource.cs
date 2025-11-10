@@ -14,17 +14,17 @@ public class GoogleVmwareengineSubnetDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("dhcp_address_ranges");
-        this.DeclareOutput("gateway_id");
-        this.DeclareOutput("gateway_ip");
-        this.DeclareOutput("ip_cidr_range");
-        this.DeclareOutput("standard_config");
-        this.DeclareOutput("state");
-        this.DeclareOutput("type");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("vlan_id");
+        this.WithOutput("create_time");
+        this.WithOutput("dhcp_address_ranges");
+        this.WithOutput("gateway_id");
+        this.WithOutput("gateway_ip");
+        this.WithOutput("ip_cidr_range");
+        this.WithOutput("standard_config");
+        this.WithOutput("state");
+        this.WithOutput("type");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("vlan_id");
     }
 
     /// <summary>

@@ -150,8 +150,8 @@ public class AzurermMssqlServer : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("fully_qualified_domain_name");
-        this.DeclareOutput("restorable_dropped_database_ids");
+        this.WithOutput("fully_qualified_domain_name");
+        this.WithOutput("restorable_dropped_database_ids");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsOdbDbNodesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("db_nodes");
+        this.WithOutput("db_nodes");
     }
 
     /// <summary>

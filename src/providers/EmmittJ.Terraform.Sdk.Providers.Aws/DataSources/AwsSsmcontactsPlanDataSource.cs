@@ -14,7 +14,7 @@ public class AwsSsmcontactsPlanDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("stage");
+        this.WithOutput("stage");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class AwsCloudwatchContributorInsightRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("resource_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

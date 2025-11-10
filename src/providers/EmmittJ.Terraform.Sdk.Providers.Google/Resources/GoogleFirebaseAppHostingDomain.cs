@@ -58,14 +58,14 @@ public class GoogleFirebaseAppHostingDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("custom_domain_status");
-        this.DeclareOutput("delete_time");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("name");
-        this.DeclareOutput("purge_time");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("custom_domain_status");
+        this.WithOutput("delete_time");
+        this.WithOutput("etag");
+        this.WithOutput("name");
+        this.WithOutput("purge_time");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

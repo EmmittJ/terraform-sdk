@@ -14,13 +14,13 @@ public class AwsS3controlMultiRegionAccessPointDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("alias");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("domain_name");
-        this.DeclareOutput("public_access_block");
-        this.DeclareOutput("regions");
-        this.DeclareOutput("status");
+        this.WithOutput("alias");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("domain_name");
+        this.WithOutput("public_access_block");
+        this.WithOutput("regions");
+        this.WithOutput("status");
     }
 
     /// <summary>

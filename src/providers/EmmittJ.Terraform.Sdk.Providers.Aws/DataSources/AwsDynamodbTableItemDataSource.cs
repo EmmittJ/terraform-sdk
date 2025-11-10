@@ -14,7 +14,7 @@ public class AwsDynamodbTableItemDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("item");
+        this.WithOutput("item");
     }
 
     /// <summary>

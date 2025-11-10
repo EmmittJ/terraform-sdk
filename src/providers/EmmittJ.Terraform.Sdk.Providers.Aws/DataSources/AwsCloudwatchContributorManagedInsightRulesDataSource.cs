@@ -14,7 +14,7 @@ public class AwsCloudwatchContributorManagedInsightRulesDataSource : TerraformDa
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("managed_rules");
+        this.WithOutput("managed_rules");
     }
 
     /// <summary>

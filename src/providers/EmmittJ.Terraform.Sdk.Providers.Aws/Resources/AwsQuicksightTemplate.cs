@@ -94,12 +94,12 @@ public class AwsQuicksightTemplate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("last_updated_time");
-        this.DeclareOutput("source_entity_arn");
-        this.DeclareOutput("status");
-        this.DeclareOutput("version_number");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
+        this.WithOutput("last_updated_time");
+        this.WithOutput("source_entity_arn");
+        this.WithOutput("status");
+        this.WithOutput("version_number");
     }
 
     /// <summary>

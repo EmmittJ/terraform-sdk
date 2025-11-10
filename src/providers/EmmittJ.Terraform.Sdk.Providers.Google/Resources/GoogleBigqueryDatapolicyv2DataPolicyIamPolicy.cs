@@ -14,7 +14,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicyIamPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("etag");
+        this.WithOutput("etag");
     }
 
     /// <summary>

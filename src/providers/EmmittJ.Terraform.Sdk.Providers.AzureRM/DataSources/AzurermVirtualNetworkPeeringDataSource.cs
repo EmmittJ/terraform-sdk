@@ -31,13 +31,13 @@ public class AzurermVirtualNetworkPeeringDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allow_forwarded_traffic");
-        this.DeclareOutput("allow_gateway_transit");
-        this.DeclareOutput("allow_virtual_network_access");
-        this.DeclareOutput("only_ipv6_peering_enabled");
-        this.DeclareOutput("peer_complete_virtual_networks_enabled");
-        this.DeclareOutput("remote_virtual_network_id");
-        this.DeclareOutput("use_remote_gateways");
+        this.WithOutput("allow_forwarded_traffic");
+        this.WithOutput("allow_gateway_transit");
+        this.WithOutput("allow_virtual_network_access");
+        this.WithOutput("only_ipv6_peering_enabled");
+        this.WithOutput("peer_complete_virtual_networks_enabled");
+        this.WithOutput("remote_virtual_network_id");
+        this.WithOutput("use_remote_gateways");
     }
 
     /// <summary>

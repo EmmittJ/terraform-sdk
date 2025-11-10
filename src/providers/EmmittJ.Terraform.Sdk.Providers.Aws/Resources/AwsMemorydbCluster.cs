@@ -49,10 +49,10 @@ public class AwsMemorydbCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cluster_endpoint");
-        this.DeclareOutput("engine_patch_version");
-        this.DeclareOutput("shards");
+        this.WithOutput("arn");
+        this.WithOutput("cluster_endpoint");
+        this.WithOutput("engine_patch_version");
+        this.WithOutput("shards");
     }
 
     /// <summary>

@@ -14,9 +14,9 @@ public class AwsBackupSelectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("iam_role_arn");
-        this.DeclareOutput("name");
-        this.DeclareOutput("resources");
+        this.WithOutput("iam_role_arn");
+        this.WithOutput("name");
+        this.WithOutput("resources");
     }
 
     /// <summary>

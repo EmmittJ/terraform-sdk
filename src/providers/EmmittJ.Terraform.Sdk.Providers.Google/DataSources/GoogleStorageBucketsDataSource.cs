@@ -14,7 +14,7 @@ public class GoogleStorageBucketsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("buckets");
+        this.WithOutput("buckets");
     }
 
     /// <summary>

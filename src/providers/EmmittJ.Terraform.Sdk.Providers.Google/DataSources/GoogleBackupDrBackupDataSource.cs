@@ -14,9 +14,9 @@ public class GoogleBackupDrBackupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("backups");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
+        this.WithOutput("backups");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
     }
 
     /// <summary>

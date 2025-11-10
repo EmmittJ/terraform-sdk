@@ -228,8 +228,8 @@ public class AzurermMachineLearningWorkspace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("discovery_url");
-        this.DeclareOutput("workspace_id");
+        this.WithOutput("discovery_url");
+        this.WithOutput("workspace_id");
     }
 
     /// <summary>

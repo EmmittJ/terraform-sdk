@@ -14,10 +14,10 @@ public class AwsSagemakerImageVersion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("container_image");
-        this.DeclareOutput("image_arn");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("container_image");
+        this.WithOutput("image_arn");
+        this.WithOutput("version");
     }
 
     /// <summary>

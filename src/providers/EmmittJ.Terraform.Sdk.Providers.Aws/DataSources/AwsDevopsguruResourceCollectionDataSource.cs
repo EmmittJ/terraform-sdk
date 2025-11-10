@@ -14,9 +14,9 @@ public class AwsDevopsguruResourceCollectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cloudformation");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags");
+        this.WithOutput("cloudformation");
+        this.WithOutput("id");
+        this.WithOutput("tags");
     }
 
     /// <summary>

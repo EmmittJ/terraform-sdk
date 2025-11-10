@@ -85,8 +85,8 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration : Terra
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
+        this.WithOutput("arn");
+        this.WithOutput("id");
     }
 
     /// <summary>

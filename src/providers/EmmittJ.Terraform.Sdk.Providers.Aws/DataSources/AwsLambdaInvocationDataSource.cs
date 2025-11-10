@@ -14,7 +14,7 @@ public class AwsLambdaInvocationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("result");
+        this.WithOutput("result");
     }
 
     /// <summary>

@@ -14,9 +14,9 @@ public class AwsS3DirectoryBucketsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arns");
-        this.DeclareOutput("buckets");
-        this.DeclareOutput("id");
+        this.WithOutput("arns");
+        this.WithOutput("buckets");
+        this.WithOutput("id");
     }
 
     /// <summary>

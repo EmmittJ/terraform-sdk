@@ -143,11 +143,11 @@ public class AwsKinesisAnalyticsApplication : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("create_timestamp");
-        this.DeclareOutput("last_update_timestamp");
-        this.DeclareOutput("status");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("create_timestamp");
+        this.WithOutput("last_update_timestamp");
+        this.WithOutput("status");
+        this.WithOutput("version");
     }
 
     /// <summary>

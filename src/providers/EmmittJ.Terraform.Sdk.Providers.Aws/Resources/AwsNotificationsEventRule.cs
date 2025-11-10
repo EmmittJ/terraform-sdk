@@ -14,7 +14,7 @@ public class AwsNotificationsEventRule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
+        this.WithOutput("arn");
     }
 
     /// <summary>

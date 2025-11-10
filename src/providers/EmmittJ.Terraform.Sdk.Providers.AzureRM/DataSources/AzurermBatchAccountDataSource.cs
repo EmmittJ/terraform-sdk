@@ -31,15 +31,15 @@ public class AzurermBatchAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_endpoint");
-        this.DeclareOutput("encryption");
-        this.DeclareOutput("key_vault_reference");
-        this.DeclareOutput("location");
-        this.DeclareOutput("pool_allocation_mode");
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("secondary_access_key");
-        this.DeclareOutput("storage_account_id");
-        this.DeclareOutput("tags");
+        this.WithOutput("account_endpoint");
+        this.WithOutput("encryption");
+        this.WithOutput("key_vault_reference");
+        this.WithOutput("location");
+        this.WithOutput("pool_allocation_mode");
+        this.WithOutput("primary_access_key");
+        this.WithOutput("secondary_access_key");
+        this.WithOutput("storage_account_id");
+        this.WithOutput("tags");
     }
 
     /// <summary>

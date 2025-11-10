@@ -52,19 +52,19 @@ public class AwsSsmDocument : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("default_version");
-        this.DeclareOutput("description");
-        this.DeclareOutput("document_version");
-        this.DeclareOutput("hash");
-        this.DeclareOutput("hash_type");
-        this.DeclareOutput("latest_version");
-        this.DeclareOutput("owner");
-        this.DeclareOutput("parameter");
-        this.DeclareOutput("platform_types");
-        this.DeclareOutput("schema_version");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("created_date");
+        this.WithOutput("default_version");
+        this.WithOutput("description");
+        this.WithOutput("document_version");
+        this.WithOutput("hash");
+        this.WithOutput("hash_type");
+        this.WithOutput("latest_version");
+        this.WithOutput("owner");
+        this.WithOutput("parameter");
+        this.WithOutput("platform_types");
+        this.WithOutput("schema_version");
+        this.WithOutput("status");
     }
 
     /// <summary>

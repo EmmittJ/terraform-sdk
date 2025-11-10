@@ -208,8 +208,8 @@ public class AzurermRoleManagementPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("name");
+        this.WithOutputescription");
+        this.WithOutputame");
     }
 
     /// <summary>

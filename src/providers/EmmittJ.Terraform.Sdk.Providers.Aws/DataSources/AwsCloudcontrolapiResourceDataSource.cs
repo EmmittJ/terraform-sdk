@@ -14,7 +14,7 @@ public class AwsCloudcontrolapiResourceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("properties");
+        this.WithOutput("properties");
     }
 
     /// <summary>

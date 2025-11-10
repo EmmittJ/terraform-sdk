@@ -14,11 +14,11 @@ public class AwsGuarddutyDetectorDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("features");
-        this.DeclareOutput("finding_publishing_frequency");
-        this.DeclareOutput("service_role_arn");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("features");
+        this.WithOutput("finding_publishing_frequency");
+        this.WithOutput("service_role_arn");
+        this.WithOutput("status");
     }
 
     /// <summary>

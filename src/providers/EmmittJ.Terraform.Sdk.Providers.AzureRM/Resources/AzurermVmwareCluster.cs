@@ -58,8 +58,8 @@ public class AzurermVmwareCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cluster_number");
-        this.DeclareOutput("hosts");
+        this.WithOutput("cluster_number");
+        this.WithOutput("hosts");
     }
 
     /// <summary>

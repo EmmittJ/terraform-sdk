@@ -14,11 +14,11 @@ public class AwsConnectRoutingProfileDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("default_outbound_queue_id");
-        this.DeclareOutput("description");
-        this.DeclareOutput("media_concurrencies");
-        this.DeclareOutput("queue_configs");
+        this.WithOutputrn");
+        this.WithOutputefault_outbound_queue_id");
+        this.WithOutputescription");
+        this.WithOutputedia_concurrencies");
+        this.WithOutputueue_configs");
     }
 
     /// <summary>

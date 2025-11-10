@@ -31,10 +31,10 @@ public class AzurermNetworkServiceTagsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address_prefixes");
-        this.DeclareOutput("ipv4_cidrs");
-        this.DeclareOutput("ipv6_cidrs");
-        this.DeclareOutput("name");
+        this.WithOutput("address_prefixes");
+        this.WithOutput("ipv4_cidrs");
+        this.WithOutput("ipv6_cidrs");
+        this.WithOutput("name");
     }
 
     /// <summary>

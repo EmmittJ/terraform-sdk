@@ -58,9 +58,9 @@ public class GoogleProject : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("number");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("effective_labels");
+        this.WithOutput("number");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

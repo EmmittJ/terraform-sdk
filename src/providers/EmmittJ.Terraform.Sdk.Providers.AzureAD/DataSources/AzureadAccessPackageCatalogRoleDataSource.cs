@@ -31,8 +31,8 @@ public class AzureadAccessPackageCatalogRoleDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("template_id");
+        this.WithOutput("description");
+        this.WithOutput("template_id");
     }
 
     /// <summary>

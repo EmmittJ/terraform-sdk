@@ -40,9 +40,9 @@ public class AwsDefaultRouteTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("vpc_id");
+        this.WithOutputrn");
+        this.WithOutputwner_id");
+        this.WithOutputpc_id");
     }
 
     /// <summary>

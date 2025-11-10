@@ -31,20 +31,20 @@ public class AzurermSentinelAlertRuleAnomalyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("anomaly_settings_version");
-        this.DeclareOutput("anomaly_version");
-        this.DeclareOutput("description");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("frequency");
-        this.DeclareOutput("mode");
-        this.DeclareOutput("multi_select_observation");
-        this.DeclareOutput("prioritized_exclude_observation");
-        this.DeclareOutput("required_data_connector");
-        this.DeclareOutput("settings_definition_id");
-        this.DeclareOutput("single_select_observation");
-        this.DeclareOutput("tactics");
-        this.DeclareOutput("techniques");
-        this.DeclareOutput("threshold_observation");
+        this.WithOutput("anomaly_settings_version");
+        this.WithOutput("anomaly_version");
+        this.WithOutput("description");
+        this.WithOutput("enabled");
+        this.WithOutput("frequency");
+        this.WithOutput("mode");
+        this.WithOutput("multi_select_observation");
+        this.WithOutput("prioritized_exclude_observation");
+        this.WithOutput("required_data_connector");
+        this.WithOutput("settings_definition_id");
+        this.WithOutput("single_select_observation");
+        this.WithOutput("tactics");
+        this.WithOutput("techniques");
+        this.WithOutput("threshold_observation");
     }
 
     /// <summary>

@@ -31,19 +31,19 @@ public class AzurermVirtualDesktopHostPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("custom_rdp_properties");
-        this.DeclareOutput("description");
-        this.DeclareOutput("friendly_name");
-        this.DeclareOutput("load_balancer_type");
-        this.DeclareOutput("location");
-        this.DeclareOutput("maximum_sessions_allowed");
-        this.DeclareOutput("personal_desktop_assignment_type");
-        this.DeclareOutput("preferred_app_group_type");
-        this.DeclareOutput("scheduled_agent_updates");
-        this.DeclareOutput("start_vm_on_connect");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("type");
-        this.DeclareOutput("validate_environment");
+        this.WithOutput("custom_rdp_properties");
+        this.WithOutput("description");
+        this.WithOutput("friendly_name");
+        this.WithOutput("load_balancer_type");
+        this.WithOutput("location");
+        this.WithOutput("maximum_sessions_allowed");
+        this.WithOutput("personal_desktop_assignment_type");
+        this.WithOutput("preferred_app_group_type");
+        this.WithOutput("scheduled_agent_updates");
+        this.WithOutput("start_vm_on_connect");
+        this.WithOutput("tags");
+        this.WithOutput("type");
+        this.WithOutput("validate_environment");
     }
 
     /// <summary>

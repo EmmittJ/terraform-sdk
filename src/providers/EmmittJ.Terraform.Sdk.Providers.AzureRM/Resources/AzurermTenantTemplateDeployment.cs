@@ -58,7 +58,7 @@ public class AzurermTenantTemplateDeployment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("output_content");
+        this.WithOutpututput_content");
     }
 
     /// <summary>

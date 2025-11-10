@@ -14,14 +14,14 @@ public class AwsCognitoIdentityPoolDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allow_classic_flow");
-        this.DeclareOutput("allow_unauthenticated_identities");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cognito_identity_providers");
-        this.DeclareOutput("developer_provider_name");
-        this.DeclareOutput("openid_connect_provider_arns");
-        this.DeclareOutput("saml_provider_arns");
-        this.DeclareOutput("supported_login_providers");
+        this.WithOutput("allow_classic_flow");
+        this.WithOutput("allow_unauthenticated_identities");
+        this.WithOutput("arn");
+        this.WithOutput("cognito_identity_providers");
+        this.WithOutput("developer_provider_name");
+        this.WithOutput("openid_connect_provider_arns");
+        this.WithOutput("saml_provider_arns");
+        this.WithOutput("supported_login_providers");
     }
 
     /// <summary>

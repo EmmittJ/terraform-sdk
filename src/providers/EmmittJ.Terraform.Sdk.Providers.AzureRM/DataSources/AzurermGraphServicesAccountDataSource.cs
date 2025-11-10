@@ -31,9 +31,9 @@ public class AzurermGraphServicesAccountDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("application_id");
-        this.DeclareOutput("billing_plan_id");
-        this.DeclareOutput("tags");
+        this.WithOutput("application_id");
+        this.WithOutput("billing_plan_id");
+        this.WithOutput("tags");
     }
 
     /// <summary>

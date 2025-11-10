@@ -49,16 +49,16 @@ public class AwsOdbNetworkPeeringConnection : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("id");
-        this.DeclareOutput("odb_network_arn");
-        this.DeclareOutput("odb_peering_connection_type");
-        this.DeclareOutput("peer_network_arn");
-        this.DeclareOutput("percent_progress");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("id");
+        this.WithOutput("odb_network_arn");
+        this.WithOutput("odb_peering_connection_type");
+        this.WithOutput("peer_network_arn");
+        this.WithOutput("percent_progress");
+        this.WithOutput("status");
+        this.WithOutput("status_reason");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

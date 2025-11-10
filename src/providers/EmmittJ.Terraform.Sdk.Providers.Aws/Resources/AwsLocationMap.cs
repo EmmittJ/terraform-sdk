@@ -33,9 +33,9 @@ public class AwsLocationMap : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("map_arn");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("map_arn");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

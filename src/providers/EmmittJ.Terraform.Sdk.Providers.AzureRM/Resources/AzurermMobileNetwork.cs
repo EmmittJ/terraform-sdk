@@ -58,7 +58,7 @@ public class AzurermMobileNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("service_key");
+        this.WithOutput("service_key");
     }
 
     /// <summary>

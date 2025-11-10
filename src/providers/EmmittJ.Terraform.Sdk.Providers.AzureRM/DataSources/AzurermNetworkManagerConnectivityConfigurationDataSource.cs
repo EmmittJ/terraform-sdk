@@ -31,12 +31,12 @@ public class AzurermNetworkManagerConnectivityConfigurationDataSource : Terrafor
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("applies_to_group");
-        this.DeclareOutput("connectivity_topology");
-        this.DeclareOutput("delete_existing_peering_enabled");
-        this.DeclareOutput("description");
-        this.DeclareOutput("global_mesh_enabled");
-        this.DeclareOutput("hub");
+        this.WithOutput("applies_to_group");
+        this.WithOutput("connectivity_topology");
+        this.WithOutput("delete_existing_peering_enabled");
+        this.WithOutput("description");
+        this.WithOutput("global_mesh_enabled");
+        this.WithOutput("hub");
     }
 
     /// <summary>

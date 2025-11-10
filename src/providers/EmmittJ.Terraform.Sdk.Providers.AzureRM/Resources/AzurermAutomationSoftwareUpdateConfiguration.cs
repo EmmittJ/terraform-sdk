@@ -354,8 +354,8 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("error_code");
-        this.DeclareOutput("error_message");
+        this.WithOutput("error_code");
+        this.WithOutput("error_message");
     }
 
     /// <summary>

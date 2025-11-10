@@ -104,10 +104,10 @@ public class AzurermSearchService : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("customer_managed_key_encryption_compliance_status");
-        this.DeclareOutput("primary_key");
-        this.DeclareOutput("query_keys");
-        this.DeclareOutput("secondary_key");
+        this.WithOutputustomer_managed_key_encryption_compliance_status");
+        this.WithOutputrimary_key");
+        this.WithOutputuery_keys");
+        this.WithOutputecondary_key");
     }
 
     /// <summary>

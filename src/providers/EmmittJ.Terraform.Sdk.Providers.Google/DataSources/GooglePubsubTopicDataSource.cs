@@ -14,16 +14,16 @@ public class GooglePubsubTopicDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("ingestion_data_source_settings");
-        this.DeclareOutput("kms_key_name");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("message_retention_duration");
-        this.DeclareOutput("message_storage_policy");
-        this.DeclareOutput("message_transforms");
-        this.DeclareOutput("schema_settings");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("effective_labels");
+        this.WithOutput("ingestion_data_source_settings");
+        this.WithOutput("kms_key_name");
+        this.WithOutput("labels");
+        this.WithOutput("message_retention_duration");
+        this.WithOutput("message_storage_policy");
+        this.WithOutput("message_transforms");
+        this.WithOutput("schema_settings");
+        this.WithOutput("tags");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

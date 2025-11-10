@@ -14,9 +14,9 @@ public class AwsIamInstanceProfilesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arns");
-        this.DeclareOutput("names");
-        this.DeclareOutput("paths");
+        this.WithOutput("arns");
+        this.WithOutput("names");
+        this.WithOutput("paths");
     }
 
     /// <summary>

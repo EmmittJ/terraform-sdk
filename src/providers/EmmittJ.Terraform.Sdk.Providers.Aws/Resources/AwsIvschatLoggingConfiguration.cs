@@ -58,8 +58,8 @@ public class AwsIvschatLoggingConfiguration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("state");
     }
 
     /// <summary>

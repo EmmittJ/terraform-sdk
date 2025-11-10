@@ -355,25 +355,25 @@ public class GoogleNetappVolume : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("active_directory");
-        this.DeclareOutput("cold_tier_size_gib");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("encryption_type");
-        this.DeclareOutput("has_replication");
-        this.DeclareOutput("hot_tier_size_used_gib");
-        this.DeclareOutput("kms_config");
-        this.DeclareOutput("ldap_enabled");
-        this.DeclareOutput("mount_options");
-        this.DeclareOutput("network");
-        this.DeclareOutput("psa_range");
-        this.DeclareOutput("replica_zone");
-        this.DeclareOutput("service_level");
-        this.DeclareOutput("state");
-        this.DeclareOutput("state_details");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("used_gib");
-        this.DeclareOutput("zone");
+        this.WithOutput("active_directory");
+        this.WithOutput("cold_tier_size_gib");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("encryption_type");
+        this.WithOutput("has_replication");
+        this.WithOutput("hot_tier_size_used_gib");
+        this.WithOutput("kms_config");
+        this.WithOutput("ldap_enabled");
+        this.WithOutput("mount_options");
+        this.WithOutput("network");
+        this.WithOutput("psa_range");
+        this.WithOutput("replica_zone");
+        this.WithOutput("service_level");
+        this.WithOutput("state");
+        this.WithOutput("state_details");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("used_gib");
+        this.WithOutput("zone");
     }
 
     /// <summary>

@@ -76,11 +76,11 @@ public class AwsGlobalacceleratorAccelerator : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("dns_name");
-        this.DeclareOutput("dual_stack_dns_name");
-        this.DeclareOutput("hosted_zone_id");
-        this.DeclareOutput("ip_sets");
+        this.WithOutput("arn");
+        this.WithOutput("dns_name");
+        this.WithOutput("dual_stack_dns_name");
+        this.WithOutput("hosted_zone_id");
+        this.WithOutput("ip_sets");
     }
 
     /// <summary>

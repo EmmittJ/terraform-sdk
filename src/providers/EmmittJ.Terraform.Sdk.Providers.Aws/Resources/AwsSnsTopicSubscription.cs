@@ -14,10 +14,10 @@ public class AwsSnsTopicSubscription : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("confirmation_was_authenticated");
-        this.DeclareOutput("owner_id");
-        this.DeclareOutput("pending_confirmation");
+        this.WithOutput("arn");
+        this.WithOutput("confirmation_was_authenticated");
+        this.WithOutput("owner_id");
+        this.WithOutput("pending_confirmation");
     }
 
     /// <summary>

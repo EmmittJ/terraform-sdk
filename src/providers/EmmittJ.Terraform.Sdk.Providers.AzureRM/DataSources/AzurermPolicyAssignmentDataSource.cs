@@ -31,16 +31,16 @@ public class AzurermPolicyAssignmentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("description");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("enforce");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("metadata");
-        this.DeclareOutput("non_compliance_message");
-        this.DeclareOutput("not_scopes");
-        this.DeclareOutput("parameters");
-        this.DeclareOutput("policy_definition_id");
+        this.WithOutput("description");
+        this.WithOutput("display_name");
+        this.WithOutput("enforce");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("metadata");
+        this.WithOutput("non_compliance_message");
+        this.WithOutput("not_scopes");
+        this.WithOutput("parameters");
+        this.WithOutput("policy_definition_id");
     }
 
     /// <summary>

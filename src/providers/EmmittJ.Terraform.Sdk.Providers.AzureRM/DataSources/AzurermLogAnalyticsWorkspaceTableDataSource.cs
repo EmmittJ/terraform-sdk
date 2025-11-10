@@ -31,9 +31,9 @@ public class AzurermLogAnalyticsWorkspaceTableDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("plan");
-        this.DeclareOutput("retention_in_days");
-        this.DeclareOutput("total_retention_in_days");
+        this.WithOutput("plan");
+        this.WithOutput("retention_in_days");
+        this.WithOutput("total_retention_in_days");
     }
 
     /// <summary>

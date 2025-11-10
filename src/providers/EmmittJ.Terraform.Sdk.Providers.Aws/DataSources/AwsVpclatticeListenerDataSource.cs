@@ -14,16 +14,16 @@ public class AwsVpclatticeListenerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("default_action");
-        this.DeclareOutput("last_updated_at");
-        this.DeclareOutput("listener_id");
-        this.DeclareOutput("name");
-        this.DeclareOutput("port");
-        this.DeclareOutput("protocol");
-        this.DeclareOutput("service_arn");
-        this.DeclareOutput("service_id");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("default_action");
+        this.WithOutput("last_updated_at");
+        this.WithOutput("listener_id");
+        this.WithOutput("name");
+        this.WithOutput("port");
+        this.WithOutput("protocol");
+        this.WithOutput("service_arn");
+        this.WithOutput("service_id");
     }
 
     /// <summary>

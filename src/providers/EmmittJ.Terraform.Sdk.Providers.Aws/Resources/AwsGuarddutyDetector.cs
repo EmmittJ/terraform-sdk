@@ -24,8 +24,8 @@ public class AwsGuarddutyDetector : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("account_id");
-        this.DeclareOutput("arn");
+        this.WithOutput("account_id");
+        this.WithOutput("arn");
     }
 
     /// <summary>

@@ -14,8 +14,8 @@ public class AwsSyntheticsGroupAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("group_arn");
-        this.DeclareOutput("group_id");
+        this.WithOutput("group_arn");
+        this.WithOutput("group_id");
     }
 
     /// <summary>

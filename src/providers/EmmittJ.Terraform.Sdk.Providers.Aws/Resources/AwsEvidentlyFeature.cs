@@ -69,12 +69,12 @@ public class AwsEvidentlyFeature : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("evaluation_rules");
-        this.DeclareOutput("last_updated_time");
-        this.DeclareOutput("status");
-        this.DeclareOutput("value_type");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
+        this.WithOutput("evaluation_rules");
+        this.WithOutput("last_updated_time");
+        this.WithOutput("status");
+        this.WithOutput("value_type");
     }
 
     /// <summary>

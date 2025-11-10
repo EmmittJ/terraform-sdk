@@ -111,8 +111,8 @@ public class AwsDbProxy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("endpoint");
+        this.WithOutput("arn");
+        this.WithOutput("endpoint");
     }
 
     /// <summary>

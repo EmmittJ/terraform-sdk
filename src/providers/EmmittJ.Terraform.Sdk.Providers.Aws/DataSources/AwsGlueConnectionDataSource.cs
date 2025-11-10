@@ -14,15 +14,15 @@ public class AwsGlueConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("athena_properties");
-        this.DeclareOutput("catalog_id");
-        this.DeclareOutput("connection_properties");
-        this.DeclareOutput("connection_type");
-        this.DeclareOutput("description");
-        this.DeclareOutput("match_criteria");
-        this.DeclareOutput("name");
-        this.DeclareOutput("physical_connection_requirements");
+        this.WithOutput("arn");
+        this.WithOutput("athena_properties");
+        this.WithOutput("catalog_id");
+        this.WithOutput("connection_properties");
+        this.WithOutput("connection_type");
+        this.WithOutput("description");
+        this.WithOutput("match_criteria");
+        this.WithOutput("name");
+        this.WithOutput("physical_connection_requirements");
     }
 
     /// <summary>

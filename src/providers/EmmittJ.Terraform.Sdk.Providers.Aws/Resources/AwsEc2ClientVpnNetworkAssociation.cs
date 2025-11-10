@@ -40,8 +40,8 @@ public class AwsEc2ClientVpnNetworkAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("association_id");
-        this.DeclareOutput("vpc_id");
+        this.WithOutput("association_id");
+        this.WithOutput("vpc_id");
     }
 
     /// <summary>

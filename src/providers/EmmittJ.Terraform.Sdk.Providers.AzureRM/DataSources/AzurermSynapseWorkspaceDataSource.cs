@@ -31,10 +31,10 @@ public class AzurermSynapseWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connectivity_endpoints");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
+        this.WithOutput("connectivity_endpoints");
+        this.WithOutput("identity");
+        this.WithOutput("location");
+        this.WithOutput("tags");
     }
 
     /// <summary>

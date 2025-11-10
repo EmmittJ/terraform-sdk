@@ -31,12 +31,12 @@ public class AzurermAadb2cDirectoryDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("billing_type");
-        this.DeclareOutput("data_residency_location");
-        this.DeclareOutput("effective_start_date");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("tenant_id");
+        this.WithOutput("billing_type");
+        this.WithOutput("data_residency_location");
+        this.WithOutput("effective_start_date");
+        this.WithOutput("sku_name");
+        this.WithOutput("tags");
+        this.WithOutput("tenant_id");
     }
 
     /// <summary>

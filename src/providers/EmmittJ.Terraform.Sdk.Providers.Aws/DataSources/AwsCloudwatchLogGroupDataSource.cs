@@ -14,11 +14,11 @@ public class AwsCloudwatchLogGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("log_group_class");
-        this.DeclareOutput("retention_in_days");
+        this.WithOutput("arn");
+        this.WithOutput("creation_time");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("log_group_class");
+        this.WithOutput("retention_in_days");
     }
 
     /// <summary>

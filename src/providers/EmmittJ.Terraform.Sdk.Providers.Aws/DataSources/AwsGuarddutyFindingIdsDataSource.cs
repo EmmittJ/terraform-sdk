@@ -14,9 +14,9 @@ public class AwsGuarddutyFindingIdsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("finding_ids");
-        this.DeclareOutput("has_findings");
-        this.DeclareOutput("id");
+        this.WithOutput("finding_ids");
+        this.WithOutput("has_findings");
+        this.WithOutput("id");
     }
 
     /// <summary>

@@ -14,16 +14,16 @@ public class AwsMskBootstrapBrokersDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("bootstrap_brokers");
-        this.DeclareOutput("bootstrap_brokers_public_sasl_iam");
-        this.DeclareOutput("bootstrap_brokers_public_sasl_scram");
-        this.DeclareOutput("bootstrap_brokers_public_tls");
-        this.DeclareOutput("bootstrap_brokers_sasl_iam");
-        this.DeclareOutput("bootstrap_brokers_sasl_scram");
-        this.DeclareOutput("bootstrap_brokers_tls");
-        this.DeclareOutput("bootstrap_brokers_vpc_connectivity_sasl_iam");
-        this.DeclareOutput("bootstrap_brokers_vpc_connectivity_sasl_scram");
-        this.DeclareOutput("bootstrap_brokers_vpc_connectivity_tls");
+        this.WithOutput("bootstrap_brokers");
+        this.WithOutput("bootstrap_brokers_public_sasl_iam");
+        this.WithOutput("bootstrap_brokers_public_sasl_scram");
+        this.WithOutput("bootstrap_brokers_public_tls");
+        this.WithOutput("bootstrap_brokers_sasl_iam");
+        this.WithOutput("bootstrap_brokers_sasl_scram");
+        this.WithOutput("bootstrap_brokers_tls");
+        this.WithOutput("bootstrap_brokers_vpc_connectivity_sasl_iam");
+        this.WithOutput("bootstrap_brokers_vpc_connectivity_sasl_scram");
+        this.WithOutput("bootstrap_brokers_vpc_connectivity_tls");
     }
 
     /// <summary>

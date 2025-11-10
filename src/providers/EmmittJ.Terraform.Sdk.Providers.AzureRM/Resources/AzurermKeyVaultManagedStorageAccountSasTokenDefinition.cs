@@ -58,7 +58,7 @@ public class AzurermKeyVaultManagedStorageAccountSasTokenDefinition : TerraformR
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("secret_id");
+        this.WithOutput("secret_id");
     }
 
     /// <summary>

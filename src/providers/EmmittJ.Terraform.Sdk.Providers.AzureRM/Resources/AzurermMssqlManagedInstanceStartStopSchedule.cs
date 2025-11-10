@@ -107,8 +107,8 @@ public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("next_execution_time");
-        this.DeclareOutput("next_run_action");
+        this.WithOutput("next_execution_time");
+        this.WithOutput("next_run_action");
     }
 
     /// <summary>

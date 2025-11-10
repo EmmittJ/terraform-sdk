@@ -42,27 +42,27 @@ public class AwsRdsEngineVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_character_set");
-        this.DeclareOutput("engine_description");
-        this.DeclareOutput("exportable_log_types");
-        this.DeclareOutput("status");
-        this.DeclareOutput("supported_character_sets");
-        this.DeclareOutput("supported_feature_names");
-        this.DeclareOutput("supported_modes");
-        this.DeclareOutput("supported_timezones");
-        this.DeclareOutput("supports_certificate_rotation_without_restart");
-        this.DeclareOutput("supports_global_databases");
-        this.DeclareOutput("supports_integrations");
-        this.DeclareOutput("supports_limitless_database");
-        this.DeclareOutput("supports_local_write_forwarding");
-        this.DeclareOutput("supports_log_exports_to_cloudwatch");
-        this.DeclareOutput("supports_parallel_query");
-        this.DeclareOutput("supports_read_replica");
-        this.DeclareOutput("valid_major_targets");
-        this.DeclareOutput("valid_minor_targets");
-        this.DeclareOutput("valid_upgrade_targets");
-        this.DeclareOutput("version_actual");
-        this.DeclareOutput("version_description");
+        this.WithOutput("default_character_set");
+        this.WithOutput("engine_description");
+        this.WithOutput("exportable_log_types");
+        this.WithOutput("status");
+        this.WithOutput("supported_character_sets");
+        this.WithOutput("supported_feature_names");
+        this.WithOutput("supported_modes");
+        this.WithOutput("supported_timezones");
+        this.WithOutput("supports_certificate_rotation_without_restart");
+        this.WithOutput("supports_global_databases");
+        this.WithOutput("supports_integrations");
+        this.WithOutput("supports_limitless_database");
+        this.WithOutput("supports_local_write_forwarding");
+        this.WithOutput("supports_log_exports_to_cloudwatch");
+        this.WithOutput("supports_parallel_query");
+        this.WithOutput("supports_read_replica");
+        this.WithOutput("valid_major_targets");
+        this.WithOutput("valid_minor_targets");
+        this.WithOutput("valid_upgrade_targets");
+        this.WithOutput("version_actual");
+        this.WithOutput("version_description");
     }
 
     /// <summary>

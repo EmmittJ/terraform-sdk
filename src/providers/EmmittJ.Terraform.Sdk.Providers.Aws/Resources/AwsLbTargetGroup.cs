@@ -212,9 +212,9 @@ public class AwsLbTargetGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("arn_suffix");
-        this.DeclareOutput("load_balancer_arns");
+        this.WithOutput("arn");
+        this.WithOutput("arn_suffix");
+        this.WithOutput("load_balancer_arns");
     }
 
     /// <summary>

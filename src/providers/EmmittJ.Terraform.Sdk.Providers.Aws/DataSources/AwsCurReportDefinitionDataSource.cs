@@ -14,16 +14,16 @@ public class AwsCurReportDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("additional_artifacts");
-        this.DeclareOutput("additional_schema_elements");
-        this.DeclareOutput("compression");
-        this.DeclareOutput("format");
-        this.DeclareOutput("refresh_closed_reports");
-        this.DeclareOutput("report_versioning");
-        this.DeclareOutput("s3_bucket");
-        this.DeclareOutput("s3_prefix");
-        this.DeclareOutput("s3_region");
-        this.DeclareOutput("time_unit");
+        this.WithOutput("additional_artifacts");
+        this.WithOutput("additional_schema_elements");
+        this.WithOutput("compression");
+        this.WithOutput("format");
+        this.WithOutput("refresh_closed_reports");
+        this.WithOutput("report_versioning");
+        this.WithOutput("s3_bucket");
+        this.WithOutput("s3_prefix");
+        this.WithOutput("s3_region");
+        this.WithOutput("time_unit");
     }
 
     /// <summary>

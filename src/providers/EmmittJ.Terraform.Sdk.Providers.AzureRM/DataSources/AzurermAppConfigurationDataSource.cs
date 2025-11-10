@@ -31,24 +31,24 @@ public class AzurermAppConfigurationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("data_plane_proxy_authentication_mode");
-        this.DeclareOutput("data_plane_proxy_private_link_delegation_enabled");
-        this.DeclareOutput("encryption");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("local_auth_enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("primary_read_key");
-        this.DeclareOutput("primary_write_key");
-        this.DeclareOutput("public_network_access");
-        this.DeclareOutput("public_network_access_enabled");
-        this.DeclareOutput("purge_protection_enabled");
-        this.DeclareOutput("replica");
-        this.DeclareOutput("secondary_read_key");
-        this.DeclareOutput("secondary_write_key");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("soft_delete_retention_days");
-        this.DeclareOutput("tags");
+        this.WithOutput("data_plane_proxy_authentication_mode");
+        this.WithOutput("data_plane_proxy_private_link_delegation_enabled");
+        this.WithOutput("encryption");
+        this.WithOutput("endpoint");
+        this.WithOutput("identity");
+        this.WithOutput("local_auth_enabled");
+        this.WithOutput("location");
+        this.WithOutput("primary_read_key");
+        this.WithOutput("primary_write_key");
+        this.WithOutput("public_network_access");
+        this.WithOutput("public_network_access_enabled");
+        this.WithOutput("purge_protection_enabled");
+        this.WithOutput("replica");
+        this.WithOutput("secondary_read_key");
+        this.WithOutput("secondary_write_key");
+        this.WithOutput("sku");
+        this.WithOutput("soft_delete_retention_days");
+        this.WithOutput("tags");
     }
 
     /// <summary>

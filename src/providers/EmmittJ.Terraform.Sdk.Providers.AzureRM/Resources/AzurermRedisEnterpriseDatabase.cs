@@ -96,8 +96,8 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("secondary_access_key");
+        this.WithOutputrimary_access_key");
+        this.WithOutputecondary_access_key");
     }
 
     /// <summary>

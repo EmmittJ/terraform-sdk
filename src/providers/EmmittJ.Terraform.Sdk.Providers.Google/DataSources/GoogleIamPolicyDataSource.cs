@@ -60,7 +60,7 @@ public class GoogleIamPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("policy_data");
+        this.WithOutput("policy_data");
     }
 
     /// <summary>

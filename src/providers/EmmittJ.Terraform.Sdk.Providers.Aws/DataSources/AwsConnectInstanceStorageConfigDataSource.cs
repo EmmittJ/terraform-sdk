@@ -14,7 +14,7 @@ public class AwsConnectInstanceStorageConfigDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("storage_config");
+        this.WithOutput("storage_config");
     }
 
     /// <summary>

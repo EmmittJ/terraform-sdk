@@ -14,12 +14,12 @@ public class GoogleFolderOrganizationPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("boolean_policy");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("list_policy");
-        this.DeclareOutput("restore_policy");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("version");
+        this.WithOutput("boolean_policy");
+        this.WithOutput("etag");
+        this.WithOutput("list_policy");
+        this.WithOutput("restore_policy");
+        this.WithOutput("update_time");
+        this.WithOutput("version");
     }
 
     /// <summary>

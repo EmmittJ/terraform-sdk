@@ -59,15 +59,15 @@ public class AwsVpcPeeringConnectionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("accepter");
-        this.DeclareOutput("cidr_block_set");
-        this.DeclareOutput("ipv6_cidr_block_set");
-        this.DeclareOutput("peer_cidr_block_set");
-        this.DeclareOutput("peer_ipv6_cidr_block_set");
-        this.DeclareOutput("peer_region");
-        this.DeclareOutput("region");
-        this.DeclareOutput("requester");
-        this.DeclareOutput("requester_region");
+        this.WithOutput("accepter");
+        this.WithOutput("cidr_block_set");
+        this.WithOutput("ipv6_cidr_block_set");
+        this.WithOutput("peer_cidr_block_set");
+        this.WithOutput("peer_ipv6_cidr_block_set");
+        this.WithOutput("peer_region");
+        this.WithOutput("region");
+        this.WithOutput("requester");
+        this.WithOutput("requester_region");
     }
 
     /// <summary>

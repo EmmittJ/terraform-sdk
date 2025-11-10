@@ -168,7 +168,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("outputs");
+        this.WithOutput("outputs");
     }
 
     /// <summary>

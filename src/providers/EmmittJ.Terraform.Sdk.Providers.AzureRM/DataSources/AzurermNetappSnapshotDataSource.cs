@@ -31,7 +31,7 @@ public class AzurermNetappSnapshotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
+        this.WithOutput("location");
     }
 
     /// <summary>

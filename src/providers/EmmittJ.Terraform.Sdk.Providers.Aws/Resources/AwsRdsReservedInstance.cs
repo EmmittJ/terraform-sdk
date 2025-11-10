@@ -49,19 +49,19 @@ public class AwsRdsReservedInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("currency_code");
-        this.DeclareOutput("db_instance_class");
-        this.DeclareOutput("duration");
-        this.DeclareOutput("fixed_price");
-        this.DeclareOutput("lease_id");
-        this.DeclareOutput("multi_az");
-        this.DeclareOutput("offering_type");
-        this.DeclareOutput("product_description");
-        this.DeclareOutput("recurring_charges");
-        this.DeclareOutput("start_time");
-        this.DeclareOutput("state");
-        this.DeclareOutput("usage_price");
+        this.WithOutput("arn");
+        this.WithOutput("currency_code");
+        this.WithOutput("db_instance_class");
+        this.WithOutput("duration");
+        this.WithOutput("fixed_price");
+        this.WithOutput("lease_id");
+        this.WithOutput("multi_az");
+        this.WithOutput("offering_type");
+        this.WithOutput("product_description");
+        this.WithOutput("recurring_charges");
+        this.WithOutput("start_time");
+        this.WithOutput("state");
+        this.WithOutput("usage_price");
     }
 
     /// <summary>

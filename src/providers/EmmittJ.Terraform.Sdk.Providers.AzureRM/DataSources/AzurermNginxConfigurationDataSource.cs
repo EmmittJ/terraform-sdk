@@ -31,10 +31,10 @@ public class AzurermNginxConfigurationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("config_file");
-        this.DeclareOutput("package_data");
-        this.DeclareOutput("protected_file");
-        this.DeclareOutput("root_file");
+        this.WithOutput("config_file");
+        this.WithOutput("package_data");
+        this.WithOutput("protected_file");
+        this.WithOutput("root_file");
     }
 
     /// <summary>

@@ -41,13 +41,13 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("ides");
-        this.DeclareOutput("inactivity_timeout_minutes");
-        this.DeclareOutput("instance_type");
-        this.DeclareOutput("last_updated_time");
-        this.DeclareOutput("persistent_storage");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
+        this.WithOutputdes");
+        this.WithOutputnactivity_timeout_minutes");
+        this.WithOutputnstance_type");
+        this.WithOutputast_updated_time");
+        this.WithOutputersistent_storage");
+        this.WithOutputtatus");
+        this.WithOutputtatus_reason");
     }
 
     /// <summary>

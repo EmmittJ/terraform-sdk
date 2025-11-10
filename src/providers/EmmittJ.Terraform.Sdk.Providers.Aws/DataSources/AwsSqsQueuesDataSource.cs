@@ -14,7 +14,7 @@ public class AwsSqsQueuesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("queue_urls");
+        this.WithOutput("queue_urls");
     }
 
     /// <summary>

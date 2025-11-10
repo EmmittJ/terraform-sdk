@@ -14,22 +14,22 @@ public class AwsLaunchConfigurationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("associate_public_ip_address");
-        this.DeclareOutput("ebs_block_device");
-        this.DeclareOutput("ebs_optimized");
-        this.DeclareOutput("enable_monitoring");
-        this.DeclareOutput("ephemeral_block_device");
-        this.DeclareOutput("iam_instance_profile");
-        this.DeclareOutput("image_id");
-        this.DeclareOutput("instance_type");
-        this.DeclareOutput("key_name");
-        this.DeclareOutput("metadata_options");
-        this.DeclareOutput("placement_tenancy");
-        this.DeclareOutput("root_block_device");
-        this.DeclareOutput("security_groups");
-        this.DeclareOutput("spot_price");
-        this.DeclareOutput("user_data");
+        this.WithOutput("arn");
+        this.WithOutput("associate_public_ip_address");
+        this.WithOutput("ebs_block_device");
+        this.WithOutput("ebs_optimized");
+        this.WithOutput("enable_monitoring");
+        this.WithOutput("ephemeral_block_device");
+        this.WithOutput("iam_instance_profile");
+        this.WithOutput("image_id");
+        this.WithOutput("instance_type");
+        this.WithOutput("key_name");
+        this.WithOutput("metadata_options");
+        this.WithOutput("placement_tenancy");
+        this.WithOutput("root_block_device");
+        this.WithOutput("security_groups");
+        this.WithOutput("spot_price");
+        this.WithOutput("user_data");
     }
 
     /// <summary>

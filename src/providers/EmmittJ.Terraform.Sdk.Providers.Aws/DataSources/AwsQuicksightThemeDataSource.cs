@@ -14,16 +14,16 @@ public class AwsQuicksightThemeDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("base_theme_id");
-        this.DeclareOutput("configuration");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("last_updated_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("permissions");
-        this.DeclareOutput("status");
-        this.DeclareOutput("version_description");
-        this.DeclareOutput("version_number");
+        this.WithOutput("arn");
+        this.WithOutput("base_theme_id");
+        this.WithOutput("configuration");
+        this.WithOutput("created_time");
+        this.WithOutput("last_updated_time");
+        this.WithOutput("name");
+        this.WithOutput("permissions");
+        this.WithOutput("status");
+        this.WithOutput("version_description");
+        this.WithOutput("version_number");
     }
 
     /// <summary>

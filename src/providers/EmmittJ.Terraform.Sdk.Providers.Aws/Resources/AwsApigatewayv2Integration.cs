@@ -60,7 +60,7 @@ public class AwsApigatewayv2Integration : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("integration_response_selection_expression");
+        this.WithOutput("integration_response_selection_expression");
     }
 
     /// <summary>

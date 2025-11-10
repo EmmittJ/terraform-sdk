@@ -150,12 +150,12 @@ public class AzurermContainerAppEnvironment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("custom_domain_verification_id");
-        this.DeclareOutput("default_domain");
-        this.DeclareOutput("docker_bridge_cidr");
-        this.DeclareOutput("platform_reserved_cidr");
-        this.DeclareOutput("platform_reserved_dns_ip_address");
-        this.DeclareOutput("static_ip_address");
+        this.WithOutput("custom_domain_verification_id");
+        this.WithOutput("default_domain");
+        this.WithOutput("docker_bridge_cidr");
+        this.WithOutput("platform_reserved_cidr");
+        this.WithOutput("platform_reserved_dns_ip_address");
+        this.WithOutput("static_ip_address");
     }
 
     /// <summary>

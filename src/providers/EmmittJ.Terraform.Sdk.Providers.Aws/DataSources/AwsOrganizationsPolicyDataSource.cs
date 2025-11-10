@@ -14,12 +14,12 @@ public class AwsOrganizationsPolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("aws_managed");
-        this.DeclareOutput("content");
-        this.DeclareOutput("description");
-        this.DeclareOutput("name");
-        this.DeclareOutput("type");
+        this.WithOutput("arn");
+        this.WithOutput("aws_managed");
+        this.WithOutput("content");
+        this.WithOutput("description");
+        this.WithOutput("name");
+        this.WithOutput("type");
     }
 
     /// <summary>

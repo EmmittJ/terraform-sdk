@@ -31,23 +31,23 @@ public class AzurermAppServiceCertificateOrderDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("app_service_certificate_not_renewable_reasons");
-        this.DeclareOutput("auto_renew");
-        this.DeclareOutput("certificates");
-        this.DeclareOutput("csr");
-        this.DeclareOutput("distinguished_name");
-        this.DeclareOutput("domain_verification_token");
-        this.DeclareOutput("expiration_time");
-        this.DeclareOutput("intermediate_thumbprint");
-        this.DeclareOutput("is_private_key_external");
-        this.DeclareOutput("key_size");
-        this.DeclareOutput("location");
-        this.DeclareOutput("product_type");
-        this.DeclareOutput("root_thumbprint");
-        this.DeclareOutput("signed_certificate_thumbprint");
-        this.DeclareOutput("status");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("validity_in_years");
+        this.WithOutput("app_service_certificate_not_renewable_reasons");
+        this.WithOutput("auto_renew");
+        this.WithOutput("certificates");
+        this.WithOutput("csr");
+        this.WithOutput("distinguished_name");
+        this.WithOutput("domain_verification_token");
+        this.WithOutput("expiration_time");
+        this.WithOutput("intermediate_thumbprint");
+        this.WithOutput("is_private_key_external");
+        this.WithOutput("key_size");
+        this.WithOutput("location");
+        this.WithOutput("product_type");
+        this.WithOutput("root_thumbprint");
+        this.WithOutput("signed_certificate_thumbprint");
+        this.WithOutput("status");
+        this.WithOutput("tags");
+        this.WithOutput("validity_in_years");
     }
 
     /// <summary>

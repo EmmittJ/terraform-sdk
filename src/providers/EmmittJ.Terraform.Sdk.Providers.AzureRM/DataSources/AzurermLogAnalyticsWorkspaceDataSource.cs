@@ -31,14 +31,14 @@ public class AzurermLogAnalyticsWorkspaceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("daily_quota_gb");
-        this.DeclareOutput("location");
-        this.DeclareOutput("primary_shared_key");
-        this.DeclareOutput("retention_in_days");
-        this.DeclareOutput("secondary_shared_key");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("workspace_id");
+        this.WithOutput("daily_quota_gb");
+        this.WithOutput("location");
+        this.WithOutput("primary_shared_key");
+        this.WithOutput("retention_in_days");
+        this.WithOutput("secondary_shared_key");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
+        this.WithOutput("workspace_id");
     }
 
     /// <summary>

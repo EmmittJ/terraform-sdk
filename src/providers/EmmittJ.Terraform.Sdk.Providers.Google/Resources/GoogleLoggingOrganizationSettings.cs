@@ -49,9 +49,9 @@ public class GoogleLoggingOrganizationSettings : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("kms_service_account_id");
-        this.DeclareOutput("logging_service_account_id");
-        this.DeclareOutput("name");
+        this.WithOutput("kms_service_account_id");
+        this.WithOutput("logging_service_account_id");
+        this.WithOutput("name");
     }
 
     /// <summary>

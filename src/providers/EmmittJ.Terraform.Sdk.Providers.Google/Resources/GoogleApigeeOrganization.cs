@@ -58,10 +58,10 @@ public class GoogleApigeeOrganization : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("apigee_project_id");
-        this.DeclareOutput("ca_certificate");
-        this.DeclareOutput("name");
-        this.DeclareOutput("subscription_type");
+        this.WithOutput("apigee_project_id");
+        this.WithOutput("ca_certificate");
+        this.WithOutput("name");
+        this.WithOutput("subscription_type");
     }
 
     /// <summary>

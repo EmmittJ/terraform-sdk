@@ -58,14 +58,14 @@ public class AzurermAppServiceCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("expiration_date");
-        this.DeclareOutput("friendly_name");
-        this.DeclareOutput("host_names");
-        this.DeclareOutput("hosting_environment_profile_id");
-        this.DeclareOutput("issue_date");
-        this.DeclareOutput("issuer");
-        this.DeclareOutput("subject_name");
-        this.DeclareOutput("thumbprint");
+        this.WithOutput("expiration_date");
+        this.WithOutput("friendly_name");
+        this.WithOutput("host_names");
+        this.WithOutput("hosting_environment_profile_id");
+        this.WithOutput("issue_date");
+        this.WithOutput("issuer");
+        this.WithOutput("subject_name");
+        this.WithOutput("thumbprint");
     }
 
     /// <summary>

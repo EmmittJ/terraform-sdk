@@ -31,8 +31,8 @@ public class AzurermKubernetesNodePoolSnapshotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("source_node_pool_id");
-        this.DeclareOutput("tags");
+        this.WithOutput("source_node_pool_id");
+        this.WithOutput("tags");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class AwsAppconfigEnvironmentsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("environment_ids");
+        this.WithOutput("environment_ids");
     }
 
     /// <summary>

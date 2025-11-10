@@ -14,9 +14,9 @@ public class AwsPartitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("dns_suffix");
-        this.DeclareOutput("partition");
-        this.DeclareOutput("reverse_dns_prefix");
+        this.WithOutput("dns_suffix");
+        this.WithOutput("partition");
+        this.WithOutput("reverse_dns_prefix");
     }
 
     /// <summary>

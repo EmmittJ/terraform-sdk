@@ -40,9 +40,9 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connection_state");
-        this.DeclareOutput("host");
-        this.DeclareOutput("name");
+        this.WithOutput("connection_state");
+        this.WithOutput("host");
+        this.WithOutput("name");
     }
 
     /// <summary>

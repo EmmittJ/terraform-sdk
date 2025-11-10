@@ -14,8 +14,8 @@ public class AwsSpotDatafeedSubscriptionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("bucket");
-        this.DeclareOutput("prefix");
+        this.WithOutput("bucket");
+        this.WithOutput("prefix");
     }
 
     /// <summary>

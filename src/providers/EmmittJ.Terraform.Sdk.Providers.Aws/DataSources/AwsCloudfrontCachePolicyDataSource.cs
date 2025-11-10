@@ -14,13 +14,13 @@ public class AwsCloudfrontCachePolicyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("comment");
-        this.DeclareOutput("default_ttl");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("max_ttl");
-        this.DeclareOutput("min_ttl");
-        this.DeclareOutput("parameters_in_cache_key_and_forwarded_to_origin");
+        this.WithOutput("arn");
+        this.WithOutput("comment");
+        this.WithOutput("default_ttl");
+        this.WithOutput("etag");
+        this.WithOutput("max_ttl");
+        this.WithOutput("min_ttl");
+        this.WithOutput("parameters_in_cache_key_and_forwarded_to_origin");
     }
 
     /// <summary>

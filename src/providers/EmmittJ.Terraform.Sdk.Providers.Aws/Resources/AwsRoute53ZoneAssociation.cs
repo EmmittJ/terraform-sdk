@@ -40,7 +40,7 @@ public class AwsRoute53ZoneAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("owning_account");
+        this.WithOutput("owning_account");
     }
 
     /// <summary>

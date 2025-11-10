@@ -14,15 +14,15 @@ public class AwsRedshiftserverlessWorkgroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("enhanced_vpc_routing");
-        this.DeclareOutput("namespace_name");
-        this.DeclareOutput("publicly_accessible");
-        this.DeclareOutput("security_group_ids");
-        this.DeclareOutput("subnet_ids");
-        this.DeclareOutput("track_name");
-        this.DeclareOutput("workgroup_id");
+        this.WithOutput("arn");
+        this.WithOutput("endpoint");
+        this.WithOutput("enhanced_vpc_routing");
+        this.WithOutput("namespace_name");
+        this.WithOutput("publicly_accessible");
+        this.WithOutput("security_group_ids");
+        this.WithOutput("subnet_ids");
+        this.WithOutput("track_name");
+        this.WithOutput("workgroup_id");
     }
 
     /// <summary>

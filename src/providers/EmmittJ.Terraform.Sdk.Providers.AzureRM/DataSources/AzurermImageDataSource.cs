@@ -31,11 +31,11 @@ public class AzurermImageDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("data_disk");
-        this.DeclareOutput("location");
-        this.DeclareOutput("os_disk");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("zone_resilient");
+        this.WithOutput("data_disk");
+        this.WithOutput("location");
+        this.WithOutput("os_disk");
+        this.WithOutput("tags");
+        this.WithOutput("zone_resilient");
     }
 
     /// <summary>

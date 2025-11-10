@@ -14,13 +14,13 @@ public class AwsStoragegatewayCachedIscsiVolume : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("chap_enabled");
-        this.DeclareOutput("lun_number");
-        this.DeclareOutput("network_interface_port");
-        this.DeclareOutput("target_arn");
-        this.DeclareOutput("volume_arn");
-        this.DeclareOutput("volume_id");
+        this.WithOutput("arn");
+        this.WithOutput("chap_enabled");
+        this.WithOutput("lun_number");
+        this.WithOutput("network_interface_port");
+        this.WithOutput("target_arn");
+        this.WithOutput("volume_arn");
+        this.WithOutput("volume_id");
     }
 
     /// <summary>

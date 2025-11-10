@@ -40,7 +40,7 @@ public class AwsGuarddutyMember : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("relationship_status");
+        this.WithOutput("relationship_status");
     }
 
     /// <summary>

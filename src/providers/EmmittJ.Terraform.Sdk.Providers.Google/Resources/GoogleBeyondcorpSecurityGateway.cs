@@ -124,12 +124,12 @@ public class GoogleBeyondcorpSecurityGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("delegating_service_account");
-        this.DeclareOutput("external_ips");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
-        this.DeclareOutput("update_time");
+        this.WithOutput("create_time");
+        this.WithOutput("delegating_service_account");
+        this.WithOutput("external_ips");
+        this.WithOutput("name");
+        this.WithOutput("state");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

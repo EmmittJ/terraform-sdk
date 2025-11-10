@@ -181,15 +181,15 @@ public class GoogleComputeSubnetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("gateway_address");
-        this.DeclareOutput("internal_ipv6_prefix");
-        this.DeclareOutput("ipv6_cidr_range");
-        this.DeclareOutput("ipv6_gce_endpoint");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("state");
-        this.DeclareOutput("subnetwork_id");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("fingerprint");
+        this.WithOutput("gateway_address");
+        this.WithOutput("internal_ipv6_prefix");
+        this.WithOutput("ipv6_cidr_range");
+        this.WithOutput("ipv6_gce_endpoint");
+        this.WithOutput("self_link");
+        this.WithOutput("state");
+        this.WithOutput("subnetwork_id");
     }
 
     /// <summary>

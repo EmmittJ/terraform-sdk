@@ -14,14 +14,14 @@ public class GoogleContainerEngineVersionsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("default_cluster_version");
-        this.DeclareOutput("latest_master_version");
-        this.DeclareOutput("latest_node_version");
-        this.DeclareOutput("release_channel_default_version");
-        this.DeclareOutput("release_channel_latest_version");
-        this.DeclareOutput("release_channel_upgrade_target_version");
-        this.DeclareOutput("valid_master_versions");
-        this.DeclareOutput("valid_node_versions");
+        this.WithOutput("default_cluster_version");
+        this.WithOutput("latest_master_version");
+        this.WithOutput("latest_node_version");
+        this.WithOutput("release_channel_default_version");
+        this.WithOutput("release_channel_latest_version");
+        this.WithOutput("release_channel_upgrade_target_version");
+        this.WithOutput("valid_master_versions");
+        this.WithOutput("valid_node_versions");
     }
 
     /// <summary>

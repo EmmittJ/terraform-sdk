@@ -179,12 +179,12 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_time");
-        this.DeclareOutput("next_invocation_time");
-        this.DeclareOutput("previous_invocation_time");
-        this.DeclareOutput("state");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("creation_time");
+        this.WithOutput("next_invocation_time");
+        this.WithOutput("previous_invocation_time");
+        this.WithOutput("state");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class GoogleComputeAddressesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("addresses");
+        this.WithOutput("addresses");
     }
 
     /// <summary>

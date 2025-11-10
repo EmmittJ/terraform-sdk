@@ -57,8 +57,8 @@ public class AwsLakeformationOptIn : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("last_modified");
-        this.DeclareOutput("last_updated_by");
+        this.WithOutput("last_modified");
+        this.WithOutput("last_updated_by");
     }
 
     /// <summary>

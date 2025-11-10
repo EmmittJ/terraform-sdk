@@ -31,25 +31,25 @@ public class AzurermMssqlManagedInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("administrator_login");
-        this.DeclareOutput("collation");
-        this.DeclareOutput("customer_managed_key_id");
-        this.DeclareOutput("dns_zone");
-        this.DeclareOutput("dns_zone_partner_id");
-        this.DeclareOutput("fqdn");
-        this.DeclareOutput("identity");
-        this.DeclareOutput("license_type");
-        this.DeclareOutput("location");
-        this.DeclareOutput("minimum_tls_version");
-        this.DeclareOutput("proxy_override");
-        this.DeclareOutput("public_data_endpoint_enabled");
-        this.DeclareOutput("sku_name");
-        this.DeclareOutput("storage_account_type");
-        this.DeclareOutput("storage_size_in_gb");
-        this.DeclareOutput("subnet_id");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("timezone_id");
-        this.DeclareOutput("vcores");
+        this.WithOutput("administrator_login");
+        this.WithOutput("collation");
+        this.WithOutput("customer_managed_key_id");
+        this.WithOutput("dns_zone");
+        this.WithOutput("dns_zone_partner_id");
+        this.WithOutput("fqdn");
+        this.WithOutput("identity");
+        this.WithOutput("license_type");
+        this.WithOutput("location");
+        this.WithOutput("minimum_tls_version");
+        this.WithOutput("proxy_override");
+        this.WithOutput("public_data_endpoint_enabled");
+        this.WithOutput("sku_name");
+        this.WithOutput("storage_account_type");
+        this.WithOutput("storage_size_in_gb");
+        this.WithOutput("subnet_id");
+        this.WithOutput("tags");
+        this.WithOutput("timezone_id");
+        this.WithOutput("vcores");
     }
 
     /// <summary>

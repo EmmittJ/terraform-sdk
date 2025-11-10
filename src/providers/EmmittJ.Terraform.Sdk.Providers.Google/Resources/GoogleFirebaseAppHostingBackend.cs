@@ -82,17 +82,17 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("delete_time");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("managed_resources");
-        this.DeclareOutput("name");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("uri");
+        this.WithOutput("create_time");
+        this.WithOutput("delete_time");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("effective_labels");
+        this.WithOutput("etag");
+        this.WithOutput("managed_resources");
+        this.WithOutput("name");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("uri");
     }
 
     /// <summary>

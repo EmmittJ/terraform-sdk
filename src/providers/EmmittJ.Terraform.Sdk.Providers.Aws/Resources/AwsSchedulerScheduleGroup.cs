@@ -40,10 +40,10 @@ public class AwsSchedulerScheduleGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("creation_date");
-        this.DeclareOutput("last_modification_date");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("creation_date");
+        this.WithOutput("last_modification_date");
+        this.WithOutput("state");
     }
 
     /// <summary>

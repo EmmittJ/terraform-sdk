@@ -14,20 +14,20 @@ public class AwsLexBotDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("checksum");
-        this.DeclareOutput("child_directed");
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("description");
-        this.DeclareOutput("detect_sentiment");
-        this.DeclareOutput("enable_model_improvements");
-        this.DeclareOutput("failure_reason");
-        this.DeclareOutput("idle_session_ttl_in_seconds");
-        this.DeclareOutput("last_updated_date");
-        this.DeclareOutput("locale");
-        this.DeclareOutput("nlu_intent_confidence_threshold");
-        this.DeclareOutput("status");
-        this.DeclareOutput("voice_id");
+        this.WithOutput("arn");
+        this.WithOutput("checksum");
+        this.WithOutput("child_directed");
+        this.WithOutput("created_date");
+        this.WithOutput("description");
+        this.WithOutput("detect_sentiment");
+        this.WithOutput("enable_model_improvements");
+        this.WithOutput("failure_reason");
+        this.WithOutput("idle_session_ttl_in_seconds");
+        this.WithOutput("last_updated_date");
+        this.WithOutput("locale");
+        this.WithOutput("nlu_intent_confidence_threshold");
+        this.WithOutput("status");
+        this.WithOutput("voice_id");
     }
 
     /// <summary>

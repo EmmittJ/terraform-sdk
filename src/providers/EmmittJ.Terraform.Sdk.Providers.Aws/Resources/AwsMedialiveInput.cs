@@ -169,11 +169,11 @@ public class AwsMedialiveInput : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("attached_channels");
-        this.DeclareOutput("input_class");
-        this.DeclareOutput("input_partner_ids");
-        this.DeclareOutput("input_source_type");
+        this.WithOutputrn");
+        this.WithOutputttached_channels");
+        this.WithOutputnput_class");
+        this.WithOutputnput_partner_ids");
+        this.WithOutputnput_source_type");
     }
 
     /// <summary>

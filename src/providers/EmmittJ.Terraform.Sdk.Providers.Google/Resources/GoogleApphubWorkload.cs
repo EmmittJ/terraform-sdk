@@ -58,13 +58,13 @@ public class GoogleApphubWorkload : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("name");
-        this.DeclareOutput("state");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("workload_properties");
-        this.DeclareOutput("workload_reference");
+        this.WithOutput("create_time");
+        this.WithOutput("name");
+        this.WithOutput("state");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("workload_properties");
+        this.WithOutput("workload_reference");
     }
 
     /// <summary>

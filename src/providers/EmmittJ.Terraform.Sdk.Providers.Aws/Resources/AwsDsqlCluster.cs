@@ -75,11 +75,11 @@ public class AwsDsqlCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("encryption_details");
-        this.DeclareOutput("identifier");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("vpc_endpoint_service_name");
+        this.WithOutput("arn");
+        this.WithOutput("encryption_details");
+        this.WithOutput("identifier");
+        this.WithOutput("tags_all");
+        this.WithOutput("vpc_endpoint_service_name");
     }
 
     /// <summary>

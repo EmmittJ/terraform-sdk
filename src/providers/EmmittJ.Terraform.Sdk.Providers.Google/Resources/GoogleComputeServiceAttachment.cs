@@ -88,10 +88,10 @@ public class GoogleComputeServiceAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connected_endpoints");
-        this.DeclareOutput("fingerprint");
-        this.DeclareOutput("psc_service_attachment_id");
-        this.DeclareOutput("self_link");
+        this.WithOutput("connected_endpoints");
+        this.WithOutput("fingerprint");
+        this.WithOutput("psc_service_attachment_id");
+        this.WithOutput("self_link");
     }
 
     /// <summary>

@@ -14,9 +14,9 @@ public class AwsS3tablesTableBucket : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("owner_account_id");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("owner_account_id");
     }
 
     /// <summary>

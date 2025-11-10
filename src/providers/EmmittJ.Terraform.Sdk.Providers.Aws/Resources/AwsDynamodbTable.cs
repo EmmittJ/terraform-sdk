@@ -448,9 +448,9 @@ public class AwsDynamodbTable : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("stream_arn");
-        this.DeclareOutput("stream_label");
+        this.WithOutput("arn");
+        this.WithOutput("stream_arn");
+        this.WithOutput("stream_label");
     }
 
     /// <summary>

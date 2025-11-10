@@ -49,7 +49,7 @@ public class AzurermSignalrServiceCustomCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificate_version");
+        this.WithOutputertificate_version");
     }
 
     /// <summary>

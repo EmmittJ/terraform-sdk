@@ -14,8 +14,8 @@ public class AwsVpcEndpointConnectionNotification : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("notification_type");
-        this.DeclareOutput("state");
+        this.WithOutput("notification_type");
+        this.WithOutput("state");
     }
 
     /// <summary>

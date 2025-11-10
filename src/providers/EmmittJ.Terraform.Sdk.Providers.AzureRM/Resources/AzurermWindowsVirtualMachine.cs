@@ -503,11 +503,11 @@ public class AzurermWindowsVirtualMachine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("private_ip_address");
-        this.DeclareOutput("private_ip_addresses");
-        this.DeclareOutput("public_ip_address");
-        this.DeclareOutput("public_ip_addresses");
-        this.DeclareOutput("virtual_machine_id");
+        this.WithOutputrivate_ip_address");
+        this.WithOutputrivate_ip_addresses");
+        this.WithOutputublic_ip_address");
+        this.WithOutputublic_ip_addresses");
+        this.WithOutputirtual_machine_id");
     }
 
     /// <summary>

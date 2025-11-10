@@ -69,10 +69,10 @@ public class GoogleChronicleRetrohunt : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("execution_interval");
-        this.DeclareOutput("name");
-        this.DeclareOutput("progress_percentage");
-        this.DeclareOutput("state");
+        this.WithOutput("execution_interval");
+        this.WithOutput("name");
+        this.WithOutput("progress_percentage");
+        this.WithOutput("state");
     }
 
     /// <summary>

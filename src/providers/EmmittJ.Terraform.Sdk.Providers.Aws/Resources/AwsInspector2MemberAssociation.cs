@@ -40,9 +40,9 @@ public class AwsInspector2MemberAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("delegated_admin_account_id");
-        this.DeclareOutput("relationship_status");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("delegated_admin_account_id");
+        this.WithOutput("relationship_status");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

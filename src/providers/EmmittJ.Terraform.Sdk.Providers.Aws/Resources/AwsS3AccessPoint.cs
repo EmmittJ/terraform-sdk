@@ -77,12 +77,12 @@ public class AwsS3AccessPoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("alias");
-        this.DeclareOutput("arn");
-        this.DeclareOutput("domain_name");
-        this.DeclareOutput("endpoints");
-        this.DeclareOutput("has_public_access_policy");
-        this.DeclareOutput("network_origin");
+        this.WithOutput("alias");
+        this.WithOutput("arn");
+        this.WithOutput("domain_name");
+        this.WithOutput("endpoints");
+        this.WithOutput("has_public_access_policy");
+        this.WithOutput("network_origin");
     }
 
     /// <summary>

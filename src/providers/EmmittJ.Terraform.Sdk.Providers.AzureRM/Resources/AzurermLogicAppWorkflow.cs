@@ -112,11 +112,11 @@ public class AzurermLogicAppWorkflow : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("access_endpoint");
-        this.DeclareOutput("connector_endpoint_ip_addresses");
-        this.DeclareOutput("connector_outbound_ip_addresses");
-        this.DeclareOutput("workflow_endpoint_ip_addresses");
-        this.DeclareOutput("workflow_outbound_ip_addresses");
+        this.WithOutput("access_endpoint");
+        this.WithOutput("connector_endpoint_ip_addresses");
+        this.WithOutput("connector_outbound_ip_addresses");
+        this.WithOutput("workflow_endpoint_ip_addresses");
+        this.WithOutput("workflow_outbound_ip_addresses");
     }
 
     /// <summary>

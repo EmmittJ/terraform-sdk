@@ -15,7 +15,7 @@ public class GoogleContainerRegistry : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("bucket_self_link");
+        this.WithOutput("bucket_self_link");
     }
 
     /// <summary>

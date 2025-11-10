@@ -31,12 +31,12 @@ public class AzurermSharedImageVersionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("exclude_from_latest");
-        this.DeclareOutput("location");
-        this.DeclareOutput("managed_image_id");
-        this.DeclareOutput("os_disk_image_size_gb");
-        this.DeclareOutput("os_disk_snapshot_id");
-        this.DeclareOutput("target_region");
+        this.WithOutput("exclude_from_latest");
+        this.WithOutput("location");
+        this.WithOutput("managed_image_id");
+        this.WithOutput("os_disk_image_size_gb");
+        this.WithOutput("os_disk_snapshot_id");
+        this.WithOutput("target_region");
     }
 
     /// <summary>

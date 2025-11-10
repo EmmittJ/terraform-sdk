@@ -77,7 +77,7 @@ public class AwsCeTagsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("tags");
+        this.WithOutput("tags");
     }
 
     /// <summary>

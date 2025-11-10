@@ -31,11 +31,11 @@ public class AzurermIothubDpsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("allocation_policy");
-        this.DeclareOutput("device_provisioning_host_name");
-        this.DeclareOutput("id_scope");
-        this.DeclareOutput("location");
-        this.DeclareOutput("service_operations_host_name");
+        this.WithOutput("allocation_policy");
+        this.WithOutput("device_provisioning_host_name");
+        this.WithOutput("id_scope");
+        this.WithOutput("location");
+        this.WithOutput("service_operations_host_name");
     }
 
     /// <summary>

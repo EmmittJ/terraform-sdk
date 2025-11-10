@@ -58,7 +58,7 @@ public class AzurermHealthbot : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("bot_management_portal_url");
+        this.WithOutput("bot_management_portal_url");
     }
 
     /// <summary>

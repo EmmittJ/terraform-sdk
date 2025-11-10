@@ -49,11 +49,11 @@ public class GoogleStorageAnywhereCache : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("anywhere_cache_id");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("pending_update");
-        this.DeclareOutput("state");
-        this.DeclareOutput("update_time");
+        this.WithOutput("anywhere_cache_id");
+        this.WithOutput("create_time");
+        this.WithOutput("pending_update");
+        this.WithOutput("state");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

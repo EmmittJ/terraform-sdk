@@ -31,8 +31,8 @@ public class AzurermKeyVaultCertificatesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificates");
-        this.DeclareOutput("names");
+        this.WithOutput("certificates");
+        this.WithOutput("names");
     }
 
     /// <summary>

@@ -31,21 +31,21 @@ public class AzurermSignalrServiceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("aad_auth_enabled");
-        this.DeclareOutput("hostname");
-        this.DeclareOutput("ip_address");
-        this.DeclareOutput("local_auth_enabled");
-        this.DeclareOutput("location");
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("primary_connection_string");
-        this.DeclareOutput("public_network_access_enabled");
-        this.DeclareOutput("public_port");
-        this.DeclareOutput("secondary_access_key");
-        this.DeclareOutput("secondary_connection_string");
-        this.DeclareOutput("server_port");
-        this.DeclareOutput("serverless_connection_timeout_in_seconds");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("tls_client_cert_enabled");
+        this.WithOutput("aad_auth_enabled");
+        this.WithOutput("hostname");
+        this.WithOutput("ip_address");
+        this.WithOutput("local_auth_enabled");
+        this.WithOutput("location");
+        this.WithOutput("primary_access_key");
+        this.WithOutput("primary_connection_string");
+        this.WithOutput("public_network_access_enabled");
+        this.WithOutput("public_port");
+        this.WithOutput("secondary_access_key");
+        this.WithOutput("secondary_connection_string");
+        this.WithOutput("server_port");
+        this.WithOutput("serverless_connection_timeout_in_seconds");
+        this.WithOutput("tags");
+        this.WithOutput("tls_client_cert_enabled");
     }
 
     /// <summary>

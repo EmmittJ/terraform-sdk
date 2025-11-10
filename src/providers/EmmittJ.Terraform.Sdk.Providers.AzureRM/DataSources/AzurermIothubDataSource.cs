@@ -31,8 +31,8 @@ public class AzurermIothubDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("hostname");
-        this.DeclareOutput("identity");
+        this.WithOutput("hostname");
+        this.WithOutput("identity");
     }
 
     /// <summary>

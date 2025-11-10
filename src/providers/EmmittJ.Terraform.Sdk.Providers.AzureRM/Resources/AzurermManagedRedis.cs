@@ -212,7 +212,7 @@ public class AzurermManagedRedis : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("hostname");
+        this.WithOutput("hostname");
     }
 
     /// <summary>

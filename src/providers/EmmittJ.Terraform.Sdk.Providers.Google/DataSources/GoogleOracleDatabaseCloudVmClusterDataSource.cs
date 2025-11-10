@@ -14,22 +14,22 @@ public class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("backup_odb_subnet");
-        this.DeclareOutput("backup_subnet_cidr");
-        this.DeclareOutput("cidr");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("exadata_infrastructure");
-        this.DeclareOutput("gcp_oracle_zone");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("name");
-        this.DeclareOutput("network");
-        this.DeclareOutput("odb_network");
-        this.DeclareOutput("odb_subnet");
-        this.DeclareOutput("properties");
-        this.DeclareOutput("terraform_labels");
+        this.WithOutput("backup_odb_subnet");
+        this.WithOutput("backup_subnet_cidr");
+        this.WithOutput("cidr");
+        this.WithOutput("create_time");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("display_name");
+        this.WithOutput("effective_labels");
+        this.WithOutput("exadata_infrastructure");
+        this.WithOutput("gcp_oracle_zone");
+        this.WithOutput("labels");
+        this.WithOutput("name");
+        this.WithOutput("network");
+        this.WithOutput("odb_network");
+        this.WithOutput("odb_subnet");
+        this.WithOutput("properties");
+        this.WithOutput("terraform_labels");
     }
 
     /// <summary>

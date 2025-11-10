@@ -31,13 +31,13 @@ public class AzurermKeyVaultCertificateDataDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("certificates_count");
-        this.DeclareOutput("expires");
-        this.DeclareOutput("hex");
-        this.DeclareOutput("key");
-        this.DeclareOutput("not_before");
-        this.DeclareOutput("pem");
-        this.DeclareOutput("tags");
+        this.WithOutput("certificates_count");
+        this.WithOutput("expires");
+        this.WithOutput("hex");
+        this.WithOutput("key");
+        this.WithOutput("not_before");
+        this.WithOutput("pem");
+        this.WithOutput("tags");
     }
 
     /// <summary>

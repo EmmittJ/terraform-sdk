@@ -49,9 +49,9 @@ public class AwsIvsChannel : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("ingest_endpoint");
-        this.DeclareOutput("playback_url");
+        this.WithOutput("arn");
+        this.WithOutput("ingest_endpoint");
+        this.WithOutput("playback_url");
     }
 
     /// <summary>

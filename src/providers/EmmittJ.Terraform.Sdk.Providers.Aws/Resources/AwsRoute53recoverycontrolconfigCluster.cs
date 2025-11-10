@@ -14,9 +14,9 @@ public class AwsRoute53recoverycontrolconfigCluster : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("cluster_endpoints");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("cluster_endpoints");
+        this.WithOutput("status");
     }
 
     /// <summary>

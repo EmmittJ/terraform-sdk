@@ -40,11 +40,11 @@ public class AwsQuicksightNamespace : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("capacity_region");
-        this.DeclareOutput("creation_status");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("capacity_region");
+        this.WithOutput("creation_status");
+        this.WithOutput("id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

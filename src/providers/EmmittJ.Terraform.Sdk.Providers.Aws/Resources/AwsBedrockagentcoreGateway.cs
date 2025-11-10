@@ -65,11 +65,11 @@ public class AwsBedrockagentcoreGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("gateway_arn");
-        this.DeclareOutput("gateway_id");
-        this.DeclareOutput("gateway_url");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("workload_identity_details");
+        this.WithOutput("gateway_arn");
+        this.WithOutput("gateway_id");
+        this.WithOutput("gateway_url");
+        this.WithOutput("tags_all");
+        this.WithOutput("workload_identity_details");
     }
 
     /// <summary>

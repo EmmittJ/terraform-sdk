@@ -14,8 +14,8 @@ public class AwsEc2TransitGatewayPolicyTableAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("resource_id");
-        this.DeclareOutput("resource_type");
+        this.WithOutput("resource_id");
+        this.WithOutput("resource_type");
     }
 
     /// <summary>

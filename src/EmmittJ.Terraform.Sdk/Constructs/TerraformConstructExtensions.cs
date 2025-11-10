@@ -14,7 +14,7 @@ public static class TerraformConstructExtensions
         where T : TerraformConstruct
     {
         construct
-            .WithPropertyInternal(key, value);
+            .SetProperty(key, value);
         return construct;
     }
 
@@ -27,7 +27,7 @@ public static class TerraformConstructExtensions
         where T : TerraformConstruct
     {
         construct
-            .WithPropertyInternal(key, value, priority);
+            .SetProperty(key, value, priority);
         return construct;
     }
 
@@ -39,7 +39,7 @@ public static class TerraformConstructExtensions
         where T : TerraformConstruct
     {
         construct
-            .WithPropertyInternal(propertyName, reference.AsReference());
+            .SetProperty(propertyName, reference.AsReference());
         return construct;
     }
 
@@ -51,17 +51,18 @@ public static class TerraformConstructExtensions
         where T : TerraformConstruct
     {
         construct
-            .WithPropertyInternal(propertyName, reference.AsReference(), priority);
+            .SetProperty(propertyName, reference.AsReference(), priority);
         return construct;
     }
 
     /// <summary>
     /// Declares an output attribute for named constructs (resources, data sources, modules).
     /// </summary>
-    public static T DeclareOutput<T>(this T construct, string attributeName)
+    public static T WithOutput<T>(this T construct, string attributeName)
         where T : NamedTerraformConstruct
     {
-        construct.DeclareOutputInternal(attributeName);
+        construct
+            .SetOutput(attributeName);
         return construct;
     }
 }

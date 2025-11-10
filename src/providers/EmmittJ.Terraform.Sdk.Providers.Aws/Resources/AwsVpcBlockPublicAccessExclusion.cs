@@ -49,9 +49,9 @@ public class AwsVpcBlockPublicAccessExclusion : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("resource_arn");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("id");
+        this.WithOutput("resource_arn");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

@@ -31,18 +31,18 @@ public class AzurermOracleExascaleDatabaseStorageVaultDataSource : TerraformData
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("additional_flash_cache_percentage");
-        this.DeclareOutput("description");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("high_capacity_database_storage");
-        this.DeclareOutput("lifecycle_details");
-        this.DeclareOutput("lifecycle_state");
-        this.DeclareOutput("location");
-        this.DeclareOutput("oci_url");
-        this.DeclareOutput("ocid");
-        this.DeclareOutput("time_zone");
-        this.DeclareOutput("virtual_machine_cluster_count");
-        this.DeclareOutput("zones");
+        this.WithOutput("additional_flash_cache_percentage");
+        this.WithOutput("description");
+        this.WithOutput("display_name");
+        this.WithOutput("high_capacity_database_storage");
+        this.WithOutput("lifecycle_details");
+        this.WithOutput("lifecycle_state");
+        this.WithOutput("location");
+        this.WithOutput("oci_url");
+        this.WithOutput("ocid");
+        this.WithOutput("time_zone");
+        this.WithOutput("virtual_machine_cluster_count");
+        this.WithOutput("zones");
     }
 
     /// <summary>

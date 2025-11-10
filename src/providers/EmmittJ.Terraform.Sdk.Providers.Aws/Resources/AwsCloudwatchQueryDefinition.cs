@@ -14,7 +14,7 @@ public class AwsCloudwatchQueryDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("query_definition_id");
+        this.WithOutput("query_definition_id");
     }
 
     /// <summary>

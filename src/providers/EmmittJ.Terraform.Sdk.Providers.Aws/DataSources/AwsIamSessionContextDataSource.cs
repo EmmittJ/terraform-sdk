@@ -14,10 +14,10 @@ public class AwsIamSessionContextDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("issuer_arn");
-        this.DeclareOutput("issuer_id");
-        this.DeclareOutput("issuer_name");
-        this.DeclareOutput("session_name");
+        this.WithOutput("issuer_arn");
+        this.WithOutput("issuer_id");
+        this.WithOutput("issuer_name");
+        this.WithOutput("session_name");
     }
 
     /// <summary>

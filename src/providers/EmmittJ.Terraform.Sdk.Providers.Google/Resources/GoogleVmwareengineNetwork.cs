@@ -49,12 +49,12 @@ public class GoogleVmwareengineNetwork : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("state");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
-        this.DeclareOutput("vpc_networks");
+        this.WithOutput("create_time");
+        this.WithOutput("etag");
+        this.WithOutput("state");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
+        this.WithOutput("vpc_networks");
     }
 
     /// <summary>

@@ -120,9 +120,9 @@ public class AwsAppstreamFleet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("state");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
+        this.WithOutput("state");
     }
 
     /// <summary>

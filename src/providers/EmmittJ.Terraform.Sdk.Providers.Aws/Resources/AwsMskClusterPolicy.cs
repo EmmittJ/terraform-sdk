@@ -14,7 +14,7 @@ public class AwsMskClusterPolicy : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("current_version");
+        this.WithOutput("current_version");
     }
 
     /// <summary>

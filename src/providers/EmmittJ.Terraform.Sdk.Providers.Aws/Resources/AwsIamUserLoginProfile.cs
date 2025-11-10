@@ -14,9 +14,9 @@ public class AwsIamUserLoginProfile : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("encrypted_password");
-        this.DeclareOutput("key_fingerprint");
-        this.DeclareOutput("password");
+        this.WithOutput("encrypted_password");
+        this.WithOutput("key_fingerprint");
+        this.WithOutput("password");
     }
 
     /// <summary>

@@ -88,9 +88,9 @@ public class AwsDmsReplicationInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("replication_instance_arn");
-        this.DeclareOutput("replication_instance_private_ips");
-        this.DeclareOutput("replication_instance_public_ips");
+        this.WithOutput("replication_instance_arn");
+        this.WithOutput("replication_instance_private_ips");
+        this.WithOutput("replication_instance_public_ips");
     }
 
     /// <summary>

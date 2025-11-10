@@ -14,7 +14,7 @@ public class GoogleAlloydbLocationsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("locations");
+        this.WithOutput("locations");
     }
 
     /// <summary>

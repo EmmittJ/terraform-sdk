@@ -67,10 +67,10 @@ public class AwsNetworkfirewallVpcEndpointAssociation : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("vpc_endpoint_association_arn");
-        this.DeclareOutput("vpc_endpoint_association_id");
-        this.DeclareOutput("vpc_endpoint_association_status");
+        this.WithOutput("tags_all");
+        this.WithOutput("vpc_endpoint_association_arn");
+        this.WithOutput("vpc_endpoint_association_id");
+        this.WithOutput("vpc_endpoint_association_status");
     }
 
     /// <summary>

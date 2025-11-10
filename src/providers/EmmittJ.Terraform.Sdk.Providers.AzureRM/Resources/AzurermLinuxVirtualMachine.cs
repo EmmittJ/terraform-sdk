@@ -476,11 +476,11 @@ public class AzurermLinuxVirtualMachine : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("private_ip_address");
-        this.DeclareOutput("private_ip_addresses");
-        this.DeclareOutput("public_ip_address");
-        this.DeclareOutput("public_ip_addresses");
-        this.DeclareOutput("virtual_machine_id");
+        this.WithOutput("private_ip_address");
+        this.WithOutput("private_ip_addresses");
+        this.WithOutput("public_ip_address");
+        this.WithOutput("public_ip_addresses");
+        this.WithOutput("virtual_machine_id");
     }
 
     /// <summary>

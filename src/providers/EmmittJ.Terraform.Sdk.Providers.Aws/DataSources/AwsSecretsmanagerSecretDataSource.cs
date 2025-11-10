@@ -14,11 +14,11 @@ public class AwsSecretsmanagerSecretDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("created_date");
-        this.DeclareOutput("description");
-        this.DeclareOutput("kms_key_id");
-        this.DeclareOutput("last_changed_date");
-        this.DeclareOutput("policy");
+        this.WithOutput("created_date");
+        this.WithOutput("description");
+        this.WithOutput("kms_key_id");
+        this.WithOutput("last_changed_date");
+        this.WithOutput("policy");
     }
 
     /// <summary>

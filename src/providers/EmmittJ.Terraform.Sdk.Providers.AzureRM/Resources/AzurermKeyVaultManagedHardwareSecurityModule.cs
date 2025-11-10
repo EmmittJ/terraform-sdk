@@ -87,8 +87,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("hsm_uri");
-        this.DeclareOutput("security_domain_encrypted_data");
+        this.WithOutput("hsm_uri");
+        this.WithOutput("security_domain_encrypted_data");
     }
 
     /// <summary>

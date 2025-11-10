@@ -14,7 +14,7 @@ public class AwsDocdbOrderableDbInstanceDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("availability_zones");
+        this.WithOutput("availability_zones");
     }
 
     /// <summary>

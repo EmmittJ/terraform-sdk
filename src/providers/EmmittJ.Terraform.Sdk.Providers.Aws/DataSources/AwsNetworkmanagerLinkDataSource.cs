@@ -14,12 +14,12 @@ public class AwsNetworkmanagerLinkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("bandwidth");
-        this.DeclareOutput("description");
-        this.DeclareOutput("provider_name");
-        this.DeclareOutput("site_id");
-        this.DeclareOutput("type");
+        this.WithOutput("arn");
+        this.WithOutput("bandwidth");
+        this.WithOutput("description");
+        this.WithOutput("provider_name");
+        this.WithOutput("site_id");
+        this.WithOutput("type");
     }
 
     /// <summary>

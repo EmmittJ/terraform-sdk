@@ -30,10 +30,10 @@ public class AwsDataexchangeEventAction : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("id");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("id");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

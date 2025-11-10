@@ -14,9 +14,9 @@ public class AwsRedshiftserverlessCredentialsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("db_password");
-        this.DeclareOutput("db_user");
-        this.DeclareOutput("expiration");
+        this.WithOutput("db_password");
+        this.WithOutput("db_user");
+        this.WithOutput("expiration");
     }
 
     /// <summary>

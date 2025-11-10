@@ -14,13 +14,13 @@ public class AwsOrganizationsDelegatedAdministrator : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("delegation_enabled_date");
-        this.DeclareOutput("email");
-        this.DeclareOutput("joined_method");
-        this.DeclareOutput("joined_timestamp");
-        this.DeclareOutput("name");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("delegation_enabled_date");
+        this.WithOutput("email");
+        this.WithOutput("joined_method");
+        this.WithOutput("joined_timestamp");
+        this.WithOutput("name");
+        this.WithOutput("status");
     }
 
     /// <summary>

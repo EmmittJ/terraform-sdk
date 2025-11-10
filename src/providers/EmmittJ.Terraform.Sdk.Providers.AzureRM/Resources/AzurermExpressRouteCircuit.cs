@@ -87,8 +87,8 @@ public class AzurermExpressRouteCircuit : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("service_key");
-        this.DeclareOutput("service_provider_provisioning_state");
+        this.WithOutput("service_key");
+        this.WithOutput("service_provider_provisioning_state");
     }
 
     /// <summary>

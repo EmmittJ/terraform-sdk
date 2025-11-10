@@ -77,19 +77,19 @@ public class AzurermDashboardGrafanaDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("api_key_enabled");
-        this.DeclareOutput("auto_generated_domain_name_label_scope");
-        this.DeclareOutput("azure_monitor_workspace_integrations");
-        this.DeclareOutput("deterministic_outbound_ip_enabled");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("grafana_major_version");
-        this.DeclareOutput("grafana_version");
-        this.DeclareOutput("location");
-        this.DeclareOutput("outbound_ips");
-        this.DeclareOutput("public_network_access_enabled");
-        this.DeclareOutput("sku");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("zone_redundancy_enabled");
+        this.WithOutput("api_key_enabled");
+        this.WithOutput("auto_generated_domain_name_label_scope");
+        this.WithOutput("azure_monitor_workspace_integrations");
+        this.WithOutput("deterministic_outbound_ip_enabled");
+        this.WithOutput("endpoint");
+        this.WithOutput("grafana_major_version");
+        this.WithOutput("grafana_version");
+        this.WithOutput("location");
+        this.WithOutput("outbound_ips");
+        this.WithOutput("public_network_access_enabled");
+        this.WithOutput("sku");
+        this.WithOutput("tags");
+        this.WithOutput("zone_redundancy_enabled");
     }
 
     /// <summary>

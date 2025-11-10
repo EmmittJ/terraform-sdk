@@ -14,8 +14,8 @@ public class AwsEc2TransitGatewayVpcAttachment : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("vpc_owner_id");
+        this.WithOutput("arn");
+        this.WithOutput("vpc_owner_id");
     }
 
     /// <summary>

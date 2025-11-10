@@ -14,7 +14,7 @@ public class GoogleCloudQuotasQuotaInfosDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("quota_infos");
+        this.WithOutput("quota_infos");
     }
 
     /// <summary>

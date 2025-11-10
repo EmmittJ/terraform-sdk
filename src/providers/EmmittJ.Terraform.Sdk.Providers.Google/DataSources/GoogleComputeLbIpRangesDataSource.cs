@@ -14,8 +14,8 @@ public class GoogleComputeLbIpRangesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("http_ssl_tcp_internal");
-        this.DeclareOutput("network");
+        this.WithOutput("http_ssl_tcp_internal");
+        this.WithOutput("network");
     }
 
     /// <summary>

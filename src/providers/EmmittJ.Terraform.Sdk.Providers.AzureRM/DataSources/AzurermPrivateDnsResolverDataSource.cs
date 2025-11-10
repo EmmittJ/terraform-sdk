@@ -31,9 +31,9 @@ public class AzurermPrivateDnsResolverDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("location");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("virtual_network_id");
+        this.WithOutput("location");
+        this.WithOutput("tags");
+        this.WithOutput("virtual_network_id");
     }
 
     /// <summary>

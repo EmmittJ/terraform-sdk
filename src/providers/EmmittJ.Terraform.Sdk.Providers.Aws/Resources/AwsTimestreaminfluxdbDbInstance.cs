@@ -57,13 +57,13 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("availability_zone");
-        this.DeclareOutput("endpoint");
-        this.DeclareOutput("id");
-        this.DeclareOutput("influx_auth_parameters_secret_arn");
-        this.DeclareOutput("secondary_availability_zone");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("availability_zone");
+        this.WithOutput("endpoint");
+        this.WithOutput("id");
+        this.WithOutput("influx_auth_parameters_secret_arn");
+        this.WithOutput("secondary_availability_zone");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

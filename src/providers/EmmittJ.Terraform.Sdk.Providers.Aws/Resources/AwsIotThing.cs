@@ -14,9 +14,9 @@ public class AwsIotThing : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("default_client_id");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("default_client_id");
+        this.WithOutput("version");
     }
 
     /// <summary>

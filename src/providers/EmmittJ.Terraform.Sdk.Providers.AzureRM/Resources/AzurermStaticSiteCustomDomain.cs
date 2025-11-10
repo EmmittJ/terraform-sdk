@@ -50,7 +50,7 @@ public class AzurermStaticSiteCustomDomain : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("validation_token");
+        this.WithOutputalidation_token");
     }
 
     /// <summary>

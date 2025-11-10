@@ -51,9 +51,9 @@ public class AwsLambdaCodeSigningConfig : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("config_id");
-        this.DeclareOutput("last_modified");
+        this.WithOutput("arn");
+        this.WithOutput("config_id");
+        this.WithOutput("last_modified");
     }
 
     /// <summary>

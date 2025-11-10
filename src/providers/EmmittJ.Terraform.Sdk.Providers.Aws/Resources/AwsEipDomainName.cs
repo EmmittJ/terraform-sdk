@@ -49,8 +49,8 @@ public class AwsEipDomainName : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("id");
-        this.DeclareOutput("ptr_record");
+        this.WithOutput("id");
+        this.WithOutput("ptr_record");
     }
 
     /// <summary>

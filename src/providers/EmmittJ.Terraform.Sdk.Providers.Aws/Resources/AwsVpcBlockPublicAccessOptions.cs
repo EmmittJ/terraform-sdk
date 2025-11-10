@@ -49,9 +49,9 @@ public class AwsVpcBlockPublicAccessOptions : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("aws_account_id");
-        this.DeclareOutput("aws_region");
-        this.DeclareOutput("id");
+        this.WithOutput("aws_account_id");
+        this.WithOutput("aws_region");
+        this.WithOutput("id");
     }
 
     /// <summary>

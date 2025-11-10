@@ -49,15 +49,15 @@ public class GoogleNetworkSecurityMirroringDeploymentGroup : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("connected_endpoint_groups");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("locations");
-        this.DeclareOutput("name");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("state");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("update_time");
+        this.WithOutput("connected_endpoint_groups");
+        this.WithOutput("create_time");
+        this.WithOutput("effective_labels");
+        this.WithOutput("locations");
+        this.WithOutput("name");
+        this.WithOutput("reconciling");
+        this.WithOutput("state");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

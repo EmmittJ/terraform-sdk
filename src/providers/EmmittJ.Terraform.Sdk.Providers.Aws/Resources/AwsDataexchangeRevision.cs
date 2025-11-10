@@ -14,8 +14,8 @@ public class AwsDataexchangeRevision : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("revision_id");
+        this.WithOutput("arn");
+        this.WithOutput("revision_id");
     }
 
     /// <summary>

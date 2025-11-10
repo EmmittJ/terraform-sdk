@@ -14,32 +14,32 @@ public class GoogleCloudRunV2JobDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("annotations");
-        this.DeclareOutput("binary_authorization");
-        this.DeclareOutput("client");
-        this.DeclareOutput("client_version");
-        this.DeclareOutput("conditions");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("creator");
-        this.DeclareOutput("delete_time");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("effective_annotations");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("etag");
-        this.DeclareOutput("execution_count");
-        this.DeclareOutput("expire_time");
-        this.DeclareOutput("generation");
-        this.DeclareOutput("labels");
-        this.DeclareOutput("last_modifier");
-        this.DeclareOutput("latest_created_execution");
-        this.DeclareOutput("launch_stage");
-        this.DeclareOutput("observed_generation");
-        this.DeclareOutput("reconciling");
-        this.DeclareOutput("template");
-        this.DeclareOutput("terminal_condition");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("annotations");
+        this.WithOutput("binary_authorization");
+        this.WithOutput("client");
+        this.WithOutput("client_version");
+        this.WithOutput("conditions");
+        this.WithOutput("create_time");
+        this.WithOutput("creator");
+        this.WithOutput("delete_time");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("effective_annotations");
+        this.WithOutput("effective_labels");
+        this.WithOutput("etag");
+        this.WithOutput("execution_count");
+        this.WithOutput("expire_time");
+        this.WithOutput("generation");
+        this.WithOutput("labels");
+        this.WithOutput("last_modifier");
+        this.WithOutput("latest_created_execution");
+        this.WithOutput("launch_stage");
+        this.WithOutput("observed_generation");
+        this.WithOutput("reconciling");
+        this.WithOutput("template");
+        this.WithOutput("terminal_condition");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

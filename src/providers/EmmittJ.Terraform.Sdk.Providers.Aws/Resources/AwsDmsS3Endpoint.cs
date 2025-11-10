@@ -40,10 +40,10 @@ public class AwsDmsS3Endpoint : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("endpoint_arn");
-        this.DeclareOutput("engine_display_name");
-        this.DeclareOutput("external_id");
-        this.DeclareOutput("status");
+        this.WithOutput("endpoint_arn");
+        this.WithOutput("engine_display_name");
+        this.WithOutput("external_id");
+        this.WithOutput("status");
     }
 
     /// <summary>

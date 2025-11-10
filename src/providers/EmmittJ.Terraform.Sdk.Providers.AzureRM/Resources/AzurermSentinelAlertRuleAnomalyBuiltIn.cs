@@ -58,18 +58,18 @@ public class AzurermSentinelAlertRuleAnomalyBuiltIn : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("anomaly_settings_version");
-        this.DeclareOutput("anomaly_version");
-        this.DeclareOutput("description");
-        this.DeclareOutput("frequency");
-        this.DeclareOutput("multi_select_observation");
-        this.DeclareOutput("prioritized_exclude_observation");
-        this.DeclareOutput("required_data_connector");
-        this.DeclareOutput("settings_definition_id");
-        this.DeclareOutput("single_select_observation");
-        this.DeclareOutput("tactics");
-        this.DeclareOutput("techniques");
-        this.DeclareOutput("threshold_observation");
+        this.WithOutputnomaly_settings_version");
+        this.WithOutputnomaly_version");
+        this.WithOutputescription");
+        this.WithOutputrequency");
+        this.WithOutputulti_select_observation");
+        this.WithOutputrioritized_exclude_observation");
+        this.WithOutputequired_data_connector");
+        this.WithOutputettings_definition_id");
+        this.WithOutputingle_select_observation");
+        this.WithOutputactics");
+        this.WithOutputechniques");
+        this.WithOutputhreshold_observation");
     }
 
     /// <summary>

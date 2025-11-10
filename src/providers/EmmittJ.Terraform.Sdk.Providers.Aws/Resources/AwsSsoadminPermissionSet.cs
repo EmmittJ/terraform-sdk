@@ -31,8 +31,8 @@ public class AwsSsoadminPermissionSet : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_date");
+        this.WithOutput("arn");
+        this.WithOutput("created_date");
     }
 
     /// <summary>

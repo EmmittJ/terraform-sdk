@@ -14,14 +14,14 @@ public class AwsEcsContainerDefinitionDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("cpu");
-        this.DeclareOutput("disable_networking");
-        this.DeclareOutput("docker_labels");
-        this.DeclareOutput("environment");
-        this.DeclareOutput("image");
-        this.DeclareOutput("image_digest");
-        this.DeclareOutput("memory");
-        this.DeclareOutput("memory_reservation");
+        this.WithOutput("cpu");
+        this.WithOutput("disable_networking");
+        this.WithOutput("docker_labels");
+        this.WithOutput("environment");
+        this.WithOutput("image");
+        this.WithOutput("image_digest");
+        this.WithOutput("memory");
+        this.WithOutput("memory_reservation");
     }
 
     /// <summary>

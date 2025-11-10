@@ -95,10 +95,10 @@ public class AwsSesv2EmailIdentity : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("identity_type");
-        this.DeclareOutput("verification_status");
-        this.DeclareOutput("verified_for_sending_status");
+        this.WithOutput("arn");
+        this.WithOutput("identity_type");
+        this.WithOutput("verification_status");
+        this.WithOutput("verified_for_sending_status");
     }
 
     /// <summary>

@@ -77,12 +77,12 @@ public class AwsFinspaceKxVolume : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("attached_clusters");
-        this.DeclareOutput("created_timestamp");
-        this.DeclareOutput("last_modified_timestamp");
-        this.DeclareOutput("status");
-        this.DeclareOutput("status_reason");
+        this.WithOutput("arn");
+        this.WithOutput("attached_clusters");
+        this.WithOutput("created_timestamp");
+        this.WithOutput("last_modified_timestamp");
+        this.WithOutput("status");
+        this.WithOutput("status_reason");
     }
 
     /// <summary>

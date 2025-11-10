@@ -14,16 +14,16 @@ public class GoogleFolderDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("configured_capabilities");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("deletion_protection");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("folder_id");
-        this.DeclareOutput("lifecycle_state");
-        this.DeclareOutput("management_project");
-        this.DeclareOutput("name");
-        this.DeclareOutput("organization");
-        this.DeclareOutput("parent");
+        this.WithOutput("configured_capabilities");
+        this.WithOutput("create_time");
+        this.WithOutput("deletion_protection");
+        this.WithOutput("display_name");
+        this.WithOutput("folder_id");
+        this.WithOutput("lifecycle_state");
+        this.WithOutput("management_project");
+        this.WithOutput("name");
+        this.WithOutput("organization");
+        this.WithOutput("parent");
     }
 
     /// <summary>

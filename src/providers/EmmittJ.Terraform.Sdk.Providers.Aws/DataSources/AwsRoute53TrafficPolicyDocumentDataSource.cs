@@ -86,7 +86,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("json");
+        this.WithOutputson");
     }
 
     /// <summary>

@@ -14,7 +14,7 @@ public class GoogleComputeImagesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("images");
+        this.WithOutput("images");
     }
 
     /// <summary>

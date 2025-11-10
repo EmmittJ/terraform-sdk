@@ -117,11 +117,11 @@ public class AwsBedrockagentcoreAgentRuntime : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("agent_runtime_arn");
-        this.DeclareOutput("agent_runtime_id");
-        this.DeclareOutput("agent_runtime_version");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("workload_identity_details");
+        this.WithOutput("agent_runtime_arn");
+        this.WithOutput("agent_runtime_id");
+        this.WithOutput("agent_runtime_version");
+        this.WithOutput("tags_all");
+        this.WithOutput("workload_identity_details");
     }
 
     /// <summary>

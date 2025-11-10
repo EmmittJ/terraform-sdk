@@ -69,12 +69,12 @@ public class AwsKendraFaq : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("error_message");
-        this.DeclareOutput("faq_id");
-        this.DeclareOutput("status");
-        this.DeclareOutput("updated_at");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("error_message");
+        this.WithOutput("faq_id");
+        this.WithOutput("status");
+        this.WithOutput("updated_at");
     }
 
     /// <summary>

@@ -301,13 +301,13 @@ public class AzurermRedisCache : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("hostname");
-        this.DeclareOutput("port");
-        this.DeclareOutput("primary_access_key");
-        this.DeclareOutput("primary_connection_string");
-        this.DeclareOutput("secondary_access_key");
-        this.DeclareOutput("secondary_connection_string");
-        this.DeclareOutput("ssl_port");
+        this.WithOutputostname");
+        this.WithOutputort");
+        this.WithOutputrimary_access_key");
+        this.WithOutputrimary_connection_string");
+        this.WithOutputecondary_access_key");
+        this.WithOutputecondary_connection_string");
+        this.WithOutputsl_port");
     }
 
     /// <summary>

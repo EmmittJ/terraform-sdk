@@ -162,17 +162,17 @@ public class GoogleComputeRegionDisk : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("creation_timestamp");
-        this.DeclareOutput("disk_id");
-        this.DeclareOutput("effective_labels");
-        this.DeclareOutput("label_fingerprint");
-        this.DeclareOutput("last_attach_timestamp");
-        this.DeclareOutput("last_detach_timestamp");
-        this.DeclareOutput("self_link");
-        this.DeclareOutput("source_disk_id");
-        this.DeclareOutput("source_snapshot_id");
-        this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("users");
+        this.WithOutput("creation_timestamp");
+        this.WithOutput("disk_id");
+        this.WithOutput("effective_labels");
+        this.WithOutput("label_fingerprint");
+        this.WithOutput("last_attach_timestamp");
+        this.WithOutput("last_detach_timestamp");
+        this.WithOutput("self_link");
+        this.WithOutput("source_disk_id");
+        this.WithOutput("source_snapshot_id");
+        this.WithOutput("terraform_labels");
+        this.WithOutput("users");
     }
 
     /// <summary>

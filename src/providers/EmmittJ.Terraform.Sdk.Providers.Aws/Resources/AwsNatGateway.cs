@@ -49,9 +49,9 @@ public class AwsNatGateway : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("association_id");
-        this.DeclareOutput("network_interface_id");
-        this.DeclareOutput("public_ip");
+        this.WithOutput("association_id");
+        this.WithOutput("network_interface_id");
+        this.WithOutput("public_ip");
     }
 
     /// <summary>

@@ -49,7 +49,7 @@ public class AzurermSpringCloudCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("thumbprint");
+        this.WithOutputhumbprint");
     }
 
     /// <summary>

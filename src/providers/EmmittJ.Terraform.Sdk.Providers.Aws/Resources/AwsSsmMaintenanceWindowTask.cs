@@ -51,8 +51,8 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("window_task_id");
+        this.WithOutput("arn");
+        this.WithOutput("window_task_id");
     }
 
     /// <summary>

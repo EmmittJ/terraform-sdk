@@ -77,9 +77,9 @@ public class AwsControltowerBaseline : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("operation_identifier");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("operation_identifier");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

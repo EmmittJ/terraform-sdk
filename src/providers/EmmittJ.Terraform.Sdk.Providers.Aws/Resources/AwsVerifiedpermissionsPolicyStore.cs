@@ -32,10 +32,10 @@ public class AwsVerifiedpermissionsPolicyStore : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("id");
-        this.DeclareOutput("policy_store_id");
-        this.DeclareOutput("tags_all");
+        this.WithOutput("arn");
+        this.WithOutput("id");
+        this.WithOutput("policy_store_id");
+        this.WithOutput("tags_all");
     }
 
     /// <summary>

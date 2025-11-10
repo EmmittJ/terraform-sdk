@@ -14,15 +14,15 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("attributes");
-        this.DeclareOutput("create_time");
-        this.DeclareOutput("description");
-        this.DeclareOutput("display_name");
-        this.DeclareOutput("name");
-        this.DeclareOutput("scope");
-        this.DeclareOutput("state");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
+        this.WithOutput("attributes");
+        this.WithOutput("create_time");
+        this.WithOutput("description");
+        this.WithOutput("display_name");
+        this.WithOutput("name");
+        this.WithOutput("scope");
+        this.WithOutput("state");
+        this.WithOutput("uid");
+        this.WithOutput("update_time");
     }
 
     /// <summary>

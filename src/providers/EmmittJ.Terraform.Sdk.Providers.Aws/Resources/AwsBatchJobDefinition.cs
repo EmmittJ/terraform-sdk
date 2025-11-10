@@ -57,9 +57,9 @@ public class AwsBatchJobDefinition : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("arn_prefix");
-        this.DeclareOutput("revision");
+        this.WithOutput("arn");
+        this.WithOutput("arn_prefix");
+        this.WithOutput("revision");
     }
 
     /// <summary>

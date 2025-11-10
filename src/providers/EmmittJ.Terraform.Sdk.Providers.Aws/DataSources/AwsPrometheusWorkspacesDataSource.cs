@@ -14,9 +14,9 @@ public class AwsPrometheusWorkspacesDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("aliases");
-        this.DeclareOutput("arns");
-        this.DeclareOutput("workspace_ids");
+        this.WithOutput("aliases");
+        this.WithOutput("arns");
+        this.WithOutput("workspace_ids");
     }
 
     /// <summary>

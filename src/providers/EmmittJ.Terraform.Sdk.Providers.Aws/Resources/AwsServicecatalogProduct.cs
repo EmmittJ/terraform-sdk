@@ -121,10 +121,10 @@ public class AwsServicecatalogProduct : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_time");
-        this.DeclareOutput("has_default_path");
-        this.DeclareOutput("status");
+        this.WithOutput("arn");
+        this.WithOutput("created_time");
+        this.WithOutput("has_default_path");
+        this.WithOutput("status");
     }
 
     /// <summary>

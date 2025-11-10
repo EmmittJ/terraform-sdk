@@ -95,15 +95,15 @@ public class AzurermVmwarePrivateCloud : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("circuit");
-        this.DeclareOutput("hcx_cloud_manager_endpoint");
-        this.DeclareOutput("management_subnet_cidr");
-        this.DeclareOutput("nsxt_certificate_thumbprint");
-        this.DeclareOutput("nsxt_manager_endpoint");
-        this.DeclareOutput("provisioning_subnet_cidr");
-        this.DeclareOutput("vcenter_certificate_thumbprint");
-        this.DeclareOutput("vcsa_endpoint");
-        this.DeclareOutput("vmotion_subnet_cidr");
+        this.WithOutput("circuit");
+        this.WithOutput("hcx_cloud_manager_endpoint");
+        this.WithOutput("management_subnet_cidr");
+        this.WithOutput("nsxt_certificate_thumbprint");
+        this.WithOutput("nsxt_manager_endpoint");
+        this.WithOutput("provisioning_subnet_cidr");
+        this.WithOutput("vcenter_certificate_thumbprint");
+        this.WithOutput("vcsa_endpoint");
+        this.WithOutput("vmotion_subnet_cidr");
     }
 
     /// <summary>

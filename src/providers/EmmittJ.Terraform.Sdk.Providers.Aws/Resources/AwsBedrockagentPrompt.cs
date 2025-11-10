@@ -60,12 +60,12 @@ public class AwsBedrockagentPrompt : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("arn");
-        this.DeclareOutput("created_at");
-        this.DeclareOutput("id");
-        this.DeclareOutput("tags_all");
-        this.DeclareOutput("updated_at");
-        this.DeclareOutput("version");
+        this.WithOutput("arn");
+        this.WithOutput("created_at");
+        this.WithOutput("id");
+        this.WithOutput("tags_all");
+        this.WithOutput("updated_at");
+        this.WithOutput("version");
     }
 
     /// <summary>

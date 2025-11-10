@@ -31,7 +31,7 @@ public class AwsServicecatalogPortfolioConstraintsDataSource : TerraformDataSour
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("details");
+        this.WithOutput("details");
     }
 
     /// <summary>

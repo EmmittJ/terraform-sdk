@@ -14,8 +14,8 @@ public class GoogleServiceAccountKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("key_algorithm");
-        this.DeclareOutput("public_key");
+        this.WithOutput("key_algorithm");
+        this.WithOutput("public_key");
     }
 
     /// <summary>

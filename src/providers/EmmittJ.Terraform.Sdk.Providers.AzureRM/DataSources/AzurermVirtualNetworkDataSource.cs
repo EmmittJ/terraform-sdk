@@ -31,14 +31,14 @@ public class AzurermVirtualNetworkDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("address_space");
-        this.DeclareOutput("dns_servers");
-        this.DeclareOutput("guid");
-        this.DeclareOutput("location");
-        this.DeclareOutput("subnets");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("vnet_peerings");
-        this.DeclareOutput("vnet_peerings_addresses");
+        this.WithOutput("address_space");
+        this.WithOutput("dns_servers");
+        this.WithOutput("guid");
+        this.WithOutput("location");
+        this.WithOutput("subnets");
+        this.WithOutput("tags");
+        this.WithOutput("vnet_peerings");
+        this.WithOutput("vnet_peerings_addresses");
     }
 
     /// <summary>

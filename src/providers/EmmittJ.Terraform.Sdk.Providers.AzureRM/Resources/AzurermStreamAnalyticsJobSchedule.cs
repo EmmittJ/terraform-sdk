@@ -58,7 +58,7 @@ public class AzurermStreamAnalyticsJobSchedule : TerraformResource
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("last_output_time");
+        this.WithOutputast_output_time");
     }
 
     /// <summary>

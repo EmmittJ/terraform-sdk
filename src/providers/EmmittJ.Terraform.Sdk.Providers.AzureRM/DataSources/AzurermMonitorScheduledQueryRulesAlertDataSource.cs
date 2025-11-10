@@ -31,20 +31,20 @@ public class AzurermMonitorScheduledQueryRulesAlertDataSource : TerraformDataSou
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("action");
-        this.DeclareOutput("authorized_resource_ids");
-        this.DeclareOutput("data_source_id");
-        this.DeclareOutput("description");
-        this.DeclareOutput("enabled");
-        this.DeclareOutput("frequency");
-        this.DeclareOutput("location");
-        this.DeclareOutput("query");
-        this.DeclareOutput("query_type");
-        this.DeclareOutput("severity");
-        this.DeclareOutput("tags");
-        this.DeclareOutput("throttling");
-        this.DeclareOutput("time_window");
-        this.DeclareOutput("trigger");
+        this.WithOutput("action");
+        this.WithOutput("authorized_resource_ids");
+        this.WithOutput("data_source_id");
+        this.WithOutput("description");
+        this.WithOutput("enabled");
+        this.WithOutput("frequency");
+        this.WithOutput("location");
+        this.WithOutput("query");
+        this.WithOutput("query_type");
+        this.WithOutput("severity");
+        this.WithOutput("tags");
+        this.WithOutput("throttling");
+        this.WithOutput("time_window");
+        this.WithOutput("trigger");
     }
 
     /// <summary>
