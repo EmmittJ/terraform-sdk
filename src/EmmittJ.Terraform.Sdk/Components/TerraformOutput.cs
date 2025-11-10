@@ -67,7 +67,7 @@ public class TerraformOutput(string name) : TerraformConstruct
     }
 
     /// <inheritdoc/>
-    public override string Resolve(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext? context = null)
     {
         context ??= TerraformContext.Temporary(this);
 

@@ -79,13 +79,13 @@ public abstract class TerraformProvisionableConstruct(string constructType, stri
         if (_count != null)
         {
             var countExpr = _count.Resolve(context);
-            sb.AppendLine($"{context.Indent}count = {countExpr.Resolve(context)}");
+            sb.AppendLine($"{context.Indent}count = {countExpr.ToHcl(context)}");
         }
 
         if (_forEach != null)
         {
             var forEachExpr = _forEach.Resolve(context);
-            sb.AppendLine($"{context.Indent}for_each = {forEachExpr.Resolve(context)}");
+            sb.AppendLine($"{context.Indent}for_each = {forEachExpr.ToHcl(context)}");
         }
 
         if (DependsOn.Count > 0)
@@ -108,7 +108,7 @@ public abstract class TerraformProvisionableConstruct(string constructType, stri
         foreach (var dynamicBlock in DynamicBlocks)
         {
             sb.AppendLine();
-            sb.Append(dynamicBlock.Resolve(context));
+            sb.Append(dynamicBlock.ToHcl(context));
         }
     }
 }

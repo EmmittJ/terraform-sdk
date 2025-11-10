@@ -5,9 +5,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// <summary>
 /// Abstract base class for all Terraform constructs (resources, data sources, providers, locals).
 /// Provides common property management and HCL generation infrastructure.
-/// Implements ITerraformResolvable for two-pass resolution support.
+/// Implements ITerraformSerializable for two-pass HCL generation support.
 /// </summary>
-public abstract class TerraformConstruct : ITerraformResolvable<string>
+public abstract class TerraformConstruct : ITerraformSerializable
 {
     /// <summary>
     /// Gets the block type (e.g., "resource", "data", "provider", "output", "variable", "module").
@@ -82,7 +82,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     private void SerializeProperty(System.Text.StringBuilder sb, ITerraformContext context, string name, ITerraformResolvable<TerraformExpression> property)
     {
         var expression = property.Resolve(context);
-        var hcl = expression.Resolve(context);
+        var hcl = expression.ToHcl(context);
         sb.AppendLine($"{context.Indent}{name} = {hcl}");
     }
 
@@ -95,7 +95,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
         if (block is ITerraformResolvable<TerraformExpression> resolvable)
         {
             var expression = resolvable.Resolve(context);
-            var hcl = expression.Resolve(context);
+            var hcl = expression.ToHcl(context);
 
             // Block syntax: name { ... }
             sb.AppendLine($"{context.Indent}{name} {{");
@@ -116,7 +116,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
         if (collection is ITerraformResolvable<TerraformExpression> resolvable)
         {
             var expression = resolvable.Resolve(context);
-            var hcl = expression.Resolve(context);
+            var hcl = expression.ToHcl(context);
             sb.AppendLine($"{context.Indent}{name} = {hcl}");
         }
     }
@@ -155,7 +155,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     /// When context is provided, uses it for dependency tracking.
     /// When context is null, creates a temporary context.
     /// </summary>
-    public virtual string Resolve(ITerraformContext? context = null)
+    public virtual string ToHcl(ITerraformContext? context = null)
     {
         context ??= TerraformContext.Temporary(this);
 

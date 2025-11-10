@@ -139,7 +139,7 @@ internal class ImportAddressExpression : TerraformExpression
         _address = address;
     }
 
-    public override string Resolve(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext? context = null)
     {
         // Return the address as-is, without quotes
         return _address;

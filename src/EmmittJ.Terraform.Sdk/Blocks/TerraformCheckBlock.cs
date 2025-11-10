@@ -90,14 +90,14 @@ public class TerraformCheckBlock : TerraformConstruct
         // Write data sources first
         foreach (var dataSource in _dataSources)
         {
-            sb.Append(dataSource.Resolve(context));
+            sb.Append(dataSource.ToHcl(context));
             sb.AppendLine();
         }
 
         // Write assert blocks
         foreach (var assert in _asserts)
         {
-            sb.Append(assert.Resolve(context));
+            sb.Append(assert.ToHcl(context));
             sb.AppendLine();
         }
     }

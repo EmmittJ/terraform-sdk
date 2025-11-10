@@ -4,9 +4,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// Base class for all Terraform expressions (AST nodes).
 /// Expressions are syntax trees that can be rendered to HCL strings.
 /// They support optional context for indentation in multi-line structures.
-/// Implements ITerraformResolvable to support two-phase resolution (Prepare → Resolve).
+/// Implements ITerraformSerializable to support two-phase resolution (Prepare → ToHcl).
 /// </summary>
-public abstract class TerraformExpression : ITerraformResolvable<string>
+public abstract class TerraformExpression : ITerraformSerializable
 {
     /// <summary>
     /// The assignment operator used when rendering properties.
@@ -25,20 +25,12 @@ public abstract class TerraformExpression : ITerraformResolvable<string>
     }
 
     /// <summary>
-    /// Resolution phase - converts expression to HCL string.
-    /// By default, this calls ToHcl() for backward compatibility.
-    /// Derived classes should implement ToHcl() - Resolve() delegates to it.
-    /// </summary>
-    public abstract string Resolve(ITerraformContext? context = null);
-
-    /// <summary>
     /// Converts expression to HCL string with optional context for indentation.
     /// Context provides indentation level for multi-line structures like objects and lists.
     /// When context is null, renders without indentation tracking.
     /// Derived classes must implement this method to provide HCL rendering.
     /// </summary>
-    public virtual string ToHcl(ITerraformContext? context = null)
-        => Resolve(context);
+    public abstract string ToHcl(ITerraformContext? context = null);
 
     public override string ToString()
         => throw new NotImplementedException("Use ToHcl() to render the expression to HCL string.");

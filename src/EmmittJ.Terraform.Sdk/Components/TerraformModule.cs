@@ -4,7 +4,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Represents a Terraform module block.
 /// Modules allow you to reuse and compose Terraform configurations.
 /// </summary>
-public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable<string>
+public class TerraformModule : NamedTerraformConstruct
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="TerraformModule"/> class.

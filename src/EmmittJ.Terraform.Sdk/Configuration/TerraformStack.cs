@@ -83,7 +83,7 @@ public class TerraformStack
         // Render all constructs
         foreach (var construct in _constructs)
         {
-            sb.Append(construct.Resolve(context));
+            sb.Append(construct.ToHcl(context));
             sb.AppendLine();
         }
 

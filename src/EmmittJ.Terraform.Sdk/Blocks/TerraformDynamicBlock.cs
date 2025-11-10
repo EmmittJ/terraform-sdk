@@ -83,7 +83,7 @@ public class TerraformDynamicBlock
     /// <summary>
     /// Resolves the dynamic block to HCL string.
     /// </summary>
-    public string Resolve(ITerraformContext? context = null)
+    public string ToHcl(ITerraformContext? context = null)
     {
         context ??= TerraformContext.Temporary();
 

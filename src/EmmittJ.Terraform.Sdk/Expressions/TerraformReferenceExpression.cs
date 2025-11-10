@@ -54,8 +54,8 @@ public class TerraformReferenceExpression(TerraformConstruct source, string? pro
     /// <summary>
     /// Generates HCL for this reference by resolving it to an expression.
     /// </summary>
-    public override string Resolve(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext? context = null)
     {
-        return ResolveSource().Resolve(context);
+        return ResolveSource().ToHcl(context);
     }
 }

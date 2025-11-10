@@ -26,7 +26,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// var expr = instance.Ami.Resolve();
 /// </code>
 /// </remarks>
-public class TerraformProperty<TValue> : ITerraformResolvable<TerraformExpression>
+public class TerraformProperty<TValue> : ITerraformProperty
 {
     protected readonly string _resourceAddress;
     protected readonly string _attributeName;

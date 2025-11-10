@@ -258,7 +258,7 @@ public class TerraformMapExpression : TerraformExpression,
     /// Converts the object to HCL syntax with proper indentation.
     /// Uses context for indentation when available.
     /// </summary>
-    public override string Resolve(ITerraformContext? context = null)
+    public override string ToHcl(ITerraformContext? context = null)
     {
         if (_properties.Count == 0)
         {

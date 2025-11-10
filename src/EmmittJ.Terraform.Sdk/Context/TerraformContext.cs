@@ -17,17 +17,16 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     public static TerraformContext Temporary() => new(new() { Name = "temp" });
 
     /// <summary>
-    /// Creates a temporary context for testing or one-off resolution.
+    /// Creates a temporary context for testing or one-off resolution with a serializable item.
     /// </summary>
-    /// <typeparam name="T">The type of the resolvable.</typeparam>
-    /// <param name="resolvable">Optional resolvable to prepare immediately.</param>
-    /// <returns>A temporary context with the resolvable prepared (if provided).</returns>
-    public static TerraformContext Temporary<T>(ITerraformResolvable<T>? resolvable = null)
+    /// <param name="serializable">Optional serializable to prepare immediately.</param>
+    /// <returns>A temporary context with the serializable prepared (if provided).</returns>
+    public static TerraformContext Temporary(ITerraformSerializable? serializable = null)
     {
         var context = new TerraformContext(new() { Name = "temp" });
-        if (resolvable != null)
+        if (serializable != null)
         {
-            resolvable.Prepare(context);
+            serializable.Prepare(context);
         }
         return context;
     }
